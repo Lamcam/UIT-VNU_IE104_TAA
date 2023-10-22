@@ -20,10 +20,13 @@
     <header class="visible unradius">
       <div class="container">
         <div class="header__top">
-          <img class="header__logo" src="" alt="">
+          <img class="header__logo" src="../public/logoImage.svg"
+            alt="Logo TAA">
           <span class="header__search">
             <input type="text" placeholder="Tìm kiếm">
-            <button type="submit"><i class="material-icons">search</i></button>
+            <button class="icon-btn" type="submit">
+              <span class="icon material-icons">search</span>
+            </button>
           </span>
           <button class="header__btn--login btn--filled" type="button">
             <div class="status-layer label-large">
@@ -36,7 +39,7 @@
             </div>
           </button>
         </div>
-        <div class="main-nav">
+        <nav class="main-nav">
           <ul class="main-nav__list">
             <li class="main-nav__item">
               <a href="#" class="main-nav__link">Trang chủ</a>
@@ -54,9 +57,19 @@
               <a href="#" class="main-nav__link">Hướng dẫn sử dụng</a>
             </li>
           </ul>
-        </div>
+        </nav>
       </div>
     </header>
+
+    <nav class="main-nav">
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </nav>
 
     <main>
       <section class="slider"></section>
@@ -67,6 +80,15 @@
         </div>
       </section>
 
+      <div class="container">
+        <div class="row">
+          <aside class="col col-3 visible">
+            laskjdflkasdf
+          </aside>
+          <section class="col col-9 visible" style="height: 100px;"></section>
+        </div>
+      </div>
+
     </main>
 
     <footer class="visiable unradius">
@@ -75,6 +97,6 @@
       </div>
     </footer>
   </div>
-  <script src="./main.js"></script>
+  <script src="../res/js/main.js"></script>
 </body>
 </html>
