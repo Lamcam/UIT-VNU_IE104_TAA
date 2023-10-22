@@ -100,7 +100,7 @@ main {
   background: white;
   border-radius: 8px;
 
-  & .unradiused {
+  &.unradiused {
     border-radius: 0;
   }
 }

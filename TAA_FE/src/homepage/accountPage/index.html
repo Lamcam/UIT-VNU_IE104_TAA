@@ -17,31 +17,38 @@
     <link rel="stylesheet" href="../../../res/css/component.css" />
     <title>Trang cá nhân</title>
     <style>
+      .container {
+        max-width: 1024px;
+        width: 100%;
+        margin: 12px auto;
+      }
       aside {
         display: inline-flex;
+        overflow: hidden;
       }
-      aside ul > li {
-        list-style: none;
+      aside span {
+        margin: 0 8px;
       }
 
-      /* section {
-        width: 741px;
-        height: 88px;
-      } */
+      aside ul > li {
+        list-style: none;
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
       section {
         display: flex !important;
         flex-direction: column;
         gap: 12px;
       }
 
-      .section-content {
+      .section__content {
         display: flex;
         width: 592px;
         padding: 12px 0px;
         flex-direction: column;
         align-items: flex-end;
         gap: 12px;
-        /* margin-left: -70px; */
       }
 
       .profile-section {
@@ -62,20 +69,16 @@
         gap: 16px;
       }
 
-      .input-with-span {
+      .input__wrapper {
         position: relative;
         display: inline-block;
       }
-      /* .input-with-span input {
-        padding-right: 20px; /* Điều chỉnh khoảng cách phía bên phải để làm cho nó trông như thẻ span đã lồng vào
-      }
-      */
-      .input-with-span span {
+      .input__wrapper span {
         position: absolute;
         right: 5px;
         top: 10px;
       }
-      .h2-section2 {
+      .section__h2 {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -103,6 +106,29 @@
         border-radius: 8px;
         margin-right: 8px;
       }
+
+      /* .button__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        top: 12px;
+        right: 60px;
+        z-index: 1;
+      } */
+
+      .button--edit {
+        /* background-color: var(--md-ref-palette-primary50); */
+        color: #ffffff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px; /* Thêm padding cho nút */
+      }
+
+      .shipping-details p {
+        margin-left: 12px;
+      }
     </style>
   </head>
 
@@ -118,10 +144,13 @@
     <div class="container row">
       <aside
         class="aside body-large visible col-3 col"
-        style="background-color: var(--md-ref-palette-primary100)"
+        style="
+          background-color: var(--md-ref-palette-primary100);
+          height: 150px;
+        "
       >
         <ul class="" style="padding: 0">
-          <li>
+          <li style="border-left: 4px solid black">
             <span
               class="material-symbols-outlined"
               style="background-color: var(--md-ref-palette-primary100)"
@@ -150,7 +179,7 @@
       </aside>
 
       <section class="col col-9">
-        <div class="h1-section visible" style="background-color: white">
+        <div class="section__h1 visible" style="background-color: white">
           <h1 class="headline-large" style="padding-left: 12px">
             Thông tin tài khoản
           </h1>
@@ -165,10 +194,10 @@
             Hồ sơ cá nhân
           </h2>
 
-          <form action="" class="section-content label-medium">
+          <form action="" class="section__content label-medium">
             <div>
               <label class="label-large">Tên đăng nhập: </label>
-              <div class="input-with-span">
+              <div class="input__wrapper">
                 <input
                   class="state-layer add-username"
                   name="username"
@@ -180,7 +209,7 @@
 
             <div>
               <label class="label-large">Mật khẩu: </label>
-              <div class="input-with-span">
+              <div class="input__wrapper">
                 <input
                   class="state-layer add-password"
                   name="password"
@@ -192,7 +221,7 @@
             </div>
             <div>
               <label class="label-large">Tên người dùng: </label>
-              <div class="input-with-span">
+              <div class="input__wrapper">
                 <input
                   class="state-layer add-name"
                   name="name"
@@ -204,7 +233,7 @@
             </div>
             <div>
               <label class="label-large">Số điện thoại: </label>
-              <div class="input-with-span">
+              <div class="input__wrapper">
                 <input
                   class="state-layer add-phonenumber"
                   name="phonenumber"
@@ -216,7 +245,7 @@
             </div>
             <div>
               <label class="label-large">Email: </label>
-              <div class="input-with-span">
+              <div class="input__wrapper">
                 <input
                   class="state-layer add-email"
                   name="email"
@@ -235,11 +264,13 @@
         </div>
 
         <div class="bankaccount-section visible">
-          <div class="h2-section2">
+          <div class="section__h2">
             <h2 class="headline-small" style="padding-left: 12px">
               Tài khoản ngân hàng
             </h2>
-            <span class="material-symbols-outlined"> add </span>
+            <span class="material-symbols-outlined" style="padding-right: 12px">
+              add
+            </span>
           </div>
 
           <div class="bank-items">
@@ -266,6 +297,118 @@
               </p>
               <div class="icon-delete">
                 <span class="material-symbols-outlined"> delete </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shippingaddress-section visible">
+          <div class="section__h2">
+            <h2 class="headline-small" style="padding-left: 12px">
+              Địa chỉ nhận hàng
+            </h2>
+            <span class="material-symbols-outlined" style="padding-right: 12px">
+              add
+            </span>
+          </div>
+
+          <div class="shippingadress-items">
+            <div class="shippingadress-item">
+              <div
+                class="shippingadress-details"
+                style="position: relative; margin-left: 12px"
+              >
+                <p class="body-medium">xxnhi dep gai</p>
+                <p class="body-medium">SDT: *******629</p>
+                <p class="body-medium">Xã A, huyện B, tỉnh C</p>
+                <div class="">
+                  <div
+                    class="icon-delete"
+                    style="position: absolute; top: 12px; right: 139px"
+                  >
+                    <span class="material-symbols-outlined"> delete </span>
+                  </div>
+                  <button
+                    type="button"
+                    class="button--edit primary"
+                    style="
+                      top: 12px;
+                      right: 12px;
+                      position: absolute;
+                      width: 91px;
+                      height: 40px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-around;
+                    "
+                  >
+                    <span class="material-symbols-outlined"> edit </span>
+                    <span class="label-large">Sửa</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="button--edit primary"
+                    style="
+                      padding: 0 30px;
+                      bottom: -26px;
+                      right: 12px;
+                      height: 40px;
+                      position: absolute;
+                      background-color: var(--md-ref-palette-error100);
+                      border: 1px solid var(--md-ref-palette-error20);
+                      color: var(--md-ref-palette-error20);
+                      margin-bottom: 13px;
+                    "
+                  >
+                    <span class="label-large">Thiết lập mặc định</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <hr
+              style="
+                color: var(--md-ref-palette-primary50);
+                border-width: 1px;
+                width: 96%;
+                margin-top: 26px;
+              "
+            />
+
+            <div class="shippingadress-item">
+              <div
+                class="shippingadress-details"
+                style="position: relative; margin-left: 12px"
+              >
+                <p class="body-medium">xxnhi dep gai</p>
+                <p class="body-medium">SDT: *******629</p>
+                <p class="body-medium">Xã A, huyện B, tỉnh C</p>
+                <div class="">
+                  <div
+                    class="icon-delete"
+                    style="position: absolute; top: 12px; right: 139px"
+                  >
+                    <span class="material-symbols-outlined"> delete </span>
+                  </div>
+                  <button
+                    type="button"
+                    class="button--edit primary"
+                    style="
+                      top: 12px;
+                      right: 12px;
+                      position: absolute;
+                      width: 91px;
+                      height: 40px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: space-around;
+                    "
+                  >
+                    <span class="material-symbols-outlined"> edit </span>
+                    <span class="label-large">Sửa</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
