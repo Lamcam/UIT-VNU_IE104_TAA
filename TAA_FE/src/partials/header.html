@@ -11,13 +11,13 @@
 <link rel="stylesheet" href="./header.css">
 <header class="header">
   <div class="container container--top">
-    <img class="logo" src="../../Public/logoImage.svg" />
+    <img class="logo" src="../../public/logoImage.svg" />
     <!-- Middle -->
     <div class="inputs">
       <div class="search-bar">
         <div class="state-layer-wrapper">
           <div class="icon-wrapper">
-            <img class="icon" src="../../Public/findIcon.svg" />
+            <img class="icon" src="../../public/findIcon.svg" />
           </div>
         </div>
 
@@ -29,15 +29,15 @@
         <div class="trailing-elements"></div>
       </div>
     </div>
-    <!-- right corner -->
 
+    <!-- right corner -->
     <div class="profile">
       <div class="text-wrapper">
         <div class="icon-wrapper">
-          <img src="../../Public/shop.svg" alt="shop_icon" />
+          <img src="../../public/shop.svg" alt="shop_icon" />
         </div>
         <p>Nguyễn Văn A</p>
-        <img class="avatar" src="../../Public/eren - Copy.png" />
+        <img class="avatar" src="../../public/eren - Copy.png" />
       </div>
 
       <div class="sub-menu-wrap label-medium">
@@ -70,32 +70,18 @@
       <li class="main-nav-li label">VỀ CHÚNG TÔI</li>
       <li class="main-nav-li label">HƯỚNG DẪN MUA HÀNG</li>
     </ul>
-    <!-- <div class="main-nav-li label">
-      TRANG CHỦ
-    </div>
-    <div class="main-nav-li label">
-      SẢN PHẨM
-    </div>
-    <div class="main-nav-li label">
-      TIN TỨC
-    </div>
-    <div class="main-nav-li label">
-      VỀ CHÚNG TÔI
-    </div>
-    <div class="main-nav-li label">
-      HƯỚNG DẪN MUA HÀNG
-    </div> -->
   </nav>
 </header>
 
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-  $(".label").on("click", () => {
-    $(".label").removeClass("active");
-    $(this).addClass("active");
-  });
+  $(".label").on("click", () =>
+    $(".label").removeClass("active"),
+    $(this).addClass("active")
+  );
 
-  $(".avatar").on("click", () => {
-    $(".sub-menu-wrap").toggleClass("open-menu");
-  });</script>
+  $(".avatar").on("click", () =>
+    $(".sub-menu-wrap").toggleClass("open-menu"),
+  );
+</script>
