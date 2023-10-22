@@ -26,6 +26,14 @@ body{
     object-fit: cover;
 }
 
+.picture3 {
+    width: 97.5vw;
+    height: 180px;
+    max-width: 100vw;
+    margin: 0;
+    object-fit: cover;
+}
+
 .contact {
     margin-top: 64px;
     margin-bottom: 16px;
