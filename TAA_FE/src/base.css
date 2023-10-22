@@ -53,5 +53,5 @@ main {
 .container{
   max-width: 1024px;
   width:100%;
-  margin:auto;
+  margin:0 auto;
 }
