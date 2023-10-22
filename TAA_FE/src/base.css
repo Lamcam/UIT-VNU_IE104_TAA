@@ -1,56 +1,110 @@
-html,
-body,
-#id {
+/* general css */
+
+* {
   margin: 0;
   padding: 0;
   transition: 300ms;
   box-sizing: border-box;
+  transition: 300ms;
 }
 
-.mt-8 { margin-top: 8px; }
-.mt-12 { margin-top: 12px; }
-.mt-16 { margin-top: 16px; }
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+.mt-24 {
+  margin-top: 24px;
+}
+
+/* support for row and col */
 
 .row {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 -12px;
+  margin: 0 -6px;
 }
 
-.col { margin: 0 12px; }
+.col {
+  display: inline-flex;
+  margin: 0 6px;
+}
 
-.col-1 { width: 8.33%; }
-.col-2 { width: 16.66%; }
-.col-3 { width: 25%; }
-.col-4 { width: 33.33%; }
-.col-5 { width: 41.66%; }
-.col-6 { width: 50%; }
-.col-7 { width: 58.33%; }
-.col-8 { width: 66.66%; }
-.col-9 { width: 75%; }
-.col-10 { width: 83.33%; }
-.col-11 { width: 91.66%; }
-.col-12 { width: 100%; }
+.col-1 {
+  width: calc(100%/12 - 12px);
+}
+
+.col-2 {
+  width: calc(100%/12*2 - 12px);
+}
+
+.col-3 {
+  width: calc(100%/12 * 3 - 12px);
+}
+
+.col-4 {
+  width: calc(100%/12 * 4 - 12px);
+}
+
+.col-5 {
+  width: calc(100%/12 * 5 - 12px);
+}
+
+.col-6 {
+  width: calc(100%/12 * 6 - 12px);
+}
+
+.col-7 {
+  width: calc(100%/12 * 7 - 12px);
+}
+
+.col-8 {
+  width: calc(100%/12 * 8 - 12px);
+}
+
+.col-9 {
+  width: calc(100%/12 * 9 - 12px);
+}
+
+.col-10 {
+  width: calc(100%/12 * 10 - 12px);
+}
+
+.col-11 {
+  width: calc(100%/12 * 11 - 12px);
+}
+
+.col-12 {
+  width: calc(100%/12 * 12 - 12px);
+}
+
+/* general name tag */
+header>* {
+  padding: 16px 0 0 0;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
 
 main {
   min-height: 612px;
   /* padding: 12px 32px; */
 }
 
-.main_nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+a:is(:link, :hover, :visited, :active) {
+  text-decoration: none;
+  color: black;
 }
 
-.main_nav .main_nav__li {
-  display: inline-block;
-  min-width: 128px;
-  padding: 0 24px;
-  list-style: none;
-}
+/* general class */
 
-.container{
+.container {
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
@@ -58,5 +112,138 @@ main {
 
 .visible {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
+
+  &.un-radius {
+    border-radius: 0px;
+  }
+}
+
+.header__top>* {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  justify-content: space-between;
+}
+
+.header__wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.main-nav>ul {
+  height: 40px;
+  padding: 0px;
+  display: flex;
+}
+
+.main-nav__item {
+  /* display: inline-block; */
+  display: inline-flex;
+  height: 100%;
+  min-width: 128px;
+  /* padding: 0 24px; */
+  list-style: none;
+  color: var(--md-sys-color-primary);
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  &.active {
+    color: white;
+    background-color: var(--md-sys-color-primary);
+  }
+}
+
+.main-nav__link {
+  margin: auto;
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit !important;
+}
+
+.nav-tree>* {
+  height: 40px;
+  display: flex;
+  padding: 0 12px;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-tree__item {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+  gap: 8px;
+
+  &::after {
+    content: '>';
+    display: inline-block;
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+
+  &:last-child {
+    font-weight: bold;
+  }
+}
+
+.nav-tree__link {
+  margin: auto;
+  text-decoration: none;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* CSS cho pop-up modal */
+.modal {
+  display: none;
+  /* Ẩn ban đầu */
+  position: fixed;
+  /* Hiển thị ở trên cùng */
+  z-index: 1;
+  /* Đặt z-index lớn hơn tất cả các phần tử khác */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Chiều rộng toàn màn hình */
+  height: 100%;
+  /* Chiều cao toàn màn hình */
+  overflow: auto;
+  /* Cho phép cuộn nếu nội dung quá dài */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Màu nền và mờ */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* Căn giữa theo chiều dọc và ngang */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Chiều rộng của modal */
+}
+
+/* CSS cho nút đóng */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -17,63 +17,117 @@
 </head>
 <body>
   <div id="main" class="on-primary">
-    <header class="visible">
-      <div class="container">
-        <div class="header__top">
-          <img class="header__logo" src="" alt="">
-          <span class="header__search">
-            <input type="text" placeholder="Tìm kiếm">
-            <button type="submit"><i class="material-icons">search</i></button>
-          </span>
-          <button class="header__btn--login btn--filled" type="button">
-            <div class="status-layer label-large">
-              <span class="label-large">Đăng nhập</span>
-            </div>
-          </button>
-          <button class="header__btn--register btn--filled" type="button">
-            <div class="status-layer label-large">
-              <span class="label-large">Đăng ký</span>
-            </div>
-          </button>
-        </div>
-        <div class="main_nav">
-          <ul class="main_nav__list">
-            <li class="main_nav__item">
-              <a href="#" class="main_nav__link">Trang chủ</a>
-            </li>
-            <li class="main_nav__item">
-              <a href="#" class="main_nav__link">Sản phẩm</a>
-            </li>
-            <li class="main_nav__item">
-              <a href="#" class="main_nav__link">Tin tức</a>
-            </li>
-            <li class="main_nav__item">
-              <a href="#" class="main_nav__link">Về chúng tôi</a>
-            </li>
-            <li class="main_nav__item">
-              <a href="#" class="main_nav__link">Hướng dẫn sử dụng</a>
-            </li>
-          </ul>
+    <header class="visible un-radius">
+      <div class="header__top">
+        <div class="container">
+          <img class="header__logo" src="../public/logoImage.svg"
+            alt="Logo TAA">
+          <div class="header__wrapper">
+            <span class="header__search">
+              <input type="text" placeholder="Tìm kiếm">
+              <button class="icon-btn" type="submit">
+                <span class="icon material-icons">search</span>
+              </button>
+            </span>
+            <button class="header__btn--login btn--outlined" type="button"
+              onclick="openModal()">
+              <div class="status-layer label-large">
+                <span class="label-large">Đăng nhập</span>
+              </div>
+            </button>
+            <button class="header__btn--register btn--filled" type="button"
+              onclick="openModal()">
+              <div class="status-layer label-large">
+                <span class="label-large">Đăng ký</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
+      <nav class="main-nav">
+        <ul class="container visible">
+          <li class="main-nav__item active">
+            <a href="#" class="link main-nav__link label-large">Trang chủ</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#" class="link main-nav__link label-large">Sản phẩm</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#" class="link main-nav__link label-large">Tin tức</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#" class="link main-nav__link label-large">Về chúng
+              tôi</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="#" class="link main-nav__link label-large">Hướng dẫn sử
+              dụng</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <main>
+    <nav class="nav-tree mt-8">
+      <ul class="container visible">
+        <li class="nav-tree__item">
+          <a class="nav-tree__link" href="#">Trang chủ</a>
+        </li>
+        <li class="nav-tree__item">
+          <a class="nav-tree__link" href="#">Trang chủ</a>
+        </li>
+        <li class="nav-tree__item">
+          <a class="nav-tree__link" href="#">Trang chủ</a>
+        </li>
+        <li class="nav-tree__item">
+          <a class="nav-tree__link" href="#">Trang chủ</a>
+        </li>
+        <li class="nav-tree__item">
+          <a class="nav-tree__link" href="#">Trang chủ</a>
+        </li>
+      </ul>
+    </nav>
+
+    <main class="mt-8">
       <section class="slider"></section>
-      <section>
+      <section >
         <div class="container">
-          <h1 class="section__title"></h1>
+          <h1 class="section__title display-large">Hướng dẫn mua hàng</h1>
           <div class="section__content"></div>
         </div>
       </section>
 
+      <div class="container">
+        <div class="row">
+          <aside class="col col-3 visible"></aside>
+          <section class="col col-9 visible" style="height: 100px;"></section>
+        </div>
+      </div>
     </main>
 
-    <footer>
-      
+    <footer class="visiable un-radius">
+      <div class="container"></div>
     </footer>
-  </div>
-  <script src="./main.js"></script>
-</body>
-</html>
 
+    <!-- Pop-up modal -->
+    <div id="myModal" class="modal">
+      <!-- Nội dung modal -->
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Đây là nội dung của pop-up modal!</p>
+      </div>
+    </div>
+  </div>
+  <script src="../res/js/main.js"></script>
+  <script>
+    // JavaScript cho pop-up modal
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+  </script>
+</body>
+
+</html>
