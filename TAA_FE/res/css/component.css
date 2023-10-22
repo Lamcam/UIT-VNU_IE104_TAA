@@ -6,11 +6,16 @@ button {
   & .status-layer {
     padding: 10px 24px;
   }
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 button.btn--outlined {
-  border: 1px solid var(--md-sys-color-outline);
-  background-color: transparent;
+  border: 1px solid var(--md-sys-color-primary);
+
+  color: var(--md-sys-color-primary);
 
   & .status-layer {
     color: var(--md-sys-color-primary);
@@ -26,7 +31,7 @@ button.btn--filled {
   background-color: var(--md-sys-color-primary);
 
   &:hover {
-    box-shadow: 0px 1px 2px 0px black,
-      0px 1px 3px 1px black;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
+      0px 1px 3px 1px rgba(0, 0, 0, 0.2);
   }
 }

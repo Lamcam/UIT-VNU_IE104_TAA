@@ -1,4 +1,4 @@
-@import url(../res/css/theme.css);
+/* general css */
 
 html,
 body,
@@ -6,53 +6,91 @@ body,
   margin: 0;
   padding: 0;
   transition: 300ms;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
+  transition: 300ms;
 }
 
-.mt-8 { margin-top: 8px; }
-.mt-12 { margin-top: 12px; }
-.mt-16 { margin-top: 16px; }
+.mt-8 {
+  margin-top: 8px;
+}
+
+.mt-12 {
+  margin-top: 12px;
+}
+
+.mt-16 {
+  margin-top: 16px;
+}
+
+/* support for row and col */
 
 .row {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 -12px;
+  margin: 0 -6px;
 }
 
-.col { margin: 0 12px; }
+.col {
+  display: inline-flex;
+  margin: 0 6px;
+}
 
-.col-1 { width: 8.33%; }
-.col-2 { width: 16.66%; }
-.col-3 { width: 25%; }
-.col-4 { width: 33.33%; }
-.col-5 { width: 41.66%; }
-.col-6 { width: 50%; }
-.col-7 { width: 58.33%; }
-.col-8 { width: 66.66%; }
-.col-9 { width: 75%; }
-.col-10 { width: 83.33%; }
-.col-11 { width: 91.66%; }
-.col-12 { width: 100%; }
+.col-1 {
+  width: calc(100%/12 - 12px);
+}
 
+.col-2 {
+  width: calc(100%/12*2 - 12px);
+}
+
+.col-3 {
+  width: calc(100%/12 * 3 - 12px);
+}
+
+.col-4 {
+  width: calc(100%/12 * 4 - 12px);
+}
+
+.col-5 {
+  width: calc(100%/12 * 5 - 12px);
+}
+
+.col-6 {
+  width: calc(100%/12 * 6 - 12px);
+}
+
+.col-7 {
+  width: calc(100%/12 * 7 - 12px);
+}
+
+.col-8 {
+  width: calc(100%/12 * 8 - 12px);
+}
+
+.col-9 {
+  width: calc(100%/12 * 9 - 12px);
+}
+
+.col-10 {
+  width: calc(100%/12 * 10 - 12px);
+}
+
+.col-11 {
+  width: calc(100%/12 * 11 - 12px);
+}
+
+.col-12 {
+  width: calc(100%/12 * 12 - 12px);
+}
+
+/* general name tag */
 main {
   min-height: 612px;
   padding: 12px 32px;
 }
 
-.main_nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+/* general class */
 
-.main_nav .main_nav__li {
-  display: inline-block;
-  min-width: 128px;
-  padding: 0 24px;
-  list-style: none;
-}
-
-.container{
+.container {
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
@@ -61,6 +99,19 @@ main {
 .visible {
   background: white;
   border-radius: 8px;
+
+  & .unradiused {
+    border-radius: 0;
+  }
+}
+
+.main-nav {}
+
+.main-nav .main-nav__li {
+  display: inline-block;
+  min-width: 128px;
+  padding: 0 24px;
+  list-style: none;
 }
 
 .icon {
