@@ -91,11 +91,11 @@
 <script
   src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-  $(".label").on("click", () => {
+  $(".label").on("click", function() {
     $(".label").removeClass("active");
     $(this).addClass("active");
   });
 
-  $(".avatar").on("click", () => {
+  $(".avatar").on("click", function() {
     $(".sub-menu-wrap").toggleClass("open-menu");
   });</script>

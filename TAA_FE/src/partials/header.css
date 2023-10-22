@@ -170,12 +170,13 @@
   align-items: center;
   position: relative;
 
-  &.active {
+  
+}
+.active {
     background-color: var(--md-sys-color-primary);
     color: white;
-  }
+    pointer-events: none;
 }
-
 .header .label {
   cursor: pointer;
   position: relative;
