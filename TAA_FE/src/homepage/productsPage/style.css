@@ -1,0 +1,9 @@
+body{
+    background-color:rgb(149, 149, 228) ;
+
+}
+
+.content__menu{
+    display: block;
+    background-color:white ;
+}
