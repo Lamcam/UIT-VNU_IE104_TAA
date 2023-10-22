@@ -2,13 +2,3 @@ header {
     text-align: center;
     margin-top: 10px;
 }
-
-h1,
-p {
-    margin: 0;
-}
-
-ol,
-ul {
-    margin-top: 0;
-}
