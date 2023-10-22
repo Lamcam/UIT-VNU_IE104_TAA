@@ -1,3 +1,5 @@
+@import url(../res/css/theme.css);
+
 html,
 body,
 #id {
@@ -59,4 +61,10 @@ main {
 .visible {
   background: white;
   border-radius: 8px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
