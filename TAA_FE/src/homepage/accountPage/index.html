@@ -67,6 +67,36 @@
         right: 5px;
         top: 10px;
       }
+      .h2-section2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .bank-item-details {
+        position: relative;
+        margin: 12px;
+      }
+
+      .bank-item-details p {
+        margin-left: 12px;
+      }
+
+      .bank-item-details span {
+      }
+      .icon-delete {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--m-3-sys-light-surface-container-high, #f2e5e4);
+        border-radius: 8px;
+        margin-right: 8px;
+      }
     </style>
   </head>
 
@@ -74,7 +104,7 @@
     <header
       style="
         height: 120px;
-        width: 1440px;
+        width: 100%;
         background-color: var(--md-ref-palette-primary50);
       "
     ></header>
@@ -114,19 +144,20 @@
       </aside>
 
       <section class="visible col col-9">
-        <div
-          class="h1-section"
-          style="background-color: var(--md-ref-palette-primary100)"
-        >
-          <h1>Thông tin tài khoản</h1>
-          <p>
+        <div class="h1-section visible" style="background-color: white">
+          <h1 class="headline-large" style="padding-left: 12px">
+            Thông tin tài khoản
+          </h1>
+          <p class="body-medium" style="padding: 0 12px 12px 12px">
             Trang cung cấp thông tin về tài khoản theo từng mục, đồng thời cho
             phép người dùng có thể thay đổi một thông tin cơ bản trong mục đó
           </p>
         </div>
 
         <div class="profile-section visible">
-          <h2>Hồ sơ cá nhân</h2>
+          <h2 class="headline-small" style="padding-left: 12px">
+            Hồ sơ cá nhân
+          </h2>
 
           <form action="" class="section-content label-medium">
             <div>
@@ -195,6 +226,43 @@
               </div>
             </button>
           </form>
+        </div>
+
+        <div class="bankaccount-section visible mt-12">
+          <div class="h2-section2">
+            <h2 class="headline-small" style="padding-left: 12px">
+              Tài khoản ngân hàng
+            </h2>
+            <span class="material-symbols-outlined"> add </span>
+          </div>
+
+          <div class="bank-items">
+            <div class="bank-item-details">
+              <p class="body-medium">STK: *********1230</p>
+              <p class="body-medium">Ngân hàng ACB</p>
+              <div class="icon-delete">
+                <span class="material-symbols-outlined"> delete </span>
+              </div>
+            </div>
+
+            <hr
+              style="
+                color: var(--md-ref-palette-primary50);
+                border-width: 1px;
+                width: 96%;
+              "
+            />
+
+            <div class="bank-item-details">
+              <p class="body-medium">STK: *********1230</p>
+              <p class="body-medium" style="padding-bottom: 12px">
+                Ngân hàng ACB
+              </p>
+              <div class="icon-delete">
+                <span class="material-symbols-outlined"> delete </span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
