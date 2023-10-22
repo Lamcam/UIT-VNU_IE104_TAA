@@ -17,13 +17,21 @@
     <link rel="stylesheet" href="../../../res/css/component.css" />
     <title>Trang cá nhân</title>
     <style>
-      .aside ul > li {
+      aside {
+        display: inline-flex;
+      }
+      aside ul > li {
         list-style: none;
       }
 
-      section {
+      /* section {
         width: 741px;
         height: 88px;
+      } */
+      section {
+        display: flex !important;
+        flex-direction: column;
+        gap: 12px;
       }
 
       .section-content {
@@ -111,7 +119,7 @@
 
     <div class="container row">
       <aside
-        class="aside body-large visible col-2 col"
+        class="aside body-large visible col-3 col"
         style="background-color: var(--md-ref-palette-primary100)"
       >
         <ul class="" style="padding: 0">
@@ -143,7 +151,7 @@
         </ul>
       </aside>
 
-      <section class="visible col col-9">
+      <section class="col col-9">
         <div class="h1-section visible" style="background-color: white">
           <h1 class="headline-large" style="padding-left: 12px">
             Thông tin tài khoản
@@ -228,7 +236,7 @@
           </form>
         </div>
 
-        <div class="bankaccount-section visible mt-12">
+        <div class="bankaccount-section visible">
           <div class="h2-section2">
             <h2 class="headline-small" style="padding-left: 12px">
               Tài khoản ngân hàng
