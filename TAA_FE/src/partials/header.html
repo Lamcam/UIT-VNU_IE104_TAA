@@ -30,6 +30,14 @@
       </div>
       <!-- right corner -->
 
+        <div class="profile">
+          <div class="text-wrapper">
+            <div class="icon-wrapper">
+              <img src="../../Public/shop.svg" alt="shop_icon" />
+            </div>
+            <p>Nguyễn Văn A</p>
+            <img class="avatar" src="../../Public/eren - Copy.png" />
+          </div>
       <div class="profile">
         <div class="text-wrapper">
           <div class="icon-wrapper">
@@ -39,12 +47,20 @@
           <img class="avatar" src="../../Public/eren - Copy.png" />
         </div>
 
+          <div class="sub-menu-wrap label-medium">
+            <div class="sub-menu">
+              <div class="sub-menu-li">
+                <a href="#" class="label-medium">Thông tin tài khoản</a>
+              </div>
         <div class="sub-menu-wrap label-medium">
           <div class="sub-menu">
             <div class="sub-menu-li">
               <a href="#" class="label-medium">Thông tin tài khoản</a>
             </div>
 
+              <div class="sub-menu-li">
+                <a href="#">Đơn hàng</a>
+              </div>
             <div class="sub-menu-li">
               <a href="#" class="label-medium">Đơn hàng</a>
             </div>
@@ -84,4 +100,17 @@
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script></script>
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../../JS/header.js"></script>
+    <script>
+      $(".label").on("click", function () {
+        $(".label").removeClass("active-main-nav-li");
+        $(this).addClass("active-main-nav-li");
+      });
+
+      $(".avatar").on("click", function () {
+        $(".sub-menu-wrap").toggleClass("open-menu");
+      });
+    </script>
+  </body>
 </html>
