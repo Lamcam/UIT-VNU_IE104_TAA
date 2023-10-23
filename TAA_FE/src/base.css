@@ -106,7 +106,7 @@ main {
   border-radius: 12px;
 
   & .unradiused {
-    border-radius: 0px;
+    border-radius: 0;
   }
 }
 
