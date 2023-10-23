@@ -1,84 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="author" content="IE104.O12_Group3">
-  <meta name="description" content="Trang web TAA là một nền tảng thương mại 
-    điện tử chuyên về bán đồ phụ trang sức. Với sự tập trung vào việc cung
-    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="../res/css/theme.css">
-  <link rel="stylesheet" href="./base.css">
-  <link rel="stylesheet" href="../res/css/component.css">
-  <title></title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="IE104.O12_Group3">
+        <meta name="description" content="Trang web TAA là một nền tảng thương mại
+                                                    điện tử chuyên về bán đồ phụ trang sức. Với sự tập trung vào việc cung
+                                                    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+                                                    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="../res/css/theme.css">
+        <link rel="stylesheet" href="./base.css">
+        <link rel="stylesheet" href="../res/css/component.css">
+        <title></title>
+    </head>
 
-<body>
-  <div id="main" class="on-primary">
-    <header class="visible unradius">
-      <div class="container">
-        <div class="header__top">
-          <img class="header__logo" src="" alt="">
-          <span class="header__search">
-            <input type="text" placeholder="Tìm kiếm">
-            <button type="submit"><i class="material-icons">search</i></button>
-          </span>
-          <button class="header__btn--login btn--filled" type="button">
-            <div class="status-layer label-large">
-              <span class="label-large">Đăng nhập</span>
-            </div>
-          </button>
-          <button class="header__btn--register btn--filled" type="button">
-            <div class="status-layer label-large">
-              <span class="label-large">Đăng ký</span>
-            </div>
-          </button>
+    <body>
+        <div id="main" class="on-primary">
+            <header class="visible un-radius">
+                <div class="header__top">
+                    <div class="container">
+                        <img class="header__logo" src="../public/logoImage.svg" alt="Logo TAA">
+                        <div class="header__wrapper">
+                            <span class="header__search">
+                                <input type="text" placeholder="Tìm kiếm">
+                                <button class="icon-btn" type="submit">
+                                    <span class="icon material-icons">search</span>
+                                </button>
+                            </span>
+                            <button class="header__btn--login btn--outlined" type="button" onclick="openModal()">
+                                <div class="status-layer label-large">
+                                    <span class="label-large">Đăng nhập</span>
+                                </div>
+                            </button>
+                            <button class="header__btn--register btn--filled" type="button" onclick="openModal()">
+                                <div class="status-layer label-large">
+                                    <span class="label-large">Đăng ký</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <ul class="container visible">
+                        <li class="main-nav__item active">
+                            <a href="#" class="link main-nav__link label-large">Trang chủ</a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#" class="link main-nav__link label-large">Sản phẩm</a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#" class="link main-nav__link label-large">Tin tức</a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#" class="link main-nav__link label-large">Về chúng
+                                                                                                                                              tôi</a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#" class="link main-nav__link label-large">Hướng dẫn sử
+                                                                                                                                              dụng</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <section class="slider"></section>
+                <section>
+                    <div class="container">
+                        <h1 class="section__title display-large">Hướng dẫn mua hàng</h1>
+                        <div class="section__content"></div>
+                    </div>
+                </section>
+
+            </main>
+
+            <footer class="visiable unradius">
+                <div class="container"></div>
+            </footer>
         </div>
-        <div class="main-nav">
-          <ul class="main-nav__list">
-            <li class="main-nav__item">
-              <a href="#" class="main-nav__link">Trang chủ</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="#" class="main-nav__link">Sản phẩm</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="#" class="main-nav__link">Tin tức</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="#" class="main-nav__link">Về chúng tôi</a>
-            </li>
-            <li class="main-nav__item">
-              <a href="#" class="main-nav__link">Hướng dẫn sử dụng</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </header>
-
-    <main>
-      <section class="slider"></section>
-      <section>
-        <div class="container">
-          <h1 class="section__title display-large">Hướng dẫn mua hàng</h1>
-          <div class="section__content"></div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-
-      <footer class="visiable unradius">
-        <div class="container">
-
-        </div>
-      </footer>
-  </div>
-  <script src="./main.js"></script>
-</body>
-
+        <script src="./main.js"></script>
+    </body>
 </html>
