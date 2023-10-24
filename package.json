@@ -4,6 +4,7 @@
   "description": "Đây là đồ án cuối kỳ môn IE104 - Internet và công nghệ Web của nhóm sinh viên của trường Đại học Công nghệ Thông tin - ĐHQG",
   "main": "index.js",
   "scripts": {
+    "start": "node index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
