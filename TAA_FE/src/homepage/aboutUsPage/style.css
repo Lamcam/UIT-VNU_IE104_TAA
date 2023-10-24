@@ -1,54 +1,64 @@
 header {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
-body{
-    background-color: #F1EFE7;
+body {
+  background-color: #f1efe7;
 }
 
 .content {
-    text-align:center;
-    margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 16px;
 }
 
 .picture1 {
-    width: 97.5vw;
-    max-width: 100vw;
-    margin-top: 12px;
+  width: 100vw;
+  max-width: 100vw;
+  margin-top: 12px;
 }
 
 .picture2 {
-    width: 97.5vw;
-    height: 180px;
-    max-width: 100vw;
-    margin: 0;
-    object-fit: cover;
+  width: 100vw;
+  height: 477px;
+  max-width: 100vw;
+  margin: 0;
+  object-fit: cover;
 }
 
 .picture3 {
-    width: 97.5vw;
-    height: 180px;
-    max-width: 100vw;
-    margin: 0;
-    object-fit: cover;
+  width: 100vw;
+  height: 180px;
+  max-width: 100vw;
+  margin: 0;
+  object-fit: cover;
 }
 
 .contact {
-    margin-top: 64px;
-    margin-bottom: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 120px;
+  display: block;
 }
 
-.div-right {
-    text-align: right;
+.contact ul {
+  list-style-type: none;
 }
 
-.div-right ul {
-    list-style-type: none;
+.contact__list {
+  text-align: right;
 }
 
+.information {
+  align-items: center;
+}
+
+.information ul {
+  list-style-type: none;
+}
+
+.information__content {
+  text-align: justify;
+}
+
+.container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
