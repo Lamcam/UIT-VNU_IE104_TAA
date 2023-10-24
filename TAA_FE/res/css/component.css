@@ -85,7 +85,7 @@ button.btn--filled {
   gap: 8px;
   align-items: center;
   height: 40px;
-  padding: 0 2px 0 12px;
+  padding: 0 2px 0 0;
   border-radius: 12px;
   border: 2px solid var(--md-sys-color-outline);
 
@@ -100,5 +100,7 @@ button.btn--filled {
   & button.btn-icon {
     height: 32px;
     width: 32px;
+    padding: 4px;
+    border-radius: 8px;
   }
 }
