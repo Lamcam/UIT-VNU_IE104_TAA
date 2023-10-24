@@ -12,7 +12,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link rel="stylesheet" href="./accountPage.css">
+    <link rel="stylesheet" href="./accountPage.css" />
     <link rel="stylesheet" href="../../../res/css/theme.css" />
     <link rel="stylesheet" href="../../base.css" />
     <link rel="stylesheet" href="../../../res/css/component.css" />
@@ -147,13 +147,15 @@
         class="aside body-large visible col-3 col"
         style="
           background-color: var(--md-ref-palette-primary100);
-          height: 150px;">
-        
+          height: 150px;
+        "
+      >
         <ul class="profile-choice">
-          <li class="profile-li" >
+          <li class="profile-li">
             <span
               class="material-symbols-outlined"
-              style="background-color: var(--md-ref-palette-primary100)">
+              style="background-color: var(--md-ref-palette-primary100)"
+            >
               person
             </span>
 
@@ -179,17 +181,20 @@
       </aside>
 
       <section class="col col-9">
-        <div class="section__h1 visible" style="background-color: white">
+        <div
+          class="section__h1 visible"
+          style="background-color: white; padding: 24px"
+        >
           <h1 class="headline-large" style="padding-left: 12px">
             Thông tin tài khoản
           </h1>
-          <p class="body-medium" style="padding: 0 12px 12px 12px">
+          <p class="body-medium" style="padding: 12px">
             Trang cung cấp thông tin về tài khoản theo từng mục, đồng thời cho
             phép người dùng có thể thay đổi một thông tin cơ bản trong mục đó
           </p>
         </div>
 
-        <div class="profile-section visible">
+        <div class="profile-section visible" style="padding: 24px">
           <h2 class="headline-small" style="padding-left: 12px">
             Hồ sơ cá nhân
           </h2>
@@ -264,7 +269,7 @@
           </form>
         </div>
 
-        <div class="bankaccount-section visible">
+        <div class="bankaccount-section visible" style="padding: 24px">
           <div class="section__h2">
             <h2 class="headline-small" style="padding-left: 12px">
               Tài khoản ngân hàng
@@ -304,21 +309,16 @@
         </div>
 
         <div class="shippingaddress-section visible">
-          <div class="section__h2">
-            <h2 class="headline-small" style="padding-left: 12px">
-              Địa chỉ nhận hàng
-            </h2>
+          <div class="section__h2" style="padding: 24px">
+            <h2 class="headline-small">Địa chỉ nhận hàng</h2>
             <span class="material-symbols-outlined" style="padding-right: 12px">
               add
             </span>
           </div>
 
-          <div class="shippingadress-items">
+          <div class="shippingadress-items" style="padding: 24px">
             <div class="shippingadress-item">
-              <div
-                class="shippingadress-details"
-                style="position: relative; margin-left: 12px"
-              >
+              <div class="shippingadress-details" style="position: relative">
                 <p class="body-medium">xxnhi dep gai</p>
                 <p class="body-medium">SDT: *******629</p>
                 <p class="body-medium">Xã A, huyện B, tỉnh C</p>
@@ -359,7 +359,7 @@
                       background-color: var(--md-ref-palette-error100);
                       border: 1px solid var(--md-ref-palette-error20);
                       color: var(--md-ref-palette-error20);
-                      margin-bottom: 13px;
+                      margin-bottom: -18px;
                     "
                   >
                     <span class="label-large">Thiết lập mặc định</span>
@@ -373,15 +373,12 @@
                 color: var(--md-ref-palette-primary50);
                 border-width: 1px;
                 width: 96%;
-                margin-top: 26px;
+                margin: 53px 10px 12px 13px;
               "
             />
 
             <div class="shippingadress-item">
-              <div
-                class="shippingadress-details"
-                style="position: relative; margin-left: 12px"
-              >
+              <div class="shippingadress-details" style="position: relative">
                 <p class="body-medium">xxnhi dep gai</p>
                 <p class="body-medium">SDT: *******629</p>
                 <p class="body-medium">Xã A, huyện B, tỉnh C</p>
@@ -396,7 +393,7 @@
                     type="button"
                     class="button--edit primary"
                     style="
-                      top: 12px;
+                      top: 0px;
                       right: 12px;
                       position: absolute;
                       width: 91px;
@@ -417,8 +414,38 @@
       </section>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <scrip src="./accountPage.js"></script>
-   
-    
+    <script>
+      const inputArr = [
+        "add-password",
+        "add-name",
+        "add-phonenumber",
+        "add-email",
+      ];
+
+      setEveryInputReadOnly();
+
+      function setEveryInputReadOnly() {
+        inputArr.forEach(function (index) {
+          $("." + index).prop("readonly", true);
+        });
+      }
+
+      function activeInput() {
+        let targetIndex = $(".input-icon").index(this);
+        $("." + inputArr[targetIndex]).prop("readonly", false);
+
+        $(".input-icon").on("click", activeInput);
+        $(".header__btn--login").on("click", setEveryInputReadOnly);
+
+        function addActiveClass(element, activeClassName) {
+          $(element).siblings().removeClass(activeClassName);
+          $(element).addClass(activeClassName);
+        }
+
+        $(".profile-li").on("click", function () {
+          addActiveClass(this, "active-li");
+        });
+      }
+    </script>
   </body>
 </html>
