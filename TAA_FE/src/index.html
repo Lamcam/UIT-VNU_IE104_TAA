@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="author" content="IE104.O12_Group3">
   <meta name="description" content="Trang web TAA là một nền tảng thương mại 
-    điện tử chuyên về bán đồ phụ trang sức. Với sự tập trung vào việc cung
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,32 +17,36 @@
 </head>
 <body>
   <div id="main" class="on-primary">
-    <!-- <header class="visible unradius">
+    <header class="visible un-radius">
       <div class="header__top">
         <div class="container">
           <img class="header__logo" src="../public/logoImage.svg"
             alt="Logo TAA">
-          <span class="header__search">
-            <input type="text" placeholder="Tìm kiếm">
-            <button class="icon-btn" type="submit">
-              <span class="icon material-icons">search</span>
+          <div class="header__wrapper">
+            <span class="header__search">
+              <input type="text" placeholder="Tìm kiếm">
+              <button class="icon-btn" type="submit">
+                <span class="icon material-icons">search</span>
+              </button>
+            </span>
+            <button class="header__btn--login btn--outlined" type="button"
+              onclick="openModal()">
+              <div class="status-layer label-large">
+                <span class="label-large">Đăng nhập</span>
+              </div>
             </button>
-          </span>
-          <button class="header__btn--login btn--outlined" type="button">
-            <div class="status-layer label-large">
-              <span class="label-large">Đăng nhập</span>
-            </div>
-          </button>
-          <button class="header__btn--register btn--filled" type="button">
-            <div class="status-layer label-large">
-              <span class="label-large">Đăng ký</span>
-            </div>
-          </button>
+            <button class="header__btn--register btn--filled" type="button"
+              onclick="openModal()">
+              <div class="status-layer label-large">
+                <span class="label-large">Đăng ký</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
       <nav class="main-nav">
         <ul class="container visible">
-          <li class="main-nav__item">
+          <li class="main-nav__item active">
             <a href="#" class="link main-nav__link label-large">Trang chủ</a>
           </li>
           <li class="main-nav__item">
@@ -61,32 +65,31 @@
           </li>
         </ul>
       </nav>
-    </header> -->
-    <header></header>
+    </header>
 
     <nav class="nav-tree mt-8">
       <ul class="container visible">
         <li class="nav-tree__item">
-          <a class="nav-tree_link" href="#">Trang chủ</a>
+          <a class="nav-tree__link" href="#">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree_link" href="#">Trang chủ</a>
+          <a class="nav-tree__link" href="#">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree_link" href="#">Trang chủ</a>
+          <a class="nav-tree__link" href="#">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree_link" href="#">Trang chủ</a>
+          <a class="nav-tree__link" href="#">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree_link" href="#">Trang chủ</a>
+          <a class="nav-tree__link" href="#">Trang chủ</a>
         </li>
       </ul>
     </nav>
 
     <main class="mt-8">
       <section class="slider"></section>
-      <section>
+      <section >
         <div class="container">
           <h1 class="section__title display-large">Hướng dẫn mua hàng</h1>
           <div class="section__content"></div>
@@ -95,22 +98,36 @@
 
       <div class="container">
         <div class="row">
-          <aside class="col col-3 visible">
-            laskjdflkasdf
-          </aside>
+          <aside class="col col-3 visible"></aside>
           <section class="col col-9 visible" style="height: 100px;"></section>
         </div>
       </div>
-
     </main>
 
-    <footer class="visiable unradius">
-      <div class="container">
-
-      </div>
+    <footer class="visiable un-radius">
+      <div class="container"></div>
     </footer>
+
+    <!-- Pop-up modal -->
+    <div id="myModal" class="modal">
+      <!-- Nội dung modal -->
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <p>Đây là nội dung của pop-up modal!</p>
+      </div>
+    </div>
   </div>
   <script src="../res/js/main.js"></script>
+  <script>
+    // JavaScript cho pop-up modal
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+  </script>
 </body>
 
 </html>

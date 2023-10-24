@@ -16,7 +16,7 @@ const inputArr = [
   function activeInput() {
     let targetIndex = $(".input-icon").index(this);
     $("." + inputArr[targetIndex]).prop("readonly", false);
-  }
+  
 
   $(".input-icon").on("click", activeInput);
   $(".header__btn--login").on("click", setEveryInputReadOnly);
@@ -31,7 +31,4 @@ const inputArr = [
      addActiveClass(this, "active-li");
      
   });
-
-
-
-
+}

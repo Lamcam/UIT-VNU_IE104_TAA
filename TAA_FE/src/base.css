@@ -20,6 +20,10 @@
   margin-top: 16px;
 }
 
+.mt-24 {
+  margin-top: 24px;
+}
+
 /* support for row and col */
 
 .row {
@@ -93,6 +97,11 @@ main {
   padding: 12px 32px;
 }
 
+a:is(:link, :hover, :visited, :active) {
+  text-decoration: none;
+  color: black;
+}
+
 /* general class */
 
 .container {
@@ -105,15 +114,21 @@ main {
   background: white;
   border-radius: 12px;
 
-  & .unradiused {
-    border-radius: 0;
+  &.un-radius {
+    border-radius: 0px;
   }
 }
 
-.header__top {
+.header__top>* {
   display: flex;
   align-items: center;
   height: 40px;
+  justify-content: space-between;
+}
+
+.header__wrapper {
+  display: flex;
+  gap: 8px;
 }
 
 .main-nav>ul {
@@ -127,7 +142,7 @@ main {
   display: inline-flex;
   height: 100%;
   min-width: 128px;
-  padding: 0 24px;
+  /* padding: 0 24px; */
   list-style: none;
   color: var(--md-sys-color-primary);
 
@@ -146,30 +161,89 @@ main {
   margin: auto;
   text-decoration: none;
   font-weight: bold;
-  color: inherit;
+  color: inherit !important;
 }
 
 .nav-tree>* {
   height: 40px;
   display: flex;
+  padding: 0 12px;
+  gap: 8px;
   align-items: center;
 }
 
 .nav-tree__item {
   display: inline-flex;
+  align-items: center;
   height: 100%;
-  min-width: 128px;
-  padding: 0 24px;
   list-style: none;
+  gap: 8px;
+
+  &::after {
+    content: '>';
+    display: inline-block;
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+
+  &:last-child {
+    font-weight: bold;
+  }
 }
 
 .nav-tree__link {
   margin: auto;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .icon {
   width: 24px;
   height: 24px;
+}
+
+/* CSS cho pop-up modal */
+.modal {
+  display: none;
+  /* Ẩn ban đầu */
+  position: fixed;
+  /* Hiển thị ở trên cùng */
+  z-index: 1;
+  /* Đặt z-index lớn hơn tất cả các phần tử khác */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Chiều rộng toàn màn hình */
+  height: 100%;
+  /* Chiều cao toàn màn hình */
+  overflow: auto;
+  /* Cho phép cuộn nếu nội dung quá dài */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Màu nền và mờ */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* Căn giữa theo chiều dọc và ngang */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  /* Chiều rộng của modal */
+}
+
+/* CSS cho nút đóng */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
