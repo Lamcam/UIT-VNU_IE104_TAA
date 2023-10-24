@@ -22,21 +22,21 @@
         <div class="container">
           <img class="header__logo" src="../public/logoImage.svg"
             alt="Logo TAA">
+          <span class="header__search search-bar">
+            <input class="label-large" type="text" placeholder="Tìm kiếm">
+            <button class="btn-icon btn--filled" type="submit">
+              <span class="icon material-icons">search</span>
+            </button>
+          </span>
           <div class="header__wrapper">
-            <span class="header__search">
-              <input type="text" placeholder="Tìm kiếm">
-              <button class="icon-btn" type="submit">
-                <span class="icon material-icons">search</span>
-              </button>
-            </span>
             <button class="header__btn--login btn--outlined" type="button"
-              onclick="openModal()">
+              data-modal-target="#modal--login">
               <div class="status-layer label-large">
                 <span class="label-large">Đăng nhập</span>
               </div>
             </button>
             <button class="header__btn--register btn--filled" type="button"
-              onclick="openModal()">
+              data-modal-target="#modal--register">
               <div class="status-layer label-large">
                 <span class="label-large">Đăng ký</span>
               </div>
@@ -47,27 +47,27 @@
       <nav class="main-nav">
         <ul class="container visible">
           <li class="main-nav__item active">
-            <a href="#" class="link main-nav__link label-large">Trang chủ</a>
+            <a href="#" class="main-nav__link label-large">Trang chủ</a>
           </li>
           <li class="main-nav__item">
-            <a href="#" class="link main-nav__link label-large">Sản phẩm</a>
+            <a href="#" class="main-nav__link label-large">Sản phẩm</a>
           </li>
           <li class="main-nav__item">
-            <a href="#" class="link main-nav__link label-large">Tin tức</a>
+            <a href="#" class="main-nav__link label-large">Tin tức</a>
           </li>
           <li class="main-nav__item">
-            <a href="#" class="link main-nav__link label-large">Về chúng
+            <a href="#" class="main-nav__link label-large">Về chúng
               tôi</a>
           </li>
           <li class="main-nav__item">
-            <a href="#" class="link main-nav__link label-large">Hướng dẫn sử
+            <a href="#" class="main-nav__link label-large">Hướng dẫn sử
               dụng</a>
           </li>
         </ul>
       </nav>
     </header>
 
-    <nav class="nav-tree mt-8">
+    <nav class="nav-tree mt-12">
       <ul class="container visible">
         <li class="nav-tree__item">
           <a class="nav-tree__link" href="#">Trang chủ</a>
@@ -87,9 +87,9 @@
       </ul>
     </nav>
 
-    <main class="mt-8">
+    <main class="mt-12">
       <section class="slider"></section>
-      <section >
+      <section>
         <div class="container">
           <h1 class="section__title display-large">Hướng dẫn mua hàng</h1>
           <div class="section__content"></div>
@@ -108,26 +108,57 @@
       <div class="container"></div>
     </footer>
 
-    <!-- Pop-up modal -->
-    <div id="myModal" class="modal">
-      <!-- Nội dung modal -->
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <p>Đây là nội dung của pop-up modal!</p>
+    <!-- Modal -->
+    <div id="modal--login" class="modal">
+      <div class="modal__content on-primary">
+        <!-- <span class="modal__btn--close" onclick="closeModal()">&times;</span> -->
+        <button class="modal__btn--close btn-icon" onclick="closeModal()">
+          <span class="material-icons icon">close</span>
+        </button>
+        <h1 class="modal__title headline-large">Đăng nhập</h1>
+        <form action="/login" method="POST">
+          <table>
+            <tbody>
+              <tr>
+                <th>
+                  <label for="fname">Name:</label>
+                </th>
+                <td>
+                  <input type="text" name="fname" id="fname" required>
+                </td>
+              </tr>
+              <tr>
+                <th>
+                  <label for="fpassword">Password:</label>
+                </th>
+                <td>
+                  <input type="password" name="fpassword" id="fpassword"
+                    required>
+                </td>
+              </tr>
+              <tr>
+                <th colspan="2" style="text-align: right;">
+                  <button type="submit"
+                    class="btn--filled label-large full-width">
+                    <div class="status-layer">
+                      <span>Đăng nhập</span>
+                    </div>
+                  </button>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+    <div id="modal--register" class="modal">
+      <div class="modal__content on-primary">
+        <span class="modal__btn--close" onclick="closeModal()">&times;</span>
+        <p>Đây là nội dung của pop-up modal register!</p>
       </div>
     </div>
   </div>
   <script src="../res/js/main.js"></script>
-  <script>
-    // JavaScript cho pop-up modal
-    function openModal() {
-      document.getElementById("myModal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("myModal").style.display = "none";
-    }
-  </script>
 </body>
 
 </html>

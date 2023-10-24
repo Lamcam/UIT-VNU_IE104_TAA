@@ -1,23 +1,66 @@
+.icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 button {
+  /* display: inline-block; */
   border: none;
   border-radius: 8px;
   padding: 0;
 
   background-color: transparent;
 
-  & .status-layer {
-    border-radius: inherit;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    min-height: 40px;
-    padding: 0 24px;
-  }
-
   &:hover {
     cursor: pointer;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
       0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  & .status-layer {
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    border-radius: inherit;
+    min-height: 40px;
+    padding: 0 24px;
+
+    &>* {
+      margin: auto;
+    }
+  }
+}
+
+button.full-width {
+  width: 100%;
+
+  & .status-layer {
+    justify-content: center;
+  }
+}
+
+button.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+
+  & .status-layer {
+    padding: 0;
+  }
+
+  &:hover {
+    box-shadow: none;
+
+    & .status-layer {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
   }
 }
 
@@ -26,11 +69,36 @@ button.btn--outlined {
 
   & .status-layer {
     border: 1px solid var(--md-sys-color-primary);
-    color: var(--md-sys-color-primary);
   }
 }
 
 button.btn--filled {
   color: #fff;
   background-color: var(--md-sys-color-primary);
+}
+
+.search-bar {
+  min-width: 256px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  height: 40px;
+  padding: 0 2px 0 12px;
+  border-radius: 12px;
+  border: 2px solid var(--md-sys-color-outline);
+
+  & input {
+    border: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & button.btn-icon {
+    height: 32px;
+    width: 32px;
+  }
 }
