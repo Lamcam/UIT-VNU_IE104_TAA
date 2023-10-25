@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/TAA_FE/src/partials/header.html"
+    "livePreview.defaultPreviewPath": "/TAA_FE/src/partials/header.html",
+    "liveServer.settings.port": 5501
 }
