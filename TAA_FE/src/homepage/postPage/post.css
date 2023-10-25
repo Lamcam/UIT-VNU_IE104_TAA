@@ -18,7 +18,7 @@ body {
   object-fit: cover;
   display: flex;
   justify-content: center;
-  padding-bottom: 12px;
+  padding-bottom: 20px;
 }
 
 .picture3 {
@@ -41,16 +41,26 @@ body {
 .picture {
   display: flex;
   justify-content: center;
-  /* text-align: center; */
   align-items: center;
-  
 }
 
 .paragraph {
   text-align: justify;
 }
 
-.paragraph li {
-  padding-top: 10px;
-  padding-bottom: 10px;
+.heading {
+  background-color: #785b5b;
+  color: #f1efe7;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+.text {
+  padding-top: 16px;
+  padding-bottom: 12px;
+}
+
+.list {
+  padding-bottom: 20px;
 }
