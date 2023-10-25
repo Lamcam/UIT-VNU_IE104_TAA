@@ -28,7 +28,8 @@ button {
     min-height: 40px;
     padding: 0 24px;
 
-    &>* {
+    & span {
+      /* display: block; */
       margin: auto;
     }
   }
@@ -76,6 +77,50 @@ button.btn--filled {
   color: #fff;
   background-color: var(--md-sys-color-primary);
 }
+
+/* span.btn-checkbox {
+  & input {
+    display: none;
+
+    & + label .btn-checkbox--unchecked {
+      display: flex !important;
+    }
+  
+    &:checked + label .btn-checkbox--checked {
+      display: flex !important;
+    }
+  }
+
+  & span {
+    display: none;
+  }
+} */
+
+span.btn-radio {
+  & input {
+    display: none;
+
+    &+label {
+      & .btn-radio--unchecked {
+        display: flex;
+      }
+
+      & .btn-radio--checked {
+        display: none;
+      }
+    }
+
+    &:checked+label {
+      .btn-radio--unchecked {
+        display: none !important;
+      }
+      .btn-radio--checked {
+        display: flex !important;
+      }
+    }
+  }
+}
+
 
 .search-bar {
   min-width: 256px;
