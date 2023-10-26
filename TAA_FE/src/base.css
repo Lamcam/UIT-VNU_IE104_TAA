@@ -1,3 +1,7 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(../res/css/theme.css);
+@import url(../res/css/component.css);
+
 /* general css */
 :root {
   font-size: 12px;

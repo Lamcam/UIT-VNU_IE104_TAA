@@ -1,4 +1,3 @@
-
 const openModalBtns = document.querySelectorAll("[data-modal-target]");
 const modals = document.querySelectorAll(".modal");
 

@@ -52,15 +52,23 @@ button.btn-icon {
   width: 48px;
   border-radius: 100%;
 
+  padding: 0;
+
+  overflow: hidden;
+
   & .status-layer {
+    display: flex;
+    height: inherit;
+    width: inherit;
     padding: 0;
+    border-radius: inherit;
   }
 
   &:hover {
     box-shadow: none;
 
     & .status-layer {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.2);
     }
   }
 }
@@ -77,24 +85,6 @@ button.btn--filled {
   color: #fff;
   background-color: var(--md-sys-color-primary);
 }
-
-/* span.btn-checkbox {
-  & input {
-    display: none;
-
-    & + label .btn-checkbox--unchecked {
-      display: flex !important;
-    }
-  
-    &:checked + label .btn-checkbox--checked {
-      display: flex !important;
-    }
-  }
-
-  & span {
-    display: none;
-  }
-} */
 
 span.btn-radio {
   & input {
@@ -114,6 +104,7 @@ span.btn-radio {
       .btn-radio--unchecked {
         display: none !important;
       }
+
       .btn-radio--checked {
         display: flex !important;
       }
@@ -145,7 +136,11 @@ span.btn-radio {
   & button.btn-icon {
     height: 32px;
     width: 32px;
-    padding: 4px;
     border-radius: 8px;
+
+    & .status-layer {
+      height: 32px;
+      width: 32px;
+    }
   }
 }
