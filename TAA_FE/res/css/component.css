@@ -89,26 +89,26 @@ button.btn--filled {
   background-color: var(--md-sys-color-primary);
 }
 
-span.btn-radio {
+span.btn-checkbox {
   & input {
     display: none;
 
     &+label {
-      & .btn-radio--unchecked {
+      & .btn-checkbox--unchecked {
         display: flex;
       }
 
-      & .btn-radio--checked {
+      & .btn-checkbox--checked {
         display: none;
       }
     }
 
     &:checked+label {
-      .btn-radio--unchecked {
+      .btn-checkbox--unchecked {
         display: none !important;
       }
 
-      .btn-radio--checked {
+      .btn-checkbox--checked {
         display: flex !important;
       }
     }
