@@ -2,7 +2,7 @@
   <div class="header__top">
     <div class="container">
       <a href="#">
-        <img class="header__logo" src="../public/logo.svg" alt="Logo TAA">
+        <img class="header__logo" src="/TAA_FE/public/logo.svg" alt="Logo TAA">
       </a>
       <span class="header__search search-bar">
         <input class="label-large" type="text" placeholder="Tìm kiếm">
@@ -13,19 +13,19 @@
         </button>
       </span>
       <div class="header__wrapper">
-        <!-- <button class="header__btn--login btn--outlined" type="button"
-          data-modal-target="#modal--login">
-          <div class="status-layer label-large">
-            <span class="label-large">Đăng nhập</span>
-          </div>
-        </button>
-        <button class="header__btn--register btn--filled" type="button"
-          data-modal-target="#modal--register">
-          <div class="status-layer label-large">
-            <span class="label-large">Đăng ký</span>
-          </div>
-        </button> -->
-
+        <a href="#" style="text-decoration: none;">
+          <button class="btn-icon">
+            <div class="status-layer">
+              <span class="material-icons icon">shopping_cart</span>
+            </div>
+          </button>
+        </a>
+        <img class="header__avatar" src="/TAA_FE/public/avatar.png" alt="Avatar">
+        <div class="header__user"
+          style="display: none; position: absolute; top: 100%; right: 0; flex-direction: column;">
+          <span class="label-large">Nguyễn Văn A</span>
+          <span class="label-small">Thành viên</span>
+        </div>
       </div>
     </div>
   </div>

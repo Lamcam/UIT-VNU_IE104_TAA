@@ -7,7 +7,6 @@
 }
 
 button {
-  /* display: inline-block; */
   border: none;
   border-radius: 8px;
   padding: 0;
@@ -33,6 +32,10 @@ button {
       margin: auto;
     }
   }
+
+  &:active .status-layer {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
 }
 
 button.full-width {
@@ -48,8 +51,8 @@ button.btn-icon {
   align-items: center;
   justify-content: center;
 
-  height: 48px;
-  width: 48px;
+  height: 40px;
+  width: 40px;
   border-radius: 100%;
 
   padding: 0;

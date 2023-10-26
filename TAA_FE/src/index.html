@@ -12,29 +12,29 @@
   <script src="https://code.jquery.com/jquery-3.3.1.js"
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
     crossorigin="anonymous"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
   <title>TAA</title>
 </head>
 <body>
   <div id="main" class="on-primary">
-    <!-- <div id="header"></div> -->
-    <header></header>
+    <div id="header"></div>
 
     <nav class="nav-tree mt-12">
       <ul class="container visible">
         <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
+          <a class="nav-tree__link">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
+          <a class="nav-tree__link">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
+          <a class="nav-tree__link">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
+          <a class="nav-tree__link">Trang chủ</a>
         </li>
         <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
+          <a class="nav-tree__link">Trang chủ</a>
         </li>
       </ul>
     </nav>
@@ -58,8 +58,8 @@
       </section>
     </main>
 
-    <!-- <div id="footer"></div> -->
-    <footer></footer>
+    <!-- <footer></footer> -->
+    <div id="footer"></div>
 
     <!-- Modal -->
     <div id="modal--login" class="modal">
@@ -185,37 +185,23 @@
     </div>
   </div>
   <script>
-    const modals = document.querySelectorAll(".modal");
-    function closeModal() {
-      modals.forEach(modal =>
-        modal.classList.remove("active")
-      )
-    }
+    // fetch('/TAA_FE/src/partials/header--unauth.html')
+    //   .then(response => response.text())
+    //   .then(data => {
+    //     document.querySelector('header').outerHTML = data;
+    //   });
+    $(document).ready(function () {
+      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+    });
+    $(document).ready(function () {
+      $('#footer').load('/TAA_FE/src/partials/footer.html');
+    });
 
-    fetch('./partials/header--unauth.html')
-      .then(response => response.text())
-      .then(data => {
-        document.querySelector('header').outerHTML = data;
-
-
-        const openModalBtns = document.querySelectorAll("[data-modal-target]");
-        openModalBtns.forEach(btn => {
-          btn.addEventListener("click", (event) => {
-            const modalId = btn.dataset.modalTarget;
-            const modal = document.querySelector(modalId);
-            if (modal !== null)
-              modal.classList.add("active");
-            else
-              console.log("modal not found");
-          })
-        })
-      });
-
-    fetch('./partials/footer.html')
-      .then(response => response.text())
-      .then(data => {
-        document.querySelector('footer').outerHTML = data;
-      });
+    // fetch('/TAA_FE/src/partials/footer.html')
+    //   .then(response => response.text())
+    //   .then(data => {
+    //     document.querySelector('footer').outerHTML = data;
+    //   });
   </script>
 </body>
 </html>

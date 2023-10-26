@@ -108,7 +108,8 @@ header {
 
     &>* {
       display: flex;
-      /* align-items: center; */
+      position: relative;
+
       max-height: 40px;
       justify-content: space-between;
     }
@@ -121,9 +122,19 @@ header {
   }
 
   & .header__wrapper {
-    display: inline-flex;
-    /* display: flex; */
+    display: flex;
+    justify-content: end;
     gap: 8px;
+
+    /* & .header__options {
+    } */
+
+    & .header__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--md-sys-color-outline);
+    }
   }
 
   & .main-nav {
@@ -338,4 +349,3 @@ input {
     align-items: center;
   }
 }
-
