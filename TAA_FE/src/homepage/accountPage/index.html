@@ -67,7 +67,7 @@
       form > div {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 20px;
       }
 
       .input__wrapper {
@@ -79,25 +79,39 @@
         right: 5px;
         top: 10px;
       }
+
+      .input__wrapper span:hover {
+        
+      }
+
       .section__h2 {
         display: flex;
         align-items: center;
         justify-content: space-between;
       }
 
-      .bank-item-details {
-        position: relative;
+      .bank-item-details,
+      .shippingadress-details {
+        display: flex;
+        justify-content: space-between;
+      }
+      .bank-item-wrap {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bank-item-details .icon-delete {
+        margin-top:28px;
+      }
+
+      .account-bank-detail {
+        display: flex;
+      }
+      .account-bank-detail p,
+      .bank-item-wrap p {
         margin: 12px;
       }
-
-      .bank-item-details p {
-        margin-left: 12px;
-      }
-
       .icon-delete {
-        position: absolute;
-        right: 5px;
-        top: 5px;
         width: 40px;
         height: 40px;
         display: flex;
@@ -105,21 +119,17 @@
         align-items: center;
         background: var(--m-3-sys-light-surface-container-high, #f2e5e4);
         border-radius: 8px;
-        margin-right: 8px;
+        /* margin-top: 28px; */
       }
 
-      /* .button__container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        position: absolute;
-        top: 12px;
-        right: 60px;
-        z-index: 1;
-      } */
+      hr {
+        background-color: var(--md-ref-palette-primary50);
+        border-width: 1px;
+        width: 98%;
+        margin-left: 10px;
+      }
 
       .button--edit {
-        /* background-color: var(--md-ref-palette-primary50); */
         color: #ffffff;
         border-radius: 8px;
         display: flex;
@@ -129,6 +139,19 @@
 
       .shipping-details p {
         margin-left: 12px;
+      }
+
+      .delete-edit-wrap-icon {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .icon-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top:12px;
       }
     </style>
   </head>
@@ -181,6 +204,7 @@
       </aside>
 
       <section class="col col-9">
+        <!-- Thông tin tài khoản-->
         <div
           class="section__h1 visible"
           style="background-color: white; padding: 24px"
@@ -194,6 +218,7 @@
           </p>
         </div>
 
+        <!-- Hồ sơ cá nhân -->
         <div class="profile-section visible" style="padding: 24px">
           <h2 class="headline-small" style="padding-left: 12px">
             Hồ sơ cá nhân
@@ -268,98 +293,85 @@
             </button>
           </form>
         </div>
-
+        <!-- Tài khoản ngân hàng-->
         <div class="bankaccount-section visible" style="padding: 24px">
           <div class="section__h2">
             <h2 class="headline-small" style="padding-left: 12px">
               Tài khoản ngân hàng
             </h2>
-            <span class="material-symbols-outlined" style="padding-right: 12px">
-              add
-            </span>
+            <span class="material-symbols-outlined"> add </span>
           </div>
 
           <div class="bank-items">
+            <!-- Tài khoản ngân hàng thứ nhất -->
             <div class="bank-item-details">
-              <p class="body-medium">STK: *********1230</p>
-              <p class="body-medium">Ngân hàng ACB</p>
+              <div class="bank-item-wrap">
+                <div class="account-bank-detail">
+                  <p class="body-medium">STK:</p>
+                  <p class="body-medium">*********1230</p>
+                </div>
+                <p class="body-medium name-account-bank">Ngân hàng ACB</p>
+              </div>
               <div class="icon-delete">
                 <span class="material-symbols-outlined"> delete </span>
               </div>
             </div>
 
-            <hr
-              style="
-                color: var(--md-ref-palette-primary50);
-                border-width: 1px;
-                width: 96%;
-              "
-            />
+            <hr />
 
+            <!-- Tài khoản ngân hàng thứ hai -->
             <div class="bank-item-details">
-              <p class="body-medium">STK: *********1230</p>
-              <p class="body-medium" style="padding-bottom: 12px">
-                Ngân hàng ACB
-              </p>
+              <div class="bank-item-wrap">
+                <div class="account-bank-detail">
+                  <p class="body-medium">STK:</p>
+                  <p class="body-medium">*********1230</p>
+                </div>
+                <p class="body-medium name-account-bank">Ngân hàng ACB</p>
+              </div>
               <div class="icon-delete">
                 <span class="material-symbols-outlined"> delete </span>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="shippingaddress-section visible">
-          <div class="section__h2" style="padding: 24px">
-            <h2 class="headline-small">Địa chỉ nhận hàng</h2>
-            <span class="material-symbols-outlined" style="padding-right: 12px">
-              add
-            </span>
+        <!-- Địa chỉ nhận hàng -->
+        <div class="shippingaddress-section visible" style="padding: 24px">
+          <div class="section__h2 visible">
+            <h2 class="headline-small" style="padding-left: 12px">
+              Địa chỉ nhận hàng
+            </h2>
+            <span class="material-symbols-outlined"> add </span>
           </div>
 
-          <div class="shippingadress-items" style="padding: 24px">
-            <div class="shippingadress-item">
-              <div class="shippingadress-details" style="position: relative">
-                <p class="body-medium">xxnhi dep gai</p>
-                <p class="body-medium">SDT: *******629</p>
-                <p class="body-medium">Xã A, huyện B, tỉnh C</p>
-                <div class="">
-                  <div
-                    class="icon-delete"
-                    style="position: absolute; top: 12px; right: 139px"
-                  >
-                    <span class="material-symbols-outlined"> delete </span>
+          <div class="shippingadress-items">
+            <!-- địa chỉ giao hàng thứ nhất -->
+            <div class="shipping-item-details">
+              <div class="shippingadress-details">
+                <div class="bank-item-wrap">
+                  <p class="body-medium">xxnhi dep gai</p>
+                  <div class="account-bank-detail">
+                    <p class="body-medium">SDT:</p>
+                    <p class="body-medium">*******629</p>
+                  </div>
+                  <p class="body-medium">Xã A, huyện B, tỉnh C</p>
+                </div>
+                <div class="icon-wrap">
+                  <div class="delete-edit-wrap-icon">
+                    <div class="icon-delete">
+                      <span class="material-symbols-outlined"> delete </span>
+                    </div>
+                    <button type="button" class="button--edit primary">
+                      <span class="material-symbols-outlined"> edit </span>
+                      <span class="label-large">Sửa</span>
+                    </button>
                   </div>
                   <button
                     type="button"
                     class="button--edit primary"
                     style="
-                      top: 12px;
-                      right: 12px;
-                      position: absolute;
-                      width: 91px;
-                      height: 40px;
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-around;
-                    "
-                  >
-                    <span class="material-symbols-outlined"> edit </span>
-                    <span class="label-large">Sửa</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    class="button--edit primary"
-                    style="
-                      padding: 0 30px;
-                      bottom: -26px;
-                      right: 12px;
-                      height: 40px;
-                      position: absolute;
-                      background-color: var(--md-ref-palette-error100);
-                      border: 1px solid var(--md-ref-palette-error20);
-                      color: var(--md-ref-palette-error20);
-                      margin-bottom: -18px;
+                      background-color: var(--md-ref-palette-primary100);
+                      border: 1px solid var(--m-3-sys-light-outline, #857373);
+                      color: var(--m-3-sys-light-outline, #857373);
                     "
                   >
                     <span class="label-large">Thiết lập mặc định</span>
@@ -368,47 +380,44 @@
               </div>
             </div>
 
-            <hr
-              style="
-                color: var(--md-ref-palette-primary50);
-                border-width: 1px;
-                width: 96%;
-                margin: 53px 10px 12px 13px;
-              "
-            />
+            <hr />
 
-            <div class="shippingadress-item">
-              <div class="shippingadress-details" style="position: relative">
-                <p class="body-medium">xxnhi dep gai</p>
-                <p class="body-medium">SDT: *******629</p>
-                <p class="body-medium">Xã A, huyện B, tỉnh C</p>
-                <div class="">
-                  <!-- <div
-                    class="icon-delete"
-                    style="position: absolute; top: 12px; right: 139px"
-                  >
-                    <span class="material-symbols-outlined"> delete </span>
-                  </div> -->
+            <!-- địa chỉ giao hàng thứ hai -->
+            <div class="shipping-item-details">
+              <div class="shippingadress-details">
+                <div class="bank-item-wrap">
+                  <p class="body-medium">xxnhi dep gai</p>
+                  <div class="account-bank-detail">
+                    <p class="body-medium">SDT:</p>
+                    <p class="body-medium">*******629</p>
+                  </div>
+                  <p class="body-medium">Xã A, huyện B, tỉnh C</p>
+                </div>
+                <div class="icon-wrap">
+                  <div class="delete-edit-wrap-icon">
+                    <div class="icon-delete">
+                      <span class="material-symbols-outlined"> delete </span>
+                    </div>
+                    <button type="button" class="button--edit primary">
+                      <span class="material-symbols-outlined"> edit </span>
+                      <span class="label-large">Sửa</span>
+                    </button>
+                  </div>
                   <button
                     type="button"
                     class="button--edit primary"
                     style="
-                      top: 0px;
-                      right: 12px;
-                      position: absolute;
-                      width: 91px;
-                      height: 40px;
-                      display: flex;
-                      align-items: center;
-                      justify-content: space-around;
+                      background-color: var(--md-ref-palette-primary100);
+                      border: none;
+                      color: var(--m-3-sys-light-outline, #857373);
                     "
                   >
-                    <span class="material-symbols-outlined"> edit </span>
-                    <span class="label-large">Sửa</span>
+                    <span class="label-large" style="font-size: 22px; padding:12px;">Mặc định</span>
                   </button>
                 </div>
               </div>
-            </div>
+
+            
           </div>
         </div>
       </section>
