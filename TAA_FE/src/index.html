@@ -110,18 +110,20 @@ Các thông số có thể sử dụng như:
         </div>
       </section>
 
-      <div class="container">
-        <div class="row">
-          <aside class="col col-3 visible"></aside>
-          <section class="col col-9 visible" style="height: 100px;"></section>
+      <section>
+        <div class="container">
+          <div class="row">
+            <aside class="col-3 visible"></aside>
+            <section class="col-9 visible" style="height: 100px;"></section>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
 
     <footer class="visible un-radius mt-12">
       <div class="container">
         <div class="row">
-          <div class="footer__col col col-5">
+          <div class="footer__col col-5">
             <!-- <h1 class="footer__title headline-large">TAA</h1> -->
             <div class="footer__title">
               <a href="#">
@@ -129,7 +131,7 @@ Các thông số có thể sử dụng như:
               </a>
             </div>
             <div class="footer__content body-medium">
-              <p>TAA là một nền tảng thương mại điện tử chuyên về
+              <p class="mt-8">TAA là một nền tảng thương mại điện tử chuyên về
                 bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung cấp
                 những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở
                 thành điểm đến lý tưởng cho những người đam mê phụ kiện và trang
@@ -138,7 +140,7 @@ Các thông số có thể sử dụng như:
                 tiếp tục duy trì được công ty</p>
               <p class="mt-8">Bạn liên hệ với chúng tôi bằng các mạng xã hội</p>
             </div>
-            <div class="footer__link">
+            <div class="footer__link mt-8">
               <a href="#">
                 <img src="../public/icon_facebook.svg" alt="Icon Facebook">
               </a>
@@ -150,24 +152,25 @@ Các thông số có thể sử dụng như:
               </a>
             </div>
           </div>
-          <div class="footer__col col col-2">
+          <div class="footer__col col-2">
             <h1 class="footer__title headline-large">Công ty</h1>
             <div class="footer__content">
-              <div class="footer__link">
+              <div class="footer__link mt-8">
                 <a class="body-medium" href="#">Tin tức</a>
               </div>
-              <div class="footer__link">
+              <div class="footer__link mt-8">
                 <a class="body-medium" href="#">Về chúng tôi</a>
               </div>
-              <div class="footer__link">
+              <div class="footer__link mt-8">
                 <a class="body-medium" href="#">Hướng dẫn mua hàng</a>
               </div>
             </div>
           </div>
-          <div class="footer__col col col-5">
+          <div class="footer__col col-5">
             <h1 class="footer__title headline-large">Cập nhật về chúng tôi</h1>
             <div class="footer__content body-medium">
-              <p>Xác nhận thư điện tử của bạn để nhận được ngay những cập nhật
+              <p class="mt-8">Xác nhận thư điện tử của bạn để nhận được ngay
+                những cập nhật
                 mới nhất từ chúng tôi hàng tuần</p>
               <form class="email-submition mt-8">
                 <input label="form--get-news__email" type="email">
@@ -186,50 +189,118 @@ Các thông số có thể sử dụng như:
     <!-- Modal -->
     <div id="modal--login" class="modal">
       <div class="modal__content on-primary">
-        <!-- <span class="modal__btn--close" onclick="closeModal()">&times;</span> -->
         <button class="modal__btn--close btn-icon" onclick="closeModal()">
           <span class="material-icons icon">close</span>
         </button>
         <h1 class="modal__title headline-large">Đăng nhập</h1>
         <form action="/login" method="POST">
-          <table>
-            <tbody>
-              <tr>
-                <th>
-                  <label for="fname">Name:</label>
-                </th>
-                <td>
-                  <input type="text" name="fname" id="fname" required>
-                </td>
-              </tr>
-              <tr>
-                <th>
-                  <label for="fpassword">Password:</label>
-                </th>
-                <td>
-                  <input type="password" name="fpassword" id="fpassword"
-                    required>
-                </td>
-              </tr>
-              <tr>
-                <th colspan="2" style="text-align: right;">
-                  <button type="submit"
-                    class="btn--filled label-large full-width">
-                    <div class="status-layer">
-                      <span>Đăng nhập</span>
-                    </div>
-                  </button>
-                </th>
-              </tr>
-            </tbody>
-          </table>
+          <div class="form__row mt-24">
+            <div class="row">
+              <label class="col-4 label-large" for="f_log_name">
+                Tên đăng nhập:</label>
+              <input class="col-8" type="text" name="f_log_name" id="f_log_name"
+                required>
+            </div>
+          </div>
+          <div class="form__row mt-12">
+            <div class="row">
+              <label class="col-4 label-large" for="f_log_pass">
+                Mật khẩu:</label>
+              <input class="col-8" type="password" name="f_log_pass"
+                id="f_log_pass" required>
+            </div>
+          </div>
+          <button class="btn--filled label-large full-width mt-12"
+            type="submit">
+            <div class="status-layer">
+              <span>Đăng nhập</span>
+            </div>
+          </button>
         </form>
+        <div class="form__row mt-12">
+          <div class="row">
+            <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#">Quên
+                mật khẩu</a></span>
+          </div>
+        </div>
       </div>
     </div>
     <div id="modal--register" class="modal">
       <div class="modal__content on-primary">
-        <span class="modal__btn--close" onclick="closeModal()">&times;</span>
-        <p>Đây là nội dung của pop-up modal register!</p>
+        <button class="modal__btn--close btn-icon" onclick="closeModal()">
+          <span class="material-icons icon">close</span>
+        </button>
+        <h1 class="modal__title headline-large">Đăng ký</h1>
+        <form action="/register" method="POST">
+          <div class="form__row mt-24">
+            <div class="row">
+              <label class="col-4 label-large" for="f_reg_name">
+                Tên đăng nhập:</label>
+              <input class="col-8" type="text" name="f_reg_name" id="f_reg_name"
+                required>
+            </div>
+          </div>
+          <div class="form__row mt-12">
+            <div class="row">
+              <label class="col-4 label-large" for="f_reg_phone">
+                Số điện thoại:</label>
+              <input class="col-8" type="text" name="f_reg_phone"
+                id="f_reg_phone" required>
+            </div>
+          </div>
+          <div class="form__row mt-12">
+            <div class="row">
+              <label class="col-4 label-large" for="f_reg_email">
+                Email:</label>
+              <input class="col-8" type="email" name="f_reg_email"
+                id="f_reg_email" required>
+            </div>
+          </div>
+          <div class="form__row mt-12">
+            <div class="row">
+              <label class="col-4 label-large" for="f_reg_pass">
+                Mật khẩu:</label>
+              <input class="col-8" type="password" name="f_reg_pass"
+                id="f_reg_pass" required>
+            </div>
+          </div>
+          <div class="form__row mt-12">
+            <div class="row">
+              <label class="col-4 label-large" for="f_reg_pass_confirm">
+                Xác nhận mật khẩu:</label>
+              <input class="col-8" type="password" name="f_reg_pass_confirm"
+                id="f_reg_pass_confirm" required>
+            </div>
+          </div>
+          <div class="form__row mt-12">
+            <div class="row">
+              <span class="btn-radio primary-text">
+                <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read"
+                  required>
+                <label for="f_reg_is_read">
+                  <span class="material-icons icon btn-radio--unchecked">
+                    radio_button_unchecked</span>
+                  <span class="material-icons icon btn-radio--checked">
+                    radio_button_checked</span>
+                </label>
+              </span>
+              <span class="body-medium" style="text-align: left;">Tôi đã đọc và đồng ý với Điều kiện giao dịch chung và Chính
+                sách bảo mật thông tin của TAA</span>
+            </div>
+          </div>
+          <button class="btn--filled label-large full-width mt-12"
+            type="submit">
+            <div class="status-layer">
+              <span>Đăng ký</span>
+            </div>
+          </button>
+        </form>
+        <div class="form__row mt-12">
+          <div class="row">
+            <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#">Quên
+                mật khẩu</a></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
