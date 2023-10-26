@@ -1,0 +1,20 @@
+.profile-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: fit-content;
+  height: fit-content;
+  gap: 2px;
+  width: 98%;
+  height: 100%;
+  margin-left: 0.5em;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+.profile-li {
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 137ms;
+}
+.active-li {
+  border-left: 4px solid black;
+}

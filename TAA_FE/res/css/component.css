@@ -1,3 +1,11 @@
+.icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 button {
   border: none;
   border-radius: 8px;
@@ -5,19 +13,66 @@ button {
 
   background-color: transparent;
 
-  & .status-layer {
-    border-radius: inherit;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    min-height: 40px;
-    padding: 0 24px;
-  }
-
   &:hover {
     cursor: pointer;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
       0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  & .status-layer {
+    color: inherit;
+    display: flex;
+    justify-content: center;
+    border-radius: inherit;
+    min-height: 40px;
+    padding: 0 24px;
+
+    & span {
+      /* display: block; */
+      margin: auto;
+    }
+  }
+
+  &:active .status-layer {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+button.full-width {
+  width: 100%;
+
+  & .status-layer {
+    justify-content: center;
+  }
+}
+
+button.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  & .status-layer {
+    display: flex;
+    height: inherit;
+    width: inherit;
+    padding: 0;
+    border-radius: inherit;
+  }
+
+  &:hover {
+    box-shadow: none;
+
+    & .status-layer {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
   }
 }
 
@@ -26,11 +81,69 @@ button.btn--outlined {
 
   & .status-layer {
     border: 1px solid var(--md-sys-color-primary);
-    color: var(--md-sys-color-primary);
   }
 }
 
 button.btn--filled {
   color: #fff;
   background-color: var(--md-sys-color-primary);
+}
+
+span.btn-checkbox {
+  & input {
+    display: none;
+
+    &+label {
+      & .btn-checkbox--unchecked {
+        display: flex;
+      }
+
+      & .btn-checkbox--checked {
+        display: none;
+      }
+    }
+
+    &:checked+label {
+      .btn-checkbox--unchecked {
+        display: none !important;
+      }
+
+      .btn-checkbox--checked {
+        display: flex !important;
+      }
+    }
+  }
+}
+
+
+.search-bar {
+  min-width: 256px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: center;
+  height: 40px;
+  padding: 0 2px 0 0;
+  border-radius: 12px;
+  border: 2px solid var(--md-sys-color-outline);
+
+  & input {
+    border: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & button.btn-icon {
+    height: 32px;
+    width: 32px;
+    border-radius: 8px;
+
+    & .status-layer {
+      height: 32px;
+      width: 32px;
+    }
+  }
 }
