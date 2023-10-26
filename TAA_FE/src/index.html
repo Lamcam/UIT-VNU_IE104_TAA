@@ -19,25 +19,7 @@
   <div id="main" class="on-primary">
     <div id="header"></div>
 
-    <nav class="nav-tree mt-12">
-      <ul class="container visible">
-        <li class="nav-tree__item">
-          <a class="nav-tree__link">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link">Trang chủ</a>
-        </li>
-      </ul>
-    </nav>
+    <div id="nav-tree"></div>
 
     <main>
       <section class="slider mt-12"></section>
@@ -153,14 +135,14 @@
           </div>
           <div class="form__row mt-12">
             <div class="row">
-              <span class="btn-radio primary-text">
+              <span class="btn-checkbox primary-text">
                 <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read"
                   required>
                 <label for="f_reg_is_read">
-                  <span class="material-icons icon btn-radio--unchecked">
-                    radio_button_unchecked</span>
-                  <span class="material-icons icon btn-radio--checked">
-                    radio_button_checked</span>
+                  <span class="material-icons icon btn-checkbox--unchecked">
+                    check_box_outline_blank</span>
+                  <span class="material-icons icon btn-checkbox--checked">
+                    check_box</span>
                 </label>
               </span>
               <span class="body-medium" style="text-align: left;">Tôi đã đọc và
@@ -192,8 +174,7 @@
     //   });
     $(document).ready(function () {
       $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-    });
-    $(document).ready(function () {
+      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
     });
 
