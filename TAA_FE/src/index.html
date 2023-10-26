@@ -1,16 +1,3 @@
-<!-- document
-  
-Button
-Các thông số có thể sử dụng như:
-- btn--filled: button có background màu
-- btn--outlined: button có viền màu
-
-<button class="...BEM... btn--filled">
-  <div class="status-layer">
-    <span class="label-large">...label...</span>
-  </div>
-</button>-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,96 +8,30 @@ Các thông số có thể sử dụng như:
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="../res/css/theme.css">
   <link rel="stylesheet" href="./base.css">
-  <link rel="stylesheet" href="../res/css/component.css">
-  <title></title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
+    crossorigin="anonymous"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
+  <title>TAA</title>
 </head>
 <body>
+  
   <div id="main" class="on-primary">
-    <header class="visible un-radius">
-      <div class="header__top">
-        <div class="container">
-          <a href="#">
-            <img class="header__logo" src="../public/logo.svg" alt="Logo TAA">
-          </a>
-          <span class="header__search search-bar">
-            <input class="label-large" type="text" placeholder="Tìm kiếm">
-            <button class="btn-icon btn--filled" type="submit">
-              <span class="icon material-icons">search</span>
-            </button>
-          </span>
-          <div class="header__wrapper">
-            <button class="header__btn--login btn--outlined" type="button"
-              data-modal-target="#modal--login">
-              <div class="status-layer label-large">
-                <span class="label-large">Đăng nhập</span>
-              </div>
-            </button>
-            <button class="header__btn--register btn--filled" type="button"
-              data-modal-target="#modal--register">
-              <div class="status-layer label-large">
-                <span class="label-large">Đăng ký</span>
-              </div>
-            </button>
-          </div>
-        </div>
-      </div>
-      <nav class="main-nav">
-        <ul class="container visible">
-          <li class="main-nav__item active">
-            <a href="#" class="main-nav__link label-large">Trang chủ</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__link label-large">Sản phẩm</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__link label-large">Tin tức</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__link label-large">Về chúng
-              tôi</a>
-          </li>
-          <li class="main-nav__item">
-            <a href="#" class="main-nav__link label-large">Hướng dẫn sử
-              dụng</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <div id="header"></div>
 
-    <nav class="nav-tree mt-12">
-      <ul class="container visible">
-        <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
-        </li>
-        <li class="nav-tree__item">
-          <a class="nav-tree__link" href="#">Trang chủ</a>
-        </li>
-      </ul>
-    </nav>
+    <div id="nav-tree"></div>
 
-    <main class="mt-12">
-      <section class="slider"></section>
-      <section>
+    <main>
+      <section class="slider mt-12"></section>
+      <section class="mt-12">
         <div class="container">
-          <h1 class="section__title display-large">Hướng dẫn mua hàng</h1>
+          <h1 class="section__title display-medium">Hướng dẫn mua hàng</h1>
           <div class="section__content"></div>
         </div>
       </section>
 
-      <section>
+      <section class="mt-12">
         <div class="container">
           <div class="row">
             <aside class="col-3 visible"></aside>
@@ -120,77 +41,16 @@ Các thông số có thể sử dụng như:
       </section>
     </main>
 
-    <footer class="visible un-radius mt-12">
-      <div class="container">
-        <div class="row">
-          <div class="footer__col col-5">
-            <!-- <h1 class="footer__title headline-large">TAA</h1> -->
-            <div class="footer__title">
-              <a href="#">
-                <img src="../public/logo.svg" alt="Logo TAA with Text">
-              </a>
-            </div>
-            <div class="footer__content body-medium">
-              <p class="mt-8">TAA là một nền tảng thương mại điện tử chuyên về
-                bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung cấp
-                những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở
-                thành điểm đến lý tưởng cho những người đam mê phụ kiện và trang
-                sức.</p>
-              <p class="mt-8">Việc mua hàng của bạn là động lực cho chúng tôi
-                tiếp tục duy trì được công ty</p>
-              <p class="mt-8">Bạn liên hệ với chúng tôi bằng các mạng xã hội</p>
-            </div>
-            <div class="footer__link mt-8">
-              <a href="#">
-                <img src="../public/icon_facebook.svg" alt="Icon Facebook">
-              </a>
-              <a href="#">
-                <img src="../public/icon_youtube.svg" alt="Icon Youtube">
-              </a>
-              <a href="#">
-                <img src="../public/icon_instagram.svg" alt="Icon Instagram">
-              </a>
-            </div>
-          </div>
-          <div class="footer__col col-2">
-            <h1 class="footer__title headline-large">Công ty</h1>
-            <div class="footer__content">
-              <div class="footer__link mt-8">
-                <a class="body-medium" href="#">Tin tức</a>
-              </div>
-              <div class="footer__link mt-8">
-                <a class="body-medium" href="#">Về chúng tôi</a>
-              </div>
-              <div class="footer__link mt-8">
-                <a class="body-medium" href="#">Hướng dẫn mua hàng</a>
-              </div>
-            </div>
-          </div>
-          <div class="footer__col col-5">
-            <h1 class="footer__title headline-large">Cập nhật về chúng tôi</h1>
-            <div class="footer__content body-medium">
-              <p class="mt-8">Xác nhận thư điện tử của bạn để nhận được ngay
-                những cập nhật
-                mới nhất từ chúng tôi hàng tuần</p>
-              <form class="email-submition mt-8">
-                <input label="form--get-news__email" type="email">
-                <button type="submit" class="btn--filled">
-                  <div class="status-layer">
-                    <span class="label-large">Xác nhận</span>
-                  </div>
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- <footer></footer> -->
+    <div id="footer"></div>
 
     <!-- Modal -->
     <div id="modal--login" class="modal">
       <div class="modal__content on-primary">
         <button class="modal__btn--close btn-icon" onclick="closeModal()">
-          <span class="material-icons icon">close</span>
+          <div class="status-layer">
+            <span class="material-icons icon">close</span>
+          </div>
         </button>
         <h1 class="modal__title headline-large">Đăng nhập</h1>
         <form action="/login" method="POST">
@@ -228,7 +88,9 @@ Các thông số có thể sử dụng như:
     <div id="modal--register" class="modal">
       <div class="modal__content on-primary">
         <button class="modal__btn--close btn-icon" onclick="closeModal()">
-          <span class="material-icons icon">close</span>
+          <div class="status-layer">
+            <span class="material-icons icon">close</span>
+          </div>
         </button>
         <h1 class="modal__title headline-large">Đăng ký</h1>
         <form action="/register" method="POST">
@@ -274,17 +136,18 @@ Các thông số có thể sử dụng như:
           </div>
           <div class="form__row mt-12">
             <div class="row">
-              <span class="btn-radio primary-text">
+              <span class="btn-checkbox primary-text">
                 <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read"
                   required>
                 <label for="f_reg_is_read">
-                  <span class="material-icons icon btn-radio--unchecked">
-                    radio_button_unchecked</span>
-                  <span class="material-icons icon btn-radio--checked">
-                    radio_button_checked</span>
+                  <span class="material-icons icon btn-checkbox--unchecked">
+                    check_box_outline_blank</span>
+                  <span class="material-icons icon btn-checkbox--checked">
+                    check_box</span>
                 </label>
               </span>
-              <span class="body-medium" style="text-align: left;">Tôi đã đọc và đồng ý với Điều kiện giao dịch chung và Chính
+              <span class="body-medium" style="text-align: left;">Tôi đã đọc và
+                đồng ý với Điều kiện giao dịch chung và Chính
                 sách bảo mật thông tin của TAA</span>
             </div>
           </div>
@@ -304,7 +167,24 @@ Các thông số có thể sử dụng như:
       </div>
     </div>
   </div>
-  <script src="../res/js/main.js"></script>
-</body>
+  <script>
+    // fetch('/TAA_FE/src/partials/header--unauth.html')
+    //   .then(response => response.text())
+    //   .then(data => {
+    //     document.querySelector('header').outerHTML = data;
+    //   });
+    $(document).ready(function () {
+      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+      $('#footer').load('/TAA_FE/src/partials/footer.html');
+    });
 
+</html>
+    // fetch('/TAA_FE/src/partials/footer.html')
+    //   .then(response => response.text())
+    //   .then(data => {
+    //     document.querySelector('footer').outerHTML = data;
+    //   });
+  </script>
+</body>
 </html>
