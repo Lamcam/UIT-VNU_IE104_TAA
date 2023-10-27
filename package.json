@@ -11,5 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "jquery": "^3.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lamcam/UIT-VNU_IE104_TAA.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lamcam/UIT-VNU_IE104_TAA/issues"
+  },
+  "homepage": "https://github.com/Lamcam/UIT-VNU_IE104_TAA#readme"
 }
