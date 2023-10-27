@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="../../base.css" />
     <link rel="stylesheet" href="../../../res/css/component.css" />
     <title>Trang cá nhân</title>
+     <!-- connect Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+    
     <style>
       .container {
         max-width: 1024px;
@@ -175,7 +178,7 @@
         "
       >
         <ul class="profile-choice">
-          <li class="profile-li">
+          <li class="profile-li profile_info">
             <span
               class="material-symbols-outlined"
               style="background-color: var(--md-ref-palette-primary100)"
@@ -185,7 +188,7 @@
 
             Thông tin tài khoản
           </li>
-          <li class="profile-li">
+          <li class="profile-li profile_order">
             <span
               class="material-symbols-outlined"
               style="background-color: var(--md-ref-palette-primary100)"
@@ -193,7 +196,7 @@
               hr_resting </span
             >Đơn hàng
           </li>
-          <li class="profile-li">
+          <li class="profile-li profile_favorProduct">
             <span
               class="material-symbols-outlined"
               style="background-color: var(--md-ref-palette-primary100)"
@@ -204,7 +207,7 @@
         </ul>
       </aside>
 
-      <section class="col col-9">
+      <section class="col col-9 profile-info_content">
         <!-- Thông tin tài khoản-->
         <div
           class="section__h1 visible"
@@ -423,8 +426,9 @@
         </div>
       </section>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./accountPage.js"></script>
     <script>
+
       const inputArr = [
         "add-password",
         "add-name",
@@ -452,10 +456,10 @@
         $(element).addClass(activeClassName);
       }
 
-      $(".profile-li").on("click", function () {
-        addActiveClass(this, "active-li");
-      });
+     
 
+
+     
 
       // Lấy tất cả các thẻ span có lớp input-icon
 const editIcons = document.querySelectorAll(".input-icon");
