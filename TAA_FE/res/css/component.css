@@ -94,6 +94,7 @@ span.btn-checkbox {
     display: none;
 
     &+label {
+      display: block;
       & .btn-checkbox--unchecked {
         display: flex;
       }
@@ -104,11 +105,13 @@ span.btn-checkbox {
     }
 
     &:checked+label {
-      .btn-checkbox--unchecked {
+      display: block;
+
+      & .btn-checkbox--unchecked {
         display: none !important;
       }
 
-      .btn-checkbox--checked {
+      & .btn-checkbox--checked {
         display: flex !important;
       }
     }
