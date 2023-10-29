@@ -95,11 +95,11 @@ span.btn-checkbox {
 
     &+label {
       display: block;
-      & .btn-checkbox--unchecked {
+      & .--unchecked {
         display: flex;
       }
 
-      & .btn-checkbox--checked {
+      & .--checked {
         display: none;
       }
     }
@@ -107,11 +107,11 @@ span.btn-checkbox {
     &:checked+label {
       display: block;
 
-      & .btn-checkbox--unchecked {
+      & .--unchecked {
         display: none !important;
       }
 
-      & .btn-checkbox--checked {
+      & .--checked {
         display: flex !important;
       }
     }
