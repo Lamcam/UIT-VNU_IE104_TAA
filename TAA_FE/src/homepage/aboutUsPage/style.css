@@ -1,12 +1,3 @@
-header {
-  text-align: center;
-  margin-top: 10px;
-}
-
-body {
-  background-color: #f1efe7;
-}
-
 .content {
   text-align: left;
   margin-bottom: 16px;
@@ -56,9 +47,4 @@ body {
 
 .information__content {
   text-align: justify;
-}
-
-.container {
-  padding-top: 60px;
-  padding-bottom: 60px;
 }

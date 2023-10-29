@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0);
-@import url(TAA_FE/res/css/theme.css);
-@import url(TAA_FE/res/css/component.css);
+@import url(/TAA_FE/res/css/theme.css);
+@import url(/TAA_FE/res/css/component.css);
 
 /* general css */
 :root {

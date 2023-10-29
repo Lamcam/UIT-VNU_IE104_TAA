@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành điểm
+    đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="TAA_FE/src/base.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
+    crossorigin="anonymous"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="../../../res/css/theme.css">
+  <link rel="stylesheet" href="../../base.css">
+  <link rel="stylesheet" href="aboutUs.css">
+  <title>TAA - **Về chúng tôi**</title>
+</head>
+
+<body>
+  <div id="main" class="on-primary">
+    <div id="header"></div>
+    <div id="nav-tree"></div>
+    <section class="mt-12">
+      <!-- Giới hạn lại độ rộng của nội dung -->
+      <div class="container">
+
+        <div class="title">
+          <header class="display-large">VỀ CHÚNG TÔI</header>
+
+        </div>
+
+        <div class="container row">
+          <div class="information col col-6">
+            <img src="../../../public/taashop.png" alt="Logo TAA">
+          </div>
+          <div class="information col col-6">
+            <p class="content body-large mt-12">TAA là thương hiệu phụ kiện dẫn
+              dầu xu hướng với phong cách thiết kế đơn giản, sành điệu, sản phẩm
+              tiêu chuẩn cao dành cho giới trẻ toàn cầu tự tin thể hiện cá tính
+              và phong cách riêng. Được thành lập vào năm 2023, chúng tôi đã trở
+              thành nhà phân phối đầu tiên đi tiên phong với phân khúc sản phẩm
+              siêu hời dưới "99.000vnđ" nhằm mang lại góc nhìn khác hơn về giá
+              thành của thương hiệu Việt.
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <img class="picture1" src="../../../Public/CNTT2021 1.png"
+        alt="Về chúng tôi">
+      <div class="container row">
+        <div class="information col col-6">
+          <ul class="information__title display-small">
+            <li>WHAT WE DO</li>
+            <li>Young generatio ally</li>
+          </ul>
+        </div>
+        <div class="information col col-6">
+          <p class="information__content body-large">Sứ mệnh của TAA là Cổ vũ
+            cho thế hệ trẻ toàn thế giới tự do thể hiện phong cách thông qua
+            thời trang, thương hiệu vượt qua ranh giới của thời trang đường phố
+            bằng cách không ngừng sáng tạo các trang phục trong các bộ sưu tập
+            độc đáo. TAA mong muốn đồng hành và tôn vinh thế hệ trẻ tài năng qua
+            những xu hướng thời trang và hoạt động cộng đồng sáng tạo. Từ đó tạo
+            dấu ấn cho giá trị bền vững để cùng các tài năng trẻ phát triển.</p>
+        </div>
+      </div>
+      <img class="picture2" src="../../../Public/advertisement.png"
+        alt="Cửa hàng">
+      <div class="container row">
+        <div class="contact col col-6">
+          <p class="contact__title display-small">LIÊN HỆ</p>
+        </div>
+        <div class="contact col col-6">
+          <ul class="contact__list body-large">
+            <li>Instagram: TAA_Shop</li>
+            <li>Shopee: TAA_Shop - Three Accessories Appreciate</li>
+            <li>Facebook: TAA</li>
+          </ul>
+        </div>
+      </div>
+      <img class="picture3" src="../../../public/poster.png" alt="Định hướng">
+    </section>
+  </div>
+  <div id="footer"></div>
+
+  <!-- Modal -->
+  <div id="modal"></div>
+
+  <script>
+    $(document).ready(function () {
+      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+      $('#footer').load('/TAA_FE/src/partials/footer.html');
+    });
+  </script>
+</body>
+</html>
