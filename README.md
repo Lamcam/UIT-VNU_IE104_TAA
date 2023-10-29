@@ -1,4 +1,5 @@
 # UIT-VNU_IE104_TAA
+
 Đây là đồ án cuối kỳ môn IE104 - Internet và công nghệ Web của nhóm sinh viên của trường Đại học Công nghệ Thông tin - ĐHQG
 
 # Guild Code
@@ -11,7 +12,7 @@ index.html
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="IE104.O12_Group3">
-  <meta name="description" content="Trang web TAA là một nền tảng thương mại 
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại
     điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
@@ -30,9 +31,9 @@ index.html
 
     <main>
       <section class="mt-12"> <!-- Dành cho việc chia cột nội dung-->
-        <div class="container">
+        <div class="container row">
           <aside class="col-3"></aside>
-          <section  class="col-9">
+          <section class="col-8">
             <h1 class="section__title"></h1>
             <div class="section__content"></div>
           </section>
@@ -52,6 +53,10 @@ index.html
         <h1 class="section__title"></h1>
         <div class="section__content"></div>
       </section>
+
+      <div class="mt-12">
+        <img src="...">
+      </div>
     </main>
 
     <!-- <footer></footer> -->
