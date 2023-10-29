@@ -31,9 +31,9 @@ index.html
 
     <main>
       <section class="mt-12"> <!-- Dành cho việc chia cột nội dung-->
-        <div class="container">
+        <div class="container row">
           <aside class="col-3"></aside>
-          <section  class="col-9">
+          <section class="col-8">
             <h1 class="section__title"></h1>
             <div class="section__content"></div>
           </section>
@@ -53,6 +53,10 @@ index.html
         <h1 class="section__title"></h1>
         <div class="section__content"></div>
       </section>
+
+      <div class="mt-12">
+        <img src="...">
+      </div>
     </main>
 
     <!-- <footer></footer> -->
