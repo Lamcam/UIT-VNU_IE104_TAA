@@ -1,0 +1,16 @@
+table {
+  border-collapse: collapse;
+  border: 0px;
+
+  width: 100%;
+}
+
+thead {
+  height: 60px;
+}
+
+tbody {
+  & tr {
+    padding: 1rem;
+  }
+}

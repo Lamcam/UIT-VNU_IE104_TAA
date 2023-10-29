@@ -94,21 +94,24 @@ span.btn-checkbox {
     display: none;
 
     &+label {
-      & .btn-checkbox--unchecked {
+      display: block;
+      & .--unchecked {
         display: flex;
       }
 
-      & .btn-checkbox--checked {
+      & .--checked {
         display: none;
       }
     }
 
     &:checked+label {
-      .btn-checkbox--unchecked {
+      display: block;
+
+      & .--unchecked {
         display: none !important;
       }
 
-      .btn-checkbox--checked {
+      & .--checked {
         display: flex !important;
       }
     }

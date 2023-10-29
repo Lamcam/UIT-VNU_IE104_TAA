@@ -8,7 +8,7 @@
         <input class="label-large" type="text" placeholder="Tìm kiếm">
         <button class="btn-icon btn--filled" type="submit">
           <div class="status-layer">
-            <span class="icon material-icons">search</span>
+            <span class="icon material-symbols-outlined">search</span>
           </div>
         </button>
       </span>
@@ -16,15 +16,22 @@
         <a href="#" style="text-decoration: none;">
           <button class="btn-icon">
             <div class="status-layer">
-              <span class="material-icons icon">shopping_cart</span>
+              <span class="icon material-symbols-outlined">shopping_cart</span>
             </div>
           </button>
         </a>
-        <img class="header__avatar" src="/TAA_FE/public/avatar.png" alt="Avatar">
-        <div class="header__user"
-          style="display: none; position: absolute; top: 100%; right: 0; flex-direction: column;">
-          <span class="label-large">Nguyễn Văn A</span>
-          <span class="label-small">Thành viên</span>
+        <label for="header__user--controller"
+          class="header__user--controller__label">
+          <span class="header__user__name">Nguyễn Văn A</span>
+          <img class="header__user__avatar" src="/TAA_FE/public/avatar.png"
+            alt="Avatar">
+        </label>
+        <input type="checkbox" id="header__user--controller">
+        <div class="header__user">
+          <a class="label-small" href="#">Thông tin cá nhân</a>
+          <a class="label-small" href="#">Đơn hàng</a>
+          <a class="label-small" href="#">Sản phẩm yêu thích</a>
+          <a class="label-small" href="#">Đăng xuất</a>
         </div>
       </div>
     </div>
