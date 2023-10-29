@@ -122,7 +122,7 @@ span.btn-checkbox {
 .search-bar {
   min-width: 256px;
 
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   gap: 8px;
   align-items: center;
