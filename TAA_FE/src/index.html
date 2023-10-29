@@ -1,190 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="author" content="IE104.O12_Group3">
-  <meta name="description" content="Trang web TAA là một nền tảng thương mại 
-    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
-    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./base.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
-    crossorigin="anonymous"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
-  <title>TAA</title>
-</head>
-<body>
-  
-  <div id="main" class="on-primary">
-    <div id="header"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="IE104.O12_Group3">
+        <meta name="description" content="Trang web TAA là một nền tảng thương mại
+                điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+                cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+                điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./base.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60" crossorigin="anonymous"></script>
+        <script src="/TAA_FE/res/js/main.js"></script>
+        <title>TAA</title>
+    </head>
+    <body>
 
-    <div id="nav-tree"></div>
+        <div id="main" class="on-primary">
+            <div id="header"></div>
 
-    <main>
-      <section class="slider mt-12"></section>
-      <section class="mt-12">
-        <div class="container">
-          <h1 class="section__title display-medium">Hướng dẫn mua hàng</h1>
-          <div class="section__content"></div>
+            <div id="nav-tree"></div>
+
+            <main>
+                <section class="slider mt-12"></section>
+                <section class="mt-12">
+                    <div class="container">
+                        <h1 class="section__title display-medium">Hướng dẫn mua hàng</h1>
+                        <div class="section__content"></div>
+                    </div>
+                </section>
+
+                <section class="mt-12">
+                    <div class="container">
+                        <div class="row">
+                            <aside class="col-3 visible"></aside>
+                            <section class="col-9 visible" style="height: 100px;"></section>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- <footer></footer> -->
+            <div id="footer"></div>
+
+            <!-- Modal -->
+            <div id="modal--login" class="modal">
+                <div class="modal__content on-primary">
+                    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+                        <div class="status-layer">
+                            <span class="material-icons icon">close</span>
+                        </div>
+                    </button>
+                    <h1 class="modal__title headline-large">Đăng nhập</h1>
+                    <form action="/login" method="POST">
+                        <div class="form__row mt-24">
+                            <div class="row">
+                                <label class="col-4 label-large" for="f_log_name">
+                                    Tên đăng nhập:</label>
+                                <input class="col-8" type="text" name="f_log_name" id="f_log_name" required>
+                            </div>
+                        </div>
+                        <div class="form__row mt-12">
+                            <div class="row">
+                                <label class="col-4 label-large" for="f_log_pass">
+                                    Mật khẩu:</label>
+                                <input class="col-8" type="password" name="f_log_pass" id="f_log_pass" required>
+                            </div>
+                        </div>
+                        <button class="btn--filled label-large full-width mt-12" type="submit">
+                            <div class="status-layer">
+                                <span>Đăng nhập</span>
+                            </div>
+                        </button>
+                    </form>
+                    <div class="form__row mt-12">
+                        <div class="row">
+                            <span class="col-12 label-large">Bạn quên mật khẩu?
+                                <a href="#">Quên
+                                                    mật khẩu</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal--register" class="modal">
+                <div class="modal__content on-primary">
+                    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+                        <div class="status-layer">
+                            <span class="material-icons icon">close</span>
+                        </div>
+                    </button>
+                    <h1 class="modal__title headline-large">Đăng ký</h1>
+                    <form action="/register" method="POST">
+                        <div class="form__row mt-24">
+                            <div class="row">
+                                <label class="col-4 label-large" for="f_reg_name">
+                                    Tên đăng nhập:</label>
+                                <input class="col-8" type="text" name="f_reg_name" id="f_reg_name" required>
+                            </div>
+                        </div>
+                        <div class="form__row mt-12">
+                            <div class="row">
+                                <label class="col-4 label-large" for="f_reg_phone">
+                                    Số điện thoại:</label>
+                                <input class="col-8" type="text" name="f_reg_phone" id="f_reg_phone" required>
+                            </div>
+                        </div>
+                        <div class="form__row mt-12">
+                            <div class="row">
+                                <label class="col-4 label-large" for="f_reg_email">
+                                    Email:</label>
+                                <input class="col-8" type="email" name="f_reg_email" id="f_reg_email" required>
+                            </div>
+                        </div>
+                        <div class="form__row mt-12">
+                            <div class="row">
+                                <label class="col-4 label-large" for="f_reg_pass">
+                                    Mật khẩu:</label>
+                                <input class="col-8" type="password" name="f_reg_pass" id="f_reg_pass" required>
+                            </div>
+                        </div>
+                        <div class="form__row mt-12">
+                            <div class="row">
+                                <label class="col-4 label-large" for="f_reg_pass_confirm">
+                                    Xác nhận mật khẩu:</label>
+                                <input class="col-8" type="password" name="f_reg_pass_confirm" id="f_reg_pass_confirm" required>
+                            </div>
+                        </div>
+                        <div class="form__row mt-12">
+                            <div class="row">
+                                <span class="btn-checkbox primary-text">
+                                    <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read" required>
+                                    <label for="f_reg_is_read">
+                                        <span class="material-icons icon btn-checkbox--unchecked">
+                                            check_box_outline_blank</span>
+                                        <span class="material-icons icon btn-checkbox--checked">
+                                            check_box</span>
+                                    </label>
+                                </span>
+                                <span class="body-medium" style="text-align: left;">Tôi đã đọc và
+                                                    đồng ý với Điều kiện giao dịch chung và Chính
+                                                    sách bảo mật thông tin của TAA</span>
+                            </div>
+                        </div>
+                        <button class="btn--filled label-large full-width mt-12" type="submit">
+                            <div class="status-layer">
+                                <span>Đăng ký</span>
+                            </div>
+                        </button>
+                    </form>
+                    <div class="form__row mt-12">
+                        <div class="row">
+                            <span class="col-12 label-large">Bạn quên mật khẩu?
+                                <a href="#">Quên
+                                                    mật khẩu</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-
-      <section class="mt-12">
-        <div class="container">
-          <div class="row">
-            <aside class="col-3 visible"></aside>
-            <section class="col-9 visible" style="height: 100px;"></section>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- <footer></footer> -->
-    <div id="footer"></div>
-
-    <!-- Modal -->
-    <div id="modal--login" class="modal">
-      <div class="modal__content on-primary">
-        <button class="modal__btn--close btn-icon" onclick="closeModal()">
-          <div class="status-layer">
-            <span class="material-icons icon">close</span>
-          </div>
-        </button>
-        <h1 class="modal__title headline-large">Đăng nhập</h1>
-        <form action="/login" method="POST">
-          <div class="form__row mt-24">
-            <div class="row">
-              <label class="col-4 label-large" for="f_log_name">
-                Tên đăng nhập:</label>
-              <input class="col-8" type="text" name="f_log_name" id="f_log_name"
-                required>
-            </div>
-          </div>
-          <div class="form__row mt-12">
-            <div class="row">
-              <label class="col-4 label-large" for="f_log_pass">
-                Mật khẩu:</label>
-              <input class="col-8" type="password" name="f_log_pass"
-                id="f_log_pass" required>
-            </div>
-          </div>
-          <button class="btn--filled label-large full-width mt-12"
-            type="submit">
-            <div class="status-layer">
-              <span>Đăng nhập</span>
-            </div>
-          </button>
-        </form>
-        <div class="form__row mt-12">
-          <div class="row">
-            <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#">Quên
-                mật khẩu</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="modal--register" class="modal">
-      <div class="modal__content on-primary">
-        <button class="modal__btn--close btn-icon" onclick="closeModal()">
-          <div class="status-layer">
-            <span class="material-icons icon">close</span>
-          </div>
-        </button>
-        <h1 class="modal__title headline-large">Đăng ký</h1>
-        <form action="/register" method="POST">
-          <div class="form__row mt-24">
-            <div class="row">
-              <label class="col-4 label-large" for="f_reg_name">
-                Tên đăng nhập:</label>
-              <input class="col-8" type="text" name="f_reg_name" id="f_reg_name"
-                required>
-            </div>
-          </div>
-          <div class="form__row mt-12">
-            <div class="row">
-              <label class="col-4 label-large" for="f_reg_phone">
-                Số điện thoại:</label>
-              <input class="col-8" type="text" name="f_reg_phone"
-                id="f_reg_phone" required>
-            </div>
-          </div>
-          <div class="form__row mt-12">
-            <div class="row">
-              <label class="col-4 label-large" for="f_reg_email">
-                Email:</label>
-              <input class="col-8" type="email" name="f_reg_email"
-                id="f_reg_email" required>
-            </div>
-          </div>
-          <div class="form__row mt-12">
-            <div class="row">
-              <label class="col-4 label-large" for="f_reg_pass">
-                Mật khẩu:</label>
-              <input class="col-8" type="password" name="f_reg_pass"
-                id="f_reg_pass" required>
-            </div>
-          </div>
-          <div class="form__row mt-12">
-            <div class="row">
-              <label class="col-4 label-large" for="f_reg_pass_confirm">
-                Xác nhận mật khẩu:</label>
-              <input class="col-8" type="password" name="f_reg_pass_confirm"
-                id="f_reg_pass_confirm" required>
-            </div>
-          </div>
-          <div class="form__row mt-12">
-            <div class="row">
-              <span class="btn-checkbox primary-text">
-                <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read"
-                  required>
-                <label for="f_reg_is_read">
-                  <span class="material-icons icon btn-checkbox--unchecked">
-                    check_box_outline_blank</span>
-                  <span class="material-icons icon btn-checkbox--checked">
-                    check_box</span>
-                </label>
-              </span>
-              <span class="body-medium" style="text-align: left;">Tôi đã đọc và
-                đồng ý với Điều kiện giao dịch chung và Chính
-                sách bảo mật thông tin của TAA</span>
-            </div>
-          </div>
-          <button class="btn--filled label-large full-width mt-12"
-            type="submit">
-            <div class="status-layer">
-              <span>Đăng ký</span>
-            </div>
-          </button>
-        </form>
-        <div class="form__row mt-12">
-          <div class="row">
-            <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#">Quên
-                mật khẩu</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <script>
-    // fetch('/TAA_FE/src/partials/header--unauth.html')
-    //   .then(response => response.text())
-    //   .then(data => {
-    //     document.querySelector('header').outerHTML = data;
-    //   });
-    $(document).ready(function () {
-      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/src/partials/footer.html');
-    });
-
-</html>
-    // fetch('/TAA_FE/src/partials/footer.html')
-    //   .then(response => response.text())
-    //   .then(data => {
-    //     document.querySelector('footer').outerHTML = data;
-    //   });
-  </script>
-</body>
+        <script>
+            // fetch('/TAA_FE/src/partials/header--unauth.html')
+            // .then(response => response.text())
+            // .then(data => {
+            //     document.querySelector('header').outerHTML = data;
+            // });
+            $(document).ready(function () {
+                $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+                $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+                $('#footer').load('/TAA_FE/src/partials/footer.html');
+            });
+            // fetch('/TAA_FE/src/partials/footer.html')
+            // .then(response => response.text())
+            // .then(data => {
+            //     document.querySelector('footer').outerHTML = data;
+            // });
+        </script>
+    </body>
 </html>
