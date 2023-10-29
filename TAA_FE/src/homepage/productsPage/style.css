@@ -1,0 +1,330 @@
+.mr-8 {
+  margin-right: 8px;
+}
+
+.aside {
+  margin-right: 10px;
+}
+
+.aside__list {
+  margin: 0;
+  list-style-type: none;
+  padding: 12px 0;
+}
+
+.aside__list .title {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.aside__item span {
+  height: 36px;
+  line-height: 36px;
+}
+
+.aside__list,
+span {
+  /* display: block; */
+  color: #000;
+}
+
+.aside__item,
+.aside__item__sub-menu {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.aside__header {
+  display: block;
+  padding: 0 0 0 36px;
+}
+
+.aside__item:hover .aside__header {
+  background-color: #c5c5c5;
+}
+
+.aside__item.active:hover .aside__header {
+  background-color: transparent;
+}
+
+.aside__item__sub-menu {
+  /* display: none; */
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+  margin-left: calc(36px + 24px);
+  /* &.active {
+        display: block;
+    } */
+}
+
+.aside__item.active {
+  & .aside__header {
+    border-left: 4px solid var(--md-sys-color-primary);
+    padding: 0 0 0 32px;
+  }
+
+  & .aside__item__sub-menu {
+    max-height: 300px;
+  }
+}
+
+/* .aside__list li:hover .aside__item__sub-menu{
+    display: block;
+    max-height: 200px;
+} */
+
+.aside__item__title {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  pointer-events: none;
+  /* margin-left: 18px; */
+}
+
+.aside__item:nth-child(n+2) {
+  /* padding-left: 36px; */
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 36px;
+  width: 36px;
+}
+
+
+.product__filter {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  flex: 1 0 0;
+  margin-bottom: 12px;
+
+}
+
+.product__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: solid 1px #524343;
+  height: 32px;
+  background-color: #fff;
+}
+
+.product__button:last-child {
+  padding: 6px 16px 6px 8px;
+  position: relative;
+}
+
+.icon-check {
+  display: none;
+}
+
+.product__button.effect {
+  /* background-color: var(--md-sys-color-primary); */
+  border: none;
+  background-color: var(--md-sys-color-secondary-container);
+  padding: 6px 16px 6px 8px;
+
+  & .icon-check {
+    display: block;
+  }
+}
+
+.btn--filled {
+  color: #fff;
+  background-color: var(--md-sys-color-primary);
+
+  & .icon-down {
+    color: #fff;
+  }
+}
+.dropdown{
+  min-width: 15rem;
+  position: relative;
+  margin: 2em;
+}
+
+.dropdown *{
+  box-sizing: border-box;
+}
+
+.select{
+  background: #524343;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid #000;
+  border-radius: 8px;
+  padding: 1em; */
+  cursor: pointer;
+  transition: background 0.3;
+
+}
+
+.select-clicked{
+  border: 2px #26489a solid;
+  box-shadow: 0 0 0.8em #26489a;
+}
+
+.seleect:hover{
+  background: #323741;
+}
+
+.caret{
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #fff;
+  transition: 0.3s;
+}
+
+.caret-rotate{
+  transform: rotate(180deg);
+}
+
+.menu{
+  list-style: none;
+  padding: 0.2em 0.5em;
+  background: #323741;
+  border: 1px #363a43 solid;
+  box-shadow: 0 0.5rem 1rem rbga(0,0,0,0.2);
+  border-radius: 0.5rem;
+  color: #9fa5b5;
+  position: absolute;
+  top:3em;
+  left: 50%;
+  width:100%;
+  transform: translateX(-50%);
+  opacity: 0;
+  display: none;
+transition: 0.2s;
+z-index: 1;
+
+}
+.menu li{
+  padding: 0.7rem 0.5rem;
+  margin:0.3rem 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.menu li:hover{
+  background: #2a2d35;
+}
+
+.select__active{
+  background: #23242a;
+}
+
+.menu-open{
+  display: block;
+  opacity: 1;
+}
+/* .filter_price {
+  list-style-type: none;
+  position: absolute;
+  top: 37px;
+  min-width: 140px;
+  display: block;
+  left: 0px;
+  border: solid 1px #221f1f;
+  border-radius: inherit;
+  padding: 6px 16px;
+
+
+} */
+
+/* .product__button:hover{
+  color: #fff;
+  background-color: var(--md-sys-color-primary);
+}
+
+.product__button:hover .icon-down{
+  color: #fff;
+} */
+
+.product__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 1px #ccc;
+  border-radius: 8px;
+  /* height: 20%; */
+  height: 363px;
+  width: 240px;
+}
+
+.product__image {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.product__img {
+  /* display: block; */
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  margin: 12px;
+  border-radius: 4px;
+
+}
+
+/* .product__image:hover{
+  background-image: url('../../../Public/red-panda-small.jpg');
+  width: 100%;
+}
+
+.product__img:hover {
+  opacity: 0;
+} */
+
+.product__item .icon_heart {
+  /* color: red; */
+  /* margin-bottom: 8px; */
+}
+
+.product__body {
+  margin: 12px;
+  text-align: center;
+}
+
+.product__price {
+  display: flex;
+  justify-content: center;
+  /* margin: 8px 0; */
+}
+
+.product__price__current {
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.product__price__discount {
+  text-decoration: line-through;
+
+}
+
+.product__discount {
+  font-weight: bold;
+  margin-bottom: 8px;
+
+}
+
+.product__img {}
+
+.product__stock {
+  font-weight: 500;
+  line-height: 2rem;
+}
