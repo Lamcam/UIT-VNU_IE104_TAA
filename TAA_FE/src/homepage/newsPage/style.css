@@ -23,6 +23,12 @@ p {
     height: 753px;
 }
 
+.img2 {
+    margin-top: 30px;
+    width: 100%;
+    height: 150px;
+}
+
 .new-item {
     /* padding: 6px; */
     border-radius: 8px;
@@ -35,4 +41,3 @@ p {
     height: 100%;
     border-radius: 8px 0px 0px 8px;
 }
-
