@@ -1,3 +1,35 @@
-h1{
+body {
+    background-color: #F1EFE7;
+}
+
+h1 {
     text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+h2,
+p {
+    margin: 0;
+}
+
+ol,
+ul,
+li,
+ol li {
+    list-style-position: inside;
+
+}
+
+ol ul li {
+    padding-left: 30px;
+    list-style-type: disc;
+}
+
+ul ol li {
+    padding-left: 30px;
+}
+
+.step {
+    margin-top: 16px;
 }
