@@ -13,6 +13,7 @@
   padding: 0;
   box-sizing: border-box;
   transition: 300ms;
+  scroll-behavior: smooth;
 }
 
 .mt-8 {
@@ -48,6 +49,7 @@
   width: 100%;
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
   /* margin: 0 -6px; */
 }
 
