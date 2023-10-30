@@ -46,13 +46,14 @@ for (let button of buttons) {
 
 
 
-const dropdowns = document.querySelectorAll('.dropdown');
+// const dropdowns = document.querySelectorAll('.dropdown');
 
 const select = document.querySelector('.select');
 const caret = document.querySelector('.caret');
 const menu = document.querySelector('.menu')
 const options = document.querySelectorAll('.menu li')
 const selected = document.querySelector('.selected')
+const cancel=document.querySelector('.icon-cancel')
 
 
 select.addEventListener('click', () => {
@@ -65,6 +66,7 @@ options.forEach(option => {
   option.addEventListener('click', () => {
     selected.innerText = option.innerText;
     select.classList.remove('select-clicked')
+    select.classList.add('select__width')
     caret.classList.remove('caret-rotate')
     menu.classList.remove('menu-open')
     options.forEach(option => {
@@ -73,4 +75,14 @@ options.forEach(option => {
 
     option.classList.add('select__active')
   })
+})
+
+cancel.addEventListener('click', () => {
+    select.classList.remove('select-clicked')
+    // select.classList.add('select__width')
+    caret.classList.remove('caret-rotate')
+    menu.classList.remove('menu-open')
+    options.forEach(option => {
+      option.classList.remove('select__active')
+    })
 })
