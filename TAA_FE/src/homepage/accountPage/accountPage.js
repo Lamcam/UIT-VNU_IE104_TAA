@@ -7,11 +7,11 @@ $(".profile-li").on("click", function () {
   $("section").empty();
   switch ($(this).index()) {
     case 0:
-      $("section").load("./profileInfoT.html")
+      $("section").load("./index.html")
       break;
 
     case 1:
-      $("section").load("./orderT.html")
+      $("section").load("./order.html")
       break;
     
     case 2:

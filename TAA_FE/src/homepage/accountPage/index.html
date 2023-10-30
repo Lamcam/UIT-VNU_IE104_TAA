@@ -45,7 +45,6 @@
 
       .section__content {
         display: flex;
-        width: 592px;
         padding: 12px 0px;
         flex-direction: column;
         align-items: flex-end;
@@ -54,7 +53,7 @@
 
       .profile-section {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         gap: 16px;
         flex-direction: column;
       }
@@ -62,6 +61,7 @@
       .state-layer {
         height: 40px;
         width: 333px;
+        padding-left:12px;
       }
 
       form > div {
@@ -74,14 +74,15 @@
         position: relative;
         display: inline-block;
       }
+      
       .input__wrapper span {
         position: absolute;
         right: 5px;
         top: 10px;
       }
-
-      .input__wrapper span:hover {
-        
+      
+      .input__wrapper span:active {
+        font-weight: 600;
       }
 
       .section__h2 {
@@ -153,18 +154,107 @@
         justify-content: space-evenly;
         margin-top:12px;
       }
+
+      .profile-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: fit-content;
+  height: fit-content;
+  gap: 2px;
+  width: 98%;
+  height: 100%;
+  margin-left: 0.5em;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+.profile-li {
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 137ms;
+}
+.active-li {
+  border-left: 4px solid black;
+}
+
+.order__content__list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+.order__item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  
+  
+}
+.item__content{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 375px;
+  height: 157px;
+}
+.item_att{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+.att_totalRate{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:flex-end
+}
+.item__status{
+  width: 161px;
+  height: 157px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.item__status .status{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 6em;
+}
+.item__status .item_repurchase{
+  margin-top: auto;
+  width: 161px;
+  
+  padding: 10px 24px;
+
+  
+}
+.btn-rate{
+  margin-top: auto;
+  width: 104px;
+  margin-left: auto;
+}
+.btn{
+  height: 40px;
+}
+.item_att_price_content{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
     </style>
   </head>
 
   <body class="on-primary">
-    <header
-      style="
-        height: 120px;
-        width: 100%;
-        background-color: var(--md-ref-palette-primary50);
-      "
-    ></header>
-
+    <div id="header"></div>
+    <div id="nav-tree"></div>
+<main>
     <div class="container row">
       <aside
         class="aside body-large visible col-3 col"
@@ -220,7 +310,7 @@
 
         <!-- Hồ sơ cá nhân -->
         <div class="profile-section visible" style="padding: 24px">
-          <h2 class="headline-small" style="padding-left: 12px">
+          <h2 class="headline-small" style="margin-left: -534px">
             Hồ sơ cá nhân
           </h2>
 
@@ -232,7 +322,7 @@
                   class="state-layer add-username"
                   name="username"
                   type="text"
-                  placeholder="   abc"
+                  placeholder="abc"
                   readonly
                 />
               </div>
@@ -245,7 +335,7 @@
                   class="state-layer add-password"
                   name="password"
                   type="text"
-                  placeholder="   ********"
+                  placeholder="********"
                 />
                 <span class="material-symbols-outlined input-icon"> edit </span>
               </div>
@@ -257,7 +347,7 @@
                   class="state-layer add-name"
                   name="name"
                   type="text"
-                  placeholder="   Nguyễn Văn A"
+                  placeholder="Nguyễn Văn A"
                 />
                 <span class="material-symbols-outlined input-icon"> edit </span>
               </div>
@@ -269,7 +359,7 @@
                   class="state-layer add-phonenumber"
                   name="phonenumber"
                   type="text"
-                  placeholder="   *******629"
+                  placeholder="*******629"
                 />
                 <span class="material-symbols-outlined input-icon"> edit </span>
               </div>
@@ -281,14 +371,14 @@
                   class="state-layer add-email"
                   name="email"
                   type="text"
-                  placeholder="   2152****@gm.uit.edu.vn"
+                  placeholder="2152****@gm.uit.edu.vn"
                 />
                 <span class="material-symbols-outlined input-icon"> edit </span>
               </div>
             </div>
-            <button class="header__btn--login btn--filled" type="button">
+            <button class="header__btn--login btn--filled" type="button" style="background: var(--m-3-state-layers-light-on-surface-opacity-012, rgba(29, 27, 32, 0.12));">
               <div class="status-layer label-large">
-                <span class="label-large">Lưu thay đổi</span>
+                <span class="label-large" style="font-weight: 500;" >Lưu thay đổi</span>
               </div>
             </button>
           </form>
@@ -421,9 +511,17 @@
           </div>
         </div>
       </section>
+    <!-- <div id="footer"></div> -->
     </div>
+</main>
+    
+  </body>
+
+  <div id="footer"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
+
+
       const inputArr = [
         "add-password",
         "add-name",
@@ -454,6 +552,24 @@
       $(".profile-li").on("click", function () {
         addActiveClass(this, "active-li");
       });
+
+
+      // Lấy tất cả các thẻ span có lớp input-icon
+const editIcons = document.querySelectorAll(".input-icon");
+
+      // Lặp qua từng thẻ và thêm sự kiện click
+editIcons.forEach(editIcon => {
+  editIcon.addEventListener("click", function() {
+    const inputWrapper = editIcon.closest(".input__wrapper");
+    inputWrapper.style.border = "1px solid saddlebrown";
+  });
+});
+
+$(document).ready(function () {
+      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+      $('#footer').load('/TAA_FE/src/partials/footer.html');
+    });
     </script>
-  </body>
+
 </html>
