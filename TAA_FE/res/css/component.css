@@ -90,11 +90,14 @@ button.btn--filled {
 }
 
 span.btn-checkbox {
+  display: inline-flex;
+
   & input {
     display: none;
 
     &+label {
       display: block;
+
       & .--unchecked {
         display: flex;
       }
@@ -118,6 +121,12 @@ span.btn-checkbox {
   }
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  margin-inline: 12px;
+  background: var(--md-sys-color-outline-variant-light);
+}
 
 .search-bar {
   min-width: 256px;
@@ -141,12 +150,8 @@ span.btn-checkbox {
 
   & button.btn-icon {
     height: 32px;
-    width: 32px;
+    max-width: 32px;
+    padding: 0px;
     border-radius: 8px;
-
-    & .status-layer {
-      height: 32px;
-      width: 32px;
-    }
   }
 }
