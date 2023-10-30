@@ -188,6 +188,10 @@ main {
 
   &>section {
     padding: 0 32px;
+    
+    &.full-width {
+      padding: 0;
+    }
   }
 }
 
@@ -232,10 +236,6 @@ input {
   border: 1px solid var(--md-sys-color-outline);
   padding: 0 12px;
   background-color: transparent;
-
-  &:not([type=number]) {
-    width: 100%;
-  }
 }
 
 /* general class */
