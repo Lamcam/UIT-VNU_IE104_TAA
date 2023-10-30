@@ -4,7 +4,9 @@
 // profile_info
 $(".profile-li").on("click", function () {
   addActiveClass(this, "active-li");
-  $("section").empty();
+  // $("section").empty();
+  
+  
   switch ($(this).index()) {
     case 0:
       $("section").load("./profileInfoT.html")
