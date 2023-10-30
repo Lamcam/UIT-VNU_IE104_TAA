@@ -6,18 +6,17 @@ a {
   text-align: center;
 }
 
-/* p {
-  margin: 12px;
-} */
-
-.img1 {
+[class^="banner__img"] {
+  object-fit: cover;
   width: 100%;
-  height: 768px;
-}
 
-.banner__img {
-  width: 100%;
-  height: 192px;
+  &.banner__img--large {
+    height: 768px;
+  }
+
+  &.banner__img--small {
+    height: 192px;
+  }
 }
 
 .news__item {
