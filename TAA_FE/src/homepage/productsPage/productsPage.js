@@ -1,6 +1,6 @@
 var items = document.querySelectorAll(".js-item")
 var sub_menu = document.querySelectorAll(".js-sub-menu")
-var buttons=document.querySelectorAll('.js-button')
+var buttons = document.querySelectorAll('.js-button')
 function showSubMenu() {
   if (this.classList.contains("active")) {
     this.classList.remove("active")
@@ -31,7 +31,7 @@ for (let item of items) {
 
 
 // effect on click button
-function effectButton(){
+function effectButton() {
   if (this.classList.contains("effect")) {
     this.classList.remove("effect");
     return
@@ -46,28 +46,28 @@ for (let button of buttons) {
 
 
 
-const dropdowns=document.querySelectorAll('.dropdown');
+const dropdowns = document.querySelectorAll('.dropdown');
 
-  const select=document.querySelector('.select');
-  const caret=document.querySelector('.caret');
-  const menu=document.querySelector('.menu')
-  const options=document.querySelectorAll('.menu li')
-  const selected=document.querySelector('.selected')
+const select = document.querySelector('.select');
+const caret = document.querySelector('.caret');
+const menu = document.querySelector('.menu')
+const options = document.querySelectorAll('.menu li')
+const selected = document.querySelector('.selected')
 
 
-select.addEventListener('click',()=>{
+select.addEventListener('click', () => {
   select.classList.toggle('select-clicked');
   caret.classList.toggle('caret-rotate');
   menu.classList.toggle('menu-open');
 })
 
-options.forEach(option =>{
-  option.addEventListener('click',()=>{
-    selected.innerText=option.innerText;
+options.forEach(option => {
+  option.addEventListener('click', () => {
+    selected.innerText = option.innerText;
     select.classList.remove('select-clicked')
     caret.classList.remove('caret-rotate')
     menu.classList.remove('menu-open')
-    options.forEach(option=>{
+    options.forEach(option => {
       option.classList.remove('select__active')
     })
 

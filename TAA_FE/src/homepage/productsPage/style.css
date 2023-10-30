@@ -149,7 +149,7 @@ span {
 .dropdown{
   min-width: 15rem;
   position: relative;
-  margin: 2em;
+  /* margin: 2em; */
 }
 
 .dropdown *{
