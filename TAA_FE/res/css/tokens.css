@@ -213,21 +213,21 @@
   --md-sys-typescale-display-large-font-family-style: Regular;
   --md-sys-typescale-display-large-font-weight: 400px;
   --md-sys-typescale-display-large-font-size: 57px;
-  --md-sys-typescale-display-large-line-height: 64px;
+  --md-sys-typescale-display-large-line-height: 86px;
   --md-sys-typescale-display-large-letter-spacing: -0.25px;
   /* display - medium */
   --md-sys-typescale-display-medium-font-family-name: "Playfair display";
   --md-sys-typescale-display-medium-font-family-style: Regular;
   --md-sys-typescale-display-medium-font-weight: 400px;
   --md-sys-typescale-display-medium-font-size: 45px;
-  --md-sys-typescale-display-medium-line-height: 52px;
+  --md-sys-typescale-display-medium-line-height: 68px;
   --md-sys-typescale-display-medium-letter-spacing: 0px;
   /* display - small */
   --md-sys-typescale-display-small-font-family-name: "Playfair display";
   --md-sys-typescale-display-small-font-family-style: Regular;
   --md-sys-typescale-display-small-font-weight: 400px;
   --md-sys-typescale-display-small-font-size: 36px;
-  --md-sys-typescale-display-small-line-height: 44px;
+  --md-sys-typescale-display-small-line-height: 54px;
   --md-sys-typescale-display-small-letter-spacing: 0px;
   /* headline - large */
   --md-sys-typescale-headline-large-font-family-name: Roboto;

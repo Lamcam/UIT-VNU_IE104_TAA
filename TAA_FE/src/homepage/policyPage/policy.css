@@ -1,0 +1,27 @@
+body{
+    background-color: #F1EFE7;
+}
+
+.title1 {
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 32px;
+}
+
+.title2 {
+    text-align: center;
+    margin-top: 44px;
+    margin-bottom: 32px;
+}
+
+ul li {
+    list-style-type: disc;
+}
+
+.sub-title {
+    margin-top: 12px;
+}
+
+.text {
+    text-align: justify;
+}

@@ -1,0 +1,42 @@
+a {
+  text-decoration: none;
+}
+
+.section__title {
+  text-align: center;
+}
+
+[class^="banner__img"] {
+  object-fit: cover;
+  width: 100%;
+
+  &.banner__img--large {
+    height: 768px;
+  }
+
+  &.banner__img--small {
+    height: 192px;
+  }
+}
+
+.news__item {
+  display: flex;
+}
+
+.news__img {
+  height: 100%;
+  border-radius: 8px 0px 0px 8px;
+}
+
+.news__body {
+  padding: 12px 12px 12px 0;
+}
+
+.article__title {
+  font-weight: bold;
+}
+
+.article__context {
+  text-align: justify;
+  overflow: clip;
+}

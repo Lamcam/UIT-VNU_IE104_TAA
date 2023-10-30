@@ -1,21 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="../../base.css">
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/TAA_FE/src/base.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
+    crossorigin="anonymous"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
+  <title>TAA - Hướng dẫn mua hàng</title>
 </head>
-
 <body>
-    <div class="container">
-        <h1 class="display-large"> HƯỚNG DẪN MUA HÀNG <br>TRÊN WEBSITE</h1>
-        <p class="body-small">Quý khách vui lòng tham khảo thông tin chi tiết về từng bước đặt hàng như sau:</p>
-    </div>
-</body>
+  <div id="main" class="on-primary">
+    <div id="header"></div>
+    <div id="nav-tree"></div>
 
+    <main>
+      <section class="mt-12"> <!-- Giới hạn lại độ rộng của nội dung -->
+        <div class="container">
+          <h1 class="section__title display-large">HƯỚNG DẪN MUA HÀNG <br>TRÊN
+            WEBSITE</h1>
+          <div class="section__content body-large">
+            <p>Quý khách vui lòng tham khảo thông tin chi tiết về từng bước đặt
+              hàng như sau:</p>
+            <h2 class="section__title headline-large">TÌM KIẾM VÀ CHỌN SẢN
+              PHẨM YÊU THÍCH TRÊN WEBSITE</h2>
+            <p>Quý khách có thể chọn tìm kiếm sản phẩm theo 2 cách sau:</p>
+            <ol>
+              <li>Gõ tên sản phẩm vào thanh tìm kiếm
+                <span class="search-bar">
+                  <input class="label-large" type="text" placeholder="Tìm kiếm">
+                  <button class="btn-icon btn--filled">
+                    <div class="status-layer">
+                      <span class="icon material-symbols-outlined">
+                        search</span>
+                    </div>
+                  </button>
+                </span> phía trên cùng webiste.
+              </li>
+              <li>Tìm sản phẩm trong mục "SẢN PHẨM" trên thanh menu.</li>
+            </ol>
+            <p>Sau khi tìm kiếm và lựa chọn cho mình sản phẩm ưng ý, quý
+              khách nhấn chọn vào sản phẩm để xem hàng. Tại đây, khách hàng
+              chọn Màu sắc, Kích cỡ và Số lượng sản phẩm muốn mua và chọn
+              mua sản phẩm bằng cách bấm chuột vào nút
+              <button class="btn--filled" type="button">
+                <div class="status-layer label-large">
+                  <span class="label-large">Mua hàng</span>
+                </div>
+              </button>.
+            </p>
+            <p>Nếu quý khách lựa chọn
+              <button class="btn--outlined" type="button">
+                <div class="status-layer label-large">
+                  <span class="label-large">Thêm vào giỏ hàng</span>
+                </div>
+              </button> từ Giỏ hàng, khách hàng lựa chọn sản phẩm muốn mua,
+              Số lượng sản phẩm và bấm chuột vào nút
+              <button class="btn--filled" type="button">
+                <div class="status-layer label-large">
+                  <span class="label-large">Tiến hành đặt hàng</span>
+                </div>
+              </button>.
+            </p>
+            <h2 class="section__title headline-large">TIẾN HÀNH ĐẶT HÀNG VÀ
+              THANH TOÁN ĐƠN HÀNG</h2>
+            <p>Trên trang thanh toán, khách hàng lưu ý điền đầy đủ thông tin bắt
+              buộc cho đơn hàng</p>
+            <h3 class="section__title">Thông tin nhận hàng</h3>
+            <i>* TAA khuyến khích khách hàng mua sắm bằng cách đăng ký tài khoản
+              tại TAA.com để tiết kiệm thời gian và nhận những ưu đãi qua tài
+              khoản. Với tài khoản này, bạn sẽ dễ dàng đặt mua sản phẩm mà không
+              cần điền lại thông tin mỗi lần mua hàng</i>
+            <ul>
+              <li>Đối với khách hàng đã có tài khoản, xin vui lòng đăng nhập
+                bằng tài khoản đã có sẵn trước khi đặt hàng.</li>
+              <li>Đối với khách hàng chưa có tài khoản, xin vui lòng đăng ký,
+                sau đó đăng nhập tài khoản.</li>
+            </ul>
+            <h3 class="section__title">Phương thức vận chuyển</h3>
+            <p>Khách hàng vui lòng chọn phương thức vận chuyển theo nhu cầu</p>
+            <ul>
+              <li>Giao hàng nhanh trong 2h</li>
+              <li>Giao hàng trong 48h</li>
+            </ul>
+            <h3 class="section__title">Phương thức thanh toán</h3>
+            <p>Bạn có thể chọn một trong các phương thức thanh toán có sẵn:</p>
+            <ul>
+              <li>Thanh toán khi nhận hàng bằng tiền mặt (COD).</li>
+              <li>Thanh toán trực tuyến qua ngân hàng.</li>
+            </ul>
+
+            <h2 class="section__title headline-large">XÁC NHẬN ĐƠN HÀNG</h2>
+            <p>Sau khi hoàn tất quy trình mua hàng online trên website, quý
+              khách vui lòng kiểm tra thư điện tử Xác Nhận Đặt Hàng với thông
+              tin chi tiết về đơn hàng mà khách hàng đã đặt trước đó.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer></footer> -->
+    <div id="footer"></div>
+
+    <!-- Modal -->
+    <div id="modal"></div>
+  </div>
+  <script>
+    $(document).ready(function () {
+      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+      $('#footer').load('/TAA_FE/src/partials/footer.html');
+    });
+  </script>
+</body>
 </html>

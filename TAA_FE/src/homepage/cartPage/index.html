@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại 
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/TAA_FE/src/base.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
+    crossorigin="anonymous"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
+  <title>TAA - Giỏ hàng</title>
+</head>
+<body>
+  <div id="main" class="on-primary">
+    <div id="header"></div>
+
+    <div id="nav-tree"></div>
+
+    <main>
+      <section class="mt-12">
+        <div class="container">
+          <div class="row">
+            <section class="col-8 visible">
+              <table>
+                <thead class="primary on-primary-text">
+                  <th>
+                    <span class="btn-checkbox">
+                      <input type="checkbox" id="f_all" name="f_all">
+                      <label for="f_all">
+                        <span
+                          class="material-icons icon btn-checkbox--unchecked">
+                          check_box_outline_blank</span>
+                        <span class="material-icons icon btn-checkbox--checked">
+                          check_box</span>
+                      </label>
+                    </span>
+                  </th>
+                  <th colspan="2">Sản phẩm</th>
+                  <th>Giá tiền</th>
+                  <th>Thành tiền</th>
+                  <th>Thao tác</th>
+                </thead>
+                <tbody>
+                  <td>
+                    <span class="btn-checkbox primary-text">
+                      <input type="checkbox" id="f_prod_1" name="f_prod_1">
+                      <label for="f_prod_1">
+                        <span
+                          class="material-icons icon btn-checkbox--unchecked">
+                          check_box_outline_blank</span>
+                        <span class="material-icons icon btn-checkbox--checked">
+                          check_box</span>
+                      </label>
+                    </span>
+                  </td>
+                  <td><img src="" alt=""></td>
+                  <td>Tên sản phẩm</td>
+                  <td>Giá tiền</td>
+                  <td><input type="number" min="1" step="1"></td>
+                </tbody>
+              </table>
+            </section>
+            <aside class="col-4">
+              <ul class="visible">
+                <li>laksdjlfk</li>
+                <li class="mt-8">laksdjlfk</li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer></footer> -->
+    <div id="footer"></div>
+
+    <!-- Modal -->
+  </div>
+  <script>
+    $(document).ready(function () {
+      $('#header').load('/TAA_FE/src/partials/header--auth.html');
+      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+      $('#footer').load('/TAA_FE/src/partials/footer.html');
+    });
+  </script>
+</body>
+</html>
