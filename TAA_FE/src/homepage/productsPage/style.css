@@ -2,9 +2,9 @@
   margin-right: 8px;
 }
 
-.aside {
+/* .aside {
   margin-right: 10px;
-}
+} */
 
 .aside__list {
   margin: 0;
@@ -23,11 +23,11 @@
   line-height: 36px;
 }
 
-.aside__list,
+/* .aside__list,
 span {
-  /* display: block; */
+  /* display: block; 
   color: #000;
-}
+} */
 
 .aside__item,
 .aside__item__sub-menu {
