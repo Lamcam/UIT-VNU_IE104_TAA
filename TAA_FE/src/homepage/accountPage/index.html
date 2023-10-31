@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="../../../res/css/component.css" />
     <title>Trang cá nhân</title>
     <style>
+    body main {
+    min-height: 612px;
+    padding: 12px 32px;
+    }
       .container {
         max-width: 1024px;
         width: 100%;
@@ -132,11 +136,15 @@
       }
 
       .button--edit {
-        color: #ffffff;
+        width:80px;
+        color:#ffffff;
         border-radius: 8px;
         display: flex;
         align-items: center;
         padding: 5px 10px; /* Thêm padding cho nút */
+      }
+      .addLocationBtn,.addBankAccountBtn{
+        cursor: pointer;
       }
 
       .shipping-details p {
@@ -147,6 +155,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap:12px;
       }
 
       .icon-wrap {
@@ -240,9 +249,7 @@
   width: 104px;
   margin-left: auto;
 }
-.btn{
-  height: 40px;
-}
+
 .item_att_price_content{
   display: flex;
   flex-direction: column;
@@ -300,7 +307,7 @@
           class="section__h1 visible"
           style="background-color: white; padding: 24px"
         >
-          <h1 class="headline-large" style="padding-left: 12px">
+          <h1 class="headline-large" style="padding-left: 12px;text-align:left; color:black">
             Thông tin tài khoản
           </h1>
           <p class="body-medium" style="padding: 12px">
@@ -390,7 +397,7 @@
             <h2 class="headline-small" style="padding-left: 12px">
               Tài khoản ngân hàng
             </h2>
-            <span class="material-symbols-outlined"> add </span>
+            <span class="material-symbols-outlined addBankAccountBtn"> add </span>
           </div>
 
           <div class="bank-items">
@@ -431,7 +438,7 @@
             <h2 class="headline-small" style="padding-left: 12px">
               Địa chỉ nhận hàng
             </h2>
-            <span class="material-symbols-outlined"> add </span>
+            <span class="material-symbols-outlined addLocationBtn"> add </span>
           </div>
 
           <div class="shippingadress-items">
@@ -458,11 +465,11 @@
                   </div>
                   <button
                     type="button"
-                    class="button--edit primary"
                     style="
                       background-color: var(--md-ref-palette-primary100);
                       border: 1px solid var(--m-3-sys-light-outline, #857373);
                       color: var(--m-3-sys-light-outline, #857373);
+                      width: 140px;
                     "
                   >
                     <span class="label-large">Thiết lập mặc định</span>
@@ -496,27 +503,27 @@
                   </div>
                   <button
                     type="button"
-                    class="button--edit primary"
                     style="
-                      background-color: var(--md-ref-palette-primary100);
+                      font-size: 22px;
                       border: none;
                       color: var(--m-3-sys-light-outline, #857373);
+                      width: 140px;
                     "
                   >
-                    <span class="label-large" style="font-size: 22px; padding:12px;">Mặc định</span>
+                    <span class="label-large">Mặc định</span>
                   </button>
                 </div>
               </div>
+            </div>
 
-            
-          </div>
         </div>
       </section>
     <!-- <div id="footer"></div> -->
     </div>
+    <div id="addlocation" ></div>
+    <div id="addbankaccount"></div>
 </main>
-    
-  </body>
+</body>
 
   <div id="footer"></div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -562,14 +569,44 @@ const editIcons = document.querySelectorAll(".input-icon");
 editIcons.forEach(editIcon => {
   editIcon.addEventListener("click", function() {
     const inputWrapper = editIcon.closest(".input__wrapper");
-    inputWrapper.style.border = "1px solid saddlebrown";
+    // inputWrapper.style.border = "1px solid saddlebrown";
   });
 });
+
+//Khi nhấn vào nút thêm thông tin ngân hàng
+const addBankAccountBtn = document.querySelector('.addBankAccountBtn');
+const popupAddBankAccount = document.querySelector('#addbankaccount');
+const openBankAccountView = () => {
+  if (popupAddLocation) {
+    var seeModal2 = popupAddBankAccount.querySelector('.add-bank-account')
+    console.log('hihi', seeModal2)
+    seeModal2.style.display = 'block';
+  }
+  
+}
+
+addBankAccountBtn.addEventListener('click',openBankAccountView)
+//Khi nhấn vào nút thêm địa chỉ nhận hàng
+const addLocationBtn = document.querySelector('.addLocationBtn');
+const popupAddLocation = document.querySelector('#addlocation');
+const openLocationView = () => {
+  if (popupAddLocation) {
+    var seeModal = popupAddLocation.querySelector('.add-location')
+    console.log('hihi', seeModal)
+    seeModal.style.display = 'block';
+  }
+  
+}
+
+addLocationBtn.addEventListener('click',openLocationView)
+//
 
 $(document).ready(function () {
       $('#header').load('/TAA_FE/src/partials/header--unauth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
+      $('#addlocation').load('/TAA_FE/src/homepage/accountPage/add-location.html');
+      $('#addbankaccount').load('/TAA_FE/src/homepage/accountPage/add-bank-account.html');
     });
     </script>
 
