@@ -13,10 +13,15 @@ button {
 
   background-color: transparent;
 
-  &:hover {
+  &:not(:disabled):hover {
     cursor: pointer;
     box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
       0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   & .status-layer {
@@ -28,7 +33,6 @@ button {
     padding: 0 24px;
 
     & span {
-      /* display: block; */
       margin: auto;
     }
   }
@@ -67,7 +71,7 @@ button.btn-icon {
     border-radius: inherit;
   }
 
-  &:hover {
+  &:not(:disabled):hover {
     box-shadow: none;
 
     & .status-layer {
@@ -95,6 +99,7 @@ span.btn-checkbox {
 
     &+label {
       display: block;
+
       & .--unchecked {
         display: flex;
       }
@@ -167,10 +172,50 @@ span.btn-checkbox {
     object-fit: cover;
   }
 
-  & .icon {
+  & .icon {}
+
+  &.product__item--favored {}
+}
+
+.nav-page {
+  & .container {
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
-  &.product__item--favored {
+  & ul {
+    display: flex;
+    gap: 8px;
+    list-style-type: none;
+  }
 
+  & a {
+    text-decoration: none;
+
+    &:hover li {
+      cursor: pointer;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  & li {
+    height: 40px;
+    width: 40px;
+    border-radius: 8px;
+
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+
+    color: var(--md-sys-color-primary);
+    background-color: transparent;
+
+    &.active {
+      color: white;
+      background-color: var(--md-sys-color-primary);
+    }
   }
 }

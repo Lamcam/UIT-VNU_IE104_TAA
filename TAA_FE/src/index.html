@@ -38,7 +38,9 @@
         <div class="container">
           <div class="row">
             <aside class="col-3 visible"></aside>
-            <section class="col-9 visible" style="height: 100px;"></section>
+            <section class="col-9 visible" style="height: 100px;">
+              <div id="nav-page"></div>
+            </section>
           </div>
         </div>
       </section>
@@ -55,6 +57,7 @@
       $('#header').load('/TAA_FE/src/partials/header--unauth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
+      $('#nav-page').load('/TAA_FE/src/components/nav-page.html');
     });
   </script>
   <script src="/TAA_FE/res/js/modal--controller.js" defer></script>
