@@ -53,7 +53,7 @@ const caret = document.querySelector('.caret');
 const menu = document.querySelector('.menu')
 const options = document.querySelectorAll('.menu li')
 const selected = document.querySelector('.selected')
-const cancel=document.querySelector('.icon-cancel')
+const cancel = document.querySelector('.icon-cancel')
 
 
 select.addEventListener('click', () => {
@@ -65,9 +65,21 @@ select.addEventListener('click', () => {
 options.forEach(option => {
   option.addEventListener('click', () => {
     selected.innerText = option.innerText;
+    caret.classList.remove('caret-rotate');
+    select.classList.add('select__btn')
     select.classList.remove('select-clicked')
-    select.classList.add('select__width')
-    caret.classList.remove('caret-rotate')
+
+    if (select.classList.contains('cancel__select')) {
+      select.classList.remove('cancel__select')
+      select.classList.add('select__btn')
+    }
+    cancel.addEventListener('click', () => {
+      select.classList.add('cancel__select')
+      select.classList.remove('select__btn')
+      selected.innerText = "Giá";
+      
+    })
+
     menu.classList.remove('menu-open')
     options.forEach(option => {
       option.classList.remove('select__active')
@@ -75,14 +87,4 @@ options.forEach(option => {
 
     option.classList.add('select__active')
   })
-})
-
-cancel.addEventListener('click', () => {
-    select.classList.remove('select-clicked')
-    // select.classList.add('select__width')
-    caret.classList.remove('caret-rotate')
-    menu.classList.remove('menu-open')
-    options.forEach(option => {
-      option.classList.remove('select__active')
-    })
 })

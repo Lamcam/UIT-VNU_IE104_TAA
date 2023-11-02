@@ -37,20 +37,12 @@
               </span>
               Bán chạy nhất
             </button>
-            <!-- <button class="product__button js-button btn--outlined">
-            <span class="material-symbols-outlined icon-down">
-              arrow_drop_down
-            </span>
-            Giá
-            <ul class="filter_price label-large">
-              <li class="">Từ thấp đến cao</li>
-              <li> Từ cao đến thấp</li>
-            </ul>
-    
-          </button> -->
             <div class="dropdown label-large">
               <div class="select product__button">
-                <span class="selected">Giá</span>
+                <span class="material-symbols-outlined icon-check">
+                  check
+                </span>
+                <span class="selected selected2">Giá</span>
                 <div class="caret"></div>
                 <span class="material-symbols-outlined icon-cancel">
                   close
@@ -59,7 +51,6 @@
               <ul class="menu">
                 <li class="select__active">Giá: Từ thấp đến cao</li>
                 <li>Giá: Từ cao đến thấp</li>
-                <!-- <li class="select__active">Giá</li> -->
               </ul>
             </div>
           </div>
@@ -127,11 +118,13 @@
               </li>
             </ul>
           </aside>
+
           <section class="col-9">
             <div class="section__content visible row">
               <div class="product__item col-4">
                 <div class="product__image">
-                  <img src="../../../Public/product_1.png" alt="Kẹp tóc" class="product__img">
+                  <img src="../../../public/product_1.png" alt="Kẹp tóc" class="img_back">
+                  <img src="../../../public/red-panda-small.jpg" alt="Kẹp tóc" class="img_font">
                 </div>
                 <div class="product__body">
 
@@ -144,12 +137,39 @@
                     <p class="product__price__discount outline-variant-text">70,000 đ</p>
                   </div>
                   <p class="product__discount title-medium error-text">Giảm 50%</p>
-                  <p class="product__stock label-large primary-text">Còn hàng </p>
+                  <p class="product__stock label-large primary-text">Còn hàng</p>
+                </div>
+                <div class="product__button__section label-large">
+                  <a class="product__button__view" href="">Xem nhanh</a>
+                  <div class="vertical"></div>
+                  <a class="product__button__sell" href="">Mua ngay</a>
+                </div>
+              </div>
+
+              <!-- item outstock -->
+              <div class="product__outstock col-4">
+                <div class="product__image">
+                  <img src="../../../public/product_1.png" alt="Kẹp tóc" class="img_back">
+                  <img src="../../../public/red-panda-small.jpg" alt="Kẹp tóc" class="img_font">
+                </div>
+                <div class="product__body">
+
+                  <span class="material-symbols-outlined icon_heart error-text">
+                    heart_plus
+                  </span>
+                  <h3 class="product__name body-large">Kẹp tóc</h3>
+                  <div class="product__price label-large">
+                    <p class="product__price__current">35,000 đ</p>
+                    <p class="product__price__discount outline-variant-text">70,000 đ</p>
+                  </div>
+                  <p class="product__discount title-medium error-text">Giảm 50%</p>
+                  <p class="product__stock headline-small error-text">Hết hàng</p>
                 </div>
               </div>
 
             </div>
           </section>
+
         </div>
       </section>
     </main>
@@ -158,7 +178,11 @@
     <div id="footer"></div>
 
     <!-- Modal -->
-    <div id="modal"></div>
+    <div id="modal">
+      <div class="modal-container">
+        hello
+      </div>
+    </div>
   </div>
   <script>
     $(document).ready(function () {
