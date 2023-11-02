@@ -13,6 +13,8 @@
   box-sizing: border-box;
   transition: 300ms;
   scroll-behavior: smooth;
+  border-style: inset;
+  border: 0px;
 }
 
 .icon--filled {
@@ -112,6 +114,10 @@
 a:is(:link, :hover, :visited, :active) {
   /* text-decoration: none; */
   color: black;
+}
+
+hr {
+  border: 1px solid var(--md-sys-color-outline-variant-light);
 }
 
 body {
