@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0);
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
 @import url(/TAA_FE/res/css/theme.css);
 @import url(/TAA_FE/res/css/component.css);
 
@@ -14,6 +13,10 @@
   box-sizing: border-box;
   transition: 300ms;
   scroll-behavior: smooth;
+}
+
+.icon--filled {
+  font-variation-settings: 'FILL' 1;
 }
 
 .mt-8 {
@@ -33,6 +36,10 @@
 }
 
 .mt-32 {
+  margin-top: 32px;
+}
+
+.mt-36 {
   margin-top: 32px;
 }
 
