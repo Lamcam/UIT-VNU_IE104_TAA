@@ -2,7 +2,7 @@
     font-family: Roboto;
     font-size: 14px;
 }
-.modal2 {
+.modal-add-bank-account {
     position: fixed;
     display: none;
     z-index: 100;

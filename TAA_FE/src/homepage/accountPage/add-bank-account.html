@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thêm địa chỉ nhận hàng</title>
+    <title>Thêm tài khoản ngân hàng</title>
   </head> -->
 <!-- <link rel="stylesheet" href="/TAA_FE/src/base.css" /> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="../../base.css" />
 <link rel="stylesheet" href="./add-bank-account.css" />
 <body>
-  <div class="modal2 add-bank-account">
+  <div class="modal-add-bank-account add-bank-account">
     <div class="add-bank-account-container">
       <h1>Thêm thông tin ngân hàng</h1>
 
@@ -38,13 +38,15 @@
         <button class="status-layer btn--outlined cancelBtn2">Hủy bỏ</button>
         <button class="status-layer btn--filled">Đồng ý</button>
       </div>
-      <span class="material-symbols-outlined closeBtn2"> close </span>
+      <span class="material-symbols-outlined closeBtn2" style="text-align: end">
+        close
+      </span>
     </div>
   </div>
 </body>
 <script>
   const cancelBtn2 = document.querySelector(".cancelBtn2");
-  const modal2 = document.querySelector(".modal2");
+  const modal2 = document.querySelector(".modal-add-bank-account");
 
   cancelBtn2.addEventListener("click", () => {
     console.log("aaa");

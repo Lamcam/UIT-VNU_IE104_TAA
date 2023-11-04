@@ -1,8 +1,4 @@
-* {
-    font-family: Roboto;
-    font-size: 14px;
-}
-.modal-add-location {
+.modal-delete-bank-info {
     position: fixed;
     display: none;
     z-index: 100;
@@ -13,9 +9,10 @@
     background-color: rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
-.add-location-container {
+
+.delete-bank-info-container {
     width: 714px;
-    height: 432px;
+    height: 360px;
     display: flex;
     flex-direction: column;
     background-color: #f1efe7;
@@ -24,44 +21,7 @@
     padding: 60px;
     gap: 12px;
     animation: modalFadeIn ease 0.5s;
-    margin: 200px auto;
-    overflow: hidden;
-}
-
-h1 {
-    color: #785b5b;
-    text-align: center;
-    font-size: 22px;
-}
-
-.form--items {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 12px;
-}
-
-.form-item {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-}
-.form-item h3 {
-    width: 157px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.form-item input {
-    color: #785b5b;
-    border: 1px solid #785b5b;
-    align-items: center;
-    width: 333px;
-    height: 40px;
-}
-
-.form-item input::placeholder {
-    color: #785b5b;
+    margin: 150px auto;
 }
 
 .button--wrapper {
@@ -88,16 +48,14 @@ button {
     }
 }
 
-.closeBtn {
+.closeDeleteBankAccBtn {
     display: flex;
     justify-content: flex-end;
-    margin-left: 600px;
-    margin-top: -350px;
+    margin-right: -30px;
+    margin-top: -250px;
     color: #785b5b;
     cursor: pointer;
 }
-
-
 
 @keyframes modalFadeIn {
     from {

@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thêm địa chỉ nhận hàng</title>
+    <title>Sửa địa chỉ nhận hàng</title>
   </head> -->
 <!-- <link rel="stylesheet" href="/TAA_FE/src/base.css" /> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="/TAA_FE/res/js/main.js"></script> -->
 <link rel="stylesheet" href="../../base.css" />
-<link rel="stylesheet" href="./add-location.css" />
+<link rel="stylesheet" href="./edit-location.css" />
 <body>
-  <div class="modal-add-location add-location">
-    <div class="add-location-container">
-      <h1>Thêm địa chỉ nhận hàng</h1>
+  <div class="modal-edit-location edit-location">
+    <div class="edit-location-container">
+      <h1>Sửa địa chỉ nhận hàng</h1>
 
       <div class="form--items">
         <div class="form-item">
@@ -31,25 +31,27 @@
       </div>
 
       <div class="button--wrapper">
-        <button class="status-layer btn--outlined cancelBtn">Hủy bỏ</button>
+        <button class="status-layer btn--outlined cancelEditLocaBtn">
+          Hủy bỏ
+        </button>
         <button class="status-layer btn--filled">Đồng ý</button>
       </div>
-      <span class="material-symbols-outlined closeBtn"> close </span>
+      <span class="material-symbols-outlined closeEditLocaBtn"> close </span>
     </div>
   </div>
 </body>
 <script>
-  const cancelBtn = document.querySelector(".cancelBtn");
-  const modal = document.querySelector(".modal-add-location");
+  const cancelEditLocaBtn = document.querySelector(".cancelEditLocaBtn");
+  const modal5 = document.querySelector(".modal-edit-location");
 
-  cancelBtn.addEventListener("click", () => {
+  cancelEditLocaBtn.addEventListener("click", () => {
     console.log("aaa");
-    modal.style.display = "none";
+    modal5.style.display = "none";
   });
 
-  const closeBtn = document.querySelector(".closeBtn");
-  closeBtn.addEventListener("click", () => {
+  const closeEditLocaBtn = document.querySelector(".closeEditLocaBtn");
+  closeEditLocaBtn.addEventListener("click", () => {
     console.log("aaa");
-    modal.style.display = "none";
+    modal5.style.display = "none";
   });
 </script>

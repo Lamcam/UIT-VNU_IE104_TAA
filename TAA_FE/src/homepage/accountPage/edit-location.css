@@ -2,7 +2,7 @@
     font-family: Roboto;
     font-size: 14px;
 }
-.modal-add-location {
+.modal-edit-location {
     position: fixed;
     display: none;
     z-index: 100;
@@ -13,7 +13,7 @@
     background-color: rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
-.add-location-container {
+.edit-location-container {
     width: 714px;
     height: 432px;
     display: flex;
@@ -88,7 +88,7 @@ button {
     }
 }
 
-.closeBtn {
+.closeEditLocaBtn {
     display: flex;
     justify-content: flex-end;
     margin-left: 600px;
@@ -96,8 +96,6 @@ button {
     color: #785b5b;
     cursor: pointer;
 }
-
-
 
 @keyframes modalFadeIn {
     from {

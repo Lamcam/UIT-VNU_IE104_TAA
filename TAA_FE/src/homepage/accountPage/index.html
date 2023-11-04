@@ -10,7 +10,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,1..1,-50..200"
     />
     <link rel="stylesheet" href="./accountPage.css" />
     <link rel="stylesheet" href="../../../res/css/theme.css" />
@@ -175,7 +175,7 @@
   gap: 2px;
   width: 98%;
   height: 100%;
-  margin-left: 0.5em;
+  /* margin-left: 0.5em; */
   border-radius: 8px;
   padding: 8px 0;
 }
@@ -287,7 +287,7 @@
               class="material-symbols-outlined"
               style="background-color: var(--md-ref-palette-primary100)"
             >
-              hr_resting </span
+              box </span
             >Đơn hàng
           </li>
           <li class="profile-li">
@@ -426,8 +426,8 @@
                 </div>
                 <p class="body-medium name-account-bank">Ngân hàng ACB</p>
               </div>
-              <div class="icon-delete">
-                <span class="material-symbols-outlined"> delete </span>
+              <div class="icon-delete deleteBankAccBtn">
+                <span class="material-symbols-outlined "> delete </span>
               </div>
             </div>
           </div>
@@ -455,10 +455,10 @@
                 </div>
                 <div class="icon-wrap">
                   <div class="delete-edit-wrap-icon">
-                    <div class="icon-delete">
+                    <div class="icon-delete deleteLocaBtn">
                       <span class="material-symbols-outlined"> delete </span>
                     </div>
-                    <button type="button" class="button--edit primary">
+                    <button type="button" class="button--edit primary editLocationBtn">
                       <span class="material-symbols-outlined"> edit </span>
                       <span class="label-large">Sửa</span>
                     </button>
@@ -522,6 +522,9 @@
     </div>
     <div id="addlocation" ></div>
     <div id="addbankaccount"></div>
+    <div id="deletebankinfo"></div>
+    <div id="deletelocation"></div>
+    <div id="editlocation"></div>
 </main>
 </body>
 
@@ -586,6 +589,21 @@ const openBankAccountView = () => {
 }
 
 addBankAccountBtn.addEventListener('click',openBankAccountView)
+//Khi nhấn vào nút xóa thông tin ngân hàng
+const deleteBankAccountBtn = document.querySelector('.deleteBankAccBtn');
+const popupDeleteBankAccount = document.querySelector('#deletebankinfo');
+const deleteBankAccountView = () => {
+  if (popupDeleteBankAccount) {
+    var seeModal3 = popupDeleteBankAccount.querySelector('.deletebank-info')
+    console.log('hihi', seeModal3)
+    seeModal3.style.display = 'block';
+  }
+  
+}
+
+deleteBankAccountBtn.addEventListener('click',deleteBankAccountView);
+
+
 //Khi nhấn vào nút thêm địa chỉ nhận hàng
 const addLocationBtn = document.querySelector('.addLocationBtn');
 const popupAddLocation = document.querySelector('#addlocation');
@@ -597,9 +615,37 @@ const openLocationView = () => {
   }
   
 }
+addLocationBtn.addEventListener('click',openLocationView);
 
-addLocationBtn.addEventListener('click',openLocationView)
-//
+
+//Khi nhấn vào nút sửa địa chỉ nhận hàng
+const editLocationBtn = document.querySelector('.editLocationBtn');
+const popupEditLocation = document.querySelector('#editlocation');
+const openEditLocationView = () => {
+  if (popupEditLocation) {
+    var seeModalEdit = popupEditLocation.querySelector('.edit-location');
+    seeModalEdit.style.display = 'block';
+  }
+  
+}
+editLocationBtn.addEventListener('click',openEditLocationView);
+
+
+//Khi nhấn vào nút xóa địa chỉ nhận hàng
+const deleteLocaBtn = document.querySelector('.deleteLocaBtn');
+const popupDeleteLocation = document.querySelector('#deletelocation');
+const deleteLocationView = () => {
+  if (popupDeleteLocation) {
+    var seeModal3 = popupDeleteLocation.querySelector('.delete-location')
+    console.log('hihi', seeModal3)
+    seeModal3.style.display = 'block';
+  }
+  
+}
+
+deleteLocaBtn.addEventListener('click',deleteLocationView);
+
+
 
 $(document).ready(function () {
       $('#header').load('/TAA_FE/src/partials/header--unauth.html');
@@ -607,6 +653,9 @@ $(document).ready(function () {
       $('#footer').load('/TAA_FE/src/partials/footer.html');
       $('#addlocation').load('/TAA_FE/src/homepage/accountPage/add-location.html');
       $('#addbankaccount').load('/TAA_FE/src/homepage/accountPage/add-bank-account.html');
+      $('#deletebankinfo').load('/TAA_FE/src/homepage/accountPage/delete-bank-info.html');
+      $('#deletelocation').load('/TAA_FE/src/homepage/accountPage/delete-location.html');
+      $('#editlocation').load('/TAA_FE/src/homepage/accountPage/edit-location.html');
     });
     </script>
 
