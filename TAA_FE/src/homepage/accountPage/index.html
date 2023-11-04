@@ -410,7 +410,7 @@
                 </div>
                 <p class="body-medium name-account-bank">Ngân hàng ACB</p>
               </div>
-              <div class="icon-delete">
+              <div class="icon-delete deleteBankAccBtn">
                 <span class="material-symbols-outlined"> delete </span>
               </div>
             </div>
@@ -493,10 +493,10 @@
                 </div>
                 <div class="icon-wrap">
                   <div class="delete-edit-wrap-icon">
-                    <div class="icon-delete">
+                    <div class="icon-delete deleteLocaBtn">
                       <span class="material-symbols-outlined"> delete </span>
                     </div>
-                    <button type="button" class="button--edit primary">
+                    <button type="button" class="button--edit primary editLocationBtn">
                       <span class="material-symbols-outlined"> edit </span>
                       <span class="label-large">Sửa</span>
                     </button>
@@ -590,18 +590,24 @@ const openBankAccountView = () => {
 
 addBankAccountBtn.addEventListener('click',openBankAccountView)
 //Khi nhấn vào nút xóa thông tin ngân hàng
-const deleteBankAccountBtn = document.querySelector('.deleteBankAccBtn');
-const popupDeleteBankAccount = document.querySelector('#deletebankinfo');
-const deleteBankAccountView = () => {
-  if (popupDeleteBankAccount) {
+
+const deleteBankAccountBtn = document.querySelectorAll('.deleteBankAccBtn');
+let popupDeleteBankAccount = document.querySelector('#deletebankinfo');
+
+
+deleteBankAccountBtn.forEach(function(element) {
+
+  element.addEventListener('click', function() {
+      if (popupDeleteBankAccount) {
     var seeModal3 = popupDeleteBankAccount.querySelector('.deletebank-info')
     console.log('hihi', seeModal3)
+    console.log(deleteBankAccountBtn)
     seeModal3.style.display = 'block';
   }
-  
-}
+  });
+});
 
-deleteBankAccountBtn.addEventListener('click',deleteBankAccountView);
+
 
 
 //Khi nhấn vào nút thêm địa chỉ nhận hàng
@@ -619,31 +625,39 @@ addLocationBtn.addEventListener('click',openLocationView);
 
 
 //Khi nhấn vào nút sửa địa chỉ nhận hàng
-const editLocationBtn = document.querySelector('.editLocationBtn');
+const editLocationBtn = document.querySelectorAll('.editLocationBtn');
 const popupEditLocation = document.querySelector('#editlocation');
-const openEditLocationView = () => {
+
+editLocationBtn.forEach(function(element) {
+
+element.addEventListener('click',function() {
   if (popupEditLocation) {
     var seeModalEdit = popupEditLocation.querySelector('.edit-location');
     seeModalEdit.style.display = 'block';
   }
   
-}
-editLocationBtn.addEventListener('click',openEditLocationView);
+})
+});
+
 
 
 //Khi nhấn vào nút xóa địa chỉ nhận hàng
-const deleteLocaBtn = document.querySelector('.deleteLocaBtn');
-const popupDeleteLocation = document.querySelector('#deletelocation');
-const deleteLocationView = () => {
+const deleteLocaBtn = document.querySelectorAll('.deleteLocaBtn');
+let popupDeleteLocation = document.querySelector('#deletelocation');
+
+deleteLocaBtn.forEach(function(element) {
+
+element.addEventListener('click', function() {
   if (popupDeleteLocation) {
     var seeModal3 = popupDeleteLocation.querySelector('.delete-location')
     console.log('hihi', seeModal3)
+    console.log(deleteLocaBtn)
     seeModal3.style.display = 'block';
   }
   
-}
+})
+});
 
-deleteLocaBtn.addEventListener('click',deleteLocationView);
 
 
 
