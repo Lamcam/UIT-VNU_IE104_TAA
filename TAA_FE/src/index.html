@@ -11,7 +11,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/TAA_FE/src/base.css">
   <link rel="stylesheet" href="./style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
     crossorigin="anonymous"></script>
   <script src="/TAA_FE/res/js/main.js"></script>
   <title>TAA</title>
@@ -38,7 +39,11 @@
         <div class="container">
           <div class="row">
             <aside class="col-3 visible"></aside>
-            <section class="col-9 visible" style="height: 100px;"></section>
+            <section class="col-9 visible">
+              <div class="row" id="product__list"></div>
+              <div class="mt-12" id="nav-page"></div>
+              <div class="mt-12"></div>
+            </section>
           </div>
         </div>
       </section>
@@ -55,6 +60,14 @@
       $('#header').load('/TAA_FE/src/partials/header--unauth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
+      $('#nav-page').load('/TAA_FE/src/components/nav-page.html');
+
+      fetch('/TAA_FE/src/components/product__item.html')
+        .then(res => res.text())
+        .then(res => {
+          for (let i = 0; i < 9; ++i)
+            $('#product__list').append(res)
+        })
     });
   </script>
   <script src="/TAA_FE/res/js/modal--controller.js" defer></script>
