@@ -77,7 +77,7 @@ options.forEach(option => {
       select.classList.add('cancel__select')
       select.classList.remove('select__btn')
       selected.innerText = "Giá";
-      
+
     })
 
     menu.classList.remove('menu-open')
@@ -88,3 +88,107 @@ options.forEach(option => {
     option.classList.add('select__active')
   })
 })
+
+// modalProduct change image product
+const imgs = document.querySelectorAll('.img-select a');
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+  imgItem.addEventListener('click', (event) => {
+    event.preventDefault();
+    imgId = imgItem.dataset.id;
+    slideImage();
+  });
+});
+
+function slideImage() {
+  const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+  document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+}
+
+window.addEventListener('resize', slideImage);
+
+// modalProduct tăng giảm số lượng sản phẩm
+const myInput = document.getElementById("my-input");
+function stepper(btn) {
+  let id = btn.getAttribute("id")
+  let min = myInput.getAttribute("min")
+  let max = myInput.getAttribute("max")
+  let step = myInput.getAttribute("step")
+  let value = myInput.getAttribute("value")
+
+  let calcStep = (id == "increment") ? (step * 1) : (step * -1);
+
+  let newValue = parseInt(value) + calcStep;
+  if (newValue >= min && newValue <= max) {
+    myInput.setAttribute("value", newValue)
+  }
+  console.log(id, min, max, step, value)
+}
+
+// modalProduct open
+const btnView = document.querySelector('.product__button__view')
+const btnSell = document.querySelector('.product__button__sell')
+const modalProduct = document.querySelector('.modal-product')
+const modalContainerProduct = document.querySelector('.modal-container--product')
+const btnClosesProduct = document.querySelector('.modal-product .btn--close')
+
+btnView.addEventListener("click", () => {
+  modalProduct.classList.add('open')
+})
+
+// modalProduct close
+btnClosesProduct.addEventListener("click", () => {
+  modalProduct.classList.add('close')
+})
+
+modalProduct.addEventListener("click", () => {
+  modalProduct.classList.add('close')
+})
+// nhấn bên ngoài thì popup đóng
+modalContainerProduct.addEventListener("click", function (event) {
+  event.stopPropagation()
+})
+
+// chuyển trang giỏ hàng
+// btnSell.addEventListener("click", ()=>{
+//   window.location.href="http://127.0.0.1:5500/TAA_FE/src/homepage/cartPage/index.html"
+// })
+
+// modal
+
+
+// modalNoti open
+const btnCloseNoti = document.querySelector('.modal-noti .btn--close')
+const modalNoti = document.querySelector('.modal-noti')
+const modalContainerNoti = document.querySelector('.modal-container--noti')
+const modalButtonCart = document.querySelector('.button__cart')
+const modalButtonView = document.querySelector('.button__view')
+
+// chuyển trang chi tiết sản phẩm
+// modalButtonView.addEventListener("click", ()=>{
+//   // window.location.href=""
+//   // window.alert("hello")
+// })
+
+// modalNoti open, modalProduct close
+modalButtonCart.addEventListener("click", () => {
+  modalNoti.classList.add('open')
+  modalProduct.classList.add('close')
+})
+// modalNoti btn--close
+
+btnCloseNoti.addEventListener("click", () => {
+  modalNoti.classList.add('close')
+})
+
+modalNoti.addEventListener("click", () => {
+  modalNoti.classList.add('close')
+})
+// nhấn bên ngoài thì popup đóng
+modalContainerNoti.addEventListener("click", function (event) {
+  event.stopPropagation()
+})
+
