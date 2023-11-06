@@ -112,7 +112,7 @@
 
 /* general name tag */
 a:is(:link, :hover, :visited, :active) {
-  /* text-decoration: none; */
+  text-decoration: none;
   color: black;
 }
 
