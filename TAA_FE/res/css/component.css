@@ -98,27 +98,29 @@ span.btn-checkbox {
     display: none;
 
     &+label {
-      display: block;
+      display: inline-flex;
 
       & .--unchecked {
         display: flex;
       }
 
-      & .--checked {
+      & :is(.--checked, .--indeterminate) {
         display: none;
       }
     }
 
-    &:checked+label {
-      display: block;
-
-      & .--unchecked {
-        display: none !important;
+    &:is(:checked, :indeterminate)+label {
+      & span {
+        display: none;
       }
+    }
 
-      & .--checked {
-        display: flex !important;
-      }
+    &:checked+label .--checked {
+      display: flex;
+    }
+
+    &:indeterminate+label .--indeterminate {
+      display: flex;
     }
   }
 }
