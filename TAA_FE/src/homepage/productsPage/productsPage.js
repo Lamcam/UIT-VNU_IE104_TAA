@@ -89,6 +89,21 @@ options.forEach(option => {
   })
 })
 
+// item product
+const iconHearts = document.querySelectorAll('.icon_heart')
+iconHearts.forEach(iconHeart => {
+  iconHeart.addEventListener("click", () => {
+    if (iconHeart.classList.contains("icon--filled")) {
+      iconHeart.classList.remove("icon--filled")
+      return;
+    }
+
+    iconHeart.classList.add("icon--filled")
+  })
+
+
+})
+
 // modalProduct change image product
 const imgs = document.querySelectorAll('.img-select a');
 const imgBtns = [...imgs];
@@ -141,21 +156,17 @@ btnView.addEventListener("click", () => {
 
 // modalProduct close
 btnClosesProduct.addEventListener("click", () => {
-  modalProduct.classList.add('close')
+  modalProduct.classList.remove('open')
 })
 
 modalProduct.addEventListener("click", () => {
-  modalProduct.classList.add('close')
+  modalProduct.classList.remove('open')
 })
 // nhấn bên ngoài thì popup đóng
 modalContainerProduct.addEventListener("click", function (event) {
   event.stopPropagation()
 })
 
-// chuyển trang giỏ hàng
-// btnSell.addEventListener("click", ()=>{
-//   window.location.href="http://127.0.0.1:5500/TAA_FE/src/homepage/cartPage/index.html"
-// })
 
 // modal
 
@@ -176,16 +187,16 @@ const modalButtonView = document.querySelector('.button__view')
 // modalNoti open, modalProduct close
 modalButtonCart.addEventListener("click", () => {
   modalNoti.classList.add('open')
-  modalProduct.classList.add('close')
+  modalProduct.classList.remove('open')
 })
 // modalNoti btn--close
 
 btnCloseNoti.addEventListener("click", () => {
-  modalNoti.classList.add('close')
+  modalNoti.classList.remove('open')
 })
 
 modalNoti.addEventListener("click", () => {
-  modalNoti.classList.add('close')
+  modalNoti.classList.remove('open')
 })
 // nhấn bên ngoài thì popup đóng
 modalContainerNoti.addEventListener("click", function (event) {
