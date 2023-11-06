@@ -164,8 +164,7 @@ span.btn-checkbox {
   align-items: center;
   border-radius: 12px;
   min-width: 247px;
-
-  background-color: white;
+  background-color: #fff;
 }
 
 .product__image {
@@ -186,8 +185,9 @@ span.btn-checkbox {
   & .product__stock {
     display: none;
   }
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.30), 
-              0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.30),
+  0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   /* max-height: fit-content; */
 }
 
@@ -219,6 +219,7 @@ span.btn-checkbox {
   justify-content: space-around;
   border-radius: 0px 0px 8px 8px;
   background: var(--m-3-sys-light-primary, #785B5B);
+  cursor: pointer;
   display: none;
 }
 
@@ -231,13 +232,18 @@ span.btn-checkbox {
 .product__button__view,
 .product__button__sell {
   color: #fff !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   border-radius: 0;
   /* border-bottom-left-radius: 8px; */
   width: 100%;
-  height: 40px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.product__button__sell a {
+  color: #fff;
   text-decoration: none;
 }
 
@@ -272,6 +278,7 @@ span.btn-checkbox {
   line-height: 2rem;
   padding: 0px 42px 11px 42px;
 }
+
 
 .nav-page {
   & .container {
