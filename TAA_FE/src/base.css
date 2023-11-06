@@ -185,14 +185,14 @@ header {
       color: white;
       background-color: var(--md-sys-color-primary);
     }
-  }
-
-  & .main-nav__link {
-    padding: 0px 24px;
-    margin: auto;
-    text-decoration: none;
-    font-weight: bold;
-    color: inherit;
+    
+    & a {
+      padding: 0px 24px;
+      margin: auto;
+      text-decoration: none;
+      font-weight: bold;
+      color: inherit;
+    }
   }
 }
 
@@ -201,7 +201,7 @@ main {
 
   &>section {
     padding: 0 32px;
-    
+
     &.full-width {
       padding: 0;
     }
@@ -292,8 +292,8 @@ input {
     background-color: white;
     color: black;
     font-weight: bold;
-    
-    &:last-child{
+
+    &:last-child {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
     }
@@ -304,7 +304,7 @@ input {
   display: inline-flex;
   gap: 8px;
 
-  & > * {
+  &>* {
     margin: auto;
   }
 }
@@ -348,11 +348,11 @@ input {
   &:last-child {
     font-weight: bold;
   }
-}
 
-.nav-tree__link {
-  margin: auto;
-  text-decoration: none;
+  & a {
+    margin: auto;
+    text-decoration: none;
+  }
 }
 
 .email-submition {
@@ -368,7 +368,6 @@ input {
 /* CSS cho pop-up modal */
 .modal {
   display: none;
-  /* position: fixed; */
   position: fixed;
   z-index: 1;
   inset: 0;
