@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Xóa tài khoản ngân hàng</title>
+  </head>
+  <link rel="stylesheet" href="/TAA_FE/src/base.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
+  <link rel="stylesheet" href="../../base.css" />
+  <link rel="stylesheet" href="./delete-bank-info.css" />
+  <body>
+    <div class="modal-delete-bank-info deletebank-info">
+      <div class="delete-bank-info-container">
+        <h1 style="text-align: center; font-size: 32px; font-weight: 400">
+          Xóa thông tin ngân hàng
+        </h1>
+
+        <h2 style="text-align: center; font-size: 22px; font-weight: 400">
+          Bạn có chắc chắn sẽ xóa thông tin ngân hàng không?
+        </h2>
+        <h6 style="text-align: center; font-size: 14px; font-weight: 400">
+          Thao tác này không thể hoàn lại
+        </h6>
+
+        <div class="button--wrapper">
+          <button class="status-layer btn--outlined cancelDeleteBankAccBtn">
+            Hủy bỏ
+          </button>
+          <button class="status-layer btn--filled">Đồng ý</button>
+        </div>
+        <span
+          class="material-symbols-outlined closeDeleteBankAccBtn"
+          style="text-align: end"
+        >
+          close
+        </span>
+      </div>
+    </div>
+  </body>
+  <script>
+    const cancelBtn3 = document.querySelector(".cancelDeleteBankAccBtn");
+    const modalDeleteBankInfo = document.querySelector(
+      ".modal-delete-bank-info"
+    );
+
+    cancelBtn3.addEventListener("click", () => {
+      console.log("aaa");
+      modalDeleteBankInfo.style.display = "none";
+    });
+
+    const closeBtn3 = document.querySelector(".closeDeleteBankAccBtn");
+    closeBtn3.addEventListener("click", () => {
+      console.log("aaa");
+      modalDeleteBankInfo.style.display = "none";
+    });
+  </script>
+</html>

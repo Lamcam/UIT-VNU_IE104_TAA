@@ -1,0 +1,57 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sửa địa chỉ nhận hàng</title>
+  </head> -->
+<!-- <link rel="stylesheet" href="/TAA_FE/src/base.css" /> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="/TAA_FE/res/js/main.js"></script> -->
+<link rel="stylesheet" href="../../base.css" />
+<link rel="stylesheet" href="./edit-location.css" />
+<body>
+  <div class="modal-edit-location edit-location">
+    <div class="edit-location-container">
+      <h1>Sửa địa chỉ nhận hàng</h1>
+
+      <div class="form--items">
+        <div class="form-item">
+          <h3>Tên người nhận:</h3>
+          <input type="text" placeholder="Điền thông tin" />
+        </div>
+        <div class="form-item">
+          <h3>Số điện thoại:</h3>
+          <input type="text" placeholder="Điền thông tin" />
+        </div>
+        <div class="form-item">
+          <h3>Địa chỉ tổng quan:</h3>
+          <input type="text" placeholder="Điền thông tin" />
+        </div>
+      </div>
+
+      <div class="button--wrapper">
+        <button class="status-layer btn--outlined cancelEditLocaBtn">
+          Hủy bỏ
+        </button>
+        <button class="status-layer btn--filled">Đồng ý</button>
+      </div>
+      <span class="material-symbols-outlined closeEditLocaBtn"> close </span>
+    </div>
+  </div>
+</body>
+<script>
+  const cancelEditLocaBtn = document.querySelector(".cancelEditLocaBtn");
+  const modal5 = document.querySelector(".modal-edit-location");
+
+  cancelEditLocaBtn.addEventListener("click", () => {
+    console.log("aaa");
+    modal5.style.display = "none";
+  });
+
+  const closeEditLocaBtn = document.querySelector(".closeEditLocaBtn");
+  closeEditLocaBtn.addEventListener("click", () => {
+    console.log("aaa");
+    modal5.style.display = "none";
+  });
+</script>

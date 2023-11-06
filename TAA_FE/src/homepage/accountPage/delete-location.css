@@ -1,0 +1,69 @@
+.modal-delete-location {
+    position: fixed;
+    display: none;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.delete-location-container {
+    width: 714px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1efe7;
+    font-weight: 400;
+    border-radius: 12px;
+    padding: 60px;
+    gap: 12px;
+    animation: modalFadeIn ease 0.5s;
+    margin: 150px auto;
+}
+
+.button--wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+}
+
+button {
+    width: 227px;
+    height: 40px;
+    border-radius: 8px;
+
+    &.btn--outlined {
+        color: #785b5b;
+        background-color: #f1efe7;
+        border: 1px solid #785b5b;
+    }
+    &.btn--filled {
+        border: none;
+        background-color: #785b5b;
+        color: white;
+    }
+}
+
+.closeDeleteLocaBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -30px;
+    margin-top: -250px;
+    color: #785b5b;
+    cursor: pointer;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
