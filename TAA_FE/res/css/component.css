@@ -280,6 +280,90 @@ span.btn-checkbox {
 }
 
 
+/* modal noti */
+.modal-noti {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* can chinh giua overlay */
+  align-items: center;
+  justify-content: center;
+  /* Can hien len thi display: flex */
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+}
+
+.modal-noti.open {
+  display: flex;
+}
+
+.modal-noti.close {
+  display: none;
+}
+
+.modal-container--noti {
+  display: inline-flex;
+  padding: 60px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 12px;
+  background-color: var(--m-3-sys-light-primary, #785B5B);
+  min-width: 714px;
+  min-height: 360px;
+  position: relative;
+  animation: modalFadeIn ease 0.2s;
+}
+
+.modal-noti .noti__icon-check {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+}
+
+.noti__icon-check span {
+  font-size: 64px;
+}
+
+.modal-noti .noti__btn {
+  color: var(--md-sys-color-surface-variant-light);
+}
+
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-140px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.btn--close {
+  position: absolute;
+  top: 24px;
+  right: 25px;
+  color: #aaa;
+  font-size: 24px;
+  line-height: 24px;
+  width: 24px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+
 .nav-page {
   & .container {
     padding: 0 16px;
