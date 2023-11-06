@@ -71,7 +71,7 @@ h1 {
     margin-top: 48px;
 }
 
-button {
+.button--wrapper button {
     width: 227px;
     height: 40px;
     border-radius: 8px;

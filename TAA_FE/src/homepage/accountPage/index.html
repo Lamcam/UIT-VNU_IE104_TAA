@@ -270,7 +270,10 @@
             <li class="profile-li">
               <span
                 class="material-symbols-outlined"
-                style="background-color: var(--md-ref-palette-primary100)"
+                style="
+                  background-color: var(--md-ref-palette-primary100);
+                  margin-left: 12px;
+                "
               >
                 person
               </span>
@@ -280,7 +283,10 @@
             <li class="profile-li">
               <span
                 class="material-symbols-outlined"
-                style="background-color: var(--md-ref-palette-primary100)"
+                style="
+                  background-color: var(--md-ref-palette-primary100);
+                  margin-left: 12px;
+                "
               >
                 box </span
               >Đơn hàng
@@ -288,7 +294,10 @@
             <li class="profile-li">
               <span
                 class="material-symbols-outlined"
-                style="background-color: var(--md-ref-palette-primary100)"
+                style="
+                  background-color: var(--md-ref-palette-primary100);
+                  margin-left: 12px;
+                "
               >
                 hr_resting </span
               >Sản phẩm yêu thích
@@ -550,10 +559,10 @@
           <div id="deletebankinfo"></div>
           <div id="deletelocation"></div>
           <div id="editlocation"></div>
-          <div id="footer"></div>
         </section>
       </div>
     </main>
+    <div id="footer"></div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
@@ -595,7 +604,6 @@
     editIcons.forEach((editIcon) => {
       editIcon.addEventListener("click", function () {
         const inputWrapper = editIcon.closest(".input__wrapper");
-        // inputWrapper.style.border = "1px solid saddlebrown";
       });
     });
 
