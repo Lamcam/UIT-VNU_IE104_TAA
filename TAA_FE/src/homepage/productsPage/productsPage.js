@@ -89,7 +89,7 @@ options.forEach(option => {
   })
 })
 
-// item product
+// item icon_heart product
 const iconHearts = document.querySelectorAll('.icon_heart')
 iconHearts.forEach(iconHeart => {
   iconHeart.addEventListener("click", () => {
@@ -97,10 +97,8 @@ iconHearts.forEach(iconHeart => {
       iconHeart.classList.remove("icon--filled")
       return;
     }
-
     iconHeart.classList.add("icon--filled")
   })
-
 
 })
 

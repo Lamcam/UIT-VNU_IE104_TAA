@@ -2,6 +2,10 @@
   margin-right: 8px;
 }
 
+.bold{
+  font-weight: bold;
+}
+
 /* .aside {
   margin-right: 10px;
 } */
@@ -729,24 +733,9 @@ input::-webkit-inner-spin-button {
 
 }
 
-.btn--close {
-  position: absolute;
-  top: 24px;
-  right: 25px;
-  color: #aaa;
-  font-size: 24px;
-  line-height: 24px;
-  width: 24px;
-  font-weight: bold;
-  text-align: center;
-  cursor: pointer;
-}
-
 
 
 /* modal noti */
-
-
 .modal-noti {
   position: fixed;
   left: 0;
@@ -813,4 +802,17 @@ input::-webkit-inner-spin-button {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.btn--close {
+  position: absolute;
+  top: 24px;
+  right: 25px;
+  color: #aaa;
+  font-size: 24px;
+  line-height: 24px;
+  width: 24px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
 }
