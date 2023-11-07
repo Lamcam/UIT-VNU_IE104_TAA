@@ -574,9 +574,12 @@ input[type="radio"]:hover {
 .modal__info__rate .rate__star {
   display: flex;
   align-items: center;
-  color: var(--m-3-sys-light-error, #BA1A1A);
 }
 
+.modal__info__rate .rate__star__number {
+  margin-bottom: -9px;
+  margin-right: 4px;
+}
 
 .modal__price {
   display: flex;
