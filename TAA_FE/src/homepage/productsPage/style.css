@@ -2,7 +2,7 @@
   margin-right: 8px;
 }
 
-.bold{
+.bold {
   font-weight: bold;
 }
 
@@ -335,6 +335,10 @@ span {
 .product__item:hover .product__image .img_font {
   opacity: 0;
 
+}
+
+.icon_heart {
+  cursor: pointer;
 }
 
 .product__button__section {

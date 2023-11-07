@@ -210,6 +210,10 @@ span.btn-checkbox {
 
 }
 
+.icon_heart {
+  cursor: pointer;
+}
+
 .product__button__section {
   display: flex;
   align-items: center;
