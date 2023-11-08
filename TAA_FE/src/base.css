@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0);
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
 @import url(/TAA_FE/res/css/theme.css);
 @import url(/TAA_FE/res/css/component.css);
 
@@ -13,6 +12,13 @@
   padding: 0;
   box-sizing: border-box;
   transition: 300ms;
+  scroll-behavior: smooth;
+  border-style: inset;
+  border: 0px;
+}
+
+.icon--filled {
+  font-variation-settings: 'FILL' 1;
 }
 
 .mt-8 {
@@ -31,11 +37,28 @@
   margin-top: 24px;
 }
 
+.mt-32 {
+  margin-top: 32px;
+}
+
+.mt-36 {
+  margin-top: 32px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+.mt-64 {
+  margin-top: 64px;
+}
+
 /* support for row and col */
 .row {
   width: 100%;
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
   /* margin: 0 -6px; */
 }
 
@@ -89,8 +112,12 @@
 
 /* general name tag */
 a:is(:link, :hover, :visited, :active) {
-  /* text-decoration: none; */
+  text-decoration: none;
   color: black;
+}
+
+hr {
+  border: 1px solid var(--md-sys-color-outline-variant-light);
 }
 
 body {
@@ -127,7 +154,7 @@ header {
     justify-content: end;
     gap: 8px;
 
-    & .header__user__avatar {
+    & .header__avatar {
       width: 40px;
       height: 40px;
       border-radius: 50%;
@@ -158,20 +185,27 @@ header {
       color: white;
       background-color: var(--md-sys-color-primary);
     }
-  }
-
-  & .main-nav__link {
-    padding: 0px 24px;
-    margin: auto;
-    text-decoration: none;
-    font-weight: bold;
-    color: inherit;
+    
+    & a {
+      padding: 0px 24px;
+      margin: auto;
+      text-decoration: none;
+      font-weight: bold;
+      color: inherit;
+    }
   }
 }
 
 main {
   min-height: 612px;
-  padding: 0 32px;
+
+  &>section {
+    padding: 0 32px;
+
+    &.full-width {
+      padding: 0;
+    }
+  }
 }
 
 footer {
@@ -215,10 +249,6 @@ input {
   border: 1px solid var(--md-sys-color-outline);
   padding: 0 12px;
   background-color: transparent;
-
-  &:not([type=number]) {
-    width: 100%;
-  }
 }
 
 /* general class */
@@ -262,8 +292,8 @@ input {
     background-color: white;
     color: black;
     font-weight: bold;
-    
-    &:last-child{
+
+    &:last-child {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
     }
@@ -274,7 +304,7 @@ input {
   display: inline-flex;
   gap: 8px;
 
-  & > * {
+  &>* {
     margin: auto;
   }
 }
@@ -318,11 +348,11 @@ input {
   &:last-child {
     font-weight: bold;
   }
-}
 
-.nav-tree__link {
-  margin: auto;
-  text-decoration: none;
+  & a {
+    margin: auto;
+    text-decoration: none;
+  }
 }
 
 .email-submition {
@@ -338,7 +368,6 @@ input {
 /* CSS cho pop-up modal */
 .modal {
   display: none;
-  /* position: fixed; */
   position: fixed;
   z-index: 1;
   inset: 0;

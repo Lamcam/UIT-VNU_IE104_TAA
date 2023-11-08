@@ -1,0 +1,54 @@
+.section__title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.section__subtitle {
+  text-align: center;
+  font-style: italic;
+}
+
+.picture1 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.picture2 {
+  width: 100%;
+  /* height: 477px; */
+  max-width: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+
+.picture3 {
+  width: 100%;
+  height: 180px;
+  max-width: 100%;
+  margin: 0;
+  object-fit: cover;
+}
+
+.contact {
+  display: block;
+}
+
+.contact ul {
+  list-style-type: none;
+}
+
+.contact__list {
+  text-align: right;
+}
+
+.information {
+  align-items: center;
+}
+
+.information ul {
+  list-style-type: none;
+}
+
+.information__content {
+  text-align: justify;
+}

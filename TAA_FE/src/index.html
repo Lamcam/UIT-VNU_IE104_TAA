@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="IE104.O12_Group3">
-  <meta name="description" content="Trang web TAA là một nền tảng thương mại 
-    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
-    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc
+    cung cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở
+    thành điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/TAA_FE/src/base.css">
   <link rel="stylesheet" href="./style.css">
@@ -16,6 +17,7 @@
   <script src="/TAA_FE/res/js/main.js"></script>
   <title>TAA</title>
 </head>
+
 <body>
   <div id="main" class="on-primary">
     <div id="header"></div>
@@ -23,6 +25,8 @@
 
     <main>
       <section class="slider mt-12"></section>
+
+
       <section class="mt-12">
         <div class="container">
           <h1 class="section__title display-medium">Hướng dẫn mua hàng</h1>
@@ -30,11 +34,16 @@
         </div>
       </section>
 
+
       <section class="mt-12">
         <div class="container">
           <div class="row">
             <aside class="col-3 visible"></aside>
-            <section class="col-9 visible" style="height: 100px;"></section>
+            <section class="col-9 visible">
+              <div class="row" id="product__list"></div>
+              <div class="mt-12" id="nav-page"></div>
+              <div class="mt-12"></div>
+            </section>
           </div>
         </div>
       </section>
@@ -44,15 +53,21 @@
     <div id="footer"></div>
 
     <!-- Modal -->
-    <div id="modal">
-      
-    </div>
+    <div id="modal"></div>
   </div>
   <script>
     $(document).ready(function () {
       $('#header').load('/TAA_FE/src/partials/header--unauth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
+      $('#nav-page').load('/TAA_FE/src/components/nav-page.html');
+
+      fetch('/TAA_FE/src/components/product__item.html')
+        .then(res => res.text())
+        .then(res => {
+          for (let i = 0; i < 9; ++i)
+            $('#product__list').append(res)
+        })
     });
   </script>
   <script src="/TAA_FE/res/js/modal--controller.js" defer></script>

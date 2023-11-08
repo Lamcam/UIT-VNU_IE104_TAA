@@ -1,35 +1,36 @@
 body {
-    background-color: #F1EFE7;
+  text-align: justify;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: 30px;
+h1.section__title {
+  text-align: center;
+  font-weight: bold;
+
+  margin-bottom: 12px;
 }
 
-h2,
-p {
-    margin: 0;
+h2.section__title {
+  margin-top: 12px;
+
+  text-align: left;
+
+  counter-increment: h2-counter;
+
+  &::before {
+    content: "Bước " counter(h2-counter) ": ";
+  }
 }
 
-ol,
-ul,
-li,
-ol li {
-    list-style-position: inside;
+h3.section__title {
+  margin-top: 8px;
 
+  counter-increment: h3-counter;
+
+  &::before {
+    content: counter(h3-counter) ". ";
+  }
 }
 
-ol ul li {
-    padding-left: 30px;
-    list-style-type: disc;
-}
-
-ul ol li {
-    padding-left: 30px;
-}
-
-.step {
-    margin-top: 16px;
+:has(ol, ul) li {
+  list-style-position: inside;
 }
