@@ -1,0 +1,57 @@
+<div id="modal--add-bank" class="modal">
+  <div class="modal__content on-primary">
+    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+      <div class="status-layer">
+        <span class="icon material-symbols-outlined">close</span>
+      </div>
+    </button>
+    <h1 class="modal__title headline-large">Thêm thông tin ngân hàng</h1>
+    <form action="" method="">
+      <div class="form__row mt-24">
+        <div class="row">
+          <label class="col-4 label-large" for="f_add_bank_per_name">
+            Họ và tên:</label>
+          <input class="col-8" type="text" name="f_add_bank_per_name"
+            id="f_add_bank_per_name" required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_add_bank_cmnd">
+            CMND:</label>
+          <input class="col-8" type="text" name="f_add_bank_cmnd"
+            id="f_add_bank_cmnd" required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_add_bank_name">
+            Ngân hàng:</label>
+          <input class="col-8" type="text" name="f_add_bank_name"
+            id="f_add_bank_name" required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_add_bank_num">
+            Số tài khoản:</label>
+          <input class="col-8" type="text" name="f_add_bank_num"
+            id="f_add_bank_num" required>
+        </div>
+      </div>
+      <div class="btn__wrapper row mt-12">
+        <button class="btn--outlined label-large col-6" type="button" onclick="closeModal()">
+          <div class="status-layer">
+            <span>Hủy bỏ</span>
+          </div>
+        </button>
+        <button class="btn--filled label-large col-6 bank-list__btn--add"
+          type="button" onclick="closeModal(), addBank()">
+          <div class="status-layer">
+            <span>Đồng ý</span>
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

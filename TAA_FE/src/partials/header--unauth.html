@@ -8,7 +8,7 @@
         <input class="label-large" type="text" placeholder="Tìm kiếm">
         <button class="btn-icon btn--filled" type="submit">
           <div class="status-layer">
-            <span class="icon material-icons">search</span>
+            <span class="icon material-symbols-outlined">search</span>
           </div>
         </button>
       </span>
@@ -31,22 +31,145 @@
   <nav class="main-nav">
     <ul class="container visible">
       <li class="main-nav__item active">
-        <a href="#" class="main-nav__link label-large">Trang chủ</a>
+        <a href="/TAA_FE/src/homepage/" class="main-nav__link label-large">Trang
+          chủ</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Sản phẩm</a>
+        <a href="/TAA_FE/src/homepage/productsPage/"
+          class="main-nav__link label-large">Sản phẩm</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Tin tức</a>
+        <a href="/TAA_FE/src/homepage/newsPage/"
+          class="main-nav__link label-large">Tin tức</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Về chúng
+        <a href="/TAA_FE/src/homepage/aboutUsPage/"
+          class="main-nav__link label-large">Về chúng
           tôi</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Hướng dẫn sử
-          dụng</a>
+        <a href="/TAA_FE/src/homepage/userManualPage/"
+          class="main-nav__link label-large">Hướng dẫn sử dụng</a>
       </li>
     </ul>
   </nav>
 </header>
+<div id="modal--login" class="modal">
+  <div class="modal__content on-primary">
+    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+      <div class="status-layer">
+        <span class="icon material-symbols-outlined">close</span>
+      </div>
+    </button>
+    <h1 class="modal__title headline-large">Đăng nhập</h1>
+    <form action="/login" method="POST">
+      <div class="form__row mt-24">
+        <div class="row">
+          <label class="col-4 label-large" for="f_log_name">
+            Tên đăng nhập:</label>
+          <input class="col-8" type="text" name="f_log_name" id="f_log_name"
+            required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_log_pass">
+            Mật khẩu:</label>
+          <input class="col-8" type="password" name="f_log_pass" id="f_log_pass"
+            required>
+        </div>
+      </div>
+      <button class="btn--filled label-large full-width mt-12" type="submit">
+        <div class="status-layer">
+          <span>Đăng nhập</span>
+        </div>
+      </button>
+    </form>
+    <div class="form__row mt-12">
+      <div class="row">
+        <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#">Quên
+            mật khẩu</a></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="modal--register" class="modal">
+  <div class="modal__content on-primary">
+    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+      <div class="status-layer">
+        <span class="icon material-symbols-outlined">close</span>
+      </div>
+    </button>
+    <h1 class="modal__title headline-large">Đăng ký</h1>
+    <form action="/register" method="POST">
+      <div class="form__row mt-24">
+        <div class="row">
+          <label class="col-4 label-large" for="f_reg_name">
+            Tên đăng nhập:</label>
+          <input class="col-8" type="text" name="f_reg_name" id="f_reg_name"
+            required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_reg_phone">
+            Số điện thoại:</label>
+          <input class="col-8" type="text" name="f_reg_phone" id="f_reg_phone"
+            required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_reg_email">
+            Email:</label>
+          <input class="col-8" type="email" name="f_reg_email" id="f_reg_email"
+            required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_reg_pass">
+            Mật khẩu:</label>
+          <input class="col-8" type="password" name="f_reg_pass" id="f_reg_pass"
+            required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_reg_pass_confirm">
+            Xác nhận mật khẩu:</label>
+          <input class="col-8" type="password" name="f_reg_pass_confirm"
+            id="f_reg_pass_confirm" required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <span class="btn-checkbox primary-text col-1">
+            <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read"
+              required>
+            <label for="f_reg_is_read">
+              <span class="icon material-symbols-outlined">
+                check_box_outline_blank</span>
+              <span class="icon icon--filled material-symbols-outlined --checked">
+                check_box</span>
+            </label>
+          </span>
+          <span class="col-11 body-medium" style="text-align: left;">Tôi đã đọc
+            và đồng ý với Điều kiện giao dịch chung và Chính sách bảo mật thông
+            tin của TAA</span>
+        </div>
+      </div>
+      <button class="btn--filled label-large full-width mt-12" type="submit">
+        <div class="status-layer">
+          <span>Đăng ký</span>
+        </div>
+      </button>
+    </form>
+    <div class="form__row mt-12">
+      <div class="row">
+        <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#">Quên
+            mật khẩu</a></span>
+      </div>
+    </div>
+  </div>
+</div>

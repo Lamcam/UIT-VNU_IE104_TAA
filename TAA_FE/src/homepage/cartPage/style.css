@@ -1,0 +1,45 @@
+table {
+  border-spacing: 0px;
+  border: 0px;
+
+  width: 100%;
+
+  padding-bottom: 12px;
+}
+
+thead {
+  & tr {
+    height: 60px;
+  }
+}
+
+tbody {
+  & tr {
+    & img {
+      height: 96px;
+      aspect-ratio: 1/1;
+    }
+  }
+}
+
+
+aside {
+  & .row {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+
+    &:first-child {
+      height: 60px;
+    }
+  }
+}
+
+.detail__title {
+  text-align: left;
+}
+
+.detail__context {
+  text-align: right;
+}
