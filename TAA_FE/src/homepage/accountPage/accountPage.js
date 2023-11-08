@@ -1,34 +1,26 @@
-const inputArr = [
-    "add-password",
-    "add-name",
-    "add-phonenumber",
-    "add-email",
-  ];
+// Routing
+// profile_favorProduct
+// profile_order
+// profile_info
+$(".profile-li").on("click", function () {
+  addActiveClass(this, "active-li");
+  $("section").empty();
+  switch ($(this).index()) {
+    case 0:
+      $("section").load("./index.html")
+      break;
 
-  setEveryInputReadOnly();
-
-  function setEveryInputReadOnly() {
-    inputArr.forEach(function (index) {
-      $("." + index).prop("readonly", true);
-    });
-  }
-
-  function activeInput() {
-    let targetIndex = $(".input-icon").index(this);
-    $("." + inputArr[targetIndex]).prop("readonly", false);
+    case 1:
+      $("section").load("./order.html")
+      break;
+    
+    case 2:
+      $("section").load("./favorProductT.html")
   
-
-  $(".input-icon").on("click", activeInput);
-  $(".header__btn--login").on("click", setEveryInputReadOnly);
-
-
-  function addActiveClass(element, activeClassName) {
-      $(element).siblings().removeClass(activeClassName);
-      $(element).addClass(activeClassName);
+    default:
+      break;
   }
 
-  $(".profile-li").on("click", function() {
-     addActiveClass(this, "active-li");
-     
-  });
-}
+});
+
+

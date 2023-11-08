@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thêm địa chỉ nhận hàng</title>
+  </head> -->
+<!-- <link rel="stylesheet" href="/TAA_FE/src/base.css" /> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="/TAA_FE/res/js/main.js"></script> -->
+<link rel="stylesheet" href="../../base.css" />
+<link rel="stylesheet" href="./add-location.css" />
+<body>
+  <div class="modal-add-location add-location">
+    <div class="add-location-container">
+      <h1>Thêm địa chỉ nhận hàng</h1>
+
+      <div class="form--items">
+        <div class="form-item">
+          <h3>Tên người nhận:</h3>
+          <input type="text" placeholder="Điền thông tin" />
+        </div>
+        <div class="form-item">
+          <h3>Số điện thoại:</h3>
+          <input type="text" placeholder="Điền thông tin" />
+        </div>
+        <div class="form-item">
+          <h3>Địa chỉ tổng quan:</h3>
+          <input type="text" placeholder="Điền thông tin" />
+        </div>
+      </div>
+
+      <div class="button--wrapper">
+        <button class="status-layer btn--outlined cancelBtn">Hủy bỏ</button>
+        <button class="status-layer btn--filled">Đồng ý</button>
+      </div>
+      <span class="material-symbols-outlined closeBtn"> close </span>
+    </div>
+  </div>
+</body>
+<script>
+  const cancelBtn = document.querySelector(".cancelBtn");
+  const modal = document.querySelector(".modal-add-location");
+
+  cancelBtn.addEventListener("click", () => {
+    console.log("aaa");
+    modal.style.display = "none";
+  });
+
+  const closeBtn = document.querySelector(".closeBtn");
+  closeBtn.addEventListener("click", () => {
+    console.log("aaa");
+    modal.style.display = "none";
+  });
+</script>

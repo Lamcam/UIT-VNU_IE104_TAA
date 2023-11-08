@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <link rel="stylesheet" href="./accountPage.css">
-  <title>TAA - Trang cá nhân</title>
-  <style>
-    /* .container {
-      max-width: 1024px;
-      width: 100%;
-      margin: 12px auto;
-    } */
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,1..1,-50..200"
+    />
+    <link rel="stylesheet" href="./accountPage.css" />
+    <link rel="stylesheet" href="../../../res/css/theme.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <link rel="stylesheet" href="../../../res/css/component.css" />
+    <title>Trang cá nhân</title>
+    <style>
+      body main {
+        min-height: 612px;
+        padding: 12px 32px;
+      }
+      .container {
+        max-width: 1024px;
+        width: 100%;
+        margin: 12px auto;
+      }
+      aside {
+        display: inline-flex;
+        overflow: hidden;
+      }
+      aside span {
+        margin: 0 8px;
+      }
 
     aside {
       display: inline-flex;
       overflow: hidden;
     }
 
-    aside span {
-      margin: 0 8px;
-    }
+      .section__content {
+        display: flex;
+        padding: 12px 0px;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        width: 64%;
+      }
 
-    aside ul>li {
-      list-style: none;
-      height: 40px;
-      display: flex;
-      align-items: center;
-    }
+      .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-direction: column;
+      }
 
-    section {
-      display: flex !important;
-      flex-direction: column;
-      gap: 12px;
-    }
+      .state-layer {
+        height: 40px;
+        width: 333px;
+        padding-left: 12px;
+      }
 
     .section__content {
       display: flex;
@@ -44,17 +71,20 @@
       gap: 12px;
     }
 
-    .profile-section {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      flex-direction: column;
-    }
+      .input__wrapper {
+        position: relative;
+        display: inline-block;
+      }
 
-    .state-layer {
-      height: 40px;
-      width: 333px;
-    }
+      .input__wrapper span {
+        position: absolute;
+        right: 5px;
+        top: 10px;
+      }
+
+      .input__wrapper span:active {
+        font-weight: 600;
+      }
 
     form>div {
       display: flex;
@@ -67,11 +97,9 @@
       display: inline-block;
     }
 
-    .input__wrapper span {
-      position: absolute;
-      right: 5px;
-      top: 10px;
-    }
+      .bank-item-details .icon-delete {
+        margin-top: 28px;
+      }
 
     .input__wrapper span:hover {}
 
@@ -81,118 +109,187 @@
       justify-content: space-between;
     }
 
-    .bank-item-details,
-    .shippingadress-details {
-      display: flex;
-      justify-content: space-between;
-    }
+      .button--edit {
+        width: 80px;
+        color: #ffffff;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 5px 10px; /* Thêm padding cho nút */
+      }
+      .addLocationBtn,
+      .addBankAccountBtn {
+        cursor: pointer;
+      }
 
     .bank-item-wrap {
       display: flex;
       flex-direction: column;
     }
 
-    .bank-item-details .icon-delete {
-      margin-top: 28px;
-    }
+      .delete-edit-wrap-icon {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
 
-    .account-bank-detail {
-      display: flex;
-    }
+      .icon-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        margin-top: 12px;
+      }
 
-    .account-bank-detail p,
-    .bank-item-wrap p {
-      margin: 12px;
-    }
+      .profile-choice {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-around;
+        height: fit-content;
+        height: fit-content;
+        gap: 2px;
+        width: 98%;
+        height: 100%;
+        /* margin-left: 0.5em; */
+        border-radius: 8px;
+        padding: 8px 0;
+      }
+      .profile-li {
+        transition: cubic-bezier(0.165, 0.84, 0.44, 1) 137ms;
+      }
+      .active-li {
+        border-left: 4px solid black;
+      }
 
-    .icon-delete {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--md-sys-color-surface-container, #f2e5e4);
-      border-radius: 8px;
-      /* margin-top: 28px; */
-    }
+      .order__content__list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
+      }
+      .order__item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .item__content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        width: 375px;
+        height: 157px;
+      }
+      .item_att {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .att_totalRate {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .item__status {
+        width: 161px;
+        height: 157px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+      }
 
-    hr {
-      background-color: var(--md-ref-palette-primary50);
-      border-width: 1px;
-      width: 98%;
-      margin-left: 10px;
-    }
+      .item__status .status {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        height: 6em;
+      }
+      .item__status .item_repurchase {
+        margin-top: auto;
+        width: 161px;
 
-    .button--edit {
-      color: #ffffff;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      padding: 5px 10px;
-      /* Thêm padding cho nút */
-    }
+        padding: 10px 24px;
+      }
+      .btn-rate {
+        margin-top: auto;
+        width: 104px;
+        margin-left: auto;
+      }
 
-    .shipping-details p {
-      margin-left: 12px;
-    }
+      .item_att_price_content {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+    </style>
+  </head>
 
-    .delete-edit-wrap-icon {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .icon-wrap {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      margin-top: 12px;
-    }
-  </style>
-</head>
-
-<body>
-  <div id="main" class="on-primary">
+  <body class="on-primary">
     <div id="header"></div>
     <div id="nav-tree"></div>
-
-    <main class="mt-12">
+    <main>
       <div class="container row">
-        <aside class="aside body-large visible col-3 col" style="
-          background-color: var(--md-ref-palette-primary100);
-          height: 150px;
-        ">
+        <aside
+          class="aside body-large visible col-3 col"
+          style="
+            background-color: var(--md-ref-palette-primary100);
+            height: 150px;
+          "
+        >
           <ul class="profile-choice">
             <li class="profile-li">
-              <!-- <span class="material-symbols-outlined"
-              style="background-color: var(--md-ref-palette-primary100)">
-              person
-            </span> -->
-              <span class="material-icons">person</span>
+              <span
+                class="material-symbols-outlined"
+                style="
+                  background-color: var(--md-ref-palette-primary100);
+                  margin-left: 12px;
+                "
+              >
+                person
+              </span>
+
               Thông tin tài khoản
             </li>
             <li class="profile-li">
-              <!-- <span class="material-symbols-outlined"
-              style="background-color: var(--md-ref-palette-primary100)">
-              hr_resting </span> -->
-              <span class="material-icons">hr_resting</span>
-              Đơn hàng
+              <span
+                class="material-symbols-outlined"
+                style="
+                  background-color: var(--md-ref-palette-primary100);
+                  margin-left: 12px;
+                "
+              >
+                box </span
+              >Đơn hàng
             </li>
             <li class="profile-li">
-              <!-- <span class="material-symbols-outlined"
-              style="background-color: var(--md-ref-palette-primary100)">
-              hr_resting </span> -->
-              <span class="material-icons"></span>
-              Sản phẩm yêu thích
+              <span
+                class="material-symbols-outlined"
+                style="
+                  background-color: var(--md-ref-palette-primary100);
+                  margin-left: 12px;
+                "
+              >
+                hr_resting </span
+              >Sản phẩm yêu thích
             </li>
           </ul>
         </aside>
 
         <section class="col col-9">
           <!-- Thông tin tài khoản-->
-          <div class="section__h1 visible"
-            style="background-color: white; padding: 24px">
-            <h1 class="headline-large" style="padding-left: 12px">
+          <div
+            class="section__h1 visible"
+            style="background-color: white; padding: 24px"
+          >
+            <h1
+              class="headline-large"
+              style="padding-left: 12px; text-align: left; color: black"
+            >
               Thông tin tài khoản
             </h1>
             <p class="body-medium" style="padding: 12px">
@@ -203,7 +300,7 @@
 
           <!-- Hồ sơ cá nhân -->
           <div class="profile-section visible" style="padding: 24px">
-            <h2 class="headline-small" style="padding-left: 12px">
+            <h2 class="headline-small" style="margin-left: -534px">
               Hồ sơ cá nhân
             </h2>
 
@@ -211,50 +308,86 @@
               <div>
                 <label class="label-large">Tên đăng nhập: </label>
                 <div class="input__wrapper">
-                  <input class="state-layer add-username" name="username"
-                    type="text" placeholder="   abc" readonly />
+                  <input
+                    class="state-layer add-username"
+                    name="username"
+                    type="text"
+                    placeholder="abc"
+                    readonly
+                  />
                 </div>
               </div>
 
               <div>
                 <label class="label-large">Mật khẩu: </label>
                 <div class="input__wrapper">
-                  <input class="state-layer add-password" name="password"
-                    type="text" placeholder="   ********" />
-                  <span class="material-symbols-outlined input-icon"> edit
+                  <input
+                    class="state-layer add-password"
+                    name="password"
+                    type="text"
+                    placeholder="********"
+                  />
+                  <span class="material-symbols-outlined input-icon">
+                    edit
                   </span>
                 </div>
               </div>
               <div>
                 <label class="label-large">Tên người dùng: </label>
                 <div class="input__wrapper">
-                  <input class="state-layer add-name" name="name" type="text"
-                    placeholder="   Nguyễn Văn A" />
-                  <span class="material-symbols-outlined input-icon"> edit
+                  <input
+                    class="state-layer add-name"
+                    name="name"
+                    type="text"
+                    placeholder="Nguyễn Văn A"
+                  />
+                  <span class="material-symbols-outlined input-icon">
+                    edit
                   </span>
                 </div>
               </div>
               <div>
                 <label class="label-large">Số điện thoại: </label>
                 <div class="input__wrapper">
-                  <input class="state-layer add-phonenumber" name="phonenumber"
-                    type="text" placeholder="   *******629" />
-                  <span class="material-symbols-outlined input-icon"> edit
+                  <input
+                    class="state-layer add-phonenumber"
+                    name="phonenumber"
+                    type="text"
+                    placeholder="*******629"
+                  />
+                  <span class="material-symbols-outlined input-icon">
+                    edit
                   </span>
                 </div>
               </div>
               <div>
                 <label class="label-large">Email: </label>
                 <div class="input__wrapper">
-                  <input class="state-layer add-email" name="email" type="text"
-                    placeholder="   2152****@gm.uit.edu.vn" />
-                  <span class="material-symbols-outlined input-icon"> edit
+                  <input
+                    class="state-layer add-email"
+                    name="email"
+                    type="text"
+                    placeholder="2152****@gm.uit.edu.vn"
+                  />
+                  <span class="material-symbols-outlined input-icon">
+                    edit
                   </span>
                 </div>
               </div>
-              <button class="header__btn--login btn--filled" type="button">
+              <button
+                class="header__btn--login btn--filled"
+                type="button"
+                style="
+                  background: var(
+                    --m-3-state-layers-light-on-surface-opacity-012,
+                    rgba(29, 27, 32, 0.12)
+                  );
+                "
+              >
                 <div class="status-layer label-large">
-                  <span class="label-large">Lưu thay đổi</span>
+                  <span class="label-large" style="font-weight: 500"
+                    >Lưu thay đổi</span
+                  >
                 </div>
               </button>
             </form>
@@ -265,7 +398,9 @@
               <h2 class="headline-small" style="padding-left: 12px">
                 Tài khoản ngân hàng
               </h2>
-              <span class="material-symbols-outlined"> add </span>
+              <span class="material-symbols-outlined addBankAccountBtn">
+                add
+              </span>
             </div>
 
             <div class="bank-items">
@@ -278,7 +413,7 @@
                   </div>
                   <p class="body-medium name-account-bank">Ngân hàng ACB</p>
                 </div>
-                <div class="icon-delete">
+                <div class="icon-delete deleteBankAccBtn">
                   <span class="material-symbols-outlined"> delete </span>
                 </div>
               </div>
@@ -294,7 +429,7 @@
                   </div>
                   <p class="body-medium name-account-bank">Ngân hàng ACB</p>
                 </div>
-                <div class="icon-delete">
+                <div class="icon-delete deleteBankAccBtn">
                   <span class="material-symbols-outlined"> delete </span>
                 </div>
               </div>
@@ -306,7 +441,9 @@
               <h2 class="headline-small" style="padding-left: 12px">
                 Địa chỉ nhận hàng
               </h2>
-              <span class="material-symbols-outlined"> add </span>
+              <span class="material-symbols-outlined addLocationBtn">
+                add
+              </span>
             </div>
 
             <div class="shippingadress-items">
@@ -323,19 +460,26 @@
                   </div>
                   <div class="icon-wrap">
                     <div class="delete-edit-wrap-icon">
-                      <div class="icon-delete">
+                      <div class="icon-delete deleteLocaBtn">
                         <span class="material-symbols-outlined"> delete </span>
                       </div>
-                      <button type="button" class="button--edit primary">
+                      <button
+                        type="button"
+                        class="button--edit primary editLocationBtn"
+                      >
                         <span class="material-symbols-outlined"> edit </span>
                         <span class="label-large">Sửa</span>
                       </button>
                     </div>
-                    <button type="button" class="button--edit primary" style="
-                      background-color: var(--md-ref-palette-primary100);
-                      border: 1px solid var(--m-3-sys-light-outline, #857373);
-                      color: var(--m-3-sys-light-outline, #857373);
-                    ">
+                    <button
+                      type="button"
+                      style="
+                        background-color: var(--md-ref-palette-primary100);
+                        border: 1px solid var(--m-3-sys-light-outline, #857373);
+                        color: var(--m-3-sys-light-outline, #857373);
+                        width: 140px;
+                      "
+                    >
                       <span class="label-large">Thiết lập mặc định</span>
                     </button>
                   </div>
@@ -357,37 +501,45 @@
                   </div>
                   <div class="icon-wrap">
                     <div class="delete-edit-wrap-icon">
-                      <div class="icon-delete">
+                      <div class="icon-delete deleteLocaBtn">
                         <span class="material-symbols-outlined"> delete </span>
                       </div>
-                      <button type="button" class="button--edit primary">
+                      <button
+                        type="button"
+                        class="button--edit primary editLocationBtn"
+                      >
                         <span class="material-symbols-outlined"> edit </span>
                         <span class="label-large">Sửa</span>
                       </button>
                     </div>
-                    <button type="button" class="button--edit primary" style="
-                      background-color: var(--md-ref-palette-primary100);
-                      border: none;
-                      color: var(--m-3-sys-light-outline, #857373);
-                    ">
-                      <span class="label-large"
-                        style="font-size: 22px; padding:12px;">Mặc định</span>
+                    <button
+                      type="button"
+                      style="
+                        font-size: 22px;
+                        border: none;
+                        color: var(--m-3-sys-light-outline, #857373);
+                        width: 140px;
+                      "
+                    >
+                      <span class="label-large">Mặc định</span>
                     </button>
                   </div>
                 </div>
-
-
               </div>
             </div>
+            <!-- <div id="footer"></div> -->
+          </div>
+          <div id="addlocation"></div>
+          <div id="addbankaccount"></div>
+          <div id="deletebankinfo"></div>
+          <div id="deletelocation"></div>
+          <div id="editlocation"></div>
         </section>
       </div>
     </main>
-
     <div id="footer"></div>
-  </div>
-
-  <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     const inputArr = [
       "add-password",
@@ -420,11 +572,104 @@
       addActiveClass(this, "active-li");
     });
 
+    // Lấy tất cả các thẻ span có lớp input-icon
+    const editIcons = document.querySelectorAll(".input-icon");
+
+    // Lặp qua từng thẻ và thêm sự kiện click
+    editIcons.forEach((editIcon) => {
+      editIcon.addEventListener("click", function () {
+        const inputWrapper = editIcon.closest(".input__wrapper");
+      });
+    });
+
+    //Khi nhấn vào nút thêm thông tin ngân hàng
+    const addBankAccountBtn = document.querySelector(".addBankAccountBtn");
+    const popupAddBankAccount = document.querySelector("#addbankaccount");
+    const openBankAccountView = () => {
+      if (popupAddLocation) {
+        var seeModal2 = popupAddBankAccount.querySelector(".add-bank-account");
+        console.log("hihi", seeModal2);
+        seeModal2.style.display = "block";
+      }
+    };
+
+    addBankAccountBtn.addEventListener("click", openBankAccountView);
+    //Khi nhấn vào nút xóa thông tin ngân hàng
+
+    const deleteBankAccountBtn = document.querySelectorAll(".deleteBankAccBtn");
+    let popupDeleteBankAccount = document.querySelector("#deletebankinfo");
+
+    deleteBankAccountBtn.forEach(function (element) {
+      element.addEventListener("click", function () {
+        if (popupDeleteBankAccount) {
+          var seeModal3 =
+            popupDeleteBankAccount.querySelector(".deletebank-info");
+          console.log("hihi", seeModal3);
+          console.log(deleteBankAccountBtn);
+          seeModal3.style.display = "block";
+        }
+      });
+    });
+
+    //Khi nhấn vào nút thêm địa chỉ nhận hàng
+    const addLocationBtn = document.querySelector(".addLocationBtn");
+    const popupAddLocation = document.querySelector("#addlocation");
+    const openLocationView = () => {
+      if (popupAddLocation) {
+        var seeModal = popupAddLocation.querySelector(".add-location");
+        console.log("hihi", seeModal);
+        seeModal.style.display = "block";
+      }
+    };
+    addLocationBtn.addEventListener("click", openLocationView);
+
+    //Khi nhấn vào nút sửa địa chỉ nhận hàng
+    const editLocationBtn = document.querySelectorAll(".editLocationBtn");
+    const popupEditLocation = document.querySelector("#editlocation");
+
+    editLocationBtn.forEach(function (element) {
+      element.addEventListener("click", function () {
+        if (popupEditLocation) {
+          var seeModalEdit = popupEditLocation.querySelector(".edit-location");
+          seeModalEdit.style.display = "block";
+        }
+      });
+    });
+
+    //Khi nhấn vào nút xóa địa chỉ nhận hàng
+    const deleteLocaBtn = document.querySelectorAll(".deleteLocaBtn");
+    let popupDeleteLocation = document.querySelector("#deletelocation");
+
+    deleteLocaBtn.forEach(function (element) {
+      element.addEventListener("click", function () {
+        if (popupDeleteLocation) {
+          var seeModal3 = popupDeleteLocation.querySelector(".delete-location");
+          console.log("hihi", seeModal3);
+          console.log(deleteLocaBtn);
+          seeModal3.style.display = "block";
+        }
+      });
+    });
+
     $(document).ready(function () {
-      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/src/partials/footer.html');
+      $("#header").load("/TAA_FE/src/partials/header--unauth.html");
+      $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
+      $("#footer").load("/TAA_FE/src/partials/footer.html");
+      $("#addlocation").load(
+        "/TAA_FE/src/homepage/accountPage/add-location.html"
+      );
+      $("#addbankaccount").load(
+        "/TAA_FE/src/homepage/accountPage/add-bank-account.html"
+      );
+      $("#deletebankinfo").load(
+        "/TAA_FE/src/homepage/accountPage/delete-bank-info.html"
+      );
+      $("#deletelocation").load(
+        "/TAA_FE/src/homepage/accountPage/delete-location.html"
+      );
+      $("#editlocation").load(
+        "/TAA_FE/src/homepage/accountPage/edit-location.html"
+      );
     });
   </script>
-</body>
 </html>
