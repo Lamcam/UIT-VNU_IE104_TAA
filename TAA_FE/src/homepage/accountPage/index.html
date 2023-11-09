@@ -564,6 +564,24 @@
     </main>
     <div id="footer"></div>
   </body>
+  <script id="interact"></script>
+  <script src="./accountPage.js" defer></script>
+  <script src="./interact.js">
+    const deleteBankAccountBtn = document.querySelectorAll(".deleteBankAccBtn");
+    let popupDeleteBankAccount = document.querySelector("#deletebankinfo");
+
+    deleteBankAccountBtn.forEach(function (element) {
+      element.addEventListener("click", function () {
+        if (popupDeleteBankAccount) {
+          var seeModal3 =
+            popupDeleteBankAccount.querySelector(".deletebank-info");
+          console.log("hihi", seeModal3);
+          console.log(deleteBankAccountBtn);
+          seeModal3.style.display = "block";
+        }
+      });
+    });
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script>
     const inputArr = [
@@ -620,21 +638,21 @@
 
     addBankAccountBtn.addEventListener("click", openBankAccountView);
     //Khi nhấn vào nút xóa thông tin ngân hàng
+    //test
+    // const deleteBankAccountBtn = document.querySelectorAll(".deleteBankAccBtn");
+    // let popupDeleteBankAccount = document.querySelector("#deletebankinfo");
 
-    const deleteBankAccountBtn = document.querySelectorAll(".deleteBankAccBtn");
-    let popupDeleteBankAccount = document.querySelector("#deletebankinfo");
-
-    deleteBankAccountBtn.forEach(function (element) {
-      element.addEventListener("click", function () {
-        if (popupDeleteBankAccount) {
-          var seeModal3 =
-            popupDeleteBankAccount.querySelector(".deletebank-info");
-          console.log("hihi", seeModal3);
-          console.log(deleteBankAccountBtn);
-          seeModal3.style.display = "block";
-        }
-      });
-    });
+    // deleteBankAccountBtn.forEach(function (element) {
+    //   element.addEventListener("click", function () {
+    //     if (popupDeleteBankAccount) {
+    //       var seeModal3 =
+    //         popupDeleteBankAccount.querySelector(".deletebank-info");
+    //       console.log("hihi", seeModal3);
+    //       console.log(deleteBankAccountBtn);
+    //       seeModal3.style.display = "block";
+    //     }
+    //   });
+    // });
 
     //Khi nhấn vào nút thêm địa chỉ nhận hàng
     const addLocationBtn = document.querySelector(".addLocationBtn");

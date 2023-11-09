@@ -1,0 +1,13 @@
+const deleteBankAccountBtn = document.querySelectorAll(".deleteBankAccBtn");
+let popupDeleteBankAccount = document.querySelector("#deletebankinfo");
+
+deleteBankAccountBtn.forEach(function (element) {
+  element.addEventListener("click", function () {
+    if (popupDeleteBankAccount) {
+      var seeModal3 = popupDeleteBankAccount.querySelector(".deletebank-info");
+      console.log("hihi", seeModal3);
+      console.log(deleteBankAccountBtn);
+      seeModal3.style.display = "block";
+    }
+  });
+});
