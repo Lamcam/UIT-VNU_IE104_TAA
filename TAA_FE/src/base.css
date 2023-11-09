@@ -314,6 +314,8 @@ input {
     color: black;
     font-weight: bold;
 
+    text-decoration: none;
+
     &:last-child {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
