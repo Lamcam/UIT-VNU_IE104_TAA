@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="author" content="IE104.O12_Group3" />
+    <meta
+      name="description"
+      content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức."
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TAA - Trang sản phẩm</title>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.js"
-      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="/TAA_FE/src/base.css" />
     <link rel="stylesheet" href="./style.css" />
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/TAA_FE/res/js/main.js"></script>
+    <title>TAA - Trang cá nhân</title>
     <script src="./productsPage.js" defer></script>
     <style>
       .mr-8 {
@@ -820,116 +824,49 @@ input[type="radio"]:hover {
 
       <main>
         <section class="mt-12">
-          <!-- Giới hạn lại độ rộng của nội dung -->
-          <div class="container">
-            <div class="product__filter visible">
-              <p class="product__title label-large on-surface-text">
-                Sắp xếp theo
-              </p>
-              <button class="product__button js-button btn--outlined">
-                <span class="material-symbols-outlined icon-check">
-                  check
-                </span>
-                Giảm giá
-              </button>
-              <button class="product__button js-button btn--outlined">
-                <span class="material-symbols-outlined icon-check">
-                  check
-                </span>
-                Bán chạy nhất
-              </button>
-              <div class="dropdown label-large">
-                <div class="select product__button">
-                  <span class="material-symbols-outlined icon-check">
-                    check
-                  </span>
-                  <span class="selected selected2">Giá</span>
-                  <div class="caret"></div>
-                  <span class="material-symbols-outlined icon-cancel">
-                    close
-                  </span>
-                </div>
-                <ul class="menu">
-                  <li class="select__active">Giá: Từ thấp đến cao</li>
-                  <li>Giá: Từ cao đến thấp</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="mt-12">
           <!-- Dành cho việc chia cột nội dung-->
           <div class="container row">
-            <aside class="aside col-3">
-              <ul class="aside__list label-large visible">
-                <li class="aside__item">
-                  <span class="aside__item__title">
-                    <span class="material-symbols-outlined icon-menu">
-                      menu
-                    </span>
-                    Danh mục sản phẩm
-                  </span>
+            <aside class="col-3 body-large primary-text">
+              <ul class="nav-tab visible">
+                <li class="nav-tab__item active">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    person</span
+                  >
+                  Thông tin tài khoản
                 </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Trang sức</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Vòng cổ</span></li>
-                    <li><span>Vòng tay</span></li>
-                    <li><span>Hoa tai</span></li>
-                    <li><span>Nhẫn</span></li>
-                  </ul>
+                <li class="nav-tab__item">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    box</span
+                  >
+                  Đơn hàng
                 </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Phụ kiện tóc</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Kẹp</span></li>
-                    <li><span>Dây cột tóc</span></li>
-                    <li><span>Cài tóc</span></li>
-                    <li><span>Trâm cài</span></li>
-                  </ul>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Túi ví</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Balo</span></li>
-                    <li><span>Túi</span></li>
-                    <li><span>Ví</span></li>
-                  </ul>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Giày dép</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Giày</span></li>
-                    <li><span>Dép</span></li>
-                    <li><span>Tất</span></li>
-                  </ul>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Khác</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Thiệp</span></li>
-                    <li><span>Ốp lưng</span></li>
-                    <li><span>Mắt kính</span></li>
-                    <li><span>Dây đeo</span></li>
-                    <li><span>Mũ nón</span></li>
-                    <li><span>Khẩu trang</span></li>
-                  </ul>
+                <li class="nav-tab__item">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    hr_resting</span
+                  >
+                  Sản phẩm yêu thích
                 </li>
               </ul>
             </aside>
 
             <section class="col-9">
-              <div class="section__content visible row">
+              <!-- Sản phẩm yêu thích -->
+              <article class="section__info visible">
+                <h1 class="headline-large">Sản phẩm yêu thích</h1>
+                <p class="body-medium mt-12">
+                  Trang cung cấp thông tin về sản phẩm yêu thích
+                </p>
+              </article>
+              <div class="section__content visible row mt-12">
                 <div class="product__item col-4">
                   <div class="product__image">
                     <img
-                      src="../../../public/product_1.png"
+                      src="/TAA_FE/public/product1.jpg"
                       alt="Kẹp tóc"
                       class="img_back"
                     />
                     <img
-                      src="../../../public/red-panda-small.jpg"
+                      src="/TAA_FE/public/product2.jpg"
                       alt="Kẹp tóc"
                       class="img_font"
                     />
@@ -938,7 +875,7 @@ input[type="radio"]:hover {
                     <span
                       class="material-symbols-outlined icon_heart error-text"
                     >
-                      heart_plus
+                      favorite
                     </span>
                     <h3 class="product__name body-large">Kẹp tóc</h3>
                     <div class="product__price label-large">
@@ -970,12 +907,12 @@ input[type="radio"]:hover {
                 <div class="product__outstock col-4">
                   <div class="product__image">
                     <img
-                      src="../../../public/product_1.png"
+                      src="/TAA_FE/public/product1.jpg"
                       alt="Kẹp tóc"
                       class="img_back"
                     />
                     <img
-                      src="../../../public/red-panda-small.jpg"
+                      src="/TAA_FE/public/product2.jpg"
                       alt="Kẹp tóc"
                       class="img_font"
                     />
@@ -984,7 +921,7 @@ input[type="radio"]:hover {
                     <span
                       class="material-symbols-outlined icon_heart error-text"
                     >
-                      heart_plus
+                      favorite
                     </span>
                     <h3 class="product__name body-large">Kẹp tóc</h3>
                     <div class="product__price label-large">
@@ -1215,102 +1152,6 @@ input[type="radio"]:hover {
       });
     </script>
     <script>
-      var items = document.querySelectorAll(".js-item");
-      var sub_menu = document.querySelectorAll(".js-sub-menu");
-      var buttons = document.querySelectorAll(".js-button");
-      function showSubMenu() {
-        if (this.classList.contains("active")) {
-          this.classList.remove("active");
-          return;
-        }
-
-        for (let item of items) item.classList.remove("active");
-
-        //   obj = this.querySelector('.js-sub-menu');
-        //   console.log(obj);
-        //   height = obj.style.maxHeight;
-        //   if (height == "200px")
-        //     obj.style.maxHeight = "0px";
-        //   else {
-        //     this.classList.add("active");
-        //     obj.style.maxHeight = "200px";
-        //   }
-        // }
-
-        this.classList.add("active");
-      }
-
-      for (let item of items) {
-        item.addEventListener("click", showSubMenu);
-      }
-
-      // effect on click button
-      function effectButton() {
-        if (this.classList.contains("effect")) {
-          this.classList.remove("effect");
-          return;
-        }
-
-        this.classList.add("effect");
-      }
-
-      for (let button of buttons) {
-        button.addEventListener("click", effectButton);
-      }
-
-      // const dropdowns = document.querySelectorAll('.dropdown');
-
-      const select = document.querySelector(".select");
-      const caret = document.querySelector(".caret");
-      const menu = document.querySelector(".menu");
-      const options = document.querySelectorAll(".menu li");
-      const selected = document.querySelector(".selected");
-      const cancel = document.querySelector(".icon-cancel");
-
-      select.addEventListener("click", () => {
-        select.classList.toggle("select-clicked");
-        caret.classList.toggle("caret-rotate");
-        menu.classList.toggle("menu-open");
-      });
-
-      options.forEach((option) => {
-        option.addEventListener("click", () => {
-          selected.innerText = option.innerText;
-          caret.classList.remove("caret-rotate");
-          select.classList.add("select__btn");
-          select.classList.remove("select-clicked");
-
-          if (select.classList.contains("cancel__select")) {
-            select.classList.remove("cancel__select");
-            select.classList.add("select__btn");
-          }
-          cancel.addEventListener("click", () => {
-            select.classList.add("cancel__select");
-            select.classList.remove("select__btn");
-            selected.innerText = "Giá";
-          });
-
-          menu.classList.remove("menu-open");
-          options.forEach((option) => {
-            option.classList.remove("select__active");
-          });
-
-          option.classList.add("select__active");
-        });
-      });
-
-      // item icon_heart product
-      const iconHearts = document.querySelectorAll(".icon_heart");
-      iconHearts.forEach((iconHeart) => {
-        iconHeart.addEventListener("click", () => {
-          if (iconHeart.classList.contains("icon--filled")) {
-            iconHeart.classList.remove("icon--filled");
-            return;
-          }
-          iconHeart.classList.add("icon--filled");
-        });
-      });
-
       // modalProduct change image product
       const imgs = document.querySelectorAll(".img-select a");
       const imgBtns = [...imgs];
