@@ -71,7 +71,7 @@ h1 {
     margin-top: 48px;
 }
 
-.button--wrapper button {
+button {
     width: 227px;
     height: 40px;
     border-radius: 8px;
@@ -96,6 +96,8 @@ h1 {
     color: #785b5b;
     cursor: pointer;
 }
+
+
 
 @keyframes modalFadeIn {
     from {
