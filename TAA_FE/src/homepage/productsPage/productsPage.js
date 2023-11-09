@@ -186,6 +186,9 @@ const modalButtonView = document.querySelector('.button__view')
 modalButtonCart.addEventListener("click", () => {
   modalNoti.classList.add('open')
   modalProduct.classList.remove('open')
+  setTimeout(() => {
+    modalNoti.classList.remove('open')
+  }, 5000)
 })
 // modalNoti btn--close
 
