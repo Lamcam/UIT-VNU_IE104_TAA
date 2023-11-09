@@ -37,7 +37,7 @@ button {
     }
   }
 
-  &:active .status-layer {
+  &:not(:disabled):active .status-layer {
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
@@ -72,12 +72,47 @@ button.btn-icon {
   }
 
   &:not(:disabled):hover {
+    cursor: pointer;
+    
+    box-shadow: none;
+  }
+}
+
+button.btn-icon-label {
+  display: flex;
+
+  height: 40px;
+  border-radius: 8px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  & .status-layer {
+    display: flex;
+    height: inherit;
+    width: inherit;
+    padding: 0;
+    padding-inline: 8px 24px;
+    border-radius: inherit;
+
+    & .icon {
+      margin-inline: 8px;
+    }
+
+    & .label {
+      margin-inline: 0px !important;
+      /* padding-inline: 8px; */
+    }
+  }
+
+  /* &:not(:disabled):hover {
     box-shadow: none;
 
     & .status-layer {
       background-color: rgba(0, 0, 0, 0.2);
     }
-  }
+  } */
 }
 
 button.btn--outlined {

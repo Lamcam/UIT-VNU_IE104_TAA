@@ -12,13 +12,6 @@
   padding: 0;
   box-sizing: border-box;
   transition: 300ms;
-  scroll-behavior: smooth;
-  border-style: inset;
-  border: 0px;
-}
-
-.icon--filled {
-  font-variation-settings: 'FILL' 1;
 }
 
 .mt-8 {
@@ -185,14 +178,14 @@ header {
       color: white;
       background-color: var(--md-sys-color-primary);
     }
-    
-    & a {
-      padding: 0px 24px;
-      margin: auto;
-      text-decoration: none;
-      font-weight: bold;
-      color: inherit;
-    }
+  }
+
+  & .main-nav__link {
+    padding: 0px 24px;
+    margin: auto;
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
   }
 }
 
@@ -323,7 +316,7 @@ input {
   &>* {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 48px;
     padding: 0 12px;
     gap: 8px;
   }
@@ -373,13 +366,15 @@ input {
   inset: 0;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-
+  
   &.active {
     display: block;
   }
 }
 
 .modal__content {
+  animation: modalFadeIn ease 0.5s;
+
   position: relative;
   margin: 150px auto;
   padding: 48px 64px;
