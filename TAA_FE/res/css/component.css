@@ -27,6 +27,7 @@ button {
   & .status-layer {
     color: inherit;
     display: flex;
+    height: 100%;
     justify-content: center;
     border-radius: inherit;
     min-height: 40px;
