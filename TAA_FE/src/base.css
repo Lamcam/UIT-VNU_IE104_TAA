@@ -21,6 +21,19 @@
   font-variation-settings: 'FILL' 1;
 }
 
+/* Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .mt-8 {
   margin-top: 8px;
 }
@@ -185,7 +198,7 @@ header {
       color: white;
       background-color: var(--md-sys-color-primary);
     }
-    
+
     & a {
       padding: 0px 24px;
       margin: auto;
@@ -323,7 +336,7 @@ input {
   &>* {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 48px;
     padding: 0 12px;
     gap: 8px;
   }
@@ -373,13 +386,15 @@ input {
   inset: 0;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-
+  
   &.active {
     display: block;
   }
 }
 
 .modal__content {
+  animation: modalFadeIn ease 0.5s;
+
   position: relative;
   margin: 150px auto;
   padding: 48px 64px;

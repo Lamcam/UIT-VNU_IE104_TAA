@@ -20,7 +20,4 @@ $(".profile-li").on("click", function () {
     default:
       break;
   }
-
 });
-
-
