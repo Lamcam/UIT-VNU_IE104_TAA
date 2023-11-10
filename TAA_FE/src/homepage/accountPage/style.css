@@ -1019,3 +1019,54 @@ input::-webkit-inner-spin-button {
   text-align: center;
   cursor: pointer;
 }
+/* Order */
+.order__item {
+  display: flex;
+  padding: 12px;
+  gap: 12px;
+  justify-content: space-between;
+}
+.order__item-content {
+  display: flex;
+  flex-direction: column;
+  width: 375px;
+  gap: 12px;
+}
+
+.order__item-att {
+  display: flex;
+  justify-content: space-between;
+}
+.item_att_price_content,
+.att_totalRate {
+  text-align: end;
+}
+
+.order__item-content button.btn--outlined {
+  width: 104px;
+  height: 40px;
+  font-weight: 500;
+  align-self: flex-end;
+}
+
+.item__status button.item_repurchase {
+  width: 161px;
+  height: 40px;
+  font-weight: 500;
+}
+
+.item__status {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item__status p {
+  color: rgb(17, 177, 17);
+}
+
+#section2 hr {
+  width: 97%;
+  margin: 0 auto;
+}
