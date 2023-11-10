@@ -37,7 +37,7 @@ button {
     }
   }
 
-  &:active .status-layer {
+  &:not(:disabled):active .status-layer {
     background-color: rgba(0, 0, 0, 0.2);
   }
 }
@@ -72,12 +72,47 @@ button.btn-icon {
   }
 
   &:not(:disabled):hover {
+    cursor: pointer;
+    
+    box-shadow: none;
+  }
+}
+
+button.btn-icon-label {
+  display: flex;
+
+  height: 40px;
+  border-radius: 8px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  & .status-layer {
+    display: flex;
+    height: inherit;
+    width: inherit;
+    padding: 0;
+    padding-inline: 8px 24px;
+    border-radius: inherit;
+
+    & .icon {
+      margin-inline: 8px;
+    }
+
+    & .label {
+      margin-inline: 0px !important;
+      /* padding-inline: 8px; */
+    }
+  }
+
+  /* &:not(:disabled):hover {
     box-shadow: none;
 
     & .status-layer {
       background-color: rgba(0, 0, 0, 0.2);
     }
-  }
+  } */
 }
 
 button.btn--outlined {
@@ -94,35 +129,45 @@ button.btn--filled {
 }
 
 span.btn-checkbox {
+  display: inline-flex;
+
   & input {
     display: none;
 
     &+label {
-      display: block;
+      display: inline-flex;
 
       & .--unchecked {
         display: flex;
       }
 
-      & .--checked {
+      & :is(.--checked, .--indeterminate) {
         display: none;
       }
     }
 
-    &:checked+label {
-      display: block;
-
-      & .--unchecked {
-        display: none !important;
+    &:is(:checked, :indeterminate)+label {
+      & span {
+        display: none;
       }
+    }
 
-      & .--checked {
-        display: flex !important;
-      }
+    &:checked+label .--checked {
+      display: flex;
+    }
+
+    &:indeterminate+label .--indeterminate {
+      display: flex;
     }
   }
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  margin-inline: 12px;
+  background: var(--md-sys-color-outline-variant-light);
+}
 
 .search-bar {
   min-width: 256px;
@@ -146,13 +191,9 @@ span.btn-checkbox {
 
   & button.btn-icon {
     height: 32px;
-    width: 32px;
+    max-width: 32px;
+    padding: 0px;
     border-radius: 8px;
-
-    & .status-layer {
-      height: 32px;
-      width: 32px;
-    }
   }
 }
 

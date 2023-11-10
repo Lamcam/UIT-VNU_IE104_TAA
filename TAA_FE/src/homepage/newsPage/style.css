@@ -4,6 +4,7 @@ a {
 
 .section__title {
   text-align: center;
+  font-weight: bold;
 }
 
 [class^="banner__img"] {
