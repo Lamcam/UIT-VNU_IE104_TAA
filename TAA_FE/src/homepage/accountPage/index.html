@@ -1,351 +1,534 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="author" content="IE104.O12_Group3">
-  <meta name="description" content="Trang web TAA là một nền tảng thương mại
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="IE104.O12_Group3" />
+    <meta
+      name="description"
+      content="Trang web TAA là một nền tảng thương mại
     điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <link rel="stylesheet" href="./style.css" />
-  <script
-    src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
-  <title>TAA - Trang cá nhân</title>
-</head>
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/TAA_FE/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/TAA_FE/res/js/main.js"></script>
+    <title>TAA - Trang cá nhân</title>
+  </head>
 
-<body>
-  <div id="main" class="on-primary">
-    <div id="header"></div>
-    <div id="nav-tree"></div>
-    <main>
-      <section class="mt-12">
-        <div class="container row">
-          <aside class="col-3 body-large primary-text">
-            <ul class="nav-tab visible">
-              <li class="nav-tab__item active">
-                <span class="icon icon--filled material-symbols-outlined">
-                  person</span>
-                Thông tin tài khoản
-              </li>
-              <li class="nav-tab__item">
-                <span class="icon icon--filled material-symbols-outlined">
-                  box</span>
-                Đơn hàng
-              </li>
-              <li class="nav-tab__item">
-                <span class="icon icon--filled material-symbols-outlined">
-                  hr_resting</span>
-                Sản phẩm yêu thích
-              </li>
-            </ul>
-          </aside>
+  <body>
+    <div id="main" class="on-primary">
+      <div id="header"></div>
+      <div id="nav-tree"></div>
+      <main>
+        <section class="mt-12">
+          <div class="container row">
+            <aside class="col-3 body-large primary-text">
+              <ul class="nav-tab visible">
+                <li
+                  class="nav-tab__item active"
+                  onclick="showSection('section1')"
+                >
+                  <span class="icon icon--filled material-symbols-outlined">
+                    person</span
+                  >
+                  Thông tin tài khoản
+                </li>
+                <li class="nav-tab__item">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    box</span
+                  >
+                  Đơn hàng
+                </li>
+                <li class="nav-tab__item" onclick="showSection('section2')">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    hr_resting</span
+                  >
+                  Sản phẩm yêu thích
+                </li>
+              </ul>
+            </aside>
+            <!-- Section Thông tin tài khoản -->
+            <section id="section1" class="section col-9">
+              <!-- Thông tin tài khoản-->
+              <article class="section__info visible">
+                <h1 class="headline-large">Thông tin tài khoản</h1>
+                <p class="body-medium mt-12">
+                  Trang cung cấp thông tin về tài khoản theo từng mục, đồng thời
+                  cho phép người dùng có thể thay đổi một thông tin cơ bản trong
+                  mục đó
+                </p>
+              </article>
 
-          <section class="col-9">
-            <!-- Thông tin tài khoản-->
-            <article class="section__info visible">
-              <h1 class="headline-large">Thông tin tài khoản</h1>
-              <p class="body-medium mt-12">Trang cung cấp thông tin về tài khoản
-                theo từng mục, đồng thời cho phép người dùng có thể thay đổi một
-                thông tin cơ bản trong mục đó</p>
-            </article>
+              <!-- Hồ sơ cá nhân -->
+              <article
+                id="profile"
+                class="section__content visible mt-12"
+                style="padding: 24px"
+              >
+                <h2 class="headline-medium">Hồ sơ cá nhân</h2>
+                <form action="" method="POST">
+                  <div class="form__row mt-12">
+                    <div class="row">
+                      <label class="col-4 label-large" for="username"
+                        >Tên đăng nhập:</label
+                      >
+                      <div class="col-8 input__wrapper">
+                        <input
+                          type="text"
+                          id="username"
+                          placeholder="abc"
+                          readonly
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row mt-12">
+                    <div class="row">
+                      <label class="col-4 label-large" for="password"
+                        >Mật khẩu:</label
+                      >
+                      <div class="col-8 input__wrapper">
+                        <input
+                          type="password"
+                          placeholder="********"
+                          id="password"
+                        />
+                        <span
+                          class="icon icon--filled material-symbols-outlined"
+                        >
+                          edit</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row mt-12">
+                    <div class="row">
+                      <label class="col-4 label-large" for="name"
+                        >Tên người dùng:</label
+                      >
+                      <div class="col-8 input__wrapper">
+                        <input
+                          type="password"
+                          name="name"
+                          id="name"
+                          placeholder="Nguyễn Văn A"
+                        />
+                        <span
+                          class="icon icon--filled material-symbols-outlined"
+                        >
+                          edit</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row mt-12">
+                    <div class="row">
+                      <label class="col-4 label-large" for="phone"
+                        >Số điện thoại:</label
+                      >
+                      <div class="col-8 input__wrapper">
+                        <input
+                          type="text"
+                          name="phone"
+                          id="phone"
+                          placeholder="*******629"
+                        />
+                        <span
+                          class="icon icon--filled material-symbols-outlined"
+                        >
+                          edit</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form__row mt-12">
+                    <div class="row">
+                      <label class="col-4 label-large" for="email"
+                        >Email:</label
+                      >
+                      <div class="col-8 input__wrapper">
+                        <input
+                          type="email"
+                          name="name"
+                          id="email"
+                          placeholder="2152****@gm.uit.edu.vn"
+                        />
+                        <span
+                          class="icon icon--filled material-symbols-outlined"
+                        >
+                          edit</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <button class="profile__btn btn--filled mt-12" type="submit">
+                    <div class="status-layer label-large">
+                      <span>Lưu thay đổi</span>
+                    </div>
+                  </button>
+                </form>
+              </article>
 
-            <!-- Hồ sơ cá nhân -->
-            <article id="profile" class="section__content visible mt-12">
-              <h2 class="headline-medium">Hồ sơ cá nhân</h2>
-              <form action="" method="POST">
-                <div class="form__row mt-12">
-                  <div class="row">
-                    <label class="col-4 label-large" for="username">Tên đăng
-                      nhập:</label>
-                    <div class="col-8 input__wrapper">
-                      <input type="text" id="username" placeholder="abc"
-                        readonly>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row mt-12">
-                  <div class="row">
-                    <label class="col-4 label-large" for="password">Mật
-                      khẩu:</label>
-                    <div class="col-8 input__wrapper">
-                      <input type="password" placeholder="********"
-                        id="password">
-                      <span class="icon icon--filled material-symbols-outlined">
-                        edit</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row mt-12">
-                  <div class="row">
-                    <label class="col-4 label-large" for="name">Tên người
-                      dùng:</label>
-                    <div class="col-8 input__wrapper">
-                      <input type="password" name="name" id="name"
-                        placeholder="Nguyễn Văn A">
-                      <span class="icon icon--filled material-symbols-outlined">
-                        edit</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row mt-12">
-                  <div class="row">
-                    <label class="col-4 label-large" for="phone">Số điện
-                      thoại:</label>
-                    <div class="col-8 input__wrapper">
-                      <input type="text" name="phone" id="phone"
-                        placeholder="*******629">
-                      <span class="icon icon--filled material-symbols-outlined">
-                        edit</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="form__row mt-12">
-                  <div class="row">
-                    <label class="col-4 label-large" for="email">Email:</label>
-                    <div class="col-8 input__wrapper">
-                      <input type="email" name="name" id="email"
-                        placeholder="2152****@gm.uit.edu.vn">
-                      <span class="icon icon--filled material-symbols-outlined">
-                        edit</span>
-                    </div>
-                  </div>
-                </div>
-                <button class="profile__btn btn--filled mt-12" type="submit">
-                  <div class="status-layer label-large">
-                    <span>Lưu thay đổi</span>
+              <!-- Tài khoản ngân hàng-->
+              <article
+                id="bank-account"
+                class="section__content visible mt-12"
+                style="padding: 24px"
+              >
+                <button
+                  class="btn-icon section__btn"
+                  data-modal-target="#modal--add-bank"
+                >
+                  <div class="status-layer">
+                    <span class="icon material-symbols-outlined">add</span>
                   </div>
                 </button>
-              </form>
-            </article>
+                <h2 class="headline-medium">Tài khoản ngân hàng</h2>
+                <div class="bank-list">
+                  <!-- Tài khoản ngân hàng thứ nhất -->
+                  <div class="bank-item mt-12">
+                    <div class="bank-item__wrapper body-medium">
+                      <div class="row">
+                        <span>STK: </span><span>*********1230</span>
+                      </div>
+                      <div class="row">
+                        <span class="mt-12">Ngân hàng ACB</span>
+                      </div>
+                      <button
+                        class="bank-item__btn--del btn-icon"
+                        data-modal-target="#modal--del-bank"
+                      >
+                        <div class="status-layer">
+                          <span class="icon material-symbols-outlined">
+                            delete</span
+                          >
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bank-item mt-12">
+                    <div class="bank-item__wrapper body-medium">
+                      <div class="row">
+                        <span>STK: </span><span>*********1230</span><br />
+                      </div>
+                      <div class="row">
+                        <span class="mt-12">Ngân hàng ACB</span>
+                      </div>
+                      <button
+                        class="bank-item__btn--del btn-icon"
+                        data-modal-target="#modal--del-bank"
+                      >
+                        <div class="status-layer">
+                          <span class="icon material-symbols-outlined">
+                            delete</span
+                          >
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="bank-item mt-12">
+                    <div class="bank-item__wrapper body-medium">
+                      <div class="row">
+                        <span>STK: </span><span>*********1230</span><br />
+                      </div>
+                      <div class="row">
+                        <span class="mt-12">Ngân hàng ACB</span>
+                      </div>
+                      <button
+                        class="bank-item__btn--del btn-icon"
+                        data-modal-target="#modal--del-bank"
+                      >
+                        <div class="status-layer">
+                          <span class="icon material-symbols-outlined">
+                            delete</span
+                          >
+                        </div>
+                      </button>
+                    </div>
+                    <button
+                      type="button"
+                      class="button--edit primary"
+                      style="
+                        background-color: var(--md-ref-palette-primary100);
+                        border: none;
+                        color: var(--m-3-sys-light-outline, #857373);
+                      "
+                    >
+                      <span
+                        class="label-large"
+                        style="font-size: 22px; padding: 12px"
+                        >Mặc định</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </article>
 
-            <!-- Tài khoản ngân hàng-->
-            <article id="bank-account" class="section__content visible mt-12">
-              <button class="btn-icon section__btn"
-                data-modal-target="#modal--add-bank">
-                <div class="status-layer">
-                  <span class="icon material-symbols-outlined">add</span>
-                </div>
-              </button>
-              <h2 class="headline-medium">Tài khoản ngân hàng</h2>
-              <div class="bank-list">
-                <!-- Tài khoản ngân hàng thứ nhất -->
-                <div class="bank-item mt-12">
-                  <div class="bank-item__wrapper body-medium">
-                    <div class="row">
-                      <span>STK: </span><span>*********1230</span>
-                    </div>
-                    <div class="row">
-                      <span class="mt-12">Ngân hàng ACB</span>
-                    </div>
-                    <button class="bank-item__btn--del btn-icon"
-                      data-modal-target="#modal--del-bank">
-                      <div class="status-layer">
-                        <span class="icon material-symbols-outlined">
-                          delete</span>
+              <!-- Địa chỉ nhận hàng -->
+              <article
+                id="shipping-address"
+                class="section__content visible mt-12"
+                style="padding: 24px"
+              >
+                <button
+                  class="btn-icon section__btn"
+                  data-modal-target="#modal--add-location"
+                >
+                  <div class="status-layer">
+                    <span class="icon material-symbols-outlined">add</span>
+                  </div>
+                </button>
+                <h2 class="headline-medium">Địa chỉ nhận hàng</h2>
+                <div class="location-list">
+                  <div class="location-item mt-12">
+                    <div class="location-item__wrapper body-medium">
+                      <div class="row">
+                        <span>Người đẹp bị câm</span>
                       </div>
-                    </button>
+                      <div class="row mt-16">
+                        <span>SDT: </span><span>*******629</span>
+                      </div>
+                      <div class="row mt-16">
+                        <span>Xã A, huyện B, tỉnh C</span>
+                      </div>
+                      <div class="location-btns__wrapper">
+                        <button
+                          class="location-item__btn--del btn-icon"
+                          data-modal-target="#modal--del-location"
+                        >
+                          <div class="status-layer">
+                            <span class="icon material-symbols-outlined">
+                              delete</span
+                            >
+                          </div>
+                        </button>
+                        <button
+                          class="location-item__btn--default btn--outlined"
+                          data-modal-target="#modal--set-default-location"
+                        >
+                          <div class="status-layer">
+                            <span>Thiết lập mặc định</span>
+                          </div>
+                        </button>
+                        <button
+                          data-modal-target="#modal--edit-location"
+                          class="location-item__btn--edit btn--filled btn-icon-label"
+                        >
+                          <div class="status-layer">
+                            <span class="icon material-symbols-outlined">
+                              edit</span
+                            >
+                            <span class="label">Sửa</span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="location-item mt-12">
+                    <div class="location-item__wrapper body-medium">
+                      <div class="row">
+                        <span>Người đẹp bị câm</span>
+                      </div>
+                      <div class="row mt-16">
+                        <span>SDT: </span><span>*******629</span>
+                      </div>
+                      <div class="row mt-16">
+                        <span>Xã A, huyện B, tỉnh C</span>
+                      </div>
+                      <div class="location-btns__wrapper">
+                        <button
+                          class="location-item__btn--del btn-icon"
+                          data-modal-target="#modal--del-location"
+                        >
+                          <div class="status-layer">
+                            <span class="icon material-symbols-outlined">
+                              delete</span
+                            >
+                          </div>
+                        </button>
+                        <button
+                          class="location-item__btn--default btn--outlined"
+                          data-modal-target="#modal--set-default-location"
+                        >
+                          <div class="status-layer">
+                            <span>Thiết lập mặc định</span>
+                          </div>
+                        </button>
+                        <button
+                          data-modal-target="#modal--edit-location"
+                          class="location-item__btn--edit btn--filled btn-icon-label"
+                        >
+                          <div class="status-layer">
+                            <span class="icon material-symbols-outlined">
+                              edit</span
+                            >
+                            <span class="label">Sửa</span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="location-item mt-12">
+                    <div class="location-item__wrapper body-medium">
+                      <div class="row">
+                        <span>Người đẹp bị câm</span>
+                      </div>
+                      <div class="row mt-16">
+                        <span>SDT: </span><span>*******629</span>
+                      </div>
+                      <div class="row mt-16">
+                        <span>Xã A, huyện B, tỉnh C</span>
+                      </div>
+                      <div class="location-btns__wrapper">
+                        <button
+                          class="location-item__btn--del btn-icon"
+                          data-modal-target="#modal--del-location"
+                        >
+                          <div class="status-layer">
+                            <span class="icon material-symbols-outlined">
+                              delete</span
+                            >
+                          </div>
+                        </button>
+                        <button
+                          class="location-item__btn--default btn--outlined"
+                          data-modal-target="#modal--set-default-location"
+                          disabled
+                        >
+                          <div class="status-layer">
+                            <span>Thiết lập mặc định</span>
+                          </div>
+                        </button>
+                        <button
+                          data-modal-target="#modal--edit-location"
+                          class="location-item__btn--edit btn--filled btn-icon-label"
+                        >
+                          <div class="status-layer">
+                            <span class="icon material-symbols-outlined">
+                              edit</span
+                            >
+                            <span class="label">Sửa</span>
+                          </div>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="bank-item mt-12">
-                  <div class="bank-item__wrapper body-medium">
-                    <div class="row">
-                      <span>STK: </span><span>*********1230</span><br>
+              </article>
+            </section>
+            <!-- Section Đơn hàng  -->
+
+            <!-- Section Sản phẩm yêu thích  -->
+            <section id="section2" class="section col-9">
+              <!-- Sản phẩm yêu thích -->
+              <article class="section__info visible">
+                <h1 class="headline-large">Sản phẩm yêu thích</h1>
+                <p class="body-medium mt-12">
+                  Trang cung cấp thông tin về sản phẩm yêu thích
+                </p>
+              </article>
+              <div class="section__content row mt-12">
+                <div class="product__item col-4">
+                  <div class="product__image">
+                    <img
+                      src="/TAA_FE/public/product1.jpg"
+                      alt="Kẹp tóc"
+                      class="img_back"
+                    />
+                    <img
+                      src="/TAA_FE/public/product2.jpg"
+                      alt="Kẹp tóc"
+                      class="img_font"
+                    />
+                  </div>
+                  <div class="product__body">
+                    <span
+                      class="material-symbols-outlined icon_heart error-text"
+                    >
+                      favorite
+                    </span>
+                    <h3 class="product__name body-large">Kẹp tóc</h3>
+                    <div class="product__price label-large">
+                      <p class="product__price__current">35,000 đ</p>
+                      <p class="product__price__discount outline-variant-text">
+                        70,000 đ
+                      </p>
                     </div>
-                    <div class="row">
-                      <span class="mt-12">Ngân hàng ACB</span>
-                    </div>
-                    <button class="bank-item__btn--del btn-icon"
-                      data-modal-target="#modal--del-bank">
-                      <div class="status-layer">
-                        <span class="icon material-symbols-outlined">
-                          delete</span>
-                      </div>
-                    </button>
+                    <p class="product__discount title-medium error-text">
+                      Giảm 50%
+                    </p>
+                    <p class="product__stock label-large primary-text">
+                      Còn hàng
+                    </p>
                   </div>
                 </div>
-                <div class="bank-item mt-12">
-                  <div class="bank-item__wrapper body-medium">
-                    <div class="row">
-                      <span>STK: </span><span>*********1230</span><br>
-                    </div>
-                    <div class="row">
-                      <span class="mt-12">Ngân hàng ACB</span>
-                    </div>
-                    <button class="bank-item__btn--del btn-icon"
-                      data-modal-target="#modal--del-bank">
-                      <div class="status-layer">
-                        <span class="icon material-symbols-outlined">
-                          delete</span>
-                      </div>
-                    </button>
+
+                <!-- item outstock -->
+                <div class="product__outstock col-4">
+                  <div class="product__image">
+                    <img
+                      src="/TAA_FE/public/product1.jpg"
+                      alt="Kẹp tóc"
+                      class="img_back"
+                    />
+                    <img
+                      src="/TAA_FE/public/product2.jpg"
+                      alt="Kẹp tóc"
+                      class="img_font"
+                    />
                   </div>
-                  <button
-                    type="button"
-                    class="button--edit primary"
-                    style="
-                      background-color: var(--md-ref-palette-primary100);
-                      border: none;
-                      color: var(--m-3-sys-light-outline, #857373);
-                    "
-                  >
-                    <span class="label-large" style="font-size: 22px; padding:12px;">Mặc định</span>
-                  </button>
+                  <div class="product__body">
+                    <span
+                      class="material-symbols-outlined icon_heart error-text"
+                    >
+                      favorite
+                    </span>
+                    <h3 class="product__name body-large">Kẹp tóc</h3>
+                    <div class="product__price label-large">
+                      <p class="product__price__current">35,000 đ</p>
+                      <p class="product__price__discount outline-variant-text">
+                        70,000 đ
+                      </p>
+                    </div>
+                    <p class="product__discount title-medium error-text">
+                      Giảm 50%
+                    </p>
+                    <p class="product__stock headline-small error-text">
+                      Hết hàng
+                    </p>
+                  </div>
                 </div>
               </div>
-            </article>
+            </section>
+          </div>
+        </section>
+      </main>
+      <!-- Footer -->
+      <div id="footer"></div>
 
-            <!-- Địa chỉ nhận hàng -->
-            <article id="shipping-address"
-              class="section__content visible mt-12">
-              <button class="btn-icon section__btn"
-                data-modal-target="#modal--add-location">
-                <div class="status-layer">
-                  <span class="icon material-symbols-outlined">add</span>
-                </div>
-              </button>
-              <h2 class="headline-medium">Địa chỉ nhận hàng</h2>
-              <div class="location-list">
-                <div class="location-item mt-12">
-                  <div class="location-item__wrapper body-medium">
-                    <div class="row">
-                      <span>Người đẹp bị câm</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>SDT: </span><span>*******629</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>Xã A, huyện B, tỉnh C</span>
-                    </div>
-                    <div class="location-btns__wrapper">
-                      <button class="location-item__btn--del btn-icon"
-                        data-modal-target="#modal--del-location">
-                        <div class="status-layer">
-                          <span class="icon material-symbols-outlined">
-                            delete</span>
-                        </div>
-                      </button>
-                      <button class="location-item__btn--default btn--outlined"
-                        data-modal-target="#modal--set-default-location">
-                        <div class="status-layer">
-                          <span>Thiết lập mặc định</span>
-                        </div>
-                      </button>
-                      <button data-modal-target="#modal--edit-location"
-                        class="location-item__btn--edit btn--filled btn-icon-label">
-                        <div class="status-layer">
-                          <span class="icon material-symbols-outlined">
-                            edit</span>
-                          <span class="label">Sửa</span>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="location-item mt-12">
-                  <div class="location-item__wrapper body-medium">
-                    <div class="row">
-                      <span>Người đẹp bị câm</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>SDT: </span><span>*******629</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>Xã A, huyện B, tỉnh C</span>
-                    </div>
-                    <div class="location-btns__wrapper">
-                      <button class="location-item__btn--del btn-icon"
-                        data-modal-target="#modal--del-location">
-                        <div class="status-layer">
-                          <span class="icon material-symbols-outlined">
-                            delete</span>
-                        </div>
-                      </button>
-                      <button class="location-item__btn--default btn--outlined"
-                        data-modal-target="#modal--set-default-location">
-                        <div class="status-layer">
-                          <span>Thiết lập mặc định</span>
-                        </div>
-                      </button>
-                      <button data-modal-target="#modal--edit-location"
-                        class="location-item__btn--edit btn--filled btn-icon-label">
-                        <div class="status-layer">
-                          <span class="icon material-symbols-outlined">
-                            edit</span>
-                          <span class="label">Sửa</span>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="location-item mt-12">
-                  <div class="location-item__wrapper body-medium">
-                    <div class="row">
-                      <span>Người đẹp bị câm</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>SDT: </span><span>*******629</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>Xã A, huyện B, tỉnh C</span>
-                    </div>
-                    <div class="location-btns__wrapper">
-                      <button class="location-item__btn--del btn-icon"
-                        data-modal-target="#modal--del-location">
-                        <div class="status-layer">
-                          <span class="icon material-symbols-outlined">
-                            delete</span>
-                        </div>
-                      </button>
-                      <button class="location-item__btn--default btn--outlined"
-                        data-modal-target="#modal--set-default-location"
-                        disabled>
-                        <div class="status-layer">
-                          <span>Thiết lập mặc định</span>
-                        </div>
-                      </button>
-                      <button data-modal-target="#modal--edit-location"
-                        class="location-item__btn--edit btn--filled btn-icon-label">
-                        <div class="status-layer">
-                          <span class="icon material-symbols-outlined">
-                            edit</span>
-                          <span class="label">Sửa</span>
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </article>
-          </section>
-        </div>
-      </section>
-    </main>
-    <!-- Footer -->
-    <div id="footer"></div>
-
-    <!-- Modals -->
-    <div id="modal__addBank"></div>
-    <div id="modal__addLocation"></div>
-    <div id="modal__delBank"></div>
-    <div id="modal__delLocation"></div>
-    <div id="modal__editLocation"></div>
-  </div>
-</body>
-<script>
-  $(document).ready(function () {
-    $("#modal__addLocation").load("./add-location.html");
-    $("#modal__addBank").load("./add-bank.html");
-    $("#modal__delBank").load("./del-bank.html");
-    $("#modal__delLocation").load("./del-location.html");
-    $("#modal__editLocation").load("./edit-location.html");
-    $("#header").load("/TAA_FE/src/partials/header--auth.html");
-    $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
-    $("#footer").load("/TAA_FE/src/partials/footer.html");
-  });
-</script>
-<script src="./main.js"></script>
-<script src="/TAA_FE/res/js/modal--controller.js"></script>
+      <!-- Modals -->
+      <div id="modal__addBank"></div>
+      <div id="modal__addLocation"></div>
+      <div id="modal__delBank"></div>
+      <div id="modal__delLocation"></div>
+      <div id="modal__editLocation"></div>
+    </div>
+  </body>
+  <script>
+    $(document).ready(function () {
+      $("#modal__addLocation").load("./add-location.html");
+      $("#modal__addBank").load("./add-bank.html");
+      $("#modal__delBank").load("./del-bank.html");
+      $("#modal__delLocation").load("./del-location.html");
+      $("#modal__editLocation").load("./edit-location.html");
+      $("#header").load("/TAA_FE/src/partials/header--auth.html");
+      $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
+      $("#footer").load("/TAA_FE/src/partials/footer.html");
+    });
+  </script>
+  <script src="./main.js"></script>
+  <script src="/TAA_FE/res/js/modal--controller.js"></script>
 </html>
