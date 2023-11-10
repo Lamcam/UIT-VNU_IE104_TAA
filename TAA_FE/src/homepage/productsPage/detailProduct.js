@@ -160,31 +160,31 @@ optionsSort.forEach(option => {
 
 // rate_react
 document.querySelectorAll(".rate__react").forEach(item => {
-	const ratings = item.querySelectorAll(".post__rating");
+    const ratings = item.querySelectorAll(".post__rating");
 
-	ratings.forEach(rating => {
-		const icon = rating.querySelector(".post__rating-icon");
-		const count = rating.querySelector(".post__rating-count");
+    ratings.forEach(rating => {
+        const icon = rating.querySelector(".post__rating-icon");
+        const count = rating.querySelector(".post__rating-count");
 
-		icon.addEventListener("click", async () => {
-			if (rating.classList.contains("post__rating-selected")) {
-				return;
-			}
+        icon.addEventListener("click", async () => {
+            if (rating.classList.contains("post__rating-selected")) {
+                return;
+            }
 
-			count.textContent = Number(count.textContent) + 1;
+            count.textContent = Number(count.textContent) + 1;
 
-			ratings.forEach(rating => {
-				if (rating.classList.contains("post__rating-selected")) {
-					const count = rating.querySelector(".post__rating-count");
+            ratings.forEach(rating => {
+                if (rating.classList.contains("post__rating-selected")) {
+                    const count = rating.querySelector(".post__rating-count");
 
-					count.textContent = Math.max(0, Number(count.textContent) - 1);
-					rating.classList.remove("post__rating-selected");
+                    count.textContent = Math.max(0, Number(count.textContent) - 1);
+                    rating.classList.remove("post__rating-selected");
                     rating.classList.remove("icon--filled")
-				}
-			});
+                }
+            });
 
-			rating.classList.add("post__rating-selected")
+            rating.classList.add("post__rating-selected")
             rating.classList.add("icon--filled")
-		});
-	});
+        });
+    });
 });
