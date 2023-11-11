@@ -1,0 +1,50 @@
+<div id="modal--edit-location" class="modal">
+  <div class="modal__content on-primary">
+    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+      <div class="status-layer">
+        <span class="icon material-symbols-outlined">close</span>
+      </div>
+    </button>
+    <h1 class="modal__title headline-large">Sửa thông tin địa chỉ nhận</h1>
+    <form action="" method="">
+      <div class="form__row mt-24">
+        <div class="row">
+          <label class="col-4 label-large" for="f_add_location_per_name">
+            Tên người nhận:</label>
+          <input class="col-8" type="text" name="f_add_location_per_name"
+            id="f_add_location_per_name" placeholder="Người đẹp bị câm">
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_add_location_phone">
+            Số điện thoại:</label>
+          <input class="col-8" type="text" name="f_add_location_phone"
+            id="f_add_location_phone" placeholder="********629">
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_add_location_address">
+            Địa chỉ nhận hàng:</label>
+          <input class="col-8" type="text" name="f_add_location_address"
+            id="f_add_location_address" placeholder="Xã A, huyện B, tỉnh C">
+        </div>
+      </div>
+      <div class="btn__wrapper row mt-12">
+        <button class="btn--outlined label-large col-6" type="button"
+          onclick="closeModal()">
+          <div class="status-layer">
+            <span>Hủy bỏ</span>
+          </div>
+        </button>
+        <button class="btn--filled label-large col-6 location-list__btn--add"
+          type="button" onclick="closeModal()">
+          <div class="status-layer">
+            <span>Đồng ý</span>
+          </div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,9 +1,15 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
+@import url(/TAA_FE/res/css/theme.css);
+@import url(/TAA_FE/res/css/component.css);
+
 /* general css */
+:root {
+  font-size: 12px;
+}
 
 * {
   margin: 0;
   padding: 0;
-  transition: 300ms;
   box-sizing: border-box;
   transition: 300ms;
 }
@@ -24,82 +30,218 @@
   margin-top: 24px;
 }
 
-/* support for row and col */
-
-.row {
-  display: flex;
-  margin: 0 -6px;
+.mt-32 {
+  margin-top: 32px;
 }
 
-.col {
-  display: inline-flex;
-  margin: 0 6px;
+.mt-36 {
+  margin-top: 32px;
+}
+
+.mt-48 {
+  margin-top: 48px;
+}
+
+.mt-64 {
+  margin-top: 64px;
+}
+
+/* support for row and col */
+.row {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  /* margin: 0 -6px; */
 }
 
 .col-1 {
-  width: calc(100%/12 - 12px);
+  width: calc((100% + 1rem) / 12 - 1rem);
 }
 
 .col-2 {
-  width: calc(100%/12*2 - 12px);
+  width: calc((100% + 1rem) / 12 * 2 - 1rem);
 }
 
 .col-3 {
-  width: calc(100%/12 * 3 - 12px);
+  width: calc((100% + 1rem) / 12 * 3 - 1rem);
 }
 
 .col-4 {
-  width: calc(100%/12 * 4 - 12px);
+  width: calc((100% + 1rem) / 12 * 4 - 1rem);
 }
 
 .col-5 {
-  width: calc(100%/12 * 5 - 12px);
+  width: calc((100% + 1rem) / 12 * 5 - 1rem);
 }
 
 .col-6 {
-  width: calc(100%/12 * 6 - 12px);
+  width: calc((100% + 1rem) / 12 * 6 - 1rem);
 }
 
 .col-7 {
-  width: calc(100%/12 * 7 - 12px);
+  width: calc((100% + 1rem) / 12 * 7 - 1rem);
 }
 
 .col-8 {
-  width: calc(100%/12 * 8 - 12px);
+  width: calc((100% + 1rem) / 12 * 8 - 1rem);
 }
 
 .col-9 {
-  width: calc(100%/12 * 9 - 12px);
+  width: calc((100% + 1rem) / 12 * 9 - 1rem);
 }
 
 .col-10 {
-  width: calc(100%/12 * 10 - 12px);
+  width: calc((100% + 1rem) / 12 * 10 - 1rem);
 }
 
 .col-11 {
-  width: calc(100%/12 * 11 - 12px);
+  width: calc((100% + 1rem) / 12 * 11 - 1rem);
 }
 
 .col-12 {
-  width: calc(100%/12 * 12 - 12px);
+  width: calc((100% + 1rem) / 12 * 12 - 1rem);
 }
 
 /* general name tag */
-header>* {
-  padding: 16px 0 0 0;
+a:is(:link, :hover, :visited, :active) {
+  text-decoration: none;
+  color: black;
+}
+
+hr {
+  border: 1px solid var(--md-sys-color-outline-variant-light);
+}
+
+body {
+  min-width: 896px;
+}
+
+header {
   display: flex;
   gap: 24px;
   flex-direction: column;
+
+  padding: 0 32px;
+
+  & .header__top {
+    padding-top: 16px;
+
+    &>* {
+      display: flex;
+      position: relative;
+
+      max-height: 40px;
+      justify-content: space-between;
+    }
+  }
+
+  & .header__search {
+    max-width: 512px;
+    width: 100%;
+    margin: 0 16px;
+  }
+
+  & .header__wrapper {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+
+    & .header__avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--md-sys-color-outline);
+    }
+  }
+
+  & .main-nav>ul {
+    height: 40px;
+    padding: 0px;
+    display: flex;
+  }
+
+  & .main-nav__item {
+    display: inline-block;
+    display: inline-flex;
+    height: 100%;
+    min-width: 128px;
+    list-style: none;
+    color: var(--md-sys-color-primary);
+
+    &:hover {
+      cursor: pointer;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    &.active {
+      color: white;
+      background-color: var(--md-sys-color-primary);
+    }
+  }
+
+  & .main-nav__link {
+    padding: 0px 24px;
+    margin: auto;
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
+  }
 }
 
 main {
   min-height: 612px;
-  padding: 12px 32px;
+
+  &>section {
+    padding: 0 32px;
+
+    &.full-width {
+      padding: 0;
+    }
+  }
 }
 
-a:is(:link, :hover, :visited, :active) {
-  text-decoration: none;
-  color: black;
+footer {
+  padding: 32px;
+  padding-bottom: 64px;
+
+  & .footer__col {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  & .footer__title {
+    font-weight: bold;
+
+    & img {
+      height: 64px;
+    }
+  }
+
+  & .footer__content {
+    >p {
+      text-align: justify;
+    }
+  }
+
+  & .footer__link {
+    text-decoration: none;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+}
+
+input {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 0 12px;
+  background-color: transparent;
 }
 
 /* general class */
@@ -119,57 +261,65 @@ a:is(:link, :hover, :visited, :active) {
   }
 }
 
-.header__top>* {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  justify-content: space-between;
+.header__user {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  flex-direction: column;
+
+  width: 180px;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+  & a {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 24px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+
+    &:last-child {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+  }
 }
 
-.header__wrapper {
-  display: flex;
-  gap: 8px;
-}
-
-.main-nav>ul {
-  height: 40px;
-  padding: 0px;
-  display: flex;
-}
-
-.main-nav__item {
-  /* display: inline-block; */
+.header__user--controller__label {
   display: inline-flex;
-  height: 100%;
-  min-width: 128px;
-  /* padding: 0 24px; */
-  list-style: none;
-  color: var(--md-sys-color-primary);
-
-  &:hover {
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.2);
-  }
-
-  &.active {
-    color: white;
-    background-color: var(--md-sys-color-primary);
-  }
-}
-
-.main-nav__link {
-  margin: auto;
-  text-decoration: none;
-  font-weight: bold;
-  color: inherit !important;
-}
-
-.nav-tree>* {
-  height: 40px;
-  display: flex;
-  padding: 0 12px;
   gap: 8px;
-  align-items: center;
+
+  &>* {
+    margin: auto;
+  }
+}
+
+#header__user--controller {
+  display: none;
+}
+
+#header__user--controller:checked+.header__user {
+  display: flex;
+}
+
+.nav-tree {
+  padding: 0 32px;
+
+  &>* {
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 12px;
+    gap: 8px;
+  }
 }
 
 .nav-tree__item {
@@ -191,59 +341,83 @@ a:is(:link, :hover, :visited, :active) {
   &:last-child {
     font-weight: bold;
   }
+
+  & a {
+    margin: auto;
+    text-decoration: none;
+  }
 }
 
-.nav-tree__link {
-  margin: auto;
-  text-decoration: none;
-}
+.email-submition {
+  display: flex;
+  flex-direction: row;
 
-.icon {
-  width: 24px;
-  height: 24px;
+  & input {
+    width: calc(100% - 106px - 8px);
+    margin-right: 8px;
+  }
 }
 
 /* CSS cho pop-up modal */
 .modal {
   display: none;
-  /* Ẩn ban đầu */
   position: fixed;
-  /* Hiển thị ở trên cùng */
   z-index: 1;
-  /* Đặt z-index lớn hơn tất cả các phần tử khác */
-  left: 0;
-  top: 0;
-  width: 100%;
-  /* Chiều rộng toàn màn hình */
-  height: 100%;
-  /* Chiều cao toàn màn hình */
+  inset: 0;
   overflow: auto;
-  /* Cho phép cuộn nếu nội dung quá dài */
   background-color: rgba(0, 0, 0, 0.4);
-  /* Màu nền và mờ */
+  
+  &.active {
+    display: block;
+  }
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  /* Căn giữa theo chiều dọc và ngang */
-  padding: 20px;
+.modal__content {
+  animation: modalFadeIn ease 0.5s;
+
+  position: relative;
+  margin: 150px auto;
+  padding: 48px 64px;
   border: 1px solid #888;
-  width: 80%;
-  /* Chiều rộng của modal */
+  width: calc(1024px / 2 + 12px * 4);
+
+  border-radius: 12px;
 }
 
-/* CSS cho nút đóng */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
+.modal__title {
   font-weight: bold;
+  text-align: center;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.modal__btn--close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #aaa;
+  font-size: 24px;
+  line-height: 24px;
+  width: 24px;
+  font-weight: bold;
+  text-align: center;
+
+  &:is(:hover, :focus) {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+.form__row {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+
+  & label {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+  }
 }

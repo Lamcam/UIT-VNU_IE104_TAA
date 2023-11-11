@@ -1,11 +1,1263 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="IE104.O12_Group3" />
+    <meta
+      name="description"
+      content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/TAA_FE/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="/TAA_FE/res/js/main.js"></script>
+    <title>TAA - Trang cá nhân</title>
+    <script src="./productsPage.js" defer></script>
+    <style>
+      .mr-8 {
+        margin-right: 8px;
+      }
+
+      .bold {
+        font-weight: bold;
+      }
+
+      /* .aside {
+  margin-right: 10px;
+} */
+
+      .aside__list {
+        margin: 0;
+        list-style-type: none;
+        padding: 12px 0;
+      }
+
+      .aside__list .title {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: row;
+      }
+
+      .aside__item span {
+        height: 36px;
+        line-height: 36px;
+      }
+
+      /* .aside__list,
+span {
+  /* display: block; 
+  color: #000;
+} */
+
+      .aside__item,
+      .aside__item__sub-menu {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+      }
+
+      .aside__header {
+        display: block;
+        padding: 0 0 0 36px;
+      }
+
+      .aside__item:hover .aside__header {
+        background-color: #c5c5c5;
+      }
+
+      .aside__item.active:hover .aside__header {
+        background-color: transparent;
+      }
+
+      .aside__item__sub-menu {
+        /* display: none; */
+        overflow: hidden;
+        max-height: 0;
+        -webkit-transition: all 0.5s ease-out;
+        margin-left: calc(36px + 24px);
+        /* &.active {
+        display: block;
+    } */
+      }
+
+      .aside__item.active {
+        & .aside__header {
+          border-left: 4px solid var(--md-sys-color-primary);
+          padding: 0 0 0 32px;
+        }
+
+        & .aside__item__sub-menu {
+          max-height: 300px;
+        }
+      }
+
+      /* .aside__list li:hover .aside__item__sub-menu{
+    display: block;
+    max-height: 200px;
+} */
+
+      .aside__item__title {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        pointer-events: none;
+        /* margin-left: 18px; */
+      }
+
+      .aside__item:nth-child(n + 2) {
+        /* padding-left: 36px; */
+      }
+
+      .icon-menu {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        height: 36px;
+        width: 36px;
+      }
+
+      .product__filter {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        align-items: center;
+        flex: 1 0 0;
+        margin-bottom: 12px;
+      }
+
+      .product__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 6px 16px;
+        border-radius: 8px;
+        border: solid 1px #524343;
+        height: 32px;
+        background-color: #fff;
+      }
+
+      .product__button:last-child {
+        padding: 6px 16px 6px 8px;
+        position: relative;
+      }
+
+      .icon-check {
+        display: none;
+      }
+
+      .product__button.effect {
+        /* background-color: var(--md-sys-color-primary); */
+        border: none;
+        background-color: var(--md-sys-color-secondary-container);
+        padding: 6px 16px 6px 8px;
+
+        & .icon-check {
+          display: block;
+        }
+      }
+
+      .btn--filled {
+        color: #fff;
+        background-color: var(--md-sys-color-primary);
+
+        & .icon-down {
+          color: #fff;
+        }
+      }
+
+      .dropdown {
+        min-width: 16.1rem;
+        position: relative;
+        /* margin: 2em; */
+      }
+
+      .dropdown * {
+        box-sizing: border-box;
+      }
+
+      .select {
+        background: #fff;
+        color: var(--md-sys-color-primary);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        width: 72px;
+      }
+
+      .select-clicked {
+        border: solid 1px var(--md-sys-color-primary);
+        min-width: 16.1rem;
+      }
+
+      .select:hover {
+        cursor: pointer;
+        box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
+          0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+      }
+
+      .icon-cancel {
+        display: none;
+        z-index: 1;
+      }
+
+      .caret {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid var(--md-sys-color-primary);
+        transition: 0.3s;
+      }
+
+      .caret-rotate {
+        transform: rotate(180deg);
+      }
+
+      .menu {
+        list-style: none;
+        background: #fff;
+        border: 1px solid var(--md-sys-color-primary);
+        box-shadow: 0 0.5rem 1rem rbga(0, 0, 0, 0.2);
+        border-radius: 0.5rem;
+        color: var(--md-sys-color-primary);
+        position: absolute;
+        top: 3em;
+        left: 96px;
+        min-width: 16.1rem;
+        transform: translateX(-50%);
+        opacity: 0;
+        display: none;
+        transition: 0.2s;
+        z-index: 2;
+      }
+
+      .menu li {
+        padding: 0 0 0 16px;
+        margin: 0.3rem 0;
+        cursor: pointer;
+        height: 36px;
+        line-height: 36px;
+      }
+
+      .menu li:hover {
+        background: #c5c5c5;
+      }
+
+      .select__active {
+        background: #fff;
+      }
+
+      .select.select__btn {
+        width: 16.1rem;
+
+        & .icon-cancel {
+          display: block;
+        }
+
+        border: none;
+        background-color: var(--md-sys-color-secondary-container);
+        padding: 6px 8px 6px 8px;
+
+        & .caret {
+          display: none;
+        }
+
+        & .icon-check {
+          display: block;
+        }
+      }
+
+      .menu-open {
+        display: block;
+        opacity: 1;
+      }
+
+      .select.cancel__select {
+        color: var(--md-sys-color-primary);
+        border: 1px solid var(--md-sys-color-primary);
+        background: #fff;
+        width: 72px;
+        padding: 6px 16px;
+
+        & .icon-cancel {
+          display: none;
+        }
+
+        & .icon-check {
+          display: none;
+        }
+
+        & .caret {
+          display: block;
+        }
+      }
+
+      /* item product */
+      .product__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 12px;
+        min-width: 247px;
+        background-color: #fff;
+      }
+
+      .product__image {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        height: 204px;
+        width: 100%;
+      }
+
+      .product__item:hover {
+        & .product__button__section {
+          display: flex;
+        }
+
+        & .product__stock {
+          display: none;
+        }
+
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+          0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+        /* max-height: fit-content; */
+      }
+
+      .product__image img {
+        /* display: block; */
+        position: absolute;
+        width: 100%;
+        height: 204px;
+        object-fit: cover;
+        padding: 12px;
+        --webkit--transition: opacity 0.1s ease-in-out;
+        -moz-animation: opacity 0.1s ease-in-out;
+        -ms-transition: opacity 0.1s ease-in-out;
+        -o-transition: opacity 0.1s ease-in-out;
+        transition: opacity 0.1s ease-in-out;
+      }
+
+      .product__item:hover .product__image .img_font {
+        opacity: 0;
+      }
+
+      .product__button__section {
+        display: flex;
+        align-items: center;
+        background-color: #cfc1c1;
+        width: 100%;
+        height: 35px;
+        justify-content: space-around;
+        border-radius: 0px 0px 8px 8px;
+        background: var(--m-3-sys-light-primary, #785b5b);
+        cursor: pointer;
+        display: none;
+      }
+
+      .vertical {
+        width: 1px;
+        height: 24px;
+        background-color: #fff;
+      }
+
+      .product__button__view,
+      .product__button__sell {
+        color: #fff !important;
+        display: block;
+        border-radius: 0;
+        /* border-bottom-left-radius: 8px; */
+        width: 100%;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        cursor: pointer;
+      }
+
+      .product__button__sell a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .product__body {
+        text-align: center;
+      }
+
+      .product__price {
+        display: flex;
+        justify-content: center;
+        /* margin: 8px 0; */
+      }
+
+      .product__price__current {
+        margin-right: 8px;
+        font-weight: bold;
+      }
+
+      .product__price__discount {
+        text-decoration: line-through;
+      }
+
+      .product__discount {
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+
+      .product__stock {
+        font-weight: 500;
+        line-height: 2rem;
+        padding: 0px 42px 11px 42px;
+      }
+
+      /* item san pham het hang */
+      .product__outstock {
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 12px;
+        min-width: 247px;
+        background: var(
+          --m-3-state-layers-dark-surface-dim-opacity-016,
+          rgba(20, 18, 24, 0.16)
+        );
+      }
+
+      /* Chi tiet san pham */
+      .modal-product {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        /* can chinh giua overlay */
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        /* Can hien len thi display: flex */
+        /* display: flex; */
+        display: none;
+      }
+
+      .modal-product.open {
+        display: flex;
+        /* z-index: 1; */
+      }
+
+      .modal-container--product {
+        display: flex;
+        padding: 32px;
+        gap: 32px;
+        background-color: #fff;
+        width: 1024px;
+        max-height: 906px;
+        position: relative;
+        animation: modalFadeIn ease 0.2s;
+      }
+
+      .modal__img {
+        display: flex;
+        height: 842px;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      /* .img__main {
+  display: flex;
+  width: 488px;
+  height: 695px;
+  border-radius: 8px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background: url('/TAA_FE/public/product2.jpg'), lightgray 50% / cover no-repeat;
+} */
+
+      .modal__img img {
+        width: 100%;
+        display: block;
+      }
+
+      .img-display {
+        overflow: hidden;
+      }
+
+      .img-showcase {
+        display: flex;
+        width: 100%;
+        transition: all 0.5s ease;
+      }
+
+      .img-showcase img {
+        min-width: 100%;
+        height: 695px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .img-select {
+        display: flex;
+      }
+
+      .img-item {
+        margin: 12px;
+        width: 113px;
+        height: 113px;
+        object-fit: cover;
+      }
+
+      .img-item:first-child {
+        margin-left: 0;
+      }
+
+      .img-item:last-child {
+        margin-right: 0;
+      }
+
+      .img-item:nth-child(1),
+      .img-item:nth-child(2),
+      .img-item:nth-child(3) {
+        margin-right: 0;
+      }
+
+      .img-item:hover {
+        opacity: 0.8;
+      }
+
+      /* .modal__input-radio input {
+  width: 20px;
+  height: 20px;
+  margin: 10px 5px 10px 5px;
+  cursor: pointer;
+}
+
+.modal__input-radio input:hover {
+  color: red;
+}
+
+input[type="radio"] {
+  background-color: transparent;
+  color: transparent;
+  accent-color: pink;
+}
+
+input[type="radio"]:hover {
+  accent-color: pink;
+} */
+
+      .modal__body {
+        display: flex;
+        width: 442px;
+        padding-top: 12px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .modal__product__name {
+        font-weight: 500;
+        line-height: 30px;
+        letter-spacing: 0.15px;
+      }
+
+      .modal__info__rate {
+        display: flex;
+        gap: 12px;
+        padding: 0px 12px;
+        align-items: center;
+      }
+
+      .modal__info__rate .rate__star {
+        display: flex;
+        align-items: center;
+        color: var(--m-3-sys-light-error, #ba1a1a);
+      }
+
+      .modal__price {
+        display: flex;
+        width: 438px;
+        height: 50px;
+        padding: 5px 0px;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 4px;
+        background: var(--m-3-sys-light-on-primary, #f1efe7);
+      }
+
+      .modal__price .cost {
+        text-decoration: line-through;
+      }
+
+      .modal__price .cost__discount {
+        color: var(--m-3-sys-light-error, #ba1a1a);
+      }
+
+      .modal__price .percent__discount {
+        color: #fff;
+        border-radius: 5px;
+        background: var(--m-3-sys-light-error, #ba1a1a);
+        padding: 0px 6px;
+      }
+
+      .modal__color,
+      .modal__size {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .modal__color .color__value,
+      .modal__size .size__value {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+        width: 110px;
+        border-radius: 32px;
+        border: 1px solid var(--m-3-sys-light-outline, #857373);
+        padding: 6px 16px;
+      }
+
+      .modal__color .color__value {
+        margin-left: 14px;
+      }
+
+      .modal__quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .modal__quantity .quantity__stock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* line-height: 20px; */
+      }
+
+      .modal__quantity .quantity__product {
+        display: flex;
+        align-items: center;
+        padding: 4px 0px;
+        justify-content: center;
+        /* border: none; */
+        width: 105px;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid var(--m-3-sys-light-outline, #857373);
+        margin-left: 24px;
+      }
+
+      .quantity__product input {
+        margin-top: -2px;
+      }
+
+      input[type="number"] {
+        -moz-appearance: textfield;
+        text-align: center;
+        border: none;
+        width: 40px;
+        height: 32px;
+        color: var(--m-3-sys-light-outline);
+      }
+
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      .quantity__product .quantity__product-decrement,
+      .quantity__product .quantity__product-increment {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+      }
+
+      .modal__button {
+        display: flex;
+        width: 442px;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .modal__button .button__cart {
+        display: flex;
+        padding: 10px;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        color: #9c4048;
+        border: 1px solid #9c4048;
+        background: var(--m-3-ref-primary-primary-95, #ffedec);
+      }
+
+      .modal__button .button__view {
+        height: 40px;
+        /* padding: 10px 40px; */
+      }
+
+      .button__view a {
+        padding: 10px 40px;
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .modal__context {
+        display: flex;
+        flex-direction: column;
+        text-align: justify;
+      }
+
+      .modal__context .context__info__body {
+        margin-left: 20px;
+      }
+
+      .modal__context .context__detail__body li {
+        list-style-type: none;
+      }
+
+      /* modal noti */
+      .modal-noti {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        /* can chinh giua overlay */
+        align-items: center;
+        justify-content: center;
+        /* Can hien len thi display: flex */
+        /* display: flex; */
+        display: none;
+        flex-direction: column;
+      }
+
+      .modal-noti.open {
+        display: flex;
+      }
+
+      .modal-noti.close {
+        display: none;
+      }
+
+      .modal-container--noti {
+        display: inline-flex;
+        padding: 60px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        border-radius: 12px;
+        background-color: var(--m-3-sys-light-primary, #785b5b);
+        min-width: 714px;
+        min-height: 360px;
+        position: relative;
+        animation: modalFadeIn ease 0.2s;
+      }
+
+      .modal-noti .noti__icon-check {
+        display: flex;
+        width: 64px;
+        height: 64px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .noti__icon-check span {
+        font-size: 64px;
+      }
+
+      .modal-noti .noti__btn {
+        color: var(--md-sys-color-surface-variant-light);
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-140px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .btn--close {
+        position: absolute;
+        top: 24px;
+        right: 25px;
+        color: #aaa;
+        font-size: 24px;
+        line-height: 24px;
+        width: 24px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main" class="on-primary">
+      <div id="header"></div>
+      <div id="nav-tree"></div>
+
+      <main>
+        <section class="mt-12">
+          <!-- Dành cho việc chia cột nội dung-->
+          <div class="container row">
+            <aside class="col-3 body-large primary-text">
+              <ul class="nav-tab visible">
+                <li class="nav-tab__item active">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    person</span
+                  >
+                  Thông tin tài khoản
+                </li>
+                <li class="nav-tab__item">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    box</span
+                  >
+                  Đơn hàng
+                </li>
+                <li class="nav-tab__item">
+                  <span class="icon icon--filled material-symbols-outlined">
+                    hr_resting</span
+                  >
+                  Sản phẩm yêu thích
+                </li>
+              </ul>
+            </aside>
+
+            <section class="col-9">
+              <!-- Sản phẩm yêu thích -->
+              <article class="section__info visible">
+                <h1 class="headline-large">Sản phẩm yêu thích</h1>
+                <p class="body-medium mt-12">
+                  Trang cung cấp thông tin về sản phẩm yêu thích
+                </p>
+              </article>
+              <div class="section__content visible row mt-12">
+                <div class="product__item col-4">
+                  <div class="product__image">
+                    <img
+                      src="/TAA_FE/public/product1.jpg"
+                      alt="Kẹp tóc"
+                      class="img_back"
+                    />
+                    <img
+                      src="/TAA_FE/public/product2.jpg"
+                      alt="Kẹp tóc"
+                      class="img_font"
+                    />
+                  </div>
+                  <div class="product__body">
+                    <span
+                      class="material-symbols-outlined icon_heart error-text"
+                    >
+                      favorite
+                    </span>
+                    <h3 class="product__name body-large">Kẹp tóc</h3>
+                    <div class="product__price label-large">
+                      <p class="product__price__current">35,000 đ</p>
+                      <p class="product__price__discount outline-variant-text">
+                        70,000 đ
+                      </p>
+                    </div>
+                    <p class="product__discount title-medium error-text">
+                      Giảm 50%
+                    </p>
+                    <p class="product__stock label-large primary-text">
+                      Còn hàng
+                    </p>
+                  </div>
+                  <div class="product__button__section label-large">
+                    <div class="product__button__view">Xem nhanh</div>
+                    <div class="vertical"></div>
+                    <div class="product__button__sell">
+                      <a
+                        href="http://127.0.0.1:5500/TAA_FE/src/homepage/cartPage/index.html"
+                        >Mua ngay</a
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <!-- item outstock -->
+                <div class="product__outstock col-4">
+                  <div class="product__image">
+                    <img
+                      src="/TAA_FE/public/product1.jpg"
+                      alt="Kẹp tóc"
+                      class="img_back"
+                    />
+                    <img
+                      src="/TAA_FE/public/product2.jpg"
+                      alt="Kẹp tóc"
+                      class="img_font"
+                    />
+                  </div>
+                  <div class="product__body">
+                    <span
+                      class="material-symbols-outlined icon_heart error-text"
+                    >
+                      favorite
+                    </span>
+                    <h3 class="product__name body-large">Kẹp tóc</h3>
+                    <div class="product__price label-large">
+                      <p class="product__price__current">35,000 đ</p>
+                      <p class="product__price__discount outline-variant-text">
+                        70,000 đ
+                      </p>
+                    </div>
+                    <p class="product__discount title-medium error-text">
+                      Giảm 50%
+                    </p>
+                    <p class="product__stock headline-small error-text">
+                      Hết hàng
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </main>
+
+      <!-- <footer></footer> -->
+      <div id="footer"></div>
+
+      <!-- Modal -->
+      <div class="modal-product">
+        <div class="modal-container--product">
+          <!-- <div class="modal__img">
+          <div class="img__main">
+            <div class="modal__input-radio">
+              <input type="radio" name="radio-btn" id="radio1">
+              <input type="radio" name="radio-btn" id="radio2">
+              <input type="radio" name="radio-btn" id="radio3">
+              <input type="radio" name="radio-btn" id="radio4">
+              <input type="radio" name="radio-btn" id="radio5">
+            </div>
+          </div>
+          <div class="img__list">
+            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
+            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
+            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
+            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
+          </div>
+
+        </div> -->
+          <div class="modal__img">
+            <div class="img-display">
+              <div class="img-showcase">
+                <img src="/TAA_FE/public/product2.jpg" alt="product image" />
+                <img src="/TAA_FE/public/product4.jpg" alt="product image" />
+                <img src="/TAA_FE/public/product3.jpg" alt="product image" />
+                <img src="/TAA_FE/public/product7.jpg" alt="product image" />
+              </div>
+            </div>
+            <div class="img-select">
+              <div class="img-item">
+                <a href="#" data-id="1">
+                  <img src="/TAA_FE/public/product2.jpg" alt="product image" />
+                </a>
+              </div>
+              <div class="img-item">
+                <a href="#" data-id="2">
+                  <img src="/TAA_FE/public/product4.jpg" alt="product image" />
+                </a>
+              </div>
+              <div class="img-item">
+                <a href="#" data-id="3">
+                  <img src="/TAA_FE/public/product3.jpg" alt="product image" />
+                </a>
+              </div>
+              <div class="img-item">
+                <a href="#" data-id="4">
+                  <img src="/TAA_FE/public/product7.jpg" alt="product image" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="modal__body">
+            <p class="modal__product__name headline-medium">Tên sản phẩm</p>
+            <div class="modal__info__rate">
+              <div class="rate__star title-medium">
+                4.8
+                <span class="material-symbols-outlined icon--filled">
+                  star
+                </span>
+                <span class="material-symbols-outlined icon--filled">
+                  star
+                </span>
+                <span class="material-symbols-outlined icon--filled">
+                  star
+                </span>
+                <span class="material-symbols-outlined icon--filled">
+                  star
+                </span>
+                <span class="material-symbols-outlined icon--filled">
+                  star_rate_half
+                </span>
+              </div>
+              <span class="rate__number title-medium">30 đánh giá</span>
+              <span class="number__buy title-medium">300 đã bán</span>
+            </div>
+            <div class="modal__price">
+              <p class="cost body-medium">180.000đ</p>
+              <p class="cost__discount headline-small">79.000đ</p>
+              <div class="percent__discount body-medium">42% giảm</div>
+            </div>
+            <div class="modal__color label-large">
+              <p class="color__title bold">Màu sắc:</p>
+              <div class="color__value outline-text">Xanh lá cây</div>
+            </div>
+            <div class="modal__size label-large">
+              <p class="size__title bold">Kích thước:</p>
+              <div class="size__value outline-text">Freestyle</div>
+            </div>
+            <div class="modal__quantity">
+              <div class="quantity__title label-large bold">Số lượng:</div>
+              <div class="quantity__product outline-text label-large">
+                <div
+                  id="decrement"
+                  class="quantity__product-decrement outline-text"
+                  onclick="stepper(this)"
+                >
+                  -
+                </div>
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  step="1"
+                  value="2"
+                  id="my-input"
+                  readonly
+                />
+                <div
+                  id="increment"
+                  class="quantity__product-increment outline-text"
+                  onclick="stepper(this)"
+                >
+                  +
+                </div>
+              </div>
+              <p class="quantity__stock body-small">82 sản phẩm sẵn có</p>
+            </div>
+            <div class="modal__button">
+              <button class="button__cart">
+                <span class="material-symbols-outlined">
+                  add_shopping_cart
+                </span>
+                Thêm vào giỏ hàng
+              </button>
+              <button class="button__view btn--filled">
+                <a
+                  href="http://127.0.0.1:5500/TAA_FE/src/homepage/productsPage/detailProduct.html"
+                  >Xem chi tiết</a
+                >
+              </button>
+            </div>
+            <div class="modal__context body-large">
+              <div class="context__info mt-12">
+                <div class="context__info__title">THÔNG TIN SẢN PHẨM</div>
+                <ul class="context__info__body">
+                  <li>Chất liệu vải: Kaki cao cấp.</li>
+                  <li>Khóa chỉnh size: Được làm bằng inox.</li>
+                  <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+                </ul>
+              </div>
+              <div class="context__detail mt-24">
+                <div class="context__detail__title">MÔ TẢ SẢN PHẨM</div>
+                <ul class="context__detail__body">
+                  <li>
+                    - Form dáng chuẩn, chắc chắn, form mềm giúp định hình được
+                    khuôn mặt.
+                  </li>
+                  <li>
+                    - Nón được thiết kế để bảo vệ cho vùng mắt, vùng da mặt, da
+                    đầu và tóc tránh các tia cực tím độc hại từ ánh nắng mặt
+                    trời.
+                  </li>
+                  <li>
+                    - Giặt bằng nước lạnh không dùng bột giặt trong lần giặt đầu
+                    tiên.
+                  </li>
+                  <li>
+                    - Thiết kế may tinh tế, sắc sảo và thời trang, theo phong
+                    cách Ulzzang Hàn Quốc cá tính.
+                  </li>
+                  <li>
+                    - Hạn chế gây ra mồ hôi ở đầu, không gây kích ứng da đầu.
+                  </li>
+                  <li>
+                    - Phần đai nón có đệm bông tạo cảm giác thoải mái khi đội
+                    nón và không để lại vết hằn lên trán.
+                  </li>
+                  <li>
+                    - Khóa chỉnh size phía sau nón được làm bằng inox không gỉ
+                    rất dễ dàng sử dụng điều chỉnh nón.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="btn--close">
+            <span class="material-symbols-outlined"> close </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-noti">
+        <div class="modal-container--noti on-primary-text">
+          <div class="noti__icon-check">
+            <span class="material-symbols-outlined icon--filled">
+              check_circle
+            </span>
+          </div>
+          <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
+          <div class="noti__btn btn--close">
+            <span class="material-symbols-outlined"> close </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("#header").load("/TAA_FE/src/partials/header--unauth.html");
+        $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
+        $("#footer").load("/TAA_FE/src/partials/footer.html");
+      });
+    </script>
+    <script>
+      // modalProduct change image product
+      const imgs = document.querySelectorAll(".img-select a");
+      const imgBtns = [...imgs];
+      let imgId = 1;
+
+      imgBtns.forEach((imgItem) => {
+        imgItem.addEventListener("click", (event) => {
+          event.preventDefault();
+          imgId = imgItem.dataset.id;
+          slideImage();
+        });
+      });
+
+      function slideImage() {
+        const displayWidth = document.querySelector(
+          ".img-showcase img:first-child"
+        ).clientWidth;
+
+        document.querySelector(".img-showcase").style.transform = `translateX(${
+          -(imgId - 1) * displayWidth
+        }px)`;
+      }
+
+      window.addEventListener("resize", slideImage);
+
+      // modalProduct tăng giảm số lượng sản phẩm
+      const myInput = document.getElementById("my-input");
+      function stepper(btn) {
+        let id = btn.getAttribute("id");
+        let min = myInput.getAttribute("min");
+        let max = myInput.getAttribute("max");
+        let step = myInput.getAttribute("step");
+        let value = myInput.getAttribute("value");
+
+        let calcStep = id == "increment" ? step * 1 : step * -1;
+
+        let newValue = parseInt(value) + calcStep;
+        if (newValue >= min && newValue <= max) {
+          myInput.setAttribute("value", newValue);
+        }
+        console.log(id, min, max, step, value);
+      }
+
+      // modalProduct open
+      const btnView = document.querySelector(".product__button__view");
+      const btnSell = document.querySelector(".product__button__sell");
+      const modalProduct = document.querySelector(".modal-product");
+      const modalContainerProduct = document.querySelector(
+        ".modal-container--product"
+      );
+      const btnClosesProduct = document.querySelector(
+        ".modal-product .btn--close"
+      );
+
+      btnView.addEventListener("click", () => {
+        modalProduct.classList.add("open");
+      });
+
+      // modalProduct close
+      btnClosesProduct.addEventListener("click", () => {
+        modalProduct.classList.remove("open");
+      });
+
+      modalProduct.addEventListener("click", () => {
+        modalProduct.classList.remove("open");
+      });
+      // nhấn bên ngoài thì popup đóng
+      modalContainerProduct.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+
+      // modal
+
+      // modalNoti open
+      const btnCloseNoti = document.querySelector(".modal-noti .btn--close");
+      const modalNoti = document.querySelector(".modal-noti");
+      const modalContainerNoti = document.querySelector(
+        ".modal-container--noti"
+      );
+      const modalButtonCart = document.querySelector(".button__cart");
+      const modalButtonView = document.querySelector(".button__view");
+
+      // chuyển trang chi tiết sản phẩm
+      // modalButtonView.addEventListener("click", ()=>{
+      //   // window.location.href=""
+      //   // window.alert("hello")
+      // })
+
+      // modalNoti open, modalProduct close
+      modalButtonCart.addEventListener("click", () => {
+        modalNoti.classList.add("open");
+        modalProduct.classList.remove("open");
+      });
+      // modalNoti btn--close
+
+      btnCloseNoti.addEventListener("click", () => {
+        modalNoti.classList.remove("open");
+      });
+
+      modalNoti.addEventListener("click", () => {
+        modalNoti.classList.remove("open");
+      });
+      // nhấn bên ngoài thì popup đóng
+      modalContainerNoti.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+    </script>
+  </body>
 </html>
