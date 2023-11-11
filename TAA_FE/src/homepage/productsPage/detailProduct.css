@@ -115,6 +115,42 @@
     letter-spacing: 0.15px;
 }
 
+.info__product__icon {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.info__product__icon .show-text {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(8%);
+    white-space: nowrap;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background-color: #ccc;
+    color: #000;
+    opacity: 0;
+}
+
+.info__product__icon .show-text::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -8px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #ccc;
+}
+
+.info__product__icon:hover .show-text {
+    opacity: 1;
+}
+
 .info__product__rate {
     display: flex;
     gap: 12px;
