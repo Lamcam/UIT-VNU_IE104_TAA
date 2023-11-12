@@ -73,6 +73,7 @@
     right: 4px;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
   }
 
   & input {
@@ -1070,4 +1071,3 @@ input::-webkit-inner-spin-button {
   width: 97%;
   margin: 0 auto;
 }
-
