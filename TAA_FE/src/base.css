@@ -250,6 +250,11 @@ input {
   border: 1px solid var(--md-sys-color-outline);
   padding: 0 12px;
   background-color: transparent;
+
+  &[type="number"] {
+    display: flex;
+    width: 64px;
+  }
 }
 
 /* general class */
