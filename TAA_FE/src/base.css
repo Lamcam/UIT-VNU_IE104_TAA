@@ -296,6 +296,10 @@ input {
 
     text-decoration: none;
 
+    &:active {
+      filter: none;
+    }
+
     &:last-child {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);

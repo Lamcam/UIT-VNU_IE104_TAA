@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-[class*="btn"] {
+[class*="btn-"] {
   border: none;
   border-radius: 8px;
   padding: 0;
