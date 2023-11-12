@@ -14,6 +14,10 @@
   transition: 300ms;
 }
 
+.icon--filled {
+  font-variation-settings: 'FILL'1;
+}
+
 .mt-8 {
   margin-top: 8px;
 }
@@ -366,7 +370,7 @@ input {
   inset: 0;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
-  
+
   &.active {
     display: block;
   }
