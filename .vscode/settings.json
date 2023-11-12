@@ -1,3 +1,4 @@
 {
-    "liveServer.settings.port": 5502
+  "liveServer.settings.port": 5502,
+  "livePreview.defaultPreviewPath": "/TAA_FE/src/partials/header--unauth.html"
 }
