@@ -4,7 +4,8 @@
 
   & .nav-tab__item {
     transition: inherit;
-    height: 36px;
+    width: 100%;
+    height: 40px;
     padding-inline: 12px;
     display: inline-flex;
     gap: 8px;
@@ -20,6 +21,7 @@
       transition: inherit;
       border-left: 4px solid var(--md-sys-color-primary);
       padding-inline: 8px;
+      font-weight: bold;
     }
   }
 }

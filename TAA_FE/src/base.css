@@ -109,8 +109,16 @@
 
 /* general name tag */
 a:is(:link, :hover, :visited, :active) {
-  text-decoration: none;
-  color: black;
+  text-decoration: underline;
+  color: var(--md-sys-color-primary);
+}
+
+a:is(:hover, :active) {
+  cursor: pointer;
+}
+
+a:active {
+  filter: drop-shadow(0 0 0.75rem var(--md-sys-color-primary));
 }
 
 hr {
@@ -227,10 +235,10 @@ footer {
       text-align: justify;
     }
   }
-
+/* 
   & .footer__link {
     text-decoration: none;
-  }
+  } */
 }
 
 form {
@@ -246,6 +254,11 @@ input {
   border: 1px solid var(--md-sys-color-outline);
   padding: 0 12px;
   background-color: transparent;
+
+  &[type="number"] {
+    display: flex;
+    width: 64px;
+  }
 }
 
 /* general class */
@@ -289,6 +302,12 @@ input {
     background-color: white;
     color: black;
     font-weight: bold;
+
+    text-decoration: none;
+
+    &:active {
+      filter: none;
+    }
 
     &:last-child {
       background-color: var(--md-sys-color-primary);
@@ -400,7 +419,6 @@ input {
   color: #aaa;
   font-size: 24px;
   line-height: 24px;
-  width: 24px;
   font-weight: bold;
   text-align: center;
 
