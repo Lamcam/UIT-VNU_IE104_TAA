@@ -25,19 +25,52 @@
     <main>
       <section class="mt-12">
         <div class="container row">
-          <section class="col-8">
-            <table class="visible cart-list" style="overflow: hidden">
-              <thead class="primary on-primary-text"></thead>
-              <tbody>
-                <tr>
-                  <td colspan='7' class="title-large"
-                    style="padding: 24px 12px; text-align: center;">
-                    Bạn hiện tại không có sản phẩm nào trong giỏ hàng
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
+          <form id="order" class="col-8">
+            <article id="location" class="visible">
+              <h1 class="article__title headline-small">1. Thông tin nhận hàng
+              </h1>
+              <div class="article__content mt-12">
+                <div class="location-item row body-large">
+                  <div class="col-12">
+                    <p class="location-item__pers-name">Người đẹp bị câm</p>
+                    <div class="mt-8">
+                      <span>SĐT: </span>
+                      <span class="location-item__phone">*******629</span><br>
+                    </div>
+                    <p class="location-item__address mt-8">Xã A, huyện B, tỉnh C</p>
+                  </div>
+                  <button
+                    class="btn--filled btn-icon-label location-item--right"
+                    data-modal-target="#modal--change-address"
+                    style="top: 0;">
+                    <div class="status-layer">
+                      <span class="icon material-symbols-outlined icon--filled">
+                        edit</span>
+                      <span class="label">Thay đổi địa chỉ</span>
+                    </div>
+                  </button>
+                  <span class="headline-small primary-text location-item--right"
+                    style="bottom: 0;">Mặc định</span>
+                </div>
+              </div>
+            </article>
+            <article id="transport" class="visible mt-12">
+              <h1 class="artivcle__title headline-small">2. Hình thức vận chuyển
+              </h1>
+              <div class="article__content">
+                <div>
+                  <input type="radio" id="express" name="transport">
+                </div>
+              </div>
+            </article>
+            <article class="visible mt-12">
+              <h1 class="artivcle__title headline-small">3. Phương thức thanh
+                toán</h1>
+              <div class="article__content">
+
+              </div>
+            </article>
+          </form>
           <aside class="col-4">
             <div class="container visible body-large">
               <div class="row">
