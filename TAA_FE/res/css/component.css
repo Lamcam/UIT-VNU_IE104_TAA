@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-[class^="btn"] {
+[class*="btn"] {
   border: none;
   border-radius: 8px;
   padding: 0;
@@ -43,7 +43,7 @@
   }
 }
 
-[class^="btn"].full-width {
+[class*="btn"].full-width {
   width: 100%;
 
   & .status-layer {
@@ -106,14 +106,6 @@
       /* padding-inline: 8px; */
     }
   }
-
-  /* &:not(:disabled):hover {
-    box-shadow: none;
-
-    & .status-layer {
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-  } */
 }
 
 .btn--outlined {
