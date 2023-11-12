@@ -2,20 +2,32 @@
 let addActiveClass = (element, activeClassName) => {
   $(element).siblings().removeClass(activeClassName);
   $(element).addClass(activeClassName);
-}
+};
 
 $(".nav-tab__item").on("click", function () {
   addActiveClass(this, "active");
 });
+function showSection(sectionId) {
+  // Hide all sections
+  const sections = document.querySelectorAll(".section");
+  sections.forEach((section) => {
+    section.classList.add("hidden");
+  });
 
+  // Show the selected section
+  const selectedSection = document.getElementById(sectionId);
+  if (selectedSection) {
+    selectedSection.classList.remove("hidden");
+  }
+}
 
 // profile
 const inputArr = ["password", "name", "phone", "email"];
 let setInputReadOnly = () => {
-  inputArr.forEach(item => {
+  inputArr.forEach((item) => {
     $("#" + item).prop("readonly", true);
   });
-}
+};
 setInputReadOnly();
 
 function activeInput() {
@@ -59,10 +71,9 @@ const addBank = () => {
       </div>
     </div>`;
   $(".bank-list").prepend(bankItem);
-}
+};
 
-$('.bank-list__btn--add').on('click', addBank)
-
+$(".bank-list__btn--add").on("click", addBank);
 
 const delBank = () => {
   // let bankList = $(".bank-list")[0];
@@ -70,9 +81,7 @@ const delBank = () => {
   // // console.log(bankItem);
   // bankItem.remove();
   $(".bank-list")[0].children[0].remove();
-}
-
-
+};
 
 // location
 const addLocation = () => {
@@ -114,7 +123,7 @@ const addLocation = () => {
     </div>
   </div>`;
   $(".location-list").prepend(locationItem);
-}
+};
 
 const delLocation = () => {
   // let locationList = $(".location-list")[0];
@@ -122,7 +131,7 @@ const delLocation = () => {
   // // console.log(locationItem);
   // locationItem.remove();
   $(".location-list")[0].children[0].remove();
-}
+};
 
 // $('.bank-item__btn--del').on('click', delBank)
 
@@ -193,3 +202,32 @@ const delLocation = () => {
 //     }
 //   });
 // });
+
+//Section sản phẩm yêu thích
+
+// modalProduct change image product
+const imgs = document.querySelectorAll(".img-select a");
+const imgBtns = [...imgs];
+let imgId = 1;
+
+imgBtns.forEach((imgItem) => {
+  imgItem.addEventListener("click", (event) => {
+    event.preventDefault();
+    imgId = imgItem.dataset.id;
+    slideImage();
+  });
+});
+
+function slideImage() {
+  const displayWidth = document.querySelector(
+    ".img-showcase img:first-child"
+  ).clientWidth;
+
+  document.querySelector(".img-showcase").style.transform = `translateX(${
+    -(imgId - 1) * displayWidth
+  }px)`;
+}
+
+window.addEventListener("resize", slideImage);
+
+//

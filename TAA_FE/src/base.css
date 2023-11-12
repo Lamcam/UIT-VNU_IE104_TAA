@@ -12,26 +12,6 @@
   padding: 0;
   box-sizing: border-box;
   transition: 300ms;
-  scroll-behavior: smooth;
-  border-style: inset;
-  border: 0px;
-}
-
-.icon--filled {
-  font-variation-settings: 'FILL' 1;
-}
-
-/* Animation */
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-200px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .mt-8 {
@@ -206,14 +186,14 @@ header {
       color: white;
       background-color: var(--md-sys-color-primary);
     }
+  }
 
-    & a {
-      padding: 0px 24px;
-      margin: auto;
-      text-decoration: none;
-      font-weight: bold;
-      color: inherit;
-    }
+  & .main-nav__link {
+    padding: 0px 24px;
+    margin: auto;
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
   }
 }
 
