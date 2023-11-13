@@ -14,6 +14,7 @@
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
     crossorigin="anonymous"></script>
   <script src="/TAA_FE/res/js/main.js"></script>
+  <script src="./main.js"></script>
   <title>TAA - Giỏ hàng</title>
 </head>
 <body>
@@ -25,9 +26,16 @@
       <section class="mt-12">
         <div class="container row">
           <section class="col-8">
-            <table class="visible" style="overflow: hidden">
+            <table class="visible cart-list" style="overflow: hidden">
               <thead class="primary on-primary-text"></thead>
-              <tbody></tbody>
+              <tbody>
+                <tr>
+                  <td colspan='7' class="title-large"
+                    style="padding: 24px 12px; text-align: center;">
+                    Bạn hiện tại không có sản phẩm nào trong giỏ hàng
+                  </td>
+                </tr>
+              </tbody>
             </table>
           </section>
           <aside class="col-4">
@@ -47,17 +55,20 @@
               <hr>
               <div class="row">
                 <span class="col-6 detail__title">Tổng cộng:</span>
-                <span class="col-6 detail__context">Giá trị</span>
+                <span class="col-6 detail__context"
+                  style="color: var(--md-sys-color-error); font-weight: bold;">Giá
+                  trị</span>
               </div>
               <div class="row">
                 <span class="col-12 detail__context">(Đã bao gồm phí VAT)</span>
               </div>
               <div class="row" style="justify-content: end;">
-                <button class="btn--filled" type="button">
+                <a class="btn--filled" href="/TAA_FE/src/homepage/orderPage/"
+                  style="color: var(--md-sys-color-on-primary); text-decoration: none;">
                   <div class="status-layer">
                     <span class="label-large">Tiến hành đặt hàng</span>
                   </div>
-                </button>
+                </a>
               </div>
             </div>
           </aside>
@@ -72,17 +83,17 @@
   </div>
   <script>
     // Load header, nav-tree, footer
-    $(document).ready(function () {
+    $(document).ready(() => {
       $('#header').load('/TAA_FE/src/partials/header--auth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
     });
 
     // Load table of products
-    $(document).ready(function () {
-      $('thead').append(`
+    $(document).ready(() => {
+      $('.cart-list thead').append(`
         <tr>
-          <th><span class="btn-checkbox">
+          <th><span class="btn-icon btn-checkbox">
             <input type="checkbox" id="f_all_prod" name="f_all_prod">
             <label for="f_all_prod">
               <span class="icon material-symbols-outlined">
@@ -100,53 +111,44 @@
           <th>Thao<br>tác</th>
         </tr>`);
       const lst = [1, 2, 3, 4, 5];
-      lst.forEach((i) => {
-        $('tbody').append(`
-          <tr>
-            <th><span class="btn-checkbox">
-              <input type="checkbox" id="f_prod_${i}" name="f_prod_${i}">
-              <label for="f_prod_${i}">
-                <span class="icon material-symbols-outlined">
-                  check_box_outline_blank</span>
-                <span class="icon material-symbols-outlined --checked">
-                  check_box</span>
-                <span class="icon material-symbols-outlined --indeterminate">
-                  indeterminate_check_box</span>
-              </label>
-            </span></th>
-            <td><img src="/TAA_FE/res/imgs/prod0001.png" alt="Image of Product"></td>
-            <td>Tên sản phẩm</td>
-            <td>Giá tiền</td>
-            <td>
-              <div class="btn-group">
-                <button class="btn-icon">
-                  <div class="status-layer">
-                    <span class="icon material-symbols-outlined">remove</span>
-                  </div>
-                </button>
-                <span class="btn-text">1</span>
-                <button class="btn-icon">
-                  <div class="status-layer">
-                    <span class="icon material-symbols-outlined">add</span>
-                  </div>
-                </button>
-              </div>
-            </td>
-            <td>Thành tiền</td>
-            <td style="display: flex; justify-content: center; align-items: center;">
-              <button class="btn-icon">
-                <div class="status-layer">
-                  <span class="icon material-symbols-outlined">delete</span>
-                </div>
-              </button>
-            </td>
-          </tr>`);
-      });
+      if (lst.length > 0) {
+        $('.cart-list tbody').empty();
+        lst.forEach((i) => {
+          $('.cart-list tbody').append(`
+              <tr>
+                <th><span class="btn-icon btn-checkbox">
+                  <input type="checkbox" id="f_prod_${i}" name="f_prod_${i}">
+                  <label for="f_prod_${i}">
+                    <span class="icon material-symbols-outlined">
+                      check_box_outline_blank</span>
+                    <span class="icon material-symbols-outlined --checked">
+                      check_box</span>
+                    <span class="icon material-symbols-outlined --indeterminate">
+                      indeterminate_check_box</span>
+                  </label>
+                </span></th>
+                <td><img src="/TAA_FE/res/imgs/prod0001.png" alt="Image of Product"></td>
+                <td>Tên sản phẩm</td>
+                <td>Giá tiền</td>
+                <td>
+                  <input class="text-btn" name="$pro_id" min="0" max="5" value="0" type="number">
+                </td>
+                <td>Thành tiền</td>
+                <td>
+                  <button class="btn-icon" onclick="delCartItem()">
+                    <div class="status-layer">
+                      <span class="icon material-symbols-outlined">delete</span>
+                    </div>
+                  </button>
+                </td>
+              </tr>`);
+        });
+      }
     })
 
     // Setting checkbox for all products is checked or not appending on the number of products
-    $(document).ready(function () {
-      $('#f_all_prod').click(function () {
+    $(document).ready(() => {
+      $('#f_all_prod').click(() => {
         if ($(this).is(':checked')) {
           $('input[name^="f_prod_"]').prop('checked', true);
         } else {
@@ -154,7 +156,7 @@
         }
       });
 
-      $('input[name^="f_prod_"]').click(function () {
+      $('input[name^="f_prod_"]').click(() => {
         if ($('input[name^="f_prod_"]:checked').length === $('input[name^="f_prod_"]').length) {
           $('#f_all_prod').prop('checked', true).prop('indeterminate', false);
         } else if ($('input[name^="f_prod_"]:checked').length === 0) {
