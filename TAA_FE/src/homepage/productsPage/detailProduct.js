@@ -1,13 +1,18 @@
 const imgs = document.querySelectorAll('.img-select a');
 const imgBtns = [...imgs];
 let imgId = 1;
+imgBtns[0].classList.add('active__selected');
 
 imgBtns.forEach((imgItem) => {
-    imgItem.addEventListener('click', (event) => {
-        event.preventDefault();
-        imgId = imgItem.dataset.id;
-        slideImage();
+  imgItem.addEventListener('click', (event) => {
+    event.preventDefault();
+    imgBtns.forEach((item) => {
+      item.classList.remove('active__selected');
     });
+    imgItem.classList.add('active__selected');
+    imgId = imgItem.dataset.id;
+    slideImage();
+  });
 });
 
 function slideImage() {
