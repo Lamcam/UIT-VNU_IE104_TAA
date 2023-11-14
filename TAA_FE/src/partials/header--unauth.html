@@ -1,7 +1,7 @@
 <header class="visible un-radius">
   <div class="header__top">
     <div class="container">
-      <a href="#">
+      <a href="/TAA_FE/src/homepage/">
         <img class="header__logo" src="/TAA_FE/public/logo.svg" alt="Logo TAA">
       </a>
       <span class="header__search search-bar">
@@ -13,39 +13,43 @@
         </button>
       </span>
       <div class="header__wrapper">
-        <button class="header__btn--login btn--outlined" type="button"
+        <button class="btn--outlined header__btn--login" type="button"
           data-modal-target="#modal--login">
           <div class="status-layer label-large">
-            <span class="label-large">Đăng nhập</span>
+            <span>Đăng nhập</span>
           </div>
         </button>
-        <button class="header__btn--register btn--filled" type="button"
+        <button class="btn--filled header__btn--register" type="button"
           data-modal-target="#modal--register">
           <div class="status-layer label-large">
-            <span class="label-large">Đăng ký</span>
+            <span>Đăng ký</span>
           </div>
         </button>
       </div>
     </div>
   </div>
   <nav class="main-nav">
-    <ul class="container visible">
+    <ul class="container visible label-large">
       <li class="main-nav__item active">
-        <a href="#" class="main-nav__link label-large">Trang chủ</a>
+        <a href="/TAA_FE/src/homepage/" class="main-nav__link">Trang
+          chủ</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Sản phẩm</a>
+        <a href="/TAA_FE/src/homepage/productsPage/"
+          class="main-nav__link">Sản phẩm</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Tin tức</a>
+        <a href="/TAA_FE/src/homepage/newsPage/"
+          class="main-nav__link">Tin tức</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Về chúng
+        <a href="/TAA_FE/src/homepage/aboutUsPage/"
+          class="main-nav__link">Về chúng
           tôi</a>
       </li>
       <li class="main-nav__item">
-        <a href="#" class="main-nav__link label-large">Hướng dẫn sử
-          dụng</a>
+        <a href="/TAA_FE/src/homepage/userManualPage/"
+          class="main-nav__link">Hướng dẫn sử dụng</a>
       </li>
     </ul>
   </nav>
@@ -140,19 +144,19 @@
       </div>
       <div class="form__row mt-12">
         <div class="row">
-          <span class="btn-checkbox primary-text">
+          <span class="btn-icon btn-checkbox primary-text col-1">
             <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read"
               required>
             <label for="f_reg_is_read">
-              <span class="icon material-symbols-outlined --unchecked">
+              <span class="icon material-symbols-outlined">
                 check_box_outline_blank</span>
-              <span class="icon material-symbols-outlined --checked">
+              <span class="icon icon--filled material-symbols-outlined --checked">
                 check_box</span>
             </label>
           </span>
-          <span class="body-medium" style="text-align: left;">Tôi đã đọc và
-            đồng ý với Điều kiện giao dịch chung và Chính
-            sách bảo mật thông tin của TAA</span>
+          <span class="col-11 body-medium" style="text-align: left;">Tôi đã đọc
+            và đồng ý với Điều kiện giao dịch chung và Chính sách bảo mật thông
+            tin của TAA</span>
         </div>
       </div>
       <button class="btn--filled label-large full-width mt-12" type="submit">

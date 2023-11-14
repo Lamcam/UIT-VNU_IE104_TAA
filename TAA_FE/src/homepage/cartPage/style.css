@@ -1,16 +1,47 @@
 table {
-  border-collapse: collapse;
+  border-spacing: 0px;
   border: 0px;
 
   width: 100%;
 }
 
 thead {
-  height: 60px;
+  & tr {
+    height: 60px;
+  }
 }
 
 tbody {
   & tr {
-    padding: 1rem;
+    & img {
+      height: 96px;
+      aspect-ratio: 1/1;
+    }
+
+    & button {
+      margin: 0 auto;
+    }
   }
+}
+
+
+aside {
+  & .row {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+
+    &:first-child {
+      height: 60px;
+    }
+  }
+}
+
+.detail__title {
+  text-align: left;
+}
+
+.detail__context {
+  text-align: right;
 }

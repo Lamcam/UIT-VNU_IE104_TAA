@@ -4,6 +4,9 @@ body {
 
 h1.section__title {
   text-align: center;
+  font-weight: bold;
+
+  margin-bottom: 12px;
 }
 
 h2.section__title {

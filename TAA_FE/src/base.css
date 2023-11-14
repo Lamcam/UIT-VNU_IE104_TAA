@@ -1,5 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
-@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0);
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
 @import url(/TAA_FE/res/css/theme.css);
 @import url(/TAA_FE/res/css/component.css);
 
@@ -13,6 +12,10 @@
   padding: 0;
   box-sizing: border-box;
   transition: 300ms;
+}
+
+.icon--filled {
+  font-variation-settings: 'FILL'1;
 }
 
 .mt-8 {
@@ -35,6 +38,10 @@
   margin-top: 32px;
 }
 
+.mt-36 {
+  margin-top: 32px;
+}
+
 .mt-48 {
   margin-top: 48px;
 }
@@ -48,6 +55,7 @@
   width: 100%;
   display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
   /* margin: 0 -6px; */
 }
 
@@ -101,8 +109,20 @@
 
 /* general name tag */
 a:is(:link, :hover, :visited, :active) {
-  /* text-decoration: none; */
-  color: black;
+  text-decoration: underline;
+  color: var(--md-sys-color-primary);
+}
+
+a:is(:hover, :active) {
+  cursor: pointer;
+}
+
+a:active {
+  filter: drop-shadow(0 0 0.75rem var(--md-sys-color-primary));
+}
+
+hr {
+  border: 1px solid var(--md-sys-color-outline-variant-light);
 }
 
 body {
@@ -186,6 +206,10 @@ main {
 
   &>section {
     padding: 0 32px;
+
+    &.full-width {
+      padding: 0;
+    }
   }
 }
 
@@ -211,10 +235,10 @@ footer {
       text-align: justify;
     }
   }
-
+/* 
   & .footer__link {
     text-decoration: none;
-  }
+  } */
 }
 
 form {
@@ -231,8 +255,9 @@ input {
   padding: 0 12px;
   background-color: transparent;
 
-  &:not([type=number]) {
-    width: 100%;
+  &[type="number"] {
+    display: flex;
+    width: 64px;
   }
 }
 
@@ -277,8 +302,14 @@ input {
     background-color: white;
     color: black;
     font-weight: bold;
-    
-    &:last-child{
+
+    text-decoration: none;
+
+    &:active {
+      filter: none;
+    }
+
+    &:last-child {
       background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
     }
@@ -289,7 +320,7 @@ input {
   display: inline-flex;
   gap: 8px;
 
-  & > * {
+  &>* {
     margin: auto;
   }
 }
@@ -308,7 +339,7 @@ input {
   &>* {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 48px;
     padding: 0 12px;
     gap: 8px;
   }
@@ -333,11 +364,11 @@ input {
   &:last-child {
     font-weight: bold;
   }
-}
 
-.nav-tree__link {
-  margin: auto;
-  text-decoration: none;
+  & a {
+    margin: auto;
+    text-decoration: none;
+  }
 }
 
 .email-submition {
@@ -353,7 +384,6 @@ input {
 /* CSS cho pop-up modal */
 .modal {
   display: none;
-  /* position: fixed; */
   position: fixed;
   z-index: 1;
   inset: 0;
@@ -366,6 +396,8 @@ input {
 }
 
 .modal__content {
+  animation: modalFadeIn ease 0.5s;
+
   position: relative;
   margin: 150px auto;
   padding: 48px 64px;
@@ -387,7 +419,6 @@ input {
   color: #aaa;
   font-size: 24px;
   line-height: 24px;
-  width: 24px;
   font-weight: bold;
   text-align: center;
 

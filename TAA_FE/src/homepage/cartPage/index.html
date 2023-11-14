@@ -14,65 +14,64 @@
     integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
     crossorigin="anonymous"></script>
   <script src="/TAA_FE/res/js/main.js"></script>
+  <script src="./main.js"></script>
   <title>TAA - Giỏ hàng</title>
 </head>
 <body>
   <div id="main" class="on-primary">
     <div id="header"></div>
-
     <div id="nav-tree"></div>
 
     <main>
       <section class="mt-12">
-        <div class="container">
-          <div class="row">
-            <section class="col-8 visible">
-              <table>
-                <thead class="primary on-primary-text">
-                  <th>
-                    <span class="btn-checkbox">
-                      <input type="checkbox" id="f_all" name="f_all">
-                      <label for="f_all">
-                        <span
-                          class="material-icons icon btn-checkbox--unchecked">
-                          check_box_outline_blank</span>
-                        <span class="material-icons icon btn-checkbox--checked">
-                          check_box</span>
-                      </label>
-                    </span>
-                  </th>
-                  <th colspan="2">Sản phẩm</th>
-                  <th>Giá tiền</th>
-                  <th>Thành tiền</th>
-                  <th>Thao tác</th>
-                </thead>
-                <tbody>
-                  <td>
-                    <span class="btn-checkbox primary-text">
-                      <input type="checkbox" id="f_prod_1" name="f_prod_1">
-                      <label for="f_prod_1">
-                        <span
-                          class="material-icons icon btn-checkbox--unchecked">
-                          check_box_outline_blank</span>
-                        <span class="material-icons icon btn-checkbox--checked">
-                          check_box</span>
-                      </label>
-                    </span>
+        <div class="container row">
+          <section class="col-8">
+            <table class="visible cart-list" style="overflow: hidden">
+              <thead class="primary on-primary-text"></thead>
+              <tbody>
+                <tr>
+                  <td colspan='7' class="title-large"
+                    style="padding: 24px 12px; text-align: center;">
+                    Bạn hiện tại không có sản phẩm nào trong giỏ hàng
                   </td>
-                  <td><img src="" alt=""></td>
-                  <td>Tên sản phẩm</td>
-                  <td>Giá tiền</td>
-                  <td><input type="number" min="1" step="1"></td>
-                </tbody>
-              </table>
-            </section>
-            <aside class="col-4">
-              <ul class="visible">
-                <li>laksdjlfk</li>
-                <li class="mt-8">laksdjlfk</li>
-              </ul>
-            </aside>
-          </div>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <aside class="col-4">
+            <div class="container visible body-large">
+              <div class="row">
+                <h2 class="col-12 aside__title title-large">Hóa đơn của bạn</h2>
+              </div>
+              <hr>
+              <div class="row">
+                <span class="col-6 detail__title">Tạm tính:</span>
+                <span class="col-6 detail__context">Giá trị</span>
+              </div>
+              <div class="row">
+                <span class="col-6 detail__title">Giảm giá:</span>
+                <span class="col-6 detail__context">Giá trị</span>
+              </div>
+              <hr>
+              <div class="row">
+                <span class="col-6 detail__title">Tổng cộng:</span>
+                <span class="col-6 detail__context"
+                  style="color: var(--md-sys-color-error); font-weight: bold;">Giá
+                  trị</span>
+              </div>
+              <div class="row">
+                <span class="col-12 detail__context">(Đã bao gồm phí VAT)</span>
+              </div>
+              <div class="row" style="justify-content: end;">
+                <a class="btn--filled" href="/TAA_FE/src/homepage/orderPage/"
+                  style="color: var(--md-sys-color-on-primary); text-decoration: none;">
+                  <div class="status-layer">
+                    <span class="label-large">Tiến hành đặt hàng</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
     </main>
@@ -83,11 +82,91 @@
     <!-- Modal -->
   </div>
   <script>
-    $(document).ready(function () {
+    // Load header, nav-tree, footer
+    $(document).ready(() => {
       $('#header').load('/TAA_FE/src/partials/header--auth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
     });
+
+    // Load table of products
+    $(document).ready(() => {
+      $('.cart-list thead').append(`
+        <tr>
+          <th><span class="btn-icon btn-checkbox">
+            <input type="checkbox" id="f_all_prod" name="f_all_prod">
+            <label for="f_all_prod">
+              <span class="icon material-symbols-outlined">
+                check_box_outline_blank</span>
+              <span class="icon material-symbols-outlined --checked">
+                check_box</span>
+              <span class="icon material-symbols-outlined --indeterminate">
+                indeterminate_check_box</span>
+            </label>
+          </span></th>
+          <th colspan="2">Sản phẩm</th>
+          <th>Giá tiền</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+          <th>Thao<br>tác</th>
+        </tr>`);
+      const lst = [1, 2, 3, 4, 5];
+      if (lst.length > 0) {
+        $('.cart-list tbody').empty();
+        lst.forEach((i) => {
+          $('.cart-list tbody').append(`
+              <tr>
+                <th><span class="btn-icon btn-checkbox">
+                  <input type="checkbox" id="f_prod_${i}" name="f_prod_${i}">
+                  <label for="f_prod_${i}">
+                    <span class="icon material-symbols-outlined">
+                      check_box_outline_blank</span>
+                    <span class="icon material-symbols-outlined --checked">
+                      check_box</span>
+                    <span class="icon material-symbols-outlined --indeterminate">
+                      indeterminate_check_box</span>
+                  </label>
+                </span></th>
+                <td><img src="/TAA_FE/res/imgs/prod0001.png" alt="Image of Product"></td>
+                <td>Tên sản phẩm</td>
+                <td>Giá tiền</td>
+                <td>
+                  <input class="text-btn" name="$pro_id" min="0" max="5" value="0" type="number">
+                </td>
+                <td>Thành tiền</td>
+                <td>
+                  <button class="btn-icon" onclick="delCartItem()">
+                    <div class="status-layer">
+                      <span class="icon material-symbols-outlined">delete</span>
+                    </div>
+                  </button>
+                </td>
+              </tr>`);
+        });
+      }
+    })
+
+    // Setting checkbox for all products is checked or not appending on the number of products
+    $(document).ready(() => {
+      $('#f_all_prod').click(() => {
+        if ($(this).is(':checked')) {
+          $('input[name^="f_prod_"]').prop('checked', true);
+        } else {
+          $('input[name^="f_prod_"]').prop('checked', false);
+        }
+      });
+
+      $('input[name^="f_prod_"]').click(() => {
+        if ($('input[name^="f_prod_"]:checked').length === $('input[name^="f_prod_"]').length) {
+          $('#f_all_prod').prop('checked', true).prop('indeterminate', false);
+        } else if ($('input[name^="f_prod_"]:checked').length === 0) {
+          $('#f_all_prod').prop('checked', false).prop('indeterminate', false);
+        } else {
+          $('#f_all_prod').prop('checked', false).prop('indeterminate', true);
+        }
+      });
+    });
   </script>
+  <script src="/TAA_FE/res/js/modal--controller.js"></script>
 </body>
 </html>
