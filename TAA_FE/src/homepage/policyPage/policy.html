@@ -8,10 +8,19 @@
         <link rel="stylesheet" href="../../../res/css/theme.css">
         <link rel="stylesheet" href="../../base.css">
         <link rel="stylesheet" href="policy.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
+        crossorigin="anonymous"></script>
+        <script src="/TAA_FE/res/js/main.js"></script>
         <title>Chính sách</title>
 
     </head>
     <body>
+        <div id="main" class="on-primary">
+            <div id="header"></div>
+            <div id="nav-tree"></div>
+    
+            <main>
+                <section class="mt-12"> <
         <div class="container">
             <h1 class="title1 display-large">CHÍNH SÁCH BẢO HÀNH</h1>
             <h2 class="body-large">
@@ -43,7 +52,7 @@
                         <li>Với trường hợp sản phẩm bị cắt nhãn mác, trong vòng 1 ngày kể từ ngày nhận bưu phẩm, bạn hãy gửi phản hồi về tụi mình để được giải quyết. Qua mốc thời gian 1 ngày chúng mình sẽ không giải quyết đơn đổi trả.</li>
                         <li>Sản phẩm đổi phải có giá trị tương đương hoặc cao hơn sản phẩm được đổi. Vui lòng thanh toán chi phí chênh lệch giá trị sản phẩm nếu có.</li>
                         <li>Trường hợp hoàn lại giá trị đơn hàng, tụi mình sẽ hoàn tiền trong vòng 48h làm việc sau khi nhận được yêu cầu từ các bạn.</li>
-                        <li>Áp dụng với các đơn hàng trên toàn hệ thống của Levents® (Website, FB & IG, TMĐT & cửa hàng).</li>
+                        <li>Áp dụng với các đơn hàng trên toàn hệ thống của TAA Shop (Website, FB & IG, TMĐT & cửa hàng).</li>
                     </ul>
                     <p>Lưu ý: Bạn vui lòng gửi cho chúng mình clip đóng gói hàng đổi trả của bạn, nhân viên tư vấn sẽ xác nhận và tiến hành lên đơn đổi trả cho bạn.</p>
                     <li class="sub-title headline-small">Quy trình đổi hàng</li>
@@ -68,5 +77,22 @@
                 </ol>
             </h2>
         </div>
+    </section>
+    <img class="picture3" src="../../../Public/poster.png" alt="Định hướng">
+</main>
+
+<!-- <footer></footer> -->
+<div id="footer"></div>
+
+<!-- Modal -->
+<div id="modal"></div>
+</div>
+<script>
+$(document).ready(function () {
+    $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+    $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+    $('#footer').load('/TAA_FE/src/partials/footer.html');
+});
+</script>
     </body>
 </html>

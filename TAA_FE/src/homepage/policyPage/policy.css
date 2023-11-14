@@ -25,3 +25,12 @@ ul li {
 .text {
     text-align: justify;
 }
+
+.picture3 {
+    width: 100vw;
+    height: 180px;
+    max-width: 100vw;
+    margin-top: 20px;
+    object-fit: cover;
+  }
+  
