@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="IE104.O12_Group3">
+  <meta charset="UTF-8" />
+  <meta name="author" content="IE104.O12_Group3" />
   <meta name="description" content="Trang web TAA là một nền tảng thương mại
     điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/TAA_FE/src/base.css" />
   <link rel="stylesheet" href="./style.css" />
   <script
     src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -25,35 +25,39 @@
         <div class="container row">
           <aside class="col-3 body-large primary-text">
             <ul class="nav-tab visible">
-              <li class="nav-tab__item active">
+              <li class="nav-tab__item active"
+                onclick="showSection('section1')">
                 <span class="icon icon--filled material-symbols-outlined">
                   person</span>
                 Thông tin tài khoản
               </li>
-              <li class="nav-tab__item">
+              <li class="nav-tab__item" onclick="showSection('section2')">
                 <span class="icon icon--filled material-symbols-outlined">
                   box</span>
                 Đơn hàng
               </li>
-              <li class="nav-tab__item">
+              <li class="nav-tab__item" onclick="showSection('section3')">
                 <span class="icon icon--filled material-symbols-outlined">
                   hr_resting</span>
                 Sản phẩm yêu thích
               </li>
             </ul>
           </aside>
-
-          <section class="col-9">
+          <!-- Section Thông tin tài khoản -->
+          <section id="section1" class="section col-9">
             <!-- Thông tin tài khoản-->
             <article class="section__info visible">
               <h1 class="headline-large">Thông tin tài khoản</h1>
-              <p class="body-medium mt-12">Trang cung cấp thông tin về tài khoản
-                theo từng mục, đồng thời cho phép người dùng có thể thay đổi một
-                thông tin cơ bản trong mục đó</p>
+              <p class="body-medium mt-12">
+                Trang cung cấp thông tin về tài khoản theo từng mục, đồng thời
+                cho phép người dùng có thể thay đổi một thông tin cơ bản trong
+                mục đó.
+              </p>
             </article>
 
             <!-- Hồ sơ cá nhân -->
-            <article id="profile" class="section__content visible mt-12">
+            <article id="profile" class="section__content visible mt-12"
+              style="padding: 24px">
               <h2 class="headline-medium">Hồ sơ cá nhân</h2>
               <form action="" method="POST">
                 <div class="form__row mt-12">
@@ -62,7 +66,7 @@
                       nhập:</label>
                     <div class="col-8 input__wrapper">
                       <input type="text" id="username" placeholder="abc"
-                        readonly>
+                        readonly />
                     </div>
                   </div>
                 </div>
@@ -72,7 +76,7 @@
                       khẩu:</label>
                     <div class="col-8 input__wrapper">
                       <input type="password" placeholder="********"
-                        id="password">
+                        id="password" />
                       <span class="icon icon--filled material-symbols-outlined">
                         edit</span>
                     </div>
@@ -84,7 +88,7 @@
                       dùng:</label>
                     <div class="col-8 input__wrapper">
                       <input type="password" name="name" id="name"
-                        placeholder="Nguyễn Văn A">
+                        placeholder="Nguyễn Văn A" />
                       <span class="icon icon--filled material-symbols-outlined">
                         edit</span>
                     </div>
@@ -96,7 +100,7 @@
                       thoại:</label>
                     <div class="col-8 input__wrapper">
                       <input type="text" name="phone" id="phone"
-                        placeholder="*******629">
+                        placeholder="*******629" />
                       <span class="icon icon--filled material-symbols-outlined">
                         edit</span>
                     </div>
@@ -107,7 +111,7 @@
                     <label class="col-4 label-large" for="email">Email:</label>
                     <div class="col-8 input__wrapper">
                       <input type="email" name="name" id="email"
-                        placeholder="2152****@gm.uit.edu.vn">
+                        placeholder="2152****@gm.uit.edu.vn" />
                       <span class="icon icon--filled material-symbols-outlined">
                         edit</span>
                     </div>
@@ -122,7 +126,8 @@
             </article>
 
             <!-- Tài khoản ngân hàng-->
-            <article id="bank-account" class="section__content visible mt-12">
+            <article id="bank-account" class="section__content visible mt-12"
+              style="padding: 24px">
               <button class="btn-icon section__btn"
                 data-modal-target="#modal--add-bank">
                 <div class="status-layer">
@@ -152,7 +157,7 @@
                 <div class="bank-item mt-12">
                   <div class="bank-item__wrapper body-medium">
                     <div class="row">
-                      <span>STK: </span><span>*********1230</span><br>
+                      <span>STK: </span><span>*********1230</span><br />
                     </div>
                     <div class="row">
                       <span class="mt-12">Ngân hàng ACB</span>
@@ -169,7 +174,7 @@
                 <div class="bank-item mt-12">
                   <div class="bank-item__wrapper body-medium">
                     <div class="row">
-                      <span>STK: </span><span>*********1230</span><br>
+                      <span>STK: </span><span>*********1230</span><br />
                     </div>
                     <div class="row">
                       <span class="mt-12">Ngân hàng ACB</span>
@@ -182,13 +187,21 @@
                       </div>
                     </button>
                   </div>
+                  <button type="button" class="button--edit primary" style="
+                        background-color: var(--md-ref-palette-primary100);
+                        border: none;
+                        color: var(--m-3-sys-light-outline, #857373);
+                      ">
+                    <span class="label-large"
+                      style="font-size: 22px; padding: 12px">Mặc định</span>
+                  </button>
                 </div>
               </div>
             </article>
 
             <!-- Địa chỉ nhận hàng -->
             <article id="shipping-address"
-              class="section__content visible mt-12">
+              class="section__content visible mt-12" style="padding: 24px">
               <button class="btn-icon section__btn"
                 data-modal-target="#modal--add-location">
                 <div class="status-layer">
@@ -308,6 +321,150 @@
                 </div>
               </div>
             </article>
+          </section>
+          <!-- Section Đơn hàng  -->
+          <section id="section2" class="section col-9 hidden">
+            <!-- Đơn hàng-->
+            <article class="section__info visible">
+              <h1 class="headline-large">Đơn hàng</h1>
+              <p class="body-medium mt-12">
+                Trang cung cấp thông tin về các đơn hàng theo tùy danh mục.
+              </p>
+            </article>
+            <!-- Các đơn hàng -->
+            <div class="order-content-list order visible mt-12">
+              <div class="order__item">
+                <img src="/TAA_FE/public/product1.jpg" alt="" class="order__img"
+                  width="157px" height="157px" />
+                <div class="order__item-content body-medium">
+                  <p class="order__item-content-name">Tên sản phẩm</p>
+                  <div class="order__item-att">
+                    <p>Số lượng <span class="item_quanity">1</span></p>
+                    <div class="item_att_price_content">
+                      <p>Giá tiền <span class="price">100.000</span> đ</p>
+                      <p class="base-price-p"
+                        style="text-decoration: line-through">
+                        <span class="base-price">100.000</span> đ
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="att_totalRate">
+                    <p>Thành tiền <span>100.000</span> đ</p>
+                  </div>
+                  <button class="btn--outlined"
+                    style="border: 1px solid #785b5b">
+                    Đánh giá
+                  </button>
+                </div>
+
+                <div class="item__status">
+                  <p class="status headline-medium mt-48">Đã giao</p>
+                  <button class="item_repurchase btn--filled">
+                    <div class="status-layer">
+                      <span>Mua lại sản phẩm</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="order-content-list order visible">
+              <div class="order__item">
+                <img src="/TAA_FE/public/product1.jpg" alt="" class="order__img"
+                  width="157px" height="157px" />
+                <div class="order__item-content body-medium">
+                  <p class="order__item-content-name">Tên sản phẩm</p>
+                  <div class="order__item-att">
+                    <p>Số lượng <span class="item_quanity">1</span></p>
+                    <div class="item_att_price_content">
+                      <p>Giá tiền <span class="price">100.000</span> đ</p>
+                      <p class="base-price-p"
+                        style="text-decoration: line-through">
+                        <span class="base-price">100.000</span> đ
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="att_totalRate">
+                    <p>Thành tiền <span>100.000</span> đ</p>
+                  </div>
+                  <button class="btn--outlined"
+                    style="border: 1px solid #785b5b">
+                    Đánh giá
+                  </button>
+                </div>
+
+                <div class="item__status">
+                  <p class="status headline-medium mt-48">Đã giao</p>
+                  <button class="item_repurchase btn--filled">
+                    <div class="status-layer">
+                      <span>Mua lại sản phẩm</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section Sản phẩm yêu thích  -->
+          <section id="section3" class="section col-9 hidden">
+            <!-- Sản phẩm yêu thích -->
+            <article class="section__info visible">
+              <h1 class="headline-large">Sản phẩm yêu thích</h1>
+              <p class="body-medium mt-12">Trang cung cấp thông tin về sản phẩm
+                yêu thích</p>
+            </article>
+            <div class="section__content row mt-12">
+              <div class="product__item col-4">
+                <div class="product__image">
+                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc"
+                    class="img_back" />
+                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc"
+                    class="img_font" />
+                </div>
+                <div class="product__body">
+                  <span class="material-symbols-outlined icon_heart error-text">
+                    favorite
+                  </span>
+                  <h3 class="product__name body-large">Kẹp tóc</h3>
+                  <div class="product__price label-large">
+                    <p class="product__price__current">35,000 đ</p>
+                    <p class="product__price__discount outline-variant-text">
+                      70,000 đ</p>
+                  </div>
+                  <p class="product__discount title-medium error-text">
+                    Giảm 50%</p>
+                  <p class="product__stock label-large primary-text">
+                    Còn hàng</p>
+                </div>
+              </div>
+
+              <!-- item outstock -->
+              <div class="product__outstock col-4">
+                <div class="product__image">
+                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc"
+                    class="img_back" />
+                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc"
+                    class="img_font" />
+                </div>
+                <div class="product__body">
+                  <span class="material-symbols-outlined icon_heart error-text">
+                    favorite
+                  </span>
+                  <h3 class="product__name body-large">Kẹp tóc</h3>
+                  <div class="product__price label-large">
+                    <p class="product__price__current">35,000 đ</p>
+                    <p class="product__price__discount outline-variant-text">
+                      70,000 đ</p>
+                  </div>
+                  <p class="product__discount title-medium error-text">
+                    Giảm 50%</p>
+                  <p class="product__stock headline-small error-text">
+                    Hết hàng</p>
+                </div>
+              </div>
+            </div>
           </section>
         </div>
       </section>
