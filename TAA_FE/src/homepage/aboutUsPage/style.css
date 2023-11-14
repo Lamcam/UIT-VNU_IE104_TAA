@@ -41,6 +41,15 @@
   text-align: right;
 }
 
+.contact__list a {
+  text-decoration: none;
+  color: black;
+}
+
+.contact__list a:hover {
+  color: var(--md-sys-color-primary);
+}
+
 .information {
   align-items: center;
 }
