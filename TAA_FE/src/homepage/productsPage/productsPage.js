@@ -7,7 +7,6 @@ function showSubMenu() {
     return
   }
 
-
   for (let item of items)
     item.classList.remove("active");
 
@@ -29,7 +28,6 @@ for (let item of items) {
   item.addEventListener('click', showSubMenu);
 }
 
-
 // effect on click button
 function effectButton() {
   if (this.classList.contains("effect")) {
@@ -45,7 +43,6 @@ for (let button of buttons) {
 }
 
 
-
 // const dropdowns = document.querySelectorAll('.dropdown');
 
 const select = document.querySelector('.select');
@@ -54,7 +51,6 @@ const menu = document.querySelector('.menu')
 const options = document.querySelectorAll('.menu li')
 const selected = document.querySelector('.selected')
 const cancel = document.querySelector('.icon-cancel')
-
 
 select.addEventListener('click', () => {
   select.classList.toggle('select-clicked');
@@ -106,10 +102,15 @@ iconHearts.forEach(iconHeart => {
 const imgs = document.querySelectorAll('.img-select a');
 const imgBtns = [...imgs];
 let imgId = 1;
+imgBtns[0].classList.add('active__selected');
 
 imgBtns.forEach((imgItem) => {
   imgItem.addEventListener('click', (event) => {
     event.preventDefault();
+    imgBtns.forEach((item) => {
+      item.classList.remove('active__selected');
+    });
+    imgItem.classList.add('active__selected');
     imgId = imgItem.dataset.id;
     slideImage();
   });
@@ -165,9 +166,7 @@ modalContainerProduct.addEventListener("click", function (event) {
   event.stopPropagation()
 })
 
-
 // modal
-
 
 // modalNoti open
 const btnCloseNoti = document.querySelector('.modal-noti .btn--close')
@@ -203,4 +202,3 @@ modalNoti.addEventListener("click", () => {
 modalContainerNoti.addEventListener("click", function (event) {
   event.stopPropagation()
 })
-
