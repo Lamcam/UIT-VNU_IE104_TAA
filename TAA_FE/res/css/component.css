@@ -6,7 +6,7 @@
   justify-content: center;
 }
 
-button {
+[class*="btn-"] {
   border: none;
   border-radius: 8px;
   padding: 0;
@@ -27,6 +27,7 @@ button {
   & .status-layer {
     color: inherit;
     display: flex;
+    height: 100%;
     justify-content: center;
     border-radius: inherit;
     min-height: 40px;
@@ -42,7 +43,7 @@ button {
   }
 }
 
-button.full-width {
+[class*="btn"].full-width {
   width: 100%;
 
   & .status-layer {
@@ -50,7 +51,7 @@ button.full-width {
   }
 }
 
-button.btn-icon {
+.btn-icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,7 +79,7 @@ button.btn-icon {
   }
 }
 
-button.btn-icon-label {
+.btn-icon-label {
   display: flex;
 
   height: 40px;
@@ -105,17 +106,9 @@ button.btn-icon-label {
       /* padding-inline: 8px; */
     }
   }
-
-  /* &:not(:disabled):hover {
-    box-shadow: none;
-
-    & .status-layer {
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-  } */
 }
 
-button.btn--outlined {
+.btn--outlined {
   color: var(--md-sys-color-primary);
 
   & .status-layer {
@@ -123,12 +116,14 @@ button.btn--outlined {
   }
 }
 
-button.btn--filled {
+.btn--filled {
   color: #fff;
   background-color: var(--md-sys-color-primary);
 }
 
 span.btn-checkbox {
+  display: inline-flex;
+
   & input {
     display: none;
 
@@ -160,6 +155,12 @@ span.btn-checkbox {
   }
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  margin-inline: 12px;
+  background: var(--md-sys-color-outline-variant-light);
+}
 
 .search-bar {
   min-width: 256px;
@@ -181,15 +182,11 @@ span.btn-checkbox {
     }
   }
 
-  & button.btn-icon {
+  & .btn-icon {
     height: 32px;
-    width: 32px;
+    max-width: 32px;
+    padding: 0px;
     border-radius: 8px;
-
-    & .status-layer {
-      height: 32px;
-      width: 32px;
-    }
   }
 }
 
@@ -201,8 +198,7 @@ span.btn-checkbox {
   align-items: center;
   border-radius: 12px;
   min-width: 247px;
-
-  background-color: white;
+  background-color: #fff;
 }
 
 .product__image {
@@ -223,8 +219,9 @@ span.btn-checkbox {
   & .product__stock {
     display: none;
   }
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.30), 
-              0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.30),
+  0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   /* max-height: fit-content; */
 }
 
@@ -247,6 +244,10 @@ span.btn-checkbox {
 
 }
 
+.icon_heart {
+  cursor: pointer;
+}
+
 .product__button__section {
   display: flex;
   align-items: center;
@@ -256,6 +257,7 @@ span.btn-checkbox {
   justify-content: space-around;
   border-radius: 0px 0px 8px 8px;
   background: var(--m-3-sys-light-primary, #785B5B);
+  cursor: pointer;
   display: none;
 }
 
@@ -268,13 +270,18 @@ span.btn-checkbox {
 .product__button__view,
 .product__button__sell {
   color: #fff !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   border-radius: 0;
   /* border-bottom-left-radius: 8px; */
   width: 100%;
-  height: 40px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.product__button__sell a {
+  color: #fff;
   text-decoration: none;
 }
 
@@ -309,6 +316,91 @@ span.btn-checkbox {
   line-height: 2rem;
   padding: 0px 42px 11px 42px;
 }
+
+
+/* modal noti */
+.modal-noti {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  /* can chinh giua overlay */
+  align-items: center;
+  justify-content: center;
+  /* Can hien len thi display: flex */
+  /* display: flex; */
+  display: none;
+  flex-direction: column;
+}
+
+.modal-noti.open {
+  display: flex;
+}
+
+.modal-noti.close {
+  display: none;
+}
+
+.modal-container--noti {
+  display: inline-flex;
+  padding: 60px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 12px;
+  background-color: var(--m-3-sys-light-primary, #785B5B);
+  min-width: 714px;
+  min-height: 360px;
+  position: relative;
+  animation: modalFadeIn ease 0.2s;
+}
+
+.modal-noti .noti__icon-check {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+}
+
+.noti__icon-check span {
+  font-size: 64px;
+}
+
+.modal-noti .noti__btn {
+  color: var(--md-sys-color-surface-variant-light);
+}
+
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-140px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.btn--close {
+  position: absolute;
+  top: 24px;
+  right: 25px;
+  color: #aaa;
+  font-size: 24px;
+  line-height: 24px;
+  width: 24px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
 
 .nav-page {
   & .container {

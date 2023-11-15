@@ -4,18 +4,19 @@ a {
 
 .section__title {
   text-align: center;
+  font-weight: bold;
 }
 
 [class^="banner__img"] {
-  object-fit: cover;
   width: 100%;
 
   &.banner__img--large {
-    height: 768px;
+    min-height: 512px;
   }
 
   &.banner__img--small {
     height: 192px;
+    object-fit: cover;
   }
 }
 
@@ -30,6 +31,10 @@ a {
 
 .news__body {
   padding: 12px 12px 12px 0;
+
+  &:any-link {
+    text-decoration: none;
+  }
 }
 
 .article__title {

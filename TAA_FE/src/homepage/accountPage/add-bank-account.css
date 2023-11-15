@@ -1,0 +1,108 @@
+/* * {
+    font-family: Roboto;
+    font-size: 14px;
+}
+.modal-add-bank-account {
+    position: fixed;
+    display: none;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+.add-bank-account-container {
+    width: 714px;
+    height: 432px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1efe7;
+    font-weight: 400;
+    border-radius: 12px;
+    padding: 60px;
+    gap: 12px;
+    animation: modalFadeIn ease 0.5s;
+    margin: 200px auto;
+}
+
+h1 {
+    color: #785b5b;
+    text-align: center;
+    font-size: 24px;
+}
+
+.form--items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.form-item {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+.form-item h3 {
+    width: 157px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-item input {
+    color: #785b5b;
+    border: 1px solid #785b5b;
+    align-items: center;
+    width: 333px;
+    height: 40px;
+}
+
+.form-item input::placeholder {
+    color: #785b5b;
+}
+
+.button--wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+}
+
+button {
+    width: 227px;
+    height: 40px;
+    border-radius: 8px;
+
+    &.btn--outlined {
+        color: #785b5b;
+        background-color: #f1efe7;
+        border: 1px solid #785b5b;
+    }
+    &.btn--filled {
+        border: none;
+        background-color: #785b5b;
+        color: white;
+    }
+}
+
+.closeBtn2 {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -30px;
+    margin-top: -400px;
+    color: #785b5b;
+    cursor: pointer;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
