@@ -206,28 +206,41 @@ const delLocation = () => {
 //Section sản phẩm yêu thích
 
 // modalProduct change image product
-const imgs = document.querySelectorAll(".img-select a");
-const imgBtns = [...imgs];
-let imgId = 1;
+// const imgs = document.querySelectorAll(".img-select a");
+// const imgBtns = [...imgs];
+// let imgId = 1;
 
-imgBtns.forEach((imgItem) => {
-  imgItem.addEventListener("click", (event) => {
-    event.preventDefault();
-    imgId = imgItem.dataset.id;
-    slideImage();
+// imgBtns.forEach((imgItem) => {
+//   imgItem.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     imgId = imgItem.dataset.id;
+//     slideImage();
+//   });
+// });
+
+// function slideImage() {
+//   const displayWidth = document.querySelector(
+//     ".img-showcase img:first-child"
+//   ).clientWidth;
+
+//   document.querySelector(".img-showcase").style.transform = `translateX(${
+//     -(imgId - 1) * displayWidth
+//   }px)`;
+// }
+
+// window.addEventListener("resize", slideImage);
+
+// When click on Mua lai san pham
+const reBuyBtns = document.querySelectorAll(".rebuy-btn");
+
+reBuyBtns.forEach((click) => {
+  click.addEventListener("click", () => {
+    window.location.href = "/TAA_FE/src/homepage/orderPage/index.html";
   });
 });
+//review
 
-function slideImage() {
-  const displayWidth = document.querySelector(
-    ".img-showcase img:first-child"
-  ).clientWidth;
+const delReview = () => {
+  $(".review-list")[0].children[0].remove();
+};
 
-  document.querySelector(".img-showcase").style.transform = `translateX(${
-    -(imgId - 1) * displayWidth
-  }px)`;
-}
-
-window.addEventListener("resize", slideImage);
-
-//
