@@ -61,7 +61,8 @@ const loadTBody = (data) => {
         </td>
         <td><span name='cost_value--after'></span></td>
         <td>
-          <button class="btn-icon" onclick="delCartItem()">
+          <!-- <button class="btn-icon" onclick="delCartItem()"> -->
+          <button class="btn-icon" data-modal-target="#modal--del-cart-item">
             <div class="status-layer">
               <span class="icon material-symbols-outlined">delete</span>
             </div>
