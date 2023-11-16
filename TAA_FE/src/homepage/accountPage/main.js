@@ -235,7 +235,7 @@ const reBuyBtns = document.querySelectorAll(".rebuy-btn");
 
 reBuyBtns.forEach((click) => {
   click.addEventListener("click", () => {
-    window.location.href = "/TAA_FE/src/homepage/orderPage/index.html";
+    window.location.href = "/TAA_FE/src/homepage/cartPage/index.html";
   });
 });
 //review
@@ -244,3 +244,37 @@ const delReview = () => {
   $(".review-list")[0].children[0].remove();
 };
 
+function popUpSuccess() {
+  document.addEventListener("DOMContentLoaded", function () {
+    $("done-btn").on("click", function () {
+      $("");
+    });
+  });
+}
+//productPage popup
+// modalNoti open
+const btnCloseNoti = document.querySelector(".modal-noti .btn--close");
+const modalNoti = document.querySelector(".modal-noti");
+const modalContainerNoti = document.querySelector(".modal-container--noti");
+const modalButtonDone = document.querySelector("#modal--add-review .done-btn");
+
+// modalNoti open, modalProduct close
+modalButtonDone.addEventListener("click", () => {
+  modalNoti.classList.add("active");
+  setTimeout(() => {
+    modalNoti.classList.remove("active");
+  }, 5000);
+});
+// modalNoti btn--close
+
+// btnCloseNoti.addEventListener("click", () => {
+//   modalNoti.classList.remove("active");
+// });
+
+// modalNoti.addEventListener("click", () => {
+//   modalNoti.classList.remove("active");
+// });
+// // nhấn bên ngoài thì popup đóng
+// modalContainerNoti.addEventListener("click", function (event) {
+//   event.stopPropagation();
+// });

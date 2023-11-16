@@ -571,6 +571,15 @@
                       Còn hàng
                     </p>
                   </div>
+                  <div class="product__button__section label-large">
+                    <div class="product__button__view">Xem nhanh</div>
+                    <div class="vertical"></div>
+                    <div class="product__button__sell">
+                      <a href="/TAA_FE/src/homepage/cartPage/index.html"
+                        >Mua ngay</a
+                      >
+                    </div>
+                  </div>
                 </div>
 
                 <!-- item outstock -->
@@ -623,6 +632,7 @@
       <div id="modal__delLocation"></div>
       <div id="modal__editLocation"></div>
       <div id="modal__review"></div>
+      <div id="modal__noti"></div>
     </div>
   </body>
   <script>
@@ -636,6 +646,7 @@
       $("#header").load("/TAA_FE/src/partials/header--auth.html");
       $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
       $("#footer").load("/TAA_FE/src/partials/footer.html");
+      $("#modal__noti").load("./sucess-popup.html");
     });
   </script>
   <script src="./main.js"></script>
