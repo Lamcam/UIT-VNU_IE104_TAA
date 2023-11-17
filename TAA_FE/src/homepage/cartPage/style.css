@@ -24,6 +24,15 @@ tbody {
   }
 }
 
+td {
+  text-align: right;
+}
+
+span[name^="cost_value"]::after {
+  content: "đ";
+  padding-left: 4px;
+}
+
 
 aside {
   & .row {
