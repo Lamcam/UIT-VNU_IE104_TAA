@@ -37,11 +37,12 @@
                       <span>SĐT: </span>
                       <span class="location-item__phone">*******629</span><br>
                     </div>
-                    <p class="location-item__address mt-8">Xã A, huyện B, tỉnh C</p>
+                    <p class="location-item__address mt-8">Xã A, huyện B, tỉnh C
+                    </p>
                   </div>
                   <button
                     class="btn--filled btn-icon-label location-item--right"
-                    data-modal-target="#modal--change-address"
+                    data-modal-target="#modal--change-address" type='button'
                     style="top: 0;">
                     <div class="status-layer">
                       <span class="icon material-symbols-outlined icon--filled">
@@ -110,10 +111,12 @@
     <div id="footer"></div>
 
     <!-- Modal -->
+    <div id="modal__changeAddress"></div>
   </div>
   <script>
     // Load header, nav-tree, footer
     $(document).ready(() => {
+      $('#modal__changeAddress  ').load('./change-address.html');
       $('#header').load('/TAA_FE/src/partials/header--auth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
