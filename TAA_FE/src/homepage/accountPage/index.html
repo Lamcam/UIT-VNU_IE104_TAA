@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/TAA_FE/src/base.css" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/TAA_FE/res/js/main.js"></script>
     <title>TAA - Trang cá nhân</title>
   </head>
@@ -63,11 +62,7 @@
               </article>
 
               <!-- Hồ sơ cá nhân -->
-              <article
-                id="profile"
-                class="section__content visible mt-12"
-                style="padding: 24px"
-              >
+              <article id="profile" class="section__content visible mt-12">
                 <h2 class="headline-medium">Hồ sơ cá nhân</h2>
                 <form action="" method="POST">
                   <div class="form__row mt-12">
@@ -111,7 +106,7 @@
                       >
                       <div class="col-8 input__wrapper">
                         <input
-                          type="password"
+                          type="text"
                           name="name"
                           id="name"
                           placeholder="Nguyễn Văn A"
@@ -177,13 +172,9 @@
               </article>
 
               <!-- Tài khoản ngân hàng-->
-              <article
-                id="bank-account"
-                class="section__content visible mt-12"
-                style="padding: 24px"
-              >
+              <article id="bank-account" class="section__content visible mt-12">
                 <button
-                  class="btn-icon section__btn"
+                  class="btn-icon section__btn add-bank-btn"
                   data-modal-target="#modal--add-bank"
                 >
                   <div class="status-layer">
@@ -252,20 +243,8 @@
                         </div>
                       </button>
                     </div>
-                    <button
-                      type="button"
-                      class="button--edit primary"
-                      style="
-                        background-color: var(--md-ref-palette-primary100);
-                        border: none;
-                        color: var(--m-3-sys-light-outline, #857373);
-                      "
-                    >
-                      <span
-                        class="label-large"
-                        style="font-size: 22px; padding: 12px"
-                        >Mặc định</span
-                      >
+                    <button type="button" class="button--edit primary">
+                      <span class="label-large">Mặc định</span>
                     </button>
                   </div>
                 </div>
@@ -275,7 +254,6 @@
               <article
                 id="shipping-address"
                 class="section__content visible mt-12"
-                style="padding: 24px"
               >
                 <button
                   class="btn-icon section__btn"
@@ -448,10 +426,7 @@
                       <p>Số lượng <span class="item_quanity">1</span></p>
                       <div class="item_att_price_content">
                         <p>Giá tiền <span class="price">100.000</span> đ</p>
-                        <p
-                          class="base-price-p"
-                          style="text-decoration: line-through"
-                        >
+                        <p class="base-price-p">
                           <span class="base-price">100.000</span> đ
                         </p>
                       </div>
@@ -463,7 +438,6 @@
                     <button
                       class="btn--outlined"
                       data-modal-target="#modal--add-review"
-                      style="border: 1px solid #785b5b"
                     >
                       Đánh giá
                     </button>
@@ -495,10 +469,7 @@
                       <p>Số lượng <span class="item_quanity">1</span></p>
                       <div class="item_att_price_content">
                         <p>Giá tiền <span class="price">100.000</span> đ</p>
-                        <p
-                          class="base-price-p"
-                          style="text-decoration: line-through"
-                        >
+                        <p class="base-price-p">
                           <span class="base-price">100.000</span> đ
                         </p>
                       </div>
@@ -510,7 +481,6 @@
                     <button
                       class="btn--outlined"
                       data-modal-target="#modal--add-review"
-                      style="border: 1px solid #785b5b"
                     >
                       Đánh giá
                     </button>
@@ -636,18 +606,29 @@
     </div>
   </body>
   <script>
-    $(document).ready(function () {
-      $("#modal__addLocation").load("./add-location.html");
-      $("#modal__addBank").load("./add-bank.html");
-      $("#modal__delBank").load("./del-bank.html");
-      $("#modal__delLocation").load("./del-location.html");
-      $("#modal__editLocation").load("./edit-location.html");
-      $("#modal__review").load("./review-popup.html");
-      $("#header").load("/TAA_FE/src/partials/header--auth.html");
-      $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
-      $("#footer").load("/TAA_FE/src/partials/footer.html");
-      $("#modal__noti").load("./sucess-popup.html");
+    document.addEventListener("DOMContentLoaded", function () {
+      loadContent("#modal__addLocation", "./add-location.html");
+      loadContent("#modal__addBank", "./add-bank.html");
+      loadContent("#modal__delBank", "./del-bank.html");
+      loadContent("#modal__delLocation", "./del-location.html");
+      loadContent("#modal__editLocation", "./edit-location.html");
+      loadContent("#modal__review", "./review-popup.html");
+      loadContent("#header", "/TAA_FE/src/partials/header--auth.html");
+      loadContent("#nav-tree", "/TAA_FE/src/partials/nav-tree.html");
+      loadContent("#footer", "/TAA_FE/src/partials/footer.html");
+      loadContent("#modal__noti", "./sucess-popup.html");
     });
+
+    function loadContent(selector, url) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          document.querySelector(selector).innerHTML = xhr.responseText;
+        }
+      };
+      xhr.send();
+    }
   </script>
   <script src="./main.js"></script>
   <script src="/TAA_FE/res/js/modal--controller.js"></script>

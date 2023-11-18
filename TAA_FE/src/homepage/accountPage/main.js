@@ -1,87 +1,132 @@
-// nav-tab
-let addActiveClass = (element, activeClassName) => {
-  $(element).siblings().removeClass(activeClassName);
-  $(element).addClass(activeClassName);
-};
+// Hàm để thêm class "active"
+function addActiveClass(element, activeClassName) {
+  var siblings = element.parentNode.children;
+  for (var i = 0; i < siblings.length; i++) {
+    siblings[i].classList.remove(activeClassName);
+  }
+  element.classList.add(activeClassName);
+}
 
-$(".nav-tab__item").on("click", function () {
-  addActiveClass(this, "active");
+// Lắng nghe sự kiện click cho mỗi phần tử có class "nav-tab__item"
+var navTabItems = document.querySelectorAll(".nav-tab__item");
+navTabItems.forEach(function (item) {
+  item.addEventListener("click", function () {
+    addActiveClass(item, "active");
+  });
 });
+
 function showSection(sectionId) {
-  // Hide all sections
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
     section.classList.add("hidden");
   });
 
-  // Show the selected section
   const selectedSection = document.getElementById(sectionId);
   if (selectedSection) {
     selectedSection.classList.remove("hidden");
   }
 }
 
-// profile
+//Profile
 const inputArr = ["password", "name", "phone", "email"];
-let setInputReadOnly = () => {
+
+function setInputReadOnly() {
   inputArr.forEach((item) => {
-    $("#" + item).prop("readonly", true);
+    document.getElementById(item).readOnly = true;
   });
-};
+}
+
 setInputReadOnly();
 
 function activeInput() {
-  let targetIndex = $(".input__wrapper .icon").index(this);
-  $("#" + inputArr[targetIndex]).prop("readonly", false);
+  const targetIndex = Array.from(
+    document.querySelectorAll(".input__wrapper .icon")
+  ).indexOf(this);
+  document.getElementById(inputArr[targetIndex]).readOnly = false;
 }
 
-$(".input__wrapper .icon").on("click", activeInput);
-$(".profile__btn").on("click", setInputReadOnly);
+document.querySelectorAll(".input__wrapper .icon").forEach((icon) => {
+  icon.addEventListener("click", activeInput);
+});
 
-// // Lấy tất cả các thẻ span có lớp input-icon
-// // const editIcons = document.querySelectorAll(".input-icon");
-// const editIcons = document.querySelectorAll(".input__wrapper .icon");
-
-// // Lặp qua từng thẻ và thêm sự kiện click
-// editIcons.forEach((editIcon) => {
-//   editIcon.addEventListener("click", function () {
-//     const inputWrapper = editIcon.closest(".input__wrapper");
-//     // inputWrapper.style.border = "1px solid saddlebrown";
-//   });
-// });
+document
+  .querySelector(".profile__btn")
+  .addEventListener("click", setInputReadOnly);
 
 // Bank
 const addBank = () => {
-  let bankItem = `
-    <div class="bank-item mt-12">
-      <div class="bank-item__wrapper body-medium">
-        <div class="row">
-          <span>STK: </span><span>*********1230</span><br>
-        </div>
-        <div class="row">
-          <span class="mt-12">Ngân hàng ACB</span>
-        </div>
-        <button class="bank-item__btn--del btn-icon"
-          data-modal-target="#modal--del-bank">
-          <div class="status-layer">
-            <span class="icon material-symbols-outlined">
-              delete</span>
-          </div>
-        </button>
-      </div>
-    </div>`;
-  $(".bank-list").prepend(bankItem);
-};
+  const bankItem = document.createElement("div");
+  bankItem.className = "bank-item mt-12";
 
-$(".bank-list__btn--add").on("click", addBank);
+  const bankItemWrapper = document.createElement("div");
+  bankItemWrapper.className = "bank-item__wrapper body-medium";
+
+  const row1 = document.createElement("div");
+  row1.className = "row";
+  row1.innerHTML = "<span>STK: </span><span>*********1230</span><br>";
+
+  const row2 = document.createElement("div");
+  row2.className = "row mt-12";
+  row2.innerHTML = "<span>Ngân hàng ACB</span>";
+
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "bank-item__btn--del btn-icon";
+  deleteButton.addEventListener("click", () => delBank(bankItem));
+
+  const statusLayer = document.createElement("div");
+  statusLayer.className = "status-layer";
+
+  const iconSpan = document.createElement("span");
+  iconSpan.className = "icon material-symbols-outlined";
+  iconSpan.innerText = "delete";
+
+  statusLayer.appendChild(iconSpan);
+  deleteButton.appendChild(statusLayer);
+
+  bankItemWrapper.appendChild(row1);
+  bankItemWrapper.appendChild(row2);
+  bankItemWrapper.appendChild(deleteButton);
+
+  bankItem.appendChild(bankItemWrapper);
+
+  document.querySelector(".bank-list").prepend(bankItem);
+};
 
 const delBank = () => {
-  // let bankList = $(".bank-list")[0];
-  // let bankItem = bankList.children[0];
-  // // console.log(bankItem);
-  // bankItem.remove();
-  $(".bank-list")[0].children[0].remove();
+  const bankList = document.querySelector(".bank-list");
+  const bankItems = bankList.querySelectorAll(".bank-item");
+  if (bankItems.length > 0) {
+    bankItems[0].remove();
+  }
 };
+
+// const addBank = () => {
+//   let bankItem = `
+//     <div class="bank-item mt-12">
+//       <div class="bank-item__wrapper body-medium">
+//         <div class="row">
+//           <span>STK: </span><span>*********1230</span><br>
+//         </div>
+//         <div class="row">
+//           <span class="mt-12">Ngân hàng ACB</span>
+//         </div>
+//         <button class="bank-item__btn--del btn-icon"
+//           data-modal-target="#modal--del-bank">
+//           <div class="status-layer">
+//             <span class="icon material-symbols-outlined">
+//               delete</span>
+//           </div>
+//         </button>
+//       </div>
+//     </div>`;
+//   $(".bank-list").prepend(bankItem);
+// };
+
+// $(".bank-list__btn--add").on("click", addBank);
+
+// const delBank = () => {
+//   $(".bank-list")[0].children[0].remove();
+// };
 
 // location
 const addLocation = () => {
@@ -126,10 +171,6 @@ const addLocation = () => {
 };
 
 const delLocation = () => {
-  // let locationList = $(".location-list")[0];
-  // let locationItem = locationList.children[0];
-  // // console.log(locationItem);
-  // locationItem.remove();
   $(".location-list")[0].children[0].remove();
 };
 

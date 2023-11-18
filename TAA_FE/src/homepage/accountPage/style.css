@@ -15,8 +15,6 @@
     list-style: none;
     cursor: pointer;
 
-    /* font-weight: bold; */
-
     &.active {
       transition: inherit;
       border-left: 4px solid var(--md-sys-color-primary);
@@ -32,14 +30,11 @@
   padding: 24px;
 }
 
-.section__content {
-  /* display: flex; */
-  /* width: 592px; */
+article.section__content {
   padding: 24px;
+}
+.section__content {
   position: relative;
-  /* flex-direction: column;
-  align-items: flex-end; */
-  /* gap: 12px; */
 }
 
 .section__btn {
@@ -47,25 +42,6 @@
   top: 24px;
   right: 24px;
 }
-
-/* .profile-section {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  flex-direction: column;
-} */
-
-/* .state-layer {
-  height: 40px;
-  width: 333px;
-} */
-
-/* form>div {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-} */
-
 .input__wrapper {
   position: relative;
   display: inline-block;
@@ -85,23 +61,6 @@
 .input__wrapper span {
   cursor: pointer;
 }
-
-/* .section__h2 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.bank-item-details,
-.shippingadress-details {
-  display: flex;
-  justify-content: space-between;
-}
-
-.bank-item-wrap {
-  display: flex;
-  flex-direction: column;
-} */
 
 .bank-item {
   border-radius: 12px;
@@ -148,8 +107,6 @@
 
 .location-item__btn--del {
   position: absolute;
-  /* top: 50%;
-  transform: translateY(-50%); */
   top: 0;
   right: 0;
   border-radius: 8px !important;
@@ -168,43 +125,19 @@
   right: 60px;
 }
 
-/* .bank-item-details .icon-delete {
-  margin-top: 28px;
-}
-
-.account-bank-detail {
-  display: flex;
-}
-
-.account-bank-detail p,
-.bank-item-wrap p {
-  margin: 12px;
-}
-
-.icon-delete {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--md-sys-color-surface-container, #f2e5e4);
-  border-radius: 8px;
-} */
-
-/* hr {
-  background-color: var(--md-ref-palette-primary50);
-  border-width: 1px;
-  width: 98%;
-  margin-left: 10px;
-} */
-
 .button--edit {
-  color: #ffffff;
   border-radius: 8px;
   display: flex;
   align-items: center;
   padding: 5px 10px;
-  /* Thêm padding cho nút */
+  background-color: var(--md-ref-palette-primary100);
+  border: none;
+  color: var(--m-3-sys-light-outline, #857373);
+}
+
+.button--edit span {
+  font-size: 22px;
+  padding: 12px;
 }
 
 .shipping-details p {
@@ -1046,11 +979,16 @@ input::-webkit-inner-spin-button {
   text-align: end;
 }
 
+.base-price-p {
+  text-decoration: line-through;
+}
+
 .order__item-content button.btn--outlined {
   width: 104px;
   height: 40px;
   font-weight: 500;
   align-self: flex-end;
+  border: 1px solid #785b5b;
 }
 
 .item__status button.item_repurchase {
