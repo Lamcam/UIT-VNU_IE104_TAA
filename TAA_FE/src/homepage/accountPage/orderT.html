@@ -1,31 +1,30 @@
-
-    <!-- Thông tin tài khoản-->
-    <div
-      class="section__h1 visible"
-      style="background-color: white; padding: 24px"
-    >
-      <h1 class="headline-large" style="padding-left: 12px">Đơn hàng</h1>
-      <p class="body-medium" style="padding: 12px">
+    <!-- Đơn hàng-->
+    <article class="section__info visible">
+      <h1 class="headline-large">Đơn hàng</h1>
+      <p class="body-medium mt-12">
         Trang cung cấp thông tin về các đơn hàng theo tùy danh mục.
       </p>
-    </div>
-
-    <div class="order__content__list visible">
+    </article>
+    <!-- Các đơn hàng -->
+    <div class="order-content-list order visible mt-12">
       <div class="order__item">
         <img
-          src="../../../Public/mailIcon.svg"
+          src="/TAA_FE/public/product1.jpg"
           alt=""
-          class="item__img"
+          class="order__img"
           width="157px"
           height="157px"
         />
-        <div class="item__content">
-          <p class="item_content_name">Tên sản phẩm</p>
-          <div class="item_att">
+        <div class="order__item-content body-medium">
+          <p class="order__item-content-name">Tên sản phẩm</p>
+          <div class="order__item-att">
             <p>Số lượng <span class="item_quanity">1</span></p>
             <div class="item_att_price_content">
               <p>Giá tiền <span class="price">100.000</span> đ</p>
-              <p class="base-price-p" style="text-decoration: line-through">
+              <p
+                class="base-price-p"
+                style="text-decoration: line-through"
+              >
                 <span class="base-price">100.000</span> đ
               </p>
             </div>
@@ -34,12 +33,61 @@
           <div class="att_totalRate">
             <p>Thành tiền <span>100.000</span> đ</p>
           </div>
-          <button class="btn-rate btn btn--outlined">Đánh giá</button>
+          <button
+            class="btn--outlined"
+            style="border: 1px solid #785b5b"
+          >
+            Đánh giá
+          </button>
         </div>
 
         <div class="item__status">
-          <p class="status">Đã giao</p>
-          <button class="item_repurchase btn primary">
+          <p class="status headline-medium mt-48">Đã giao</p>
+          <button class="item_repurchase btn--filled">
+            Mua lại sản phẩm
+          </button>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="order-content-list order visible">
+      <div class="order__item">
+        <img
+          src="/TAA_FE/public/product1.jpg"
+          alt=""
+          class="order__img"
+          width="157px"
+          height="157px"
+        />
+        <div class="order__item-content body-medium">
+          <p class="order__item-content-name">Tên sản phẩm</p>
+          <div class="order__item-att">
+            <p>Số lượng <span class="item_quanity">1</span></p>
+            <div class="item_att_price_content">
+              <p>Giá tiền <span class="price">100.000</span> đ</p>
+              <p
+                class="base-price-p"
+                style="text-decoration: line-through"
+              >
+                <span class="base-price">100.000</span> đ
+              </p>
+            </div>
+          </div>
+
+          <div class="att_totalRate">
+            <p>Thành tiền <span>100.000</span> đ</p>
+          </div>
+          <button
+            class="btn--outlined"
+            style="border: 1px solid #785b5b"
+          >
+            Đánh giá
+          </button>
+        </div>
+
+        <div class="item__status">
+          <p class="status headline-medium mt-48">Đã giao</p>
+          <button class="item_repurchase btn--filled">
             Mua lại sản phẩm
           </button>
         </div>

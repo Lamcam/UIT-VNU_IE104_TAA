@@ -1,6 +1,10 @@
-import mysql from "mysql"
+const mysql = require("mysql") ;
+const dotenv = require('dotenv');
+dotenv.config();
 
-const pool = mysql.createPool({
+let instance =null ;
+
+const connection = mysql.createConnection({
     connectionLimit:10,
     host        : 'localhost',
     user        : 'root',
@@ -8,25 +12,42 @@ const pool = mysql.createPool({
     database    : 'taa'
 })
 
-function connectDB(){
-    pool.getConnection((err,connection) =>{
-        if(err) throw err;
-        console.log(`connected as id ${connection.threadId}`)
-    
-        //query(sqlString,callback)
-        connection.query('SELECT * FROM customer',(err,rows)=>{
-            connection.release()
+connection.connect((err)=>{
+    if(err){
+        console.log(err.message);
+    }
 
-            if(!err){
-                res.send(rows);
-            } else{
-                console.log(err);
-            }
-        })
+    console.log('db' + connection.state);
+
+})
+
+class Dbservice {
+    static getDbServiceInstance(){
+        return instance ? instance : new Dbservice();
+    }
+    async getAllData () {
+        try{
+            const resspone = await new Promise((resolve,reject)=> {
+                const query = "SELECT * FROM customer";
+
+                connection.query(query,(err,results) => {
+                    if(err) reject(new Error(err.message));
+                    resolve(results);
+                })
+            })
+
+            return resspone;
+        }
+        catch(error){
+
+            console.log(err);
+
+        }
+      }
     
-    })
 }
 
 
 // module.exports = connectDB;
-export default  connectDB;
+module.exports = Dbservice ;
+

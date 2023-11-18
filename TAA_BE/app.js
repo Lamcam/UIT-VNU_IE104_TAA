@@ -1,63 +1,46 @@
-import express from "express"
-import {dirname} from "path"
-import { fileURLToPath } from "url"
-import bodyParser from "body-parser"
-import mysql from "mysql"
-// import DB from "./config/db.js"
+const express = require("express");
+const { json } = require("express");
+const { dirname } = require("path");
+const { fileURLToPath } = require("url");
+const bodyParser = require("body-parser");
+const DbService = require("./config/db.js"); // connect DB
+const { data } = require("jquery");
+const cors = require('cors')
 
-var path = 'D:/WebProject2023/UIT-VNU_IE104_TAA/TAA_FE/src/homepage/index.html';
-const __dirname = dirname(fileURLToPath(import.meta.url));
+// const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const PORT = 3000;
 
+
 const app = express();
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cors());
+app.use(express.urlencoded({extended:true}))
 
+// app.use(express.static(path.join()))
 
-const pool = mysql.createPool({
-    connectionLimit:10,
-    host        : 'localhost',
-    user        : 'root',
-    password    : '',
-    database    : 'taa'
-})
+app.get("/", async (req, res) => {
+    // res.send("Hj")
+    res.sendFile(__dirname + "/index.html");
+});
 
-function connectDB(){
-    pool.getConnection((err,connection) =>{
-        if(err) throw err;
-        console.log(`connected as id ${connection.threadId}`)
+app.get("/getAll", async (req, res) => {
+  try {
+    const db = await DbService.getDbServiceInstance();
+    const result = await db.getAllData();
     
-        //query(sqlString,callback)
-        connection.query('SELECT * FROM customer',(err,rows)=>{
-            connection.release()
+    // result.then(data => res.json({data: data})).catch(err =>console.log(err));
+    res.json({result});
 
-            if(!err){
-                res.send(rows);
-            } else{
-                console.log(err);
-            }
-        })
-    
-    })
-}
-
-
-
-
-
-app.get("/",(req,res)=>{
-    
-   res.sendFile(path);
-    
-    
-})
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
 
 //mySQL
 
-
-app.listen(PORT,()=>{
-    console.log(`Listerning on port ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Listerning on port ${PORT}`);
 });
-
-
