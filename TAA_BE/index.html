@@ -18,7 +18,7 @@
       .then((data) => {
         data?.result.forEach(item => {
           const li = document.createElement("li");
-          li.innerHTML = item.user_name;
+          li.innerHTML = `Name: ${item.user_name}<br>Email: ${item.user_email}`;
           document.querySelector("ul.content").appendChild(li);
         });
       })
