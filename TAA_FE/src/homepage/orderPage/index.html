@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại 
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/TAA_FE/src/base.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
+    crossorigin="anonymous"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
+  <script src="./main.js"></script>
+  <title>TAA - Trang đặt hàng</title>
+</head>
+<body>
+  <div id="main" class="on-primary">
+    <div id="header"></div>
+    <div id="nav-tree"></div>
+
+    <main>
+      <section class="mt-12">
+        <div class="container row">
+          <form id="order" class="col-8">
+            <article id="location" class="visible">
+              <h1 class="article__title headline-small">1. Thông tin nhận hàng
+              </h1>
+              <div class="article__content mt-12">
+                <div class="location-item row body-large">
+                  <div class="col-12">
+                    <p class="location-item__pers-name">Người đẹp bị câm</p>
+                    <div class="mt-8">
+                      <span>SĐT: </span>
+                      <span class="location-item__phone">*******629</span><br>
+                    </div>
+                    <p class="location-item__address mt-8">Xã A, huyện B, tỉnh C
+                    </p>
+                  </div>
+                  <button
+                    class="btn--filled btn-icon-label location-item--right"
+                    data-modal-target="#modal--change-address" type='button'
+                    style="top: 0;">
+                    <div class="status-layer">
+                      <span class="icon material-symbols-outlined icon--filled">
+                        edit</span>
+                      <span class="label">Thay đổi địa chỉ</span>
+                    </div>
+                  </button>
+                  <span class="headline-small primary-text location-item--right"
+                    style="bottom: 0;">Mặc định</span>
+                </div>
+              </div>
+            </article>
+            <article id="transport" class="visible mt-12">
+              <h1 class="artivcle__title headline-small">2. Hình thức vận chuyển
+              </h1>
+              <div class="article__content">
+                <div>
+                  <input type="radio" id="express" name="transport">
+                </div>
+              </div>
+            </article>
+            <article class="visible mt-12">
+              <h1 class="artivcle__title headline-small">3. Phương thức thanh
+                toán</h1>
+              <div class="article__content">
+
+              </div>
+            </article>
+          </form>
+          <aside class="col-4">
+            <div class="container visible body-large">
+              <div class="row">
+                <h2 class="col-12 aside__title title-large">Hóa đơn của bạn</h2>
+              </div>
+              <hr>
+              <div class="row">
+                <span class="col-6 detail__title">Tạm tính:</span>
+                <span class="col-6 detail__context">Giá trị</span>
+              </div>
+              <div class="row">
+                <span class="col-6 detail__title">Giảm giá:</span>
+                <span class="col-6 detail__context">Giá trị</span>
+              </div>
+              <hr>
+              <div class="row">
+                <span class="col-6 detail__title">Tổng cộng:</span>
+                <span class="col-6 detail__context">Giá trị</span>
+              </div>
+              <div class="row">
+                <span class="col-12 detail__context">(Đã bao gồm phí VAT)</span>
+              </div>
+              <div class="row" style="justify-content: end;">
+                <button class="btn--filled" type="button">
+                  <div class="status-layer">
+                    <span class="label-large">Tiến hành đặt hàng</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer></footer> -->
+    <div id="footer"></div>
+
+    <!-- Modal -->
+    <div id="modal__changeAddress"></div>
+  </div>
+  <script>
+    // Load header, nav-tree, footer
+    $(document).ready(() => {
+      $('#modal__changeAddress  ').load('./change-address.html');
+      $('#header').load('/TAA_FE/src/partials/header--auth.html');
+      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
+      $('#footer').load('/TAA_FE/src/partials/footer.html');
+    });
+
+    // Load table of products
+    // $(document).ready(() => {
+    //   $('.cart-list thead').append(`
+    //     <tr>
+    //       <th><span class="btn-icon btn-checkbox">
+    //         <input type="checkbox" id="f_all_prod" name="f_all_prod">
+    //         <label for="f_all_prod">
+    //           <span class="icon material-symbols-outlined">
+    //             check_box_outline_blank</span>
+    //           <span class="icon material-symbols-outlined --checked">
+    //             check_box</span>
+    //           <span class="icon material-symbols-outlined --indeterminate">
+    //             indeterminate_check_box</span>
+    //         </label>
+    //       </span></th>
+    //       <th colspan="2">Sản phẩm</th>
+    //       <th>Giá tiền</th>
+    //       <th>Số lượng</th>
+    //       <th>Thành tiền</th>
+    //       <th>Thao<br>tác</th>
+    //     </tr>`);
+    //   const lst = [1, 2, 3, 4, 5];
+    //   if (lst.length > 0) {
+    //     $('.cart-list tbody').empty();
+    //     lst.forEach((i) => {
+    //       $('.cart-list tbody').append(`
+    //           <tr>
+    //             <th><span class="btn-icon btn-checkbox">
+    //               <input type="checkbox" id="f_prod_${i}" name="f_prod_${i}">
+    //               <label for="f_prod_${i}">
+    //                 <span class="icon material-symbols-outlined">
+    //                   check_box_outline_blank</span>
+    //                 <span class="icon material-symbols-outlined --checked">
+    //                   check_box</span>
+    //                 <span class="icon material-symbols-outlined --indeterminate">
+    //                   indeterminate_check_box</span>
+    //               </label>
+    //             </span></th>
+    //             <td><img src="/TAA_FE/res/imgs/prod0001.png" alt="Image of Product"></td>
+    //             <td>Tên sản phẩm</td>
+    //             <td>Giá tiền</td>
+    //             <td>
+    //               <input class="text-btn" name="$pro_id" min="0" max="5" value="0" type="number">
+    //             </td>
+    //             <td>Thành tiền</td>
+    //             <td>
+    //               <button class="btn-icon" onclick="delCartItem()">
+    //                 <div class="status-layer">
+    //                   <span class="icon material-symbols-outlined">delete</span>
+    //                 </div>
+    //               </button>
+    //             </td>
+    //           </tr>`);
+    //     });
+    //   }
+    // })
+
+    // Setting checkbox for all products is checked or not appending on the number of products
+    // $(document).ready(() => {
+    //   $('#f_all_prod').click(() => {
+    //     if ($(this).is(':checked')) {
+    //       $('input[name^="f_prod_"]').prop('checked', true);
+    //     } else {
+    //       $('input[name^="f_prod_"]').prop('checked', false);
+    //     }
+    //   });
+
+    //   $('input[name^="f_prod_"]').click(() => {
+    //     if ($('input[name^="f_prod_"]:checked').length === $('input[name^="f_prod_"]').length) {
+    //       $('#f_all_prod').prop('checked', true).prop('indeterminate', false);
+    //     } else if ($('input[name^="f_prod_"]:checked').length === 0) {
+    //       $('#f_all_prod').prop('checked', false).prop('indeterminate', false);
+    //     } else {
+    //       $('#f_all_prod').prop('checked', false).prop('indeterminate', true);
+    //     }
+    //   });
+    // });
+  </script>
+  <script src="/TAA_FE/res/js/modal--controller.js"></script>
+</body>
+</html>
