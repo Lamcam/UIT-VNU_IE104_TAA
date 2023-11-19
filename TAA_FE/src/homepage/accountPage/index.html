@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/TAA_FE/src/base.css" />
     <link rel="stylesheet" href="./style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="/TAA_FE/res/js/main.js"></script>
     <title>TAA - Trang cá nhân</title>
   </head>
@@ -606,29 +607,18 @@
     </div>
   </body>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      loadContent("#modal__addLocation", "./add-location.html");
-      loadContent("#modal__addBank", "./add-bank.html");
-      loadContent("#modal__delBank", "./del-bank.html");
-      loadContent("#modal__delLocation", "./del-location.html");
-      loadContent("#modal__editLocation", "./edit-location.html");
-      loadContent("#modal__review", "./review-popup.html");
-      loadContent("#header", "/TAA_FE/src/partials/header--auth.html");
-      loadContent("#nav-tree", "/TAA_FE/src/partials/nav-tree.html");
-      loadContent("#footer", "/TAA_FE/src/partials/footer.html");
-      loadContent("#modal__noti", "./sucess-popup.html");
+    $(document).ready(function () {
+      $("#modal__addLocation").load("./add-location.html");
+      $("#modal__addBank").load("./add-bank.html");
+      $("#modal__delBank").load("./del-bank.html");
+      $("#modal__delLocation").load("./del-location.html");
+      $("#modal__editLocation").load("./edit-location.html");
+      $("#modal__review").load("./review-popup.html");
+      $("#header").load("/TAA_FE/src/partials/header--auth.html");
+      $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
+      $("#footer").load("/TAA_FE/src/partials/footer.html");
+      $("#modal__noti").load("./sucess-popup.html");
     });
-
-    function loadContent(selector, url) {
-      var xhr = new XMLHttpRequest();
-      xhr.open("GET", url, true);
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          document.querySelector(selector).innerHTML = xhr.responseText;
-        }
-      };
-      xhr.send();
-    }
   </script>
   <script src="./main.js"></script>
   <script src="/TAA_FE/res/js/modal--controller.js"></script>

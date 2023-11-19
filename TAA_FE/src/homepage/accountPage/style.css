@@ -1099,6 +1099,7 @@ input::-webkit-inner-spin-button {
 .star-icon {
   color: gray;
   cursor: pointer;
+  font-size: 24px;
 }
 
 .star-icon:hover,
@@ -1107,6 +1108,17 @@ input::-webkit-inner-spin-button {
   font-variation-settings: "FILL" 1;
 }
 
+.star-icon-service {
+  color: gray;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.star-icon-service:hover,
+.star-icon-service.active {
+  color: #ffdd55;
+  font-variation-settings: "FILL" 1;
+}
 .energy-review {
   width: 100%;
   text-align: end;
