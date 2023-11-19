@@ -33,8 +33,10 @@ class Dbservice {
                 const query = "SELECT * FROM users";
 
                 connection.query(query, (err, results) => {
-                    if (err) reject(new Error(err.message));
-                    else resolve(results);
+                    if (err)
+                        reject(new Error(err.message));
+                    else
+                        resolve(results);
                 })
             })
 

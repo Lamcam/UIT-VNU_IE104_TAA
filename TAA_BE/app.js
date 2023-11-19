@@ -25,7 +25,8 @@ const __rootDir = __dirnameList.slice(0, -1).join('\\')
 const __srcDir = __rootDir + "\\TAA_FE\\src\\homepage"
 // console.log(__srcDir + "\\index.html")
 
-// app.use(express.static(path.join()))
+// app.use(express.static(__srcDir))
+// app.use(express.static(__rootDir))
 
 app.get("/", async (req, res) => {
   // console.log(__dirnameList.slice(0, -1).join('\\') + "\\TAA_FE\\src\\homepage\\index.html")
@@ -33,8 +34,7 @@ app.get("/", async (req, res) => {
 
 
   // res.status(200).sendFile(__srcDir + "\\index.html");
-
-
+  // console.log(__dirname + "\\index.html")
   res.status(200).sendFile(__dirname + "\\index.html");
 });
 
