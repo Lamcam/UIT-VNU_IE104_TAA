@@ -28,7 +28,7 @@ function showSection(sectionId) {
 }
 
 //Profile
-const inputArr = ["password", "name", "phone", "email"];
+const inputArr = ["name", "phone", "email"];
 
 function setInputReadOnly() {
   inputArr.forEach((item) => {
