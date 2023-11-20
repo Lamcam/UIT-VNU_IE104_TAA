@@ -1157,3 +1157,9 @@ input#checkbox1 {
   display: flex;
   justify-content: space-between;
 }
+
+.section__content#change-password {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
