@@ -444,3 +444,194 @@ hr {
     }
   }
 }
+
+/* popup__reset */
+.popup__reset h1 {
+  padding: 12px 21px;
+}
+
+.popup__reset .modal__btn--close {
+  color: #524343;
+}
+
+.popup__reset .reset__password{
+  flex-direction: row;
+  padding: 24px;
+  gap: 12px;
+}
+
+.popup__reset .modal__btn {
+  display: flex;
+}
+
+.popup__reset .modal__btn--back {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+
+.popup__reset .modal__btn--back span {
+  font-size: 20px;
+  color: #524343;
+}
+
+/* .popup__email-request  */
+.popup__email-request .h1 {
+  padding: 12px 21px;
+}
+
+.popup__email-request .modal__btn--close {
+  color: #524343;
+}
+
+.popup__email-request .modal__btn--back {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+
+.popup__email-request .modal__btn--back span {
+  font-size: 20px;
+  color: #524343;
+}
+
+.popup__email-request .reset__password {
+  flex-direction: column;
+  padding: 24px;
+}
+
+
+/* popup__phonenumber-request */
+.popup__phonenumber-request .h1 {
+  padding: 12px 21px;
+}
+
+.popup__phonenumber-request .modal__btn--close {
+  color: #524343;
+}
+
+.popup__phonenumber-request .modal__btn--back {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+
+.popup__phonenumber-request .modal__btn--back span {
+  font-size: 20px;
+  color: #524343;
+}
+
+.popup__phonenumber-request .reset__password {
+  flex-direction: column;
+  padding: 24px;
+}
+
+
+
+/* popup__otp */
+.popup__otp .modal__btn--close {
+	color: #524343;
+}
+
+.popup__otp .modal__btn--back {
+	position: absolute;
+	top: 5%;
+	left: 2%;
+}
+
+.popup__otp .modal__btn--back span {
+	font-size: 20px;
+	color: #524343;
+}
+
+.popup__otp .modal__title {
+	padding: 12px 0;
+}
+
+.popup__otp .modal__content {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.popup__otp .request {
+	display: flex;
+	padding: 24px;
+	gap: 12px;
+}
+
+
+.popup__otp .otp__notice {
+	margin: 12px 0;
+	text-align: center;
+}
+
+.popup__otp .otp__card-input {
+	margin: 26px 0;
+	display: flex;
+	justify-content: center;
+	/* justify-content: space-between; */
+	grid-template-columns: repeat(6, auto);
+	gap: 10px;
+}
+
+.popup__otp .otp__card-input input {
+	width: 60px;
+	height: 60px;
+
+	font-size: 16px;
+	text-align: center;
+	border-radius: 8px;
+	border: 1px solid #785B5B;
+}
+
+.popup__otp .profile__btn {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.popup__otp .otp__reject {
+	display: flex;
+	justify-content: center;
+}
+
+/* popup__newpassword */
+.popup__newpassword h1 {
+  padding: 12px 21px;
+}
+
+.popup__newpassword .modal__btn--close {
+  color: #524343;
+}
+
+.popup__newpassword .modal__btn--back {
+  position: absolute;
+  top: 5%;
+  left: 2%;
+}
+
+.popup__newpassword .modal__btn--back span {
+  font-size: 20px;
+  color: #524343;
+}
+
+.popup__newpassword .reset__password {
+  flex-direction: column;
+  padding: 24px;
+}
+
+.popup__newpassword .input__wrapper {
+  position: relative;
+  display: inline-block;
+
+  & .icon {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  & input {
+    width: 100%;
+  }
+}
