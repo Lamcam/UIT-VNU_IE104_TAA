@@ -126,7 +126,7 @@ hr {
 }
 
 body {
-  min-width: 896px;
+  /* min-width: 896px; */
 }
 
 header {
@@ -264,7 +264,7 @@ input {
 /* general class */
 
 .container {
-  max-width: 1024px;
+  /* max-width: 1024px; */
   width: 100%;
   margin: 0 auto;
 }
