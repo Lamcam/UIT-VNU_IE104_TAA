@@ -184,14 +184,14 @@ reBuyBtns.forEach((click) => {
 });
 //review
 
-const delReview = () => {
-  $(".review-list")[0].children[0].remove();
-};
+// const delReview = () => {
+//   $(".review-list")[0].children[0].remove();
+// };
 
-function popUpSuccess() {
-  document.addEventListener("DOMContentLoaded", function () {
-    $("done-btn").on("click", function () {
-      $("");
-    });
-  });
-}
+// function popUpSuccess() {
+//   document.addEventListener("DOMContentLoaded", function () {
+//     $("done-btn").on("click", function () {
+//       $("");
+//     });
+//   });
+// }

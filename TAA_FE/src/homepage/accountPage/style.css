@@ -884,20 +884,17 @@ input::-webkit-inner-spin-button {
   top: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.4);
-  /* can chinh giua overlay */
   align-items: center;
   justify-content: center;
-  /* Can hien len thi display: flex */
-  /* display: flex; */
   display: none;
   flex-direction: column;
 }
 
-.modal-noti.open {
+.modal-noti.active {
   display: flex;
 }
 
-.modal-noti.close {
+.modal-noti.hidden {
   display: none;
 }
 
@@ -1162,4 +1159,20 @@ input#checkbox1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+/* Change-password */
+#modal--change-password .modal__title {
+  text-align: center;
+}
+.re-type-password {
+  white-space: nowrap;
+}
+.change-password-accept {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form-wrapper__change-password {
+  padding: 24px 24px 24px 52px;
 }

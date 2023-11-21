@@ -1,6 +1,6 @@
 window.addEventListener("load", () => {
   const openModalBtns = document.querySelectorAll("[data-modal-target]");
-  // console.log("modal btns: ", openModalBtns);
+  console.log("modal btns: ", openModalBtns);
 
   openModalBtns.forEach((btn) => {
     btn.addEventListener("click", (event) => {

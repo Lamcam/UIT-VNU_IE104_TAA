@@ -81,25 +81,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="form__row mt-12">
-                    <div class="row">
-                      <label class="col-4 label-large" for="password"
-                        >Mật khẩu:</label
-                      >
-                      <div class="col-8 input__wrapper">
-                        <input
-                          type="password"
-                          placeholder="********"
-                          id="password"
-                        />
-                        <span
-                          class="icon icon--filled material-symbols-outlined"
-                        >
-                          edit</span
-                        >
-                      </div>
-                    </div>
-                  </div> -->
+
                   <div class="form__row mt-12">
                     <div class="row">
                       <label class="col-4 label-large" for="name"
@@ -178,7 +160,11 @@
                 class="section__content visible mt-12"
               >
                 <h2 class="headline-medium">Đổi mật khẩu</h2>
-                <button class="btn--filled" type="submit">
+                <button
+                  class="btn--filled change-password-btn"
+                  type="submit"
+                  data-modal-target="#modal--change-password"
+                >
                   <div class="status-layer label-large">
                     <span>Đổi mật khẩu</span>
                   </div>
@@ -617,6 +603,7 @@
       <div id="modal__editLocation"></div>
       <div id="modal__review"></div>
       <div id="modal__noti"></div>
+      <div id="modal__change-password"></div>
     </div>
   </body>
   <script>
@@ -631,6 +618,7 @@
       $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
       $("#footer").load("/TAA_FE/src/partials/footer.html");
       $("#modal__noti").load("./sucess-popup.html");
+      $("#modal__change-password").load("./change-password-popup.html");
     });
   </script>
   <script src="./main.js"></script>
