@@ -16,13 +16,13 @@
   <div id="main" class="on-primary">
     <div id="header"></div>
     <main>
-      <section id="discover-section">
-        <div class="section__centent mt-64 slider">
+      <section id="discover-section" class='full-width'>
+        <div class="section__content slider">
           <div class="slider__wrapper">
-            <img src="/TAA_FE/public/1.png" alt="Image 1" class="slider__img" />
-            <img src="/TAA_FE/public/2.png" alt="Image 2" class="slider__img" />
-            <img src="/TAA_FE/public/3.png" alt="Image 3" class="slider__img" />
-            <img src="/TAA_FE/public/1.png" alt="Image 1" class="slider__img" />
+            <img class="slider__img" src="/TAA_FE/public/1.png" alt="Image 1">
+            <img class="slider__img" src="/TAA_FE/public/2.png" alt="Image 2">
+            <img class="slider__img" src="/TAA_FE/public/3.png" alt="Image 3">
+            <img class="slider__img" src="/TAA_FE/public/1.png" alt="Image 1">
           </div>
         </div>
       </section>
@@ -50,12 +50,10 @@
               <h2 class="endow__title headline-medium">
                 Giảm giá cực sốc lên đến 50%
               </h2>
-              <div class="row">
-                <p class="endow__context">
-                  Dành riêng cho gói hội viên của TAA
-                </p>
-              </div>
-              <div class="row">
+              <p class="endow__context">
+                Dành riêng cho gói hội viên của TAA
+              </p>
+              <div>
                 <button class="btn--filled">
                   <div class="status-layer">
                     <span>Tìm hiểu ngay</span>
@@ -67,12 +65,10 @@
               <h2 class="endow__title headline-medium">
                 Giảm giá cực sốc lên đến 50%
               </h2>
-              <div class="row">
-                <p class="endow__context">
-                  Dành riêng cho gói hội viên của TAA
-                </p>
-              </div>
-              <div class="row">
+              <p class="endow__context">
+                Dành riêng cho gói hội viên của TAA
+              </p>
+              <div>
                 <button class="btn--filled">
                   <div class="status-layer">
                     <span>Tìm hiểu ngay</span>
@@ -85,23 +81,25 @@
       </section>
 
       <section id="Q-A" class="mt-64">
-        <div class="container row">
-          <img class="Q-A__imgs visible col-6" src="/TAA_FE/public/HAN_0663.JPG"
-            alt="" />
-          <div class="col-1"></div>
-          <article class="section__content col-5 body-large">
-            <h2 class="article__title display-medium">Hỏi xoáy đáp xoay</h2>
-            <h3 class="article__subtitle headline-small mt-8">Nơi trả lời những
-              câu hỏi của bạn</h3>
-            <hr class="mt-12" />
-            <p class="mt-12">Chính sách bảo hành của TAA như thế nào?</p>
-            <hr class="mt-12" />
-            <p class="mt-12">Làm sao để đổi hàng trên TAA?</p>
-            <hr class="mt-12" />
-            <p class="mt-12">Thông tin về TAA ở đâu?</p>
-            <hr class="mt-12" />
-            <p class="mt-12">Chính sách bảo hành của TAA như thế nào?</p>
-          </article>
+        <div class="container">
+          <div class="row">
+            <img class="Q-A__imgs visible col-6" src="/TAA_FE/public/HAN_0663.JPG"
+              alt="Q-A__img" />
+            <div class="col-1"></div>
+            <article class="section__content col-5 body-large">
+              <h2 class="article__title display-medium">Hỏi xoáy đáp xoay</h2>
+              <h3 class="article__subtitle headline-small mt-8">Nơi trả lời những
+                câu hỏi của bạn</h3>
+              <hr class="mt-12" />
+              <p class="mt-12">Chính sách bảo hành của TAA như thế nào?</p>
+              <hr class="mt-12" />
+              <p class="mt-12">Làm sao để đổi hàng trên TAA?</p>
+              <hr class="mt-12" />
+              <p class="mt-12">Thông tin về TAA ở đâu?</p>
+              <hr class="mt-12" />
+              <p class="mt-12">Chính sách bảo hành của TAA như thế nào?</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -136,11 +134,9 @@
           alt="group img" />
       </section>
     </main>
+
     <div class="mt-36"></div>
     <div id="footer"></div>
-
-    <!-- Modal -->
-    <div id="modal"></div>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="/TAA_FE/res/js/main.js"></script>
