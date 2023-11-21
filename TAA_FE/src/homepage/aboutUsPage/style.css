@@ -1,3 +1,7 @@
+.container {
+  max-width: 1024px;
+}
+
 .section__title {
   text-align: center;
   font-weight: bold;
@@ -8,13 +12,24 @@
   font-style: italic;
 }
 
+.content__title {
+  align-items: center;
+}
+
+.content__title ul {
+  text-align: left;
+  list-style-type: none;
+}
+
 .picture1 {
-  width: 100%;
+  /* width: 100%; */
   max-width: 100%;
+  margin: 0;
+  object-fit: cover;
 }
 
 .picture2 {
-  width: 100%;
+  /* width: 100%; */
   /* height: 477px; */
   max-width: 100%;
   margin: 0;
@@ -22,8 +37,8 @@
 }
 
 .picture3 {
-  width: 100%;
-  height: 180px;
+  /* width: 100%;
+  height: 180px; */
   max-width: 100%;
   margin: 0;
   object-fit: cover;
@@ -41,8 +56,22 @@
   text-align: right;
 }
 
-.information {
+.contact__list a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+}
+
+.contact__list a:hover {
+  color: var(--md-sys-color-primary);
+}
+
+.intro {
   align-items: center;
+}
+
+.information {
+  text-align: justify;
 }
 
 .information ul {
@@ -51,4 +80,79 @@
 
 .information__content {
   text-align: justify;
+}
+
+@media only screen and (min-width: 430px) and (max-width: 744px){
+  .about__content {
+    padding: 0 24px;
+  }
+
+  .section__title {
+    font-size: 36px;
+  }
+
+  .information {
+    font-size: 16px;
+  }
+
+  .content__title {
+    font-size: 36px;
+  }
+
+  .section__subtitle {
+    font-size: 36px;
+  }
+
+  .information__content {
+    font-size: 16px;
+  }
+
+  .contact__list {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .about__content {
+    padding: 0 12px;
+  }
+
+  .section__title {
+    font-size: 28px;
+  }
+
+  .information {
+    font-size: 16px;
+  }
+
+  .content__title {
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content__title ul {
+    text-align: center;
+  }
+
+  .section__subtitle {
+    font-size: 28px;
+  }
+
+  .information__content {
+    font-size: 16px;
+  }
+
+  .contact__list {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .intro {
+    flex-direction: column;
+  }
+
+  .col-6 {
+    width: 100%;
+  }
 }

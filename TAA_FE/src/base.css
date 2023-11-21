@@ -9,6 +9,7 @@
   box-sizing: border-box;
   font-size: 12px;
   transition: 300ms;
+  font-size: 12px;
 }
 
 .icon--filled {
@@ -279,7 +280,7 @@ hr {
 }
 
 body {
-  min-width: 896px;
+  /* min-width: 896px; */
 }
 
 header {
@@ -418,7 +419,7 @@ input {
 /* general class */
 
 .container {
-  max-width: 1024px;
+  /* max-width: 1024px; */
   width: 100%;
   margin: 0 auto;
 }
