@@ -1,7 +1,41 @@
 var items = document.querySelectorAll(".js-item")
 var sub_menu = document.querySelectorAll(".js-sub-menu")
 var buttons = document.querySelectorAll('.js-button')
+
+sub_menu.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.stopPropagation()
+  })
+
+})
+
+sub_menu.forEach(item => {
+  const sub_menu_li = item.querySelectorAll("li")
+  sub_menu_li.forEach((item_li) => {
+    item_li.addEventListener('click', () => {
+      if (item_li.classList.contains("active__sub-menu__li")) {
+        item_li.classList.remove("active__sub-menu__li")
+        return
+      }
+      sub_menu_li.forEach(sub_menu => {
+        sub_menu.classList.remove("active__sub-menu__li")
+      })
+
+      item_li.classList.add("active__sub-menu__li")
+    })
+  })
+})
+
 function showSubMenu() {
+  sub_menu.forEach(item_sub_menu => {
+    const sub_menu_li = item_sub_menu.querySelectorAll("li")
+    sub_menu_li.forEach((item_li) => {
+      if (item_li.classList.contains("active__sub-menu__li")) {
+        item_li.classList.remove("active__sub-menu__li")
+      }
+    })
+  })
+
   if (this.classList.contains("active")) {
     this.classList.remove("active")
     return
@@ -41,7 +75,6 @@ function effectButton() {
 for (let button of buttons) {
   button.addEventListener('click', effectButton);
 }
-
 
 // const dropdowns = document.querySelectorAll('.dropdown');
 
@@ -91,8 +124,10 @@ iconHearts.forEach(iconHeart => {
   iconHeart.addEventListener("click", () => {
     if (iconHeart.classList.contains("icon--filled")) {
       iconHeart.classList.remove("icon--filled")
+      iconHeart.innerText="heart_plus"
       return;
     }
+    iconHeart.innerText="favorite"
     iconHeart.classList.add("icon--filled")
   })
 
