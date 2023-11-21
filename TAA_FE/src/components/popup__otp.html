@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/TAA_FE/src/base.css">
+    <link rel="stylesheet" href="/TAA_FE/res/css/component.css">
+</head>
+
+<body>
+    <div class="modal popup__otp">
+        <div class="modal__content on-primary">
+            <button class="modal__btn--back btn-icon" onclick="closeModal()">
+                <div class="status-layer">
+                    <span class="material-symbols-outlined">
+                        arrow_back_ios_new
+                    </span>
+                </div>
+            </button>
+            <button class="modal__btn--close btn-icon" onclick="closeModal()">
+                <div class="status-layer">
+                    <span class="icon material-symbols-outlined">close</span>
+                </div>
+            </button>
+            <h1 class="modal__title title-large">Nhập mã OTP</h1>
+            <p class="otp__notice title-medium">Vui lòng nhập mã OTP từ email trinh12345@gmail.com</p>
+            <div class="request visible">
+                <form action="/forgetPassword" method="POST" class="reset__password">
+                    <div class="otp__card-input">
+                        <input type="text" class="form-control otp__card-text headline-small" maxlength="1">
+                        <input type="text" class="form-control otp__card-text headline-small" maxlength="1">
+                        <input type="text" class="form-control otp__card-text headline-small" maxlength="1">
+                        <input type="text" class="form-control otp__card-text headline-small" maxlength="1">
+                        <input type="text" class="form-control otp__card-text headline-small" maxlength="1">
+                        <input type="text" class="form-control otp__card-text headline-small" maxlength="1">
+                    </div>
+                    <div class="otp__reject title-medium">Bạn không nhận được mã?
+                        <a class="retry" href="#">Gửi lại</a>
+                    </div>
+                    <div class="profile__btn mt-12">
+                        <button class="profile__btn btn--filled" type="submit">
+                            <div class="status-layer label-large">
+                                <span>Xác nhận</span>
+                            </div>
+                        </button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+</body>
+
+</html>
