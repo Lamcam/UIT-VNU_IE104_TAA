@@ -1,6 +1,6 @@
 .section__title {
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .section__content {
@@ -89,11 +89,11 @@
   }
 
   & .article__title {
-    font-weight: bold;
+    /* font-weight: bold; */
   }
 
   & .article__subtitle {
-    font-weight: 700;
+    /* font-weight: 700; */
   }
 }
 
@@ -112,7 +112,7 @@
     }
 
     & > h3 {
-      font-weight: bold;
+      /* font-weight: bold; */
     }
   }
 }

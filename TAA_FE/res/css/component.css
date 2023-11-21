@@ -35,6 +35,7 @@
     padding: 0 24px;
 
     & span {
+      text-wrap: nowrap;
       margin: auto;
     }
   }
