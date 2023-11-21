@@ -58,8 +58,17 @@ article.section__content {
   }
 }
 
+.input__wrapper-child::placeholder {
+  color: black;
+}
+
 .input__wrapper span {
   cursor: pointer;
+}
+
+.input__wrapper input[readonly]:focus {
+  border: 1px solid var(--md-sys-color-outline);
+  outline: none;
 }
 
 .bank-item {

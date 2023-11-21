@@ -195,3 +195,31 @@ reBuyBtns.forEach((click) => {
 //     });
 //   });
 // }
+
+var editIcons = document.querySelectorAll(".editIcon");
+
+// Lặp qua từng icon và thêm lắng nghe sự kiện click
+editIcons.forEach(function (icon) {
+  icon.addEventListener("click", function () {
+    changeBorderColor(icon); // Truyền tham số là icon được click
+  });
+});
+
+function changeBorderColor(clickedIcon) {
+  // Lặp qua tất cả các input và thiết lập giá trị mặc định
+  document.querySelectorAll(".input__wrapper input").forEach(function (input) {
+    input.style.borderColor = ""; // Giá trị mặc định của border
+    input.style.borderWidth = ""; // Giá trị mặc định của border-width
+  });
+
+  // Lấy ID của input tương ứng với icon được click
+  var inputId = clickedIcon.previousElementSibling.id;
+  var inputElement = document.getElementById(inputId);
+
+  // Đổi màu border khi nhấn vào icon
+  inputElement.style.borderColor = "initial"; // Màu border mới
+  inputElement.style.borderWidth = "2px";
+
+  // Tập trung vào input
+  inputElement.focus();
+}
