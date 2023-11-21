@@ -301,6 +301,7 @@ input::-webkit-inner-spin-button {
     color: #9C4048;
     border: 1px solid #9C4048;
     background: var(--m-3-ref-primary-primary-95, #FFEDEC);
+    cursor: pointer;
 }
 
 .info__product__button .button__sell {
