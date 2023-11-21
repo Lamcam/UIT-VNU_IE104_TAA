@@ -1,6 +1,10 @@
-body{
+/* body{
     background-color: #F1EFE7;
-}
+} */
+
+.container {
+    max-width: 1024px;
+  }
 
 .title1 {
     text-align: center;
@@ -24,6 +28,10 @@ ul li {
 
 .text {
     text-align: justify;
+}
+
+p {
+    color: #9C4048;
 }
 
 .picture3 {

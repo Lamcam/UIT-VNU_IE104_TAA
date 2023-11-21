@@ -1,3 +1,7 @@
+.container {
+  max-width: 1024px;
+}
+
 .section__title {
   text-align: center;
   font-weight: bold;
@@ -6,6 +10,10 @@
 .section__subtitle {
   text-align: center;
   font-style: italic;
+}
+
+.content__title {
+  align-items: center;
 }
 
 .content__title ul {
@@ -51,10 +59,15 @@
 .contact__list a {
   text-decoration: none;
   color: black;
+  font-size: 16px;
 }
 
 .contact__list a:hover {
   color: var(--md-sys-color-primary);
+}
+
+.intro {
+  align-items: center;
 }
 
 .information {
@@ -114,8 +127,8 @@
   .content__title {
     font-size: 28px;
     display: flex;
-justify-content: center;
-align-items: center;
+    justify-content: center;
+    align-items: center;
   }
 
   .content__title ul {

@@ -3,15 +3,12 @@
 @import url(/TAA_FE/res/css/component.css);
 
 /* general css */
-:root {
-  font-size: 12px;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   transition: 300ms;
+  font-size: 12px;
 }
 
 .icon--filled {
