@@ -1,7 +1,3 @@
-.about__content {
-  max-width: 1024px;
-}
-
 .section__title {
   text-align: center;
   font-weight: bold;
@@ -13,6 +9,7 @@
 }
 
 .content__title {
+  /* display: flex; */
   align-items: center;
 }
 
@@ -22,8 +19,8 @@
 }
 
 .picture1 {
-  /* width: 100%; */
-  max-width: 100%;
+  width: 100%;
+  /* max-width: 100%; */
   margin: 0;
   object-fit: cover;
 }
@@ -67,7 +64,12 @@
 }
 
 .intro {
+  /* display: flex; */
   align-items: center;
+}
+
+.intro img {
+  width: 100%;
 }
 
 .information {
@@ -129,6 +131,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   .content__title ul {
@@ -149,6 +152,12 @@
   }
 
   .intro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact__info {
+    display: flex;
     flex-direction: column;
   }
 
