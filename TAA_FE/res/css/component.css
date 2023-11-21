@@ -453,7 +453,7 @@ hr {
   color: #524343;
 }
 
-.popup__reset .reset__password{
+.popup__reset .reset__password {
   flex-direction: row;
   padding: 24px;
   gap: 12px;
@@ -499,7 +499,6 @@ hr {
   padding: 24px;
 }
 
-
 /* popup__phonenumber-request */
 .popup__phonenumber-request .h1 {
   padding: 12px 21px;
@@ -525,73 +524,70 @@ hr {
   padding: 24px;
 }
 
-
-
 /* popup__otp */
 .popup__otp .modal__btn--close {
-	color: #524343;
+  color: #524343;
 }
 
 .popup__otp .modal__btn--back {
-	position: absolute;
-	top: 5%;
-	left: 2%;
+  position: absolute;
+  top: 5%;
+  left: 2%;
 }
 
 .popup__otp .modal__btn--back span {
-	font-size: 20px;
-	color: #524343;
+  font-size: 20px;
+  color: #524343;
 }
 
 .popup__otp .modal__title {
-	padding: 12px 0;
+  padding: 12px 0;
 }
 
 .popup__otp .modal__content {
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .popup__otp .request {
-	display: flex;
-	padding: 24px;
-	gap: 12px;
+  display: flex;
+  padding: 24px;
+  gap: 12px;
 }
 
-
 .popup__otp .otp__notice {
-	margin: 12px 0;
-	text-align: center;
+  margin: 12px 0;
+  text-align: center;
 }
 
 .popup__otp .otp__card-input {
-	margin: 26px 0;
-	display: flex;
-	justify-content: center;
-	/* justify-content: space-between; */
-	grid-template-columns: repeat(6, auto);
-	gap: 10px;
+  margin: 26px 0;
+  display: flex;
+  justify-content: center;
+  /* justify-content: space-between; */
+  grid-template-columns: repeat(6, auto);
+  gap: 10px;
 }
 
 .popup__otp .otp__card-input input {
-	width: 60px;
-	height: 60px;
+  width: 60px;
+  height: 60px;
 
-	font-size: 16px;
-	text-align: center;
-	border-radius: 8px;
-	border: 1px solid #785B5B;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid #785b5b;
 }
 
 .popup__otp .profile__btn {
-	display: flex;
-	justify-content: flex-end;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .popup__otp .otp__reject {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* popup__newpassword */
@@ -633,4 +629,32 @@ hr {
   & input {
     width: 100%;
   }
+}
+
+/* on-top-btn */
+#on-top-btn {
+  position: fixed;
+  right: 10vw;
+  bottom: 10vh;
+  z-index: 999;
+  border-radius: 4px;
+  height: 40px;
+  aspect-ratio: 1/1;
+  background-color: var(--md-sys-color-primary);
+  color: white;
+  cursor: pointer;
+  outline: none;
+  border: none;
+
+  & .status-layer {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+
+#on-top-btn:hover {
+  box-shadow:
+    0px 1px 2px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 3px 1px rgba(0, 0, 0, 0.2);
+  color: black;
 }
