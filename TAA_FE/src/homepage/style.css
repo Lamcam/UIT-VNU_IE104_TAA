@@ -181,8 +181,12 @@
 
 .group__img {
   /* khong lam meo anh */
+  width: 1024px;
+  max-height: 100%;
   object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  border-radius: 12px;
 }
