@@ -3,8 +3,7 @@
   /* font-weight: bold; */
 }
 
-.section__content {
-}
+.section__content {}
 
 .slider {
   /* max-width: 1024px; */
@@ -79,8 +78,9 @@
 #hot-products {
   & .section__content {
     position: relative;
-    width: calc(100% + 10rem);
-    transform: translateX(-5rem);
+    /* width: calc(100% + 10rem);
+    transform: translateX(-5rem); */
+    width: 100%;
     /* padding: 0 5rem; */
   }
 
@@ -95,20 +95,16 @@
 
     &.fade--left {
       left: 0;
-      background: linear-gradient(
-        90deg,
-        var(--md-sys-color-on-primary) 25%,
-        #00000000 100%
-      );
+      background: linear-gradient(90deg,
+          var(--md-sys-color-on-primary) 25%,
+          #00000000 100%);
     }
 
     &.fade--right {
       right: 0;
-      background: linear-gradient(
-        90deg,
-        #00000000 0%,
-        var(--md-sys-color-on-primary) 75%
-      );
+      background: linear-gradient(90deg,
+          #00000000 0%,
+          var(--md-sys-color-on-primary) 75%);
     }
   }
 
@@ -144,14 +140,6 @@
     max-height: 35rem;
     object-fit: cover;
   }
-
-  & .article__title {
-    /* font-weight: bold; */
-  }
-
-  & .article__subtitle {
-    /* font-weight: 700; */
-  }
 }
 
 #reason {
@@ -164,12 +152,8 @@
 
     min-height: 96px;
 
-    & > * {
+    &>* {
       text-align: center;
-    }
-
-    & > h3 {
-      /* font-weight: bold; */
     }
   }
 }
@@ -180,13 +164,11 @@
 }
 
 .group__img {
-  /* khong lam meo anh */
   width: 100%;
-  padding: 3rem;
+  max-height: 35rem;
   object-fit: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  border-radius: 12px;
 }

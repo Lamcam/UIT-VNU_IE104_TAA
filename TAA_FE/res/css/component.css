@@ -43,9 +43,10 @@
     text-wrap: nowrap;
     margin: auto;
 
-    &.highlight {
-      color: var(--md-sys-color-primary);
-    }
+  }
+  
+  & span.highlight {
+    color: var(--md-sys-color-primary);
   }
 
   &:not(:disabled):active .status-layer {
