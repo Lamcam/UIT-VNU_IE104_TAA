@@ -91,7 +91,7 @@
 }
 
 .btn-icon-label {
-  display: flex;
+  /* display: flex; */
 
   height: 4rem;
   border-radius: .75rem;
@@ -101,7 +101,10 @@
   overflow: hidden;
 
   & .status-layer {
-    display: flex;
+    /* display: flex; */
+    width: 100%;
+    margin: 0;
+    justify-content: center;
     height: inherit;
     width: inherit;
     padding: 0;
@@ -109,6 +112,7 @@
     border-radius: inherit;
 
     & .icon {
+      height: 100%;
       margin-inline: .75rem;
     }
 
@@ -121,10 +125,10 @@
 
 .btn--outlined {
   color: var(--md-sys-color-primary);
+  border: 1px solid var(--md-sys-color-primary);
 
-  & .status-layer {
-    border: 1px solid var(--md-sys-color-primary);
-  }
+  /* & .status-layer {
+  } */
 }
 
 .btn--filled {
