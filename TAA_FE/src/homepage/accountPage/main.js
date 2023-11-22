@@ -6,9 +6,9 @@ let addActiveClass = (element, activeClassName) => {
   $(element).addClass(activeClassName);
 };
 
+
 $(".nav-tab__item").on("click", function () {
   addActiveClass(this, "active");
-  
 });
 
 function showSection(sectionId) {
@@ -28,7 +28,7 @@ function showSection(sectionId) {
 
 // profile
 const inputArr = ["password", "name", "phone", "email"];
-let setInputReadOnly = () => {
+let setAllInputReadOnly = () => {
   inputArr.forEach((item) => {
     $("#" + item).prop("readonly", true);
     $("#" + item).on('input',function(){
@@ -38,7 +38,8 @@ let setInputReadOnly = () => {
     })
   });
 };
-setInputReadOnly();
+setAllInputReadOnly();
+
 
 function activeInput() {
   let targetIndex = $(".input__wrapper .icon").index(this);

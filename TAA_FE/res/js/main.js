@@ -4,6 +4,9 @@ function closeModal() {
   const modals = document.querySelectorAll(".modal");
   modals.forEach((modal) => modal.classList.remove("active"));
 }
+
+
+
 $(document).ready(function(){
 
   $(document).on("click",".profile3",function(event){
@@ -14,9 +17,6 @@ $(document).ready(function(){
     
 
   })
-
-
-
 
   $(document).on("click",".order3",function(event){
     event.preventDefault();
@@ -35,8 +35,6 @@ $(document).ready(function(){
     
 
   })
-
-
 
 })
 

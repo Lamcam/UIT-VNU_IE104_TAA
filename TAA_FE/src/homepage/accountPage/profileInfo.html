@@ -37,13 +37,19 @@
                   >
                   Thông tin tài khoản
                 </li>
-                <li class="nav-tab__item" onclick="showSection('section2'); history.pushState(null,null,'/TAA_FE/src/homepage/accountPage/order')">
+                <li
+                  class="nav-tab__item"
+                  onclick="showSection('section2'); history.pushState(null,null,'/TAA_FE/src/homepage/accountPage/order')"
+                >
                   <span class="icon icon--filled material-symbols-outlined">
                     box</span
                   >
                   Đơn hàng
                 </li>
-                <li class="nav-tab__item" onclick="showSection('section3'); history.pushState(null,null,'/TAA_FE/src/homepage/accountPage/favourProducts')">
+                <li
+                  class="nav-tab__item"
+                  onclick="showSection('section3'); history.pushState(null,null,'/TAA_FE/src/homepage/accountPage/favourProducts')"
+                >
                   <span class="icon icon--filled material-symbols-outlined">
                     hr_resting</span
                   >
@@ -165,7 +171,11 @@
                       </div>
                     </div>
                   </div>
-                  <button class="profile__btn btn--filled mt-12" type="submit" disabled>
+                  <button
+                    class="profile__btn btn--filled mt-12"
+                    type="submit"
+                    disabled
+                  >
                     <div class="status-layer label-large">
                       <span>Lưu thay đổi</span>
                     </div>
@@ -436,7 +446,7 @@
                 <div class="order__item">
                   <img
                     src="/TAA_FE/public/product1.jpg"
-                    alt=""
+                    alt="ảnh sản phẩm"
                     class="order__img"
                     width="157px"
                     height="157px"
@@ -480,7 +490,7 @@
                 <div class="order__item">
                   <img
                     src="/TAA_FE/public/product1.jpg"
-                    alt=""
+                    alt="ảnh sản phẩm"
                     class="order__img"
                     width="157px"
                     height="157px"
@@ -522,87 +532,88 @@
             </section>
 
             <!-- Section Sản phẩm yêu thích  -->
-            <section id="section3" class="section col-9 hidden ">
-                <!-- Sản phẩm yêu thích -->
-          <article class="section__info visible">
-      <h1 class="headline-large">Sản phẩm yêu thích</h1>
-      <p class="body-medium mt-12">
-        Trang cung cấp thông tin về sản phẩm yêu thích
-      </p>
-    </article>
-    <div class="section__content row mt-12">
-      <div class="product__item col-4">
-        <div class="product__image">
-          <img
-            src="/TAA_FE/public/product1.jpg"
-            alt="Kẹp tóc"
-            class="img_back"
-          />
-          <img
-            src="/TAA_FE/public/product2.jpg"
-            alt="Kẹp tóc"
-            class="img_font"
-          />
-        </div>
-        <div class="product__body">
-          <span
-            class="material-symbols-outlined icon_heart error-text"
-          >
-            favorite
-          </span>
-          <h3 class="product__name body-large">Kẹp tóc</h3>
-          <div class="product__price label-large">
-            <p class="product__price__current">35,000 đ</p>
-            <p class="product__price__discount outline-variant-text">
-              70,000 đ
-            </p>
-          </div>
-          <p class="product__discount title-medium error-text">
-            Giảm 50%
-          </p>
-          <p class="product__stock label-large primary-text">
-            Còn hàng
-          </p>
-        </div>
-      </div>
+            <section id="section3" class="section col-9 hidden">
+              <!-- Sản phẩm yêu thích -->
+              <article class="section__info visible">
+                <h1 class="headline-large">Sản phẩm yêu thích</h1>
+                <p class="body-medium mt-12">
+                  Trang cung cấp thông tin về sản phẩm yêu thích
+                </p>
+              </article>
+              <div class="section__content row mt-12">
+                <div class="product__item col-4">
+                  <div class="product__image">
+                    <img
+                      src="/TAA_FE/public/product1.jpg"
+                      alt="Kẹp tóc"
+                      class="img_back"
+                    />
+                    <img
+                      src="/TAA_FE/public/product2.jpg"
+                      alt="Kẹp tóc"
+                      class="img_font"
+                    />
+                  </div>
+                  <div class="product__body">
+                    <span
+                      class="material-symbols-outlined icon_heart error-text"
+                    >
+                      favorite
+                    </span>
+                    <h3 class="product__name body-large">Kẹp tóc</h3>
+                    <div class="product__price label-large">
+                      <p class="product__price__current">35,000 đ</p>
+                      <p class="product__price__discount outline-variant-text">
+                        70,000 đ
+                      </p>
+                    </div>
+                    <p class="product__discount title-medium error-text">
+                      Giảm 50%
+                    </p>
+                    <p class="product__stock label-large primary-text">
+                      Còn hàng
+                    </p>
+                  </div>
+                </div>
 
-      <!-- item outstock -->
-      <div class="product__outstock col-4">
-        <div class="product__image">
-          <img
-            src="/TAA_FE/public/product1.jpg"
-            alt="Kẹp tóc"
-            class="img_back"
-          />
-          <img
-            src="/TAA_FE/public/product2.jpg"
-            alt="Kẹp tóc"
-            class="img_font"
-          />
-        </div>
-        <div class="product__body">
-          <span
-            class="material-symbols-outlined icon_heart error-text"
-          >
-            favorite
-          </span>
-          <h3 class="product__name body-large">Kẹp tóc</h3>
-          <div class="product__price label-large">
-            <p class="product__price__current">35,000 đ</p>
-            <p class="product__price__discount outline-variant-text">
-              70,000 đ
-            </p>
+                <!-- item outstock -->
+                <div class="product__outstock col-4">
+                  <div class="product__image">
+                    <img
+                      src="/TAA_FE/public/product1.jpg"
+                      alt="Kẹp tóc"
+                      class="img_back"
+                    />
+                    <img
+                      src="/TAA_FE/public/product2.jpg"
+                      alt="Kẹp tóc"
+                      class="img_font"
+                    />
+                  </div>
+                  <div class="product__body">
+                    <span
+                      class="material-symbols-outlined icon_heart error-text"
+                    >
+                      favorite
+                    </span>
+                    <h3 class="product__name body-large">Kẹp tóc</h3>
+                    <div class="product__price label-large">
+                      <p class="product__price__current">35,000 đ</p>
+                      <p class="product__price__discount outline-variant-text">
+                        70,000 đ
+                      </p>
+                    </div>
+                    <p class="product__discount title-medium error-text">
+                      Giảm 50%
+                    </p>
+                    <p class="product__stock headline-small error-text">
+                      Hết hàng
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-          <p class="product__discount title-medium error-text">
-            Giảm 50%
-          </p>
-          <p class="product__stock headline-small error-text">
-            Hết hàng
-          </p>
-        </div>
-      </div>
-    </div>
-         
         </section>
       </main>
       <!-- Footer -->
@@ -630,36 +641,45 @@
     </script>
 
     <script>
-    // disable profile button when click
-    $(document).on("click",".profile__btn",function(){
-      $(".profile__btn").prop("disabled",true)
+      enableInputWhenClickChangeIcon();
+      showSectionWhenClickToDropDown();
 
-    })
-    
-      document.addEventListener("DOMContentLoaded",function(){
-      let flag = localStorage.getItem("flag");
-
-      if(flag==1){
-        showSection("section1")
-          $('.nav-tab__item').siblings().removeClass('active');
-          $('.nav-tab__item').eq(0).addClass('active');
+      function enableInputWhenClickChangeIcon() {
+        $(document).on("click", ".profile__btn", function () {
+          $(".profile__btn").prop("disabled", true);
+        });
       }
+      // disable profile button when click
+      function showSectionWhenClickToDropDown() {
+        document.addEventListener("DOMContentLoaded", function () {
+          let flag = localStorage.getItem("flag");
+          if (flag == undefined) return;
 
-      if (flag == 2) {
-          showSection("section2")
-          $('.nav-tab__item').siblings().removeClass('active');
-          $('.nav-tab__item').eq(1).addClass('active');
-           history.pushState(null,null,"/TAA_FE/src/homepage/accountPage#order")  
-        }
-      if (flag ==3){
-          showSection("section3")
-          $('.nav-tab__item').siblings().removeClass('active');
-          $('.nav-tab__item').eq(2).addClass('active');
-          history.pushState(null,null,"/TAA_FE/src/homepage/accountPage#favourProducts")
-        }
-      
-      })
-    
+          if (flag == 1) {
+            showSection("section1");
+            $(".nav-tab__item").siblings().removeClass("active");
+            $(".nav-tab__item").eq(0).addClass("active");
+          } else if (flag == 2) {
+            showSection("section2");
+            $(".nav-tab__item").siblings().removeClass("active");
+            $(".nav-tab__item").eq(1).addClass("active");
+            history.pushState(
+              null,
+              null,
+              "/TAA_FE/src/homepage/accountPage#order"
+            );
+          } else if (flag == 3) {
+            showSection("section3");
+            $(".nav-tab__item").siblings().removeClass("active");
+            $(".nav-tab__item").eq(2).addClass("active");
+            history.pushState(
+              null,
+              null,
+              "/TAA_FE/src/homepage/accountPage#favourProducts"
+            );
+          } else return;
+        });
+      }
     </script>
     <script src="./main.js"></script>
     <script src="/TAA_FE/res/js/modal--controller.js"></script>

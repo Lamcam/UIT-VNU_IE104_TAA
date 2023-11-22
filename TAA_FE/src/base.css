@@ -224,6 +224,10 @@ footer {
 
   & .footer__title {
     font-weight: bold;
+    max-height: 200px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
 
     & img {
       height: 64px;
@@ -235,10 +239,13 @@ footer {
       text-align: justify;
     }
   }
-/* 
+
   & .footer__link {
-    text-decoration: none;
-  } */
+    /* text-decoration: none; */
+    display: flex;
+    flex-direction: row;
+    gap: 4%;
+  }
 }
 
 form {
