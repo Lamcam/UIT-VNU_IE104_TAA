@@ -15,20 +15,19 @@
           <option value="Nhẫn"></option>
         </datalist>
         <button class="btn-icon btn--filled" type="submit">
-          <div class="status-layer">
-            <span class="icon material-symbols-outlined">search</span>
-          </div>
+          <span class="status-layer icon material-symbols-outlined">
+            search</span>
         </button>
       </span>
       <div class="header__wrapper">
         <button class="btn--outlined header__btn--login" type="button"
-          data-modal-target="#modal--login">
+          onclick="modalCtl.openModal('#modal--login')">
           <div class="status-layer label-large">
             <span>Đăng nhập</span>
           </div>
         </button>
         <button class="btn--filled header__btn--register" type="button"
-          data-modal-target="#modal--register">
+          onclick="modalCtl.openModal('#modal--register')">
           <div class="status-layer label-large">
             <span>Đăng ký</span>
           </div>

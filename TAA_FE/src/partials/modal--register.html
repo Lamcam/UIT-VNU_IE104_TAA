@@ -1,6 +1,6 @@
 <div id="modal--register" class="modal">
   <div class="modal__content on-primary">
-    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
       <div class="status-layer">
         <span class="icon material-symbols-outlined">close</span>
       </div>
@@ -74,7 +74,7 @@
     </form>
     <div class="form__row mt-12">
       <button class='btn- full-width'
-        onclick='closeModal(), openModal("#modal--login")'>
+        onclick='modalCtl.nextModal("#modal--login")'>
         <div class="status-layer">
           <span class="label-large">Bạn có tài khoản rồi? <span
               class='highlight'>Đăng nhập ngay</span></sp>

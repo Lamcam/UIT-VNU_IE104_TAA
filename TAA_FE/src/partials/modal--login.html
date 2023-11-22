@@ -1,6 +1,6 @@
 <div id="modal--login" class="modal">
   <div class="modal__content on-primary">
-    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
       <div class="status-layer">
         <span class="icon material-symbols-outlined">close</span>
       </div>
@@ -31,13 +31,13 @@
     </form>
     <div class="row mt-36">
       <button class="btn- col-6 col-sm-12 body-medium"
-        onclick='closeModal(), openModal("#modal--register")'>
+        onclick='modalCtl.nextModal("#modal--forgot")'>
         <div class="status-layer">
           <span class='highlight'>Quên mật khẩu</span>
         </div>
       </button>
       <button class="btn- col-6 col-sm-12 body-medium"
-        onclick='closeModal(), openModal("#modal--register")'>
+        onclick='modalCtl.nextModal("#modal--register")'>
         <div class="status-layer">
           <span class='highlight'>Cần đăng ký</span>
         </div>

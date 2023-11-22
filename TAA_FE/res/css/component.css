@@ -36,13 +36,15 @@
     min-height: 4rem;
     padding: 0 2rem;
 
-    & span {
-      text-wrap: nowrap;
-      margin: auto;
+    line-height: 4rem;
+  }
+  
+  & > span {
+    text-wrap: nowrap;
+    margin: auto;
 
-      &.highlight {
-        color: var(--md-sys-color-primary);
-      }
+    &.highlight {
+      color: var(--md-sys-color-primary);
     }
   }
 
@@ -183,7 +185,7 @@ hr {
   gap: .75rem;
   align-items: center;
   height: 4rem;
-  padding: 0 2px 0 0;
+  /* padding: 0 2px 0 0; */
   border-radius: 1rem;
   border: 2px solid var(--md-sys-color-outline);
 
@@ -197,8 +199,9 @@ hr {
   }
 
   & .btn-icon {
-    height: 3rem;
-    max-width: 3rem;
+    min-width: 4rem;
+    /* height: 3rem; */
+    /* max-width: 3rem; */
     padding: 0px;
     border-radius: .75rem;
   }
