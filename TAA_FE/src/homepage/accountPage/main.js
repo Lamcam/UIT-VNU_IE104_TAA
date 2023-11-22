@@ -223,3 +223,24 @@ function changeBorderColor(clickedIcon) {
   // Tập trung vào input
   inputElement.focus();
 }
+
+//
+
+//Doi trang thai debit:
+const defaultBtnDebits = document.querySelectorAll(".location-btn");
+
+defaultBtnDebits.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Chuyển tất cả các nút về trạng thái "Thiết lập mặc định"
+    defaultBtnDebits.forEach((otherBtn) => {
+      otherBtn.classList.remove("filled-default");
+      otherBtn.classList.add("unfilled-default");
+      otherBtn.textContent = "Thiết lập mặc định";
+    });
+
+    // Chuyển nút được nhấn thành trạng thái "Mặc định"
+    btn.classList.remove("unfilled-default");
+    btn.classList.add("filled-default");
+    btn.textContent = "Mặc định";
+  });
+});
