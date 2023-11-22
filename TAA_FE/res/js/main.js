@@ -1,4 +1,4 @@
-function closeModal() {
-  const modals = document.querySelectorAll(".modal");
-  modals.forEach(modal => modal.classList.remove("active"))
-}
+// function closeModal() {
+//   const modals = document.querySelectorAll(".modal");
+//   modals.forEach(modal => modal.classList.remove("active"))
+// }

@@ -56,7 +56,7 @@
 </header>
 <div id="modal--login" class="modal">
   <div class="modal__content on-primary">
-    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+    <button class="modal__btn--close btn-icon" >
       <div class="status-layer">
         <span class="icon material-symbols-outlined">close</span>
       </div>
@@ -87,7 +87,7 @@
     </form>
     <div class="form__row mt-12">
       <div class="row">
-        <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#">Quên
+        <span class="col-12 label-large">Bạn quên mật khẩu? <a href="#" data-modal-target="#modal--reset">Quên
             mật khẩu</a></span>
       </div>
     </div>
@@ -172,4 +172,37 @@
       </div>
     </div>
   </div>
+<!-- <iframe src="../components/popup__email-request.html" frameborder="0"></iframe>
+<iframe src="../components/popup__phonenumber-request.html" frameborder="0"></iframe>
+<iframe src="../components/popup__otp.html" frameborder="0"></iframe>
+<iframe src="../components/popup__newpassword.html" frameborder="0"></iframe> -->
+</div>
+<div id="modal--reset" class="modal">
+  <div class="popup__reset">
+    <div class="modal__content on-primary">
+        <button class="modal__btn--close btn-icon">
+            <div class="status-layer">
+                <span class="icon material-symbols-outlined">close</span>
+            </div>
+        </button>
+        <h1 class="modal__title title-large">Quên mật khẩu</h1>
+        <form action="/forgetPassword" method="POST" class="reset__password">
+            <button class="btn--outlined label-large btn-icon-label full-width" type="submit">
+                <div class="status-layer">
+                    <span class="icon material-symbols-outlined">
+                        account_circle
+                    </span>
+                    <span class="label">Email</span>
+                </div>
+            </button>
+            <button class="btn--outlined label-large btn-icon-label full-width" type="submit">
+                <div class="status-layer">
+                    <span class="icon material-symbols-outlined">
+                        account_circle</span>
+                    <span class="label">Số điện thoại</span>
+                </div>
+            </button>
+        </form>
+    </div>
+</div>
 </div>
