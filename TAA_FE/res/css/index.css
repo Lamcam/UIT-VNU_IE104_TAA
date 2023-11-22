@@ -1,5 +1,3 @@
-@import url(theme.css);
-@import url(components/breadcrumbs.css);
-@import url(components/component.css);
-@import url(components/fonts.css);
-@import url(components/modals.css);
+@import url(themes/index.css);
+@import url(components/index.css);
+@import url(utils/index.css);
