@@ -13,6 +13,8 @@
 
   background-color: transparent;
 
+  font-size: 1.25rem;
+
   &:not(:disabled):hover {
     cursor: pointer;
     box-shadow:
@@ -37,6 +39,10 @@
     & span {
       text-wrap: nowrap;
       margin: auto;
+
+      &.highlight {
+        color: var(--md-sys-color-primary);
+      }
     }
   }
 

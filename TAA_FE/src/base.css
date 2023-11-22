@@ -108,7 +108,7 @@ html {
 }
 
 /* Responsive layout for small screens */
-@media (max-width: 576px) {
+@media (max-width: 48rem) {
   .col-sm-1 {
     grid-column: span 1;
   }
@@ -159,7 +159,7 @@ html {
 }
 
 /* Responsive layout for medium screens */
-@media (max-width: 768px) and (min-width: 576px) {
+@media (min-width: 48rem) and (max-width: 64rem) {
   .col-md-1 {
     grid-column: span 1;
   }
@@ -210,7 +210,7 @@ html {
 }
 
 /* Responsive layout for large screens */
-@media (min-width: 992px) {
+@media (min-width: 64rem) {
   .col-lg-1 {
     grid-column: span 1;
   }
@@ -545,11 +545,15 @@ input {
 /* CSS cho pop-up modal */
 .modal {
   display: none;
+  width: 100%;
+  height: 100%;
   position: fixed;
   z-index: 1;
   inset: 0;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+
+  font-size: 12px;
 
   &.active {
     display: block;
@@ -560,12 +564,13 @@ input {
   animation: modalFadeIn ease 0.5s;
 
   position: relative;
-  margin: 150px auto;
-  padding: 48px 64px;
+  margin: 15rem auto;
+  padding: 4rem 5rem;
   border: 1px solid #888;
-  width: calc(1024px / 2 + 12px * 4);
+  max-width: 60rem;
+  width: 90%;
 
-  border-radius: 12px;
+  border-radius: 1rem;
 }
 
 .modal__title {
@@ -575,11 +580,11 @@ input {
 
 .modal__btn--close {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 1rem;
+  right: 1rem;
   color: #aaa;
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 2rem;
+  line-height: 2rem;
   /* font-weight: bold; */
   text-align: center;
 
