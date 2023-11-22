@@ -1,3 +1,16 @@
+$(function () {
+  $("#modal__addLocation").load("./add-location.html");
+  $("#modal__addBank").load("./add-bank.html");
+  $("#modal__delBank").load("./del-bank.html");
+  $("#modal__delLocation").load("./del-location.html");
+  $("#modal__editLocation").load("./edit-location.html");
+  $("#modal__review").load("./review-popup.html");
+  $("#header").load("/TAA_FE/src/partials/header--auth.html");
+  $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
+  $("#footer").load("/TAA_FE/src/partials/footer.html");
+  $("#modal__noti").load("./sucess-popup.html");
+});
+
 // Hàm để thêm class "active"
 function addActiveClass(element, activeClassName) {
   var siblings = element.parentNode.children;
