@@ -46,6 +46,7 @@
 
 .news__img {
   height: 100%;
+  width: 100%;
   object-fit: cover;
   border-radius: 8px 0px 0px 8px;
 }
@@ -62,7 +63,6 @@
 
 .article__title {
   font-weight: bold;
-  line-height: 24px;
   letter-spacing: 0.15px;
   cursor: pointer;
   white-space: nowrap;
@@ -72,7 +72,6 @@
 
 .article__context {
   text-align: justify;
-  line-height: 20px;
   letter-spacing: 0.25px;
   overflow: hidden;
   display: -webkit-box;

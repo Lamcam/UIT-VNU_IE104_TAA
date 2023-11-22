@@ -35,6 +35,18 @@ h3.section__title {
   list-style-position: inside;
 }
 
+.button__cart {
+  display: flex inline;
+  padding: 10px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #9C4048;
+  border: 1px solid #9C4048;
+  background: var(--m-3-ref-primary-primary-95, #FFEDEC);
+}
+
 @media only screen and (min-width: 431px) and (max-width: 744px){
 .container h1 {
   font-size: 28px;
