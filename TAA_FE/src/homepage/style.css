@@ -141,7 +141,7 @@
 #Q-A {
   & .Q-A__imgs {
     width: 100%;
-    max-height: 320px;
+    max-height: 35rem;
     object-fit: cover;
   }
 
@@ -181,6 +181,8 @@
 
 .group__img {
   /* khong lam meo anh */
+  width: 100%;
+  padding: 3rem;
   object-fit: cover;
   display: flex;
   justify-content: center;
