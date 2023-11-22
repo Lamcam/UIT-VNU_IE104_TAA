@@ -59,7 +59,6 @@
   padding-left: 1rem;
 }
 
-
 /* .aside__item__sub-menu li:hover{
   background-color: #c5c5c5;
   color: #785B5B;
@@ -96,7 +95,6 @@
   height: 36px;
   width: 36px;
 }
-
 
 .product__filter {
   display: flex;
@@ -181,7 +179,6 @@
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 1px rgba(0, 0, 0, 0.2);
 }
-
 
 .icon-cancel {
   display: none;
@@ -422,7 +419,6 @@
   min-width: 247px;
   background: var(--m-3-state-layers-dark-surface-dim-opacity-016, rgba(20, 18, 24, 0.16));
 }
-
 
 
 /* Chi tiet san pham */
@@ -688,6 +684,7 @@ input::-webkit-inner-spin-button {
 
 .modal__button .button__view {
   height: 40px;
+  line-height: 40px;
   /* padding: 10px 40px; */
 }
 
@@ -711,7 +708,6 @@ input::-webkit-inner-spin-button {
   list-style-type: none;
 
 }
-
 
 /* modal noti */
 .modal-noti {

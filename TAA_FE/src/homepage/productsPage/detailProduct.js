@@ -23,6 +23,28 @@ function slideImage() {
 
 window.addEventListener('resize', slideImage);
 
+function changeImage(direction) {
+    imgId += direction;
+
+    // Kiểm tra nếu imgId vượt quá giới hạn trái/phải
+    if (imgId < 1) {
+        imgId = imgBtns.length;
+    } else if (imgId > imgBtns.length) {
+        imgId = 1;
+    }
+
+    // Loại bỏ lớp 'active__selected' từ tất cả các hình ảnh
+    imgBtns.forEach((item) => {
+        item.classList.remove('active__selected');
+    });
+
+    // Thêm lớp 'active__selected' cho hình ảnh hiện tại
+    imgBtns[imgId - 1].classList.add('active__selected');
+
+    // Chuyển ảnh
+    slideImage();
+}
+
 const myInput = document.getElementById("my-input");
 function stepper(btn) {
     let id = btn.getAttribute("id")

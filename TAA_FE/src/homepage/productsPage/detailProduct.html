@@ -66,6 +66,19 @@
                   <img src="/TAA_FE/public/product3.jpg" alt="product image">
                 </div>
               </div>
+              <!-- Bổ sung nút mũi tên trái/phải với biểu tượng chevron -->
+              <div class="img-nav">
+                <button id="prevBtn" onclick="changeImage(-1)">
+                  <span class="material-symbols-outlined arrow-left primary-text">
+                    arrow_back_ios
+                  </span>
+                </button>
+                <button id="nextBtn" onclick="changeImage(1)">
+                  <span class="material-symbols-outlined arrow-right primary-text">
+                    arrow_forward_ios
+                  </span>
+                </button>
+              </div>
 
             </div>
             <div class="info__product__body visible">
@@ -143,7 +156,7 @@
                 <div class="quantity__title bold label-large">Số lượng: </div>
                 <div class="quantity__product outline-text label-large">
                   <div id="decrement" class="quantity__product-decrement outline-text" onclick="stepper(this)">-</div>
-                  <input type="number" min="0" max="100" step="1" value="2" id="my-input" disabled>
+                  <input type="number" min="0" max="100" step="1" value="1" id="my-input" disabled>
                   <div id="increment" class="quantity__product-increment outline-text" onclick="stepper(this)">+</div>
                 </div>
                 <p class="quantity__stock body-small">82 sản phẩm sẵn có</p>
@@ -155,9 +168,10 @@
                   </span>
                   Thêm vào giỏ hàng
                 </button>
-                <button class="button__sell btn--filled">
+                <div class="button__sell btn--filled label-large">
                   <a href="/TAA_FE/src/homepage/cartPage/index.html">Mua ngay</a>
-                </button>
+                </div>
+
               </div>
             </div>
           </div>
@@ -295,8 +309,8 @@
                     Sản phẩm xinh cực, cảm ơn shop ạ!!
                   </div>
                   <div class="rate__imgs">
-                    <img class="img1" src="/TAA_FE/public/product2.jpg" alt="product img">
-                    <img class="img2" src="/TAA_FE/public/product2.jpg" alt="product img">
+                    <!-- <img class="img1" src="/TAA_FE/public/product2.jpg" alt="product img"> -->
+                    <!-- <img class="img2" src="/TAA_FE/public/product2.jpg" alt="product img"> -->
                     <img class="img3" src="/TAA_FE/public/product2.jpg" alt="product img">
                     <img class="img4" src="/TAA_FE/public/product2.jpg" alt="product img">
                     <div class="img--more">
@@ -359,8 +373,8 @@
                     Sản phẩm xinh cực, cảm ơn shop ạ!!
                   </div>
                   <div class="rate__imgs">
-                    <img class="img1" src="/TAA_FE/public/product2.jpg" alt="product img">
-                    <img class="img2" src="/TAA_FE/public/product2.jpg" alt="product img">
+                    <!-- <img class="img1" src="/TAA_FE/public/product2.jpg" alt="product img"> -->
+                    <!-- <img class="img2" src="/TAA_FE/public/product2.jpg" alt="product img"> -->
                     <img class="img3" src="/TAA_FE/public/product2.jpg" alt="product img">
                     <img class="img4" src="/TAA_FE/public/product2.jpg" alt="product img">
                     <div class="img--more">
@@ -390,7 +404,6 @@
             </div>
           </div>
         </div>
-
 
 
 
