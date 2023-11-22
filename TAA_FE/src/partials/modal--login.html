@@ -12,7 +12,7 @@
           <label class="col-4 label-large" for="f_log_phone">
             Số điện thoại:</label>
           <input class="col-8" type="text" name="phone" id="f_log_phone"
-            required>
+            autocomplete='username' required>
         </div>
       </div>
       <div class="form__row mt-12">
@@ -20,13 +20,11 @@
           <label class="col-4 label-large" for="f_log_pass">
             Mật khẩu:</label>
           <input class="col-8" type="password" name="pass" id="f_log_pass"
-            required>
+            autocomplete='current-password' required>
         </div>
       </div>
       <button class="btn--filled label-large full-width mt-12" type="submit">
-        <div class="status-layer">
-          <span>Đăng nhập</span>
-        </div>
+        <span class='status-layer'>Đăng nhập</span>
       </button>
     </form>
     <div class="row mt-36">
