@@ -10,3 +10,10 @@ function scrollOnTop() {
     behavior: "smooth",
   });
 }
+
+function openModal(slt) {
+  console.log(slt);
+  const modal = document.querySelector(slt);
+  console.log(modal);
+  modal.classList.add("active");
+}
