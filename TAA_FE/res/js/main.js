@@ -11,9 +11,7 @@ function scrollOnTop() {
   });
 }
 
-function openModal(slt) {
-  console.log(slt);
-  const modal = document.querySelector(slt);
-  console.log(modal);
-  modal.classList.add("active");
+const openModal = (sltById) => {
+  const modalSelector = document.querySelector(sltById);
+  modalSelector.classList.add("active");
 }
