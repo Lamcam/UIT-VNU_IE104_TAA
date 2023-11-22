@@ -3,13 +3,15 @@
 @import url(/TAA_FE/res/css/component.css);
 
 /* general css */
+html {
+  font-size: 12px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 12px;
   transition: 300ms;
-  font-size: 12px;
 }
 
 .icon--filled {
@@ -108,8 +110,9 @@
 .col-12 {
   grid-column: span 12;
 }
+
 /* Responsive layout for small screens */
-@media (min-width: 576px) {
+@media (max-width: 576px) {
   .col-sm-1 {
     grid-column: span 1;
   }
@@ -160,7 +163,7 @@
 }
 
 /* Responsive layout for medium screens */
-@media (min-width: 768px) {
+@media (max-width: 768px) and (min-width: 576px) {
   .col-md-1 {
     grid-column: span 1;
   }
@@ -272,7 +275,7 @@ a:is(:hover, :active) {
 }
 
 a:active {
-  filter: drop-shadow(0 0 0.75rem var(--md-sys-color-primary));
+  filter: drop-shadow(0 0 .75rem var(--md-sys-color-primary));
 }
 
 hr {
@@ -285,44 +288,47 @@ body {
 
 header {
   display: flex;
-  gap: 24px;
+  gap: 2rem;
   flex-direction: column;
 
-  padding: 0 32px;
-
   & .header__top {
-    padding-top: 16px;
+    padding-top: 1.25rem;
 
     &>* {
       display: flex;
       position: relative;
 
-      max-height: 40px;
+      max-height: 4rem;
       justify-content: space-between;
     }
   }
 
+  & .header__logo {
+    height: 100%;
+    aspect-ratio: 2/1;
+  }
+
   & .header__search {
-    max-width: 512px;
+    max-width: 40rem;
     width: 100%;
-    margin: 0 16px;
+    margin: 0 1.25rem;
   }
 
   & .header__wrapper {
     display: flex;
     justify-content: end;
-    gap: 8px;
+    gap: .75rem;
 
     & .header__avatar {
-      width: 40px;
-      height: 40px;
+      width: 4rem;
+      height: 4rem;
       border-radius: 50%;
       border: 1px solid var(--md-sys-color-outline);
     }
   }
 
   & .main-nav>ul {
-    height: 40px;
+    height: 4rem;
     padding: 0px;
     display: flex;
   }
@@ -331,7 +337,7 @@ header {
     display: inline-block;
     display: inline-flex;
     height: 100%;
-    min-width: 128px;
+    min-width: 10rem;
     list-style: none;
     color: var(--md-sys-color-primary);
 
@@ -347,19 +353,19 @@ header {
   }
 
   & .main-nav__link {
-    padding: 0px 24px;
+    padding: 0px 2rem;
     margin: auto;
     text-decoration: none;
-    /* font-weight: bold; */
+    text-wrap: nowrap;
     color: inherit;
   }
 }
 
 main {
-  min-height: 612px;
+  /* min-height: 612px; */
 
   &>section {
-    padding: 0 32px;
+    padding: 0 3rem;
 
     &.full-width {
       padding: 0;
@@ -368,19 +374,19 @@ main {
 }
 
 footer {
-  padding: 32px;
-  padding-bottom: 64px;
+  padding: 3rem;
+  padding-bottom: 5rem;
 
   & .footer__col {
     flex-direction: column;
-    gap: 8px;
+    gap: .75rem;
   }
 
   & .footer__title {
     /* font-weight: bold; */
 
     & img {
-      height: 64px;
+      height: 5rem;
     }
   }
 
@@ -404,29 +410,28 @@ form {
 }
 
 input {
-  height: 40px;
-  border-radius: 8px;
+  height: 4rem;
+  border-radius: .75rem;
   border: 1px solid var(--md-sys-color-outline);
-  padding: 0 12px;
+  padding: 0 1rem;
   background-color: transparent;
 
   &[type="number"] {
     display: flex;
-    width: 64px;
+    width: 5rem;
   }
 }
 
 /* general class */
-
 .container {
-  max-width: 1024px;
+  max-width: 85rem;
   width: 100%;
   margin: 0 auto;
 }
 
 .visible {
   background: white;
-  border-radius: 12px;
+  border-radius: 1rem;
 
   &.un-radius {
     border-radius: 0px;
@@ -440,19 +445,19 @@ input {
   right: 0;
   flex-direction: column;
 
-  width: 180px;
+  width: 15rem;
 
-  border-radius: 12px;
+  border-radius: .75rem;
   overflow: hidden;
 
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
   & a {
-    height: 40px;
+    height: 4rem;
     display: flex;
     align-items: center;
     justify-content: right;
-    padding: 24px;
+    padding: 2rem;
     width: 100%;
     background-color: white;
     color: black;
@@ -460,8 +465,13 @@ input {
 
     text-decoration: none;
 
-    &:active {
+    /* &:active {
       filter: none;
+    } */
+
+    &:hover {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
     }
 
     &:last-child {
@@ -489,14 +499,14 @@ input {
 }
 
 .nav-tree {
-  padding: 0 32px;
+  padding: 0 3rem;
 
   &>* {
     display: flex;
     align-items: center;
-    height: 48px;
-    padding: 0 12px;
-    gap: 8px;
+    height: 4rem;
+    padding: 0 1rem;
+    gap: .75rem;
   }
 }
 
