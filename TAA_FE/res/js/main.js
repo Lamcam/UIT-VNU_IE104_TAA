@@ -1,3 +1,8 @@
+import modalCtl from './modal--controller.js';
+
+window.modalCtl = modalCtl;
+
+
 const accountPageContentClassName = "#section2";
 // var flag = 0;
 function closeModal() {
@@ -42,8 +47,5 @@ $(document).ready(function(){
 
 
 
-const checkPassword() {
-  if ()
-}
 
 
