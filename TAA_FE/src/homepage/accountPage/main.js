@@ -8,7 +8,8 @@ $(function () {
   $("#header").load("/TAA_FE/src/partials/header--auth.html");
   $("#breadcrumbs").load("/TAA_FE/src/partials/breadcrumbs.html");
   $("#footer").load("/TAA_FE/src/partials/footer.html");
-  $("#modal__noti").load("./sucess-popup.html");
+  $("#modal__noti").load("./success-popup.html");
+  $("#modal__change-password").load("./change-password.html");
 });
 
 // Hàm để thêm class "active"

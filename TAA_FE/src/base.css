@@ -364,13 +364,13 @@ main {
   grid-template-areas: main;
   /* min-height: 612px; */
 
-  &>section {
+  /* &>section {
     padding: 0 3rem;
 
     &.full-width {
       padding: 0;
     }
-  }
+  } */
 }
 
 footer {
