@@ -183,6 +183,7 @@ hr {
 
   & input {
     border: 0;
+    width: 100%;
 
     &:focus {
       outline: none;
@@ -291,7 +292,7 @@ hr {
   cursor: pointer;
 }
 
-.product__button__sell a {
+.product__button__sell .link-sell {
   color: #fff;
   text-decoration: none;
 }

@@ -34,3 +34,36 @@ h3.section__title {
 :has(ol, ul) li {
   list-style-position: inside;
 }
+
+.button__cart {
+  display: flex inline;
+  padding: 10px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  color: #9C4048;
+  border: 1px solid #9C4048;
+  background: var(--m-3-ref-primary-primary-95, #FFEDEC);
+}
+
+@media only screen and (min-width: 431px) and (max-width: 744px){
+.container h1 {
+  font-size: 28px;
+  line-height: 50px;
+}
+.section__content h2 {
+  font-size: 18px;
+  line-height: 30px;
+}
+  }
+  @media only screen and (max-width: 430px) {
+    .container h1 {
+      font-size: 28px;
+      line-height: 40px;
+    }
+    .section__content h2 {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }

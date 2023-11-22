@@ -185,7 +185,6 @@
 
 .icon-cancel {
   display: none;
-  z-index: 1;
 }
 
 .caret {
@@ -454,14 +453,15 @@
   gap: 32px;
   background-color: #fff;
   width: 1024px;
-  max-height: 906px;
+  max-height: 700px;
   position: relative;
   animation: modalFadeIn ease 0.2s;
+  border-radius: 8px;
 }
 
 .modal__img {
   display: flex;
-  height: 842px;
+  height: 100%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -485,7 +485,7 @@
 
 .img-showcase img {
   min-width: 100%;
-  height: 695px;
+  height: 500px;
   object-fit: cover;
   border-radius: 8px;
 }
