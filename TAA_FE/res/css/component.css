@@ -134,7 +134,7 @@ span.btn-checkbox {
   & input {
     display: none;
 
-    &+label {
+    & + label {
       display: inline-flex;
 
       & .--unchecked {
@@ -146,17 +146,17 @@ span.btn-checkbox {
       }
     }
 
-    &:is(:checked, :indeterminate)+label {
+    &:is(:checked, :indeterminate) + label {
       & span {
         display: none;
       }
     }
 
-    &:checked+label .--checked {
+    &:checked + label .--checked {
       display: flex;
     }
 
-    &:indeterminate+label .--indeterminate {
+    &:indeterminate + label .--indeterminate {
       display: flex;
     }
   }
@@ -227,8 +227,9 @@ hr {
     display: none;
   }
 
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.30),
-  0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   /* max-height: fit-content; */
 }
 
@@ -248,7 +249,6 @@ hr {
 
 .product__item:hover .product__image .img_font {
   opacity: 0;
-
 }
 
 .icon_heart,
@@ -268,7 +268,7 @@ hr {
   height: 35px;
   justify-content: space-around;
   border-radius: 0px 0px 8px 8px;
-  background: var(--m-3-sys-light-primary, #785B5B);
+  background: var(--m-3-sys-light-primary, #785b5b);
   cursor: pointer;
   display: none;
 }
@@ -314,13 +314,11 @@ hr {
 
 .product__price__discount {
   text-decoration: line-through;
-
 }
 
 .product__discount {
   font-weight: bold;
   margin-bottom: 16px;
-
 }
 
 .product__stock {
@@ -586,7 +584,7 @@ hr {
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
-  border: 1px solid #785B5B;
+  border: 1px solid #785b5b;
 }
 
 .popup__otp .profile__btn {
@@ -666,4 +664,35 @@ hr {
     0px 1px 2px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 1px rgba(0, 0, 0, 0.2);
   color: black;
+}
+
+.spaceInUp {
+  -webkit-animation: spaceInUp 1s ease both;
+  animation: spaceInUp 1s ease both;
+}
+
+@keyframes spaceInUp {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 0%;
+    transform: scale(0.2) translate(0%, -200%);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: scale(1) translate(0%, 0%);
+  }
+}
+
+@-webkit-keyframes spaceInUp {
+  0% {
+    opacity: 0;
+    transform-origin: 50% 0%;
+    transform: scale(0.2) translate(0%, -200%);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 50% 0%;
+    transform: scale(1) translate(0%, 0%);
+  }
 }

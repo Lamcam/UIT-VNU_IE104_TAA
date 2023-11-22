@@ -877,7 +877,7 @@ input::-webkit-inner-spin-button {
 .modal__context {
   display: flex;
   flex-direction: column;
-  text-align: justify;
+  text-align: center;
 }
 
 .modal__context .context__info__body {
@@ -1040,7 +1040,7 @@ input::-webkit-inner-spin-button {
 
 .modal__title {
   font-size: 32px;
-  text-align: start;
+  text-align: center;
 }
 
 .modal__product {
@@ -1188,4 +1188,27 @@ input#checkbox1 {
 
 .form-wrapper__change-password {
   padding: 24px 24px 24px 52px;
+}
+
+#shipping-address .row {
+  white-space: nowrap;
+}
+
+@media only screen and (min-width: 430px) and (max-width: 744px) {
+  .picture1 {
+    width: 100%;
+  }
+  .col-3 {
+    grid-column: span 4;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .picture1 {
+    width: 100%;
+  }
+
+  .picture-product {
+    max-width: 195px;
+    max-height: 195px;
+  }
 }
