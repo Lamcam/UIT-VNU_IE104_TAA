@@ -1,9 +1,7 @@
 <div id="modal--login" class="modal">
   <div class="modal__content on-primary">
     <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
-      <div class="status-layer">
-        <span class="icon material-symbols-outlined">close</span>
-      </div>
+      <span class="status-layer icon material-symbols-outlined">close</span>
     </button>
     <h1 class="modal__title headline-large">Đăng nhập</h1>
     <form action="/login" method="POST">
@@ -29,7 +27,7 @@
     </form>
     <div class="row mt-36">
       <button class="btn- col-6 col-sm-12 body-medium"
-        onclick='modalCtl.nextModal("#modal--forgot")'>
+        onclick='modalCtl.nextModal("#modal--forgot-method")'>
         <div class="status-layer">
           <span class='highlight'>Quên mật khẩu</span>
         </div>

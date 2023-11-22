@@ -1,9 +1,7 @@
 <div id="modal--register" class="modal">
   <div class="modal__content on-primary">
     <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
-      <div class="status-layer">
-        <span class="icon material-symbols-outlined">close</span>
-      </div>
+      <span class="status-layer icon material-symbols-outlined">close</span>
     </button>
     <h1 class="modal__title headline-large">Đăng ký</h1>
     <form action="/register" method="POST">
@@ -72,11 +70,11 @@
         </div>
       </button>
     </form>
-    <div class="form__row mt-12 label-large">
-      <button class='btn- full-width'
+    <div class="form__row mt-12">
+      <button class='btn- full-width label-large'
         onclick='modalCtl.nextModal("#modal--login")'>
         <span class="status-layer">Bạn có tài khoản rồi? <span
-            class='highlight'>Đăng nhập ngay</span></sp>
+            class='highlight'>Đăng nhập ngay</span></span>
       </button>
     </div>
   </div>

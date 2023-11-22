@@ -1,0 +1,25 @@
+<div id="modal--forgot-method" class="modal">
+  <div class="modal__content on-primary">
+    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+      <span class="status-layer icon material-symbols-outlined">close</span>
+    </button>
+    <h1 class="modal__title headline-large">Quên mật khẩu</h1>
+    <div class="row mt-36">
+      <button class="btn--outlined btn-icon-label label-large col-6 col-sm-12">
+        <span class="status-layer">
+          <span class="icon icon--filled material-symbols-outlined">
+            account_circle</span>
+          <span class='label'>Email</span>
+        </span>
+      </button>
+      <button class="btn--outlined btn-icon-label label-large col-6 col-sm-12"
+      onclick='modalCtl.nextModal("#modal--forgot-by-phone")'>
+        <span class="status-layer">
+          <span class="icon icon--filled material-symbols-outlined">
+            account_circle</span>
+          <span class='label'>Số điện thoại</span>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
