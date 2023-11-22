@@ -13,15 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/TAA_FE/src/base.css" />
     <link rel="stylesheet" href="./style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="/TAA_FE/res/js/main.js"></script>
     <title>TAA - Trang cá nhân</title>
   </head>
 
   <body>
     <div id="main" class="on-primary">
       <div id="header"></div>
-      <div id="nav-tree"></div>
+      <div id="breadcrumbs"></div>
       <main>
         <section class="mt-12">
           <div class="container row">
@@ -606,21 +604,7 @@
       <div id="modal__noti"></div>
     </div>
   </body>
-  <script>
-    $(document).ready(function () {
-      $("#modal__addLocation").load("./add-location.html");
-      $("#modal__addBank").load("./add-bank.html");
-      $("#modal__delBank").load("./del-bank.html");
-      $("#modal__delLocation").load("./del-location.html");
-      $("#modal__editLocation").load("./edit-location.html");
-      $("#modal__review").load("./review-popup.html");
-      $("#header").load("/TAA_FE/src/partials/header--auth.html");
-      $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
-      $("#footer").load("/TAA_FE/src/partials/footer.html");
-      $("#modal__noti").load("./sucess-popup.html");
-    });
-  </script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="module" src="/TAA_FE/res/js/main.js"></script>
   <script src="./main.js"></script>
-  <script src="/TAA_FE/res/js/modal--controller.js"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
 </html>

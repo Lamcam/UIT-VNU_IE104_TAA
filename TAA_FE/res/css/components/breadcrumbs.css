@@ -1,5 +1,4 @@
 .breadcrumbs {
-  grid-template-areas: breadcrumbs;
   padding: 0 3rem;
 
   &>* {

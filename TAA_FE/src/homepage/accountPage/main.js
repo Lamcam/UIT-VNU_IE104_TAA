@@ -6,7 +6,7 @@ $(function () {
   $("#modal__editLocation").load("./edit-location.html");
   $("#modal__review").load("./review-popup.html");
   $("#header").load("/TAA_FE/src/partials/header--auth.html");
-  $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
+  $("#breadcrumbs").load("/TAA_FE/src/partials/breadcrumbs.html");
   $("#footer").load("/TAA_FE/src/partials/footer.html");
   $("#modal__noti").load("./sucess-popup.html");
 });
