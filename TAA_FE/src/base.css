@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
-@import url(/TAA_FE/res/css/theme.css);
-@import url(/TAA_FE/res/css/component.css);
+@import url(/TAA_FE/res/css/index.css);
 
 /* general css */
 html {
@@ -357,7 +356,12 @@ header {
   }
 }
 
+aside {
+  grid-template-areas: aside;
+}
+
 main {
+  grid-template-areas: main;
   /* min-height: 612px; */
 
   &>section {
@@ -516,44 +520,6 @@ input {
 
 #header__user--controller:checked+.header__user {
   display: flex;
-}
-
-.nav-tree {
-  padding: 0 3rem;
-
-  &>* {
-    display: flex;
-    align-items: center;
-    height: 4rem;
-    padding: 0 1rem;
-    gap: .75rem;
-  }
-}
-
-.nav-tree__item {
-  display: inline-flex;
-  align-items: center;
-  height: 100%;
-  list-style: none;
-  gap: 8px;
-
-  &::after {
-    content: '>';
-    display: inline-block;
-  }
-
-  &:last-child::after {
-    content: '';
-  }
-
-  &:last-child {
-    font-weight: bold;
-  }
-
-  & a {
-    margin: auto;
-    text-decoration: none;
-  }
 }
 
 /* CSS cho pop-up modal */
