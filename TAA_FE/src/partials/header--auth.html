@@ -5,21 +5,26 @@
         <img class="header__logo" src="/TAA_FE/public/logo.svg" alt="Logo TAA">
       </a>
       <span class="header__search search-bar">
-        <input class="label-large" type="text" placeholder="Tìm kiếm">
+        <input class="label-large" type="text" placeholder="Tìm kiếm"
+          list="data--search" id="search">
+        <datalist id="data--search">
+          <option value="Vòng tay"></option>
+          <option value="Vòng cổ"></option>
+          <option value="Túi"></option>
+          <option value="Cài tóc"></option>
+          <option value="Nhẫn"></option>
+        </datalist>
         <button class="btn-icon btn--filled" type="submit">
-          <div class="status-layer">
-            <span class="icon material-symbols-outlined">
-              search</span>
-          </div>
+          <span class="status-layer icon material-symbols-outlined">
+            search</span>
         </button>
       </span>
       <div class="header__wrapper">
         <a href="/TAA_FE/src/homepage/cartPage/" style="text-decoration: none;">
           <button class="btn-icon">
-            <div class="status-layer">
-              <span class="icon material-symbols-outlined icon--filled">
-                shopping_cart</span>
-            </div>
+            <span
+              class="status-layer icon icon--filled material-symbols-outlined">
+              shopping_cart</span>
           </button>
         </a>
         <label for="header__user--controller"
