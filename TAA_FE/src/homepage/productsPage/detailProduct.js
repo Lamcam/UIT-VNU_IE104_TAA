@@ -4,15 +4,15 @@ let imgId = 1;
 imgBtns[0].classList.add('active__selected');
 
 imgBtns.forEach((imgItem) => {
-  imgItem.addEventListener('click', (event) => {
-    event.preventDefault();
-    imgBtns.forEach((item) => {
-      item.classList.remove('active__selected');
+    imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgBtns.forEach((item) => {
+            item.classList.remove('active__selected');
+        });
+        imgItem.classList.add('active__selected');
+        imgId = imgItem.dataset.id;
+        slideImage();
     });
-    imgItem.classList.add('active__selected');
-    imgId = imgItem.dataset.id;
-    slideImage();
-  });
 });
 
 function slideImage() {
@@ -46,8 +46,10 @@ iconHearts.forEach(iconHeart => {
     iconHeart.addEventListener("click", () => {
         if (iconHeart.classList.contains("icon--filled")) {
             iconHeart.classList.remove("icon--filled")
+            iconHeart.innerText = "heart_plus"
             return;
         }
+        iconHeart.innerText = "favorite"
         iconHeart.classList.add("icon--filled")
     })
 
