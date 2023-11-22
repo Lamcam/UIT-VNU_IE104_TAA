@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Content
+    <ul class="content"></ul>
+    <script>
+      function createProduct(item) {
+        
+        // Create the outer container div
+        let productItem = document.createElement("div");
+        productItem.classList.add("product__item", "col-4");
+
+        // Create the product image container div
+        let productImage = document.createElement("div");
+        productImage.classList.add("product__image");
+        productItem.appendChild(productImage);
+
+        // Create the front image element
+        let frontImage = document.createElement("img");
+        frontImage.src = `${item.prod_img_url}`;
+        frontImage.alt = "Kẹp tóc";
+        frontImage.classList.add("img_back");
+        productImage.appendChild(frontImage);
+
+        // Create the back image element
+        let backImage = document.createElement("img");
+        backImage.src = "../../../public/red-panda-small.jpg";
+        backImage.alt = "Kẹp tóc";
+        backImage.classList.add("img_font");
+        productImage.appendChild(backImage);
+
+        // Create the product body div
+        let productBody = document.createElement("div");
+        productBody.classList.add("product__body");
+        productItem.appendChild(productBody);
+
+        // Create the heart icon element
+        let heartIcon = document.createElement("span");
+        heartIcon.classList.add(
+          "material-symbols-outlined",
+          "icon_heart",
+          "error-text"
+        );
+        heartIcon.textContent = "heart_plus";
+        productBody.appendChild(heartIcon);
+
+        // Create the product name heading
+        let productName = document.createElement("h3");
+        productName.classList.add("product__name", "body-large");
+        productName.textContent = `${item.prod_name}`;
+        productBody.appendChild(productName);
+
+        // Create the product price container div
+        let productPrice = document.createElement("div");
+        productPrice.classList.add("product__price", "label-large");
+        productBody.appendChild(productPrice);
+
+        // Create the current price element
+        let currentPrice = document.createElement("p");
+        currentPrice.classList.add("product__price__current");
+        currentPrice.textContent = `${parseInt(item.prod_cost)*(1- parseFloat(item.prod_discount))}`;
+        productPrice.appendChild(currentPrice);
+
+        // Create the discounted price element
+        let discountedPrice = document.createElement("p");
+        discountedPrice.classList.add(
+          "product__price__discount",
+          "outline-variant-text"
+        );
+        discountedPrice.textContent = `${item.prod_cost}`;
+        productPrice.appendChild(discountedPrice);
+
+        // Create the product discount paragraph
+        let productDiscount = document.createElement("p");
+        productDiscount.classList.add(
+          "product__discount",
+          "title-medium",
+          "error-text"
+        );
+        productDiscount.textContent = `${item.prod_discount*100}`;
+        productBody.appendChild(productDiscount);
+
+        // Create the product stock label
+        let productStock = document.createElement("p");
+        let prodAvai = parseInt(item.prod_num_avai);
+        let state = "";
+        prodAvai ? state = 'Còn hàng': state = "Hết hàng" ;
+        productStock.classList.add(
+          "product__stock",
+          "label-large",
+          "primary-text"
+        );
+        
+        productStock.textContent = state;
+        productBody.appendChild(productStock);
+
+        // Create the product button section div
+        let productButtonSection = document.createElement("div");
+        productButtonSection.classList.add(
+          "product__button__section",
+          "label-large"
+        );
+        productItem.appendChild(productButtonSection);
+
+        // Create the quick view button
+        let quickViewButton = document.createElement("div");
+        quickViewButton.classList.add("product__button__view");
+        quickViewButton.textContent = "Xem nhanh";
+        productButtonSection.appendChild(quickViewButton);
+
+        // Create the vertical separator div
+        let verticalSeparator = document.createElement("div");
+        verticalSeparator.classList.add("vertical");
+        productButtonSection.appendChild(verticalSeparator);
+
+        // Create the buy now button with link
+        let buyNowButton = document.createElement("div");
+        buyNowButton.classList.add("product__button__sell");
+        productButtonSection.appendChild(buyNowButton);
+
+        let buyNowLink = document.createElement("a");
+        buyNowLink.href = "/TAA_FE/src/homepage/cartPage/index.html";
+        buyNowLink.textContent = "Mua ngay";
+        buyNowButton.appendChild(buyNowLink);
+
+        // Append the product item to the desired container/element
+        let container = document.querySelector(".container");
+        container.appendChild(productItem);
+      }
+    </script>
+    <script>
+      fetch("http://localhost:3000/products", {
+        // mode: "no-cors",
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          data?.result.forEach((item) => {
+            const li = document.createElement("li");
+            const img = document.createElement("img");
+            img.src = `${item.prod_img_url}`
+            li.innerHTML = `Name: ${item.prod_name}<br>Discount: ${item.prod_discount}%`;
+
+            document.querySelector("ul.content").appendChild(li);
+            document.querySelector("ul.content").appendChild(img)
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer></script>
+  </body>
+</html>
