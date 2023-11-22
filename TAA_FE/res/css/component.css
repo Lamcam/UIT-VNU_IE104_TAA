@@ -35,6 +35,7 @@
     padding: 0 24px;
 
     & span {
+      text-wrap: nowrap;
       margin: auto;
     }
   }
@@ -133,7 +134,7 @@ span.btn-checkbox {
   & input {
     display: none;
 
-    & + label {
+    &+label {
       display: inline-flex;
 
       & .--unchecked {
@@ -145,17 +146,17 @@ span.btn-checkbox {
       }
     }
 
-    &:is(:checked, :indeterminate) + label {
+    &:is(:checked, :indeterminate)+label {
       & span {
         display: none;
       }
     }
 
-    &:checked + label .--checked {
+    &:checked+label .--checked {
       display: flex;
     }
 
-    &:indeterminate + label .--indeterminate {
+    &:indeterminate+label .--indeterminate {
       display: flex;
     }
   }
@@ -182,6 +183,7 @@ hr {
 
   & input {
     border: 0;
+    width: 100%;
 
     &:focus {
       outline: none;
@@ -225,9 +227,8 @@ hr {
     display: none;
   }
 
-  box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.3),
-    0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.30),
+  0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   /* max-height: fit-content; */
 }
 
@@ -247,13 +248,19 @@ hr {
 
 .product__item:hover .product__image .img_font {
   opacity: 0;
+
 }
 
-.icon_heart {
+.icon_heart,
+.icon_favorite {
   cursor: pointer;
 }
 
-.product__button__section {
+.icon_favorite {
+  display: none;
+}
+
+.product__item .product__button__section {
   display: flex;
   align-items: center;
   background-color: #cfc1c1;
@@ -261,19 +268,19 @@ hr {
   height: 35px;
   justify-content: space-around;
   border-radius: 0px 0px 8px 8px;
-  background: var(--m-3-sys-light-primary, #785b5b);
+  background: var(--m-3-sys-light-primary, #785B5B);
   cursor: pointer;
   display: none;
 }
 
-.vertical {
+.product__item .vertical {
   width: 1px;
   height: 24px;
   background-color: #fff;
 }
 
 .product__button__view,
-.product__button__sell {
+.product__item .product__button__sell {
   color: #fff !important;
   display: block;
   border-radius: 0;
@@ -285,7 +292,7 @@ hr {
   cursor: pointer;
 }
 
-.product__button__sell a {
+.product__button__sell .link-sell {
   color: #fff;
   text-decoration: none;
 }
@@ -307,11 +314,13 @@ hr {
 
 .product__price__discount {
   text-decoration: line-through;
+
 }
 
 .product__discount {
   font-weight: bold;
   margin-bottom: 16px;
+
 }
 
 .product__stock {
@@ -577,7 +586,7 @@ hr {
   font-size: 16px;
   text-align: center;
   border-radius: 8px;
-  border: 1px solid #785b5b;
+  border: 1px solid #785B5B;
 }
 
 .popup__otp .profile__btn {
