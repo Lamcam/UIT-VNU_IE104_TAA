@@ -1,9 +1,7 @@
 <div id="modal--change-password" class="modal">
   <div class="modal__content on-primary">
-    <button class="modal__btn--close btn-icon" onclick="closeModal()">
-      <div class="status-layer">
-        <span class="icon material-symbols-outlined">close</span>
-      </div>
+    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+      <span class="status-layer icon material-symbols-outlined">close</span>
     </button>
     <h1 class="modal__title headline-large">Đổi mật khẩu</h1>
     <form action="" method="">
@@ -19,9 +17,8 @@
 
         <div class="form__row mt-12">
           <div class="row">
-            <label class="col-4 label-large re-type-password" for="password"
-              >Mật khẩu mới:</label
-            >
+            <label class="col-4 label-large re-type-password" for="password">Mật
+              khẩu mới:</label>
             <div class="col-8 input__wrapper">
               <input type="password" placeholder="********" id="password" />
             </div>
@@ -30,9 +27,8 @@
 
         <div class="form__row mt-12">
           <div class="row">
-            <label class="col-4 label-large re-type-password" for="password"
-              >Nhập lại mật khẩu mới:</label
-            >
+            <label class="col-4 label-large re-type-password"
+              for="password">Nhập lại mật khẩu mới:</label>
             <div class="col-8 input__wrapper">
               <input type="password" placeholder="********" id="password" />
             </div>
@@ -40,14 +36,9 @@
         </div>
       </div>
       <div class="btn__wrapper row mt-12 change-password-accept">
-        <button
-          class="btn--filled label-large col-6 changepass-list__btn--add"
-          type="button"
-          onclick="closeModal(), openModal('#modal--noti')"
-        >
-          <div class="status-layer">
-            <span>Xác nhận</span>
-          </div>
+        <button class="btn--filled label-large col-6 changepass-list__btn--add"
+          type="button" onclick="modalCtl.nextModal('#modal--noti')">
+          <span class="status-layer">Xác nhận</span>
         </button>
       </div>
     </form>
