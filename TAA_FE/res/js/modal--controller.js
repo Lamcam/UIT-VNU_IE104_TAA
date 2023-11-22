@@ -1,13 +1,22 @@
-window.addEventListener("load", () => {
-  const openModalBtns = document.querySelectorAll("[data-modal-target]");
-  // console.log("modal btns: ", openModalBtns);
+const openModal = (sltById) => {
+  const modalSelector = document.querySelector(sltById);
+  modalSelector.classList.add("active");
+}
 
-  openModalBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const modalId = btn.dataset.modalTarget;
-      // console.log(modalId);
-      const modal = document.querySelector(modalId);
-      modal && modal.classList.add("active");
-    });
-  });
-});
+const closeModal = () => {
+  const modals = document.querySelectorAll(".modal");
+  modals.forEach(modal => modal.classList.remove("active"))
+}
+
+const nextModal = (sltById) => {
+  closeModal();
+  openModal(sltById);
+}
+
+const modalCtl = {
+  openModal,
+  closeModal,
+  nextModal
+}
+
+export default modalCtl;
