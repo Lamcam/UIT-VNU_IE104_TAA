@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đánh giá sản phẩm</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .review__container {
+        width: 736px;
+        height: 810px;
+        padding: 60px;
+        background-color: #f1efe7;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .review__title {
+        color: black;
+        font-size: 32px;
+        font-weight: 400;
+        line-height: 40px;
+      }
+
+      .review__input {
+        width: 592px;
+        height: 273px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="review review__container">
+      <h1 class="review__title">Đánh giá sản phẩm</h1>
+      <div class="review__product row">
+        <img src="" alt="" class="col-2 review__img" />
+        <div class="col-10 review__wrapper">
+          <h2>Tên sản phẩm</h2>
+          <p>Phân loại hàng: Blue, S</p>
+          <div class="product-quality">
+            <span>Chat luong san pham:</span>
+            <span></span>
+            <span>Tuyệt vời</span>
+          </div>
+
+          <div class="delivery-service">
+            <span>Dich vu van chuyen:</span>
+            <span>1</span>
+            <span>Binh thuong</span>
+          </div>
+        </div>
+      </div>
+      <div class="input__wrapper">
+        <div class="input__text">
+          <h2>Chất lượng sản phẩm:</h2>
+          <input
+            type="text"
+            class="review__input"
+            placeholder="Để lại đánh giá"
+          />
+        </div>
+        <p>Đánh giá của bạn là động lực để TAA ngày càng hoàn thiện hơn!</p>
+      </div>
+
+      <div class="form-check">
+        <span>Dấu tích</span>
+        <h1>Hiển thị tên tài khoản trên đánh giá này</h1>
+        <p>Tên tài khoản sẽ được hiển thị như: NguyenVanA</p>
+      </div>
+
+      <div class="button__wrapper">
+        <button class="btn--outlined" type="button">
+          <div class="status-layer label-large">
+            <span class="label-large">Đăng nhập</span>
+          </div>
+        </button>
+        <button class="btn--filled" type="button">
+          <div class="status-layer label-large">
+            <span class="label-large">Đăng ký</span>
+          </div>
+        </button>
+      </div>
+    </div>
+    /div>
+  </body>
+</html>

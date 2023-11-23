@@ -38,6 +38,7 @@ function showSection(sectionId) {
   const selectedSection = document.getElementById(sectionId);
   if (selectedSection) {
     selectedSection.classList.remove("hidden");
+    
   }
 }
 
@@ -181,8 +182,8 @@ const addLocation = () => {
       </div>
     </div>
   </div>`;
-  $(".location-list").prepend(locationItem);
-};
+    $(".location-list").prepend(locationItem);
+  };
 
 const delLocation = () => {
   $(".location-list")[0].children[0].remove();
@@ -195,6 +196,20 @@ reBuyBtns.forEach((click) => {
   click.addEventListener("click", () => {
     window.location.href = "/TAA_FE/src/homepage/cartPage/index.html";
   });
+
+  function slideImage() {
+    const displayWidth = document.querySelector(
+      ".img-showcase img:first-child"
+    ).clientWidth;
+
+    document.querySelector(".img-showcase").style.transform = `translateX(${
+      -(imgId - 1) * displayWidth
+    }px)`;
+  }
+
+  window.addEventListener("resize", slideImage);
+
+  //
 });
 //review
 
