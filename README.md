@@ -1,75 +1,74 @@
 # UIT-VNU_IE104_TAA
 
-Đây là đồ án cuối kỳ môn IE104 - Internet và công nghệ Web của nhóm sinh viên của trường Đại học Công nghệ Thông tin - ĐHQG
+## Giới Thiệu Tổng Quan
 
-# Guild Code
+**UIT-VNU_IE104_TAA** là đồ án cuối kỳ môn IE104 - Internet và công nghệ Web của nhóm sinh viên của trường Đại học Công nghệ Thông tin - ĐHQG. Đồ án này được thực hiện bởi nhóm 3, lớp IE104.O11 dưới sự hướng dẫn của Th.S Võ Tấn Khoa.
 
-```HTML
-index.html
+## Thành Viên Nhóm
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="author" content="IE104.O12_Group3">
-  <meta name="description" content="Trang web TAA là một nền tảng thương mại
-    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
-    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
-  <title>TAA - **Tiêu đề trang**</title>
-</head>
-<body>
-  <div id="main" class="on-primary">
-    <div id="header"></div>
-    <div id="nav-tree"></div>
+Các thành viên trong nhóm bao gồm:
 
-    <main>
-      <section class="mt-12"> <!-- Dành cho việc chia cột nội dung-->
-        <div class="container row">
-          <aside class="col-3"></aside>
-          <section class="col-8">
-            <h1 class="section__title"></h1>
-            <div class="section__content"></div>
-          </section>
-        </div>
-      </section>
+| STT | Tên                    | Mã Số Sinh Viên | Vai Trò        |
+|-----|------------------------|------------------|----------------|
+| 1   | Lâm Thị Hồng Cẩm       | 21520009         | Trưởng nhóm    |
+| 2   | Đặng Quỳnh Như        | 21520081         | Thành Viên     |
+| 3   | Bùi Yến Giàu           | 21520796         | Thành Viên     |
+| 4   | Lê Trung Hiếu          | 21520850         | Thành Viên     |
+| 5   | Trịnh Hoài Nam         | 21521167         | Thành Viên     |
+| 6   | Huỳnh An Nghiệp        | 21522377         | Thành Viên     |
+| 7   | Bùi Xuân Nhi           | 21522422         | Thành Viên     |
 
 
-      <section class="mt-12"> <!-- Giới hạn lại độ rộng của nội dung -->
-        <div class="container">
-          <h1 class="section__title"></h1>
-          <div class="section__content"></div>
-        </div>
-      </section>
 
+## Cài Đặt
 
-      <section class="mt-12"> <!-- Không giới hạn nội dung -->
-        <h1 class="section__title"></h1>
-        <div class="section__content"></div>
-      </section>
+### Yêu Cầu Hệ Thống
 
-      <section class="full-width mt-12"> <!-- Không giới hạn nội dung và có ảnh tràn màn hình -->
-        <img src="...">
-      </section>
-    </main>
+- Cài đặt [NodeJS](https://nodejs.org/) phiên bản 14.17.0 trở lên.
+<!-- - Sử dụng [Visual Studio Code](https://code.visualstudio.com/). -->
+<!-- - Sử dụng Extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) để chạy ứng dụng. -->
 
-    <!-- <footer></footer> -->
-    <div id="footer"></div>
+### Hướng Dẫn Cài Đặt
 
-    <!-- Modal -->
-    <div id="modal"></div>
-  </div>
-  <script>
-    $(document).ready(function () {
-      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/src/partials/footer.html');
-    });
-  </script>
-</body>
-</html>
+1. **Bước 1:** Clone repo về máy tính của bạn bằng cách sử dụng git command line hoặc download zip file.
+
+    ```bash
+    git clone https://github.com/Lamcam/UIT-VNU_IE104_TAA.git
+    ```
+
+2. **Bước 2:** Di chuyển vào thư mục dự án.
+
+    ```bash
+    cd UIT-VNU_IE104_TAA
+    ```
+
+3. **Bước 3:** Cài đặt các dependencies.
+
+    ```bash
+    npm install
+    ```
+
+4. **Bước 4:** Khởi chạy ứng dụng.
+
+    ```bash
+    npm start
+    ```
+
+Lưu ý: Bạn có thể thay đổi các bước cài đặt tùy thuộc vào môi trường và ngôn ngữ lập trình của dự án.
+
+## Cấu Trúc Thư Mục
+
+```bash
+├───TAA_BE                             # Thư mục chứa source code backend
+└───TAA_FE                             # Thư mục chứa source code frontend
+    ├───docs                           # Thư mục chứa tài liệu
+    ├───public                         # Thư mục chứa các file tĩnh
+    │   ├───imgs
+    │   ├───scripts
+    │   ├───fonts
+    │   └───styles
+    └───views                         # Thư mục chứa các file html
+        ├───components
+        ├───homepage
+        └───partials
 ```
