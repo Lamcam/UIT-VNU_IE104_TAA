@@ -1,16 +1,16 @@
-const express  = require('express');
-const models = require('../models')
-const db = require('../config/db');
-const { error } = require('jquery');
-const bodyParser = require("body-parser");
-const sanitizeHtml = require('sanitize-html');
-const md5 = require("md5");
-const { use } = require("passport");
+// const express  = require('express');
+// const models = require('../models')
+// const db = require('../config/db');
+// const { error } = require('jquery');
+// const bodyParser = require("body-parser");
+// const sanitizeHtml = require('sanitize-html');
+// const md5 = require("md5");
+// const { use } = require("passport");
 
-const app = express();
+// const app = express();
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
 
 function unAuth() {}
 
