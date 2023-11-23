@@ -1,0 +1,24 @@
+<div id="modal--forgot-by-phone" class="modal">
+  <div class="modal__content on-primary">
+    <button class="modal__btn--back btn-icon" onclick="modalCtl.nextModal('#modal--forgot-method')">
+      <span class="status-layer icon material-symbols-outlined">back</span>
+    </button>
+    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+      <span class="status-layer icon material-symbols-outlined">close</span>
+    </button>
+    <h1 class="modal__title headline-large">Quên mật khẩu</h1>
+    <form action="/forgotPhone" method="POST">
+      <div class="form__row mt-24">
+        <div class="row">
+          <label class="col-4 label-large" for="f_forgot_phone">
+            Số điện thoại:</label>
+          <input class="col-8" type="text" name="phone" id="f_forgot_phone"
+            required>
+        </div>
+      </div>
+      <button class="btn--filled label-large full-width mt-12" type="submit">
+        <span class="status-layer">Đăng nhập</span>
+      </button>
+    </form>
+  </div>
+</div>
