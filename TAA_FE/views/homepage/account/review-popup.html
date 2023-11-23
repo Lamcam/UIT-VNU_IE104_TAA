@@ -1,0 +1,114 @@
+<div class="modal" id="modal--add-review">
+  <div class="modal-review">
+    <button class="modal__btn--close btn-icon" onclick="closeModal()">
+      <div class="status-layer">
+        <span class="icon material-symbols-outlined">close</span>
+      </div>
+    </button>
+    <div class="modal__title">Đánh giá sản phẩm</div>
+    <div class="modal__product">
+      <img src="/TAA_FE/res/imgs/prod0001.png" alt="" id="image-review" />
+      <div class="modal__product--cover">
+        <span>Tên sản phẩm</span>
+        <span>Phân loại hàng: Blue, S</span>
+      </div>
+    </div>
+    <div class="modal__quality">
+      <span class="mt-8">Chất lượng sản phẩm</span>
+      <div id="rating">
+        <span class="material-symbols-outlined star-icon"> star </span>
+        <span class="material-symbols-outlined star-icon"> star </span>
+        <span class="material-symbols-outlined star-icon"> star </span>
+        <span class="material-symbols-outlined star-icon"> star </span>
+        <span class="material-symbols-outlined star-icon"> star </span>
+        <div class="review-start">
+          <span>Tệ</span>
+          <span>Tốt</span>
+        </div>
+      </div>
+      <span class="mt-8">Tuyệt vời</span>
+    </div>
+
+    <div class="modal__service">
+      <span class="mt-8">Dịch vụ vận chuyển</span>
+      <div id="rating">
+        <span class="material-symbols-outlined star-icon-service"> star </span>
+        <span class="material-symbols-outlined star-icon-service"> star </span>
+        <span class="material-symbols-outlined star-icon-service"> star </span>
+        <span class="material-symbols-outlined star-icon-service"> star </span>
+        <span class="material-symbols-outlined star-icon-service"> star </span>
+        <div class="review-start">
+          <span>Tệ</span>
+          <span>Tốt</span>
+        </div>
+      </div>
+      <span class="mt-8">Tuyệt vời</span>
+    </div>
+
+    <div class="modal__form-review visible">
+      <div class="modal__form-review-border">
+        <label for="form__review">Chất lượng sản phẩm:</label>
+        <textarea
+          id="form__review"
+          placeholder="Để lại đánh giá"
+          class="modal__form-review-textarea mt-12"
+        ></textarea>
+      </div>
+      <div class="energy-review">
+        Đánh giá của bạn là động lực để TAA ngày càng hoàn thiện hơn
+      </div>
+    </div>
+
+    <div class="modal__checkbox-form">
+      <input type="checkbox" id="checkbox1" />
+      <div>
+        <label class="modal__view-name-account" for="checkbox1"
+          >Hiển thị tên tài khoản trên đánh giá này</label
+        >
+        <span class="modal__check-name-account"
+          >Tên tài khoản sẽ được hiển thị như: Nguyễn Văn A</span
+        >
+      </div>
+    </div>
+    <div class="btn__wrapper row mt-12">
+      <button
+        class="btn--outlined label-large col-6"
+        type="button"
+        onclick="closeModal()"
+      >
+        <div class="status-layer">
+          <span>Trở lại</span>
+        </div>
+      </button>
+      <button
+        class="btn--filled label-large col-6 review-list__btn--del done-btn"
+        type="button"
+        data-modal-target="#modal--noti"
+        onclick="closeModal(), openModal('#modal--noti')"
+      >
+        <div class="status-layer">
+          <span>Hoàn thành</span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupStarRating(starSelector) {
+    var stars = document.querySelectorAll(starSelector);
+
+    stars.forEach((item, index1) => {
+      item.addEventListener("click", () => {
+        stars.forEach((star, index2) => {
+          index1 >= index2
+            ? star.classList.add("active")
+            : star.classList.remove("active");
+        });
+      });
+    });
+  }
+
+  setupStarRating(".star-icon");
+  setupStarRating(".star-icon-service");
+</script>
