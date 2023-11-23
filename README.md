@@ -8,10 +8,10 @@
 
 Các thành viên trong nhóm bao gồm:
 
-| STT | Tên                    | Mã Số Sinh Viên | Vai Trò        |
+| STT | Tên                    | Mã Số Sinh Viên | Vai Trò         |
 |-----|------------------------|------------------|----------------|
 | 1   | Lâm Thị Hồng Cẩm       | 21520009         | Trưởng nhóm    |
-| 2   | Đặng Quỳnh Như        | 21520081         | Thành Viên     |
+| 2   | Đặng Quỳnh Như         | 21520081         | Thành Viên     |
 | 3   | Bùi Yến Giàu           | 21520796         | Thành Viên     |
 | 4   | Lê Trung Hiếu          | 21520850         | Thành Viên     |
 | 5   | Trịnh Hoài Nam         | 21521167         | Thành Viên     |
