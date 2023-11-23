@@ -5,13 +5,14 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <link rel="stylesheet" href="../../../res/css/theme.css">
-        <link rel="stylesheet" href="../../base.css">
-        <link rel="stylesheet" href="policy.css">
+        <link rel="stylesheet" href="/TAA_FE/public/styles/themes/theme.dark.css">
+        <link rel="stylesheet" href="/TAA_FE/public/styles/themes/theme.light.css">
+        <link rel="stylesheet" href="/TAA_FE/views/base.css">
+        <link rel="stylesheet" href="/TAA_FE/views/homepage/policy/policy.css">
         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
         crossorigin="anonymous"></script>
-        <script src="/TAA_FE/res/js/main.js"></script>
-        <title>Chính sách</title>
+        <script src="/TAA_FE/public/scripts/main.js"></script>
+        <title>TAA - Chính sách</title>
 
     </head>
     <body>
@@ -24,7 +25,7 @@
                     <div class="container">
         <div class="policy--container">
             <h1 class="title1 display-large">CHÍNH SÁCH BẢO HÀNH</h1>
-            <h2 class="text body-large">
+            <div class="text body-large">
                 <ol class="object-list">
                     <li class="sub-title headline-small">Đối tượng & thời gian áp dụng</li>
                     <ul>
@@ -40,9 +41,9 @@
                         <li class="body-large">Sản phẩm đã quá hạn bảo hành.</li>
                     </ul>
                 </ol>
-            </h2>
+            </div>
             <h1 class="title2 display-large">CHÍNH SÁCH ĐỔI TRẢ</h1>
-            <h2 class="text body-large">
+            <div class="text body-large">
                 <ol class="object-list">
                     <li class="sub-title headline-small">Điều kiện đổi hàng</li>
                     <ul class="sub-content body-large">
@@ -76,11 +77,11 @@
                         <li class="body-large">TAA Shop có quyền quyết định dừng việc hỗ trợ trả lại tiền cho khách hàng nếu phát hiện khách hàng sử dụng chính sách để trục lợi. Mọi thắc mắc về Chính sách đổi hàng, khách hàng vui lòng gọi đến Đường dây tiếp nhận phản hồi 1900 63 3028 để được bộ phận bán hàng hướng dẫn và giải quyết.</li>
                     </ul>
                 </ol>
-            </h2>
+            </div>
         </div>
     </div> 
     </section>
-    <img class="picture3" src="../../../Public/poster.png" alt="Định hướng">
+    <img class="picture3" src="/TAA_FE/public/imgs/banners/poster.png" alt="Định hướng">
 </main>
 
 <!-- <footer></footer> -->
@@ -91,9 +92,9 @@
 </div>
 <script>
 $(document).ready(function () {
-    $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-    $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-    $('#footer').load('/TAA_FE/src/partials/footer.html');
+    $('#header').load('/TAA_FE/views/partials/header--unauth.html');
+    $('#nav-tree').load('/TAA_FE/views/partials/nav-tree.html');
+    $('#footer').load('/TAA_FE/views/partials/footer.html');
 });
 </script>
     </body>
