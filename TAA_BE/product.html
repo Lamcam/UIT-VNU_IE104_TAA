@@ -6,8 +6,19 @@
     <title>Document</title>
   </head>
   <body>
-    Content
-    <ul class="content"></ul>
+    
+    <section class="mt-12">
+      <!-- Giới hạn lại độ rộng của nội dung -->
+      <div class="container">
+        
+      </div>
+    </section>
+
+
+
+
+
+
     <script>
       function createProduct(item) {
         
@@ -22,14 +33,14 @@
 
         // Create the front image element
         let frontImage = document.createElement("img");
-        frontImage.src = `${item.prod_img_url}`;
+        // frontImage.src = `${item.prod_img_url}`;
         frontImage.alt = "Kẹp tóc";
         frontImage.classList.add("img_back");
         productImage.appendChild(frontImage);
 
         // Create the back image element
         let backImage = document.createElement("img");
-        backImage.src = "../../../public/red-panda-small.jpg";
+        // backImage.src = "../../../public/red-panda-small.jpg";
         backImage.alt = "Kẹp tóc";
         backImage.classList.add("img_font");
         productImage.appendChild(backImage);
@@ -132,28 +143,25 @@
         let container = document.querySelector(".container");
         container.appendChild(productItem);
       }
-    </script>
-    <script>
-      fetch("http://localhost:3000/products", {
-        // mode: "no-cors",
-      })
+
+      fetch("http://localhost:3000/products")
         .then((response) => response.json())
         .then((data) => {
-          data?.result.forEach((item) => {
-            const li = document.createElement("li");
-            const img = document.createElement("img");
-            img.src = `${item.prod_img_url}`
-            li.innerHTML = `Name: ${item.prod_name}<br>Discount: ${item.prod_discount}%`;
-
-            document.querySelector("ul.content").appendChild(li);
-            document.querySelector("ul.content").appendChild(img)
-          });
+          data?.result.forEach((item)=>{
+            createProduct(item);
+          })
         })
         .catch((error) => {
           console.log(error);
         });
+
+     
     </script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script defer></script>
+    <script>
+       
+
+    </script>
   </body>
 </html>

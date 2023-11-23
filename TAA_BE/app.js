@@ -70,17 +70,18 @@ app.get("/getAll", async (req, res) => {
 //   }
 // })
 app.get('/products', controllers.product.queryProduct);
-app.post('/login', controllers.auth.loginPost)
+app.post('/login', controllers.auth.loginPost);
+app.post('/register',controllers.unath.registerPost);
 
-app.post("/register", async (req,res)=>{
+// app.post("/register", async (req,res)=>{
 
-  const fName = sanitizeHtml(req.body.f_reg_name);
-  const phone = sanitizeHtml(req.body.f_reg_phone);
-  const email = sanitizeHtml(req.body.f_reg_email);
-  const password = md5(sanitizeHtml(req.body.f_reg_pass));
-  // const confirmPass = md5(sanitizeHtml(req.body.f_reg_pass_confirm));
-  // query
-})
+//   const fName = sanitizeHtml(req.body.f_reg_name);
+//   const phone = sanitizeHtml(req.body.f_reg_phone);
+//   const email = sanitizeHtml(req.body.f_reg_email);
+//   const password = md5(sanitizeHtml(req.body.f_reg_pass));
+//   // const confirmPass = md5(sanitizeHtml(req.body.f_reg_pass_confirm));
+//   // query
+// })
 
 //mySQL
 
