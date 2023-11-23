@@ -10,19 +10,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/TAA_FE/src/base.css">
   <link rel="stylesheet" href="./style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
-    crossorigin="anonymous"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
   <title>TAA - Hướng dẫn mua hàng</title>
 </head>
 <body>
   <div id="main" class="on-primary">
     <div id="header"></div>
-    <div id="nav-tree"></div>
+    <div id="breadcrumbs"></div>
 
     <main>
-      <section class="mt-48"> <!-- Giới hạn lại độ rộng của nội dung -->
+      <section class="mt-48">
         <div class="container">
           <h1 class="section__title display-large">HƯỚNG DẪN MUA HÀNG <br>TRÊN
             WEBSITE</h1>
@@ -37,12 +33,8 @@
                 <span class="search-bar">
                   <input class="label-large" type="text" placeholder="Tìm kiếm">
                   <button class="btn-icon btn--filled">
-                    <span>
-                    <div class="">
-                      <span class="icon material-symbols-outlined">
-                        search</span>
-                    </div>
-                  </span>
+                    <span class="status-layer icon material-symbols-outlined">
+                      search</span>
                   </button>
                 </span> phía trên cùng webiste.
               </li>
@@ -52,29 +44,28 @@
               khách nhấn chọn vào sản phẩm để xem hàng. Tại đây, khách hàng
               chọn Màu sắc, Kích cỡ và Số lượng sản phẩm muốn mua và chọn
               mua sản phẩm bằng cách bấm chuột vào nút
-              <button class="btn--filled" type="button">
-                <span>
-                <div class="status-layer label-large">
-                  <span class="label-large">Mua hàng</span>
-                </div>
-              </span>
+              <button class="btn--filled">
+                <span class="status-layer label-large">Mua hàng</span>
               </button>.
             </p>
-            <p>Nếu quý khách lựa chọn thêm vào yêu thích tại biểu tượng "Yêu thích" phía góc trên bên phải của trang, từ trang Sản phẩm yêu thích, khách hàng lựa chọn sản phẩm muốn mua,
-              giao diện sẽ được điều hướng đến trang chi tiết sản phẩm, sau đó khách hàng thực hiện mua hàng theo cách trên.</p>
-            <p>Ngoài ra, nếu quý khách lựa chọn 
-               <button class="button__cart">
-                  <span class="material-symbols-outlined">
-                    add_shopping_cart
+            <p>Nếu quý khách lựa chọn thêm vào yêu thích tại biểu tượng "Yêu
+              thích" phía góc trên bên phải của trang, từ trang Sản phẩm yêu
+              thích, khách hàng lựa chọn sản phẩm muốn mua,
+              giao diện sẽ được điều hướng đến trang chi tiết sản phẩm, sau đó
+              khách hàng thực hiện mua hàng theo cách trên.</p>
+            <p>Ngoài ra, nếu quý khách lựa chọn
+              <!-- <button class="btn-icon-label button__cart"> -->
+              <button class="btn--filled-con btn-icon-label">
+                <span class="status-layer">
+                  <span class="icon material-symbols-outlined">add_shopping_cart
                   </span>
-                  Thêm vào giỏ hàng
-                </button> , từ trang Giỏ hàng, khách hàng lựa chọn sản phẩm muốn mua nếu các thông số như Màu sắc, Kích cỡ và Số lượng sản phẩm đã phù hợp với nhu cầu của khách hàng, khách hàng thực hiện bấm chọn
-              <button class="btn--filled" type="button">
-                <span>
-                <div class="status-layer label-large">
-                  <span class="label-large">Tiến hành đặt hàng</span>
-                </div>
-              </span>
+                  <span class='label'>Thêm vào giỏ hàng</span>
+                </span>
+              </button> , từ trang Giỏ hàng, khách hàng lựa chọn sản phẩm muốn
+              mua nếu các thông số như Màu sắc, Kích cỡ và Số lượng sản phẩm đã
+              phù hợp với nhu cầu của khách hàng, khách hàng thực hiện bấm chọn
+              <button class="btn--filled">
+                <span class="status-layer">Tiến hành đặt hàng</span>
               </button>.
             </p>
             <h2 class="section__title headline-large">TIẾN HÀNH ĐẶT HÀNG VÀ
@@ -120,13 +111,8 @@
     <!-- Modal -->
     <div id="modal"></div>
   </div>
-  <!-- <script>
-    $(document).ready(function () {
-      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/src/partials/footer.html');
-    });
-  </script> -->
-  <script src="/TAA_FE/res/js/modal--controller.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="/TAA_FE/res/js/main.js"></script>
+  <script src="./main.js"></script>
 </body>
 </html>
