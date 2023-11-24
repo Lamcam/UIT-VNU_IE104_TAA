@@ -1,19 +1,19 @@
-<% if (!data.isStocked) { %>
+<% if (data.prod_num_avai > 0) { %>
 <div class="product__item col-12 col-md-6 col-lg-4">
   <div class="product__image">
-    <img src="/imgs/products/<%= data.imgFrontImg ?? 'product2.jpg' %>" alt="Hình trước" class="img_font">
-    <img src="/imgs/products/<%= data.imgBackImg ?? 'product1.jpg' %>" alt="Hình sau" class="img_back">
+    <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
+    <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
   </div>
   <div class="product__body">
     <span class="material-symbols-outlined icon_heart error-text">
       heart_plus
     </span>
-    <h3 class="product__name body-large"><%- data.name ?? 'Kẹp tóc' %></h3>
+    <h3 class="product__name body-large"><%- data.prod_name %></h3>
     <div class="product__price label-large">
-      <p class="product__price__current"><%- data.current ?? '35,000' %> đ</p>
-      <p class="product__price__discount outline-variant-text"><%- data.discount ?? '70,000' %> đ</p>
+      <p class="product__price__current"><%- data.prod_cost * (1 - data.prod_discount)%> đ</p>
+      <p class="product__price__discount outline-variant-text"><%- data.prod_cost %> đ</p>
     </div>
-    <p class="product__discount title-medium error-text">Giảm 50%</p>
+    <p class="product__discount title-medium error-text">Giảm <%- data.prod_discount * 100 %>%</p>
     <p class="product__stock label-large primary-text">Còn hàng</p>
   </div>
   <div class="product__button__section label-large">
@@ -27,20 +27,19 @@
 <% } else { %>
 <div class="product__outstock col-12 col-md-6 col-lg-4">
   <div class="product__image">
-    <img src="/imgs/products/<%= data.imgFrontImg ?? 'product2.jpg' %>" alt="Hình trước" class="img_font">
-    <img src="/imgs/products/<%= data.imgBackImg ?? 'product1.jpg' %>" alt="Hình sau" class="img_back">
+    <img src="/imgs/products/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
+    <img src="/imgs/products/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
   </div>
   <div class="product__body">
-
     <span class="material-symbols-outlined icon_heart error-text">
       heart_plus
     </span>
-    <h3 class="product__name body-large"><%- data.name ?? 'Kẹp tóc' %></h3>
+    <h3 class="product__name body-large"><%- data.prod_name %></h3>
     <div class="product__price label-large">
-      <p class="product__price__current"><%- data.current ?? '35,000' %> đ</p>
-      <p class="product__price__discount outline-variant-text"><%- data.discount ?? '70,000' %> đ</p>
+      <p class="product__price__current"><%- data.prod_cost * (1 - data.prod_discount)%> đ</p>
+      <p class="product__price__discount outline-variant-text"><%- data.prod_cost %> đ</p>
     </div>
-    <p class="product__discount title-medium error-text">Giảm 50%</p>
+    <p class="product__discount title-medium error-text">Giảm <%- data.prod_discount %>%</p>
     <p class="product__stock label-large primary-text">Hết hàng</p>
   </div>
 </div>
