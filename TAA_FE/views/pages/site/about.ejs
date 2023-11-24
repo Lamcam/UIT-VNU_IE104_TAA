@@ -15,7 +15,7 @@
 
 <body>
   <div id="main" class="on-primary">
-    <%- include('../../partials/header') %>
+    <%- include('../../partials/header', { activeIdx: 3 }) %>
     <div id="breadcrumbs"></div>
     <main>
       <div class="about__content container">
@@ -87,13 +87,13 @@
       <div class="mt-48">
         <img class="picture3" src="/imgs/banners/poster.png" alt="Định hướng">
       </div>
-      <!-- <div class="mt-32"></div> -->
-
     </main>
     
     <%- include('../../partials/footer') %>
   </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
+  
 </body>
 
 </html>

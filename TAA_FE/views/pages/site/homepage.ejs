@@ -15,7 +15,7 @@
 
 <body>
   <div id="main" class="on-primary">
-    <%- include('../../partials/header') %>
+    <%- include('../../partials/header', { activeIdx: 0 }) %>
     <main>
       <section id="discover-section" class='full-width'>
         <div class="section__content slider">
@@ -143,7 +143,7 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src="/scripts/modules/main.js"></script>
-  <script src="/scripts/pages/homepage.js"></script>
+  <script src="/scripts/pages/site/homepage.js"></script>
 </body>
 
 </html>
