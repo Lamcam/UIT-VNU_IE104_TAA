@@ -24,9 +24,10 @@ app.use(cors({ origin: URL_PATH }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Serve static files from the "public" and "views" directories
+// Serve static files from the "public" directories
 app.use(express.static(__publicDir));
-// app.use('/views', express.static(__viewsDir));
+
+// Set views engine and views directory
 app.set('views', __viewsDir);
 app.set('view engine', 'ejs');
 
