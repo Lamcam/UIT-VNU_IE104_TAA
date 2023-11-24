@@ -9,13 +9,13 @@
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles/pages/base.css">
-  <link rel="stylesheet" href="/styles/pages/homepage.css">
+  <link rel="stylesheet" href="/styles/pages/site/homepage.css">
   <title>TAA - Trang chủ</title>
 </head>
 
 <body>
   <div id="main" class="on-primary">
-    <%- include('../partials/header') %>
+    <%- include('../../partials/header') %>
     <main>
       <section id="discover-section" class='full-width'>
         <div class="section__content slider">
@@ -52,7 +52,7 @@
               <p class="endow__context">Dành riêng cho gói hội viên của TAA
               </p>
               <div>
-                <%- include('../components/button', {
+                <%- include('../../components/button', {
                   type: '',
                   options: 'btn--filled',
                   classList: '',
@@ -70,7 +70,7 @@
               </h2>
               <p class="endow__context">Mã giảm trao tay mua ngay kẻo hết</p>
               <div>
-                <%- include('../components/button', {
+                <%- include('../../components/button', {
                   type: '',
                   options: 'btn--filled',
                   classList: '',
@@ -139,7 +139,7 @@
     </main>
 
     <div class="mt-36"></div>
-    <%- include('../partials/footer') %>
+    <%- include('../../partials/footer') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src="/scripts/modules/main.js"></script>
