@@ -1,8 +1,8 @@
 export const handleLoginSubmit = () => {
-  const submitBtn = $('#modal--login [type="submit"]');
-  console.log(submitBtn);
+  const submitBtn = $('#modal--login .modal__btn--submit');
+  // console.log(submitBtn);
   if (submitBtn.length == 0) {
-    alert('Don\'t have this button', '#modal--login [type="submit"]');
+    alert('Don\'t have this button', '#modal--login .modal__btn--submit');
   } else {
     submitBtn.on('click', (e) => {
       e.preventDefault();
@@ -17,18 +17,18 @@ export const handleLoginSubmit = () => {
           pass
         }
 
-        fetch('/api/auth/login', {
+        fetch('/auth/loginPost', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(data),
-          redirect: 'follow'
+          // redirect: 'follow'
         }).then(res => res.json())
           .then(res => {
             if (res.statusCode == 200) {
               alert('Login success');
-              window.location.href = '/';
+              window.location.href = '#';
             } else {
               alert('Login fail');
             }

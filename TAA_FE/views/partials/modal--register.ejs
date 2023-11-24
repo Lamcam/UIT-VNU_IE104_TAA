@@ -64,11 +64,18 @@
             tin của TAA</span>
         </div>
       </div>
-      <button class="btn--filled label-large full-width mt-12" type="submit">
+      <%- include('../components/button', {
+        type: '',
+        options: 'btn--filled full-width mt-12',
+        classList: 'modal__btn--submit mt-12',
+        label: 'Đăng ký',
+        onclick: '',
+      }) %>
+      <!-- <button class="btn--filled label-large full-width mt-12" type="submit">
         <div class="status-layer">
           <span>Đăng ký</span>
         </div>
-      </button>
+      </button> -->
     </form>
     <div class="form__row mt-12">
       <%- include('../components/button', {
