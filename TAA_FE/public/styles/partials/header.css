@@ -41,3 +41,21 @@ header {
     }
   }
 }
+
+@media (max-width: 48rem) {
+  header {
+    & .header__top {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    & .header__wrapper {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    & .header__search {
+      margin: 0;
+    }
+  }
+}
