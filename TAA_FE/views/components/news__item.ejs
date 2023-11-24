@@ -1,0 +1,9 @@
+<article class="news__item col-12 col-lg-6 visible">
+  <div class="row">
+    <img class="news__img col-4" loading="lazy" src="/imgs/banners/<%= data.imgPath != '' ? data.imgPath : 'news__img.png' %>" alt="news1">
+    <div class="news__body col-8">
+      <h2 class="article__title title-medium"><%- data.title %></h2>
+      <p class="article__context body-medium mt-12"><%- data.context %></p>
+    </div>
+  </div>
+</article>

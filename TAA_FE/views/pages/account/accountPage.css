@@ -1,0 +1,91 @@
+.profile-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  height: fit-content;
+  height: fit-content;
+  gap: 2px;
+  width: 98%;
+  height: 100%;
+  border-radius: 8px;
+  padding: 8px 0;
+}
+.profile-li {
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 137ms;
+}
+.active-li {
+  border-left: 4px solid black;
+}
+
+.order__content__list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px;
+}
+.order__item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  
+  
+}
+.item__content{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 375px;
+  height: 157px;
+}
+.item_att{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+.att_totalRate{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:flex-end
+}
+.item__status{
+  width: 161px;
+  height: 157px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.item__status .status{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 6em;
+}
+.item__status .item_repurchase{
+  margin-top: auto;
+  width: 161px;
+  
+  padding: 10px 24px;
+
+  
+}
+.btn-rate{
+  margin-top: auto;
+  width: 104px;
+  margin-left: auto;
+}
+.btn{
+  height: 40px;
+}
+.item_att_price_content{
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
