@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="IE104.O12_Group3">
@@ -8,14 +9,20 @@
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/styles/pages/base.css">
+  <link rel="stylesheet" href="/styles/pages/site/about.css">
   <title>TAA - Hướng dẫn mua hàng</title>
 </head>
+
 <body>
   <div id="main" class="on-primary">
-    <div id="header"></div>
-    <div id="breadcrumbs"></div>
+    <%- include('../../partials/header', { activeIdx: 4 }) %>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', link: '/' },
+        { label: 'Hướng dẫn sử dụng', link: '/user-manual' }
+      ]
+     }) %>
 
     <main>
       <section class="mt-48">
@@ -105,14 +112,11 @@
       </section>
     </main>
 
-    <!-- <footer></footer> -->
-    <div id="footer"></div>
-
-    <!-- Modal -->
-    <div id="modal"></div>
+    <%- include('../../partials/footer') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
-  <script src="./main.js"></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
+  <script src="/scripts/pages/site/userManual.js"></script>
 </body>
+
 </html>

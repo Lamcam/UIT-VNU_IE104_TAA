@@ -9,5 +9,7 @@ router.get('/about', site.about)
 
 router.get('/news', site.news)
 
+router.get('/user-manual', site.userManual)
+
 
 module.exports = router;
