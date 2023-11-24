@@ -9,18 +9,14 @@
     cung cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở
     thành điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
-    crossorigin="anonymous"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
+  <link rel="stylesheet" href="/base.css">
   <title>TAA</title>
 </head>
 
 <body>
   <div id="main" class="on-primary">
     <div id="header"></div>
-    <div id="nav-tree"></div>
+    <div id="breadcrumbs"></div>
 
     <main>
       <section class="slider mt-12"></section>
@@ -57,14 +53,14 @@
     
   </div>
   <script>
-    $(document).ready(function () {
-      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/src/partials/footer.html');
-      $('#nav-page').load('/TAA_FE/src/components/nav-page.html');
-      $("#modal__resetPassword-1").load("/TAA_FE/src/partials/resetPassword-1.html");
+    $(() => {
+      $('#header').load('/partials/header--unauth.html');
+      $('#breadcrumbs').load('/partials/breadcrumbs.html');
+      $('#footer').load('/partials/footer.html');
+      $('#nav-page').load('/components/nav-page.html');
+      $("#modal__resetPassword-1").load("/partials/resetPassword-1.html");
 
-      fetch('/TAA_FE/src/components/product__item.html')
+      fetch('/components/product__item.html')
         .then(res => res.text())
         .then(res => {
           for (let i = 0; i < 9; ++i)
@@ -72,6 +68,6 @@
         })
     });
   </script>
-  <script src="/TAA_FE/res/js/modal--controller.js" defer></script>
+  <script src="/scripts/main.js"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 /* Roboto Font */
 @font-face {
   font-family: 'Roboto';
-  src: url('/TAA_FE/res/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  src: url('/TAA_FE/public/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
   style: normal;
   
   font-display: fallback;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'Roboto';
-  src: url('/TAA_FE/res/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+  src: url('/TAA_FE/public/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
   style: medium;
 
   font-display: fallback;
@@ -18,7 +18,7 @@
 /* Playfair Display Font */
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/TAA_FE/res/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+  src: url('/TAA_FE/public/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
   style: normal;
 
   font-display: fallback;

@@ -1,0 +1,61 @@
+<header class="visible un-radius">
+  <div class="header__top">
+    <div class="container">
+      <a href="/">
+        <img class="header__logo" src="/logos/logo.svg" alt="Logo TAA">
+      </a>
+      <span class="header__search search-bar">
+        <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search" id="search">
+        <datalist id="data--search">
+          <option value="Vòng tay"></option>
+          <option value="Vòng cổ"></option>
+          <option value="Túi"></option>
+          <option value="Cài tóc"></option>
+          <option value="Nhẫn"></option>
+        </datalist>
+        <button class="btn-icon btn--filled" type="submit">
+          <span class="status-layer icon material-symbols-outlined">
+            search</span>
+        </button>
+      </span>
+      <div class="header__wrapper">
+        <a href="/cart" style="text-decoration: none;">
+          <button class="btn-icon">
+            <span class="status-layer icon icon--filled material-symbols-outlined">
+              shopping_cart</span>
+          </button>
+        </a>
+        <label for="header__user--controller" class="header__user--controller__label">
+          <span class="header__name">Nguyễn Văn A</span>
+          <img class="header__avatar" src="/imgs/users/avatar.png" alt="Avatar">
+        </label>
+        <input type="checkbox" id="header__user--controller">
+        <div class="header__user label-small">
+          <a href="/account/">Thông tin cá nhân</a>
+          <a href="/account/">Đơn hàng</a>
+          <a href="/account/">Sản phẩm yêu thích</a>
+          <a href="/">Đăng xuất</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="main-nav">
+    <ul class="container visible label-large">
+      <li class="main-nav__item active">
+        <a class="main-nav__link" href="/">Trang chủ</a>
+      </li>
+      <li class="main-nav__item">
+        <a class="main-nav__link" href="/products">Sản phẩm</a>
+      </li>
+      <li class="main-nav__item">
+        <a class="main-nav__link" href="/news">Tin tức</a>
+      </li>
+      <li class="main-nav__item">
+        <a class="main-nav__link" href="/about">Về chúng tôi</a>
+      </li>
+      <li class="main-nav__item">
+        <a class="main-nav__link" href="/user-manual">Hướng dẫn sử dụng</a>
+      </li>
+    </ul>
+  </nav>
+</header>

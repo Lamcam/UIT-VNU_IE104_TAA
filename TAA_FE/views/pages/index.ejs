@@ -1,36 +1,37 @@
-<!DOCTYPE html>
 <html lang="vi">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="author" content="IE104.O12_Group3" />
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
   <meta name="description" content="Trang web TAA là một nền tảng thương mại
     điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức." />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/TAA_FE/views/base.css" />
-  <link rel="stylesheet" href="./style.css" />
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/pages/base.css">
+  <link rel="stylesheet" href="/styles/pages/homepage.css">
   <title>TAA - Trang chủ</title>
 </head>
+
 <body>
   <div id="main" class="on-primary">
-    <div id="header"></div>
+    <%- include('../partials/header') %>
     <main>
       <section id="discover-section" class='full-width'>
         <div class="section__content slider">
           <div class="slider__wrapper">
-            <img class="slider__img" src="/TAA_FE/public/1.png" alt="Image 1">
-            <img class="slider__img" src="/TAA_FE/public/2.png" alt="Image 2">
-            <img class="slider__img" src="/TAA_FE/public/3.png" alt="Image 3">
-            <img class="slider__img" src="/TAA_FE/public/1.png" alt="Image 1">
+            <img class="slider__img" src="/imgs/banners/1.png" alt="Image 1">
+            <img class="slider__img" src="/imgs/banners/2.png" alt="Image 2">
+            <img class="slider__img" src="/imgs/banners/3.png" alt="Image 3">
+            <img class="slider__img" src="/imgs/banners/1.png" alt="Image 1">
           </div>
         </div>
       </section>
 
       <section id="hot-products" class="mt-64 full-width">
         <div class="container">
-          <h1 class="section__title display-medium">Sản phẩm nổi bật trong tuần
-          </h1>
+          <h1 class="section__title display-medium">Sản phẩm nổi bật trong
+            tuần</h1>
           <div class="section__content mt-12">
             <div class="fade fade--left"></div>
             <div class="product__wrapper --scroll-x"></div>
@@ -41,13 +42,15 @@
 
       <section id="endow" class="mt-64">
         <div class="container">
-          <h1 class="section__title display-medium">Các ưu đãi khi mua trên TAA
+          <h1 class="section__title display-medium">Các ưu đãi khi mua trên
+            TAA
           </h1>
           <div class="section__content row body-large mt-12">
             <div class="endow__item visible col-12 col-lg-6">
               <h2 class="endow__title headline-medium">Giảm cực sốc lên đến
                 50%</h2>
-              <p class="endow__context">Dành riêng cho gói hội viên của TAA</p>
+              <p class="endow__context">Dành riêng cho gói hội viên của TAA
+              </p>
               <div>
                 <button class="btn--filled">
                   <span class="status-layer">Tìm hiểu ngay</span>
@@ -55,7 +58,8 @@
               </div>
             </div>
             <div class="endow__item visible col-12 col-lg-6">
-              <h2 class="endow__title headline-medium">Freeship cho mọi đơn hàng
+              <h2 class="endow__title headline-medium">Freeship cho mọi đơn
+                hàng
               </h2>
               <p class="endow__context">Mã giảm trao tay mua ngay kẻo hết</p>
               <div>
@@ -71,8 +75,7 @@
       <section id="Q-A" class="mt-64">
         <div class="container">
           <div class="row">
-            <img class="Q-A__imgs visible col-12 col-lg-6"
-              src="/TAA_FE/public/q&a.png" alt="Q-A__img" />
+            <img class="Q-A__imgs visible col-12 col-lg-6" src="/imgs/banners/q&a.png" alt="Q-A__img">
             <article class="section__content col-12 col-lg-6 body-large">
               <h2 class="article__title display-medium">Hỏi xoáy đáp xoay</h2>
               <h3 class="article__subtitle headline-small mt-8">Nơi trả lời
@@ -117,7 +120,7 @@
       </section>
 
       <section class="full-width mt-64 group__about">
-        <img class="group__img" src="/TAA_FE/public/TAA.png" alt="group img" />
+        <img class="group__img" src="/imgs/banners/TAA.png" alt="group img">
       </section>
     </main>
 
@@ -130,7 +133,8 @@
     <div id="modal__forgot-by-phone"></div>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script type='module' src="/TAA_FE/res/js/main.js"></script>
+  <script type='module' src="/scripts/main.js"></script>
   <script src="./main.js"></script>
 </body>
+
 </html>
