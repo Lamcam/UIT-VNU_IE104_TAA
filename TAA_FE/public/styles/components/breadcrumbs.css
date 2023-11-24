@@ -1,0 +1,37 @@
+.breadcrumbs {
+  padding: 0 3rem;
+
+  &>* {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    padding: 0 1rem;
+    gap: .75rem;
+  }
+}
+
+.breadcrumbs__item {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  list-style: none;
+  gap: 8px;
+
+  &::after {
+    content: '>';
+    display: inline-block;
+  }
+
+  &:last-child::after {
+    content: '';
+  }
+
+  &:last-child {
+    font-weight: bold;
+  }
+
+  & a {
+    margin: auto;
+    text-decoration: none;
+  }
+}
