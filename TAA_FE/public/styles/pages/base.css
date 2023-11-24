@@ -442,11 +442,28 @@ input {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 4rem;
+  min-height: 4rem;
 
   & label {
     display: flex;
     justify-content: end;
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .form__row {
+    .row {
+      row-gap: .25rem;
+    }
+
+    & label {
+      justify-content: start;
+      grid-column: span 12;
+    }
+
+    & input {
+      grid-column: span 12;
+    }
   }
 }

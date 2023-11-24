@@ -84,7 +84,7 @@
   text-align: justify;
 }
 
-@media only screen and (min-width: 430px) and (max-width: 744px){
+@media only screen and (min-width: 48rem) and (max-width: 64rem){
   .about__content {
     padding: 0 24px;
   }
@@ -113,7 +113,7 @@
     font-size: 16px;
   }
 }
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 48rem) {
   .about__content {
     padding: 0 12px;
   }
@@ -148,7 +148,7 @@
 
   .contact__list {
     font-size: 16px;
-    text-align: center;
+    text-align: left;
   }
 
   .intro {
