@@ -1,7 +1,7 @@
 <!-- There are not any issue that -->
 <% if (type == '') { %>
-<button class="<%= options %> <%= classList %>" onclick="<%= onclick %>">
-  <span class="status-layer"><%= label %></span>
+<button class="btn- <%= options %> <%= classList %>" onclick='<%= onclick %>'>
+  <span class="status-layer"><%- label %></span>
 </button>
 <% } else if (type == 'btn-icon') { %>
 <button class="btn-icon <%= options %> <%= classList %>" onclick="<%= onclick %>">
@@ -10,12 +10,12 @@
   </span>
 </button>
 <% } else if (type == 'btn-icon-label') { %>
-<button class="btn-icon <%= options %> <%= classList %>" onclick="<%= onclick %>">
+<button class="btn-icon-label <%= options %> <%= classList %>" onclick="<%= onclick %>">
   <span class="status-layer">
     <span class='icon icon--filled material-symbols-outlined'>
       <%= iconData %></span>
     <span class='label'>
-      <%= label %></span>
+      <%- label %></span>
   </span>
 </button>
 <% } %>
