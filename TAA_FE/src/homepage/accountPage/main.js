@@ -152,7 +152,7 @@ const addLocation = () => {
         </button>
         <button class="location-item__btn--default btn--outlined"
           data-modal-target="#modal--set-default-location">
-          <div class="status-layer">
+          <div class="status-layer unfilled-default location-btn">
             <span>Thiết lập mặc định</span>
           </div>
         </button>
