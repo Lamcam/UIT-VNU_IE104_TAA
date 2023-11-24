@@ -1,11 +1,25 @@
 <div id="modal--forgot-by-phone" class="modal">
   <div class="modal__content on-primary">
-    <button class="modal__btn--back btn-icon" onclick="modalCtl.nextModal('#modal--forgot-method')">
-      <span class="status-layer icon material-symbols-outlined">back</span>
-    </button>
-    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+    <%- include('../components/button', {
+      type: 'btn-icon',
+      options: '',
+      classList: 'modal__btn--back',
+      onclick: 'modalCtl.nextModal(\'#modal--forgot-method\')',
+      iconData: 'arrow_back',
+    }) %>
+    <!-- <button class="modal__btn--back btn-icon" onclick="modalCtl.nextModal('#modal--forgot-method')">
+      <span class="status-layer icon material-symbols-outlined">arrow_back</span>
+    </button> -->
+    <%- include('../components/button', {
+      type: 'btn-icon',
+      options: '',
+      classList: 'modal__btn--close',
+      onclick: 'modalCtl.closeModal()',
+      iconData: 'close',
+    }) %>
+    <!-- <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
       <span class="status-layer icon material-symbols-outlined">close</span>
-    </button>
+    </button> -->
     <h1 class="modal__title headline-large">Quên mật khẩu</h1>
     <form action="/forgotPhone" method="POST">
       <div class="form__row mt-24">
@@ -16,9 +30,16 @@
             required>
         </div>
       </div>
-      <button class="btn--filled label-large full-width mt-12" type="submit">
+      <%- include('../components/button', {
+        type: '',
+        options: 'btn--filled full-width',
+        classList: 'mt-12',
+        label: 'Gửi yêu cầu đổi mật khẩu',
+        onclick: '',
+      }) %>
+      <!-- <button class="btn--filled label-large full-width mt-12" type="submit">
         <span class="status-layer">Đăng nhập</span>
-      </button>
+      </button> -->
     </form>
   </div>
 </div>
