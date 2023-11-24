@@ -418,12 +418,6 @@ footer {
     }
   }
 
-  main {
-    &>section {
-      padding: 0 1rem;
-    }
-  }
-
   footer {
     padding: 1rem;
     padding-bottom: 3rem;
@@ -455,6 +449,24 @@ input {
   max-width: 85rem;
   width: 100%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 48rem) {
+  .container {
+    padding-inline: 1rem;
+  }
+}
+
+@media screen and (min-width: 48rem) and (max-width: 64rem) {
+  .container {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .container {
+    padding-inline: 2rem;
+  }
 }
 
 .visible {
