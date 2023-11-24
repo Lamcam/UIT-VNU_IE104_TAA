@@ -9,7 +9,19 @@ site.about = (req, res) => {
 }
 
 site.news = (req, res) => {
-  res.render('pages/site/news')
+  const context = `
+    
+  `
+  newsDatas = [
+    { imgPath: '', title: 'TAA 2021', context: 'TAA 2021 is coming soon' },
+    { imgPath: '', title: 'TAA 2021', context: 'TAA 2021 is coming soon' },
+    { imgPath: '', title: 'TAA 2021', context: 'TAA 2021 is coming soon' },
+    { imgPath: '', title: 'TAA 2021', context: 'TAA 2021 is coming soon' },
+    { imgPath: '', title: 'TAA 2021', context: 'TAA 2021 is coming soon' },
+    { imgPath: '', title: 'TAA 2021', context: 'TAA 2021 is coming soon' },
+  ]
+
+  res.render('pages/site/news', { newsDatas })
 }
 
 module.exports = site;
