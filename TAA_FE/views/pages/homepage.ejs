@@ -52,9 +52,16 @@
               <p class="endow__context">Dành riêng cho gói hội viên của TAA
               </p>
               <div>
-                <button class="btn--filled">
+                <%- include('../components/button', {
+                  type: '',
+                  options: 'btn--filled',
+                  classList: '',
+                  label: 'Tìm hiểu ngay',
+                  onclick: '',
+                }) %>
+                <!-- <button class="btn--filled">
                   <span class="status-layer">Tìm hiểu ngay</span>
-                </button>
+                </button> -->
               </div>
             </div>
             <div class="endow__item visible col-12 col-lg-6">
@@ -63,9 +70,16 @@
               </h2>
               <p class="endow__context">Mã giảm trao tay mua ngay kẻo hết</p>
               <div>
-                <button class="btn--filled">
+                <%- include('../components/button', {
+                  type: '',
+                  options: 'btn--filled',
+                  classList: '',
+                  label: 'Tìm hiểu ngay',
+                  onclick: '',
+                }) %>
+                <!-- <button class="btn--filled">
                   <span class="status-layer">Tìm hiểu ngay</span>
-                </button>
+                </button> -->
               </div>
             </div>
           </div>
@@ -125,13 +139,7 @@
     </main>
 
     <div class="mt-36"></div>
-    <!-- <div id="footer"></div> -->
     <%- include('../partials/footer') %>
-
-    <!-- <div id="modal__login"></div>
-    <div id="modal__register"></div>
-    <div id="modal__forgot-method"></div>
-    <div id="modal__forgot-by-phone"></div> -->
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src="/scripts/modules/main.js"></script>
