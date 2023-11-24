@@ -1,0 +1,32 @@
+footer {
+  padding-block: 3rem 5rem;
+
+  & .footer__col {
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  & .footer__title {
+    font-weight: bold;
+    max-height: 200px;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+
+    & img {
+      height: 5rem;
+    }
+  }
+
+  & .footer__content {
+    >p {
+      text-align: justify;
+    }
+  }
+}
+
+@media (max-width: 48rem) {
+  footer {
+    padding-bottom: 3rem;
+  }
+}

@@ -1,7 +1,5 @@
 .breadcrumbs {
-  padding: 0 3rem;
-
-  &>* {
+  & .container>* {
     display: flex;
     align-items: center;
     height: 4rem;
@@ -34,4 +32,8 @@
     margin: auto;
     text-decoration: none;
   }
+}
+
+.breadcrumbs__link {
+  text-decoration: none !important;
 }

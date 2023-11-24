@@ -1,0 +1,100 @@
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/pages/base.css">
+  <link rel="stylesheet" href="/styles/pages/site/about.css">
+  <title>TAA - Về chúng tôi</title>
+</head>
+
+<body>
+  <div id="main" class="on-primary">
+    <%- include('../../partials/header', { activeIdx: 3 }) %>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', link: '/' },
+        { label: 'Về chúng tôi', link: '/about' }
+      ]
+     }) %>
+
+    <main>
+      <div class="about__content container">
+        <section class="mt-48">
+          <h1 class="section__title display-large">VỀ CHÚNG TÔI</h1>
+          <div class="intro row mt-12">
+            <img class="information col-3 col-sm-12" src="/logos/logo.svg" alt="Logo TAA">
+            <p class="information col-9 col-sm-12 body-large mt-12">TAA là thương
+              hiệu phụ kiện dẫn dầu xu hướng với phong cách thiết kế đơn giản,
+              sành điệu, sản phẩm tiêu chuẩn cao dành cho giới trẻ toàn cầu tự
+              tin thể hiện cá tính và phong cách riêng. Được thành lập vào năm
+              2023, chúng tôi đã trở thành nhà phân phối đầu tiên đi tiên phong
+              với phân khúc sản phẩm siêu hời dưới "99.000vnđ" nhằm mang lại góc
+              nhìn khác hơn về giá thành của thương hiệu Việt.</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="mt-12">
+        <img class="picture1" src="/imgs/banners/about__large.png" alt="Về chúng tôi">
+      </div>
+
+      <div class="about__content container">
+        <section class="mt-64">
+          <div class="content__title row">
+            <div class="col-6 col-sm-12">
+              <ul>
+                <li class="display-small">WHAT WE DO</li>
+                <li class="display-small">Young generatio ally</li>
+              </ul>
+            </div>
+            <p class="col-6 col-sm-12 information__content body-large">Sứ mệnh
+              của TAA là Cổ vũ cho thế hệ trẻ toàn thế giới tự do thể hiện phong
+              cách thông qua thời trang, thương hiệu vượt qua ranh giới của thời
+              trang đường phố bằng cách không ngừng sáng tạo các trang phục trong
+              các bộ sưu tập độc đáo. TAA mong muốn đồng hành và tôn vinh thế hệ
+              trẻ tài năng qua những xu hướng thời trang và hoạt động cộng đồng
+              sáng tạo. Từ đó tạo dấu ấn cho giá trị bền vững để cùng các tài năng
+              trẻ phát triển.</p>
+          </div>
+        </section>
+      </div>
+
+      <div class="mt-48">
+        <img class="picture2" src="/imgs/banners/advertisement.png" alt="Cửa hàng">
+      </div>
+
+      <div class="about__content ">
+        <section class="mt-48">
+          <div class="contact__info container row">
+            <div class="contact col-6 col-sm-12">
+              <p class="section__title display-large">LIÊN HỆ</p>
+            </div>
+            <div class="contact col-6 col-sm-12">
+              <ul class="contact__list ">
+                <li class="body-large">Instagram: <a href="https://daa.uit.edu.vn/"> TAA_Shop</a></li>
+                <li class="body-large">Shopee: <a href="https://daa.uit.edu.vn/"> TAA_Shop - Three Accessories Appreciate</a></li>
+                <li class="body-large">Facebook: <a href="https://daa.uit.edu.vn/"> TAA</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="mt-48">
+        <img class="picture3" src="/imgs/banners/poster.png" alt="Định hướng">
+      </div>
+    </main>
+
+    <%- include('../../partials/footer') %>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
+</body>
+
+</html>
