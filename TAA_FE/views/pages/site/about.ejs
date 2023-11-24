@@ -16,14 +16,20 @@
 <body>
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 3 }) %>
-    <div id="breadcrumbs"></div>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', link: '/' },
+        { label: 'Về chúng tôi', link: '/about' }
+      ]
+     }) %>
+
     <main>
       <div class="about__content container">
         <section class="mt-48">
           <h1 class="section__title display-large">VỀ CHÚNG TÔI</h1>
           <div class="intro row mt-12">
-            <img class="information col col-6" src="/logos/logo.svg" alt="Logo TAA">
-            <p class="information col col-6 body-large mt-12">TAA là thương hiệu phụ
+            <img class="information col-3 col-sm-12" src="/logos/logo.svg" alt="Logo TAA">
+            <p class="information col-9 col-sm-12 body-large mt-12">TAA là thương hiệu phụ
               kiện dẫn dầu xu hướng với phong cách thiết kế đơn giản, sành điệu,
               sản phẩm tiêu chuẩn cao dành cho giới trẻ toàn cầu tự tin thể hiện
               cá tính và phong cách riêng. Được thành lập vào năm 2023, chúng
@@ -88,12 +94,12 @@
         <img class="picture3" src="/imgs/banners/poster.png" alt="Định hướng">
       </div>
     </main>
-    
+
     <%- include('../../partials/footer') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
-  
+
 </body>
 
 </html>

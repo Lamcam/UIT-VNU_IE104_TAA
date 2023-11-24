@@ -1,19 +1,9 @@
 <nav class="breadcrumbs mt-12 body-medium">
   <ul class="container visible">
+    <% data.forEach(item => { %>
     <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="#">Trang chủ</a>
+      <a class="breadcrumbs__link" href="<%= item.link %>"><%- item.label %></a>
     </li>
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="#">Trang chủ</a>
-    </li>
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="#">Trang chủ</a>
-    </li>
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="#">Trang chủ</a>
-    </li>
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="#">Trang chủ</a>
-    </li>
+    <% })%>
   </ul>
 </nav>
