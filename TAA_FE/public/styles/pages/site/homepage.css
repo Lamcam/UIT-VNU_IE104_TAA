@@ -142,3 +142,7 @@
   align-items: center;
   overflow: hidden;
 }
+
+.product__item {
+  min-width: 234px;
+}
