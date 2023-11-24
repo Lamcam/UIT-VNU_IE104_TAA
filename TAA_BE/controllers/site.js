@@ -1,7 +1,17 @@
+const model = require('../models/index')
+const index = require('./index')
+
 function site() { }
 
 site.index = (req, res) => {
-  res.render('pages/site/homepage')
+  model.product.getHotProduct((err, result) => {
+    if (err) throw err;
+
+    res.render('pages/site/homepage', {
+    // res.status(200).json({
+      hotProducts: index.groupProducts(result)
+    })
+  })
 }
 
 site.about = (req, res) => {

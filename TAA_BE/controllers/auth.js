@@ -18,10 +18,12 @@ auth.loginPost = (req, res) => {
 
     if (result.length == 0) {
       res.status(404).json({
+        statusCode: 404,
         msg: 'Not match any account'
       })
     } else {
       res.status(200).json({
+        statusCode: 200,
         msg: 'Found data account',
         data: {
           result
