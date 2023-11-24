@@ -1,9 +1,7 @@
 <div class="modal" id="modal--add-review">
   <div class="modal-review">
     <button class="modal__btn--close btn-icon" onclick="closeModal()">
-      <div class="status-layer">
-        <span class="icon material-symbols-outlined">close</span>
-      </div>
+      <span class="status-layer icon material-symbols-outlined">close</span>
     </button>
     <div class="modal__title">Đánh giá sản phẩm</div>
     <div class="modal__product">
@@ -31,7 +29,7 @@
 
     <div class="modal__service">
       <span class="mt-8">Dịch vụ vận chuyển</span>
-      <div id="rating">
+      <div id="rating2">
         <span class="material-symbols-outlined star-icon-service"> star </span>
         <span class="material-symbols-outlined star-icon-service"> star </span>
         <span class="material-symbols-outlined star-icon-service"> star </span>
@@ -76,9 +74,7 @@
         type="button"
         onclick="closeModal()"
       >
-        <div class="status-layer">
-          <span>Trở lại</span>
-        </div>
+        <span class="status-layer">Trở lại</span>
       </button>
       <button
         class="btn--filled label-large col-6 review-list__btn--del done-btn"
@@ -86,9 +82,7 @@
         data-modal-target="#modal--noti"
         onclick="closeModal(), openModal('#modal--noti')"
       >
-        <div class="status-layer">
-          <span>Hoàn thành</span>
-        </div>
+        <span class="status-layer">Hoàn thành</span>
       </button>
     </div>
   </div>

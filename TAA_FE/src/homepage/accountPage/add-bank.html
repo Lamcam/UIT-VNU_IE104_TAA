@@ -1,12 +1,10 @@
 <div id="modal--add-bank" class="modal">
   <div class="modal__content on-primary">
     <button class="modal__btn--close btn-icon" onclick="closeModal()">
-      <div class="status-layer">
-        <span class="icon material-symbols-outlined">close</span>
-      </div>
+      <span class="status-layer icon material-symbols-outlined">close</span>
     </button>
     <h1 class="modal__title headline-large">Thêm thông tin ngân hàng</h1>
-    <form action="" method="">
+    <form action="/" method="post">
       <div class="form__row mt-24">
         <div class="row">
           <label class="col-3 label-large" for="f_add_bank_per_name">
@@ -67,18 +65,14 @@
           type="button"
           onclick="closeModal()"
         >
-          <div class="status-layer">
-            <span>Hủy bỏ</span>
-          </div>
+          <span class="status-layer">Hủy bỏ</span>
         </button>
         <button
           class="btn--filled label-large col-6 bank-list__btn--add"
           type="button"
           onclick="closeModal(), addBank()"
         >
-          <div class="status-layer">
-            <span>Đồng ý</span>
-          </div>
+          <span class="status-layer">Đồng ý</span>
         </button>
       </div>
     </form>
