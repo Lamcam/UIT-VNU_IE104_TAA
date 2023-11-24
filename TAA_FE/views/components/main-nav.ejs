@@ -1,0 +1,9 @@
+<nav class="main-nav">
+  <ul class="container visible label-large">
+    <% for (let idx = 0; idx < data.length; ++idx) { %>
+    <li class="main-nav__item <%= (idx == activeIdx) ? 'active' : '' %>">
+      <a class="main-nav__link" href="<%= data[idx].link %>"><%= data[idx].text %></a>
+    </li>
+    <% } %>
+  </ul>
+</nav>
