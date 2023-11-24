@@ -1,22 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="/TAA_FE/views/base.css">
-  <link rel="stylesheet" href="/TAA_FE/views/homepage/post/post.css">
+  <link rel="stylesheet" href="/TAA_FE/public/styles/pages/base.css">
+  <link rel="stylesheet" href="/TAA_FE/views/pages/post/post.css">
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
     crossorigin="anonymous"></script>
-  <script src="/TAA_FE/public/scripts/main.js"></script>
+  <script src="/TAA_FE/public/scripts/modules/main.js"></script>
   <title>TAA - Bài viết</title>
 </head>
 
 <body>
   <div id="main" class="on-primary">
-    <div id="header"></div>
-        <div id="nav-tree"></div>
+    <div id="main" class="on-primary">
+      <%- include('../../partials/header', { activeIdx: 3 }) %>
+      <%- include('../../partials/breadcrumbs', { 
+        data: [
+          { label: 'Trang chủ', link: '/' },
+          { label: 'Tin tức', link: '/news' }
+          { label: 'Bài viết', link: '/post' }
+        ]
+       }) %>
 
     <main>
       <section class="post__content mt-12"> <!-- Giới hạn lại độ rộng của nội dung -->
@@ -83,18 +94,11 @@
     </main>
 
     <!-- <footer></footer> -->
-    <div id="footer"></div>
-
-    <!-- Modal -->
-    <div id="modal"></div>
+    <%- include('../../partials/footer') %>
+    
   </div>
-  <script>
-    $(document).ready(function () {
-      $('#header').load('/TAA_FE/views/partials/header--unauth.html');
-      $('#nav-tree').load('/TAA_FE/views/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/views/partials/footer.html');
-    });
-  </script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
 </body>
 
 </html>
