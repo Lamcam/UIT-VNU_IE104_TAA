@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0);
 @import url(/styles/index.css);
+@import url(/styles/partials/index.css);
 
 /* general css */
 html {
@@ -279,81 +280,6 @@ hr {
 
 body {
   /* min-width: 896px; */
-}
-
-header {
-  display: flex;
-  gap: 2rem;
-  flex-direction: column;
-
-  & .header__top {
-    padding-top: 1.25rem;
-
-    &>* {
-      display: flex;
-      position: relative;
-
-      max-height: 4rem;
-      justify-content: space-between;
-    }
-  }
-
-  & .header__logo {
-    height: 100%;
-    aspect-ratio: 2/1;
-  }
-
-  & .header__search {
-    max-width: 40rem;
-    width: 100%;
-    margin: 0 1.25rem;
-  }
-
-  & .header__wrapper {
-    display: flex;
-    justify-content: end;
-    gap: .75rem;
-
-    & .header__avatar {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 50%;
-      border: 1px solid var(--md-sys-color-outline);
-    }
-  }
-
-  & .main-nav>ul {
-    height: 4rem;
-    padding: 0px;
-    display: flex;
-  }
-
-  & .main-nav__item {
-    display: inline-block;
-    display: inline-flex;
-    height: 100%;
-    min-width: 10rem;
-    list-style: none;
-    color: var(--md-sys-color-primary);
-
-    &:hover {
-      cursor: pointer;
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    &.active {
-      color: white;
-      background-color: var(--md-sys-color-primary);
-    }
-  }
-
-  & .main-nav__link {
-    padding: 0px 2rem;
-    margin: auto;
-    text-decoration: none;
-    text-wrap: nowrap;
-    color: inherit;
-  }
 }
 
 aside {

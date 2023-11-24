@@ -1,0 +1,43 @@
+@import url(../components/main-nav.css);
+
+header {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+
+  & .header__top {
+    padding-top: 1.25rem;
+
+    &>* {
+      display: flex;
+      position: relative;
+
+      max-height: 4rem;
+      justify-content: space-between;
+    }
+  }
+
+  & .header__logo {
+    height: 100%;
+    aspect-ratio: 2/1;
+  }
+
+  & .header__search {
+    max-width: 40rem;
+    width: 100%;
+    margin: 0 1.25rem;
+  }
+
+  & .header__wrapper {
+    display: flex;
+    justify-content: end;
+    gap: .75rem;
+
+    & .header__avatar {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      border: 1px solid var(--md-sys-color-outline);
+    }
+  }
+}
