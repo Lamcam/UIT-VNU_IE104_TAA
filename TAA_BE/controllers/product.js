@@ -1,5 +1,5 @@
 // const express  = require('express');
-// const models = require('../models')
+const models = require('../models')
 // const db = require('../config/db');
 // const bodyParser = require("body-parser");
 
@@ -9,6 +9,14 @@
 // app.use(bodyParser.json());
 
 function product() { }
+
+product.getAll = (req, res) => {
+    models.product.getAllProduct((err, result) => {
+        if (err) throw err;
+
+        res.status(200).render('pages/products/index', { result })
+    })
+}
 
 product.queryProduct = (req, res) => {
 
