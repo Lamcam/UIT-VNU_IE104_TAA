@@ -1,11 +1,15 @@
 const openModal = (sltById) => {
   const modalSelector = document.querySelector(sltById);
-  modalSelector.classList.add("active");
+  if (!modalSelector) {
+    console.error('Don\'t have this modal', sltById);
+  } else {
+    modalSelector.classList.add("active");
+  }
 }
 
 const closeModal = () => {
   const modals = document.querySelectorAll(".modal");
-  modals.forEach(modal => modal.classList.remove("active"))
+  modals && modals.forEach(modal => modal.classList.remove("active"))
 }
 
 const nextModal = (sltById) => {

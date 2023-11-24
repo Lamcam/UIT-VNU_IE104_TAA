@@ -1,6 +1,8 @@
 import modalCtl from './modal--controller.js';
+import cookieCtl from './cookie.js';
 
 window.modalCtl = modalCtl;
+// window.modalCtl = cookieCtl;
 
 
 const accountPageContentClassName = "#section2";
