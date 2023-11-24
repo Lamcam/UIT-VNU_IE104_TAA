@@ -1,3 +1,5 @@
+@import url(../../components/news__item.css);
+
 .section__title {
   text-align: center;
   font-weight: bold;
@@ -26,46 +28,6 @@
   width: 100%;
   height: 192px;
   object-fit: cover;
-}
-
-.news__item {
-  display: flex;
-}
-
-.news__img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 8px 0px 0px 8px;
-}
-
-.news__body {
-  padding: 12px 12px 12px 0;
-  height: 185px;
-  gap: 12px 12px 12px 0;
-
-  &:any-link {
-    text-decoration: none;
-  }
-}
-
-.article__title {
-  font-weight: bold;
-  letter-spacing: 0.15px;
-  cursor: pointer;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.article__context {
-  text-align: justify;
-  letter-spacing: 0.25px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 6;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
 }
 
 .nav-page {
