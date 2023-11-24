@@ -7,10 +7,10 @@
   <title>TAA - Trang sản phẩm</title>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/TAA_FE/views/base.css">
+  <link rel="stylesheet" href="/TAA_FE/views/homepage/products/style.css">
 
-  <script src="./productsPage.js" defer></script>
+  <script src="/TAA_FE/views/homepage/products/productsPage.js" defer></script>
 
 </head>
 
@@ -123,8 +123,8 @@
             <div class="section__content visible row">
               <div class="product__item col-4">
                 <div class="product__image">
-                  <img src="../../../public/product_1.png" alt="Kẹp tóc" class="img_back">
-                  <img src="../../../public/red-panda-small.jpg" alt="Kẹp tóc" class="img_font">
+                  <img src="/TAA_FE/public/imgs/products/product1.jpg" alt="Kẹp tóc" class="img_back">
+                  <img src="/TAA_FE/public/imgs/banners/red-panda-small.jpg" alt="Kẹp tóc" class="img_font">
                 </div>
                 <div class="product__body">
                   <span class="material-symbols-outlined icon_heart error-text">
@@ -142,7 +142,7 @@
                   <div class="product__button__view">Xem nhanh</div>
                   <div class="vertical"></div>
                   <div class="product__button__sell">
-                    <a href="/TAA_FE/src/homepage/cartPage/index.html">Mua ngay</a>
+                    <a href="/TAA_FE/views/homepage/cart/index.html">Mua ngay</a>
                   </div>
                 </div>
               </div>
@@ -150,8 +150,8 @@
               <!-- item outstock -->
               <div class="product__outstock col-4">
                 <div class="product__image">
-                  <img src="../../../public/product_1.png" alt="Kẹp tóc" class="img_back">
-                  <img src="../../../public/red-panda-small.jpg" alt="Kẹp tóc" class="img_font">
+                  <img src="/TAA_FE/public/imgs/products/" alt="Kẹp tóc" class="img_back">
+                  <img src="/TAA_FE/public/imgs/banners/red-panda-small.jpg" alt="Kẹp tóc" class="img_font">
                 </div>
                 <div class="product__body">
 
@@ -202,31 +202,31 @@
         <div class="modal__img">
           <div class="img-display">
             <div class="img-showcase">
-              <img src="/TAA_FE/public/product2.jpg" alt="product image">
-              <img src="/TAA_FE/public/product4.jpg" alt="product image">
-              <img src="/TAA_FE/public/product3.jpg" alt="product image">
-              <img src="/TAA_FE/public/product7.jpg" alt="product image">
+              <img src="/TAA_FE/public/imgs/products/product2.jpg" alt="product image">
+              <img src="/TAA_FE/public/imgs/products/product4.jpg" alt="product image">
+              <img src="/TAA_FE/public/imgs/products/product3.jpg" alt="product image">
+              <img src="/TAA_FE/public/imgs/products/product7.jpg" alt="product image">
             </div>
           </div>
           <div class="img-select">
             <div class="img-item">
               <a href="#" data-id="1">
-                <img src="/TAA_FE/public/product2.jpg" alt="product image">
+                <img src="/TAA_FE/public/imgs/products/product2.jpg" alt="product image">
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="2">
-                <img src="/TAA_FE/public/product4.jpg" alt="product image">
+                <img src="/TAA_FE/public/imgs/products/product4.jpg" alt="product image">
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="3">
-                <img src="/TAA_FE/public/product3.jpg" alt="product image">
+                <img src="/TAA_FE/public/imgs/products/product3.jpg" alt="product image">
               </a>
             </div>
             <div class="img-item">
               <a href="#" data-id="4">
-                <img src="/TAA_FE/public/product7.jpg" alt="product image">
+                <img src="/TAA_FE/public/imgs/products/product7.jpg" alt="product image">
               </a>
             </div>
           </div>
@@ -285,7 +285,7 @@
               Thêm vào giỏ hàng
             </button>
             <button class="button__view btn--filled">
-              <a href="/TAA_FE/src/homepage/productsPage/detailProduct.html">Xem chi tiết</a>
+              <a href="/TAA_FE/views/homepage/products/detailProduct.html">Xem chi tiết</a>
             </button>
           </div>
           <div class="modal__context body-large">
@@ -342,9 +342,9 @@
   </div>
   <script>
     $(document).ready(function () {
-      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
-      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/src/partials/footer.html');
+      $('#header').load('/TAA_FE/views/partials/header--unauth.html');
+      $('#nav-tree').load('/TAA_FE/views/partials/nav-tree.html');
+      $('#footer').load('/TAA_FE/views/partials/footer.html');
     });
   </script>
 </body>
