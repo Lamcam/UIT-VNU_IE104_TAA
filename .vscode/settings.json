@@ -1,4 +1,8 @@
 {
-  "liveServer.settings.port": 5502,
-  "livePreview.defaultPreviewPath": "/TAA_FE/src/homepage/accountPage/favorProduct.html"
+  "emmet.includeLanguages": {
+    "ejs": "html",
+  },
+  "[html]": {
+    "editor.defaultFormatter": "j69.ejs-beautify"
+  },
 }

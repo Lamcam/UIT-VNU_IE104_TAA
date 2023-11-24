@@ -1,0 +1,71 @@
+<div id="modal--login" class="modal">
+  <div class="modal__content on-primary">
+    <%- include('../components/button', {
+      type: 'btn-icon',
+      options: '',
+      classList: 'modal__btn--close',
+      onclick: 'modalCtl.closeModal()',
+      iconData: 'close',
+    }) %>
+    <!-- <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+      <span class="status-layer icon material-symbols-outlined">close</span>
+    </button> -->
+    <h1 class="modal__title headline-large">Đăng nhập</h1>
+    <form id='loginForm' action="/login" method="POST">
+      <div class="form__row mt-24">
+        <div class="row">
+          <label class="col-4 label-large" for="f_log_phone">
+            Số điện thoại:</label>
+          <input class="col-8" type="text" name="phone" id="f_log_phone"
+            autocomplete='username' required>
+        </div>
+      </div>
+      <div class="form__row mt-12">
+        <div class="row">
+          <label class="col-4 label-large" for="f_log_pass">
+            Mật khẩu:</label>
+          <input class="col-8" type="password" name="pass" id="f_log_pass"
+            autocomplete='current-password' required>
+        </div>
+      </div>
+      <%- include('../components/button', {
+        type: '',
+        options: 'btn--filled full-width',
+        classList: 'mt-12',
+        label: 'Đăng nhập',
+        onclick: '',
+      }) %>
+      <!-- <button class="btn--filled label-large full-width mt-12" type="submit">
+        <span class='status-layer'>Đăng nhập</span>
+      </button> -->
+    </form>
+    <div class="row mt-36">
+      <%- include('../components/button', {
+        type: '',
+        options: 'btn--outlined col-6 col-sm-12',
+        classList: '',
+        label: 'Quên mật khẩu',
+        onclick: 'modalCtl.nextModal(\'#modal--forgot-method\')',
+      }) %>
+      <!-- <button class="btn- col-6 col-sm-12 body-medium"
+        onclick='modalCtl.nextModal("#modal--forgot-method")'>
+        <div class="status-layer">
+          <span class='highlight'>Quên mật khẩu</span>
+        </div>
+      </button> -->
+      <%- include('../components/button', {
+        type: '',
+        options: 'btn--outlined col-6 col-sm-12',
+        classList: '',
+        label: 'Cần đăng ký',
+        onclick: 'modalCtl.nextModal(\'#modal--register\')',
+      }) %>
+      <!-- <button class="btn- col-6 col-sm-12 body-medium"
+        onclick='modalCtl.nextModal("#modal--register")'>
+        <div class="status-layer">
+          <span class='highlight'>Cần đăng ký</span>
+        </div>
+      </button> -->
+    </div>
+  </div>
+</div>

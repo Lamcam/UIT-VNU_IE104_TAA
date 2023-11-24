@@ -1,0 +1,13 @@
+<nav class="main-nav">
+  <label for="main-nav__ctl" class="main-nav__ctl__label hide-md hide-lg">
+    <span class="icon material-symbols-outlined">menu</span>
+  </label>
+  <input type="checkbox" id="main-nav__ctl">
+  <ul class="container visible label-large header hide-sm">
+    <% for (let idx = 0; idx < data.length; ++idx) { %>
+    <li class="main-nav__item <%= (idx == activeIdx) ? 'active' : '' %>">
+      <a class="main-nav__link" href="<%= data[idx].link %>"><%= data[idx].text %></a>
+    </li>
+    <% } %>
+  </ul>
+</nav>

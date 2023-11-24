@@ -1,11 +1,18 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_ie104
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2023 at 09:02 AM
+-- Generation Time: Nov 22, 2023 at 10:02 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
+
+DROP DATABASE IF EXISTS `database_ie104`;
+
+CREATE DATABASE IF NOT EXISTS `database_ie104` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+USE `database_ie104`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,8 +51,7 @@ INSERT INTO `bankcards` (`bank_id`, `bank_name`, `bank_number`, `bank_pers_name`
 ('bank0000', 'ABC', '1234567890', 'Nguyễn Văn A', '9876543210', 'user0000'),
 ('bank0001', 'SCB', '2345678901', 'Lê Thị Giàu Bùi', '8765432109', 'user0001'),
 ('bank0002', 'BIDV', '3456789012', 'Trần Quốc Tuấn', '7654321098', 'user0002'),
-('bank0003', 'TPB', '4567890123', 'Phạm Nguyên Ngọc', '6543210987', 'user0003'),
-('bank0004', 'ACB', '5678901234', 'Bùi Xuân Nhi', '5432109876', 'user0004');
+('bank0003', 'TPB', '4567890123', 'Phạm Nguyên Ngọc', '6543210987', 'user0003');
 
 -- --------------------------------------------------------
 
@@ -70,9 +76,7 @@ INSERT INTO `cart` (`user_id`, `prod_id`) VALUES
 ('user0002', 'prod0009'),
 ('user0002', 'prod0010'),
 ('user0003', 'prod0003'),
-('user0003', 'prod0004'),
-('user0004', 'prod0007'),
-('user0004', 'prod0008');
+('user0003', 'prod0004');
 
 -- --------------------------------------------------------
 
@@ -165,11 +169,7 @@ INSERT INTO `favorproducts` (`user_id`, `prod_id`) VALUES
 ('user0003', 'prod0003'),
 ('user0003', 'prod0004'),
 ('user0003', 'prod0005'),
-('user0003', 'prod0006'),
-('user0004', 'prod0007'),
-('user0004', 'prod0008'),
-('user0004', 'prod0009'),
-('user0004', 'prod0010');
+('user0003', 'prod0006');
 
 -- --------------------------------------------------------
 
@@ -194,8 +194,7 @@ INSERT INTO `locations` (`loca_id`, `loca_pers_name`, `loca_pers_phone`, `loca_a
 ('loca0000', 'Nguyễn Văn A', '0123456789', 'Nhơn Trạch_Đồng Nai', 'Đối diện quán lẩu ABC', 'user0000'),
 ('loca0001', 'Trần Thị B', '0987654321', 'Bình Dương', 'Gần chợ ABC', 'user0001'),
 ('loca0002', 'Lâm Thị Hồng C', '0123252729', 'Quận 1, TP. Hồ Chí Minh', 'Gần công viên XYZ', 'user0002'),
-('loca0003', 'Phạm Thị D', '0987654321', 'Đống Đa, Hà Nội', 'Gần trường DEF', 'user0003'),
-('loca0004', 'Hoàng Văn E', '0123456789', 'Quận 7, TP. Hồ Chí Minh', 'Gần siêu thị GHI', 'user0004');
+('loca0003', 'Phạm Thị D', '0987654321', 'Đống Đa, Hà Nội', 'Gần trường DEF', 'user0003');
 
 -- --------------------------------------------------------
 
@@ -231,12 +230,9 @@ INSERT INTO `orders` (`order_id`, `order_datetime`, `order_total_cost`, `user_id
 ('fghj2222', '2023-10-23', 130000.00, 'user0003', 'pay01', 'bank0000', 'tran0001', 'loca0003', 1, 1),
 ('hieu2712', '2023-10-18', 30000.00, 'user0003', 'pay00', NULL, 'tran0000', 'loca0003', 0, 0),
 ('ijkl2712', '2023-10-13', 75000.00, 'user0003', 'pay00', NULL, 'tran0001', 'loca0003', 0, 0),
-('mnop0701', '2023-10-14', 35000.00, 'user0004', 'pay01', 'bank0002', 'tran0001', 'loca0004', 0, 1),
 ('mnop9876', '2023-10-20', 120000.00, 'user0000', 'pay00', NULL, 'tran0001', 'loca0000', 1, 1),
-('nadc1302', '2023-10-19', 60000.00, 'user0004', 'pay00', NULL, 'tran0001', 'loca0004', 0, 0),
-('qrst1234', '2023-10-21', 150000.00, 'user0001', 'pay01', 'bank0004', 'tran0001', 'loca0001', 0, 1),
+('qrst1234', '2023-10-21', 150000.00, 'user0001', 'pay01', NULL, 'tran0001', 'loca0001', 0, 1),
 ('stuv1234', '2023-10-22', 125000.00, 'user0002', 'pay00', NULL, 'tran0000', 'loca0002', 0, 0),
-('tyui1234', '2023-10-24', 140000.00, 'user0004', 'pay00', NULL, 'tran0000', 'loca0004', 0, 0),
 ('vbnm1122', '2023-10-26', 500000.00, 'user0001', 'pay00', NULL, 'tran0000', 'loca0001', 0, 0);
 
 -- --------------------------------------------------------
@@ -286,15 +282,301 @@ INSERT INTO `products` (`prod_id`, `prod_name`, `prod_cost`, `prod_discount`, `p
 ('prod0000', 'Sản phẩm 1', 100000.00, 0.25, '2023-11-01', 0, 10, 0, 0, '', 'cate0011'),
 ('prod0001', 'Sản phẩm 2', 200000.00, 0.20, '2023-11-01', 0, 20, 0, 5, '', 'cate0011'),
 ('prod0002', 'Sản phẩm 3', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0012'),
-('prod0003', 'Sản phẩm 4', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0033'),
-('prod0004', 'Sản phẩm 5', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0024'),
-('prod0005', 'Sản phẩm 6', 200000.00, 0.50, '2023-11-20', 0, 50, 0, 5, '', 'cate0021'),
-('prod0006', 'Sản phẩm 7', 200000.00, 0.50, '2023-11-20', 0, 70, 0, 5, '', 'cate0032'),
-('prod0007', 'Sản phẩm 8', 200000.00, 0.50, '2023-11-20', 0, 60, 0, 5, '', 'cate0031'),
-('prod0008', 'Sản phẩm 9', 200000.00, 0.70, '2023-11-05', 0, 50, 0, 5, '', 'cate0043'),
-('prod0009', 'Sản phẩm 10', 200000.00, 0.10, '2023-11-05', 0, 30, 0, 5, '', 'cate0056'),
-('prod0010', 'Sản phẩm 11', 200000.00, 0.10, '2023-11-07', 0, 10, 0, 5, '', 'cate0051'),
-('prod0011', 'Sản phẩm 12', 200000.00, 0.10, '2023-11-07', 0, 20, 0, 5, '', 'cate0041');
+('prod0003', 'Sản phẩm 4', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0012'),
+('prod0004', 'Sản phẩm 5', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0013'),
+('prod0005', 'Sản phẩm 6', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0013'),
+('prod0006', 'Sản phẩm 7', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0014'),
+('prod0007', 'Sản phẩm 8', 200000.00, 0.25, '2023-11-10', 0, 10, 0, 5, '', 'cate0014'),
+('prod0008', 'Sản phẩm 9', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0021'),
+('prod0009', 'Sản phẩm 10', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0021'),
+('prod0010', 'Sản phẩm 11', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0022'),
+('prod0011', 'Sản phẩm 12', 200000.00, 0.25, '2023-11-10', 0, 50, 0, 5, '', 'cate0022'),
+('prod0012', 'Sản phẩm 13', 200000.00, 0.25, '2023-11-10', 0, 60, 0, 5, '', 'cate0023'),
+('prod0013', 'Sản phẩm 14', 200000.00, 0.25, '2023-11-10', 0, 70, 0, 5, '', 'cate0023'),
+('prod0014', 'Sản phẩm 15', 200000.00, 0.25, '2023-11-10', 0, 10, 0, 5, '', 'cate0024'),
+('prod0015', 'Sản phẩm 16', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0024'),
+('prod0016', 'Sản phẩm 17', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0031'),
+('prod0017', 'Sản phẩm 18', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0031'),
+('prod0018', 'Sản phẩm 19', 200000.00, 0.25, '2023-11-10', 0, 50, 0, 5, '', 'cate0032'),
+('prod0019', 'Sản phẩm 20', 200000.00, 0.25, '2023-11-10', 0, 60, 0, 5, '', 'cate0032'),
+('prod0020', 'Sản phẩm 21', 200000.00, 0.25, '2023-11-10', 0, 70, 0, 5, '', 'cate0033'),
+('prod0021', 'Sản phẩm 22', 200000.00, 0.25, '2023-11-10', 0, 10, 0, 5, '', 'cate0033'),
+('prod0022', 'Sản phẩm 23', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0041'),
+('prod0023', 'Sản phẩm 24', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0041'),
+('prod0024', 'Sản phẩm 25', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0042'),
+('prod0025', 'Sản phẩm 26', 200000.00, 0.25, '2023-11-10', 0, 50, 0, 5, '', 'cate0042'),
+('prod0026', 'Sản phẩm 27', 200000.00, 0.25, '2023-11-10', 0, 60, 0, 5, '', 'cate0043'),
+('prod0027', 'Sản phẩm 28', 200000.00, 0.25, '2023-11-10', 0, 70, 0, 5, '', 'cate0043'),
+('prod0028', 'Sản phẩm 29', 200000.00, 0.25, '2023-11-10', 0, 10, 0, 5, '', 'cate0043'),
+('prod0029', 'Sản phẩm 30', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0051'),
+('prod0030', 'Sản phẩm 31', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0051'),
+('prod0031', 'Sản phẩm 32', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0052'),
+('prod0032', 'Sản phẩm 33', 200000.00, 0.25, '2023-11-10', 0, 50, 0, 5, '', 'cate0052'),
+('prod0033', 'Sản phẩm 34', 200000.00, 0.25, '2023-11-10', 0, 60, 0, 5, '', 'cate0053'),
+('prod0034', 'Sản phẩm 35', 200000.00, 0.25, '2023-11-10', 0, 70, 0, 5, '', 'cate0053'),
+('prod0035', 'Sản phẩm 36', 200000.00, 0.25, '2023-11-10', 0, 10, 0, 5, '', 'cate0054'),
+('prod0036', 'Sản phẩm 37', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0054'),
+('prod0037', 'Sản phẩm 38', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0055'),
+('prod0038', 'Sản phẩm 39', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0055'),
+('prod0039', 'Sản phẩm 40', 200000.00, 0.25, '2023-11-10', 0, 50, 0, 5, '', 'cate0056'),
+('prod0040', 'Sản phẩm 41', 200000.00, 0.25, '2023-11-10', 0, 60, 0, 5, '', 'cate0056');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `productsimg`
+--
+
+CREATE TABLE `productsimg` (
+  `prod_id` char(8) NOT NULL,
+  `prod_img_url` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `productsimg`
+--
+
+INSERT INTO `productsimg` (`prod_id`, `prod_img_url`) VALUES
+('prod0000', 'vong_co_1-1.jpg'),
+('prod0000', 'vong_co_1-2.jpg'),
+('prod0000', 'vong_co_1-3.jpg'),
+('prod0000', 'vong_co_1-4.jpg'),
+('prod0000', 'vong_co_1-5.jpg'),
+('prod0000', 'vong_co_1-6.jpg'),
+('prod0001', 'vong_co_2-1.jpg'),
+('prod0001', 'vong_co_2-2.jpg'),
+('prod0001', 'vong_co_2-3.jpg'),
+('prod0001', 'vong_co_2-4.jpg'),
+('prod0001', 'vong_co_2-5.jpg'),
+('prod0001', 'vong_co_2-6.jpg'),
+('prod0002', 'vong_tay_1-1.jpg'),
+('prod0002', 'vong_tay_1-2.jpg'),
+('prod0002', 'vong_tay_1-3.jpg'),
+('prod0002', 'vong_tay_1-4.jpg'),
+('prod0002', 'vong_tay_1-5.jpg'),
+('prod0002', 'vong_tay_1-6.jpg'),
+('prod0003', 'vong_tay_2-1.jpg'),
+('prod0003', 'vong_tay_2-2.jpg'),
+('prod0003', 'vong_tay_2-3.jpg'),
+('prod0003', 'vong_tay_2-4.jpg'),
+('prod0003', 'vong_tay_2-5.jpg'),
+('prod0003', 'vong_tay_2-6.jpg'),
+('prod0004', 'nhan_1-1.jpg'),
+('prod0004', 'nhan_1-2.jpg'),
+('prod0004', 'nhan_1-3.jpg'),
+('prod0004', 'nhan_1-4.jpg'),
+('prod0004', 'nhan_1-5.jpg'),
+('prod0004', 'nhan_1-6.jpg'),
+('prod0005', 'nhan_2-1.jpg'),
+('prod0005', 'nhan_2-2.jpg'),
+('prod0005', 'nhan_2-3.jpg'),
+('prod0005', 'nhan_2-4.jpg'),
+('prod0005', 'nhan_2-5.jpg'),
+('prod0005', 'nhan_2-6.jpg'),
+('prod0006', 'hoa_tai_1-1.jpg'),
+('prod0006', 'hoa_tai_1-2.jpg'),
+('prod0006', 'hoa_tai_1-3.jpg'),
+('prod0006', 'hoa_tai_1-4.jpg'),
+('prod0006', 'hoa_tai_1-5.jpg'),
+('prod0006', 'hoa_tai_1-6.jpg'),
+('prod0007', 'hoa_tai_2-1.jpg'),
+('prod0007', 'hoa_tai_2-2.jpg'),
+('prod0007', 'hoa_tai_2-3.jpg'),
+('prod0007', 'hoa_tai_2-4.jpg'),
+('prod0007', 'hoa_tai_2-5.jpg'),
+('prod0007', 'hoa_tai_2-6.jpg'),
+('prod0008', 'kep_1-1.jpg'),
+('prod0008', 'kep_1-2.jpg'),
+('prod0008', 'kep_1-3.jpg'),
+('prod0008', 'kep_1-4.jpg'),
+('prod0008', 'kep_1-5.jpg'),
+('prod0008', 'kep_1-6.jpg'),
+('prod0009', 'kep_2-1.jpg'),
+('prod0009', 'kep_2-2.jpg'),
+('prod0009', 'kep_2-3.jpg'),
+('prod0009', 'kep_2-4.jpg'),
+('prod0009', 'kep_2-5.jpg'),
+('prod0009', 'kep_2-6.jpg'),
+('prod0010', 'day_cot_toc_1-1.jpg'),
+('prod0010', 'day_cot_toc_1-2.jpg'),
+('prod0010', 'day_cot_toc_1-3.jpg'),
+('prod0010', 'day_cot_toc_1-4.jpg'),
+('prod0010', 'day_cot_toc_1-5.jpg'),
+('prod0010', 'day_cot_toc_1-6.jpg'),
+('prod0011', 'day_cot_toc_2-1.jpg'),
+('prod0011', 'day_cot_toc_2-2.jpg'),
+('prod0011', 'day_cot_toc_2-3.jpg'),
+('prod0011', 'day_cot_toc_2-4.jpg'),
+('prod0011', 'day_cot_toc_2-5.jpg'),
+('prod0011', 'day_cot_toc_2-6.jpg'),
+('prod0012', 'cai_toc_1-1.jpg'),
+('prod0012', 'cai_toc_1-2.jpg'),
+('prod0012', 'cai_toc_1-3.jpg'),
+('prod0012', 'cai_toc_1-4.jpg'),
+('prod0012', 'cai_toc_1-5.jpg'),
+('prod0012', 'cai_toc_1-6.jpg'),
+('prod0013', 'cai_toc_2-1.jpg'),
+('prod0013', 'cai_toc_2-2.jpg'),
+('prod0013', 'cai_toc_2-3.jpg'),
+('prod0013', 'cai_toc_2-4.jpg'),
+('prod0013', 'cai_toc_2-5.jpg'),
+('prod0013', 'cai_toc_2-6.jpg'),
+('prod0014', 'tram_cai_1-1.jpg'),
+('prod0014', 'tram_cai_1-2.jpg'),
+('prod0014', 'tram_cai_1-3.jpg'),
+('prod0014', 'tram_cai_1-4.jpg'),
+('prod0014', 'tram_cai_1-5.jpg'),
+('prod0014', 'tram_cai_1-6.jpg'),
+('prod0015', 'tram_cai_2-1.jpg'),
+('prod0015', 'tram_cai_2-2.jpg'),
+('prod0015', 'tram_cai_2-3.jpg'),
+('prod0015', 'tram_cai_2-4.jpg'),
+('prod0015', 'tram_cai_2-5.jpg'),
+('prod0015', 'tram_cai_2-6.jpg'),
+('prod0016', 'balo_1-1.jpg'),
+('prod0016', 'balo_1-2.jpg'),
+('prod0016', 'balo_1-3.jpg'),
+('prod0016', 'balo_1-4.jpg'),
+('prod0016', 'balo_1-5.jpg'),
+('prod0016', 'balo_1-6.jpg'),
+('prod0017', 'balo_2-1.jpg'),
+('prod0017', 'balo_2-2.jpg'),
+('prod0017', 'balo_2-3.jpg'),
+('prod0017', 'balo_2-4.jpg'),
+('prod0017', 'balo_2-5.jpg'),
+('prod0017', 'balo_2-6.jpg'),
+('prod0018', 'tui_xach_1-1.jpg'),
+('prod0018', 'tui_xach_1-2.jpg'),
+('prod0018', 'tui_xach_1-3.jpg'),
+('prod0018', 'tui_xach_1-4.jpg'),
+('prod0018', 'tui_xach_1-5.jpg'),
+('prod0018', 'tui_xach_1-6.jpg'),
+('prod0019', 'tui_xach_2-1.jpg'),
+('prod0019', 'tui_xach_2-2.jpg'),
+('prod0019', 'tui_xach_2-3.jpg'),
+('prod0019', 'tui_xach_2-4.jpg'),
+('prod0019', 'tui_xach_2-5.jpg'),
+('prod0019', 'tui_xach_2-6.jpg'),
+('prod0020', 'vi_1-1.jpg'),
+('prod0020', 'vi_1-2.jpg'),
+('prod0020', 'vi_1-3.jpg'),
+('prod0020', 'vi_1-4.jpg'),
+('prod0020', 'vi_1-5.jpg'),
+('prod0020', 'vi_1-6.jpg'),
+('prod0021', 'vi_2-1.jpg'),
+('prod0021', 'vi_2-2.jpg'),
+('prod0021', 'vi_2-3.jpg'),
+('prod0021', 'vi_2-4.jpg'),
+('prod0021', 'vi_2-5.jpg'),
+('prod0021', 'vi_2-6.jpg'),
+('prod0022', 'giay_1-1.jpg'),
+('prod0022', 'giay_1-2.jpg'),
+('prod0022', 'giay_1-3.jpg'),
+('prod0022', 'giay_1-4.jpg'),
+('prod0022', 'giay_1-5.jpg'),
+('prod0022', 'giay_1-6.jpg'),
+('prod0023', 'giay_2-1.jpg'),
+('prod0023', 'giay_2-2.jpg'),
+('prod0023', 'giay_2-3.jpg'),
+('prod0023', 'giay_2-4.jpg'),
+('prod0023', 'giay_2-5.jpg'),
+('prod0023', 'giay_2-6.jpg'),
+('prod0024', 'dep_1-1.jpg'),
+('prod0024', 'dep_1-2.jpg'),
+('prod0024', 'dep_1-3.jpg'),
+('prod0024', 'dep_1-4.jpg'),
+('prod0024', 'dep_1-5.jpg'),
+('prod0024', 'dep_1-6.jpg'),
+('prod0025', 'dep_2-1.jpg'),
+('prod0025', 'dep_2-2.jpg'),
+('prod0025', 'dep_2-3.jpg'),
+('prod0025', 'dep_2-4.jpg'),
+('prod0025', 'dep_2-5.jpg'),
+('prod0025', 'dep_2-6.jpg'),
+('prod0026', 'tat_1-1.jpg'),
+('prod0026', 'tat_1-2.jpg'),
+('prod0026', 'tat_1-3.jpg'),
+('prod0026', 'tat_1-4.jpg'),
+('prod0026', 'tat_1-5.jpg'),
+('prod0026', 'tat_1-6.jpg'),
+('prod0027', 'tat_2-1.jpg'),
+('prod0027', 'tat_2-2.jpg'),
+('prod0027', 'tat_2-3.jpg'),
+('prod0027', 'tat_2-4.jpg'),
+('prod0027', 'tat_2-5.jpg'),
+('prod0027', 'tat_2-6.jpg'),
+('prod0028', 'thiep_1-1.jpg'),
+('prod0028', 'thiep_1-2.jpg'),
+('prod0028', 'thiep_1-3.jpg'),
+('prod0028', 'thiep_1-4.jpg'),
+('prod0028', 'thiep_1-5.jpg'),
+('prod0028', 'thiep_1-6.jpg'),
+('prod0029', 'thiep_2-1.jpg'),
+('prod0029', 'thiep_2-2.jpg'),
+('prod0029', 'thiep_2-3.jpg'),
+('prod0029', 'thiep_2-4.jpg'),
+('prod0029', 'thiep_2-5.jpg'),
+('prod0029', 'thiep_2-6.jpg'),
+('prod0030', 'op_lung_1-1.jpg'),
+('prod0030', 'op_lung_1-2.jpg'),
+('prod0030', 'op_lung_1-3.jpg'),
+('prod0030', 'op_lung_1-4.jpg'),
+('prod0030', 'op_lung_1-5.jpg'),
+('prod0030', 'op_lung_1-6.jpg'),
+('prod0031', 'op_lung_2-1.jpg'),
+('prod0031', 'op_lung_2-2.jpg'),
+('prod0031', 'op_lung_2-3.jpg'),
+('prod0031', 'op_lung_2-4.jpg'),
+('prod0031', 'op_lung_2-5.jpg'),
+('prod0031', 'op_lung_2-6.jpg'),
+('prod0032', 'mat_kinh_1-1.jpg'),
+('prod0032', 'mat_kinh_1-2.jpg'),
+('prod0032', 'mat_kinh_1-3.jpg'),
+('prod0032', 'mat_kinh_1-4.jpg'),
+('prod0032', 'mat_kinh_1-5.jpg'),
+('prod0032', 'mat_kinh_1-6.jpg'),
+('prod0033', 'mat_kinh_2-1.jpg'),
+('prod0033', 'mat_kinh_2-2.jpg'),
+('prod0033', 'mat_kinh_2-3.jpg'),
+('prod0033', 'mat_kinh_2-4.jpg'),
+('prod0033', 'mat_kinh_2-5.jpg'),
+('prod0033', 'mat_kinh_2-6.jpg'),
+('prod0034', 'day_deo_1-1.jpg'),
+('prod0034', 'day_deo_1-2.jpg'),
+('prod0034', 'day_deo_1-3.jpg'),
+('prod0034', 'day_deo_1-4.jpg'),
+('prod0034', 'day_deo_1-5.jpg'),
+('prod0034', 'day_deo_1-6.jpg'),
+('prod0035', 'day_deo_2-1.jpg'),
+('prod0035', 'day_deo_2-2.jpg'),
+('prod0035', 'day_deo_2-3.jpg'),
+('prod0035', 'day_deo_2-4.jpg'),
+('prod0035', 'day_deo_2-5.jpg'),
+('prod0035', 'day_deo_2-6.jpg'),
+('prod0036', 'mu_non_1-1.jpg'),
+('prod0036', 'mu_non_1-2.jpg'),
+('prod0036', 'mu_non_1-3.jpg'),
+('prod0036', 'mu_non_1-4.jpg'),
+('prod0036', 'mu_non_1-5.jpg'),
+('prod0036', 'mu_non_1-6.jpg'),
+('prod0037', 'mu_non_2-1.jpg'),
+('prod0037', 'mu_non_2-2.jpg'),
+('prod0037', 'mu_non_2-3.jpg'),
+('prod0037', 'mu_non_2-4.jpg'),
+('prod0037', 'mu_non_2-5.jpg'),
+('prod0037', 'mu_non_2-6.jpg'),
+('prod0038', 'khau_trang_1-1.jpg'),
+('prod0038', 'khau_trang_1-2.jpg'),
+('prod0038', 'khau_trang_1-3.jpg'),
+('prod0038', 'khau_trang_1-4.jpg'),
+('prod0038', 'khau_trang_1-5.jpg'),
+('prod0038', 'khau_trang_1-6.jpg'),
+('prod0039', 'khau_trang_2-1.jpg'),
+('prod0039', 'khau_trang_2-2.jpg'),
+('prod0039', 'khau_trang_2-3.jpg'),
+('prod0039', 'khau_trang_2-4.jpg'),
+('prod0039', 'khau_trang_2-5.jpg'),
+('prod0039', 'khau_trang_2-6.jpg');
 
 -- --------------------------------------------------------
 
@@ -410,6 +692,13 @@ ALTER TABLE `payingmethod`
 ALTER TABLE `products`
   ADD PRIMARY KEY (`prod_id`),
   ADD KEY `cate_id` (`cate_id`);
+
+--
+-- Indexes for table `productsimg`
+--
+ALTER TABLE `productsimg`
+  ADD KEY `prod_id` (`prod_id`),
+  ADD KEY `prod_img_url` (`prod_img_url`);
 
 --
 -- Indexes for table `transportmethods`
