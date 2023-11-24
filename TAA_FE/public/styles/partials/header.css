@@ -42,20 +42,19 @@ header {
   }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 64rem) {
   header {
     & .header__top {
-      flex-direction: column;
       gap: 1rem;
     }
 
     & .header__wrapper {
-      flex-direction: column;
       gap: 1rem;
     }
 
     & .header__search {
-      margin: 0;
+      max-width: none;
+      width: auto;
     }
   }
 }

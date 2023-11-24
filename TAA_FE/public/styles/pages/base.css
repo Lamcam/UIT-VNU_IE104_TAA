@@ -344,6 +344,28 @@ input {
   }
 }
 
+/* .hide {
+  display: none !important;
+} */
+
+@media screen and (max-width: 48rem) {
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 48rem) and (max-width: 64rem) {
+  .hide-md {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .hide-lg {
+    display: none !important;
+  }
+}
+
 .visible {
   background: white;
   border-radius: 1rem;

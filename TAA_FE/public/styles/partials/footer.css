@@ -27,7 +27,6 @@ footer {
 
 @media (max-width: 48rem) {
   footer {
-    padding: 1rem;
     padding-bottom: 3rem;
   }
 }

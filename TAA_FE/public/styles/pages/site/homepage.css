@@ -31,36 +31,6 @@
   }
 }
 
-@keyframes slide-3 {
-  0% {
-    transform: translateX(0%);
-  }
-
-  23.33% {
-    transform: translateX(0%);
-  }
-
-  33.33% {
-    transform: translateX(-100%);
-  }
-
-  56.66% {
-    transform: translateX(-100%);
-  }
-
-  66.66% {
-    transform: translateX(-200%);
-  }
-
-  90% {
-    transform: translateX(-200%);
-  }
-
-  100% {
-    transform: translateX(-300%);
-  }
-}
-
 .--scroll-x {
   overflow-x: scroll;
   -ms-overflow-style: none;
