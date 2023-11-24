@@ -7,10 +7,10 @@
   <title>TAA - Trang sản phẩm</title>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
     crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="/TAA_FE/views/base.css">
+  <link rel="stylesheet" href="/TAA_FE/views/homepage/products/style.css">
 
-  <script src="./productsPage.js" defer></script>
+  <script src="/TAA_FE/views/homepage/products/productsPage.js" defer></script>
 
 </head>
 
@@ -343,7 +343,7 @@
   </div>
   <script>
     $(document).ready(function () {
-      $('#header').load('/TAA_FE/src/partials/header--unauth.html');
+      $('#header').load('/TAA_FE/views/partials/header--unauth.html');
       $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
       $('#footer').load('/TAA_FE/src/partials/footer.html');
     });
