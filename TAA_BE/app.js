@@ -9,6 +9,7 @@ const DbService = require("./config/db.js"); // connect DB
 const { data } = require("jquery");
 const cors = require('cors')
 const route = require("./routers/index.js"); // import router
+const cookieParser = require('cookie-parser');
 
 const app = express();
 const URL_PATH = `http://${config.HOST}:${config.PORT}`;
@@ -21,6 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors({ origin: URL_PATH }));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Serve static files from the "public" and "views" directories
 app.use(express.static(__publicDir));
