@@ -7,5 +7,7 @@ router.get('/', site.index)
 
 router.get('/about', site.about)
 
+router.get('/news', site.news)
+
 
 module.exports = router;
