@@ -21,11 +21,15 @@
       </span>
       <div class="header__wrapper">
         <a href="/TAA_FE/src/homepage/cart/" style="text-decoration: none;">
-          <button class="btn-icon">
+          <!-- <button class="btn-icon">
             <span
               class="status-layer icon icon--filled material-symbols-outlined">
               shopping_cart</span>
-          </button>
+          </button> -->
+          <%- include('../components/button', {
+            type: 'btn-icon',
+            icon: 'shopping_cart'
+          }) %>
         </a>
         <label for="header__user--controller"
           class="header__user--controller__label">
