@@ -134,8 +134,8 @@
 }
 
 .group__img {
-  width: 100%;
-  max-height: 35rem;
+  width: auto;
+  max-height: 40rem;
   object-fit: cover;
   display: flex;
   justify-content: center;
