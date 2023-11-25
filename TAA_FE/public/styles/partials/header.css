@@ -1,0 +1,123 @@
+@import url(../components/search-bar.css);
+@import url(../components/main-nav.css);
+
+header {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+
+  & .header__top {
+    padding-top: 1.25rem;
+
+    &>* {
+      display: flex;
+      position: relative;
+
+      max-height: 4rem;
+      justify-content: space-between;
+    }
+  }
+
+  & .header__logo {
+    height: 100%;
+    aspect-ratio: 2/1;
+  }
+
+  & .header__search {
+    max-width: 40rem;
+    width: 100%;
+    margin: 0 1.25rem;
+  }
+
+  & .header__wrapper {
+    display: flex;
+    justify-content: end;
+    gap: .75rem;
+
+    & .header__avatar {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      border: 1px solid var(--md-sys-color-outline);
+    }
+  }
+
+  & .header__user--controller__label {
+    display: inline-flex;
+    gap: 8px;
+  
+    &>* {
+      margin: auto;
+    }
+  }
+}
+
+.header__user {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  flex-direction: column;
+
+  width: 15rem;
+
+  border-radius: .75rem;
+  overflow: hidden;
+
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+
+  & a {
+    text-decoration: none !important;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding: 2rem;
+    width: 100%;
+    background-color: white;
+    color: black;
+    /* font-weight: bold; */
+
+    text-decoration: none;
+
+    /* &:active {
+      filter: none;
+    } */
+
+    &:hover {
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+    }
+
+    &:last-child {
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+    }
+  }
+}
+
+#header__user--controller {
+  display: none;
+}
+
+#header__user--controller:checked+.header__user {
+  display: flex;
+  z-index: 100;
+}
+
+@media (max-width: 64rem) {
+  header {
+    & .header__top {
+      gap: 1rem;
+    }
+
+    & .header__wrapper {
+      gap: 1rem;
+    }
+
+    & .header__search {
+      max-width: none;
+      width: auto;
+    }
+  }
+}

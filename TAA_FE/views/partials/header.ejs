@@ -1,0 +1,99 @@
+<header class="visible un-radius">
+  <div class="header__top">
+    <div class="container">
+      <a href="/">
+        <img class="header__logo" src="/logos/logo.svg" alt="Logo TAA">
+      </a>
+      <span class="header__search search-bar hide-md hide-sm">
+        <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search" id="search">
+        <datalist id="data--search">
+          <option value="Vòng tay"></option>
+          <option value="Vòng cổ"></option>
+          <option value="Túi"></option>
+          <option value="Cài tóc"></option>
+          <option value="Nhẫn"></option>
+        </datalist>
+        <%- include('../components/button', {
+          type: 'btn-icon',
+          options: 'btn--filled',
+          classList: '',
+          label: '',
+          onclick: '',
+          iconData: 'search',
+        }) %>
+        <!-- <button class="btn-icon btn--filled" type="submit">
+          <span class="status-layer icon material-symbols-outlined">
+            search</span>
+        </button> -->
+      </span>
+      <div class="header__wrapper">
+        <% if (!isAuthenticated) { %>
+        <!-- <button class="btn--outlined header__btn--login label-large" type="button" onclick="modalCtl.openModal('#modal--login')">
+          <span class="status-layer">Đăng nhập</span>
+        </button> -->
+        <%- include('../components/button', {
+          type: '',
+          options: 'btn--outlined',
+          classList: '',
+          label: 'Đăng nhập',
+          onclick: 'modalCtl.openModal(\'#modal--login\')',
+        }) %>
+        <%- include('../components/button', {
+          type: '',
+          options: 'btn--filled',
+          classList: '',
+          label: 'Đăng ký',
+          onclick: 'modalCtl.openModal(\'#modal--register\')',
+        }) %>
+        <% } else { %>
+        <a href="/cart" style="text-decoration: none;">
+          <%- include('../components/button', {
+            type: 'btn-icon',
+            options: '',
+            classList: '',
+            label: '',
+            onclick: '',
+            iconData: 'shopping_cart',
+          }) %>
+        </a>
+        <label for="header__user--controller" class="header__user--controller__label">
+          <span class="header__name">Nguyễn Văn A</span>
+          <img class="header__avatar" src="/imgs/users/avatar.png" alt="Avatar">
+        </label>
+        <input type="checkbox" id="header__user--controller">
+        <div class="header__user label-small">
+          <a href="/account/">Thông tin cá nhân</a>
+          <a href="/account/">Đơn hàng</a>
+          <a href="/account/">Sản phẩm yêu thích</a>
+          <a href="/auth/logout">Đăng xuất</a>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+  <div class="header__search search-bar hide-lg">
+    <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search">
+    <%- include('../components/button', {
+      type: 'btn-icon',
+      options: 'btn--filled',
+      classList: '',
+      label: '',
+      onclick: '',
+      iconData: 'search',
+    }) %>
+  </div>
+  <%- include('../components/main-nav', {
+    activeIdx,
+    data: [
+      { text: 'Trang chủ', link: '/' },
+      { text: 'Sản phẩm', link: '/products' },
+      { text: 'Tin tức', link: '/news' },
+      { text: 'Về chúng tôi', link: '/about' },
+      { text: 'Hướng dẫn sử dụng', link: '/user-manual' },
+    ],
+  }) %>
+</header>
+<%- include('modal--login') %>
+<%- include('modal--register') %>
+<%- include('modal--forgot-method') %>
+<%- include('modal--forgot-by-phone') %>
