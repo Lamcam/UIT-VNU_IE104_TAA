@@ -31,18 +31,18 @@ app.use(express.static(__publicDir));
 app.set('views', __viewsDir);
 app.set('view engine', 'ejs');
 
-app.get("/getAll", async (req, res) => {
-  try {
-    const db = await DbService.getDbServiceInstance();
-    const result = await db.getAllData();
+// app.get("/getAll", async (req, res) => {
+//   try {
+//     const db = await DbService.getDbServiceInstance();
+//     const result = await db.getAllData();
 
-    // result.then(data => res.json({data: data})).catch(err => console.log(err));
-    res.status(200).json({ result });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ error: "An error occurred" });
-  }
-});
+//     // result.then(data => res.json({data: data})).catch(err => console.log(err));
+//     res.status(200).json({ result });
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ error: "An error occurred" });
+//   }
+// });
 
 // app.post("/login", async (req,res)=>{
 //   const username = sanitizeHtml(req.body.f_log_name);
@@ -58,8 +58,6 @@ app.get("/getAll", async (req, res) => {
 
 //   }
 // })
-app.get('/products', controllers.product.queryProduct);
-app.post('/login', controllers.auth.loginPost);
 
 // Set up your routes
 route(app);
