@@ -62,10 +62,10 @@
         </label>
         <input type="checkbox" id="header__user--controller">
         <div class="header__user label-small">
-          <a href="/account/">Thông tin cá nhân</a>
-          <a href="/account/">Đơn hàng</a>
-          <a href="/account/">Sản phẩm yêu thích</a>
-          <a href="/">Đăng xuất</a>
+          <a class="header__user--options" href="/account/">Thông tin cá nhân</a>
+          <a class="header__user--options" href="/account/">Đơn hàng</a>
+          <a class="header__user--options" href="/account/">Sản phẩm yêu thích</a>
+          <span class='header__user--options logoutBtn'>Đăng xuất</span>
         </div>
         <% } %>
       </div>
@@ -89,7 +89,7 @@
       { text: 'Sản phẩm', link: '/products' },
       { text: 'Tin tức', link: '/news' },
       { text: 'Về chúng tôi', link: '/about' },
-      { text: 'Hướng dẫn sử dụng', link: '/user-manual' },
+      { text: 'Hướng dẫn', link: ''},
     ],
   }) %>
 </header>
@@ -97,3 +97,4 @@
 <%- include('modal--register') %>
 <%- include('modal--forgot-method') %>
 <%- include('modal--forgot-by-phone') %>
+<%- include('modal--logout') %>

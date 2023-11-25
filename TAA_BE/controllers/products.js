@@ -1,53 +1,49 @@
-// const express  = require('express');
+/**
+ * @fileoverview Controller functions for handling products.
+ * @module products
+ */
+
 const models = require('../models')
-// const db = require('../config/db');
-// const bodyParser = require("body-parser");
+const index = require('./index')
 
-// const app = express();
-
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-
+/**
+ * Controller class for handling products.
+ * @class
+ */
 function product() { }
 
-product.groupProducts = (result) => {
-  const groupResult = result.reduce((r, item) => {
-    const {
-      prod_id, prod_name, prod_cost, prod_discount,
-      prod_num_sold, prod_num_avai, prod_num_rating,
-      prod_star_rating, prod_description, cate_id,
-      cate_name, prod_img_url,
-    } = item;
-    const found = r.find(v => v.prod_id === prod_id);
-    if (found) {
-      found.prod_img_urls.push(prod_img_url);
-    } else {
-      r.push({
-        prod_id, prod_name, prod_cost, prod_discount,
-        prod_num_sold, prod_num_avai, prod_num_rating,
-        prod_star_rating, prod_description, cate_id,
-        cate_name, prod_img_urls: [prod_img_url],
-      });
-    }
-    return r;
-  }, [])
-
-  return groupResult;
-}
-
+/**
+ * Retrieves all products and renders the product index page.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ */
 product.getAll = (req, res) => {
   models.product.getAllProduct((err, result) => {
     if (err) throw err;
 
     res.status(200).render('pages/products/index', {
-    // res.status(200).json({
-      result: product.groupProducts(result),
+      result: index.groupProducts(result),
     })
   })
 }
 
-product.queryProduct = (req, res) => {
+product.getHotProduct = (req, res) => {
+  models.product.getHotProduct((err, result) => {
+    if (err) throw err;
 
+    res.status(200).json({
+      result
+      // result: index.groupProducts(result),
+    })
+  })
+}
+
+/**
+ * Retrieves all products and returns them as JSON.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ */
+product.queryProduct = (req, res) => {
   models.product.getAllProduct((err, result) => {
     if (err) throw err;
 
@@ -55,13 +51,11 @@ product.queryProduct = (req, res) => {
       res.status(404).json({
         msg: 'can not find any',
       });
-    }
-    else {
+    } else {
       res.status(200).json({
         msg: 'Found',
         result,
       })
-
     }
   })
 }

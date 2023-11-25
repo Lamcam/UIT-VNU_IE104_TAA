@@ -34,7 +34,11 @@
             tuần</h1>
           <div class="section__content mt-12">
             <div class="fade fade--left"></div>
-            <div class="product__wrapper --scroll-x"></div>
+            <div class="product__wrapper --scroll-x">
+              <% hotProducts.forEach(data => { %>
+              <%- include('../../components/product__item', { data }) %>
+              <% }) %>
+            </div>
             <div class="fade fade--right"></div>
           </div>
         </div>
