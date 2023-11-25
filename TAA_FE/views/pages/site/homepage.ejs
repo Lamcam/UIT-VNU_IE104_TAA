@@ -34,7 +34,11 @@
             tuần</h1>
           <div class="section__content mt-12">
             <div class="fade fade--left"></div>
-            <div class="product__wrapper --scroll-x"></div>
+            <div class="product__wrapper --scroll-x">
+              <% hotProducts.forEach(data => { %>
+              <%- include('../../components/product__item', { data }) %>
+              <% }) %>
+            </div>
             <div class="fade fade--right"></div>
           </div>
         </div>
@@ -89,8 +93,9 @@
       <section id="Q-A" class="mt-64">
         <div class="container">
           <div class="row">
-            <img class="Q-A__imgs visible col-12 col-lg-6" src="/imgs/banners/q&a.png" alt="Q-A__img">
-            <article class="section__content col-12 col-lg-6 body-large">
+            <img class="Q-A__imgs visible col-6 col-sm-12" src="/imgs/banners/q&a.png" alt="Q-A__img">
+            <div class="col-1 hide-md"></div>
+            <article class="section__content col-12 col-md-6 col-lg-5 body-large">
               <h2 class="article__title display-medium">Hỏi xoáy đáp xoay</h2>
               <h3 class="article__subtitle headline-small mt-8">Nơi trả lời
                 những câu hỏi của bạn</h3>

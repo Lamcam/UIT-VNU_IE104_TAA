@@ -1,9 +1,11 @@
 <nav class="breadcrumbs mt-12 body-medium">
-  <ul class="container visible">
-    <% data.forEach(item => { %>
-    <li class="breadcrumbs__item">
-      <a class="breadcrumbs__link" href="<%= item.link %>"><%- item.label %></a>
-    </li>
-    <% })%>
-  </ul>
+  <div class="container">
+    <ul class="visible">
+      <% data.forEach(item => { %>
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="<%= item.link %>"><%- item.label %></a>
+      </li>
+      <% })%>
+    </ul>
+  </div>
 </nav>

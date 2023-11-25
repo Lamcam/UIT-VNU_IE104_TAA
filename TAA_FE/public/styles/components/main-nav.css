@@ -34,8 +34,9 @@
 
 .main-nav {
   position: relative;
+  /* overflow: hidden visible; */
 
-  &>ul {
+  & ul {
     height: 4rem;
     padding: 0px;
     display: flex;

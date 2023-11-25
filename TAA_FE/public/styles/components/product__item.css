@@ -1,0 +1,126 @@
+/* item product */
+.product__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+
+.product__image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 204px;
+  width: 100%;
+}
+
+.product__item:hover {
+  & .product__button__section {
+    display: flex;
+  }
+
+  & .product__stock {
+    display: none;
+  }
+
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+  0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  /* max-height: fit-content; */
+}
+
+.product__image img {
+  /* display: block; */
+  position: absolute;
+  width: 100%;
+  height: 204px;
+  object-fit: cover;
+  padding: 1rem;
+  --webkit--transition: opacity 0.1s ease-in-out;
+  -moz-animation: opacity 0.1s ease-in-out;
+  -ms-transition: opacity 0.1s ease-in-out;
+  -o-transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.product__item:hover .product__image .img_font {
+  opacity: 0;
+}
+
+.icon_heart,
+.icon_favorite {
+  cursor: pointer;
+}
+
+.icon_favorite {
+  display: none;
+}
+
+.product__item .product__button__section {
+  display: flex;
+  align-items: center;
+  background-color: #cfc1c1;
+  width: 100%;
+  height: 3rem;
+  justify-content: space-around;
+  border-radius: 0px 0px .75rem .75rem;
+  background: var(--m-3-sys-light-primary, #785B5B);
+  cursor: pointer;
+  display: none;
+}
+
+.product__item .vertical {
+  width: 1px;
+  height: 2rem;
+  background-color: #fff;
+}
+
+.product__button__view,
+.product__item .product__button__sell {
+  color: #fff !important;
+  display: block;
+  border-radius: 0;
+  /* border-bottom-left-radius: 8px; */
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+  line-height: 3rem;
+  cursor: pointer;
+}
+
+.product__button__sell .link-sell {
+  color: #fff;
+  text-decoration: none;
+}
+
+.product__body {
+  text-align: center;
+}
+
+.product__price {
+  display: flex;
+  justify-content: center;
+  /* margin: 8px 0; */
+}
+
+.product__price__current {
+  margin-right: .75rem;
+  font-weight: bold;
+}
+
+.product__price__discount {
+  text-decoration: line-through;
+}
+
+.product__discount {
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+
+.product__stock {
+  font-weight: 500;
+  line-height: 2rem;
+  padding: 0px 4rem 1rem 4rem;
+}

@@ -1,13 +1,10 @@
+/**
+ * This module is responsible for importing and assigning the modal controller to the global window object.
+ * @module main
+ */
 import modalCtl from './modal--controller.js';
-// import cookieCtl from './cookie.js';
+import { handleLoginSubmit } from './modal--login.js';
+
+handleLoginSubmit();
 
 window.modalCtl = modalCtl;
-// window.modalCtl = cookieCtl;
-
-
-const accountPageContentClassName = "#section2";
-// var flag = 0;
-function closeModal() {
-  const modals = document.querySelectorAll(".modal");
-  modals.forEach((modal) => modal.classList.remove("active"));
-}

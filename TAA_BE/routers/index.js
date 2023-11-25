@@ -2,7 +2,9 @@
 const middlewares = require("../middlewares/index.js")
 
 // import router
-const siteRouter = require("./SiteRouter")
+const siteRouter = require("./siteRouter")
+const productRouter = require("./productsRouter")
+const authRouter = require("./authRouter")
 
 const route = (app) => {
     app.use(middlewares.authenticate)
@@ -15,6 +17,10 @@ const route = (app) => {
     app.get('/policy', (req, res) => {
         res.render('pages/policy/policy')
     })
+
+    app.use("/auth", authRouter)
+
+    app.use("/products", productRouter)
 }
 
 module.exports = route

@@ -1,10 +1,9 @@
--- Active: 1698914213463@@127.0.0.1@3306@database_ie104
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 22, 2023 at 10:02 AM
+-- Generation Time: Nov 24, 2023 at 08:00 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -199,13 +198,108 @@ INSERT INTO `locations` (`loca_id`, `loca_pers_name`, `loca_pers_phone`, `loca_a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orderdetails`
+--
+
+CREATE TABLE `orderdetails` (
+  `order_id` char(8) DEFAULT NULL,
+  `prod_id` char(8) DEFAULT NULL,
+  `quantity` char(8) DEFAULT NULL,
+  `price` decimal(10,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orderdetails`
+--
+
+INSERT INTO `orderdetails` (`order_id`, `prod_id`, `quantity`, `price`) VALUES
+('abcd1234', 'prod0001', '1', 25000.00),
+('abcd1234', 'prod0002', '1', 25000.00),
+('abcd1234', 'prod0003', '1', 25000.00),
+('abcd1234', 'prod0004', '1', 25000.00),
+('abce1234', 'prod0009', '2', 25000.00),
+('abce1234', 'prod0010', '2', 25000.00),
+('annn1910', 'prod0005', '1', 25000.00),
+('annn1910', 'prod0006', '1', 25000.00),
+('annn1910', 'prod0007', '1', 25000.00),
+('annn1910', 'prod0008', '1', 25000.00),
+('asdf1111', 'prod0003', '2', 25000.00),
+('asdf1111', 'prod0004', '2', 25000.00),
+('camh1811', 'prod0001', '1', 25000.00),
+('camh1811', 'prod0002', '1', 25000.00),
+('camh1811', 'prod0003', '1', 25000.00),
+('camh1811', 'prod0004', '1', 25000.00),
+('daub2411', 'prod0009', '2', 25000.00),
+('daub2411', 'prod0010', '2', 25000.00),
+('efgh5678', 'prod0005', '1', 25000.00),
+('efgh5678', 'prod0006', '1', 25000.00),
+('efgh5678', 'prod0007', '1', 25000.00),
+('efgh5678', 'prod0008', '1', 25000.00),
+('fghj2222', 'prod0003', '2', 25000.00),
+('fghj2222', 'prod0004', '3', 25000.00),
+('hieu2712', 'prod0001', '1', 25000.00),
+('hieu2712', 'prod0002', '1', 25000.00),
+('hieu2712', 'prod0003', '1', 25000.00),
+('hieu2712', 'prod0004', '1', 25000.00),
+('ijkl2712', 'prod0009', '2', 25000.00),
+('ijkl2712', 'prod0010', '2', 25000.00),
+('mnop9876', 'prod0005', '1', 25000.00),
+('mnop9876', 'prod0006', '1', 25000.00),
+('mnop9876', 'prod0007', '1', 25000.00),
+('mnop9876', 'prod0008', '1', 25000.00),
+('qrst1234', 'prod0003', '2', 25000.00),
+('qrst1234', 'prod0004', '2', 25000.00),
+('stuv1234', 'prod0009', '2', 25000.00),
+('stuv1234', 'prod0010', '2', 25000.00),
+('vbnm1122', 'prod0005', '1', 25000.00),
+('vbnm1122', 'prod0006', '1', 25000.00),
+('vbnm1122', 'prod0007', '1', 25000.00),
+('vbnm1122', 'prod0008', '1', 25000.00),
+('vbnm1122', 'prod0009', '2', 25000.00),
+('vbnm1122', 'prod0010', '2', 25000.00);
+
+--
+-- Triggers `orderdetails`
+--
+DELIMITER $$
+CREATE TRIGGER `update_orders_total_cost` AFTER INSERT ON `orderdetails` FOR EACH ROW BEGIN
+    DECLARE order_total_cost DECIMAL(10, 2);
+    -- Calculate the total cost for the order
+    SELECT SUM(quantity * price) INTO order_total_cost
+    FROM orderdetails
+    WHERE order_id = NEW.order_id;
+    -- Update the total_cost for the order
+    UPDATE orders
+    SET order_total_cost = order_total_cost
+    WHERE order_id = NEW.order_id;
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `update_prod_num_sold` AFTER INSERT ON `orderdetails` FOR EACH ROW BEGIN
+    DECLARE total_quantity INT;
+    -- Calculate the total quantity of the product in the order
+    SELECT SUM(quantity) INTO total_quantity
+    FROM orderdetails
+    WHERE prod_id = NEW.prod_id;
+    -- Update the prod_num_sold for the product
+    UPDATE products
+    SET prod_num_sold = prod_num_sold + total_quantity
+    WHERE prod_id = NEW.prod_id;
+END
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `orders`
 --
 
 CREATE TABLE `orders` (
   `order_id` char(8) NOT NULL,
   `order_datetime` date DEFAULT NULL,
-  `order_total_cost` decimal(10,2) DEFAULT NULL,
+  `order_total_cost` decimal(10,2) DEFAULT 0.00,
   `user_id` char(8) DEFAULT NULL,
   `pay_id` char(8) DEFAULT NULL,
   `bank_id` char(8) DEFAULT NULL,
@@ -220,20 +314,20 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `order_datetime`, `order_total_cost`, `user_id`, `pay_id`, `bank_id`, `trans_id`, `loca_id`, `order_status`, `order_is_paying`) VALUES
-('abcd1234', '2023-10-10', 0.00, 'user0000', 'pay00', NULL, 'tran0000', 'loca0000', 0, 0),
-('abce1234', '2023-10-12', 50000.00, 'user0002', 'pay00', NULL, 'tran0001', 'loca0002', 0, 0),
-('annn1910', '2023-10-16', 70000.00, 'user0001', 'pay00', NULL, 'tran0001', 'loca0001', 0, 0),
-('asdf1111', '2023-10-25', 90000.00, 'user0000', 'pay01', 'bank0001', 'tran0001', 'loca0000', 0, 1),
-('camh1811', '2023-10-15', 45000.00, 'user0000', 'pay00', NULL, 'tran0000', 'loca0000', 1, 1),
-('daub2411', '2023-10-17', 200000.00, 'user0002', 'pay01', 'bank0003', 'tran0001', 'loca0002', 0, 1),
+('abcd1234', '2023-10-10', 100000.00, 'user0000', 'pay00', NULL, 'tran0000', 'loca0000', 0, 0),
+('abce1234', '2023-10-12', 100000.00, 'user0002', 'pay00', NULL, 'tran0001', 'loca0002', 0, 0),
+('annn1910', '2023-10-16', 100000.00, 'user0001', 'pay00', NULL, 'tran0001', 'loca0001', 0, 0),
+('asdf1111', '2023-10-25', 100000.00, 'user0000', 'pay01', 'bank0001', 'tran0001', 'loca0000', 0, 1),
+('camh1811', '2023-10-15', 100000.00, 'user0000', 'pay00', NULL, 'tran0000', 'loca0000', 1, 1),
+('daub2411', '2023-10-17', 100000.00, 'user0002', 'pay01', 'bank0003', 'tran0001', 'loca0002', 0, 1),
 ('efgh5678', '2023-10-11', 100000.00, 'user0001', 'pay01', 'bank0001', 'tran0001', 'loca0001', 0, 1),
-('fghj2222', '2023-10-23', 130000.00, 'user0003', 'pay01', 'bank0000', 'tran0001', 'loca0003', 1, 1),
-('hieu2712', '2023-10-18', 30000.00, 'user0003', 'pay00', NULL, 'tran0000', 'loca0003', 0, 0),
-('ijkl2712', '2023-10-13', 75000.00, 'user0003', 'pay00', NULL, 'tran0001', 'loca0003', 0, 0),
-('mnop9876', '2023-10-20', 120000.00, 'user0000', 'pay00', NULL, 'tran0001', 'loca0000', 1, 1),
-('qrst1234', '2023-10-21', 150000.00, 'user0001', 'pay01', NULL, 'tran0001', 'loca0001', 0, 1),
-('stuv1234', '2023-10-22', 125000.00, 'user0002', 'pay00', NULL, 'tran0000', 'loca0002', 0, 0),
-('vbnm1122', '2023-10-26', 500000.00, 'user0001', 'pay00', NULL, 'tran0000', 'loca0001', 0, 0);
+('fghj2222', '2023-10-23', 125000.00, 'user0003', 'pay01', 'bank0000', 'tran0001', 'loca0003', 1, 1),
+('hieu2712', '2023-10-18', 100000.00, 'user0003', 'pay00', NULL, 'tran0000', 'loca0003', 0, 0),
+('ijkl2712', '2023-10-13', 100000.00, 'user0003', 'pay00', NULL, 'tran0001', 'loca0003', 0, 0),
+('mnop9876', '2023-10-20', 100000.00, 'user0000', 'pay00', NULL, 'tran0001', 'loca0000', 1, 1),
+('qrst1234', '2023-10-21', 100000.00, 'user0001', 'pay01', NULL, 'tran0001', 'loca0001', 0, 1),
+('stuv1234', '2023-10-22', 100000.00, 'user0002', 'pay00', NULL, 'tran0000', 'loca0002', 0, 0),
+('vbnm1122', '2023-10-26', 200000.00, 'user0001', 'pay00', NULL, 'tran0000', 'loca0001', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -280,16 +374,16 @@ CREATE TABLE `products` (
 
 INSERT INTO `products` (`prod_id`, `prod_name`, `prod_cost`, `prod_discount`, `prod_end_date_discount`, `prod_num_sold`, `prod_num_avai`, `prod_num_rating`, `prod_star_rating`, `prod_description`, `cate_id`) VALUES
 ('prod0000', 'Sản phẩm 1', 100000.00, 0.25, '2023-11-01', 0, 10, 0, 0, '', 'cate0011'),
-('prod0001', 'Sản phẩm 2', 200000.00, 0.20, '2023-11-01', 0, 20, 0, 5, '', 'cate0011'),
-('prod0002', 'Sản phẩm 3', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0012'),
-('prod0003', 'Sản phẩm 4', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0012'),
-('prod0004', 'Sản phẩm 5', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0013'),
-('prod0005', 'Sản phẩm 6', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0013'),
-('prod0006', 'Sản phẩm 7', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0014'),
-('prod0007', 'Sản phẩm 8', 200000.00, 0.25, '2023-11-10', 0, 10, 0, 5, '', 'cate0014'),
-('prod0008', 'Sản phẩm 9', 200000.00, 0.25, '2023-11-10', 0, 20, 0, 5, '', 'cate0021'),
-('prod0009', 'Sản phẩm 10', 200000.00, 0.25, '2023-11-10', 0, 30, 0, 5, '', 'cate0021'),
-('prod0010', 'Sản phẩm 11', 200000.00, 0.25, '2023-11-10', 0, 40, 0, 5, '', 'cate0022'),
+('prod0001', 'Sản phẩm 2', 200000.00, 0.20, '2023-11-01', 6, 20, 0, 5, '', 'cate0011'),
+('prod0002', 'Sản phẩm 3', 200000.00, 0.25, '2023-11-10', 6, 30, 0, 5, '', 'cate0012'),
+('prod0003', 'Sản phẩm 4', 200000.00, 0.25, '2023-11-10', 30, 20, 0, 5, '', 'cate0012'),
+('prod0004', 'Sản phẩm 5', 200000.00, 0.25, '2023-11-10', 33, 40, 0, 5, '', 'cate0013'),
+('prod0005', 'Sản phẩm 6', 200000.00, 0.25, '2023-11-10', 10, 30, 0, 5, '', 'cate0013'),
+('prod0006', 'Sản phẩm 7', 200000.00, 0.25, '2023-11-10', 10, 20, 0, 5, '', 'cate0014'),
+('prod0007', 'Sản phẩm 8', 200000.00, 0.25, '2023-11-10', 10, 10, 0, 5, '', 'cate0014'),
+('prod0008', 'Sản phẩm 9', 200000.00, 0.25, '2023-11-10', 10, 20, 0, 5, '', 'cate0021'),
+('prod0009', 'Sản phẩm 10', 200000.00, 0.25, '2023-11-10', 30, 30, 0, 5, '', 'cate0021'),
+('prod0010', 'Sản phẩm 11', 200000.00, 0.25, '2023-11-10', 30, 40, 0, 5, '', 'cate0022'),
 ('prod0011', 'Sản phẩm 12', 200000.00, 0.25, '2023-11-10', 0, 50, 0, 5, '', 'cate0022'),
 ('prod0012', 'Sản phẩm 13', 200000.00, 0.25, '2023-11-10', 0, 60, 0, 5, '', 'cate0023'),
 ('prod0013', 'Sản phẩm 14', 200000.00, 0.25, '2023-11-10', 0, 70, 0, 5, '', 'cate0023'),
@@ -670,6 +764,13 @@ ALTER TABLE `locations`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `orderdetails`
+--
+ALTER TABLE `orderdetails`
+  ADD KEY `order_id` (`order_id`),
+  ADD KEY `prod_id` (`prod_id`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -741,6 +842,13 @@ ALTER TABLE `favorproducts`
 --
 ALTER TABLE `locations`
   ADD CONSTRAINT `locations_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `orderdetails`
+--
+ALTER TABLE `orderdetails`
+  ADD CONSTRAINT `ordersdetails_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`),
+  ADD CONSTRAINT `ordersdetails_ibfk_2` FOREIGN KEY (`prod_id`) REFERENCES `products` (`prod_id`);
 
 --
 -- Constraints for table `orders`
