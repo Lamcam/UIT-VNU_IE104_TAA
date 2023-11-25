@@ -21,7 +21,6 @@ db.connect((err) => {
     console.log(err.message);
   else
     console.log("Connected to DB!");
-
 })
 
 module.exports = db;

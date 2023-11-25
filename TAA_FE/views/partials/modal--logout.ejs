@@ -1,0 +1,29 @@
+<div id="modal--logout" class="modal">
+    <div class="modal__content on-primary">
+      <%- include('../components/button', {
+        type: 'btn-icon',
+        options: '',
+        classList: 'modal__btn--close',
+        onclick: 'modalCtl.closeModal()',
+        iconData: 'close',
+      }) %>
+      <h1 class="modal__title headline-large">Đăng xuất</h1>
+      <p class="modal__subtitle title-large mt-12">Bạn có chắc chắn muốn đăng xuất TAA?</p>
+      <div class="row mt-36">
+        <%- include('../components/button', {
+          type: '',
+          options: 'btn--outlined',
+          classList: 'col-6 col-sm-12',
+          label: 'Hủy bỏ',
+          onclick: 'modalCtl.closeModal()',
+        }) %>
+        <%- include('../components/button', {
+          type: '',
+          options: 'btn--filled',
+          classList: 'col-6 col-sm-12',
+          label: 'Xác nhận',
+          onclick: 'authCtl.logout()',
+        }) %>
+      </div>
+    </div>
+  </div>
