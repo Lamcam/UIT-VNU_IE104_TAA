@@ -38,8 +38,12 @@ site.news = (req, res) => {
   res.render('pages/site/news', { newsDatas })
 }
 
-site.userManual = (req, res) => {
-  res.render('pages/site/user-manual')
+site.orderManual = (req, res) => {
+  res.render('pages/site/orderManual')
+}
+
+site.policyManual = (req, res) => {
+  res.render('pages/site/policyManual')
 }
 
 module.exports = site;

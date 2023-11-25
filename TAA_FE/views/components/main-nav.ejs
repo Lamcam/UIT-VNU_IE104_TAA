@@ -8,6 +8,16 @@
       <% for (let idx = 0; idx < data.length; ++idx) { %>
       <li class="main-nav__item <%= (idx == activeIdx) ? 'active' : '' %>">
         <a class="main-nav__link" href="<%= data[idx].link %>"><%= data[idx].text %></a>
+        <% if (idx == data.length - 1) { %>
+        <ul class="main-nav__dropdown">
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="/manual/order">Hướng dẫn đặt hàng</a>
+          </li>
+          <li class="main-nav__item">
+            <a class="main-nav__link" href="/manual/policy">Chính sách</a>
+          </li>
+        </ul>
+        <% } %>
       </li>
       <% } %>
     </ul>
