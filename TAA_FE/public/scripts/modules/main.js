@@ -10,5 +10,7 @@ import { handleLogout } from './header-controller.js';
 handleLoginSubmit();
 handleLogout();
 
+modalCtl.init();
+
 window.modalCtl = modalCtl;
 window.authCtl = authCtl;
