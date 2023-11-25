@@ -1,0 +1,37 @@
+<div id="modal--forgot-method" class="modal">
+  <div class="modal__content on-primary">
+    <%- include('../components/button', {
+      type: 'btn-icon',
+      options: '',
+      classList: 'modal__btn--back',
+      onclick: 'modalCtl.nextModal(\'#modal--login\')',
+      iconData: 'arrow_back',
+    }) %>
+    <%- include('../components/button', {
+      type: 'btn-icon',
+      options: '',
+      classList: 'modal__btn--close',
+      onclick: 'modalCtl.closeModal()',
+      iconData: 'close',
+    }) %>
+    <h1 class="modal__title headline-large">Quên mật khẩu</h1>
+    <div class="row mt-36">
+      <%- include('../components/button', {
+        type: 'btn-icon-label',
+        options: 'btn--outlined',
+        classList: 'col-6 col-sm-12',
+        onclick: '',
+        iconData: 'account_circle',
+        label: 'Email',
+      }) %>
+      <%- include('../components/button', {
+        type: 'btn-icon-label',
+        options: 'btn--outlined',
+        classList: 'col-6 col-sm-12',
+        onclick: 'modalCtl.nextModal(\'#modal--forgot-by-phone\')',
+        iconData: 'account_circle',
+        label: 'Số điện thoại',
+      }) %>
+    </div>
+  </div>
+</div>

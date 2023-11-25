@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="stylesheet" href="../../res/css/colors.module.css" />
+    <link rel="stylesheet" href="../../res/css/tokens.css" />
+
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+      }
+      .pop-upWraper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        position: sticky;
+        padding: 60px;
+        background-color: var(--md-sys-color-on-primary-light);
+        width: 714px;
+        height: 360px;
+      }
+
+      .pop-upContainer {
+        /* margin: 60px; */
+        width: 594px;
+        height: 240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .delete-icon {
+        position: absolute;
+
+        right: 12px;
+        top: 12px;
+        cursor: pointer;
+
+        display: flex;
+        z-index: 2;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      .delete-icon:hover {
+        background-color: var(--md-ref-palette-neutral50);
+      }
+
+      .pop-up__content {
+        text-align: center;
+        color: var(--md-sys-color-primary-light);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .button-container button {
+        width: 259px;
+        height: 40px;
+        border-radius: 8px;
+        padding: 10px 24px;
+        border: 1px solid;
+        border-color: var(--md-sys-color-primary-light);
+      }
+      .pop-up__content .title {
+        margin-bottom: 12px;
+      }
+
+      .button-container .log-out_btn {
+        color: var(--md-sys-color-on-primary-light);
+        background-color: var(--md-source);
+      }
+      .button-container .cancel_btn {
+        color: var(--md-sys-color-primary);
+
+        background-color: var(--md-sys-color-on-primary-light);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pop-upWraper">
+      <div class="delete-icon">
+        <span class="material-symbols-outlined">close</span>
+      </div>
+
+      <div class="pop-upContainer">
+        <div class="pop-up__content">
+          <p class="headline-large title">Đăng xuất</p>
+          <p class="title-large">Bạn có muốn đăng xuất?</p>
+        </div>
+
+        <div class="button-container">
+          <button class="cancel_btn label-large" type="button">Hủy bỏ</button>
+          <button class="log-out_btn label-large" type="button">
+            Đăng xuất
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
