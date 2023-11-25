@@ -71,7 +71,7 @@ app.get("/getAll", async (req, res) => {
 // })
 app.get('/products', controllers.product.queryProduct);
 app.post('/login', controllers.auth.loginPost);
-app.post('/register',controllers.unath.registerPost);
+// app.post('/register',controllers.unath.registerPost);
 
 // app.post("/register", async (req,res)=>{
 
