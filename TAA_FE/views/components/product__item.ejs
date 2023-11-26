@@ -83,7 +83,7 @@
             </span>
           </div>
           <span class="rate__number title-medium">30 đánh giá</span>
-          <span class="number__buy title-medium">300 đã bán</span>
+          <span class="number__buy title-medium"><%=data.prod_num_avai%> đã bán</span>
         </div>
         <div class="modal__price">
           <p class="cost body-medium">180.000đ</p>
@@ -103,7 +103,7 @@
           <div class="quantity__product outline-text label-large">
             <div id="decrement" class="quantity__product-decrement outline-text">-</div>
             <input type="number" min="0" max="100" step="1" value="1" id="my-input" disabled>
-            <div id="increment" class="quantity__product-increment outline-text">+</div>            
+            <div id="increment" class="quantity__product-increment outline-text">+</div>
           </div>
           <p class="quantity__stock body-small">82 sản phẩm sẵn có</p>
         </div>
@@ -115,7 +115,7 @@
             Thêm vào giỏ hàng
           </button>
           <button class="button__view btn--filled">
-            <a href="/products/detail?id=1">Xem chi tiết</a>
+            <a href="/products/detail?id=<%= data.prod_id %>">Xem chi tiết</a>
           </button>
         </div>
         <div class="modal__context body-large">

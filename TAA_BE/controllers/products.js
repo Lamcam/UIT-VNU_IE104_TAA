@@ -62,13 +62,12 @@ product.queryProduct = (req, res) => {
 
 
 product.getDetail = (req, res) => {
-  // models.product.getAllProduct((err, result) => {
-  //   if (err) throw err;
-
-
-  // })
-  res.status(200).render('pages/products/detail', {
-    // result: index.groupProducts(result),
+  const id = req.query.id
+  models.product.getDetailProduct({ id }, (err, result) => {
+    if (err) throw err;
+    res.status(200).render('pages/products/detail', {
+      data: index.groupProducts(result),
+    })
   })
 }
 
