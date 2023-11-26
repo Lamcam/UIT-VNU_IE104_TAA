@@ -1,7 +1,7 @@
 function index() { }
 
 index.groupProducts = (result) => {
-  const groupResult = result.reduce((r, item) => {
+    const groupResult = result.reduce((r, item) => {
     const {
       prod_id, prod_name, prod_cost, prod_discount,
       prod_num_sold, prod_num_avai, prod_num_rating,
@@ -21,8 +21,19 @@ index.groupProducts = (result) => {
     }
     return r;
   }, [])
-
   return groupResult;
 }
+
+index.filter = (result,cate)=>{
+  if(!cate) return result;
+  const balo = result.filter(v => v.cate_name == cate);
+  // console.log("this is balo",balo);
+  // console.log("this is result",result);
+  return balo;
+}
+
+
+
+
 
 module.exports = index;

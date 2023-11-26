@@ -3,8 +3,9 @@
  * @module products
  */
 
-const models = require("../models");
-const index = require("./index");
+const { json } = require('body-parser');
+const models = require('../models')
+const index = require('./index')
 
 /**
  * Controller class for handling products.
@@ -27,6 +28,24 @@ product.getAll = (req, res) => {
     });
 };
 
+product.getCate = (req,res) =>{
+
+  // const { category } = req.body.category;
+  const  category  = req.body.category;
+  // console.log(category);
+
+  models.product.getCategory( {category } ,(err, result) => {
+    // const a = result.json();
+    // console.log("this is result",result)
+    if (err) throw err;
+    res.status(200).json({
+      result : index.groupProducts(result)
+
+    })
+    
+  })
+}
+
 product.getHotProduct = (req, res) => {
     models.product.getHotProduct((err, result) => {
         if (err) throw err;
@@ -37,6 +56,8 @@ product.getHotProduct = (req, res) => {
         });
     });
 };
+
+
 
 /**
  * Retrieves all products and returns them as JSON.
