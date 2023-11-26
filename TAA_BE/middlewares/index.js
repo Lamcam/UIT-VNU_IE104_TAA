@@ -18,7 +18,7 @@ const authorize = (req, res, next) => {
     next();
   } else {
     res.redirect('/');
-    alert('You are not authorized to view this page');
+    window.alert('You are not authorized to view this page');
   }
 };
 

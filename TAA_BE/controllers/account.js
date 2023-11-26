@@ -114,7 +114,7 @@ account.cart = (req, res) => {
   })
 }
 
-account.cartOrder = (req, res) => {
+account.order = (req, res) => {
   const { user } = req.cookies;
 
   // models.account.getCartOrder({ user }, (err, result) => {
@@ -140,7 +140,7 @@ account.cartOrder = (req, res) => {
   //   })
   // })
 
-  res.status(200).render('pages/account/cart-order')
+  res.status(200).render('pages/account/order')
 }
 
 module.exports = account

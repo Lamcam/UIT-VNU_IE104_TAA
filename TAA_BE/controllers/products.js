@@ -3,6 +3,7 @@
  * @module products
  */
 
+const { json } = require('body-parser');
 const models = require('../models')
 const index = require('./index')
 
@@ -18,12 +19,34 @@ function product() { }
  * @param {Object} res - The response object.
  */
 product.getAll = (req, res) => {
-  models.product.getAllProduct((err, result) => {
-    if (err) throw err;
 
+  models.product.getAllProduct((err, result) => {
+
+    //  const arr = result.find(e => e.cate_name == "Balo" )
+    if (err) throw err;
+    // console.log(typeof(index.groupProducts(result)));
     res.status(200).render('pages/products/index', {
       result: index.groupProducts(result),
+      
     })
+  })
+}
+
+product.getCate = (req,res) =>{
+
+  // const { category } = req.body.category;
+  const  category  = req.body.category;
+  // console.log(category);
+
+  models.product.getCategory( {category } ,(err, result) => {
+    // const a = result.json();
+    // console.log("this is result",result)
+    if (err) throw err;
+    res.status(200).json({
+      result : index.groupProducts(result)
+
+    })
+    
   })
 }
 
@@ -37,6 +60,8 @@ product.getHotProduct = (req, res) => {
     })
   })
 }
+
+
 
 /**
  * Retrieves all products and returns them as JSON.
