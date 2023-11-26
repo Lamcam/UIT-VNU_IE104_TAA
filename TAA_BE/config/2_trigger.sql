@@ -1,4 +1,4 @@
--- Active: 1698914213463@@127.0.0.1@3306@database_ie104
+-- Active: 1700882674724@@127.0.0.1@3306@database_ie104
 USE DATABASE_IE104;
 
 DROP TRIGGER IF EXISTS update_prod_num_sold;
@@ -16,7 +16,7 @@ BEGIN
 
     -- Update the prod_num_sold for the product
     UPDATE products
-    SET prod_num_sold = prod_num_sold + total_quantity
+    SET prod_num_sold = total_quantity
     WHERE prod_id = NEW.prod_id;
 END;
 
