@@ -11,40 +11,40 @@
       <span class="status-layer icon material-symbols-outlined">close</span>
     </button> -->
     <h1 class="modal__title headline-large">Đăng ký</h1>
-    <form action="/register" method="POST">
+    <form action="/auth/register" method="POST">
       <div class="form__row mt-24">
         <div class="row">
-          <label class="col-4 label-large" for="f_reg_name">
+          <label class="col-4 label-large" for="fname">
             Họ và tên:</label>
-          <input class="col-8" type="text" name="f_reg_name" id="f_reg_name" required>
+          <input class="col-8" type="text" name="fname" id="f_reg_name" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
-          <label class="col-4 label-large" for="f_reg_phone">
+          <label class="col-4 label-large" for="phone">
             Số điện thoại:</label>
-          <input class="col-8" type="text" name="f_reg_phone" id="f_reg_phone" autocomplete='username' required>
+          <input class="col-8" type="text" name="phone" id="f_reg_phone" autocomplete='username' required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
-          <label class="col-4 label-large" for="f_reg_email">
+          <label class="col-4 label-large" for="email">
             Email:</label>
-          <input class="col-8" type="email" name="f_reg_email" id="f_reg_email" autocomplete='email' required>
+          <input class="col-8" type="email" name="email" id="f_reg_email" autocomplete='email' required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
-          <label class="col-4 label-large" for="f_reg_pass">
+          <label class="col-4 label-large" for="pass">
             Mật khẩu:</label>
-          <input class="col-8" type="password" name="f_reg_pass" id="f_reg_pass" autocomplete='new-password' required>
+          <input class="col-8" type="password" name="pass" id="f_reg_pass" autocomplete='new-password' required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
-          <label class="col-4 label-large" for="f_reg_pass_confirm">
+          <label class="col-4 label-large" for="confirmPass">
             Xác nhận mật khẩu:</label>
-          <input class="col-8" type="password" name="f_reg_pass_confirm" autocomplete='new-password' id="f_reg_pass_confirm" required>
+          <input class="col-8" type="password" name="confirmPass" autocomplete='new-password' id="f_reg_pass_confirm" required>
         </div>
       </div>
       <div class="form__row mt-12">
@@ -69,7 +69,7 @@
         options: 'btn--filled full-width mt-12',
         classList: 'modal__btn--submit mt-12',
         label: 'Đăng ký',
-        onclick: '',
+        onclick: 'submit',
       }) %>
       <!-- <button class="btn--filled label-large full-width mt-12" type="submit">
         <div class="status-layer">

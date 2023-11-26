@@ -11,7 +11,7 @@ const route = (app) => {
     app.use(middlewares.authenticate)
 
     app.use("/", siteRouter)
-
+    
     app.use("/auth", authRouter)
 
     app.use("/products", productRouter)
