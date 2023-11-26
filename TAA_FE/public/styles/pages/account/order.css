@@ -1,0 +1,71 @@
+main .visible {
+  padding: 12px;
+}
+
+.location-item {
+  & .location-item--right {
+    &>span {
+      display: block;
+      text-align: right;
+    }
+  }
+}
+
+.section__options {
+  display: flex;
+  align-items: center;
+}
+
+.detail__context {
+  text-align: right;
+}
+
+span[class*="cost_value"] {
+  text-align: right;
+
+  &::after {
+    content: "đ";
+    padding-left: 4px;
+  }
+}
+
+.item--prices {
+  text-align: right;
+}
+
+.item--price-before {
+  text-decoration: line-through;
+}
+
+
+aside {
+  & .row {
+    padding: 12px;
+    min-height: 40px;
+
+    &:first-child {
+      height: 60px;
+    }
+  }
+}
+
+.detail__title {
+  text-align: left;
+}
+
+.detail__context {
+  text-align: right;
+}
+
+.row__flex {
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 1rem;
+
+  &.end {
+    justify-content: flex-end;
+  }
+}

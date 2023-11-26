@@ -23,7 +23,7 @@ auth.loginPost = (req, res) => {
       })
     } else {
       res.cookie('authenticated', 'true', { maxAge: 1000 * 60 * 60 * 24 * 30 });
-      res.cookie('user', result[0].user_id, { maxAge: 1000 * 60 * 60 * 24 * 30 });
+      res.cookie('id', result[0].user_id, { maxAge: 1000 * 60 * 60 * 24 * 30 });
       res.cookie('name', result[0].user_name, { maxAge: 1000 * 60 * 60 * 24 * 30 });
       res.cookie('avatar', result[0].user_avatar, { maxAge: 1000 * 60 * 60 * 24 * 30 });
       res.status(200).json({
@@ -36,7 +36,7 @@ auth.loginPost = (req, res) => {
 
 auth.logout = (req, res) => {
   res.clearCookie('authenticated');
-  res.clearCookie('user');
+  res.clearCookie('id');
   res.clearCookie('name');
   res.clearCookie('avatar');
   res.status(200).json({

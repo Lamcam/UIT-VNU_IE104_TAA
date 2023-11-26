@@ -1,4 +1,33 @@
-table {
+.table {
+  height: auto;
+  overflow: hidden;
+
+  & .thead {
+    height: 4rem;
+
+    & span {
+      line-height: 4rem;
+    }
+  }
+
+  & .tbody {
+    & .tr {
+      /* height: 10rem; */
+      padding-block: .5rem;
+      align-items: center;
+
+      & .item__img {
+        width: 100%;
+      }
+    }
+
+    & .table__noti {
+      text-align: center;
+    }
+  }
+}
+
+/* table {
   border-spacing: 0px;
   border: 0px;
 
@@ -22,23 +51,37 @@ tbody {
       margin: 0 auto;
     }
   }
-}
+} */
 
-td {
+.detail__context {
   text-align: right;
 }
 
-span[name^="cost_value"]::after {
-  content: "đ";
-  padding-left: 4px;
+/* td {
+  text-align: right;
+} */
+
+span[class*="cost_value"] {
+  text-align: right;
+
+  &::after {
+    content: "đ";
+    padding-left: 4px;
+  }
+}
+
+.item--prices {
+  text-align: right;
+}
+
+.item--price-before {
+  text-decoration: line-through;
 }
 
 
 aside {
   & .row {
     padding: 12px;
-    display: flex;
-    align-items: center;
     min-height: 40px;
 
     &:first-child {
@@ -53,4 +96,15 @@ aside {
 
 .detail__context {
   text-align: right;
+}
+
+.row__flex {
+  display: flex;
+  align-items: center;
+
+  padding: 1rem;
+
+  &.end {
+    justify-content: flex-end;
+  }
 }
