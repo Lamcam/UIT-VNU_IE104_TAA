@@ -71,47 +71,39 @@
             <li class="aside__item js-item">
               <span class="aside__header">Trang sức</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li><span>Vòng cổ</span></li>
-                <li><span>Vòng tay</span></li>
-                <li><span>Hoa tai</span></li>
-                <li><span>Nhẫn</span></li>
+                <li class="category" data-category="Vong_co" ><span>Vòng cổ</span></li>
+                <li class="category" data-category="Vong_tay" ><span>Vòng tay</span></li>
+                <li class="category" data-category="Hoa_tai" ><span>Hoa tai</span></li>
+                <li class="category" data-category="Nhan" ><span>Nhẫn</span></li>
               </ul>
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Phụ kiện tóc</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li><span>Kẹp</span></li>
-                <li><span>Dây cột tóc</span></li>
-                <li><span>Cài tóc</span></li>
-                <li><span>Trâm cài</span></li>
+                <li class="category" data-category="Kep" ><span>Kẹp</span></li>
+                <li class="category" data-category="Day_cot_toc" ><span>Dây cột tóc</span></li>
+                <li class="category" data-category="Cai_toc" ><span>Cài tóc</span></li>
+                <li class="category" data-category="Tram_cai" ><span>Trâm cài</span></li>
               </ul>
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Túi ví</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li><span>Balo</span></li>
-                <li><span>Túi</span></li>
-                <li><span>Ví</span></li>
+                <li class="category" data-category="Balo"><span>Balo</span></li>
+                <li class="category" data-category="Tui"><span>Túi</span></li>
+                <li class="category" data-category="Vi"><span>Ví</span></li>
               </ul>
 
             </li>
             <li class="aside__item js-item">
-              <span class="aside__header">Giày dép</span>
-              <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="lili"><span>Giày</span></li>
-                <li><span>Dép</span></li>
-                <li><span>Tất</span></li>
-              </ul>
-            </li>
-            <li class="aside__item js-item">
               <span class="aside__header">Khác</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li><span>Thiệp</span></li>
-                <li><span>Ốp lưng</span></li>
-                <li><span>Mắt kính</span></li>
-                <li><span>Dây đeo</span></li>
-                <li><span>Mũ nón</span></li>
-                <li><span>Khẩu trang</span></li>
+                <li class="category" data-category="Thiep" > <span>Thiệp</span></li>
+                <li class="category" data-category="Op_lung" ><span>Ốp lưng</span></li>
+                <li class="category" data-category="Mat_kinh" ><span>Mắt kính</span></li>
+                <li class="category" data-category="Day_deo" ><span>Dây đeo</span></li>
+                <li class="category" data-category="Mu_non" ><span>Mũ nón</span></li>
+                <li class="category" data-category="Khau_trang" ><span>Khẩu trang</span></li>
               </ul>
             </li>
           </ul>
@@ -119,7 +111,7 @@
 
         <main class="visible row col-12 col-lg-9">
           <div class="row col-12 product__wrapper">
-            <% const length = (result.length > 9) ? 9 : result.length;
+           <%  const length = (result.length > 9) ? 9 : result.length;
             for (let idx = 0; idx < length; ++idx) { %>
             <%- include('../../components/product__item', {
                 data: result[idx],
@@ -284,6 +276,164 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
   <script src="/scripts/pages/products/index.js"></script>
+  <script>
+    
+  </script>
+  <script>
+
+      const category = document.querySelectorAll(".category");
+      
+      function createProduct(item) {
+       
+      let path = "/TAA_FE/public/imgs/products/" + item.cate_name + "/" + item.prod_img_urls[0] ;
+      // Create the outer container div
+      let productItem = document.createElement("div");
+      productItem.classList.add("product__item", "col-4");
+
+      // Create the product image container div
+      let productImage = document.createElement("div");
+      productImage.classList.add("product__image");
+      productItem.appendChild(productImage);
+
+      // Create the front image element
+      let frontImage = document.createElement("img");
+      // frontImage.src = `${item.prod_img_url}`;
+      frontImage.alt = "Kẹp tóc";
+      frontImage.classList.add("img_back");
+      productImage.appendChild(frontImage);
+
+      // Create the back image element
+      let backImage = document.createElement("img");
+      // backImage.src = "../../../public/red-panda-small.jpg";
+      backImage.src = path;
+      backImage.alt = "Kẹp tóc";
+      backImage.classList.add("img_font");
+      productImage.appendChild(backImage);
+
+      // Create the product body div
+      let productBody = document.createElement("div");
+      productBody.classList.add("product__body");
+      productItem.appendChild(productBody);
+
+      // Create the heart icon element
+      let heartIcon = document.createElement("span");
+      heartIcon.classList.add(
+        "material-symbols-outlined",
+        "icon_heart",
+        "error-text"
+      );
+      heartIcon.textContent = "heart_plus";
+      productBody.appendChild(heartIcon);
+
+      // Create the product name heading
+      let productName = document.createElement("h3");
+      productName.classList.add("product__name", "body-large");
+      productName.textContent = `${item.prod_name}`;
+      productBody.appendChild(productName);
+
+      // Create the product price container div
+      let productPrice = document.createElement("div");
+      productPrice.classList.add("product__price", "label-large");
+      productBody.appendChild(productPrice);
+
+      // Create the current price element
+      let currentPrice = document.createElement("p");
+      currentPrice.classList.add("product__price__current");
+      currentPrice.textContent = `${parseInt(item.prod_cost)*(1- parseFloat(item.prod_discount))}`;
+      productPrice.appendChild(currentPrice);
+
+      // Create the discounted price element
+      let discountedPrice = document.createElement("p");
+      discountedPrice.classList.add(
+        "product__price__discount",
+        "outline-variant-text"
+      );
+      discountedPrice.textContent = `${item.prod_cost}`;
+      productPrice.appendChild(discountedPrice);
+
+      // Create the product discount paragraph
+      let productDiscount = document.createElement("p");
+      productDiscount.classList.add(
+        "product__discount",
+        "title-medium",
+        "error-text"
+      );
+      productDiscount.textContent = `${item.prod_discount*100}`;
+      productBody.appendChild(productDiscount);
+
+      // Create the product stock label
+      let productStock = document.createElement("p");
+      let prodAvai = parseInt(item.prod_num_avai);
+      let state = "";
+      prodAvai ? state = 'Còn hàng': state = "Hết hàng" ;
+      productStock.classList.add(
+        "product__stock",
+        "label-large",
+        "primary-text"
+      );
+      
+      productStock.textContent = state;
+      productBody.appendChild(productStock);
+
+      // Create the product button section div
+      let productButtonSection = document.createElement("div");
+      productButtonSection.classList.add(
+        "product__button__section",
+        "label-large"
+      );
+      productItem.appendChild(productButtonSection);
+
+      // Create the quick view button
+      let quickViewButton = document.createElement("div");
+      quickViewButton.classList.add("product__button__view");
+      quickViewButton.textContent = "Xem nhanh";
+      productButtonSection.appendChild(quickViewButton);
+
+      // Create the vertical separator div
+      let verticalSeparator = document.createElement("div");
+      verticalSeparator.classList.add("vertical");
+      productButtonSection.appendChild(verticalSeparator);
+
+      // Create the buy now button with link
+      let buyNowButton = document.createElement("div");
+      buyNowButton.classList.add("product__button__sell");
+      productButtonSection.appendChild(buyNowButton);
+
+      let buyNowLink = document.createElement("a");
+      buyNowLink.href = "/TAA_FE/src/homepage/cartPage/index.html";
+      buyNowLink.textContent = "Mua ngay";
+      buyNowButton.appendChild(buyNowLink);
+
+      // Append the product item to the desired container/element
+      let container = document.querySelector(".product__wrapper");
+      container.appendChild(productItem);
+    }
+
+      category.forEach((item) => {
+        item.addEventListener("click", () => {
+          const selectedCategory = item.dataset.category;
+          fetch("http://localhost:3000/products/category",{
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+                  // body: JSON.stringify({ category: selectedCategory })
+                  body: JSON.stringify({ category: selectedCategory })
+            }).then(respone => respone.json())
+              .then(data=> {
+                console.log("this is data :",data.result);
+                $(".product__wrapper").empty();
+                data.result.forEach(item => {
+                  createProduct(item);
+
+                })
+                
+                
+
+          })
+        });
+      });
+    </script>
 </body>
 
 </html>
