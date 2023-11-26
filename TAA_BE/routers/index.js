@@ -1,5 +1,5 @@
 // import middlewares
-const middlewares = require("../middlewares/index.js")
+const middlewares = require("../middlewares/index.js");
 
 // import router
 const siteRouter = require("./siteRouter")
@@ -8,7 +8,7 @@ const authRouter = require("./authRouter")
 const accountRouter = require("./accountRouter")
 
 const route = (app) => {
-    app.use(middlewares.authenticate)
+  app.use(middlewares.authenticate);
 
     app.use("/", siteRouter)
     
@@ -19,4 +19,8 @@ const route = (app) => {
     app.use('/account', middlewares.authenticate, accountRouter)
 }
 
-module.exports = route
+  // app.get("/products", controllers.product.queryProduct);
+  // app.post("/login", controllers.auth.loginPost);
+
+
+module.exports = route;

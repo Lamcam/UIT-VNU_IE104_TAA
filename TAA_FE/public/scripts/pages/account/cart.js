@@ -179,21 +179,21 @@ const updatePriceItem = () => {
 
 const quantityBtns = $('.cart__item .btn--quantity');
 
-quantityBtns.each((index, item) => {
-  item.addEventListener('change', (e) => {
-    e.preventDefault();
-    const quantityInput = $(item).parent().find('.item--quantity');
-    const quantity = parseInt(quantityInput.val());
-    // if ($(item).hasClass('btn--quantity--up')) {
-    //   quantityInput.val(quantity + 1);
-    // } else {
-    //   if (quantity > 1) {
-    //     quantityInput.val(quantity - 1);
-    //   }
-    // }
-    updatePriceItem();
-  });
-})
+// quantityBtns.each((index, item) => {
+//   item.addEventListener('change', (e) => {
+//     e.preventDefault();
+//     const quantityInput = $(item).parent().find('.item--quantity');
+//     const quantity = parseInt(quantityInput.val());
+//     // if ($(item).hasClass('btn--quantity--up')) {
+//     //   quantityInput.val(quantity + 1);
+//     // } else {
+//     //   if (quantity > 1) {
+//     //     quantityInput.val(quantity - 1);
+//     //   }
+//     // }
+//     updatePriceItem();
+//   });
+// })
 
 // delCartBtns.each((index, item) => {
 //   item.addEventListener('click', (e) => {
@@ -225,5 +225,5 @@ quantityBtns.each((index, item) => {
 // const cartBtnSumbit = document.querySelector('.cart__btn--submit');
 
 const cartSubmit = () => {
-  
+  window.location.href = '/account/order';
 }

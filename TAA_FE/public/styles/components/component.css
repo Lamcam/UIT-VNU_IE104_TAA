@@ -6,40 +6,6 @@
   justify-content: center;
 }
 
-span.btn-checkbox {
-  display: inline-flex;
-
-  & input {
-    display: none;
-
-    & + label {
-      display: inline-flex;
-
-      & .--unchecked {
-        display: flex;
-      }
-
-      & :is(.--checked, .--indeterminate) {
-        display: none;
-      }
-    }
-
-    &:is(:checked, :indeterminate) + label {
-      & span {
-        display: none;
-      }
-    }
-
-    &:checked + label .--checked {
-      display: flex;
-    }
-
-    &:indeterminate + label .--indeterminate {
-      display: flex;
-    }
-  }
-}
-
 hr {
   border: 0;
   height: 1px;
@@ -82,8 +48,8 @@ hr {
   gap: 1rem;
   border-radius: 1rem;
   background-color: var(--m-3-sys-light-primary, #785b5b);
-  min-width: 714px;
-  min-height: 30rem;
+  width: 714px;
+  height: 30rem;
   position: relative;
   animation: modalFadeIn ease 0.2s;
 }
