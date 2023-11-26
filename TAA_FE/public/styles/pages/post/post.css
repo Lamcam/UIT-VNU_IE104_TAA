@@ -2,8 +2,9 @@
   max-width: 1024px;
 }
 
-h1 {
+.section__title {
   text-align: center;
+  font-weight: bold;
 }
 
 .post__container {
