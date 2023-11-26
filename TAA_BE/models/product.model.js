@@ -9,7 +9,7 @@ producthModel.getAllProduct = (callback) => {
         INNER JOIN productsimg
             ON products.prod_id = productsimg.prod_id
         INNER JOIN categories
-            on products.cate_id = categories.cate_id
+            on products.cate_id = categories.cate_id;
     `;
 
     db.query(sql, (err, result) => {
@@ -25,7 +25,7 @@ producthModel.getHotProduct = (callback) => {
             ON products.prod_id = productsimg.prod_id
         INNER JOIN categories
             on products.cate_id = categories.cate_id
-        WHERE prod_num_sold > 5
+        WHERE prod_num_sold > 5;
     `;
 
     db.query(sql, (err, result) => {

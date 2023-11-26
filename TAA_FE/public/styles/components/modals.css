@@ -32,6 +32,10 @@
   text-align: center;
 }
 
+.modal__subtitle {
+  text-align: center;
+}
+
 .modal__btn--back {
   position: absolute;
   top: 1rem;

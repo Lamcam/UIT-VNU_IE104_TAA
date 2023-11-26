@@ -28,13 +28,28 @@ const nextModal = (sltById) => {
   openModal(sltById);
 }
 
+const closeModalByClickOutside = () => {
+  const modals = document.querySelectorAll(".modal");
+  modals && modals.forEach(modal => {
+    // console.log('closeModalByClickOutside at: ', modal);
+    modal.addEventListener('click', (e) => {
+      if (e.target.classList.contains('modal')) {
+        modal.classList.remove('active');
+      }
+    });
+  });
+}
+
 /**
  * Object containing methods for controlling modals.
  */
 const modalCtl = {
   openModal,
   closeModal,
-  nextModal
+  nextModal,
+  init: () => {
+    closeModalByClickOutside();
+  },
 }
 
 export default modalCtl;

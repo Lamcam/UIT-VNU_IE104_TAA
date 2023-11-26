@@ -28,7 +28,7 @@ export const handleLoginSubmit = () => {
           .then(res => {
             if (res.statusCode == 200) {
               alert('Login success');
-              window.location.href = '#';
+              window.location.reload();
             } else {
               alert('Login fail');
             }

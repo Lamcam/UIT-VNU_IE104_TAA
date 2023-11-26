@@ -39,7 +39,10 @@ auth.logout = (req, res) => {
   res.clearCookie('user');
   res.clearCookie('name');
   res.clearCookie('avatar');
-  res.redirect('/');
+  res.status(200).json({
+    statusCode: 200,
+    msg: 'Logout success'
+  });
 }
 
 module.exports = auth

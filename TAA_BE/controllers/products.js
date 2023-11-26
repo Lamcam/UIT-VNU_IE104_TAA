@@ -60,4 +60,16 @@ product.queryProduct = (req, res) => {
   })
 }
 
+
+product.getDetail = (req, res) => {
+  // models.product.getAllProduct((err, result) => {
+  //   if (err) throw err;
+
+
+  // })
+  res.status(200).render('pages/products/detail', {
+    // result: index.groupProducts(result),
+  })
+}
+
 module.exports = product
