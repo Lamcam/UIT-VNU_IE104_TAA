@@ -120,11 +120,11 @@
     margin-left: 8px;
 }
 
-.img-nav .arrow-right {}
 
 .info__product__body {
     display: flex;
     width: 42%;
+    min-height: 518px;
     padding: 12px;
     flex-direction: column;
     align-items: flex-start;
@@ -149,6 +149,10 @@
     position: relative;
     cursor: pointer;
     display: inline-block;
+}
+
+.info__product__icon .blocked-hover {
+    pointer-events: none;
 }
 
 .info__product__icon .show-text {
@@ -313,7 +317,7 @@ input::-webkit-inner-spin-button {
     width: 400px;
     justify-content: flex-end;
     align-items: center;
-    padding: 1px 12px;
+    padding: 12px 12px 0px 12px;
     gap: 12px;
 }
 

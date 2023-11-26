@@ -287,6 +287,7 @@
   align-items: center;
   border-radius: 12px;
   background-color: #fff;
+  position: relative;
 }
 
 .product__image {
@@ -352,6 +353,8 @@
   background: var(--m-3-sys-light-primary, #785B5B);
   cursor: pointer;
   display: none;
+  position: absolute;
+  bottom: 0;
 }
 
 .product__item .vertical {
@@ -380,6 +383,7 @@
 
 .product__body {
   text-align: center;
+  padding: 0 12px 0px 12px;
 }
 
 .product__price {

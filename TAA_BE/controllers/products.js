@@ -82,22 +82,13 @@ product.queryProduct = (req, res) => {
 };
 
 product.getDetail = (req, res) => {
-    const id = req.query.id;
-    models.product.getDetailProduct({ id }, (err, result) => {
-        if (err) throw err;
+  const id = req.query.id
+  models.product.getDetailProduct({ id }, (err, result) => {
+    if (err) throw err;
+    res.status(200).render('pages/products/detail', {
+      data: index.groupProducts(result),
+    })
+  })
+}
 
-        if (!result) {
-            res.status(404).json({
-                msg: "can not find any",
-            });
-        } else {
-          res.status(200).render("./pages/products/detail", {
-          // res.send({
-                msg: "Found",
-                data: index.groupProducts(result),
-            });
-        }
-    });
-};
-
-module.exports = product;
+module.exports = product
