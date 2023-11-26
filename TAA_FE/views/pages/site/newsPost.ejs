@@ -11,43 +11,41 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="/styles/pages/base.css">
   <link rel="stylesheet" href="/styles/pages/post/post.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60" crossorigin="anonymous"></script>
   <script loading="lazy" src="/scripts/modules/main.js"></script>
   <title>TAA - Bài viết</title>
 </head>
-4
+
 <body>
   <div id="main" class="on-primary">
-    <div id="main" class="on-primary">
-      <%- include('../../partials/header', { activeIdx: 3 }) %>
-      <%- include('../../partials/breadcrumbs', { 
-        data: [
-          { label: 'Trang chủ', link: '/' },
-          { label: 'Tin tức', link: '/news' },
-          { label: 'Bài viết', link: '#' }
-        ]
-       }) %>
+    <%- include('../../partials/header', { activeIdx: 3 }) %>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', link: '/' },
+        { label: 'Tin tức', link: '/news' },
+        { label: 'Bài viết', link: '#' }
+      ]
+    }) %>
 
     <main>
-      <section class="post__content mt-12"> <!-- Giới hạn lại độ rộng của nội dung -->
+      <section class="post__content mt-12">
         <div class="container">
           <div class="post__container">
             <h1 class="section__title display-large">GIẢI MÃ PHONG CÁCH Y2K</h1>
             <p class="date body-large mt-12">-25/10/2023-</p>
-            <p class="content body-large mt-12">Y2K - phong cách thời trang nổi loạn có lẽ không còn xa lạ gì
-              với
-              chúng
-              ta bởi thời trang và xu hướng thẩm mỹ từ cuối thập niên 90 đầu 2000 - đã gây chú ý trở lại trong
-              những
-              năm gần đây và được các tín đồ thời trang chào đón nồng nhiệt.</p>
+            <p class="content body-large mt-12">Y2K - phong cách thời trang nổi 
+              loạn có lẽ không còn xa lạ gì với chúng ta bởi thời trang và xu
+              hướng thẩm mỹ từ cuối thập niên 90 đầu 2000 - đã gây chú ý trở
+              lại trong những năm gần đây và được các tín đồ thời trang chào đón
+              nồng nhiệt.</p>
             <img class="picture1" loading="lazy" src="/imgs/banners/banner.png" alt="Ảnh bìa">
             <p class="heading headline-small">KẸP TÓC</p>
-            <p class="content text body-large">Chiếc kẹp tóc có thể dễ dàng tìm mua và được kết hợp trong nhiều phong
-              cách do có đa dạng thiết kế, màu sắc. Phụ kiện này còn được yêu thích nhờ khả năng mang lại vẻ ngoài trẻ
-              trung, đáng yêu cho người sử dụng. Không chỉ được Gen Z ưa chuộng, các kiểu kẹp bằng đá, kẹp ngọc trai còn
-              chiếm
-              trọn tình cảm của những cô gái theo đuổi phong cách vintage aesthetic.</p>
+            <p class="content text body-large">Chiếc kẹp tóc có thể dễ dàng tìm
+              mua và được kết hợp trong nhiều phong cách do có đa dạng thiết kế,
+              màu sắc. Phụ kiện này còn được yêu thích nhờ khả năng mang lại vẻ
+              ngoài trẻ trung, đáng yêu cho người sử dụng. Không chỉ được Gen Z
+              ưa chuộng, các kiểu kẹp bằng đá, kẹp ngọc trai còn chiếm trọn tình
+              cảm của những cô gái theo đuổi phong cách vintage aesthetic.</p>
             <div class="img_section">
               <img class="picture-product" loading="lazy" src="/imgs/products/product1.jpg" alt="product1">
               <img class="picture-product" loading="lazy" src="/imgs/products/product2.jpg" alt="product3">
@@ -56,31 +54,26 @@
             </div>
 
             <p class="heading headline-small">DÂY ĐEO HẠT CƯỜM</p>
-            <p class="content text body-large">Mùa lễ hội, những kì nghỉ cực cháy sao có thể bỏ qua món phụ kiện đầy sắc
-              màu, sự
-              kết
-              hợp đầy sáng tạo của phong cách thập niên 2000 mà vẫn bắt kịp trend hiện tại? Những chiếc vòng cổ, dây
-              đeo
-              hạt cườm cho ra những phong cách riêng biệt, mang đậm dấu ấn cá nhân giúp thoả đam mê những tín đồ thời
-              trang dù là khó tính nhất!</p>
+            <p class="content text body-large">Mùa lễ hội, những kì nghỉ cực
+              cháy sao có thể bỏ qua món phụ kiện đầy sắc màu, sự kết hợp đầy
+              sáng tạo của phong cách thập niên 2000 mà vẫn bắt kịp trend hiện
+              tại? Những chiếc vòng cổ, dây đeo hạt cườm cho ra những phong
+              cách riêng biệt, mang đậm dấu ấn cá nhân giúp thoả đam mê những
+              tín đồ thời trang dù là khó tính nhất!</p>
             <div class="img_section">
-
               <img class="picture-product" loading="lazy" src="/imgs/products/product5.jpg" alt="product1">
               <img class="picture-product" loading="lazy" src="/imgs/products/product6.jpg" alt="product3">
               <img class="picture-product" loading="lazy" src="/imgs/products/product8.jpg" alt="product1">
               <img class="picture-product" loading="lazy" src="/imgs/products/product7.jpg" alt="product3">
-
             </div>
 
             <p class="heading headline-small">MŨ</p>
-            <p class="content text body-large">Là phụ kiện phổ biến của cộng đồng hip hop những năm 80, mũ xô từng bước
-              trở
-              thành
-              món đồ thời trang không thể thiếu của trào lưu Y2K. Hiện nay, những chiếc mũ xô xuất hiện với tần số dày
-              đặt
-              với nhiều phiên bản bắt mắt như tie dye, kiểu đan móc crochet, denim, họa tiết ngựa vằn,… cùng các tông
-              màu
-              rực rỡ thu hút rất lớn giới trẻ</p>
+            <p class="content text body-large">Là phụ kiện phổ biến của cộng
+              đồng hip hop những năm 80, mũ xô từng bước trở thành món đồ thời
+              trang không thể thiếu của trào lưu Y2K. Hiện nay, những chiếc mũ
+              xô xuất hiện với tần số dày đặt với nhiều phiên bản bắt mắt như
+              tie dye, kiểu đan móc crochet, denim, họa tiết ngựa vằn,… cùng 
+              các tông màu rực rỡ thu hút rất lớn giới trẻ</p>
             <div class="img_section">
               <img class="picture-product" loading="lazy" src="/imgs/products/product9.jpg" alt="product1">
               <img class="picture-product" loading="lazy" src="/imgs/products/product11.jpg" alt="product3">
@@ -94,7 +87,6 @@
     </main>
 
     <%- include('../../partials/footer') %>
-    
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
