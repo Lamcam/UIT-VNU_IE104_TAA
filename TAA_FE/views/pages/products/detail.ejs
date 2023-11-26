@@ -9,9 +9,9 @@
   <title>TAA - Trang sản phẩm</title>
 </head>
 
-<body>     
+<body>
 
-<div id="main" class="on-primary">
+  <div id="main" class="on-primary">
     <!-- <div id="header"></div>
     <div id="nav-tree"></div> -->
     <%- include('../../partials/header', { activeIdx: 1 }) %>
@@ -31,43 +31,43 @@
               <div class="img-select">
                 <div class="img-item">
                   <a href="#" data-id="1">
-                    <img src="/TAA_FE/public/product2.jpg" alt="product image">
+                    <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[0] %>" alt="product image">
                   </a>
                 </div>
                 <div class="img-item">
                   <a href="#" data-id="2">
-                    <img src="/TAA_FE/public/product4.jpg" alt="product image">
+                    <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[1] %>" alt="product image">
                   </a>
                 </div>
                 <div class="img-item">
                   <a href="#" data-id="3">
-                    <img src="/TAA_FE/public/product3.jpg" alt="product image">
+                    <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[2] %>" alt="product image">
                   </a>
                 </div>
                 <div class="img-item">
                   <a href="#" data-id="4">
-                    <img src="/TAA_FE/public/product7.jpg" alt="product image">
+                    <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[3] %>" alt="product image">
                   </a>
                 </div>
                 <div class="img-item">
                   <a href="#" data-id="5">
-                    <img src="/TAA_FE/public/product2.jpg" alt="product image">
+                    <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[4] %>" alt="product image">
                   </a>
                 </div>
                 <div class="img-item">
                   <a href="#" data-id="6">
-                    <img src="/TAA_FE/public/product3.jpg" alt="product image">
+                    <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[5] %>" alt="product image">
                   </a>
                 </div>
               </div>
               <div class="img-display">
                 <div class="img-showcase">
-                  <img src="/TAA_FE/public/imgs/products/balo/balo_1-1.webp alt="product image">
-                  <img src="/TAA_FE/public/product4.jpg" alt="product image">
-                  <img src="/TAA_FE/public/product3.jpg" alt="product image">
-                  <img src="/TAA_FE/public/product7.jpg" alt="product image">
-                  <img src="/TAA_FE/public/product2.jpg" alt="product image">
-                  <img src="/TAA_FE/public/product3.jpg" alt="product image">
+                  <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[0] %>" alt="product image">
+                  <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[1] %>" alt="product image">
+                  <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[2] %>" alt="product image">
+                  <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[3] %>" alt="product image">
+                  <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[4] %>" alt="product image">
+                  <img src="/imgs/products/<%= data.cate_name %>/<%= data[0].prod_img_urls[5] %>" alt="product image">
                 </div>
               </div>
               <!-- Bổ sung nút mũi tên trái/phải với biểu tượng chevron -->
@@ -87,7 +87,7 @@
             </div>
             <div class="info__product__body visible">
               <div class="product__body__title">
-                <p class="info__product__name headline-medium">Tên sản phẩm</p>
+                <p class="info__product__name headline-medium"><%= data.prod_name %></p>
                 <div class="info__product__icon">
                   <span class="show-text label-large">Thêm sản phẩm vào yêu thích</span>
                   <span class="material-symbols-outlined icon_heart error-text">
@@ -440,7 +440,7 @@
   </div>
 
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script type="module" src="/scripts/modules/main.js"></script>
-<script src="/scripts/pages/products/detail.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type="module" src="/scripts/modules/main.js"></script>
+  <script src="/scripts/pages/products/detail.js"></script>
 </body>

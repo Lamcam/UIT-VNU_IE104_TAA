@@ -3,14 +3,14 @@
  * @module products
  */
 
-const models = require('../models')
-const index = require('./index')
+const models = require("../models");
+const index = require("./index");
 
 /**
  * Controller class for handling products.
  * @class
  */
-function product() { }
+function product() {}
 
 /**
  * Retrieves all products and renders the product index page.
@@ -18,25 +18,25 @@ function product() { }
  * @param {Object} res - The response object.
  */
 product.getAll = (req, res) => {
-  models.product.getAllProduct((err, result) => {
-    if (err) throw err;
+    models.product.getAllProduct((err, result) => {
+        if (err) throw err;
 
-    res.status(200).render('pages/products/index', {
-      result: index.groupProducts(result),
-    })
-  })
-}
+        res.status(200).render("pages/products/index", {
+            result: index.groupProducts(result),
+        });
+    });
+};
 
 product.getHotProduct = (req, res) => {
-  models.product.getHotProduct((err, result) => {
-    if (err) throw err;
+    models.product.getHotProduct((err, result) => {
+        if (err) throw err;
 
-    res.status(200).json({
-      result
-      // result: index.groupProducts(result),
-    })
-  })
-}
+        res.status(200).json({
+            result,
+            // result: index.groupProducts(result),
+        });
+    });
+};
 
 /**
  * Retrieves all products and returns them as JSON.
@@ -44,32 +44,39 @@ product.getHotProduct = (req, res) => {
  * @param {Object} res - The response object.
  */
 product.queryProduct = (req, res) => {
-  models.product.getAllProduct((err, result) => {
-    if (err) throw err;
+    models.product.getAllProduct((err, result) => {
+        if (err) throw err;
 
-    if (!result) {
-      res.status(404).json({
-        msg: 'can not find any',
-      });
-    } else {
-      res.status(200).json({
-        msg: 'Found',
-        result,
-      })
-    }
-  })
-}
-
+        if (!result) {
+            res.status(404).json({
+                msg: "can not find any",
+            });
+        } else {
+            res.status(200).json({
+                msg: "Found",
+                result,
+            });
+        }
+    });
+};
 
 product.getDetail = (req, res) => {
-  // models.product.getAllProduct((err, result) => {
-  //   if (err) throw err;
+    const id = req.query.id;
+    models.product.getDetailProduct({ id }, (err, result) => {
+        if (err) throw err;
 
+        if (!result) {
+            res.status(404).json({
+                msg: "can not find any",
+            });
+        } else {
+          res.status(200).render("./pages/products/detail", {
+          // res.send({
+                msg: "Found",
+                data: index.groupProducts(result),
+            });
+        }
+    });
+};
 
-  // })
-  res.status(200).render('pages/products/detail', {
-    // result: index.groupProducts(result),
-  })
-}
-
-module.exports = product
+module.exports = product;
