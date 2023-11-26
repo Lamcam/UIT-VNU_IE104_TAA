@@ -214,3 +214,23 @@ defaultBtnDebits.forEach((btn) => {
     btn.textContent = "Mặc định";
   });
 });
+
+// lưu thay đổi nhấn được:
+function enableSaveButton() {
+  // Lặp qua tất cả các ô nhập liệu và kiểm tra điều kiện để kích hoạt nút "Lưu thay đổi"
+  var inputs = document.querySelectorAll(".input__wrapper-child");
+  var saveButton = document.getElementById("saveButton");
+  var enableButton = false;
+
+  inputs.forEach(function (input) {
+    if (input.value.trim() !== "") {
+      enableButton = true;
+    }
+  });
+
+  if (enableButton) {
+    saveButton.removeAttribute("disabled");
+  } else {
+    saveButton.setAttribute("disabled", "disabled");
+  }
+}
