@@ -46,7 +46,7 @@
           onclick: 'modalCtl.openModal(\'#modal--register\')',
         }) %>
         <% } else { %>
-        <a href="/cart" style="text-decoration: none;">
+        <a href="/account/cart" style="text-decoration: none;">
           <%- include('../components/button', {
             type: 'btn-icon',
             options: '',
@@ -62,9 +62,9 @@
         </label>
         <input type="checkbox" id="header__user--controller">
         <div class="header__user label-small">
-          <a class="header__user--options" href="/account/">Thông tin cá nhân</a>
-          <a class="header__user--options" href="/account/">Đơn hàng</a>
-          <a class="header__user--options" href="/account/">Sản phẩm yêu thích</a>
+          <a class="header__user--options" href="/account/information">Thông tin cá nhân</a>
+          <a class="header__user--options" href="/account/orders">Đơn hàng</a>
+          <a class="header__user--options" href="/account/favor-products">Sản phẩm yêu thích</a>
           <span class='header__user--options logoutBtn'>Đăng xuất</span>
         </div>
         <% } %>

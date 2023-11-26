@@ -8,15 +8,21 @@
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/TAA_FE/src/base.css" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="/styles/pages/base.css" />
+  <link rel="stylesheet" href="/styles/pages/account/index.css" />
   <title>TAA - Trang cá nhân</title>
 </head>
 
 <body>
   <div id="main" class="on-primary">
-    <div id="header"></div>
-    <div id="breadcrumbs"></div>
+    <%- include('../../partials/header', { activeIdx: 3 }) %>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', link: '/' },
+        { label: 'Trang cá nhân', link: '#' },
+        { label: 'Thông tin tài khoản', link: '/account/information' }
+      ]
+     }) %>
     <div class="mt-12">
       <div class="container row">
         <aside class="col-12 col-lg-3 body-large primary-text">
@@ -425,8 +431,8 @@
         </main>
       </div>
     </div>
-    <!-- Footer -->
-    <div id="footer"></div>
+
+    <%- include('../../partials/footer') %>
 
     <!-- Modals -->
     <div id="modal__addBank"></div>
@@ -440,7 +446,7 @@
     <div id="on-top-btn"></div>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script type="module" src="/TAA_FE/res/js/main.js"></script>
-  <script src="./main.js"></script>
+  <script type="module" src="/scripts/modules/main.js"></script>
+  <script src="/scripts/pages/account/main.js"></script>
 </body>
 </html>
