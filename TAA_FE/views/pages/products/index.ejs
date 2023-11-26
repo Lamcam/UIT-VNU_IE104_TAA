@@ -149,9 +149,9 @@
       const category = document.querySelectorAll(".category");
       
       function createProduct(item) {
-       
-      let path = "/TAA_FE/public/imgs/products/" + item.cate_name + "/" + item.prod_img_urls[0] ;
+      let path = "/imgs/products/" + item.cate_name + "/";
       // Create the outer container div
+      console.log("this is path",path);
       let productItem = document.createElement("div");
       productItem.classList.add("product__item", "col-4");
 
@@ -162,7 +162,8 @@
 
       // Create the front image element
       let frontImage = document.createElement("img");
-      // frontImage.src = `${item.prod_img_url}`;
+      frontImage.src = path + item.prod_img_urls[1];
+      
       frontImage.alt = "Kẹp tóc";
       frontImage.classList.add("img_back");
       productImage.appendChild(frontImage);
@@ -170,7 +171,7 @@
       // Create the back image element
       let backImage = document.createElement("img");
       // backImage.src = "../../../public/red-panda-small.jpg";
-      backImage.src = path;
+      backImage.src = path + item.prod_img_urls[0];
       backImage.alt = "Kẹp tóc";
       backImage.classList.add("img_font");
       productImage.appendChild(backImage);
