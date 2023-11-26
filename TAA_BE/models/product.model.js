@@ -1,3 +1,4 @@
+const { param } = require('jquery');
 const db = require('../config/db')
 
 function producthModel() { }
@@ -15,6 +16,25 @@ producthModel.getAllProduct = (callback) => {
   db.query(sql, (err, result) => {
     callback(err, result)
   })
+}
+producthModel.getCategory = ( {category}, callback) =>{
+    
+    const params = [category];
+    console.log("param: ",params);
+
+    const sql = `SELECT *
+    FROM products
+    INNER JOIN productsimg
+        ON products.prod_id = productsimg.prod_id
+    INNER JOIN categories
+        on products.cate_id = categories.cate_id
+    WHERE categories.cate_name = ? ;`
+
+    db.query(sql,params,(err,result)=>{
+        // console.log("this result1",result);
+        callback(err,result);
+    })
+
 }
 
 producthModel.getHotProduct = (callback) => {
@@ -49,6 +69,20 @@ producthModel.getByIds = ({ ids }, callback) => {
   })
 }
 
+producthModel.getDetailProduct = (callback) => {
+    const sql = `
+        SELECT *
+        FROM products
+        INNER JOIN productsimg
+            ON products.prod_id = productsimg.prod_id
+        INNER JOIN categories
+            on products.cate_id = categories.cate_id;
+    `;
+
+    db.query(sql, (err, result) => {
+        callback(err, result)
+    })
+}
 
 
 

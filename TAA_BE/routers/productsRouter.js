@@ -5,6 +5,7 @@ const product = require('../controllers/products.js');
 
 router.get('/', product.getAll)
 router.get('/detail',product.getDetail)
+router.post('/category',product.getCate);
 // router.get('/:id')
 
 module.exports = router;
