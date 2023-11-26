@@ -38,6 +38,10 @@ site.news = (req, res) => {
   res.render('pages/site/news', { newsDatas })
 }
 
+site.newsPost = (req, res) => {
+  res.render('pages/site/newsPost')
+}
+
 site.orderManual = (req, res) => {
   res.render('pages/site/orderManual')
 }
