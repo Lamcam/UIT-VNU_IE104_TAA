@@ -11,5 +11,7 @@ router.get('/favor-products', account.favorProducts)
 
 router.get('/cart', account.cart)
 
+router.get('/cart/order', account.cartOrder)
+
 
 module.exports = router;
