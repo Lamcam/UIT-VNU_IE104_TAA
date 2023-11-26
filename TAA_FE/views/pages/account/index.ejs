@@ -75,7 +75,7 @@
 									<div class="row">
 										<label class="col-4 label-large" for="name">Tên người dùng:</label>
 										<div class="col-8 input__wrapper">
-											<input class="input__wrapper-child" type="text" name="name" id="name" placeholder="Nguyễn Văn A" />
+											<input class="input__wrapper-child" type="text" name="name" id="name" placeholder="Nguyễn Văn A" oninput="enableSaveButton()" />
 											<span class="icon icon--filled material-symbols-outlined editIcon">
 												edit</span>
 										</div>
@@ -86,7 +86,7 @@
 										<label class="col-4 label-large" for="phone">Số điện
 											thoại:</label>
 										<div class="col-8 input__wrapper">
-											<input class="input__wrapper-child" type="text" name="phone" id="phone" placeholder="*******629" />
+											<input class="input__wrapper-child" type="text" name="phone" id="phone" placeholder="*******629" oninput="enableSaveButton()" />
 											<span class="icon icon--filled material-symbols-outlined editIcon">
 												edit</span>
 										</div>
@@ -96,13 +96,13 @@
 									<div class="row">
 										<label class="col-4 label-large" for="email">Email:</label>
 										<div class="col-8 input__wrapper">
-											<input class="input__wrapper-child" type="email" name="name" id="email" placeholder="2152****@gm.uit.edu.vn" />
+											<input class="input__wrapper-child" type="email" name="name" id="email" placeholder="2152****@gm.uit.edu.vn" oninput="enableSaveButton()" />
 											<span class="icon icon--filled material-symbols-outlined editIcon">
 												edit</span>
 										</div>
 									</div>
 								</div>
-								<button class="profile__btn btn--filled mt-12" type="submit" disabled>
+								<button class="profile__btn btn--filled mt-12" id="saveButton" type="submit" disabled>
 									<span class="status-layer label-large">Lưu thay đổi</span>
 								</button>
 							</form>
