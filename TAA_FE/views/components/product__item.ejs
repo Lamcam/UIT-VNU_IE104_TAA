@@ -1,5 +1,5 @@
 <% if (data.prod_num_avai > 0) { %>
-<div class="product__item col-12 col-md-6 col-lg-4">
+<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
     <!-- <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
         <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back"> -->
@@ -38,6 +38,18 @@
             <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="Product img">
           </div>
         </div>
+        <div class="img-nav">
+          <button id="prevBtn">
+            <span class="material-symbols-outlined arrow-left primary-text">
+              arrow_back_ios
+            </span>
+          </button>
+          <button id="nextBtn">
+            <span class="material-symbols-outlined arrow-right primary-text">
+              arrow_forward_ios
+            </span>
+          </button>
+        </div>        
         <div class="img-select">
           <div class="img-item">
             <a href="#" data-id="1">
@@ -146,7 +158,7 @@
           </div>
         </div>
       </div>
-      <div class="btn--close">
+      <div class="button-close">
         <span class="material-symbols-outlined">
           close
         </span>
@@ -161,7 +173,7 @@
         </span>
       </div>
       <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
-      <div class="noti__btn btn--close">
+      <div class="noti__btn button-close">
         <span class="material-symbols-outlined">
           close
         </span>
@@ -170,7 +182,7 @@
   </div>
 </div>
 <% } else { %>
-<div class="product__outstock col-12 col-md-6 col-lg-4">
+<div class="product__outstock col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
