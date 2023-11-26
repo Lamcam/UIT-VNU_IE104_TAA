@@ -4,7 +4,7 @@ const db = require('../config/db')
 function producthModel() { }
 
 producthModel.getAllProduct = (callback) => {
-    const sql = `
+  const sql = `
         SELECT *
         FROM products
         INNER JOIN productsimg
@@ -13,9 +13,9 @@ producthModel.getAllProduct = (callback) => {
             on products.cate_id = categories.cate_id;
     `;
 
-    db.query(sql, (err, result) => {
-        callback(err, result)
-    })
+  db.query(sql, (err, result) => {
+    callback(err, result)
+  })
 }
 producthModel.getCategory = ( {category}, callback) =>{
     
@@ -38,7 +38,7 @@ producthModel.getCategory = ( {category}, callback) =>{
 }
 
 producthModel.getHotProduct = (callback) => {
-    const sql = `
+  const sql = `
         SELECT *
         FROM products
         INNER JOIN productsimg
@@ -48,9 +48,46 @@ producthModel.getHotProduct = (callback) => {
         WHERE prod_num_sold > 5;
     `;
 
+  db.query(sql, (err, result) => {
+    callback(err, result)
+  })
+}
+
+producthModel.getByIds = ({ ids }, callback) => {
+  const sql = `
+    SELECT *
+    FROM products
+    INNER JOIN productsimg
+        ON products.prod_id = productsimg.prod_id
+    INNER JOIN categories
+        on products.cate_id = categories.cate_id
+    WHERE products.prod_id IN ('${ids.join("','")}');
+  `;
+
+  db.query(sql, (err, result) => {
+    callback(err, result)
+  })
+}
+
+producthModel.getDetailProduct = (callback) => {
+    const sql = `
+        SELECT *
+        FROM products
+        INNER JOIN productsimg
+            ON products.prod_id = productsimg.prod_id
+        INNER JOIN categories
+            on products.cate_id = categories.cate_id;
+    `;
+
     db.query(sql, (err, result) => {
         callback(err, result)
     })
 }
+
+
+
+
+
+
 
 module.exports = producthModel

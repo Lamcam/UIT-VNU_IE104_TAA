@@ -1,0 +1,39 @@
+<div id="modal--add-location" class="modal">
+	<div class="modal__content on-primary">
+		<button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+			<span class="status-layer icon material-symbols-outlined">close</span>
+		</button>
+		<h1 class="modal__title headline-large">Thêm thông tin địa chỉ nhận</h1>
+		<form action="/" method="post">
+			<div class="form__row mt-24">
+				<div class="row">
+					<label class="col-4 label-large" for="f_add_location_per_name">
+						Tên người nhận:</label>
+					<input class="col-8" type="text" name="f_add_location_per_name" id="f_add_location_per_name" required />
+				</div>
+			</div>
+			<div class="form__row mt-12">
+				<div class="row">
+					<label class="col-4 label-large" for="f_add_location_phone">
+						Số điện thoại:</label>
+					<input class="col-8" type="text" name="f_add_location_phone" id="f_add_location_phone" required />
+				</div>
+			</div>
+			<div class="form__row mt-12">
+				<div class="row">
+					<label class="col-4 label-large" for="f_add_location_address">
+						Địa chỉ nhận hàng:</label>
+					<input class="col-8" type="text" name="f_add_location_address" id="f_add_location_address" required />
+				</div>
+			</div>
+			<div class="btn__wrapper row mt-12">
+				<button class="btn--outlined label-large col-6" type="button" onclick="closeModal()">
+					<span class="status-layer">Hủy bỏ</span>
+				</button>
+				<button class="btn--filled label-large col-6 location-list__btn--add" type="button" onclick="modalCtl.nextModal('#modal--noti'),addLocation()">
+					<span class="status-layer">Đồng ý</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
