@@ -972,7 +972,7 @@ input::-webkit-inner-spin-button {
   padding: 1rem;
 }
 .order__item {
-  width: 75%;
+  width: 100%;
   display: flex;
   gap: 12px;
   justify-content: space-between;
