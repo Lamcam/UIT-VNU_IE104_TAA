@@ -12,9 +12,10 @@ const route = (app) => {
 
     app.use("/", siteRouter)
 
-    app.get('/post', (req, res) => {
-        res.render('pages/post/post')
-    })
+    // app.get('/post', (req, res) => {
+    //     res.render('pages/post/post')
+    // })
+
     app.get('/policy', (req, res) => {
         res.render('pages/policy/policy')
     })
