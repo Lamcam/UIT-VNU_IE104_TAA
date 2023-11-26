@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/pages/base.css">
+  <link rel="stylesheet" href="/styles/pages/site/news.css">
+  <title>TAA - Tin tức</title>
+</head>
+
+<body>
+  <div id="main" class="on-primary">
+    <%- include('../../partials/header', { activeIdx: 2 }) %>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', href: '/' },
+        { label: 'Tin tức', href: '/news' }
+      ]
+     }) %>
+
+    <main>
+      <section class="mt-48">
+        <h1 class="section__title display-large">TUẦN VỪA QUA</h1>
+      </section>
+
+      <div class="mt-12 slider">
+        <div class="slider__wrapper">
+          <img loading="lazy" src="/imgs/banners/news__banner--large.jpg" alt="Image 1" class="slider__img">
+          <img loading="lazy" src="/imgs/banners/news__banner--large-1.jpg" alt="Image 2" class="slider__img">
+          <img loading="lazy" src="/imgs/banners/news__banner--large-2.jpg" alt="Image 3" class="slider__img">
+          <img loading="lazy" src="/imgs/banners/news__banner--large.jpg" alt="Image 1" class="slider__img">
+        </div>
+      </div>
+
+      <section class="mt-48">
+        <div class="container">
+          <h1 class="section__title display-large">BÀI VIẾT</h1>
+          <div class="section__content row mt-12">
+            <% newsDatas.forEach(data => { %>
+            <%- include('../../components/news__item', { data }) %>
+            <% }) %>
+          </div>
+        </div>
+        <div class="mt-12" id="nav-page"></div>
+      </section>
+
+      <div class="banner mt-48">
+        <img class="banner__img--small" src="/imgs/banners/news__banner--small.png" alt="Tin Tức">
+      </div>
+    </main>
+
+    <%- include('../../partials/footer') %>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
+  <script src="/scripts/pages/site/news.js"></script>
+</body>
+
+</html>

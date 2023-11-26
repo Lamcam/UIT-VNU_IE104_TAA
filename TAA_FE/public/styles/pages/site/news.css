@@ -1,0 +1,73 @@
+@import url(../../components/news__item.css);
+
+.section__title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+
+  & .slider__wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    animation: slide-3 10s infinite;
+
+    & .slider__img {
+      width: 100%;
+      height: 100%;
+      object-fit: fit;
+    }
+  }
+}
+
+.banner__img--small {
+  width: 100%;
+  height: 192px;
+  object-fit: cover;
+}
+
+.nav-page {
+  display: flex;
+  justify-content: center;
+}
+@media only screen and (min-width: 744px) and (max-width: 1024px) {
+  .col-4{
+    grid-column: span 3;
+  }
+  .col-8{
+    grid-column: span 9;
+  }}
+@media only screen and (min-width: 560px) and (max-width: 744px) {
+.col-4{
+  grid-column: span 3;
+}
+.col-8{
+  grid-column: span 9;
+}
+
+  .container h1 {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  .section__title {
+    font-size: 36px;
+    line-height: 50px;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .container h1 {
+    font-size: 36px;
+    line-height: 50px;
+  }
+
+  .section__title {
+    font-size: 36px;
+    line-height: 50px;
+  }
+}

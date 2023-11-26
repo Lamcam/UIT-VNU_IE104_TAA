@@ -1,0 +1,25 @@
+/* Roboto Font */
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+  style: normal;
+  
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto/Roboto-Medium.ttf') format('truetype');
+  style: medium;
+
+  font-display: fallback;
+}
+
+/* Playfair Display Font */
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+  style: normal;
+
+  font-display: fallback;
+}
