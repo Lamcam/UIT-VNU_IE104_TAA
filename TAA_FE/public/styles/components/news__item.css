@@ -1,9 +1,10 @@
 .news__item {
   display: flex;
+  height: 185px;
 }
 
 .news__img {
-  height: 100%;
+  height: 185px;
   width: 100%;
   object-fit: cover;
   border-radius: 8px 0px 0px 8px;
