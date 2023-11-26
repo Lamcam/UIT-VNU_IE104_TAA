@@ -1,5 +1,5 @@
 <span class="btn-icon btn-checkbox <%= classList %>">
-  <input type="checkbox" id="<%= id %>" name="<%= id %>">
+  <input type="checkbox" id="<%= id %>" <%= (name != '') ? `name=${name}` : '' %> <%= (value != '') ? `value=${value}` : '' %>>
   <label for="<%= id %>">
     <span class="icon icon--filled material-symbols-outlined">
       check_box_outline_blank</span>
