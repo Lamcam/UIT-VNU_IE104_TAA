@@ -8,19 +8,20 @@
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/TAA_FE/src/base.css">
-  <link rel="stylesheet" href="./style.css">
-  <script src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
-    crossorigin="anonymous"></script>
-  <script src="/TAA_FE/res/js/main.js"></script>
-  <script src="./main.js"></script>
+  <link rel="stylesheet" href="/styles/pages/base.css">
+  <link rel="stylesheet" href="/styles/pages/account/cart.css">
   <title>TAA - Giỏ hàng</title>
 </head>
 <body>
   <div id="main" class="on-primary">
-    <div id="header"></div>
-    <div id="nav-tree"></div>
+    <%- include('../../partials/header', { activeIdx: 0 }) %>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', link: '/' },
+        { label: 'Trang cá nhân', link: '#' },
+        { label: 'Giỏ hàng', link: '/account/cart' }
+      ]
+     }) %>
 
     <main>
       <section class="mt-12">
@@ -80,21 +81,10 @@
       </section>
     </main>
 
-    <!-- <footer></footer> -->
-    <div id="footer"></div>
-
-    <!-- Modal -->
-    <div id='modal__delCartItem'></div>
+    <%- include('../../partials/footer') %>
   </div>
-  <script>
-    // Load header, nav-tree, footer
-    $(document).ready(() => {
-      $('#modal__delCartItem').load('./del-cart-item.html');
-      $('#header').load('/TAA_FE/src/partials/header--auth.html');
-      $('#nav-tree').load('/TAA_FE/src/partials/nav-tree.html');
-      $('#footer').load('/TAA_FE/src/partials/footer.html');
-    });
-  </script>
-  <script src="/TAA_FE/res/js/modal--controller.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
+  <script src="/scripts/pages/account/cart.js"></script>
 </body>
 </html>
