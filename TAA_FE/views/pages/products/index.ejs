@@ -145,6 +145,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
   <script src="/scripts/pages/products/index.js"></script>
+  <script src="/scripts/partials/modal__product-details--controller.js"></script>
 
   <script>
     const category = document.querySelectorAll(".category");
@@ -267,7 +268,7 @@
       productButtonSection.appendChild(buyNowButton);
 
       let buyNowLink = document.createElement("a");
-      buyNowLink.href = "/TAA_FE/src/homepage/cartPage/index.html";
+      buyNowLink.href = "/account/cart";
       buyNowLink.textContent = "Mua ngay";
       buyNowButton.appendChild(buyNowLink);
 
@@ -279,7 +280,7 @@
     category.forEach((item) => {
       item.addEventListener("click", () => {
         const selectedCategory = item.dataset.category;
-        fetch("http://localhost:3000/products/category", {
+        fetch("/products/category", {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -294,11 +295,7 @@
             $(".product__wrapper").empty();
             data.result.forEach(item => {
               createProduct(item);
-
             })
-
-
-
           })
       });
     });
