@@ -108,7 +108,8 @@
 
 }
 
-.product__button {
+.product__button, 
+.product__button-select {
   display: flex;
   justify-content: center;
   align-items: center;
