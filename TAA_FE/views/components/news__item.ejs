@@ -2,7 +2,7 @@
   <div class="row">
     <img class="news__img col-4" loading="lazy" src="/imgs/banners/<%= data.imgPath != '' ? data.imgPath : 'news__img.png' %>" alt="news1">
     <div class="news__body col-8">
-      <h2 class="article__title title-medium"><%- data.title %></h2>
+      <a class="article__title title-medium" href="/news/post?id=<%= index + 1 %>"><%- data.title %></a>
       <p class="article__context body-medium mt-12"><%- data.context %></p>
     </div>
   </div>

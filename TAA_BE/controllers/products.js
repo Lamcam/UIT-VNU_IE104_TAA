@@ -3,15 +3,16 @@
  * @module products
  */
 
-const { json } = require('body-parser');
-const models = require('../models')
-const index = require('./index')
+const { json } = require("body-parser");
+const models = require("../models");
+const index = require("./index");
+const { search } = require("../routers/productsRouter");
 
 /**
  * Controller class for handling products.
  * @class
  */
-function product() { }
+function product() {}
 
 /**
  * Retrieves all products and renders the product index page.
@@ -19,49 +20,62 @@ function product() { }
  * @param {Object} res - The response object.
  */
 product.getAll = (req, res) => {
+    const searchValue = req.query.q;
+    models.product.getAllProduct({ searchValue }, (err, result) => {
+      if (err) throw err;
+        if (result.length > 0) {
+            res.status(200).render("pages/products/index", {
+                result: index.groupProducts(result),
+            });
+        } else {
+            res.status(200).json({
+                message: "Not Found",
+            });
+        }
+    });
+};
 
-  models.product.getAllProduct((err, result) => {
+product.getSort = (req, res) => {
+    models.product.getSortProduct(req.query, (err, result) => {
+        if (err) throw err;
+        if (result.length > 0) {
+            res.status(200).json({
+                message: "Success",
+                result: index.groupProducts(result),
+            });
+        } else {
+            res.status(200).json({
+                message: "Not Found",
+            });
+        }
+    });
+};
 
-    //  const arr = result.find(e => e.cate_name == "Balo" )
-    if (err) throw err;
-    // console.log(typeof(index.groupProducts(result)));
-    res.status(200).render('pages/products/index', {
-      result: index.groupProducts(result),
-      
-    })
-  })
-}
+product.getCate = (req, res) => {
+    // const { category } = req.body.category;
+    const category = req.body.category;
+    // console.log(category);
 
-product.getCate = (req,res) =>{
-
-  // const { category } = req.body.category;
-  const  category  = req.body.category;
-  // console.log(category);
-
-  models.product.getCategory( {category } ,(err, result) => {
-    // const a = result.json();
-    // console.log("this is result",result)
-    if (err) throw err;
-    res.status(200).json({
-      result : index.groupProducts(result)
-
-    })
-    
-  })
-}
+    models.product.getCategory({ category }, (err, result) => {
+        // const a = result.json();
+        // console.log("this is result",result)
+        if (err) throw err;
+        res.status(200).json({
+            result: index.groupProducts(result),
+        });
+    });
+};
 
 product.getHotProduct = (req, res) => {
-  models.product.getHotProduct((err, result) => {
-    if (err) throw err;
+    models.product.getHotProduct((err, result) => {
+        if (err) throw err;
 
-    res.status(200).json({
-      result
-      // result: index.groupProducts(result),
-    })
-  })
-}
-
-
+        res.status(200).json({
+            result,
+            // result: index.groupProducts(result),
+        });
+    });
+};
 
 /**
  * Retrieves all products and returns them as JSON.
@@ -69,31 +83,30 @@ product.getHotProduct = (req, res) => {
  * @param {Object} res - The response object.
  */
 product.queryProduct = (req, res) => {
-  models.product.getAllProduct((err, result) => {
-    if (err) throw err;
+    models.product.getAllProduct((err, result) => {
+        if (err) throw err;
 
-    if (!result) {
-      res.status(404).json({
-        msg: 'can not find any',
-      });
-    } else {
-      res.status(200).json({
-        msg: 'Found',
-        result,
-      })
-    }
-  })
-}
-
+        if (!result) {
+            res.status(404).json({
+                msg: "can not find any",
+            });
+        } else {
+            res.status(200).json({
+                msg: "Found",
+                result,
+            });
+        }
+    });
+};
 
 product.getDetail = (req, res) => {
-  const id = req.query.id
-  models.product.getDetailProduct({ id }, (err, result) => {
-    if (err) throw err;
-    res.status(200).render('pages/products/detail', {
-      data: index.groupProducts(result),
-    })
-  })
-}
+    const id = req.query.id;
+    models.product.getDetailProduct({ id }, (err, result) => {
+        if (err) throw err;
+        res.status(200).render("pages/products/detail", {
+            data: index.groupProducts(result),
+        });
+    });
+};
 
-module.exports = product
+module.exports = product;

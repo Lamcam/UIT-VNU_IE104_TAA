@@ -28,6 +28,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+a.article__title{
+  text-decoration: none;
+}
 
 .article__context {
   text-align: justify;
