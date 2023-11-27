@@ -71,39 +71,39 @@
             <li class="aside__item js-item">
               <span class="aside__header">Trang sức</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="category" data-category="Vong_co" ><span>Vòng cổ</span></li>
-                <li class="category" data-category="Vong_tay" ><span>Vòng tay</span></li>
-                <li class="category" data-category="Hoa_tai" ><span>Hoa tai</span></li>
-                <li class="category" data-category="Nhan" ><span>Nhẫn</span></li>
+                <li class="category" data-category="vong_co"><span>Vòng cổ</span></li>
+                <li class="category" data-category="vong_tay"><span>Vòng tay</span></li>
+                <li class="category" data-category="hoa_tai"><span>Hoa tai</span></li>
+                <li class="category" data-category="nhan"><span>Nhẫn</span></li>
               </ul>
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Phụ kiện tóc</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="category" data-category="Kep" ><span>Kẹp</span></li>
-                <li class="category" data-category="Day_cot_toc" ><span>Dây cột tóc</span></li>
-                <li class="category" data-category="Cai_toc" ><span>Cài tóc</span></li>
-                <li class="category" data-category="Tram_cai" ><span>Trâm cài</span></li>
+                <li class="category" data-category="kep"><span>Kẹp</span></li>
+                <li class="category" data-category="day_cot_toc"><span>Dây cột tóc</span></li>
+                <li class="category" data-category="cai_toc"><span>Cài tóc</span></li>
+                <li class="category" data-category="tram_cai"><span>Trâm cài</span></li>
               </ul>
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Túi ví</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="category" data-category="Balo"><span>Balo</span></li>
-                <li class="category" data-category="Tui"><span>Túi</span></li>
-                <li class="category" data-category="Vi"><span>Ví</span></li>
+                <li class="category" data-category="balo"><span>Balo</span></li>
+                <li class="category" data-category="tui_xach"><span>Túi</span></li>
+                <li class="category" data-category="vi"><span>Ví</span></li>
               </ul>
 
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Khác</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="category" data-category="Thiep" > <span>Thiệp</span></li>
-                <li class="category" data-category="Op_lung" ><span>Ốp lưng</span></li>
-                <li class="category" data-category="Mat_kinh" ><span>Mắt kính</span></li>
-                <li class="category" data-category="Day_deo" ><span>Dây đeo</span></li>
-                <li class="category" data-category="Mu_non" ><span>Mũ nón</span></li>
-                <li class="category" data-category="Khau_trang" ><span>Khẩu trang</span></li>
+                <li class="category" data-category="thiep"> <span>Thiệp</span></li>
+                <li class="category" data-category="op_lung"><span>Ốp lưng</span></li>
+                <li class="category" data-category="mat_kinh"><span>Mắt kính</span></li>
+                <li class="category" data-category="day_deo"><span>Dây đeo</span></li>
+                <li class="category" data-category="mu_non"><span>Mũ nón</span></li>
+                <li class="category" data-category="khau_trang"><span>Khẩu trang</span></li>
               </ul>
             </li>
           </ul>
@@ -111,7 +111,7 @@
 
         <main class="visible row col-12 col-lg-9">
           <div class="row col-12 product__wrapper">
-           <%  const length = (result.length > 9) ? 9 : result.length;
+            <%  const length = (result.length > 9) ? 9 : result.length;
             for (let idx = 0; idx < length; ++idx) { %>
             <%- include('../../components/product__item', {
                 data: result[idx],
@@ -134,7 +134,7 @@
     <!-- Modal -->
 
 
-    
+
 
     <%- include('../../partials/footer') %>
     <%# include('../../components/popup__product')%>
@@ -142,19 +142,16 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
   <script src="/scripts/pages/products/index.js"></script>
-  <script>
-    
-  </script>
-  <script>
 
-      const category = document.querySelectorAll(".category");
-      
-      function createProduct(item) {
+  <script>
+    const category = document.querySelectorAll(".category");
+
+    function createProduct(item) {
       let path = "/imgs/products/" + item.cate_name + "/";
       // Create the outer container div
-      console.log("this is path",path);
+      console.log("this is path", path);
       let productItem = document.createElement("div");
-      productItem.classList.add("product__item", "col-4");
+      productItem.classList.add("product__item", "col-4","col-sm-6");
 
       // Create the product image container div
       let productImage = document.createElement("div");
@@ -164,8 +161,8 @@
       // Create the front image element
       let frontImage = document.createElement("img");
       frontImage.src = path + item.prod_img_urls[1];
-      
-      frontImage.alt = "Kẹp tóc";
+
+      frontImage.alt = "ảnh sản phẩm";
       frontImage.classList.add("img_back");
       productImage.appendChild(frontImage);
 
@@ -173,7 +170,7 @@
       let backImage = document.createElement("img");
       // backImage.src = "../../../public/red-panda-small.jpg";
       backImage.src = path + item.prod_img_urls[0];
-      backImage.alt = "Kẹp tóc";
+      backImage.alt = "ảnh sản phẩm";
       backImage.classList.add("img_font");
       productImage.appendChild(backImage);
 
@@ -225,20 +222,20 @@
         "title-medium",
         "error-text"
       );
-      productDiscount.textContent = `${item.prod_discount*100}`;
+      productDiscount.textContent = `Giảm ${item.prod_discount*100}%`;
       productBody.appendChild(productDiscount);
 
       // Create the product stock label
       let productStock = document.createElement("p");
       let prodAvai = parseInt(item.prod_num_avai);
       let state = "";
-      prodAvai ? state = 'Còn hàng': state = "Hết hàng" ;
+      prodAvai ? state = 'Còn hàng' : state = "Hết hàng";
       productStock.classList.add(
         "product__stock",
         "label-large",
         "primary-text"
       );
-      
+
       productStock.textContent = state;
       productBody.appendChild(productStock);
 
@@ -276,31 +273,33 @@
       container.appendChild(productItem);
     }
 
-      category.forEach((item) => {
-        item.addEventListener("click", () => {
-          const selectedCategory = item.dataset.category;
-          fetch("http://localhost:3000/products/category",{
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json'
-              },
-                  // body: JSON.stringify({ category: selectedCategory })
-                  body: JSON.stringify({ category: selectedCategory })
-            }).then(respone => respone.json())
-              .then(data=> {
-                console.log("this is data :",data.result);
-                $(".product__wrapper").empty();
-                data.result.forEach(item => {
-                  createProduct(item);
+    category.forEach((item) => {
+      item.addEventListener("click", () => {
+        const selectedCategory = item.dataset.category;
+        fetch("http://localhost:3000/products/category", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            // body: JSON.stringify({ category: selectedCategory })
+            body: JSON.stringify({
+              category: selectedCategory
+            })
+          }).then(respone => respone.json())
+          .then(data => {
+            console.log("this is data :", data.result);
+            $(".product__wrapper").empty();
+            data.result.forEach(item => {
+              createProduct(item);
 
-                })
-                
-                
+            })
+
+
 
           })
-        });
       });
-    </script>
+    });
+  </script>
 </body>
 
 </html>

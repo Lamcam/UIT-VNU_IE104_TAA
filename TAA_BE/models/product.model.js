@@ -69,14 +69,15 @@ producthModel.getByIds = ({ ids }, callback) => {
   })
 }
 
-producthModel.getDetailProduct = (callback) => {
+producthModel.getDetailProduct = ({id},callback) => {
     const sql = `
         SELECT *
         FROM products
         INNER JOIN productsimg
             ON products.prod_id = productsimg.prod_id
         INNER JOIN categories
-            on products.cate_id = categories.cate_id;
+            on products.cate_id = categories.cate_id
+        WHERE products.prod_id='${id}'
     `;
 
     db.query(sql, (err, result) => {

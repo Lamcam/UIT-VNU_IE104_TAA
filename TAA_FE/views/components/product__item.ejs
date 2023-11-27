@@ -1,5 +1,5 @@
 <% if (data.prod_num_avai > 0) { %>
-<div class="product__item col-12 col-md-6 col-lg-4">
+<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
     <!-- <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
         <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back"> -->
@@ -38,6 +38,18 @@
             <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="Product img">
           </div>
         </div>
+        <div class="img-nav">
+          <button id="prevBtn">
+            <span class="material-symbols-outlined arrow-left primary-text">
+              arrow_back_ios
+            </span>
+          </button>
+          <button id="nextBtn">
+            <span class="material-symbols-outlined arrow-right primary-text">
+              arrow_forward_ios
+            </span>
+          </button>
+        </div>        
         <div class="img-select">
           <div class="img-item">
             <a href="#" data-id="1">
@@ -82,18 +94,18 @@
               star_rate_half
             </span>
           </div>
-          <span class="rate__number title-medium">30 đánh giá</span>
-          <span class="number__buy title-medium">300 đã bán</span>
+          <span class="rate__number title-medium">5 đánh giá</span>
+          <span class="number__buy title-medium"><%=data.prod_num_sold%> đã bán</span>
         </div>
         <div class="modal__price">
-          <p class="cost body-medium">180.000đ</p>
-          <p class="cost__discount headline-small">79.000đ</p>
-          <div class="percent__discount body-medium">42% giảm</div>
+          <p class="cost body-medium"><%- data.prod_cost %> đ</p>
+          <p class="cost__discount headline-small"><%- data.prod_cost * (1 - data.prod_discount) %> đ</p>
+          <div class="percent__discount body-medium">Giảm <%- data.prod_discount * 100 %></div>
         </div>
-        <div class="modal__color label-large">
+        <!-- <div class="modal__color label-large">
           <p class="color__title bold">Màu sắc:</p>
           <div class="color__value outline-text">Xanh lá cây</div>
-        </div>
+        </div> -->
         <div class="modal__size label-large">
           <p class="size__title bold">Kích thước:</p>
           <div class="size__value outline-text">Freestyle</div>
@@ -102,10 +114,10 @@
           <div class="quantity__title label-large bold">Số lượng: </div>
           <div class="quantity__product outline-text label-large">
             <div id="decrement" class="quantity__product-decrement outline-text">-</div>
-            <input type="number" min="0" max="100" step="1" value="1" id="my-input" disabled>
-            <div id="increment" class="quantity__product-increment outline-text">+</div>            
+            <input type="number" min="1" max="100" step="1" value="1" id="my-input" disabled>
+            <div id="increment" class="quantity__product-increment outline-text">+</div>
           </div>
-          <p class="quantity__stock body-small">82 sản phẩm sẵn có</p>
+          <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
         </div>
         <div class="modal__button">
           <button class="button__cart">
@@ -115,7 +127,7 @@
             Thêm vào giỏ hàng
           </button>
           <button class="button__view btn--filled">
-            <a href="/products/detail?id=1">Xem chi tiết</a>
+            <a href="/products/detail?id=<%= data.prod_id %>">Xem chi tiết</a>
           </button>
         </div>
         <div class="modal__context body-large">
@@ -146,7 +158,7 @@
           </div>
         </div>
       </div>
-      <div class="btn--close">
+      <div class="button-close">
         <span class="material-symbols-outlined">
           close
         </span>
@@ -161,7 +173,7 @@
         </span>
       </div>
       <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
-      <div class="noti__btn btn--close">
+      <div class="noti__btn button-close">
         <span class="material-symbols-outlined">
           close
         </span>
@@ -170,7 +182,7 @@
   </div>
 </div>
 <% } else { %>
-<div class="product__outstock col-12 col-md-6 col-lg-4">
+<div class="product__outstock col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">

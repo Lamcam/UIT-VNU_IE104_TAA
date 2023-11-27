@@ -157,7 +157,7 @@ iconHearts.forEach(iconHeart => {
 const btnViews = document.querySelectorAll('.product__button__view')
 const btnSells = document.querySelectorAll('.product__button__sell')
 // const modalProducts = document.querySelectorAll('.modal-product')
-const btnClosesProduct = document.querySelector('.modal-product .btn--close')
+const btnClosesProduct = document.querySelector('.modal-product .button-close')
 const modalItems = document.querySelectorAll('.product__item')
 modalItems.forEach((item) => {
   // modalProduct tăng giảm số lượng sản phẩm
@@ -167,7 +167,7 @@ modalItems.forEach((item) => {
     modalProduct.classList.add('open')
   })
 
-  const btnClosesProduct = item.querySelector('.btn--close')
+  const btnClosesProduct = item.querySelector('.button-close')
   // modalProduct close
   btnClosesProduct.addEventListener("click", () => {
     modalProduct.classList.remove('open')
@@ -183,7 +183,7 @@ modalItems.forEach((item) => {
   })
 
   // modalNoti open
-  const btnCloseNoti = item.querySelector('.modal-noti .btn--close')
+  const btnCloseNoti = item.querySelector('.modal-noti .button-close')
   const modalNoti = item.querySelector('.modal-noti')
   const modalContainerNoti = item.querySelector('.modal-container--noti')
   const modalButtonCart = item.querySelector('.button__cart')
@@ -201,7 +201,7 @@ modalItems.forEach((item) => {
     modalProduct.classList.remove('open')
     setTimeout(() => {
       modalNoti.classList.remove('open')
-    }, 5000)
+    }, 5000000)
   })
   // modalNoti btn--close
 
@@ -243,6 +243,34 @@ modalItems.forEach((item) => {
   }
 
   window.addEventListener('resize', slideImage);
+
+  const prevBtn = item.querySelector('#prevBtn');
+  const nextBtn = item.querySelector('#nextBtn');
+  
+  prevBtn.addEventListener('click', () => changeImage(-1));
+  nextBtn.addEventListener('click', () => changeImage(1));
+  
+  function changeImage(direction) {
+    imgId += direction;
+  
+    // Kiểm tra nếu imgId vượt quá giới hạn trái/phải
+    if (imgId < 1) {
+      imgId = imgBtns.length;
+    } else if (imgId > imgBtns.length) {
+      imgId = 1;
+    }
+  
+    // Loại bỏ lớp 'active__selected' từ tất cả các hình ảnh
+    imgBtns.forEach((item) => {
+      item.classList.remove('active__selected');
+    });
+  
+    // Thêm lớp 'active__selected' cho hình ảnh hiện tại
+    imgBtns[imgId - 1].classList.add('active__selected');
+  
+    // Chuyển ảnh
+    slideImage();
+  }
 
   const myInput = item.querySelector("#my-input");
   const decrementBtn = item.querySelector("#decrement");
