@@ -152,20 +152,23 @@ iconHearts.forEach(iconHeart => {
 
 
 
-
+ 
 // modalProduct open
 const btnViews = document.querySelectorAll('.product__button__view')
 const btnSells = document.querySelectorAll('.product__button__sell')
 // const modalProducts = document.querySelectorAll('.modal-product')
 const btnClosesProduct = document.querySelector('.modal-product .button-close')
 const modalItems = document.querySelectorAll('.product__item')
+document.addEventListener("DOMContentLoaded",function(){
+  
 modalItems.forEach((item) => {
   // modalProduct tăng giảm số lượng sản phẩm
   const btnView = item.querySelector('.product__button__view')
   const modalProduct = item.querySelector('.modal-product')
+  
   btnView.addEventListener('click', () => {
     modalProduct.classList.add('open')
-  })
+  }) 
 
   const btnClosesProduct = item.querySelector('.button-close')
   // modalProduct close
@@ -295,8 +298,9 @@ modalItems.forEach((item) => {
   incrementBtn.addEventListener("click", () => stepper("increment"));
 
 })
+})
 
-
+ 
 
 // modal
 
