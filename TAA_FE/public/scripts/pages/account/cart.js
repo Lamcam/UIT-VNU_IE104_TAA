@@ -179,6 +179,47 @@ const updatePriceItem = () => {
 
 const quantityBtns = $('.cart__item .btn--quantity');
 
+const cartItems = $('.cart__item');
+
+cartItems.each((index, item) => {
+  const delBtn = $(item).find('.btn--delete');
+
+  delBtn.on('click', () => {
+    const prodId = $(item).attr('data-prod-id');
+
+    // localStorage.setItem('prodId', prodId);
+    var now = new Date();
+    var time = now.getTime();
+    time += 300000; // 5 minutes in milliseconds
+    now.setTime(time);
+
+    document.cookie = 'prodId=' + prodId + ';expires=' + now.toUTCString() + ';path=/';
+
+    // console.log(prodId);
+    // const data = {
+    //   prodId
+    // }
+    // fetch('/account/cart/delete', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify(data),
+    //   // redirect: 'follow'
+    // }).then(res => res.json())
+    //   .then(res => {
+    //     if (res.statusCode == 200) {
+    //       alert('Delete success');
+    //       window.location.reload();
+    //     } else {
+    //       alert('Delete fail');
+    //     }
+    //   })
+    //   .catch(err => console.log(err));
+    // item.remove();
+  });
+})
+
 // quantityBtns.each((index, item) => {
 //   item.addEventListener('change', (e) => {
 //     e.preventDefault();
@@ -221,6 +262,39 @@ const quantityBtns = $('.cart__item .btn--quantity');
 //       .catch(err => console.log(err));
 //   });
 // });
+
+const delCartItem = () => {
+  prodId = cookieHder.readCookie('prodId');
+
+  if (!prodId) {
+    console.log('prodId not found in cookie');
+    return;
+  }
+
+  const data = {
+    prodId
+  };
+
+  // fetch('/account/cart/delete', {
+  //   method: 'POST',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   },
+  //   body: JSON.stringify(data),
+  //   // redirect: 'follow'
+  // }).then(res => res.json())
+  //   .then(res => {
+  //     if (res.statusCode == 200) {
+  //       alert('Delete success');
+  //       window.location.reload();
+  //     } else {
+  //       alert('Delete fail');
+  //     }
+  //   })
+  //   .catch(err => console.log(err));
+
+  $('.cart__item[data-prod-id="' + prodId + '"]').remove();
+}
 
 // const cartBtnSumbit = document.querySelector('.cart__btn--submit');
 

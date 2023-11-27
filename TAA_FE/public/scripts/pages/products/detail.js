@@ -78,7 +78,7 @@ iconHearts.forEach(iconHeart => {
 })
 
 // modalNoti open
-const btnCloseNoti = document.querySelector('.modal-noti .btn--close')
+const btnCloseNoti = document.querySelector('.modal-noti .button-close')
 const modalNoti = document.querySelector('.modal-noti')
 const modalContainerNoti = document.querySelector('.modal-container--noti')
 const modalButtonCart = document.querySelector('.button__cart')
@@ -88,7 +88,7 @@ modalButtonCart.addEventListener("click", () => {
     modalNoti.classList.add('open')
     setTimeout(() => {
         modalNoti.classList.remove('open')
-    }, 5000)
+    }, 500000)
 
 })
 // modalNoti btn--close

@@ -1,10 +1,6 @@
 <% if (data.prod_num_avai > 0) { %>
-<div class="product__item col-12 col-md-6 col-lg-4">
+<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
-    <!-- <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
-        <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back"> -->
-    <!-- <img src="/imgs/products/product2.jpg %>" alt="Hình sau" class="img_back">
-        <img src="/imgs/products/product1.jpg %>" alt="Hình trước" class="img_font"> -->
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
   </div>
@@ -38,6 +34,18 @@
             <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="Product img">
           </div>
         </div>
+        <div class="img-nav">
+          <button id="prevBtn">
+            <span class="material-symbols-outlined arrow-left primary-text">
+              arrow_back_ios
+            </span>
+          </button>
+          <button id="nextBtn">
+            <span class="material-symbols-outlined arrow-right primary-text">
+              arrow_forward_ios
+            </span>
+          </button>
+        </div>        
         <div class="img-select">
           <div class="img-item">
             <a href="#" data-id="1">
@@ -124,20 +132,19 @@
               THÔNG TIN SẢN PHẨM
             </div>
             <ul class="context__info__body">
-              <li>Chất liệu vải: Kaki cao cấp.</li>
-              <li>Khóa chỉnh size: Được làm bằng inox.</li>
+              <li>Đảm bảo hàng có chất lượng thương hiệu.</li>
+              <li>Hàng luôn có sẵn ở TAA.</li>
               <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
             </ul>
           </div>
           <div class="context__detail mt-24">
             <div class="context__detail__title">
-              MÔ TẢ SẢN PHẨM
+              THÔNG TIN THƯƠNG HIỆU:
             </div>
             <ul class="context__detail__body">
-              <li>- Form dáng chuẩn, chắc chắn, form mềm giúp định hình được khuôn mặt.</li>
-              <li>- Nón được thiết kế để bảo vệ cho vùng mắt, vùng da mặt, da đầu và tóc tránh các tia cực tím độc hại
-                từ ánh nắng mặt trời.</li>
-              <li>- Giặt bằng nước lạnh không dùng bột giặt trong lần giặt đầu tiên.</li>
+              <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
+              <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm. </li>
+              <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn. </li>
               <!-- <li>- Thiết kế may tinh tế, sắc sảo và thời trang, theo phong cách Ulzzang Hàn Quốc cá tính.</li>
                   <li>- Hạn chế gây ra mồ hôi ở đầu, không gây kích ứng da đầu.</li>
                   <li>- Phần đai nón có đệm bông tạo cảm giác thoải mái khi đội nón và không để lại vết hằn lên trán.</li>
@@ -146,7 +153,7 @@
           </div>
         </div>
       </div>
-      <div class="btn--close">
+      <div class="button-close">
         <span class="material-symbols-outlined">
           close
         </span>
@@ -161,7 +168,7 @@
         </span>
       </div>
       <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
-      <div class="noti__btn btn--close">
+      <div class="noti__btn button-close">
         <span class="material-symbols-outlined">
           close
         </span>
@@ -170,7 +177,7 @@
   </div>
 </div>
 <% } else { %>
-<div class="product__outstock col-12 col-md-6 col-lg-4">
+<div class="product__outstock col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
     <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">

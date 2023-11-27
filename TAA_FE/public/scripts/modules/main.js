@@ -7,6 +7,9 @@ import { handleLoginSubmit } from './modal--login.js';
 import authCtl from './auth--controller.js';
 import { handleLogout } from './header-controller.js';
 import { notFoundSearch } from './header-controller.js';
+import { handleLogout } from './header--controller.js';
+import cookieHder from './cookie--handler.js';
+
 handleLoginSubmit();
 handleLogout();
 
@@ -25,3 +28,4 @@ fetch('/products')
   .catch(error => {
     console.log('Lỗi:', error);
   });
+window.cookieHder = cookieHder;
