@@ -18,15 +18,15 @@ Các thành viên trong nhóm bao gồm:
 | 6   | Huỳnh An Nghiệp        | 21522377         | Thành Viên     |
 | 7   | Bùi Xuân Nhi           | 21522422         | Thành Viên     |
 
+## Công nghệ sử dụng
 
+Nhóm sử dụng NodeJS, ExpressJS, Xampp, jQuery, EJS, ...
 
 ## Cài Đặt
 
 ### Yêu Cầu Hệ Thống
 
 - Cài đặt [NodeJS](https://nodejs.org/) phiên bản 14.17.0 trở lên.
-<!-- - Sử dụng [Visual Studio Code](https://code.visualstudio.com/). -->
-<!-- - Sử dụng Extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) để chạy ứng dụng. -->
 
 ### Hướng Dẫn Cài Đặt
 
@@ -60,14 +60,20 @@ Lưu ý: Bạn có thể thay đổi các bước cài đặt tùy thuộc vào 
 
 ```bash
 ├───TAA_BE                             # Thư mục chứa source code backend
+│   ├───config                           # Thư mục chứa các file cấu hình (dữ liệu mẫu, cấu hình database, ...)
+│   ├───controllers                      # Thư mục chứa các file controller
+│   ├───middlewares                      # Thư mục chứa các file middleware
+│   ├───models                           # Thư mục chứa các file model
+│   ├───routers                          # Thư mục chứa các file router
+│   └───app.js                           # File chạy ứng dụng
 └───TAA_FE                             # Thư mục chứa source code frontend
-    ├───docs                           # Thư mục chứa tài liệu
-    ├───public                         # Thư mục chứa các file tĩnh
-    │   ├───imgs
-    │   ├───scripts
-    │   ├───fonts
-    │   └───styles
-    └───views                         # Thư mục chứa các file html
+    ├───public                           # Thư mục chứa các file tĩnh
+    │   ├───fonts                        # Thư mục chứa các font
+    │   ├───imgs                         # Thư mục chứa các hình ảnh
+    │   ├───logos                        # Thư mục chứa các logo
+    │   ├───scripts                      # Thư mục chứa các file js
+    │   └───styles                       # Thư mục chứa các file css
+    └───views                            # Thư mục chứa các file html/ejs
         ├───components
         ├───homepage
         └───partials
