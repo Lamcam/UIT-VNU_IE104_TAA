@@ -320,6 +320,10 @@ input {
   }
 }
 
+label {
+  cursor: pointer;
+}
+
 /* general class */
 .container {
   max-width: 85rem;
