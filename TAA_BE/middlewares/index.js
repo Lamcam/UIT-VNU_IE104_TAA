@@ -17,11 +17,11 @@ const authorize = (req, res, next) => {
   if (isAuthenticated) {
     next();
   } else {
-    // res.redirect('/');
-    res.status(401).json({
-      statusCode: 401,
-      msg: 'You are not authorized to view this page',
-    });
+    res.redirect('/');
+    // res.status(401).json({
+    //   statusCode: 401,
+    //   msg: 'You are not authorized to view this page',
+    // });
   }
 };
 

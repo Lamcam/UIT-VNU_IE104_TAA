@@ -2,9 +2,11 @@ const register = () => {
 
 }
 
-const login = () => {
+const login = (event) => {
+  // alert('a');
+  // event.preventDefault();
   const submitBtn = $('#modal--login .modal__btn--submit');
-  // console.log(submitBtn);
+  console.log(submitBtn);
   if (submitBtn.length == 0) {
     alert('Don\'t have this button', '#modal--login .modal__btn--submit');
   } else {

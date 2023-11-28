@@ -62,8 +62,10 @@
                 <span class="cost_value item--price-before error-text"><%- item.prod_cost %></span>
                 <% } %>
               </span>
-              <span class='col-2'>
-                <input class="item--quantity" type="number" min='1' max='5' value='1'>
+              <span class='col-2 item-quantity__wrapper'>
+                <span class='value--ctl decrease icon material-symbols-outlined'>remove</span>
+                <input class="item--quantity" type="number" step=1 min=1 max=5 value=1>
+                <span class='value--ctl increase icon material-symbols-outlined'>add</span>
               </span>
               <span class="cost_value item--total-price col-2 label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
               <%- include('../../components/button', {
