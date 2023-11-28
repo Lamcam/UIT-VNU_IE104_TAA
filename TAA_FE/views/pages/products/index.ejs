@@ -271,7 +271,7 @@ parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
       let quickViewButton = document.createElement("div");
       quickViewButton.classList.add(
         "product__button__view",
-        "product__button__view1"
+        "product__button__view"
       );
       quickViewButton.textContent = "Xem nhanh";
       productButtonSection.appendChild(quickViewButton);
@@ -625,28 +625,26 @@ parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
             // console.log("this is data :", data.result);
             $(".product__wrapper").empty();
 
-            data.result.forEach((item) => {
-              createProduct(item);
-              $(document).on("click", ".product__button__view1", function(e) {
-                e.preventDefault();
-                var index = $(this).index(".product__button__view1");
-                console.log(index);
-                $(".modal-product").eq(index).addClass("open");
-              });
-
-              $(document).on("click", ".button-close1", function() {
-                $(".modal-product").removeClass("open");
-              });
-
-
-            });
+          data.result.forEach((item) => {
+            createProduct(item);
           });
+        });
       });
     });
   </script>
 
   <script>
     // add pop-up when click to Quick View button
+    $(document).on("click", ".product__button__view", function(e) {
+      e.preventDefault();
+      var index = $(this).index(".product__button__view");
+      console.log(index);
+      $(".modal-product").eq(index).addClass("open");
+    });
+
+    $(document).on("click", ".button-close", function() {
+      $(".modal-product").removeClass("open");
+    });
   </script>
 </body>
 
