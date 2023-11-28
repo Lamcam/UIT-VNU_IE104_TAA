@@ -2,46 +2,39 @@
 <html lang="vi">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Trang web TAA là một nền tảng thương mại
-    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
-    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
-    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
-  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
-  <link rel="stylesheet" href="/styles/pages/base.css">
-  <link rel="stylesheet" href="/styles/pages/products/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/pages/base.css" />
+  <link rel="stylesheet" href="/styles/pages/products/index.css" />
   <title>TAA - Trang sản phẩm</title>
 </head>
 
 <body>
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 1 }) %>
-    <%- include('../../partials/breadcrumbs', { 
+    <%- include('../../partials/breadcrumbs', {
       data: [
-        { label: 'Trang chủ', link: '/' },
+        { label: 'Trang chủ', link: '/' }, 
         { label: 'Sản phẩm', link: '/products' }
       ]
     }) %>
 
-    <div id='theFilter' class='mt-12'>
+    <div id="theFilter" class="mt-12">
       <div class="container">
         <div class="product__filter visible">
-          <p class="product__title label-large on-surface-text">Sắp xếp theo</p>
-          <button class="product__button js-button btn--outlined discount">
-            <span class="material-symbols-outlined icon-check">
-              check
-            </span>
+          <p class="product__title label-large on-surface-text">
+            Sắp xếp theo
+          </p>
+          <button class="product__button js-button btn--outlined">
+            <span class="material-symbols-outlined icon-check"> check </span>
             Giảm giá
           </button>
-          <button class="product__button js-button btn--outlined best-seller">
-            <span class="material-symbols-outlined icon-check">
-              check
-            </span>
+          <button class="product__button js-button btn--outlined">
+            <span class="material-symbols-outlined icon-check"> check </span>
             Bán chạy nhất
           </button>
           <div class="dropdown label-large">
-            <div class="select product__button-select">
+            <div class="select product__button">
               <span class="material-symbols-outlined icon-check">
                 check
               </span>
@@ -52,14 +45,15 @@
               </span>
             </div>
             <ul class="menu">
-              <li class="select__active cost-az">Giá: Từ thấp đến cao</li>
-              <li class="cost-za">Giá: Từ cao đến thấp</li>
+              <li class="select__active">Giá: Từ thấp đến cao</li>
+              <li>Giá: Từ cao đến thấp</li>
             </ul>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Dành cho việc chia cột nội dung-->
     <div class="container">
       <div class="row mt-12">
         <aside class="aside col-12 col-lg-3">
@@ -75,39 +69,68 @@
             <li class="aside__item js-item">
               <span class="aside__header">Trang sức</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="category" data-category="vong_co"><span>Vòng cổ</span></li>
-                <li class="category" data-category="vong_tay"><span>Vòng tay</span></li>
-                <li class="category" data-category="hoa_tai"><span>Hoa tai</span></li>
-                <li class="category" data-category="nhan"><span>Nhẫn</span></li>
+                <li class="category" data-category="vong_co">
+                  <span>Vòng cổ</span>
+                </li>
+                <li class="category" data-category="vong_tay">
+                  <span>Vòng tay</span>
+                </li>
+                <li class="category" data-category="hoa_tai">
+                  <span>Hoa tai</span>
+                </li>
+                <li class="category" data-category="nhan">
+                  <span>Nhẫn</span>
+                </li>
               </ul>
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Phụ kiện tóc</span>
               <ul class="aside__item__sub-menu js-sub-menu">
                 <li class="category" data-category="kep"><span>Kẹp</span></li>
-                <li class="category" data-category="day_cot_toc"><span>Dây cột tóc</span></li>
-                <li class="category" data-category="cai_toc"><span>Cài tóc</span></li>
-                <li class="category" data-category="tram_cai"><span>Trâm cài</span></li>
+                <li class="category" data-category="day_cot_toc">
+                  <span>Dây cột tóc</span>
+                </li>
+                <li class="category" data-category="cai_toc">
+                  <span>Cài tóc</span>
+                </li>
+                <li class="category" data-category="tram_cai">
+                  <span>Trâm cài</span>
+                </li>
               </ul>
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Túi ví</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="category" data-category="balo"><span>Balo</span></li>
-                <li class="category" data-category="tui_xach"><span>Túi</span></li>
+                <li class="category" data-category="balo">
+                  <span>Balo</span>
+                </li>
+                <li class="category" data-category="tui_xach">
+                  <span>Túi</span>
+                </li>
                 <li class="category" data-category="vi"><span>Ví</span></li>
               </ul>
-
             </li>
             <li class="aside__item js-item">
               <span class="aside__header">Khác</span>
               <ul class="aside__item__sub-menu js-sub-menu">
-                <li class="category" data-category="thiep"> <span>Thiệp</span></li>
-                <li class="category" data-category="op_lung"><span>Ốp lưng</span></li>
-                <li class="category" data-category="mat_kinh"><span>Mắt kính</span></li>
-                <li class="category" data-category="day_deo"><span>Dây đeo</span></li>
-                <li class="category" data-category="mu_non"><span>Mũ nón</span></li>
-                <li class="category" data-category="khau_trang"><span>Khẩu trang</span></li>
+                <li class="category" data-category="thiep">
+                  <span>Thiệp</span>
+                </li>
+                <li class="category" data-category="op_lung">
+                  <span>Ốp lưng</span>
+                </li>
+                <li class="category" data-category="mat_kinh">
+                  <span>Mắt kính</span>
+                </li>
+                <li class="category" data-category="day_deo">
+                  <span>Dây đeo</span>
+                </li>
+                <li class="category" data-category="mu_non">
+                  <span>Mũ nón</span>
+                </li>
+                <li class="category" data-category="khau_trang">
+                  <span>Khẩu trang</span>
+                </li>
               </ul>
             </li>
           </ul>
@@ -115,19 +138,14 @@
 
         <main class="visible row col-12 col-lg-9">
           <div class="row col-12 product__wrapper">
-            <%  const length = (result.length > 9) ? 9 : result.length;
+            <% const length = (result.length > 9) ? 9 : result.length;
             for (let idx = 0; idx < length; ++idx) { %>
             <%- include('../../components/product__item', {
                 data: result[idx],
               }) %>
-            <%# include('../../components/popup__product', {
-                data: result[idx],
-              })%>
             <% } %>
           </div>
-          <div class="not-found-search">
 
-          </div>
           <div class="row col-12">
             <%- include('../../partials/pagination', {
               classList: 'col-12'
@@ -142,7 +160,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
   <script src="/scripts/pages/products/index.js"></script>
-  <script src="/scripts/partials/modal__product-details--controller.js"></script>
+  <script src="/scripts/partials/product__item.js"></script>
 
 </body>
 
