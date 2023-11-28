@@ -18,13 +18,13 @@ window.modalCtl = modalCtl;
 window.authCtl = authCtl;
 window.cookieHder = cookieHder;
 
-fetch('/products')
-  .then(response => response.json())
-  .then(data => {
-    if (data.message == 'Not Found')
-      console.log(data.message)
-    notFoundSearch()
-  })
-  .catch(error => {
-    console.log('Lỗi:', error);
-  });
+// fetch('/products')
+//   .then(response => response.json())
+//   .then(data => {
+//     if (data.message == 'Not Found')
+//       console.log(data.message)
+//     notFoundSearch()
+//   })
+//   .catch(error => {
+//     console.log('Lỗi:', error);
+//   });
