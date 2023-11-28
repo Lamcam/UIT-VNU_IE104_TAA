@@ -168,16 +168,23 @@
                 <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
               </div>
               <div class="info__product__button">
-                <button class="button__cart">
+                <%- include('../../components/button', {
+                  type: 'btn-icon-label',
+                  options: '',
+                  classList: 'button__cart',
+                  iconData: 'add_shopping_cart',
+                  label: 'Thêm vào giỏ hàng',
+                  onclick: '',
+                }) %>
+                <!-- <button class="button__cart">
                   <span class="material-symbols-outlined">
                     add_shopping_cart
                   </span>
                   Thêm vào giỏ hàng
+                </button> -->
+                <button class="button__sell btn--filled">
+                  <a class="status-layer" href="/account/order">Mua ngay</a>
                 </button>
-                <div class="button__sell btn--filled label-large">
-                  <a href="/account/order">Mua ngay</a>
-                </div>
-
               </div>
             </div>
           </div>

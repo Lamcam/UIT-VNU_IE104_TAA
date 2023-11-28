@@ -2,9 +2,11 @@ const register = () => {
 
 }
 
-const login = () => {
+const login = (event) => {
+  // alert('a');
+  // event.preventDefault();
   const submitBtn = $('#modal--login .modal__btn--submit');
-  // console.log(submitBtn);
+  console.log(submitBtn);
   if (submitBtn.length == 0) {
     alert('Don\'t have this button', '#modal--login .modal__btn--submit');
   } else {
@@ -43,6 +45,16 @@ const login = () => {
   }
 }
 
+const checkAuthenticated = async () => {
+  if (cookieHder.readCookie('authenticated') !== 'true') {
+    alert('Vui lòng đăng nhập để thực hiện chức năng này');
+    modalCtl.openModal('#modal--login');
+    return false;
+  } else {
+    return true;
+  }
+}
+
 const logout = () => {
   fetch('/auth/logout', {
     method: 'GET',
@@ -65,6 +77,7 @@ const authCtl = {
   register,
   login,
   logout,
+  checkAuthenticated,
 }
 
 export default authCtl;

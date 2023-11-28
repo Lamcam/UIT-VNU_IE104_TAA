@@ -27,8 +27,9 @@
     display: none;
   }
 
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.30),
-  0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  box-shadow:
+    0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+    0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   /* max-height: fit-content; */
 }
 
@@ -48,7 +49,6 @@
 
 .product__item:hover .product__image .img_font {
   opacity: 0;
-
 }
 
 .icon_heart,
@@ -68,7 +68,7 @@
   height: 35px;
   justify-content: space-around;
   border-radius: 0px 0px 8px 8px;
-  background: var(--m-3-sys-light-primary, #785B5B);
+  background: var(--m-3-sys-light-primary, #785b5b);
   cursor: pointer;
   display: none;
   position: absolute;
@@ -126,13 +126,11 @@
 
 .product__price__discount {
   text-decoration: line-through;
-
 }
 
 .product__discount {
   font-weight: bold;
   margin-bottom: 16px;
-
 }
 
 .product__stock {
@@ -151,7 +149,6 @@
   min-width: 247px;
   background: var(--m-3-state-layers-dark-surface-dim-opacity-016, rgba(20, 18, 24, 0.16));
 }
-
 
 /* Chi tiet san pham */
 .modal-product {
@@ -199,7 +196,6 @@
   width: 100%;
   height: 100%;
   display: block;
-
 }
 
 .img-display {
@@ -275,13 +271,13 @@
   display: flex;
   gap: 12px;
   padding: 0px 12px;
-  align-items: center
+  align-items: center;
 }
 
 .modal__info__rate .rate__star {
   display: flex;
   align-items: center;
-  color: var(--m-3-sys-light-error, #BA1A1A);
+  color: var(--m-3-sys-light-error, #ba1a1a);
 }
 
 .modal__price {
@@ -293,7 +289,7 @@
   align-items: center;
   gap: 12px;
   border-radius: 4px;
-  background: var(--m-3-sys-light-on-primary, #F1EFE7);
+  background: var(--m-3-sys-light-on-primary, #f1efe7);
 }
 
 .modal__price .cost {
@@ -301,14 +297,13 @@
 }
 
 .modal__price .cost__discount {
-  color: var(--m-3-sys-light-error, #BA1A1A);
-
+  color: var(--m-3-sys-light-error, #ba1a1a);
 }
 
 .modal__price .percent__discount {
   color: #fff;
   border-radius: 5px;
-  background: var(--m-3-sys-light-error, #BA1A1A);
+  background: var(--m-3-sys-light-error, #ba1a1a);
   padding: 0px 6px;
 }
 
@@ -360,21 +355,15 @@
   border-radius: 8px;
   border: 1px solid var(--m-3-sys-light-outline, #857373);
   margin-left: 24px;
-
 }
 
-.quantity__product input {
-  margin-top: -2px;
-}
-
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
   text-align: center;
   border: none;
   width: 40px;
   height: 32px;
   color: var(--m-3-sys-light-outline);
-
 }
 
 input::-webkit-outer-spin-button,
@@ -404,20 +393,18 @@ input::-webkit-inner-spin-button {
 
 .modal__button .button__cart {
   display: flex;
-  padding: 10px;
-  height: 40px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  color: #9C4048;
-  border: 1px solid #9C4048;
-  background: var(--m-3-ref-primary-primary-95, #FFEDEC);
+  color: #9c4048;
+  border: 1px solid #9c4048;
+  background: var(--m-3-ref-primary-primary-95, #ffedec);
   cursor: pointer;
 }
 
 .modal__button .button__view {
-  height: 40px;
-  line-height: 40px;
+  /* height: 40px;
+  line-height: 40px; */
   /* padding: 10px 40px; */
 
   & a {
@@ -444,7 +431,6 @@ input::-webkit-inner-spin-button {
 
 .modal__context .context__detail__body li {
   list-style-type: none;
-
 }
 
 /* modal noti */
@@ -466,7 +452,7 @@ input::-webkit-inner-spin-button {
 
 .modal-noti.open {
   display: flex;
-  z-index: 1;
+  z-index: 2;
 }
 
 .modal-noti.close {
@@ -481,7 +467,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   gap: 12px;
   border-radius: 12px;
-  background-color: var(--m-3-sys-light-primary, #785B5B);
+  background-color: var(--m-3-sys-light-primary, #785b5b);
   width: 714px;
   height: 360px;
   position: relative;

@@ -7,6 +7,7 @@
 
     & span {
       line-height: 4rem;
+      text-align: center;
     }
   }
 
@@ -27,32 +28,6 @@
   }
 }
 
-/* table {
-  border-spacing: 0px;
-  border: 0px;
-
-  width: 100%;
-}
-
-thead {
-  & tr {
-    height: 60px;
-  }
-}
-
-tbody {
-  & tr {
-    & img {
-      height: 96px;
-      aspect-ratio: 1/1;
-    }
-
-    & button {
-      margin: 0 auto;
-    }
-  }
-} */
-
 .detail__context {
   text-align: right;
 }
@@ -70,6 +45,25 @@ span[class*="cost_value"] {
   }
 }
 
+.item-quantity__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  & .value--ctl {
+    font-size: 1.25rem;
+    max-height: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  & input {
+    min-height: 3rem;
+    width: auto;
+  }
+}
+
 .item--prices {
   text-align: right;
 }
@@ -82,10 +76,10 @@ span[class*="cost_value"] {
 aside {
   & .row {
     padding: 12px;
-    min-height: 40px;
+    min-height: 4rem;
 
     &:first-child {
-      height: 60px;
+      height: 4rem;
     }
   }
 }

@@ -49,7 +49,7 @@
             <% data.forEach((item, idx) => { %>
             <div class="tr row cart__item" data-prod-id='<%= item.prod_id %>'>
               <%- include('../../components/checkbox', {
-                id: `cart-item-${idx}`,
+                id: `${idx}`,
                 classList: 'col-1',
                 name: 'cart-item',
                 value: item.prod_id,
@@ -62,8 +62,10 @@
                 <span class="cost_value item--price-before error-text"><%- item.prod_cost %></span>
                 <% } %>
               </span>
-              <span class='col-2'>
-                <input class="item--quantity" type="number" min='1' max='5' value='1'>
+              <span class='col-2 item-quantity__wrapper'>
+                <span class='value--ctl decrease icon material-symbols-outlined'>remove</span>
+                <input class="item--quantity" type="number" step=1 min=1 max=5 value=1>
+                <span class='value--ctl increase icon material-symbols-outlined'>add</span>
               </span>
               <span class="cost_value item--total-price col-2 label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
               <%- include('../../components/button', {
@@ -90,12 +92,12 @@
             </div>
             <div class="row">
               <span class="col-6 detail__title">Giảm giá:</span>
-              <span class="col-6 detail__context cost_value--discord">20000</span>
+              <span class="col-6 detail__context cost_value--discount">20000</span>
             </div>
             <hr>
             <div class="row">
               <span class="col-6 detail__title">Tổng cộng:</span>
-              <span class="col-6 detail__context cost_value--final--after error-text">0</span>
+              <span class="col-6 detail__context cost_value__final--after error-text">0</span>
             </div>
             <div class="row">
               <span class="col-12 detail__context">(Đã bao gồm phí VAT)</span>

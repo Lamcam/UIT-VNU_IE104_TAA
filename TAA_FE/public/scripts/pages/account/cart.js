@@ -1,305 +1,232 @@
-// const strSltCostValue = 'span[name^="cost_value"]';
-// const strSltCostValueAfter = 'span[name^="cost_value--after"]';
+document.addEventListener('DOMContentLoaded', () => {
+  updateBtnSubmit();
+  quantityCtl();
+})
 
-// const strSltFinalCostValueBefore = 'span[name^="cost_value--final--before-discount"]';
-// const strSltDiscountValue = 'span[name^="cost_value--discount"]';
-// const strSltFinalCostValueAfter = 'span[name^="cost_value--final--after-discount"]';
+// Update event document when changed
+document.addEventListener('change', (event) => {
+  updateCheckbox(event.target);
+  updatePriceItem();
 
-// const checkProd = 'input[id^="f_prod_"]';
+  updateTotalPrice();
 
-// const delCartItem = () => {
-//   $('.cart-list tbody')[0].children[0].remove();
-// }
+  updateBtnSubmit();
 
-// const loadTHead = () => {
-//   $('.cart-list thead').append(`
-//     <tr>
-//       <th><span class="btn-icon btn-checkbox">
-//         <input type="checkbox" id="f_all_prod" name="f_all_prod">
-//         <label for="f_all_prod">
-//           <span class="icon material-symbols-outlined">
-//             check_box_outline_blank</span>
-//           <span class="icon material-symbols-outlined --checked">
-//             check_box</span>
-//           <span class="icon material-symbols-outlined --indeterminate">
-//             indeterminate_check_box</span>
-//         </label>
-//       </span></th>
-//       <th colspan="2">Sản phẩm</th>
-//       <th>Giá tiền</th>
-//       <th>Số lượng</th>
-//       <th>Thành tiền</th>
-//       <th></th>
-//     </tr>`);
-// }
+})
 
-// const loadTBody = (data) => {
-//   const cartItems = data ?? [1, 2, 3, 4, 5];
-//   var countShowCartItems = 0;
-//   const cartItemsLength = cartItems.length;
-//   if (cartItemsLength > 0) {
-//     $('.cart-list tbody').empty();
-//     cartItems.forEach((index, item) => {
-//       $('.cart-list tbody').append(`
-//       <tr>
-//         <th><span class="btn-icon btn-checkbox">
-//           <input type="checkbox" id="f_prod_${index}" name="f_prod_${index}">
-//           <label for="f_prod_${index}">
-//             <span class="icon material-symbols-outlined">
-//               check_box_outline_blank</span>
-//             <span class="icon material-symbols-outlined --checked">
-//               check_box</span>
-//             <span class="icon material-symbols-outlined --indeterminate">
-//               indeterminate_check_box</span>
-//           </label>
-//         </span></th>
-//         <td><img src="/TAA_FE/res/imgs/prod0001.png" alt="Image of Product"></td>
-//         <td>Tên sản phẩm</td>
-//         <td><span name='cost_value--before' value='100000'>1</span></td>
-//         <td>
-//           <input class="text-btn" name="quantity" min="1" max="5" value="1" type="number">
-//         </td>
-//         <td><span name='cost_value--after'></span></td>
-//         <td>
-//           <!-- <button class="btn-icon" onclick="delCartItem()"> -->
-//           <button class="btn-icon" data-modal-target="#modal--del-cart-item">
-//             <div class="status-layer">
-//               <span class="icon material-symbols-outlined">delete</span>
-//             </div>
-//           </button>
-//         </td>
-//       </tr>`);
-//     });
-//   }
-// }
+// Update statues of button submit
+const updateBtnSubmit = () => {
+  const cartItems = document.querySelectorAll('.cart__item');
+  const cartItemsChecked = Array.from(cartItems).filter((item) => {
+    return item.querySelector('input[name^="cart-item"]').checked;
+  });
 
-// const loadTFoot = () => { }
+  const btnSubmit = document.querySelector('.cart__btn--submit');
 
-// const makeOrderActiCheck = () => {
-//   $('#f_all_prod').on('click', () => {
-//     if ($('#f_all_prod').is(':checked')) {
-//       $('input[name^="f_prod_"]').prop('checked', true);
-//     } else {
-//       $('input[name^="f_prod_"]').prop('checked', false);
-//     }
-//   });
+  if (cartItemsChecked.length === 0) {
+    btnSubmit.disabled = true;
+  } else {
+    btnSubmit.disabled = false;
+  }
+}
 
-//   $('input[name^="f_prod_"]').on('click', () => {
-//     if ($('input[name^="f_prod_"]:checked').length === $('input[name^="f_prod_"]').length) {
-//       $('#f_all_prod').prop('checked', true).prop('indeterminate', false);
-//     } else if ($('input[name^="f_prod_"]:checked').length === 0) {
-//       $('#f_all_prod').prop('checked', false).prop('indeterminate', false);
-//     } else {
-//       $('#f_all_prod').prop('checked', false).prop('indeterminate', true);
-//     }
-//   });
-// }
+const quantityCtl = () => {
+  // console.log($('.item-quantity__wrapper'))
+  $('.item-quantity__wrapper').on('click', (e) => {
+    const target = e.target;
+    // console.log(target);
+    const input = $(target).siblings('.item--quantity');
+    const value = parseInt(input.val());
+    const max = parseInt(input.attr('max'));
+    const min = parseInt(input.attr('min'));
 
-// const loadCostValue = () => {
-//   $(strSltCostValue).each((index, item) => {
-//     const cost = $(item).attr('value');
-//     $(item).text(cost);
-//   });
+    if ($(target).hasClass('increase')) {
+      if (value >= max) {
+        input.val(max);
+      } else {
+        input.val(value + 1);
+        document.dispatchEvent(new Event('change'));
+      }
+    } else if ($(target).hasClass('decrease')) {
+      if (value <= min) {
+        input.val(min);
+      } else {
+        input.val(value - 1);
+        document.dispatchEvent(new Event('change'));
+      }
+    }
+  })
+}
 
-//   $(strSltCostValueAfter).each((index, item) => {
-//     const cost = $(item).parent().parent().find(strSltCostValue).attr('value');
-//     $(item).text(cost);
-//   });
-// }
-
-// const updCostByQuan = () => {
-//   $('input[name="quantity"]').each((index, item) => {
-//     item.addEventListener('change', () => {
-//       const cost = $(item).parent().parent().find(strSltCostValue).attr('value');
-//       const quantity = $(item).val();
-//       $(item).parent().parent().find(strSltCostValueAfter).text(cost * quantity);
-//     })
-//   });
-// }
-
-// const loadOrderCost = () => {
-//   const selectedProducts = $(checkProd + ':checked');
-//   const totalCost = selectedProducts.toArray().reduce((sum, item) => {
-//     const cost = parseInt($(item).parent().parent().parent().find(strSltCostValueAfter).text());
-//     // console.log($(item).parent().parent().parent().find(strSltCostValueAfter).text());
-//     return sum + cost;
-//   }, 0);
-//   $(strSltFinalCostValueBefore).text(totalCost);
-// }
-
-// // const loadOrderCostAfter = () => {
-// //   const finalCostBefore = $(strSltFinalCostValueBefore)[0].text();
-// //   const discount = $(strSltDiscountValue)[0].text();
-// //   console.log(finalCostBefore);
-// //   console.log(discount);
-
-// //   console.log($(strSltFinalCostValueAfter)[0])
-
-// //   $(strSltFinalCostValueAfter).text(finalCostBefore - discount);
-// // }
-
-
-// // Load table of products
-// $(window).on('load', () => {
-//   loadTHead();
-//   loadTBody();
-//   loadTFoot();
-
-//   makeOrderActiCheck();
-
-//   loadCostValue();
-//   updCostByQuan();
-
-//   loadOrderCost();
-//   // loadOrderCostAfter();
-
-//   $(checkProd).on('change', () => {
-//     console.log('change');
-//     loadOrderCost();
-//     // loadOrderCostAfter();
-//   })
-// });
-
-// const delCartBtns = $('.cart__item .btn--delete');
-
+// Update price of items
 const updatePriceItem = () => {
   const cartItems = $('.cart__item');
   cartItems.each((index, item) => {
     const cost = parseInt($(item).find('.item--price').text());
     const quantity = parseInt($(item).find('.item--quantity').val());
+    // console.log(item, cost * quantity)
     $(item).find('.item--total-price').text(cost * quantity);
   });
-  // const totalCost = cartItems.toArray().reduce((sum, item) => {
-  //   const cost = parseInt($(item).find('.item--price').text());
-  //   const quantity = parseInt($(item).find('.item--quantity').val());
-  //   return sum + cost * quantity;
-  // }, 0);
-  // $('.item--total-price').text(totalCost);
 }
 
-const quantityBtns = $('.cart__item .btn--quantity');
-
 const cartItems = $('.cart__item');
-
 cartItems.each((index, item) => {
   const delBtn = $(item).find('.btn--delete');
 
   delBtn.on('click', () => {
     const prodId = $(item).attr('data-prod-id');
 
-    // localStorage.setItem('prodId', prodId);
-    var now = new Date();
-    var time = now.getTime();
-    time += 300000; // 5 minutes in milliseconds
-    now.setTime(time);
-
-    document.cookie = 'prodId=' + prodId + ';expires=' + now.toUTCString() + ';path=/';
-
-    // console.log(prodId);
-    // const data = {
-    //   prodId
-    // }
-    // fetch('/account/cart/delete', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify(data),
-    //   // redirect: 'follow'
-    // }).then(res => res.json())
-    //   .then(res => {
-    //     if (res.statusCode == 200) {
-    //       alert('Delete success');
-    //       window.location.reload();
-    //     } else {
-    //       alert('Delete fail');
-    //     }
-    //   })
-    //   .catch(err => console.log(err));
-    // item.remove();
+    cookieHder.createCookie('prodId--delete', prodId, 1);  // a day
   });
 })
 
-// quantityBtns.each((index, item) => {
-//   item.addEventListener('change', (e) => {
-//     e.preventDefault();
-//     const quantityInput = $(item).parent().find('.item--quantity');
-//     const quantity = parseInt(quantityInput.val());
-//     // if ($(item).hasClass('btn--quantity--up')) {
-//     //   quantityInput.val(quantity + 1);
-//     // } else {
-//     //   if (quantity > 1) {
-//     //     quantityInput.val(quantity - 1);
-//     //   }
-//     // }
-//     updatePriceItem();
-//   });
-// })
-
-// delCartBtns.each((index, item) => {
-//   item.addEventListener('click', (e) => {
-//     e.preventDefault();
-//     const prodId = $(item).attr('data-prod-id');
-//     const data = {
-//       prodId
-//     }
-//     fetch('/account/cart/delete', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       },
-//       body: JSON.stringify(data),
-//       // redirect: 'follow'
-//     }).then(res => res.json())
-//       .then(res => {
-//         if (res.statusCode == 200) {
-//           alert('Delete success');
-//           window.location.reload();
-//         } else {
-//           alert('Delete fail');
-//         }
-//       })
-//       .catch(err => console.log(err));
-//   });
-// });
-
+// Delete cart item
 const delCartItem = () => {
-  prodId = cookieHder.readCookie('prodId');
+  prodId = cookieHder.readCookie('prodId--delete');
 
   if (!prodId) {
     console.log('prodId not found in cookie');
     return;
   }
 
+  cookieHder.deleteCookie('prodId--delete');
+
   const data = {
     prodId
   };
 
-  // fetch('/account/cart/delete', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json'
-  //   },
-  //   body: JSON.stringify(data),
-  //   // redirect: 'follow'
-  // }).then(res => res.json())
-  //   .then(res => {
-  //     if (res.statusCode == 200) {
-  //       alert('Delete success');
-  //       window.location.reload();
-  //     } else {
-  //       alert('Delete fail');
-  //     }
-  //   })
-  //   .catch(err => console.log(err));
+  fetch('/account/cart/delete', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+    // redirect: 'follow'
+  }).then(res => res.json())
+    .then(res => {
+      if (res.statusCode == 200) {
+        alert('Delete success');
+        // window.location.reload();
+      } else {
+        alert('Delete fail');
+      }
+    })
+    .catch(err => console.error(err));
 
   $('.cart__item[data-prod-id="' + prodId + '"]').remove();
+  updateTBodyContext();
+}
+
+const updateTBodyContext = () => {
+  tBody = document.querySelector('.tbody');
+  const cartItems = tBody.querySelectorAll('.cart__item');
+  if (cartItems.length === 0) {
+    tBody.innerHTML = `<p class='tr table__noti headline-small'>Bạn không có bất kỳ sản phẩm nào trong giỏ hàng</p>`;
+  }
 }
 
 // const cartBtnSumbit = document.querySelector('.cart__btn--submit');
 
+const updateCheckbox = (target) => {
+  // console.log('updateCheckbox called by target: ', target);
+
+  const allProdCheckbox = document.querySelector('#cart-item-all');
+  // console.log(allProdCheckbox);
+
+  const prodCheckboxes = document.querySelectorAll('input[name^="cart-item"]');
+  // console.log(prodCheckboxes);
+
+  const prodCheckboxes__checked = document.querySelectorAll('input[name^="cart-item"]:checked');
+  // console.log(prodCheckboxes__checked);
+
+  const updateOneToAll = () => {
+    // console.log('updateOneToAll called');
+
+    if (allProdCheckbox.checked) {
+      prodCheckboxes.forEach((item) => {
+        item.checked = true;
+      });
+    } else {
+      prodCheckboxes.forEach((item) => {
+        item.checked = false;
+      });
+    }
+  }
+
+  const updateAllToOne = () => {
+    // console.log('updateAllToOne called')
+
+    if (prodCheckboxes__checked.length === 0) {
+      // console.log('0')
+      allProdCheckbox.checked = false;
+      allProdCheckbox.indeterminate = false;
+    } else if (prodCheckboxes__checked.length === prodCheckboxes.length) {
+      // console.log('1')
+      allProdCheckbox.checked = true;
+      allProdCheckbox.indeterminate = false;
+    } else {
+      // console.log('2')
+      allProdCheckbox.checked = false;
+      allProdCheckbox.indeterminate = true;
+    }
+  }
+
+  if (target === allProdCheckbox) {
+    updateOneToAll();
+  } else if (Array.from(prodCheckboxes).includes(target)) {
+    updateAllToOne();
+  }
+}
+
+const updateTotalPrice = () => {
+  const cartItems = document.querySelectorAll('.cart__item');
+  // console.log(cartItems);
+
+  cartItemsChecked = Array.from(cartItems).filter((item) => {
+    return item.querySelector('input[name^="cart-item"]').checked;
+  });
+
+  // console.log(cartItemsChecked);
+
+  let totalPrice = cartItemsChecked.reduce((sum, item) => {
+    let totalPrice = parseInt(item.querySelector('.item--total-price').innerHTML);
+    return sum + totalPrice;
+  }, 0);
+
+  // console.log(totalPrice)
+
+  document.querySelector('.cost_value__final--before').innerHTML = totalPrice;
+
+  const discount = parseInt(document.querySelector('.cost_value--discount').innerHTML);
+
+  document.querySelector('.cost_value__final--after').innerHTML = totalPrice - discount > 0 ? totalPrice - discount : 0;
+}
 
 
 const cartSubmit = () => {
+  const cartItems = document.querySelectorAll('.cart__item');
+  const cartItemsChecked = Array.from(cartItems).filter((item) => {
+    return item.querySelector('input[name^="cart-item"]').checked;
+  });
+
+  const prodIds = cartItemsChecked.map((item) => {
+    return item.getAttribute('data-prod-id');
+  })
+
+  if (prodIds.length === 0) {
+    alert('Bạn chưa chọn sản phẩm nào');
+    return;
+  }
+
+  // console.log(prodIds);
+  cookieHder.createCookie('prodIds--order', prodIds.join(','), 1); // 1 day
   window.location.href = '/account/order';
 }
+
+
+// $(document).on('change', () => {
+//   console.log('document clicked')
+//   updatePriceItem();
+
+//   updateCheckbox();
+// })
