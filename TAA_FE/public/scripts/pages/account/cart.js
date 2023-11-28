@@ -298,6 +298,8 @@ const delCartItem = () => {
 
 // const cartBtnSumbit = document.querySelector('.cart__btn--submit');
 
+
+
 const cartSubmit = () => {
   window.location.href = '/account/order';
 }
