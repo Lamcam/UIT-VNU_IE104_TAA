@@ -4,8 +4,9 @@
       <a href="/">
         <img class="header__logo" src="/logos/logo.svg" alt="Logo TAA">
       </a>
+      <form id='searching-products' action="/products" method="GET">
       <span class="header__search search-bar hide-md hide-sm">
-        <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search" id="search">
+        <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search" id="search" name="q">
         <datalist id="data--search">
           <option value="Vòng tay"></option>
           <option value="Vòng cổ"></option>
@@ -16,16 +17,18 @@
         <%- include('../components/button', {
           type: 'btn-icon',
           options: 'btn--filled',
-          classList: '',
+          classList: 'search-result',
           label: '',
           onclick: '',
           iconData: 'search',
         }) %>
+        
         <!-- <button class="btn-icon btn--filled" type="submit">
           <span class="status-layer icon material-symbols-outlined">
             search</span>
         </button> -->
       </span>
+    </form>
       <div class="header__wrapper">
         <% if (!isAuthenticated) { %>
         <!-- <button class="btn--outlined header__btn--login label-large" type="button" onclick="modalCtl.openModal('#modal--login')">

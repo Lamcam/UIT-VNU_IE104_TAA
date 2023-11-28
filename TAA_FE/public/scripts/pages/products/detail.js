@@ -88,7 +88,7 @@ modalButtonCart.addEventListener("click", () => {
     modalNoti.classList.add('open')
     setTimeout(() => {
         modalNoti.classList.remove('open')
-    }, 5000)
+    }, 500000)
 
 })
 // modalNoti btn--close

@@ -9,6 +9,7 @@
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
   <link rel="stylesheet" href="/styles/pages/base.css">
   <link rel="stylesheet" href="/styles/pages/account/cart.css">
   <title>TAA - Giỏ hàng</title>
@@ -46,9 +47,9 @@
             <p class='tr table__noti headline-small'>Bạn không có bất kỳ sản phẩm nào trong giỏ hàng</p>
             <% } else { %>
             <% data.forEach((item, idx) => { %>
-            <div class="tr row cart__item">
+            <div class="tr row cart__item" data-prod-id='<%= item.prod_id %>'>
               <%- include('../../components/checkbox', {
-                id: `cart-item-${idx}`,
+                id: `${idx}`,
                 classList: 'col-1',
                 name: 'cart-item',
                 value: item.prod_id,
@@ -61,14 +62,16 @@
                 <span class="cost_value item--price-before error-text"><%- item.prod_cost %></span>
                 <% } %>
               </span>
-              <input class="item--quantity col-2" type="number" min='1' max='5' value='1'>
+              <span class='col-2'>
+                <input class="item--quantity" type="number" min='1' max='5' value='1'>
+              </span>
               <span class="cost_value item--total-price col-2 label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
               <%- include('../../components/button', {
                 type: 'btn-icon',
                 options: '',
                 classList: 'btn--delete col-1',
-                onclick: '',
                 iconData: 'delete',
+                onclick: 'modalCtl.openModal(\'#modal--del-cart\')',
               }) %>
             </div>
             <% }) %>
@@ -87,12 +90,12 @@
             </div>
             <div class="row">
               <span class="col-6 detail__title">Giảm giá:</span>
-              <span class="col-6 detail__context cost_value--discord">20000</span>
+              <span class="col-6 detail__context cost_value--discount">20000</span>
             </div>
             <hr>
             <div class="row">
               <span class="col-6 detail__title">Tổng cộng:</span>
-              <span class="col-6 detail__context cost_value--final--after error-text">0</span>
+              <span class="col-6 detail__context cost_value__final--after error-text">0</span>
             </div>
             <div class="row">
               <span class="col-12 detail__context">(Đã bao gồm phí VAT)</span>
@@ -112,6 +115,7 @@
     </div>
   
     <%- include('../../partials/footer') %>
+    <%- include('./cartModals/modal--del-cart') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>

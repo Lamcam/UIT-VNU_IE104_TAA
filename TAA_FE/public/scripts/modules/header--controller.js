@@ -27,3 +27,10 @@ export const handleLogout = () => {
     });
   }
 };
+export function notFoundSearch() {
+  console.log('a')
+  const notFoundSearch = document.querySelector('.not-found-search')
+  const textNotFound = document.createElement('p')
+  textNotFound.textContent = 'Không tìm thấy kết quả tìm kiếm'
+  notFoundSearch.appendChild(textNotFound)
+}
