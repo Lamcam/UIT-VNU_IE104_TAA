@@ -2,16 +2,16 @@ const register = () => {
 
 }
 
-const login = (event) => {
+const login = () => {
   // alert('a');
   // event.preventDefault();
-  const submitBtn = $('#modal--login .modal__btn--submit');
-  console.log(submitBtn);
-  if (submitBtn.length == 0) {
-    alert('Don\'t have this button', '#modal--login .modal__btn--submit');
-  } else {
-    submitBtn.on('click', (e) => {
-      e.preventDefault();
+  // const submitBtn = $('#modal--login .modal__btn--submit');
+  // console.log(submitBtn);
+  // if (submitBtn.length == 0) {
+  //   alert('Don\'t have this button', '#modal--login .modal__btn--submit');
+  // } else {
+  //   submitBtn.on('click', (e) => {
+  //     e.preventDefault();
       const phone = $('#modal--login [name="phone"]').val().trim();
       const pass = $('#modal--login [name="pass"]').val().trim();
 
@@ -41,11 +41,11 @@ const login = (event) => {
           })
           .catch(err => console.log(err));
       }
-    });
-  }
+  //   });
+  // }
 }
 
-const checkAuthenticated = async () => {
+const checkAuthenticated = () => {
   if (cookieHder.readCookie('authenticated') !== 'true') {
     alert('Vui lòng đăng nhập để thực hiện chức năng này');
     modalCtl.openModal('#modal--login');

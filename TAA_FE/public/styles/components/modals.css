@@ -24,8 +24,17 @@
   border: 1px solid #888;
   max-width: 60rem;
   width: 90%;
+  min-height: 30rem;
 
   border-radius: 1rem;
+
+  &.center {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .modal__title {
