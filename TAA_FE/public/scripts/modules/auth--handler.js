@@ -45,7 +45,7 @@ const login = () => {
   // }
 }
 
-const checkAuthenticated = async () => {
+const checkAuthenticated = () => {
   if (cookieHder.readCookie('authenticated') !== 'true') {
     alert('Vui lòng đăng nhập để thực hiện chức năng này');
     modalCtl.openModal('#modal--login');
