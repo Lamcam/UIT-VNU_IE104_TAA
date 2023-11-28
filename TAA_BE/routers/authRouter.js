@@ -6,7 +6,7 @@ const unAuth = require('../controllers/unAuth.js');
 
 router.post('/loginPost', auth.loginPost)
 
-router.post('/registerPost', unAuth.registerPost)
+router.post('/register', unAuth.registerPost)
 
 router.get('/logout', auth.logout)
 
