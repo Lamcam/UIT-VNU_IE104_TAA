@@ -18,6 +18,7 @@ const route = (app) => {
     app.use("/products", productRouter)
 
   app.use('/account', middlewares.authenticate, accountRouter)
+  
   app.use('/news', newsRouter)
 }
 

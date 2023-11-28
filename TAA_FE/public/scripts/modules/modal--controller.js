@@ -51,5 +51,5 @@ const modalCtl = {
     closeModalByClickOutside();
   },
 }
-
+ 
 export default modalCtl;

@@ -138,22 +138,22 @@
 
         <main class="visible row col-12 col-lg-9">
           <div class="row col-12 product__wrapper">
-            <% const length = (result.length > 9) ? 9 : result.length; for
-              (let idx = 0; idx < length; ++idx) { %> <%-
-              include('../../components/product__item', { data: result[idx], })
-              %> <%# include('../../components/popup__product', { data:
-              result[idx], })%> <% } %>
+            <% const length = (result.length > 9) ? 9 : result.length;
+            for (let idx = 0; idx < length; ++idx) { %>
+            <%- include('../../components/product__item', {
+                data: result[idx],
+              }) %>
+            <% } %>
           </div>
 
           <div class="row col-12">
-            <%- include('../../partials/pagination', { classList: 'col-12' })
-              %>
+            <%- include('../../partials/pagination', {
+              classList: 'col-12'
+            }) %>
           </div>
         </main>
       </div>
     </div>
-
-    <div class="testing"></div>
 
     <%- include('../../partials/footer') %>
   </div>
