@@ -1,8 +1,8 @@
 <% if (data.prod_num_avai > 0) { %>
 <div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
-    <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
-    <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
   </div>
   <div class="product__body">
     <span class="material-symbols-outlined icon_heart error-text">
@@ -28,10 +28,10 @@
       <div class="modal__img">
         <div class="img-display">
           <div class="img-showcase">
-            <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Product img">
-            <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Product img">
-            <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[2] %>" alt="Product img">
-            <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="Product img">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Product img">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Product img">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[2] %>" alt="Product img">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="Product img">
           </div>
         </div>
         <div class="img-nav">
@@ -45,26 +45,26 @@
               arrow_forward_ios
             </span>
           </button>
-        </div>        
+        </div>
         <div class="img-select">
           <div class="img-item">
             <a href="#" data-id="1">
-              <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="product image">
+              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="product image">
             </a>
           </div>
           <div class="img-item">
             <a href="#" data-id="2">
-              <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="product image">
+              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="product image">
             </a>
           </div>
           <div class="img-item">
             <a href="#" data-id="3">
-              <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[2] %>" alt="product image">
+              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[2] %>" alt="product image">
             </a>
           </div>
           <div class="img-item">
             <a href="#" data-id="4">
-              <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="product image">
+              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="product image">
             </a>
           </div>
         </div>
@@ -122,16 +122,10 @@
             classList: 'button__cart',
             iconData: 'add_shopping_cart',
             label: 'Thêm vào giỏ hàng',
-            onclick: '',
+            onclick: 'cartCtl.addToCart()',
           }) %>
-          <!-- <button class="button__cart">
-            <span class="material-symbols-outlined">
-              add_shopping_cart
-            </span>
-            Thêm vào giỏ hàng
-          </button> -->
-          <button class="button__view btn--filled">
-            <a href="/products/detail?id=<%= data.prod_id %>">Xem chi tiết</a>
+          <button class="btn-filled button__view btn--filled" data-prod-id='<%= data.prod_id %>'>
+            <a class="status-layer" href="/products/detail?id=<%= data.prod_id %>">Xem chi tiết</a>
           </button>
         </div>
         <div class="modal__context body-large">
@@ -153,10 +147,6 @@
               <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
               <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm. </li>
               <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn. </li>
-              <!-- <li>- Thiết kế may tinh tế, sắc sảo và thời trang, theo phong cách Ulzzang Hàn Quốc cá tính.</li>
-                  <li>- Hạn chế gây ra mồ hôi ở đầu, không gây kích ứng da đầu.</li>
-                  <li>- Phần đai nón có đệm bông tạo cảm giác thoải mái khi đội nón và không để lại vết hằn lên trán.</li>
-                  <li>- Khóa chỉnh size phía sau nón được làm bằng inox không gỉ rất dễ dàng sử dụng điều chỉnh nón.</li> -->
             </ul>
           </div>
         </div>
@@ -167,28 +157,13 @@
         </span>
       </div>
     </div>
-  </div> 
-  <div class="modal-noti">
-    <div class="modal-container--noti on-primary-text">
-      <div class="noti__icon-check">
-        <span class="material-symbols-outlined icon--filled">
-          check_circle
-        </span>
-      </div>
-      <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
-      <div class="noti__btn button-close">
-        <span class="material-symbols-outlined">
-          close
-        </span>
-      </div>
-    </div>
   </div>
 </div>
 <% } else { %>
 <div class="product__outstock col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
-    <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
-    <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
   </div>
   <div class="product__body">
     <span class="material-symbols-outlined icon_heart error-text">

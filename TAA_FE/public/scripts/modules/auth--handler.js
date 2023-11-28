@@ -45,6 +45,16 @@ const login = (event) => {
   }
 }
 
+const checkAuthenticated = async () => {
+  if (cookieHder.readCookie('authenticated') !== 'true') {
+    alert('Vui lòng đăng nhập để thực hiện chức năng này');
+    modalCtl.openModal('#modal--login');
+    return false;
+  } else {
+    return true;
+  }
+}
+
 const logout = () => {
   fetch('/auth/logout', {
     method: 'GET',
@@ -67,6 +77,7 @@ const authCtl = {
   register,
   login,
   logout,
+  checkAuthenticated,
 }
 
 export default authCtl;

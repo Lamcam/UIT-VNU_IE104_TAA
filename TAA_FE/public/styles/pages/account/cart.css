@@ -76,10 +76,10 @@ span[class*="cost_value"] {
 aside {
   & .row {
     padding: 12px;
-    min-height: 40px;
+    min-height: 4rem;
 
     &:first-child {
-      height: 60px;
+      height: 4rem;
     }
   }
 }

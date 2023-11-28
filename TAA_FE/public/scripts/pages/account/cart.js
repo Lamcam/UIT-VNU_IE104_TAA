@@ -76,18 +76,20 @@ cartItems.each((index, item) => {
   delBtn.on('click', () => {
     const prodId = $(item).attr('data-prod-id');
 
-    cookieHder.createCookie('prodId', prodId, 1);  // a day
+    cookieHder.createCookie('prodId--delete', prodId, 1);  // a day
   });
 })
 
 // Delete cart item
 const delCartItem = () => {
-  prodId = cookieHder.readCookie('prodId');
+  prodId = cookieHder.readCookie('prodId--delete');
 
   if (!prodId) {
     console.log('prodId not found in cookie');
     return;
   }
+
+  cookieHder.deleteCookie('prodId--delete');
 
   const data = {
     prodId
@@ -217,8 +219,8 @@ const cartSubmit = () => {
   }
 
   // console.log(prodIds);
-  cookieHder.createCookie('prodIds', prodIds.join(','), 1); // 1 day
-  // window.location.href = '/account/order';
+  cookieHder.createCookie('prodIds--order', prodIds.join(','), 1); // 1 day
+  window.location.href = '/account/order';
 }
 
 

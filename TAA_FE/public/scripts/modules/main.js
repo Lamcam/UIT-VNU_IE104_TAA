@@ -5,6 +5,7 @@
 import modalCtl from './modal--controller.js';
 import authCtl from './auth--handler.js';
 import headerCtl from './header--controller.js';
+import cartCtl from './cart--hander.js';
 import cookieHder from './cookie--handler.js';
 
 // import { notFoundSearch } from './header--controller.js';
@@ -14,6 +15,7 @@ import cookieHder from './cookie--handler.js';
 modalCtl.init();
 headerCtl.init();
 
+window.cartCtl = cartCtl;
 window.modalCtl = modalCtl;
 window.authCtl = authCtl;
 window.cookieHder = cookieHder;

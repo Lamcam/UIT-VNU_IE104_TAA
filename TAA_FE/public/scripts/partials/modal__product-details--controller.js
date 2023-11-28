@@ -1,3 +1,6 @@
+// const authCtl = require("../modules/auth--handler")
+// import authCtl from '../modules/auth--handler.js';
+
 // modalProduct open
 const btnViews = document.querySelectorAll('.product__button__view')
 const btnSells = document.querySelectorAll('.product__button__sell')
@@ -41,27 +44,27 @@ modalItems.forEach((item) => {
     // window.alert("hello")
   })
 
-  // modalNoti open, modalProduct close
-  modalButtonCart.addEventListener("click", () => {
-    modalNoti.classList.add('open')
-    modalProduct.classList.remove('open')
-    setTimeout(() => {
-      modalNoti.classList.remove('open')
-    }, 5000000)
-  })
-  // modalNoti btn--close
+  // // modalNoti open, modalProduct close
+  // modalButtonCart.addEventListener("click", () => {
+  //   modalNoti.classList.add('open')
+  //   modalProduct.classList.remove('open')
+  //   setTimeout(() => {
+  //     modalNoti.classList.remove('open')
+  //   }, 5000000)
+  // })
+  // // modalNoti btn--close
 
-  btnCloseNoti.addEventListener("click", () => {
-    modalNoti.classList.remove('open')
-  })
+  // btnCloseNoti.addEventListener("click", () => {
+  //   modalNoti.classList.remove('open')
+  // })
 
-  modalNoti.addEventListener("click", () => {
-    modalNoti.classList.remove('open')
-  })
-  // nhấn bên ngoài thì popup đóng
-  modalContainerNoti.addEventListener("click", function (event) {
-    event.stopPropagation()
-  })
+  // modalNoti.addEventListener("click", () => {
+  //   modalNoti.classList.remove('open')
+  // })
+  // // nhấn bên ngoài thì popup đóng
+  // modalContainerNoti.addEventListener("click", function (event) {
+  //   event.stopPropagation()
+  // })
 
 
   // modalProduct change image product
@@ -139,3 +142,12 @@ modalItems.forEach((item) => {
   decrementBtn.addEventListener("click", () => stepper("decrement"));
   incrementBtn.addEventListener("click", () => stepper("increment"));
 })
+
+// const addCart = document.querySelectorAll('.button__cart')
+// addCart.forEach((item) => {
+//   item.addEventListener('click', () => {
+//     if (authCtl.checkAuthenticated()) {
+
+//     }
+//   })
+// })

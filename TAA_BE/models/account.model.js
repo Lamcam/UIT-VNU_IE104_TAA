@@ -43,6 +43,20 @@ accountModel.getCart = ({ id }, callback) => {
   })
 }
 
+accountModel.addCart = ({id, prodId}, callback) => {
+  const sql = `
+    INSERT INTO CART (user_id, prod_id)
+    VALUES (?, ?);
+  `;
+
+  const params = [id, prodId];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+
+}
+
 accountModel.deleteCart = ({ id, prodId }, callback) => {
   const sql = `
     DELETE FROM CART
