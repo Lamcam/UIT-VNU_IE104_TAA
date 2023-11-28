@@ -1,6 +1,6 @@
         const divModalBody = document.createElement("div");
         divModalBody.className = "modal__body";
-
+ 
         const pProductName = document.createElement("p");
         pProductName.className = "modal__product__name headline-medium";
         pProductName.innerHTML = item.prod_name;
@@ -187,7 +187,7 @@
 
         divModalContext.appendChild(divContextInfo);
         divModalContext.appendChild(divContextDetail);
- 
+  
         divModalBody.appendChild(pProductName);
         divModalBody.appendChild(divModalInfoRate);
         divModalBody.appendChild(divModalPrice);
