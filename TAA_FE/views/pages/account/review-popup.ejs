@@ -13,7 +13,7 @@
 		</div>
 		<div class="modal__quality">
 			<span class="mt-8">Chất lượng sản phẩm</span>
-			<div id="rating">
+			<div id="rating" data-rating="">
 				<span class="material-symbols-outlined star-icon"> star </span>
 				<span class="material-symbols-outlined star-icon"> star </span>
 				<span class="material-symbols-outlined star-icon"> star </span>
@@ -29,7 +29,7 @@
 
 		<div class="modal__service">
 			<span class="mt-8">Dịch vụ vận chuyển</span>
-			<div id="rating2">
+			<div id="rating2" data-rating="">
 				<span class="material-symbols-outlined star-icon-service"> star </span>
 				<span class="material-symbols-outlined star-icon-service"> star </span>
 				<span class="material-symbols-outlined star-icon-service"> star </span>
@@ -46,7 +46,7 @@
 		<div class="modal__form-review visible">
 			<div class="modal__form-review-border">
 				<label for="form__review">Đánh giá sản phẩm:</label>
-				<textarea id="form__review" placeholder="Để lại đánh giá" class="modal__form-review-textarea mt-12"></textarea>
+				<textarea id="form__review" placeholder="Để lại đánh giá" class="modal__form-review-textarea mt-12" required></textarea>
 			</div>
 			<div class="energy-review">
 				Đánh giá của bạn là động lực để TAA ngày càng hoàn thiện hơn
@@ -64,28 +64,10 @@
 			<button class="btn--outlined label-large col-6" type="button" onclick="modalCtl.closeModal()">
 				<span class="status-layer">Trở lại</span>
 			</button>
-			<button class="btn--filled label-large col-6 review-list__btn--del done-btn" type="button" data-modal-target="#modal--noti" onclick="modalCtl.nextModal('#modal--noti')">
+			<button class="btn--filled label-large col-6 review-list__btn--del done-btn" type="button" onclick="validateAndNextModal()">
 				<span class="status-layer">Hoàn thành</span>
 			</button>
 		</div>
 	</div>
 </div>
 
-<script>
-	function setupStarRating(starSelector) {
-		var stars = document.querySelectorAll(starSelector);
-
-		stars.forEach((item, index1) => {
-			item.addEventListener("click", () => {
-				stars.forEach((star, index2) => {
-					index1 >= index2 ?
-						star.classList.add("active") :
-						star.classList.remove("active");
-				});
-			});
-		});
-	}
-
-	setupStarRating(".star-icon");
-	setupStarRating(".star-icon-service");
-</script>
