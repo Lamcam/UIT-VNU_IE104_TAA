@@ -188,13 +188,13 @@ cartItems.each((index, item) => {
     const prodId = $(item).attr('data-prod-id');
 
     // localStorage.setItem('prodId', prodId);
-    var now = new Date();
-    var time = now.getTime();
-    time += 300000; // 5 minutes in milliseconds
-    now.setTime(time);
+    // var now = new Date();
+    // var time = now.getTime();
+    // time += 300000; // 5 minutes in milliseconds
+    // now.setTime(time);
 
-    document.cookie = 'prodId=' + prodId + ';expires=' + now.toUTCString() + ';path=/';
-
+    // document.cookie = 'prodId=' + prodId + ';expires=' + now.toUTCString() + ';path=/';
+    cookieHder.createCookie('prodId', prodId, 1)
     // console.log(prodId);
     // const data = {
     //   prodId

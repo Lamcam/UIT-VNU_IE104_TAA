@@ -611,40 +611,42 @@ parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
       item.addEventListener("click", () => {
         const selectedCategory = item.dataset.category;
         fetch("/products/category", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          // body: JSON.stringify({ category: selectedCategory })
-          body: JSON.stringify({
-            category: selectedCategory,
-          }),
-        })
-        .then((respone) => respone.json())
-        .then((data) => {
-          // console.log("this is data :", data.result);
-          $(".product__wrapper").empty();
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            // body: JSON.stringify({ category: selectedCategory })
+            body: JSON.stringify({
+              category: selectedCategory,
+            }),
+          })
+          .then((respone) => respone.json())
+          .then((data) => {
+            // console.log("this is data :", data.result);
+            $(".product__wrapper").empty();
 
-          data.result.forEach((item) => {
-            createProduct(item);
+            data.result.forEach((item) => {
+              createProduct(item);
+              $(document).on("click", ".product__button__view1", function(e) {
+                e.preventDefault();
+                var index = $(this).index(".product__button__view1");
+                console.log(index);
+                $(".modal-product").eq(index).addClass("open");
+              });
+
+              $(document).on("click", ".button-close1", function() {
+                $(".modal-product").removeClass("open");
+              });
+
+
+            });
           });
-        });
       });
     });
   </script>
 
   <script>
     // add pop-up when click to Quick View button
-    $(document).on("click", ".product__button__view1", function(e) {
-      e.preventDefault();
-      var index = $(this).index(".product__button__view1");
-      console.log(index);
-      $(".modal-product").eq(index).addClass("open");
-    });
-
-    $(document).on("click", ".button-close1", function() {
-      $(".modal-product").removeClass("open");
-    });
   </script>
 </body>
 

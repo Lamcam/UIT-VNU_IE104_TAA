@@ -5,7 +5,7 @@
         pProductName.className = "modal__product__name headline-medium";
         pProductName.innerHTML = item.prod_name;
           
-
+ 
         const divModalInfoRate = document.createElement("div");
         divModalInfoRate.className = "modal__info__rate";
 
@@ -36,7 +36,7 @@
         pCostDiscount.className = "cost__discount headline-small";
         pCostDiscount.innerHTML =
           item.prod_cost * (1 - item.prod_discount) + "đ";
-
+ 
         const divPercentDiscount = document.createElement("div");
         divPercentDiscount.className = "percent__discount body-medium";
         divPercentDiscount.innerHTML = "Giảm " + item.prod_discount * 100;
@@ -202,7 +202,7 @@
         let container1 = document.querySelector(".product__wrapper");
         container.appendChild(divModalBody);
         divModalBody.style.display = 'none';      
-      
+       
         $(document).on('click','.product__button__view',function(){
             console.log("add") 
             $('.modal-product').addClass('open');
