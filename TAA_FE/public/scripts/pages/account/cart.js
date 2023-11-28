@@ -89,9 +89,9 @@ const delCartItem = () => {
     return;
   }
 
-  const data = {
-    prodId
-  };
+  // const data = {
+  //   prodId
+  // };
 
   fetch('/account/cart/delete', {
     method: 'POST',
