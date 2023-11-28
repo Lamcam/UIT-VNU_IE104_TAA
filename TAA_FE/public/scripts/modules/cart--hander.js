@@ -20,7 +20,7 @@ const addToCart = async () => {
         if (data.statusCode == 200) {
           modalCtl.closeModal()
           modalCtl.openModal('#modal--noti-add-cart-success')
-          modalCtl.closeModalAfterTime(5000)
+          // modalCtl.closeModalAfterTime(5000)
         } else if (data.statusCode == 500) {
           alert('Sản phẩm này đã tồn tại trong giỏ hàng của bạn')
         }
