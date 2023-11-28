@@ -8,8 +8,8 @@ import authCtl from './auth--controller.js';
 import { handleLogout } from './header--controller.js';
 import cookieHder from './cookie--handler.js';
 
-import { handleLogout } from './header-controller.js';
-import { notFoundSearch } from './header-controller.js';
+// import { handleLogout } from './header-controller.js';
+import { notFoundSearch } from './header--controller.js';
 handleLoginSubmit();
 handleLogout();
 
