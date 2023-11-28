@@ -1,6 +1,6 @@
         const divModalBody = document.createElement("div");
         divModalBody.className = "modal__body";
- 
+      
         const pProductName = document.createElement("p");
         pProductName.className = "modal__product__name headline-medium";
         pProductName.innerHTML = item.prod_name;

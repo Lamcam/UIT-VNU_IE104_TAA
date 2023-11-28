@@ -1,4 +1,4 @@
-<div id="modal--change-password" class="modal">
+<div id="modal--change-password" class="modal" onsubmit="return validateForm()">
 	<div class="modal__content on-primary">
 		<button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
 			<span class="status-layer icon material-symbols-outlined">close</span>
@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="btn__wrapper row mt-12 change-password-accept">
-				<button class="btn--filled label-large col-6 changepass-list__btn--add" type="submit" onclick="modalCtl.nextModal('#modal--noti')">
+				<button class="btn--filled label-large col-6 changepass-list__btn--add" type="submit">
 					<span class="status-layer">Xác nhận</span>
 				</button>
 			</div>
