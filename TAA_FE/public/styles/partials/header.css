@@ -1,6 +1,10 @@
 @import url(../components/search-bar.css);
 @import url(../components/main-nav.css);
 
+#searching-products {
+  align-items: center;
+}
+
 header {
   display: flex;
   gap: 2rem;
