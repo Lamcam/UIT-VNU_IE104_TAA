@@ -42,6 +42,10 @@ header {
     }
   }
 
+  & .header__name {
+    text-wrap: nowrap;
+  }
+
   & .header__user--controller__label {
     display: inline-flex;
     gap: 8px;
