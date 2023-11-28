@@ -32,7 +32,7 @@
     line-height: 4rem;
   }
 
-  &>span {
+  &>* {
     text-wrap: nowrap;
     margin: auto;
   }
