@@ -154,11 +154,11 @@ iconHearts.forEach((iconHeart) => {
 // }
 
 // modalProduct open
-// const btnViews = document.querySelectorAll(".product__button__view");
-// const btnSells = document.querySelectorAll(".product__button__sell");
-// // const modalProducts = document.querySelectorAll('.modal-product')
-// const btnClosesProduct = document.querySelector('.modal-product .button-close')
-// const modalItems = document.querySelectorAll('.product__item')
+const btnViews = document.querySelectorAll(".product__button__view");
+const btnSells = document.querySelectorAll(".product__button__sell");
+// const modalProducts = document.querySelectorAll('.modal-product')
+const btnClosesProduct = document.querySelector('.modal-product .button-close')
+const modalItems = document.querySelectorAll('.product__item')
 document.addEventListener("DOMContentLoaded", function () {
 
   // modalItems.forEach((item) => {
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
   category.forEach((item) => {
     item.addEventListener("click", () => {
       const selectedCategory = item.dataset.category;
-      fetch("http://localhost:3000/products/category", {
+      fetch("/products/category", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -425,115 +425,115 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  //ND làm
-  // Kiểm tra xem tham số 'q' đã tồn tại trong URL hay chưa
-  const discountSort = document.querySelector(".discount");
-  let qExists = window.location.search.includes("q");
-  discountSort.addEventListener("click", function () {
-    const hasEffectDiscount = discountSort.classList.contains("effect");
-    let href = "";
-    console.log(hasEffectDiscount);
-    if (hasEffectDiscount) {
-      href = qExists
-        ? window.location.search.split("&")[0] + "&discount=true"
-        : "?discount=true";
-    } else {
-      href = qExists
-        ? window.location.search.split("&")[0]
-        : "?discount=true";
-    }
-    console.log(href);
-    fetch("/products/search" + href)
-      .then((response) => response.json())
-      .then((data) => {
-        $(".product__wrapper").empty();
-        data.result.forEach((product) => {
-          createProduct(product);
-        });
-      })
-      .catch((error) => {
-        console.error("Đã xảy ra lỗi:", error);
-      });
-  });
-  const bestsellerSort = document.querySelector(".best-seller");
-  bestsellerSort.addEventListener("click", function () {
-    const hasEffectBestseller = bestsellerSort.classList.contains("effect");
-    let href = "";
-    console.log(hasEffectBestseller);
-    if (hasEffectBestseller) {
-      href = qExists
-        ? window.location.search.split("&")[0] + "&bestseller=true"
-        : "?bestseller=true";
-    } else {
-      href = qExists
-        ? window.location.search.split("&")[0]
-        : "?bestseller=true";
-    }
-    fetch("/products/search" + href)
-      .then((response) => response.json())
-      .then((data) => {
-        $(".product__wrapper").empty();
-        data.result.forEach((product) => {
-          createProduct(product);
-        });
-      })
-      .catch((error) => {
-        console.error("Đã xảy ra lỗi:", error);
-      });
-  });
+  // //ND làm
+  // // Kiểm tra xem tham số 'q' đã tồn tại trong URL hay chưa
+  // const discountSort = document.querySelector(".discount");
+  // let qExists = window.location.search.includes("q");
+  // discountSort.addEventListener("click", function () {
+  //   const hasEffectDiscount = discountSort.classList.contains("effect");
+  //   let href = "";
+  //   console.log(hasEffectDiscount);
+  //   if (hasEffectDiscount) {
+  //     href = qExists
+  //       ? window.location.search.split("&")[0] + "&discount=true"
+  //       : "?discount=true";
+  //   } else {
+  //     href = qExists
+  //       ? window.location.search.split("&")[0]
+  //       : "?discount=true";
+  //   }
+  //   console.log(href);
+  //   fetch("/products/search" + href)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       $(".product__wrapper").empty();
+  //       data.result.forEach((product) => {
+  //         createProduct(product);
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Đã xảy ra lỗi:", error);
+  //     });
+  // });
+  // const bestsellerSort = document.querySelector(".best-seller");
+  // bestsellerSort.addEventListener("click", function () {
+  //   const hasEffectBestseller = bestsellerSort.classList.contains("effect");
+  //   let href = "";
+  //   console.log(hasEffectBestseller);
+  //   if (hasEffectBestseller) {
+  //     href = qExists
+  //       ? window.location.search.split("&")[0] + "&bestseller=true"
+  //       : "?bestseller=true";
+  //   } else {
+  //     href = qExists
+  //       ? window.location.search.split("&")[0]
+  //       : "?bestseller=true";
+  //   }
+  //   fetch("/products/search" + href)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       $(".product__wrapper").empty();
+  //       data.result.forEach((product) => {
+  //         createProduct(product);
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Đã xảy ra lỗi:", error);
+  //     });
+  // });
 
 
-  const costAZ = document.querySelector(".cost-az");
-  const checkAZ = document.querySelector("selected")
-  costAZ.addEventListener("click", function () {
-    const hasEffectCostAZ = (selected.innerHTML == "Giá: Từ thấp đến cao");
-    let href = "";
-    console.log(hasEffectCostAZ)
-    if (hasEffectCostAZ) {
-      href = qExists
-        ? window.location.search.split("&")[0] + "&costAZ=true"
-        : "?costAZ=true";
-    } else {
-      href = qExists ? window.location.search.split("&")[0] : "?costAZ=true";
-    }
-    console.log(href)
-    fetch("/products/search" + href)
-      .then((response) => response.json())
-      .then((data) => {
-        $(".product__wrapper").empty();
-        data.result.forEach((product) => {
-          createProduct(product);
-        });
-      })
-      .catch((error) => {
-        console.error("Đã xảy ra lỗi:", error);
-      });
-  });
-  const costZA = document.querySelector(".cost-za");
-  const checkZA = document.querySelector("selected")
-  costZA.addEventListener("click", function () {
-    const hasEffectCostZA = (selected.innerHTML == "Giá: Từ cao đến thấp");
-    let href = "";
-    console.log(hasEffectCostZA)
+  // const costAZ = document.querySelector(".cost-az");
+  // const checkAZ = document.querySelector("selected")
+  // costAZ.addEventListener("click", function () {
+  //   const hasEffectCostAZ = (selected.innerHTML == "Giá: Từ thấp đến cao");
+  //   let href = "";
+  //   console.log(hasEffectCostAZ)
+  //   if (hasEffectCostAZ) {
+  //     href = qExists
+  //       ? window.location.search.split("&")[0] + "&costAZ=true"
+  //       : "?costAZ=true";
+  //   } else {
+  //     href = qExists ? window.location.search.split("&")[0] : "?costAZ=true";
+  //   }
+  //   console.log(href)
+  //   fetch("/products/search" + href)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       $(".product__wrapper").empty();
+  //       data.result.forEach((product) => {
+  //         createProduct(product);
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       console.error("Đã xảy ra lỗi:", error);
+  //     });
+  // });
+  // const costZA = document.querySelector(".cost-za");
+  // const checkZA = document.querySelector("selected")
+  // costZA.addEventListener("click", function () {
+  //   const hasEffectCostZA = (selected.innerHTML == "Giá: Từ cao đến thấp");
+  //   let href = "";
+  //   console.log(hasEffectCostZA)
 
-    if (hasEffectCostZA) {
-      href = qExists
-        ? window.location.search.split("&")[0] + "&costZA=true"
-        : "?costZA=true";
-    } else {
-      href = qExists ? window.location.search.split("&")[0] : "?costZA=true";
-    }
-    // console.log(href)
-    // fetch("/products/search" + href)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     $(".product__wrapper").empty();
-    //     data.result.forEach((product) => {
-    //       createProduct(product);
-    //     });
-    //   })
-    //   .catch((error) => {
-    //     console.error("Đã xảy ra lỗi:", error);
-    //   });
-  });
+  //   if (hasEffectCostZA) {
+  //     href = qExists
+  //       ? window.location.search.split("&")[0] + "&costZA=true"
+  //       : "?costZA=true";
+  //   } else {
+  //     href = qExists ? window.location.search.split("&")[0] : "?costZA=true";
+  //   }
+  //   // console.log(href)
+  //   // fetch("/products/search" + href)
+  //   //   .then((response) => response.json())
+  //   //   .then((data) => {
+  //   //     $(".product__wrapper").empty();
+  //   //     data.result.forEach((product) => {
+  //   //       createProduct(product);
+  //   //     });
+  //   //   })
+  //   //   .catch((error) => {
+  //   //     console.error("Đã xảy ra lỗi:", error);
+  //   //   });
+  // });
 });

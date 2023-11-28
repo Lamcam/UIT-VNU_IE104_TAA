@@ -4,6 +4,7 @@ const btnSells = document.querySelectorAll('.product__button__sell')
 // const modalProducts = document.querySelectorAll('.modal-product')
 const btnClosesProduct = document.querySelector('.modal-product .button-close')
 const modalItems = document.querySelectorAll('.product__item')
+
 modalItems.forEach((item) => {
   // modalProduct tăng giảm số lượng sản phẩm
   const btnView = item.querySelector('.product__button__view')
