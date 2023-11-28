@@ -314,8 +314,8 @@ input::-webkit-inner-spin-button {
 
 .info__product__button .button__cart {
   display: flex;
-  padding: 10px;
-  height: 40px;
+  /* padding: 10px;
+  height: 40px; */
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -326,8 +326,8 @@ input::-webkit-inner-spin-button {
 }
 
 .info__product__button .button__sell {
-  height: 40px;
-  line-height: 40px;
+  /* height: 40px;
+  line-height: 40px; */
 }
 
 .button__sell a {

@@ -39,6 +39,12 @@ const closeModalByClickOutside = () => {
     });
   });
 }
+
+const closeModalAfterTime = (time) => {
+  setTimeout(() => {
+    closeModal();
+  }, time);
+}
  
 /**
  * Object containing methods for controlling modals.
@@ -47,6 +53,7 @@ const modalCtl = {
   openModal,
   closeModal,
   nextModal,
+  closeModalAfterTime,
   init: () => {
     closeModalByClickOutside();
   },

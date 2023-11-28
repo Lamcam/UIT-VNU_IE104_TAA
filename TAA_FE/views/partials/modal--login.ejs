@@ -11,7 +11,7 @@
       <span class="status-layer icon material-symbols-outlined">close</span>
     </button> -->
     <h1 class="modal__title headline-large">Đăng nhập</h1>
-    <form id='loginForm' action="/login" method="POST">
+    <form>
       <div class="form__row mt-24">
         <div class="row">
           <label class="col-4 label-large" for="f_log_phone">
@@ -28,14 +28,14 @@
             autocomplete='current-password' required>
         </div>
       </div>
-      <%- include('../components/button', {
-        type: '',
-        options: 'btn--filled full-width',
-        classList: 'modal__btn--submit mt-12',
-        label: 'Đăng nhập',
-        onclick: '',
-      }) %>
     </form>
+    <%- include('../components/button', {
+      type: '',
+      options: 'btn--filled full-width',
+      classList: 'modal__btn--submit mt-12',
+      label: 'Đăng nhập',
+      onclick: 'authCtl.login()',
+    }) %>
     <div class="row mt-36">
       <%- include('../components/button', {
         type: '',

@@ -103,14 +103,41 @@ account.cart = (req, res) => {
     models.product.getByIds({ ids: result }, (err, result) => {
       if (err) throw err;
 
-      res.status(200).render('pages/account/cart',{
-      // res.status(200).json({
+      res.status(200).render('pages/account/cart', {
+        // res.status(200).json({
         statusCode: 200,
         msg: 'Found data product',
         data: index.groupProducts(result)
       })
     })
+  })
+}
 
+account.cartAdd = (req, res) => {
+  const { id } = req.cookies;
+  const { prodId } = req.body;
+
+  models.account.addCart({ id, prodId }, (err, result) => {
+    if (err) throw err;
+
+    res.status(200).json({
+      statusCode: 200,
+      msg: 'Add success'
+    })
+  })
+}
+
+account.cartDelete = (req, res) => {
+  const { id } = req.cookies;
+  const { prodId } = req.body;
+
+  models.account.deleteCart({ id, prodId }, (err, result) => {
+    if (err) throw err;
+
+    res.status(200).json({
+      statusCode: 200,
+      msg: 'Delete success'
+    })
   })
 }
 

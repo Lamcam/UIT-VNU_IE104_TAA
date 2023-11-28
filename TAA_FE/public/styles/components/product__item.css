@@ -392,8 +392,6 @@ input::-webkit-inner-spin-button {
 
 .modal__button .button__cart {
   display: flex;
-  padding: 10px;
-  height: 40px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -404,8 +402,8 @@ input::-webkit-inner-spin-button {
 }
 
 .modal__button .button__view {
-  height: 40px;
-  line-height: 40px;
+  /* height: 40px;
+  line-height: 40px; */
   /* padding: 10px 40px; */
 
   & a {
@@ -453,7 +451,7 @@ input::-webkit-inner-spin-button {
 
 .modal-noti.open {
   display: flex;
-  z-index: 1;
+  z-index: 2;
 }
 
 .modal-noti.close {
