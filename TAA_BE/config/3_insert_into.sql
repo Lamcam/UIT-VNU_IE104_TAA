@@ -197,7 +197,7 @@ INSERT INTO `productsimg` (`prod_id`, `prod_img_url`) VALUES
 ('prod0010', 'kep_2-1.webp'),
 ('prod0010', 'kep_2-2.webp'),
 ('prod0010', 'kep_2-3.webp'),
-('prod0010', 'kep_2-4.webp'),
+('prod0010', 'kep_2-4.jpg'),
 ('prod0010', 'kep_2-5.webp'),
 ('prod0010', 'kep_2-6.webp'),
 ('prod0011', 'day_cot_toc_1-1.webp'),

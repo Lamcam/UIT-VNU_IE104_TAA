@@ -9,6 +9,7 @@
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
   <link rel="stylesheet" href="/styles/pages/base.css">
   <link rel="stylesheet" href="/styles/pages/site/news.css">
   <title>TAA - Tin tức</title>
@@ -42,8 +43,8 @@
         <div class="container">
           <h1 class="section__title display-large">BÀI VIẾT</h1>
           <div class="section__content row mt-12">
-            <% newsDatas.forEach(data => { %>
-            <%- include('../../components/news__item', { data }) %>
+            <% newsDatas.forEach((data, index) => { %>
+            <%- include('../../components/news__item', { data, index }) %>
             <% }) %>
           </div>
         </div>
