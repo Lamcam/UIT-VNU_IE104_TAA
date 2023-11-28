@@ -53,4 +53,3 @@ const modalCtl = {
 }
 
 export default modalCtl;
- 

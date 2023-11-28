@@ -154,124 +154,124 @@ iconHearts.forEach((iconHeart) => {
 // }
 
 // modalProduct open
-const btnViews = document.querySelectorAll(".product__button__view");
-const btnSells = document.querySelectorAll(".product__button__sell");
-// const modalProducts = document.querySelectorAll('.modal-product')
-const btnClosesProduct = document.querySelector(".modal-product .button-close");
-const modalItems = document.querySelectorAll(".product__item");
+// const btnViews = document.querySelectorAll(".product__button__view");
+// const btnSells = document.querySelectorAll(".product__button__sell");
+// // const modalProducts = document.querySelectorAll('.modal-product')
+// const btnClosesProduct = document.querySelector('.modal-product .button-close')
+// const modalItems = document.querySelectorAll('.product__item')
 document.addEventListener("DOMContentLoaded", function () {
-  modalItems.forEach((item) => {
-    // modalProduct tăng giảm số lượng sản phẩm
-    const btnView = item.querySelector(".product__button__view");
-    const modalProduct = item.querySelector(".modal-product");
-    btnView.addEventListener("click", () => {
-      modalProduct.classList.add("open");
-    });
 
-    const btnClosesProduct = item.querySelector(".btn--close");
-    // modalProduct close
-    btnClosesProduct.addEventListener("click", () => {
-      modalProduct.classList.remove("open");
-    });
+  // modalItems.forEach((item) => {
+  //   // modalProduct tăng giảm số lượng sản phẩm
+  //   const btnView = item.querySelector(".product__button__view");
+  //   const modalProduct = item.querySelector(".modal-product");
+  //   btnView.addEventListener("click", () => {
+  //     modalProduct.classList.add("open");
+  //   });
 
-    modalProduct.addEventListener("click", () => {
-      modalProduct.classList.remove("open");
-    });
-    const modalContainerProduct = item.querySelector(
-      ".modal-container--product"
-    );
-    // nhấn bên ngoài thì popup đóng
-    modalContainerProduct.addEventListener("click", function (event) {
-      event.stopPropagation();
-    });
+  //   const btnClosesProduct = item.querySelector(".btn--close");
+  //   // modalProduct close
+  //   btnClosesProduct.addEventListener("click", () => {
+  //     modalProduct.classList.remove("open");
+  //   });
 
-    // modalNoti open
-    const btnCloseNoti = item.querySelector(".modal-noti .btn--close");
-    const modalNoti = item.querySelector(".modal-noti");
-    const modalContainerNoti = item.querySelector(".modal-container--noti");
-    const modalButtonCart = item.querySelector(".button__cart");
-    const modalButtonView = item.querySelector(".button__view");
+  //   modalProduct.addEventListener("click", () => {
+  //     modalProduct.classList.remove("open");
+  //   });
+  //   const modalContainerProduct = item.querySelector(
+  //     ".modal-container--product"
+  //   );
+  //   // nhấn bên ngoài thì popup đóng
+  //   modalContainerProduct.addEventListener("click", function (event) {
+  //     event.stopPropagation();
+  //   });
 
-    // chuyển trang chi tiết sản phẩm
-    modalButtonView.addEventListener("click", () => {
-      // window.location.href=""
-      // window.alert("hello")
-    });
+  //   // modalNoti open
+  //   const btnCloseNoti = item.querySelector(".modal-noti .btn--close");
+  //   const modalNoti = item.querySelector(".modal-noti");
+  //   const modalContainerNoti = item.querySelector(".modal-container--noti");
+  //   const modalButtonCart = item.querySelector(".button__cart");
+  //   const modalButtonView = item.querySelector(".button__view");
 
-    // modalNoti open, modalProduct close
-    modalButtonCart.addEventListener("click", () => {
-      modalNoti.classList.add("open");
-      modalProduct.classList.remove("open");
-      setTimeout(() => {
-        modalNoti.classList.remove("open");
-      }, 5000);
-    });
-    // modalNoti btn--close
+  //   // chuyển trang chi tiết sản phẩm
+  //   modalButtonView.addEventListener("click", () => {
+  //     // window.location.href=""
+  //     // window.alert("hello")
+  //   });
 
-    btnCloseNoti.addEventListener("click", () => {
-      modalNoti.classList.remove("open");
-    });
+  //   // modalNoti open, modalProduct close
+  //   modalButtonCart.addEventListener("click", () => {
+  //     modalNoti.classList.add("open");
+  //     modalProduct.classList.remove("open");
+  //     setTimeout(() => {
+  //       modalNoti.classList.remove("open");
+  //     }, 5000);
+  //   });
+  //   // modalNoti btn--close
 
-    modalNoti.addEventListener("click", () => {
-      modalNoti.classList.remove("open");
-    });
-    // nhấn bên ngoài thì popup đóng
-    modalContainerNoti.addEventListener("click", function (event) {
-      event.stopPropagation();
-    });
+  //   btnCloseNoti.addEventListener("click", () => {
+  //     modalNoti.classList.remove("open");
+  //   });
 
-    // modalProduct change image product
-    const imgs = item.querySelectorAll(".img-select a");
-    const imgBtns = [...imgs];
-    let imgId = 1;
-    imgBtns[0].classList.add("active__selected");
+  //   modalNoti.addEventListener("click", () => {
+  //     modalNoti.classList.remove("open");
+  //   });
+  //   // nhấn bên ngoài thì popup đóng
+  //   modalContainerNoti.addEventListener("click", function (event) {
+  //     event.stopPropagation();
+  //   });
 
-    imgBtns.forEach((imgItem) => {
-      imgItem.addEventListener("click", (event) => {
-        event.preventDefault();
-        imgBtns.forEach((itemBtn) => {
-          itemBtn.classList.remove("active__selected");
-        });
-        imgItem.classList.add("active__selected");
-        imgId = imgItem.dataset.id;
-        slideImage();
-      });
-    });
+  //   // modalProduct change image product
+  //   const imgs = item.querySelectorAll(".img-select a");
+  //   const imgBtns = [...imgs];
+  //   let imgId = 1;
+  //   imgBtns[0].classList.add("active__selected");
 
-    function slideImage() {
-      const displayWidth = item.querySelector(
-        ".img-showcase img:first-child"
-      ).clientWidth;
+  //   imgBtns.forEach((imgItem) => {
+  //     imgItem.addEventListener("click", (event) => {
+  //       event.preventDefault();
+  //       imgBtns.forEach((itemBtn) => {
+  //         itemBtn.classList.remove("active__selected");
+  //       });
+  //       imgItem.classList.add("active__selected");
+  //       imgId = imgItem.dataset.id;
+  //       slideImage();
+  //     });
+  //   });
 
-      item.querySelector(".img-showcase").style.transform = `translateX(${
-        -(imgId - 1) * displayWidth
-      }px)`;
-    }
+  //   function slideImage() {
+  //     const displayWidth = item.querySelector(
+  //       ".img-showcase img:first-child"
+  //     ).clientWidth;
 
-    window.addEventListener("resize", slideImage);
+  //     item.querySelector(".img-showcase").style.transform = `translateX(${-(imgId - 1) * displayWidth
+  //       }px)`;
+  //   }
 
-    const myInput = item.querySelector("#my-input");
-    const decrementBtn = item.querySelector("#decrement");
-    const incrementBtn = item.querySelector("#increment");
+  //   window.addEventListener("resize", slideImage);
 
-    function stepper(action) {
-      let min = parseInt(myInput.getAttribute("min"));
-      let max = parseInt(myInput.getAttribute("max"));
-      let step = parseInt(myInput.getAttribute("step"));
-      let value = parseInt(myInput.value);
+  //   const myInput = item.querySelector("#my-input");
+  //   const decrementBtn = item.querySelector("#decrement");
+  //   const incrementBtn = item.querySelector("#increment");
 
-      let calcStep = action === "increment" ? step * 1 : step * -1;
+  //   function stepper(action) {
+  //     let min = parseInt(myInput.getAttribute("min"));
+  //     let max = parseInt(myInput.getAttribute("max"));
+  //     let step = parseInt(myInput.getAttribute("step"));
+  //     let value = parseInt(myInput.value);
 
-      let newValue = value + calcStep;
-      if (!isNaN(newValue) && newValue >= min && newValue <= max) {
-        myInput.value = newValue;
-      }
-      console.log(action, min, max, step, value);
-    }
+  //     let calcStep = action === "increment" ? step * 1 : step * -1;
 
-    decrementBtn.addEventListener("click", () => stepper("decrement"));
-    incrementBtn.addEventListener("click", () => stepper("increment"));
-  });
+  //     let newValue = value + calcStep;
+  //     if (!isNaN(newValue) && newValue >= min && newValue <= max) {
+  //       myInput.value = newValue;
+  //     }
+  //     console.log(action, min, max, step, value);
+  //   }
+
+  //   decrementBtn.addEventListener("click", () => stepper("decrement"));
+  //   incrementBtn.addEventListener("click", () => stepper("increment"));
+  // });
 
   //AN làm
   const category = document.querySelectorAll(".category");
@@ -438,7 +438,9 @@ document.addEventListener("DOMContentLoaded", function () {
         ? window.location.search.split("&")[0] + "&discount=true"
         : "?discount=true";
     } else {
-      href = qExists ? window.location.search.split("&")[0] : "?discount=true";
+      href = qExists
+        ? window.location.search.split("&")[0]
+        : "?discount=true";
     }
     console.log(href);
     fetch("/products/search" + href)
@@ -480,12 +482,13 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
 
+
   const costAZ = document.querySelector(".cost-az");
-  const checkAZ = document.querySelector("selected");
+  const checkAZ = document.querySelector("selected")
   costAZ.addEventListener("click", function () {
-    const hasEffectCostAZ = selected.innerHTML == "Giá: Từ thấp đến cao";
+    const hasEffectCostAZ = (selected.innerHTML == "Giá: Từ thấp đến cao");
     let href = "";
-    console.log(hasEffectCostAZ);
+    console.log(hasEffectCostAZ)
     if (hasEffectCostAZ) {
       href = qExists
         ? window.location.search.split("&")[0] + "&costAZ=true"
@@ -493,7 +496,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       href = qExists ? window.location.search.split("&")[0] : "?costAZ=true";
     }
-    console.log(href);
+    console.log(href)
     fetch("/products/search" + href)
       .then((response) => response.json())
       .then((data) => {
@@ -507,11 +510,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   });
   const costZA = document.querySelector(".cost-za");
-  const checkZA = document.querySelector("selected");
+  const checkZA = document.querySelector("selected")
   costZA.addEventListener("click", function () {
-    const hasEffectCostZA = selected.innerHTML == "Giá: Từ cao đến thấp";
+    const hasEffectCostZA = (selected.innerHTML == "Giá: Từ cao đến thấp");
     let href = "";
-    console.log(hasEffectCostZA);
+    console.log(hasEffectCostZA)
 
     if (hasEffectCostZA) {
       href = qExists
