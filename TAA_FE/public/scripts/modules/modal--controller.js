@@ -10,7 +10,7 @@ const openModal = (sltById) => {
     modalSelector.classList.add("active");
   }
 }
-       
+          
 /**
  * Closes all open modals.
  */

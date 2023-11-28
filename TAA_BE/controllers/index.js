@@ -23,7 +23,7 @@ index.groupProducts = (result) => {
   }, [])
   return groupResult;
 }
-
+ 
 index.filter = (result,cate)=>{
   if(!cate) return result;
   const balo = result.filter(v => v.cate_name == cate);

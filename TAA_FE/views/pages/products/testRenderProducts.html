@@ -1,616 +1,208 @@
 <!DOCTYPE html>
-<html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TAA - Trang sản phẩm</title>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.js"
-      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60"
-      crossorigin="anonymous"
-    ></script>
-    <!-- <link rel="stylesheet" href="/TAA_FE/src/base.css"> -->
-    <link rel="stylesheet" href="/TAA_FE/views/base.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./style.css" />
-
-    <script src="./productsPage.js" defer></script>
-    <style>
-      .slidebar_wrapper{
-        height: fit-content;
-        
-      }
-      .slidebar_container {
-        display: flex;
-        flex-direction: row;
-        text-align: center;
-        justify-content: space-around;
-        text-align: center;
-        align-items: center;
-        height: 100px;
-        margin-top: 5px;
-      }
-
-      .slidebar_container div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        width: 100px;
-        margin-top: 5px;
-        font-size: 2em;
-        width: 50px;
-        height: 37.5px;
-        border-radius: 4px;
-      }
-
-      .slidebar_container div:hover {
-        background-color: #785b5b;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div id="main" class="on-primary">
-      <div id="header"></div>
-      <div id="nav-tree"></div>
-
-      <main>
-        <section class="mt-12">
-          <!-- Giới hạn lại độ rộng của nội dung -->
-          <div class="container">
-            <div class="product__filter visible">
-              <p class="product__title label-large on-surface-text">
-                Sắp xếp theo
-              </p>
-              <button class="product__button js-button btn--outlined">
-                <span class="material-symbols-outlined icon-check">
-                  check
-                </span>
-                Giảm giá
-              </button>
-              <button class="product__button js-button btn--outlined">
-                <span class="material-symbols-outlined icon-check">
-                  check
-                </span>
-                Bán chạy nhất
-              </button>
-              <div class="dropdown label-large">
-                <div class="select product__button">
-                  <span class="material-symbols-outlined icon-check">
-                    check
-                  </span>
-                  <span class="selected selected2">Giá</span>
-                  <div class="caret"></div>
-                  <span class="material-symbols-outlined icon-cancel">
-                    close
-                  </span>
-                </div>
-                <ul class="menu">
-                  <li class="select__active">Giá: Từ thấp đến cao</li>
-                  <li>Giá: Từ cao đến thấp</li>
-                </ul>
-              </div>
-            </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const Page = `<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
+  <div class="product__image">
+    <img src="/imgs/products/${data.cate_name} /$ {data.prod_img_urls[1]}" alt="Hình sau" class="img_back">
+    <img src="/imgs/products/$ {data.cate_name} /${data.prod_img_urls[0]}" alt="Hình trước" class="img_font">
+  </div>
+  <div class="product__body">
+    <span class="material-symbols-outlined icon_heart error-text">
+      heart_plus
+    </span>
+    <h3 class="product__name body-large">${data.prod_name}</h3>
+    <div class="product__price label-large">
+      <p class="product__price__current">${data.prod_cost} * (1 - ${data.prod_discount} + đ</p>
+      <p class="product__price__discount outline-variant-text">${data.prod_cost} + đ</p>
+    </div>
+    <p class="product__discount title-medium error-text">Giảm ${data.prod_discount}* 100 + '%'</p>
+    <p class="product__stock label-large primary-text">Còn hàng</p>
+  </div>
+  <div class="product__button__section label-large">
+    <div class="product__button__view">Xem nhanh</div>
+    <div class="vertical"></div>
+    <div class="product__button__sell">
+      <a href="/account/order">Mua ngay</a>
+    </div>
+  </div>
+  <div class="modal-product">
+    <div class="modal-container--product">
+      <div class="modal__img">
+        <div class="img-display">
+          <div class="img-showcase">
+            <img src="/imgs/products/${data.cate_name}/${ data.prod_img_urls[0] }" alt="Product img">
+            <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[1] }" alt="Product img">
+            <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[2] }" alt="Product img">
+            <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[3] }" alt="Product img">
           </div>
-        </section>
-
-        <section class="mt-12">
-          <!-- Dành cho việc chia cột nội dung-->
-          <div class="container row">
-            <aside class="aside col-3">
-              <ul class="aside__list body-large primary-text visible">
-                <li class="aside__item">
-                  <span class="aside__item__title">
-                    <span class="material-symbols-outlined icon-menu">
-                      menu
-                    </span>
-                    Danh mục sản phẩm
-                  </span>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Trang sức</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Vòng cổ</span></li>
-                    <li><span>Vòng tay</span></li>
-                    <li><span>Hoa tai</span></li>
-                    <li><span>Nhẫn</span></li>
-                  </ul>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Phụ kiện tóc</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Kẹp</span></li>
-                    <li><span>Dây cột tóc</span></li>
-                    <li><span>Cài tóc</span></li>
-                    <li><span>Trâm cài</span></li>
-                  </ul>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Túi ví</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Balo</span></li>
-                    <li><span>Túi</span></li>
-                    <li><span>Ví</span></li>
-                  </ul>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Giày dép</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li class="lili"><span>Giày</span></li>
-                    <li><span>Dép</span></li>
-                    <li><span>Tất</span></li>
-                  </ul>
-                </li>
-                <li class="aside__item js-item">
-                  <span class="aside__header">Khác</span>
-                  <ul class="aside__item__sub-menu js-sub-menu">
-                    <li><span>Thiệp</span></li>
-                    <li><span>Ốp lưng</span></li>
-                    <li><span>Mắt kính</span></li>
-                    <li><span>Dây đeo</span></li>
-                    <li><span>Mũ nón</span></li>
-                    <li><span>Khẩu trang</span></li>
-                  </ul>
-                </li>
-              </ul>
-            </aside>
-
-            <section class="col-9">
-              <div class="section__content visible row"></div>
-              <div class="slidebar_wrapper">
-                <!-- <div class="slidebar_container"></div> -->
-              </div>
-            </section>
+        </div>
+        <div class="img-nav">
+          <button id="prevBtn">
+            <span class="material-symbols-outlined arrow-left primary-text">
+              arrow_back_ios
+            </span>
+          </button>
+          <button id="nextBtn">
+            <span class="material-symbols-outlined arrow-right primary-text">
+              arrow_forward_ios
+            </span>
+          </button>
+        </div>        
+        <div class="img-select">
+          <div class="img-item">
+            <a href="#" data-id="1">
+              <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[0] }" alt="product image">
+            </a>
           </div>
-        </section>
-      </main>
-
-      <!-- <footer></footer> -->
-      <div id="footer"></div>
-
-      <!-- Modal -->
-      <div class="modal-product">
-        <div class="modal-container--product">
-          <!-- <div class="modal__img">
-          <div class="img__main">
-            <div class="modal__input-radio">
-              <input type="radio" name="radio-btn" id="radio1">
-              <input type="radio" name="radio-btn" id="radio2">
-              <input type="radio" name="radio-btn" id="radio3">
-              <input type="radio" name="radio-btn" id="radio4">
-              <input type="radio" name="radio-btn" id="radio5">
-            </div>
+          <div class="img-item">
+            <a href="#" data-id="2">
+              <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[1] }" alt="product image">
+            </a>
           </div>
-          <div class="img__list">
-            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
-            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
-            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
-            <img src="/TAA_FE/public/product7.jpg" alt="ảnh sản phẩm" class="img__item item1">
+          <div class="img-item">
+            <a href="#" data-id="3">
+              <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[2] }" alt="product image">
+            </a>
           </div>
-
-        </div> -->
-          <div class="modal__img">
-            <div class="img-display">
-              <div class="img-showcase">
-                <img src="/TAA_FE/public/product2.jpg" alt="product image" />
-                <img src="/TAA_FE/public/product4.jpg" alt="product image" />
-                <img src="/TAA_FE/public/product3.jpg" alt="product image" />
-                <img src="/TAA_FE/public/product7.jpg" alt="product image" />
-              </div>
-            </div>
-            <div class="img-select">
-              <div class="img-item">
-                <a href="#" data-id="1">
-                  <img src="/TAA_FE/public/product2.jpg" alt="product image" />
-                </a>
-              </div>
-              <div class="img-item">
-                <a href="#" data-id="2">
-                  <img src="/TAA_FE/public/product4.jpg" alt="product image" />
-                </a>
-              </div>
-              <div class="img-item">
-                <a href="#" data-id="3">
-                  <img src="/TAA_FE/public/product3.jpg" alt="product image" />
-                </a>
-              </div>
-              <div class="img-item">
-                <a href="#" data-id="4">
-                  <img src="/TAA_FE/public/product7.jpg" alt="product image" />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="modal__body">
-            <p class="modal__product__name headline-medium">Tên sản phẩm</p>
-            <div class="modal__info__rate">
-              <div class="rate__star title-medium">
-                4.8
-                <span class="material-symbols-outlined icon--filled">
-                  star
-                </span>
-                <span class="material-symbols-outlined icon--filled">
-                  star
-                </span>
-                <span class="material-symbols-outlined icon--filled">
-                  star
-                </span>
-                <span class="material-symbols-outlined icon--filled">
-                  star
-                </span>
-                <span class="material-symbols-outlined icon--filled">
-                  star_rate_half
-                </span>
-              </div>
-              <span class="rate__number title-medium">30 đánh giá</span>
-              <span class="number__buy title-medium">300 đã bán</span>
-            </div>
-            <div class="modal__price">
-              <p class="cost body-medium">180.000đ</p>
-              <p class="cost__discount headline-small">79.000đ</p>
-              <div class="percent__discount body-medium">42% giảm</div>
-            </div>
-            <div class="modal__color label-large">
-              <p class="color__title bold">Màu sắc:</p>
-              <div class="color__value outline-text">Xanh lá cây</div>
-            </div>
-            <div class="modal__size label-large">
-              <p class="size__title bold">Kích thước:</p>
-              <div class="size__value outline-text">Freestyle</div>
-            </div>
-            <div class="modal__quantity">
-              <div class="quantity__title label-large bold">Số lượng:</div>
-              <div class="quantity__product outline-text label-large">
-                <div
-                  id="decrement"
-                  class="quantity__product-decrement outline-text"
-                  onclick="stepper(this)"
-                >
-                  -
-                </div>
-                <input
-                  type="number"
-                  min="0"
-                  max="100"
-                  step="1"
-                  value="1"
-                  id="my-input"
-                  disabled
-                />
-                <div
-                  id="increment"
-                  class="quantity__product-increment outline-text"
-                  onclick="stepper(this)"
-                >
-                  +
-                </div>
-              </div>
-              <p class="quantity__stock body-small">82 sản phẩm sẵn có</p>
-            </div>
-            <div class="modal__button">
-              <button class="button__cart">
-                <span class="material-symbols-outlined">
-                  add_shopping_cart
-                </span>
-                Thêm vào giỏ hàng
-              </button>
-              <button class="button__view btn--filled">
-                <a href="/TAA_FE/src/homepage/productsPage/detailProduct.html"
-                  >Xem chi tiết</a
-                >
-              </button>
-            </div>
-            <div class="modal__context body-large">
-              <div class="context__info mt-12">
-                <div class="context__info__title">THÔNG TIN SẢN PHẨM</div>
-                <ul class="context__info__body">
-                  <li>Chất liệu vải: Kaki cao cấp.</li>
-                  <li>Khóa chỉnh size: Được làm bằng inox.</li>
-                  <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
-                </ul>
-              </div>
-              <div class="context__detail mt-24">
-                <div class="context__detail__title">MÔ TẢ SẢN PHẨM</div>
-                <ul class="context__detail__body">
-                  <li>
-                    - Form dáng chuẩn, chắc chắn, form mềm giúp định hình được
-                    khuôn mặt.
-                  </li>
-                  <li>
-                    - Nón được thiết kế để bảo vệ cho vùng mắt, vùng da mặt, da
-                    đầu và tóc tránh các tia cực tím độc hại từ ánh nắng mặt
-                    trời.
-                  </li>
-                  <li>
-                    - Giặt bằng nước lạnh không dùng bột giặt trong lần giặt đầu
-                    tiên.
-                  </li>
-                  <!-- <li>- Thiết kế may tinh tế, sắc sảo và thời trang, theo phong cách Ulzzang Hàn Quốc cá tính.</li>
-                <li>- Hạn chế gây ra mồ hôi ở đầu, không gây kích ứng da đầu.</li>
-                <li>- Phần đai nón có đệm bông tạo cảm giác thoải mái khi đội nón và không để lại vết hằn lên trán.</li>
-                <li>- Khóa chỉnh size phía sau nón được làm bằng inox không gỉ rất dễ dàng sử dụng điều chỉnh nón.</li> -->
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="btn--close">
-            <span class="material-symbols-outlined"> close </span>
+          <div class="img-item">
+            <a href="#" data-id="4">
+              <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[3] }" alt="product image">
+            </a>
           </div>
         </div>
       </div>
-
-      <div class="modal-noti">
-        <div class="modal-container--noti on-primary-text">
-          <div class="noti__icon-check">
+      <div class="modal__body">
+        <p class="modal__product__name headline-medium">${ data.prod_name }</p>
+        <div class="modal__info__rate">
+          <div class="rate__star title-medium">
+            4.8
             <span class="material-symbols-outlined icon--filled">
-              check_circle
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star_rate_half
             </span>
           </div>
-          <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
-          <div class="noti__btn btn--close">
-            <span class="material-symbols-outlined"> close </span>
+          <span class="rate__number title-medium">5 đánh giá</span>
+          <span class="number__buy title-medium">${data.prod_num_sold} đã bán</span>
+        </div>
+        <div class="modal__price">
+          <p class="cost body-medium">${ data.prod_cost } đ</p>
+          <p class="cost__discount headline-small">${ data.prod_cost} * (1 - ${data.prod_discount} + đ</p>
+          <div class="percent__discount body-medium">Giảm ${ data.prod_discount * 100 }</div>
+        </div>
+        <!-- <div class="modal__color label-large">
+          <p class="color__title bold">Màu sắc:</p>
+          <div class="color__value outline-text">Xanh lá cây</div>
+        </div> -->
+        <div class="modal__size label-large">
+          <p class="size__title bold">Kích thước:</p>
+          <div class="size__value outline-text">Freestyle</div>
+        </div>
+        <div class="modal__quantity">
+          <div class="quantity__title label-large bold">Số lượng: </div>
+          <div class="quantity__product outline-text label-large">
+            <div id="decrement" class="quantity__product-decrement outline-text">-</div>
+            <input type="number" min="1" max="100" step="1" value="1" id="my-input" disabled>
+            <div id="increment" class="quantity__product-increment outline-text">+</div>
+          </div>
+          <p class="quantity__stock body-small">${data.prod_num_avai} sản phẩm sẵn có</p>
+        </div>
+        <div class="modal__button">
+          <button class="button__cart">
+            <span class="material-symbols-outlined">
+              add_shopping_cart
+            </span>
+            Thêm vào giỏ hàng
+          </button>
+          <button class="button__view btn--filled">
+            <a href="/products/detail?id=${ data.prod_id }">Xem chi tiết</a>
+          </button>
+        </div>
+        <div class="modal__context body-large">
+          <div class="context__info mt-12">
+            <div class="context__info__title">
+              THÔNG TIN SẢN PHẨM
+            </div>
+            <ul class="context__info__body">
+              <li>Đảm bảo hàng có chất lượng thương hiệu.</li>
+              <li>Hàng luôn có sẵn ở TAA.</li>
+              <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+            </ul>
+          </div>
+          <div class="context__detail mt-24">
+            <div class="context__detail__title">
+              THÔNG TIN THƯƠNG HIỆU:
+            </div>
+            <ul class="context__detail__body">
+              <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
+              <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm. </li>
+              <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn. </li>
+              <!-- <li>- Thiết kế may tinh tế, sắc sảo và thời trang, theo phong cách Ulzzang Hàn Quốc cá tính.</li>
+                  <li>- Hạn chế gây ra mồ hôi ở đầu, không gây kích ứng da đầu.</li>
+                  <li>- Phần đai nón có đệm bông tạo cảm giác thoải mái khi đội nón và không để lại vết hằn lên trán.</li>
+                  <li>- Khóa chỉnh size phía sau nón được làm bằng inox không gỉ rất dễ dàng sử dụng điều chỉnh nón.</li> -->
+            </ul>
           </div>
         </div>
       </div>
+      <div class="button-close">
+        <span class="material-symbols-outlined">
+          close
+        </span>
+      </div>
     </div>
+  </div> 
+  <div class="modal-noti">
+    <div class="modal-container--noti on-primary-text">
+      <div class="noti__icon-check">
+        <span class="material-symbols-outlined icon--filled">
+          check_circle
+        </span>
+      </div>
+      <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
+      <div class="noti__btn button-close">
+        <span class="material-symbols-outlined">
+          close
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <script>
-      $(document).ready(function () {
-        $("#header").load("/TAA_FE/src/partials/header--unauth.html");
-        $("#nav-tree").load("/TAA_FE/src/partials/nav-tree.html");
-        $("#footer").load("/TAA_FE/src/partials/footer.html");
-      });
-    </script>
+<div class="product__outstock col-12 col-md-4 col-lg-4 col-sm-6">
+  <div class="product__image">
+    <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[0] }" alt="Hình trước" class="img_font">
+    <img src="/imgs/products/${ data.cate_name }/${ data.prod_img_urls[1] }" alt="Hình sau" class="img_back">
+  </div>
+  <div class="product__body">
+    <span class="material-symbols-outlined icon_heart error-text">
+      heart_plus
+    </span>
+    <h3 class="product__name body-large">${data.prod_name}</h3>
+    <div class="product__price label-large">
+      <p class="product__price__current">${ data.prod_cost} * (1 - ${data.prod_discount} + đ</p>
+      <p class="product__price__discount outline-variant-text">${data.prod_cost} đ</p>
+    </div>
+    <p class="product__discount title-medium error-text">Giảm ${ data.prod_discount } +' %'</p>
+    <p class="product__stock label-large primary-text">Hết hàng</p>
+  </div>
+</div>`
 
-    <script>
-      let productArr = [];
-      let listOfProduct;
-      const productDisplay = [];
-      let start = 0;
-      const productsPerPage = 6;
-      let tabbed_navArr = [];
-
-      // fetch("http://localhost:3000/products")
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     listOfProduct = data?.result;
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
-
-      function createProduct(item) {
-        // Create the outer container div
-        let productItem = document.createElement("div");
-        productItem.classList.add("product__item", "col-4");
-
-        // Create the product image container div
-        let productImage = document.createElement("div");
-        productImage.classList.add("product__image");
-        productItem.appendChild(productImage);
-
-        // Create the front image element
-        let frontImage = document.createElement("img");
-        // frontImage.src = `${item.prod_img_url}`;
-        frontImage.alt = "Kẹp tóc";
-        frontImage.classList.add("img_back");
-        productImage.appendChild(frontImage);
-
-        // Create the back image element
-        let backImage = document.createElement("img");
-        // backImage.src = "../../../public/red-panda-small.jpg";
-        backImage.alt = "Kẹp tóc";
-        backImage.classList.add("img_font");
-        productImage.appendChild(backImage);
-
-        // Create the product body div
-        let productBody = document.createElement("div");
-        productBody.classList.add("product__body");
-        productItem.appendChild(productBody);
-
-        // Create the heart icon element
-        let heartIcon = document.createElement("span");
-        heartIcon.classList.add(
-          "material-symbols-outlined",
-          "icon_heart",
-          "error-text"
-        );
-        heartIcon.textContent = "heart_plus";
-        productBody.appendChild(heartIcon);
-
-        // Create the product name heading
-        let productName = document.createElement("h3");
-        productName.classList.add("product__name", "body-large");
-        productName.textContent = `${item.prod_name}`;
-        productBody.appendChild(productName);
-
-        // Create the product price container div
-        let productPrice = document.createElement("div");
-        productPrice.classList.add("product__price", "label-large");
-        productBody.appendChild(productPrice);
-
-        // Create the current price element
-        let currentPrice = document.createElement("p");
-        currentPrice.classList.add("product__price__current");
-        currentPrice.textContent = `${
-          parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
-        }`;
-        productPrice.appendChild(currentPrice);
-
-        // Create the discounted price element
-        let discountedPrice = document.createElement("p");
-        discountedPrice.classList.add(
-          "product__price__discount",
-          "outline-variant-text"
-        );
-        discountedPrice.textContent = `${item.prod_cost}`;
-        productPrice.appendChild(discountedPrice);
-
-        // Create the product discount paragraph
-        let productDiscount = document.createElement("p");
-        productDiscount.classList.add(
-          "product__discount",
-          "title-medium",
-          "error-text"
-        );
-        productDiscount.textContent = `${item.prod_discount * 100}`;
-        productBody.appendChild(productDiscount);
-
-        // Create the product stock label
-        let productStock = document.createElement("p");
-        let prodAvai = parseInt(item.prod_num_avai);
-        let state = "";
-        prodAvai ? (state = "Còn hàng") : (state = "Hết hàng");
-        productStock.classList.add(
-          "product__stock",
-          "label-large",
-          "primary-text"
-        );
-
-        productStock.textContent = state;
-        productBody.appendChild(productStock);
-
-        // Create the product button section div
-        let productButtonSection = document.createElement("div");
-        productButtonSection.classList.add(
-          "product__button__section",
-          "label-large"
-        );
-        productItem.appendChild(productButtonSection);
-
-        // Create the quick view button
-        let quickViewButton = document.createElement("div");
-        quickViewButton.classList.add("product__button__view");
-        quickViewButton.textContent = "Xem nhanh";
-        productButtonSection.appendChild(quickViewButton);
-
-        // Create the vertical separator div
-        let verticalSeparator = document.createElement("div");
-        verticalSeparator.classList.add("vertical");
-        productButtonSection.appendChild(verticalSeparator);
-
-        // Create the buy now button with link
-        let buyNowButton = document.createElement("div");
-        buyNowButton.classList.add("product__button__sell");
-        productButtonSection.appendChild(buyNowButton);
-
-        let buyNowLink = document.createElement("a");
-        buyNowLink.href = "/TAA_FE/src/homepage/cartPage/index.html";
-        buyNowLink.textContent = "Mua ngay";
-        buyNowButton.appendChild(buyNowLink);
-
-        // Append the product item to the desired container/element
-        let container = document.querySelector(".section__content");
-        container.appendChild(productItem);
-      }
-
-      
-       
-      
-      function countNumberOfPage(productsPerPage, numberOfProduct) {
-        if (productsPerPage <= 0) return;
-        if (numberOfProduct % productsPerPage == 0)
-          return numberOfProduct / productsPerPage;
-        else {
-          return numberOfProduct / productsPerPage + 1;
-        }
-      }
-
-      function createTabbedNav(productsPerPage, proArr) {
-
-        const numPage = countNumberOfPage(productsPerPage,proArr.length);
-        console.log(numPage);
-        // Create the container div element
-        var containerDiv = document.createElement("div");
-        containerDiv.className = "slidebar_container";
-
-        // Create the left arrow span element
-        var leftArrowSpan = document.createElement("span");
-        leftArrowSpan.className = "material-symbols-outlined";
-        leftArrowSpan.textContent = "arrow_back_ios";
-
-        // Append the left arrow span to the container div
-        containerDiv.appendChild(leftArrowSpan);
-
-        // Create div elements for numbers 1 to 5
-        for (var i = 1; i <= numPage; i++) {
-          var numberDiv = document.createElement("div");
-          numberDiv.className = i.toString();
-          numberDiv.textContent = i.toString();
-
-          tabbed_navArr.push(numberDiv);
-
-          // Append the number div to the container div
-          // containerDiv.appendChild(numberDiv);
-        }
-
-        for (let i = 0; i < numPage; i++) {
-
-          containerDiv.appendChild(tabbed_navArr[i]);
-
-
-        }
-
-
-
-
-        // Create the right arrow span element
-        var rightArrowSpan = document.createElement("span");
-        rightArrowSpan.className = "material-symbols-outlined";
-        rightArrowSpan.textContent = "arrow_forward_ios";
-
-        // Append the right arrow span to the container div
-        containerDiv.appendChild(rightArrowSpan);
-
-
-        // Append the container div to the document body or any other desired parent element
-        const wrapper = document.querySelector(".slidebar_wrapper");
-        wrapper.appendChild(containerDiv);
-      }
-      function displayProduct(numberOfProductInPage, index, proArr) {
-        if (numberOfProductInPage <= 0) return;
-        for (let i = index; i < index + numberOfProductInPage; i++) {
-          // console.log(typeof(proArr[i]))
-          createProduct(proArr[i]);
-        }
-        return index + numberOfProductInPage;
-      }
-      function clickToChange(pros) {
-        const sectionClass = ".section__content";
-        $(".1").on("click", function () {
-          $(sectionClass).empty();
-          displayProduct(productsPerPage, 0, pros);
-        });
-
-        $(".2").on("click", function () {
-          $(sectionClass).empty();
-          displayProduct(productsPerPage, 6, pros);
-        });
-      }
-
-      async function fetchDataAndDisplay() {
-        try {
-          const response = await fetch("http://localhost:3000/products");
-          const data = await response.json();
-
-          const productData = await data?.result;
-          // displayProduct(6, 0, productData);
-          return productData;
-        } catch (error) {
-          console.log(error);
-        }
-      }
-
-      // Usage
-      fetchDataAndDisplay().then((productData) => {
-
-        createTabbedNav(productsPerPage, productData,filtNav);
-
-
-        clickToChange(productData);
-        // displayProduct(6,index,productData);
-      });
-    </script>
-  </body>
-</html>
+</script>
+<body>

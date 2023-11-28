@@ -180,7 +180,7 @@ const updatePriceItem = () => {
 const quantityBtns = $('.cart__item .btn--quantity');
 
 const cartItems = $('.cart__item');
-
+ 
 cartItems.each((index, item) => {
   const delBtn = $(item).find('.btn--delete');
 

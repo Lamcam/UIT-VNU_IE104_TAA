@@ -136,7 +136,7 @@ optionsRank.forEach(option => {
             selectRank.classList.add('cancel__select')
             selectRank.classList.remove('select__btn')
             selectedRank.innerText = "Tất cả";
-
+ 
         })
         menuRank.classList.remove('menu-open')
         optionsRank.forEach(option => {
