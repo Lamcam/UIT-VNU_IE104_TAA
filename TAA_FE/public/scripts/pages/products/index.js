@@ -75,6 +75,24 @@ function effectButton() {
     countEffects.forEach((element) => {
         element.classList.remove("effect");
     });
+    const productBtnSelect = document.querySelector(".product__button-select");
+    if (productBtnSelect.classList.contains("select__btn")) {
+        productBtnSelect.classList.remove("select__btn");
+        productBtnSelect.classList.add("cancel__select");
+    }
+    if (productBtnSelect.classList.contains("select-clicked")) {
+        productBtnSelect.classList.remove("select-clicked");
+    }
+    const caret = document.querySelector('.caret')
+    if (caret.classList.contains("caret-rotate")) {
+        caret.classList.remove("caret-rotate");
+    }
+    const menu = document.querySelector('.menu')
+    if (menu.classList.contains("menu-open")) {
+        menu.classList.remove("menu-open");
+    }
+    const selected = document.querySelector(".selected");
+    if (selected.innerHTML != "Giá") selected.innerText = "Giá";
     this.classList.add("effect");
 }
 
@@ -154,123 +172,123 @@ iconHearts.forEach((iconHeart) => {
 // }
 
 // modalProduct open
-const btnViews = document.querySelectorAll(".product__button__view");
-const btnSells = document.querySelectorAll(".product__button__sell");
-// const modalProducts = document.querySelectorAll('.modal-product')
-const btnClosesProduct = document.querySelector(".modal-product .btn--close");
-const modalItems = document.querySelectorAll(".product__item");
-modalItems.forEach((item) => {
-    // modalProduct tăng giảm số lượng sản phẩm
-    const btnView = item.querySelector(".product__button__view");
-    const modalProduct = item.querySelector(".modal-product");
-    btnView.addEventListener("click", () => {
-        modalProduct.classList.add("open");
-    });
+// const btnViews = document.querySelectorAll(".product__button__view");
+// const btnSells = document.querySelectorAll(".product__button__sell");
+// // const modalProducts = document.querySelectorAll('.modal-product')
+// const btnClosesProduct = document.querySelector(".modal-product .btn--close");
+// const modalItems = document.querySelectorAll(".product__item");
+// modalItems.forEach((item) => {
+//     // modalProduct tăng giảm số lượng sản phẩm
+//     const btnView = item.querySelector(".product__button__view");
+//     const modalProduct = item.querySelector(".modal-product");
+//     btnView.addEventListener("click", () => {
+//         modalProduct.classList.add("open");
+//     });
 
-    const btnClosesProduct = item.querySelector(".btn--close");
-    // modalProduct close
-    btnClosesProduct.addEventListener("click", () => {
-        modalProduct.classList.remove("open");
-    });
+//     const btnClosesProduct = item.querySelector(".btn--close");
+//     // modalProduct close
+//     btnClosesProduct.addEventListener("click", () => {
+//         modalProduct.classList.remove("open");
+//     });
 
-    modalProduct.addEventListener("click", () => {
-        modalProduct.classList.remove("open");
-    });
-    const modalContainerProduct = item.querySelector(
-        ".modal-container--product"
-    );
-    // nhấn bên ngoài thì popup đóng
-    modalContainerProduct.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
+//     modalProduct.addEventListener("click", () => {
+//         modalProduct.classList.remove("open");
+//     });
+//     const modalContainerProduct = item.querySelector(
+//         ".modal-container--product"
+//     );
+//     // nhấn bên ngoài thì popup đóng
+//     modalContainerProduct.addEventListener("click", function (event) {
+//         event.stopPropagation();
+//     });
 
-    // modalNoti open
-    const btnCloseNoti = item.querySelector(".modal-noti .btn--close");
-    const modalNoti = item.querySelector(".modal-noti");
-    const modalContainerNoti = item.querySelector(".modal-container--noti");
-    const modalButtonCart = item.querySelector(".button__cart");
-    const modalButtonView = item.querySelector(".button__view");
+//     // modalNoti open
+//     const btnCloseNoti = item.querySelector(".modal-noti .btn--close");
+//     const modalNoti = item.querySelector(".modal-noti");
+//     const modalContainerNoti = item.querySelector(".modal-container--noti");
+//     const modalButtonCart = item.querySelector(".button__cart");
+//     const modalButtonView = item.querySelector(".button__view");
 
-    // chuyển trang chi tiết sản phẩm
-    modalButtonView.addEventListener("click", () => {
-        // window.location.href=""
-        // window.alert("hello")
-    });
+//     // chuyển trang chi tiết sản phẩm
+//     modalButtonView.addEventListener("click", () => {
+//         // window.location.href=""
+//         // window.alert("hello")
+//     });
 
-    // modalNoti open, modalProduct close
-    modalButtonCart.addEventListener("click", () => {
-        modalNoti.classList.add("open");
-        modalProduct.classList.remove("open");
-        setTimeout(() => {
-            modalNoti.classList.remove("open");
-        }, 5000);
-    });
-    // modalNoti btn--close
+//     // modalNoti open, modalProduct close
+//     modalButtonCart.addEventListener("click", () => {
+//         modalNoti.classList.add("open");
+//         modalProduct.classList.remove("open");
+//         setTimeout(() => {
+//             modalNoti.classList.remove("open");
+//         }, 5000);
+//     });
+//     // modalNoti btn--close
 
-    btnCloseNoti.addEventListener("click", () => {
-        modalNoti.classList.remove("open");
-    });
+//     btnCloseNoti.addEventListener("click", () => {
+//         modalNoti.classList.remove("open");
+//     });
 
-    modalNoti.addEventListener("click", () => {
-        modalNoti.classList.remove("open");
-    });
-    // nhấn bên ngoài thì popup đóng
-    modalContainerNoti.addEventListener("click", function (event) {
-        event.stopPropagation();
-    });
+//     modalNoti.addEventListener("click", () => {
+//         modalNoti.classList.remove("open");
+//     });
+//     // nhấn bên ngoài thì popup đóng
+//     modalContainerNoti.addEventListener("click", function (event) {
+//         event.stopPropagation();
+//     });
 
-    // modalProduct change image product
-    const imgs = item.querySelectorAll(".img-select a");
-    const imgBtns = [...imgs];
-    let imgId = 1;
-    imgBtns[0].classList.add("active__selected");
+//     // modalProduct change image product
+//     const imgs = item.querySelectorAll(".img-select a");
+//     const imgBtns = [...imgs];
+//     let imgId = 1;
+//     imgBtns[0].classList.add("active__selected");
 
-    imgBtns.forEach((imgItem) => {
-        imgItem.addEventListener("click", (event) => {
-            event.preventDefault();
-            imgBtns.forEach((itemBtn) => {
-                itemBtn.classList.remove("active__selected");
-            });
-            imgItem.classList.add("active__selected");
-            imgId = imgItem.dataset.id;
-            slideImage();
-        });
-    });
+//     imgBtns.forEach((imgItem) => {
+//         imgItem.addEventListener("click", (event) => {
+//             event.preventDefault();
+//             imgBtns.forEach((itemBtn) => {
+//                 itemBtn.classList.remove("active__selected");
+//             });
+//             imgItem.classList.add("active__selected");
+//             imgId = imgItem.dataset.id;
+//             slideImage();
+//         });
+//     });
 
-    function slideImage() {
-        const displayWidth = item.querySelector(
-            ".img-showcase img:first-child"
-        ).clientWidth;
+//     function slideImage() {
+//         const displayWidth = item.querySelector(
+//             ".img-showcase img:first-child"
+//         ).clientWidth;
 
-        item.querySelector(".img-showcase").style.transform = `translateX(${
-            -(imgId - 1) * displayWidth
-        }px)`;
-    }
+//         item.querySelector(".img-showcase").style.transform = `translateX(${
+//             -(imgId - 1) * displayWidth
+//         }px)`;
+//     }
 
-    window.addEventListener("resize", slideImage);
+//     window.addEventListener("resize", slideImage);
 
-    const myInput = item.querySelector("#my-input");
-    const decrementBtn = item.querySelector("#decrement");
-    const incrementBtn = item.querySelector("#increment");
+//     const myInput = item.querySelector("#my-input");
+//     const decrementBtn = item.querySelector("#decrement");
+//     const incrementBtn = item.querySelector("#increment");
 
-    function stepper(action) {
-        let min = parseInt(myInput.getAttribute("min"));
-        let max = parseInt(myInput.getAttribute("max"));
-        let step = parseInt(myInput.getAttribute("step"));
-        let value = parseInt(myInput.value);
+//     function stepper(action) {
+//         let min = parseInt(myInput.getAttribute("min"));
+//         let max = parseInt(myInput.getAttribute("max"));
+//         let step = parseInt(myInput.getAttribute("step"));
+//         let value = parseInt(myInput.value);
 
-        let calcStep = action === "increment" ? step * 1 : step * -1;
+//         let calcStep = action === "increment" ? step * 1 : step * -1;
 
-        let newValue = value + calcStep;
-        if (!isNaN(newValue) && newValue >= min && newValue <= max) {
-            myInput.value = newValue;
-        }
-        console.log(action, min, max, step, value);
-    }
+//         let newValue = value + calcStep;
+//         if (!isNaN(newValue) && newValue >= min && newValue <= max) {
+//             myInput.value = newValue;
+//         }
+//         console.log(action, min, max, step, value);
+//     }
 
-    decrementBtn.addEventListener("click", () => stepper("decrement"));
-    incrementBtn.addEventListener("click", () => stepper("increment"));
-});
+//     decrementBtn.addEventListener("click", () => stepper("decrement"));
+//     incrementBtn.addEventListener("click", () => stepper("increment"));
+// });
 
 //AN làm
 const category = document.querySelectorAll(".category");
@@ -456,9 +474,9 @@ discountSort.addEventListener("click", function () {
 });
 const bestsellerSort = document.querySelector(".best-seller");
 bestsellerSort.addEventListener("click", function () {
-  const hasEffectBestseller = bestsellerSort.classList.contains("effect");
-  let href = "";
-  console.log(hasEffectBestseller);
+    const hasEffectBestseller = bestsellerSort.classList.contains("effect");
+    let href = "";
+    console.log(hasEffectBestseller);
     if (hasEffectBestseller) {
         href = qExists
             ? window.location.search.split("&")[0] + "&bestseller=true"
@@ -471,49 +489,48 @@ bestsellerSort.addEventListener("click", function () {
     fetch("/products/search" + href)
         .then((response) => response.json())
         .then((data) => {
-          $(".product__wrapper").empty();
-          data.result.forEach((product) => {
-              createProduct(product);
-          });
+            $(".product__wrapper").empty();
+            data.result.forEach((product) => {
+                createProduct(product);
+            });
         })
         .catch((error) => {
             console.error("Đã xảy ra lỗi:", error);
         });
 });
 
-
 const costAZ = document.querySelector(".cost-az");
-const checkAZ = document.querySelector("selected")
+const checkAZ = document.querySelector("selected");
 costAZ.addEventListener("click", function () {
-  const hasEffectCostAZ = (selected.innerHTML=="Giá: Từ thấp đến cao");
-  let href = "";
-  console.log(hasEffectCostAZ)
+    const hasEffectCostAZ = selected.innerHTML == "Giá: Từ thấp đến cao";
+    let href = "";
+    console.log(hasEffectCostAZ);
     if (hasEffectCostAZ) {
         href = qExists
             ? window.location.search.split("&")[0] + "&costAZ=true"
             : "?costAZ=true";
     } else {
         href = qExists ? window.location.search.split("&")[0] : "?costAZ=true";
-  }
-  console.log(href)
+    }
+    console.log(href);
     fetch("/products/search" + href)
         .then((response) => response.json())
         .then((data) => {
-          $(".product__wrapper").empty();
-          data.result.forEach((product) => {
-              createProduct(product);
-          });
+            $(".product__wrapper").empty();
+            data.result.forEach((product) => {
+                createProduct(product);
+            });
         })
         .catch((error) => {
             console.error("Đã xảy ra lỗi:", error);
         });
 });
 const costZA = document.querySelector(".cost-za");
-const checkZA = document.querySelector("selected")
+const checkZA = document.querySelector("selected");
 costZA.addEventListener("click", function () {
-  const hasEffectCostZA = (selected.innerHTML=="Giá: Từ cao đến thấp");
-  let href = "";
-  console.log(hasEffectCostZA)
+    const hasEffectCostZA = selected.innerHTML == "Giá: Từ cao đến thấp";
+    let href = "";
+    console.log(hasEffectCostZA);
 
     if (hasEffectCostZA) {
         href = qExists
@@ -521,15 +538,15 @@ costZA.addEventListener("click", function () {
             : "?costZA=true";
     } else {
         href = qExists ? window.location.search.split("&")[0] : "?costZA=true";
-  }
-  console.log(href)
+    }
+    console.log(href);
     fetch("/products/search" + href)
         .then((response) => response.json())
         .then((data) => {
-          $(".product__wrapper").empty();
-          data.result.forEach((product) => {
-              createProduct(product);
-          });
+            $(".product__wrapper").empty();
+            data.result.forEach((product) => {
+                createProduct(product);
+            });
         })
         .catch((error) => {
             console.error("Đã xảy ra lỗi:", error);
