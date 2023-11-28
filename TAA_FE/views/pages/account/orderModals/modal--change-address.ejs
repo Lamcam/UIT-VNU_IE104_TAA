@@ -1,0 +1,32 @@
+<div id="modal--change-address" class="modal">
+  <div class="modal__content on-primary">
+    <%- include('../../../components/button', {
+      type: 'btn-icon',
+      options: '',
+      classList: 'modal__btn--close',
+      iconData: 'close',
+      onclick: 'modalCtl.closeModal()',
+    }) %>
+    <h1 class="modal__title headline-large">Xóa sản phẩm ra khỏi giỏ</h1>
+    <h2 class="modal__subtitle title-medium mt-12">Bạn có chắc chắn sẽ xóa sản
+      phảm này ra khỏi giỏ hàng của mình không?</h2>
+    <p class="modal__context body-small mt-12">Thao tác này không thể hoàn lại
+    </p>
+    <div class="btn__wrapper row mt-12">
+      <%- include('../../../components/button', {
+        type: '',
+        options: 'btn--outlined',
+        classList: 'col-6',
+        label: 'Hủy bỏ',
+        onclick: 'modalCtl.closeModal()',
+      }) %>
+      <%- include('../../../components/button', {
+        type: '',
+        options: 'btn--filled',
+        classList: 'col-6',
+        label: 'Đồng ý',
+        onclick: 'order',
+      }) %>
+      </form>
+    </div>
+  </div>
