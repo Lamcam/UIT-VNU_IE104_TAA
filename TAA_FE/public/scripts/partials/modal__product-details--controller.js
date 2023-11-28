@@ -13,17 +13,17 @@ modalItems.forEach((item) => {
   const btnView = item.querySelector('.product__button__view')
   const modalProduct = item.querySelector('.modal-product')
   btnView.addEventListener('click', () => {
-    modalProduct.classList.add('open')
+    modalProduct.classList.add('active')
   })
 
   const btnClosesProduct = item.querySelector('.button-close')
   // modalProduct close
   btnClosesProduct.addEventListener("click", () => {
-    modalProduct.classList.remove('open')
+    modalProduct.classList.remove('active')
   })
 
   modalProduct.addEventListener("click", () => {
-    modalProduct.classList.remove('open')
+    modalProduct.classList.remove('active')
   })
   const modalContainerProduct = item.querySelector('.modal-container--product')
   // nhấn bên ngoài thì popup đóng
