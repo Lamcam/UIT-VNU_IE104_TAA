@@ -2,7 +2,7 @@
 <div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
     <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
-    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_front">
   </div>
   <div class="product__body">
     <span class="material-symbols-outlined icon_heart error-text">
@@ -10,8 +10,8 @@
     </span>
     <h3 class="product__name body-large"><%- data.prod_name %></h3>
     <div class="product__price label-large">
-      <p class="product__price__current"><%- data.prod_cost * (1 - data.prod_discount) %> đ</p>
-      <p class="product__price__discount outline-variant-text"><%- data.prod_cost %> đ</p>
+      <p class="cost_value product__price__current"><%- data.prod_cost * (1 - data.prod_discount) %></p>
+      <p class="cost_value product__price__discount outline-variant-text"><%- data.prod_cost %></p>
     </div>
     <p class="product__discount title-medium error-text">Giảm <%- data.prod_discount * 100 %>%</p>
     <p class="product__stock label-large primary-text">Còn hàng</p>
@@ -93,7 +93,7 @@
           <div class="quantity__title label-large bold">Số lượng: </div>
           <div class="quantity__product outline-text label-large">
             <div id="decrement" class="quantity__product-decrement outline-text">-</div>
-            <input type="number" min="1" max="100" step="1" value="1" id="my-input" disabled>
+            <input type="number" min="1" max="<%- data.prod_num_avai %>" step="1" value="1" id="my-input" disabled>
             <div id="increment" class="quantity__product-increment outline-text">+</div>
           </div>
           <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
@@ -128,8 +128,8 @@
             </div>
             <ul class="context__detail__body">
               <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
-              <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm. </li>
-              <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn. </li>
+              <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm.</li>
+              <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn.</li>
             </ul>
           </div>
         </div>

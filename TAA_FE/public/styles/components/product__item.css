@@ -44,7 +44,7 @@
   transition: opacity 0.1s ease-in-out;
 }
 
-.product__item:hover .product__image .img_font {
+.product__item:hover .product__image .img_front {
   opacity: 0;
 }
 
