@@ -23,7 +23,7 @@
       <a href="/account/order">Mua ngay</a>
     </div>
   </div>
-  <div class="modal-product">
+  <div class="modal-product modal">
     <div class="modal-container--product">
       <div class="modal__img">
         <div class="img-display">
@@ -151,11 +151,18 @@
           </div>
         </div>
       </div>
-      <div class="button-close">
+      <%- include('./button', {
+        type: 'btn-icon',
+        options: '',
+        classList: 'modal__btn--close',
+        onclick: 'modalCtl.closeModal()',
+        iconData: 'close',
+      }) %>
+      <!-- <div class="button-close">
         <span class="material-symbols-outlined">
           close
         </span>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
