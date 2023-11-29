@@ -16,15 +16,15 @@ modalItems.forEach((item) => {
     modalProduct.classList.add('active')
   })
 
-  const btnClosesProduct = item.querySelector('.button-close')
-  // modalProduct close
-  btnClosesProduct.addEventListener("click", () => {
-    modalProduct.classList.remove('active')
-  })
+  // const btnClosesProduct = item.querySelector('.button-close')
+  // // modalProduct close
+  // btnClosesProduct.addEventListener("click", () => {
+  //   modalProduct.classList.remove('active')
+  // })
 
-  modalProduct.addEventListener("click", () => {
-    modalProduct.classList.remove('active')
-  })
+  // modalProduct.addEventListener("click", () => {
+  //   modalProduct.classList.remove('active')
+  // })
   const modalContainerProduct = item.querySelector('.modal-container--product')
   // nhấn bên ngoài thì popup đóng
   modalContainerProduct.addEventListener("click", function (event) {
