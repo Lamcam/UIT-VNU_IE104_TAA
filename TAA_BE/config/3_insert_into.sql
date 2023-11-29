@@ -1,3 +1,4 @@
+-- Active: 1698914213463@@127.0.0.1@3306@database_ie104
 USE DATABASE_IE104;
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_phone`, `user_email`, `user_pass`, `user_avatar_url`, `loca_default_id`) VALUES
@@ -273,9 +274,9 @@ INSERT INTO `productsimg` (`prod_id`, `prod_img_url`) VALUES
 ('prod0022', 'vi_2-5.webp'),
 ('prod0022', 'vi_2-6.webp'),
 ('prod0023', 'thiep_1-1.jfif'),
-('prod0023', 'thiep_1-2.jfif'),
+('prod0023', 'thiep_1-2.webp'),
 ('prod0023', 'thiep_1-3.jfif'),
-('prod0023', 'thiep_1-4.jfif'),
+('prod0023', 'thiep_1-4.webp'),
 ('prod0023', 'thiep_1-5.jfif'),
 ('prod0023', 'thiep_1-6.jfif'),
 ('prod0024', 'thiep_2-1.jfif'),
@@ -314,12 +315,12 @@ INSERT INTO `productsimg` (`prod_id`, `prod_img_url`) VALUES
 ('prod0029', 'day_deo_1-4.jfif'),
 ('prod0029', 'day_deo_1-5.jfif'),
 ('prod0029', 'day_deo_1-6.jfif'),
-('prod0030', 'day_deo_2-1.jfif'),
-('prod0030', 'day_deo_2-2.jfif'),
-('prod0030', 'day_deo_2-3.jfif'),
-('prod0030', 'day_deo_2-4.jfif'),
-('prod0030', 'day_deo_2-5.jfif'),
-('prod0030', 'day_deo_2-6.jfif'),
+('prod0030', 'day_deo_2-1.webp'),
+('prod0030', 'day_deo_2-2.webp'),
+('prod0030', 'day_deo_2-3.webp'),
+('prod0030', 'day_deo_2-4.webp'),
+('prod0030', 'day_deo_2-5.webp'),
+('prod0030', 'day_deo_2-6.webp'),
 ('prod0031', 'mu_non_1-1.webp'),
 ('prod0031', 'mu_non_1-2.webp'),
 ('prod0031', 'mu_non_1-3.webp'),
