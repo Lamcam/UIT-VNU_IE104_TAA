@@ -223,7 +223,7 @@ const cartSubmit = () => {
   window.location.href = '/account/order';
 }
 
-
+ 
 // $(document).on('change', () => {
 //   console.log('document clicked')
 //   updatePriceItem();

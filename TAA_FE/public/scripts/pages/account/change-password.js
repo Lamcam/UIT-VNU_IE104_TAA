@@ -3,7 +3,7 @@ function validateForm() {
   var oldPassword = document.getElementById("oldPassword").value;
   var newPassword = document.getElementById("newPassword").value;
   var confirmPassword = document.getElementById("confirmPassword").value;
-
+ 
   // Kiểm tra xem các trường có được điền đầy đủ không
   if (oldPassword === "" || newPassword === "" || confirmPassword === "") {
     alert("Vui lòng điền đầy đủ thông tin");

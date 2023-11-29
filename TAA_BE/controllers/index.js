@@ -22,7 +22,7 @@ index.groupProducts = (result) => {
     return r;
   }, [])
   return groupResult;
-}
+} 
  
 index.filter = (result,cate)=>{
   if(!cate) return result;

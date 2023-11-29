@@ -2,7 +2,7 @@
 const models = require('../models')
 
 const index = require('./index')
-
+ 
 function account() { }
 
 account.information = (req, res) => {
@@ -30,12 +30,12 @@ account.information = (req, res) => {
   //     data: result[0]
   //   })
   // })
-  res.status(200).render('pages/account/index')
+  res.status(200).render('pages/account/index',{data: 0} )
 }
 
 account.orders = (req, res) => {
   const { user } = req.cookies;
-
+ 
   // models.account.getOrders({ user }, (err, result) => {
   //   if (err) throw err;
 
@@ -59,7 +59,7 @@ account.orders = (req, res) => {
   //   })
   // })
 
-  res.status(200).render('pages/account/index')
+  res.status(200).render('pages/account/index',{data:1})
 }
 
 account.favorProducts = (req, res) => {
@@ -89,9 +89,9 @@ account.favorProducts = (req, res) => {
   //   })
   // })
 
-  res.status(200).render('pages/account/index')
+  res.status(200).render('pages/account/index',{data:2} )
 }
-
+ 
 account.cart = (req, res) => {
   const { id } = req.cookies;
 
@@ -166,7 +166,7 @@ account.order = (req, res) => {
   //     data: result
   //   })
   // })
-
+  
   res.status(200).render('pages/account/order')
 }
 

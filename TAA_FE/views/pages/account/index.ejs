@@ -16,6 +16,7 @@
 </head>
 
 <body>
+		 
 	<div id="main" class="on-primary">
 		<%- include('../../partials/header', { activeIdx: 0 }) %>
 		<%- include('../../partials/breadcrumbs', { 
@@ -420,6 +421,29 @@
 	<script src="/scripts/pages/account/main.js"></script>
 	<script src="/scripts/pages/account/change-password.js"></script>
 	<script src="/scripts/pages/account/review-popup.js"></script>
+	<script>
+		let navItems = document.querySelectorAll(".nav-tab__item")
+		
+		let flag = '<%= JSON.stringify(data) %>';
+		switch (flag) {
+			case '0':
+				showSection('section1');
+				addActiveClass(navItems[0],'active')
+				break;
+			case '1':
+				showSection('section2');
+				addActiveClass(navItems[1],'active')
+				break;
+			case '2':
+				showSection('section3');
+				addActiveClass(navItems[2],'active')
+				break;
+		
+			default:
+				break;
+		}
+
+	</script>
 
 
 </body>

@@ -20,7 +20,7 @@ function addActiveClass(element, activeClassName) {
   }
   element.classList.add(activeClassName);
 }
-
+  
 // Lắng nghe sự kiện click cho mỗi phần tử có class "nav-tab__item"
 var navTabItems = document.querySelectorAll(".nav-tab__item");
 navTabItems.forEach(function (item) {
