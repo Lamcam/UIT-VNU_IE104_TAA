@@ -30,7 +30,7 @@ account.information = (req, res) => {
   //     data: result[0]
   //   })
   // })
-  res.status(200).render('pages/account/index')
+  res.status(200).render('pages/account/index', { data: 0 })
 }
 
 account.orders = (req, res) => {
@@ -59,7 +59,7 @@ account.orders = (req, res) => {
   //   })
   // })
 
-  res.status(200).render('pages/account/index')
+  res.status(200).render('pages/account/index', { data: 1 })
 }
 
 account.favorProducts = (req, res) => {
@@ -89,7 +89,7 @@ account.favorProducts = (req, res) => {
   //   })
   // })
 
-  res.status(200).render('pages/account/index')
+  res.status(200).render('pages/account/index', { data: 2 })
 }
 
 account.cart = (req, res) => {

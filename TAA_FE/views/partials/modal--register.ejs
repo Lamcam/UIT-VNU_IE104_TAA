@@ -7,9 +7,6 @@
       onclick: 'modalCtl.closeModal()',
       iconData: 'close',
     }) %>
-    <!-- <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
-      <span class="status-layer icon material-symbols-outlined">close</span>
-    </button> -->
     <h1 class="modal__title headline-large">Đăng ký</h1>
     <form action="/auth/register" method="POST">
       <div class="form__row mt-24">
@@ -71,25 +68,15 @@
         label: 'Đăng ký',
         onclick: 'submit',
       }) %>
-      <!-- <button class="btn--filled label-large full-width mt-12" type="submit">
-        <div class="status-layer">
-          <span>Đăng ký</span>
-        </div>
-      </button> -->
     </form>
     <div class="form__row mt-12">
-      <%- include('../components/button', {
+      <%- include('../components/button', { 
         type: '',
         options: 'full-width',
         classList: 'mt-12',
         label: `Bạn có tài khoản rồi? <span class='highlight'>Đăng nhập ngay</span>`,
         onclick: 'modalCtl.nextModal(\'#modal--login\')',
       }) %>
-      <!-- <button class='btn- full-width label-large'
-        onclick='modalCtl.nextModal("#modal--login")'>
-        <span class="status-layer">Bạn có tài khoản rồi? <span
-            class='highlight'>Đăng nhập ngay</span></span>
-      </button> -->
     </div>
   </div>
 </div>
