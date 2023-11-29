@@ -1,0 +1,30 @@
+<!-- <div id="modal--noti-add-cart-success" class="modal-noti">
+  <div class="modal-container--noti on-primary-text">
+    <div class="noti__icon-check">
+      <span class="material-symbols-outlined icon--filled">
+        check_circle
+      </span>
+    </div>
+    <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
+    <div class="noti__btn button-close">
+      <span class="material-symbols-outlined">
+        close
+      </span>
+    </div>
+  </div>
+</div> -->
+<div id="modal--noti-add-cart-success" class="modal">
+  <div class="modal__content center primary on-primary-text">
+    <%- include('../components/button', {
+      type: 'btn-icon',
+      options: '',
+      classList: 'modal__btn--close',
+      onclick: 'modalCtl.closeModal()',
+      iconData: 'close',
+    }) %>
+    <div class="noti__icon-check">
+      <span class="material-symbols-outlined icon--filled">check_circle</span>
+    </div>
+    <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
+  </div>
+</div>

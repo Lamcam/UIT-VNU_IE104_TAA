@@ -5,9 +5,9 @@ const createCookie = (name, value, days) => {
   if (days) {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-    expires = "; expires=" + date.toUTCString();
+    expires = `; expires=${date.toUTCString()}`;
   }
-  document.cookie = name + "=" + value + expires + "; path=/";
+  document.cookie = `${encodeURIComponent(name)}=${value}${expires}; path=/`;
 }
 
 // Function to read a cookie
@@ -20,7 +20,7 @@ const readCookie = (name) => {
       cookie = cookie.substring(1, cookie.length);
     }
     if (cookie.indexOf(nameEQ) === 0) {
-      return cookie.substring(nameEQ.length, cookie.length);
+      return decodeURIComponent(cookie.substring(nameEQ.length, cookie.length));
     }
   }
   return null;

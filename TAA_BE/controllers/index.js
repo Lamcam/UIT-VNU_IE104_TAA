@@ -35,6 +35,4 @@ index.filter = (result,cate)=>{
 
 
 
-
-
 module.exports = index;

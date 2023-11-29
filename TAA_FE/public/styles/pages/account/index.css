@@ -814,10 +814,6 @@ input[type="radio"]:hover {
   margin-left: 24px;
 }
 
-.quantity__product input {
-  margin-top: -2px;
-}
-
 input[type="number"] {
   -moz-appearance: textfield;
   text-align: center;

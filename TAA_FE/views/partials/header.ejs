@@ -4,7 +4,7 @@
       <a href="/">
         <img class="header__logo" src="/logos/logo.svg" alt="Logo TAA">
       </a>
-      <form action="/products" method="GET">
+      <form id='searching-products' action="/products" method="GET">
       <span class="header__search search-bar hide-md hide-sm">
         <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search" id="search" name="q">
         <datalist id="data--search">
@@ -60,7 +60,7 @@
           }) %>
         </a>
         <label for="header__user--controller" class="header__user--controller__label">
-          <span class="header__name">Nguyễn Văn A</span>
+          <span class="header__name"></span>
           <img class="header__avatar" src="/imgs/users/avatar.png" alt="Avatar">
         </label>
         <input type="checkbox" id="header__user--controller">
