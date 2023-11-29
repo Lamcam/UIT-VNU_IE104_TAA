@@ -1,6 +1,6 @@
 const addToCart = () => {
   const checkAuthenticated = authCtl.checkAuthenticated();
-  console.log(checkAuthenticated)
+  // console.log(checkAuthenticated)
   if (checkAuthenticated) {
     const modalActived = document.querySelector('.modal-product.active')
     const productID = modalActived.querySelector('[data-prod-id]').dataset.prodId;
@@ -9,9 +9,6 @@ const addToCart = () => {
       id: cookieHder.readCookie('id'),
       prodId: productID
     }
-
-    modalCtl.closeModal()
-    modalCtl.openModal('#modal--noti-add-cart-success')
 
     fetch('/account/cart/add', {
       method: 'POST',
@@ -23,8 +20,8 @@ const addToCart = () => {
       .then(data => {
         if (data.statusCode == 200) {
           modalCtl.closeModal()
-          // modalCtl.openModal('#modal--noti-add-cart-success')
-          // modalCtl.closeModalAfterTime(1000)
+          modalCtl.openModal('#modal--noti-add-cart-success')
+          modalCtl.closeModalAfterTime(1000)
         } else if (data.statusCode == 409) {
           alert('Sản phẩm này đã tồn tại trong giỏ hàng của bạn')
         }

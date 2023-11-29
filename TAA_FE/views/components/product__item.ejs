@@ -24,9 +24,9 @@
     </div>
   </div>
   <div class="modal-product modal">
-    <div class="modal-container--product">
-      <div class="modal__img">
-        <div class="img-display">
+    <div class="modal-container--product modal__content row">
+      <div class="modal__img row col-12 col-lg-6">
+        <div class="img-display col-12">
           <div class="img-showcase">
             <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Product img">
             <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Product img">
@@ -46,30 +46,30 @@
             </span>
           </button>
         </div>
-        <div class="img-select">
-          <div class="img-item">
+        <div class="img-select row col-12">
+          <div class="img-item col-3">
             <a href="#" data-id="1">
               <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="product image">
             </a>
           </div>
-          <div class="img-item">
+          <div class="img-item col-3">
             <a href="#" data-id="2">
               <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="product image">
             </a>
           </div>
-          <div class="img-item">
+          <div class="img-item col-3">
             <a href="#" data-id="3">
               <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[2] %>" alt="product image">
             </a>
           </div>
-          <div class="img-item">
+          <div class="img-item col-3">
             <a href="#" data-id="4">
               <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="product image">
             </a>
           </div>
         </div>
       </div>
-      <div class="modal__body">
+      <div class="modal__body col-12 col-lg-6">
         <p class="modal__product__name headline-medium"><%- data.prod_name %></p>
         <div class="modal__info__rate">
           <div class="rate__star title-medium">
@@ -98,10 +98,6 @@
           <p class="cost__discount headline-small"><%- data.prod_cost * (1 - data.prod_discount) %> đ</p>
           <div class="percent__discount body-medium">Giảm <%- data.prod_discount * 100 %></div>
         </div>
-        <!-- <div class="modal__color label-large">
-          <p class="color__title bold">Màu sắc:</p>
-          <div class="color__value outline-text">Xanh lá cây</div>
-        </div> -->
         <div class="modal__size label-large">
           <p class="size__title bold">Kích thước:</p>
           <div class="size__value outline-text">Freestyle</div>
@@ -139,7 +135,7 @@
               <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
             </ul>
           </div>
-          <div class="context__detail mt-24">
+          <div class="context__detail mt-12">
             <div class="context__detail__title">
               THÔNG TIN THƯƠNG HIỆU:
             </div>
@@ -158,11 +154,6 @@
         onclick: 'modalCtl.closeModal()',
         iconData: 'close',
       }) %>
-      <!-- <div class="button-close">
-        <span class="material-symbols-outlined">
-          close
-        </span>
-      </div> -->
     </div>
   </div>
 </div>

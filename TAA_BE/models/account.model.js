@@ -54,7 +54,6 @@ accountModel.addCart = ({id, prodId}, callback) => {
   db.query(sql, params, (err, result) => {
     callback(err, result)
   })
-
 }
 
 accountModel.deleteCart = ({ id, prodId }, callback) => {

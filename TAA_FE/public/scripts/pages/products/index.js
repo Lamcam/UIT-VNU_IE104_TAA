@@ -88,7 +88,6 @@ for (let item of items) {
 // }
 
 // const dropdowns = document.querySelectorAll('.dropdown');
-
 const select = document.querySelector(".select");
 const caret = document.querySelector(".caret");
 const menu = document.querySelector(".menu");
@@ -147,7 +146,6 @@ iconHearts.forEach((iconHeart) => {
 
 //AN làm
 const category = document.querySelectorAll(".category");
-
 function createProduct(item) {
   let path = "/imgs/products/" + item.cate_name + "/";
   // Create the outer container div
@@ -376,7 +374,7 @@ function createProduct(item) {
 
   const buttonView = document.createElement("button");
   // buttonView.className = "button__view btn--filled btn-filled";
-  buttonView.classList.add('btn-filled', 'button__view', 'btn--filled') 
+  buttonView.classList.add('btn-filled', 'button__view', 'btn--filled')
 
   buttonView.innerHTML =
     "<a class='status-layer' href='/products/detail?id='" + item.prod_id + ">Xem chi tiết</a>";
@@ -589,51 +587,51 @@ function createProduct(item) {
 
   // notification
 
-    // Create the main container div with class "modal-noti"
-    const modalNotiDiv = document.createElement('div');
-    modalNotiDiv.classList.add('modal-noti');
+  // Create the main container div with class "modal-noti"
+  const modalNotiDiv = document.createElement('div');
+  modalNotiDiv.classList.add('modal-noti');
 
-    // Create the container div with classes "modal-container--noti" and "on-primary-text"
-    const modalContainerDiv = document.createElement('div');
-    modalContainerDiv.classList.add('modal-container--noti', 'on-primary-text');
+  // Create the container div with classes "modal-container--noti" and "on-primary-text"
+  const modalContainerDiv = document.createElement('div');
+  modalContainerDiv.classList.add('modal-container--noti', 'on-primary-text');
 
-    // Create the div with class "noti__icon-check"
-    const notiIconCheckDiv = document.createElement('div');
-    notiIconCheckDiv.classList.add('noti__icon-check');
+  // Create the div with class "noti__icon-check"
+  const notiIconCheckDiv = document.createElement('div');
+  notiIconCheckDiv.classList.add('noti__icon-check');
 
-    // Create the span with classes "material-symbols-outlined" and "icon--filled"
-    const iconSpan = document.createElement('span');
-    iconSpan.classList.add('material-symbols-outlined', 'icon--filled');
-    iconSpan.textContent = 'check_circle';
+  // Create the span with classes "material-symbols-outlined" and "icon--filled"
+  const iconSpan = document.createElement('span');
+  iconSpan.classList.add('material-symbols-outlined', 'icon--filled');
+  iconSpan.textContent = 'check_circle';
 
-    // Append the icon span to the "noti__icon-check" div
-    notiIconCheckDiv.appendChild(iconSpan);
+  // Append the icon span to the "noti__icon-check" div
+  notiIconCheckDiv.appendChild(iconSpan);
 
-    // Create the paragraph element with class "noti__text" and text content
-    const textParagraph = document.createElement('p');
-    textParagraph.classList.add('noti__text', 'headline-large');
-    textParagraph.textContent = 'Thêm vào giỏ hàng thành công';
+  // Create the paragraph element with class "noti__text" and text content
+  const textParagraph = document.createElement('p');
+  textParagraph.classList.add('noti__text', 'headline-large');
+  textParagraph.textContent = 'Thêm vào giỏ hàng thành công';
 
-    // Create the div with class "noti__btn"
-    const notiBtnDiv = document.createElement('div');
-    notiBtnDiv.classList.add('noti__btn', 'button-close');
+  // Create the div with class "noti__btn"
+  const notiBtnDiv = document.createElement('div');
+  notiBtnDiv.classList.add('noti__btn', 'button-close');
 
-    // Create the span with class "material-symbols-outlined" and text content
-    const closeSpan = document.createElement('span');
-    closeSpan.classList.add('material-symbols-outlined');
-    closeSpan.textContent = 'close';
+  // Create the span with class "material-symbols-outlined" and text content
+  const closeSpan = document.createElement('span');
+  closeSpan.classList.add('material-symbols-outlined');
+  closeSpan.textContent = 'close';
 
-    // Append the close span to the "noti__btn" div
-    notiBtnDiv.appendChild(closeSpan);
+  // Append the close span to the "noti__btn" div
+  notiBtnDiv.appendChild(closeSpan);
 
-    // Append the child elements to their respective parent elements
-    modalContainerDiv.appendChild(notiIconCheckDiv);
-    modalContainerDiv.appendChild(textParagraph);
-    modalContainerDiv.appendChild(notiBtnDiv);
-    modalNotiDiv.appendChild(modalContainerDiv);
+  // Append the child elements to their respective parent elements
+  modalContainerDiv.appendChild(notiIconCheckDiv);
+  modalContainerDiv.appendChild(textParagraph);
+  modalContainerDiv.appendChild(notiBtnDiv);
+  modalNotiDiv.appendChild(modalContainerDiv);
 
-    // Append the main container div to the document body
-    productItem.appendChild(modalNotiDiv);
+  // Append the main container div to the document body
+  productItem.appendChild(modalNotiDiv);
 }
 // add Js to pop
 function addInteractPopUp() {
@@ -690,17 +688,17 @@ function addInteractPopUp() {
     });
     // modalNoti btn--close
 
-      btnCloseNoti.addEventListener("click", () => {
-        modalNoti.classList.remove("active");
-      });
+    btnCloseNoti.addEventListener("click", () => {
+      modalNoti.classList.remove("active");
+    });
 
-      modalNoti.addEventListener("click", () => {
-        modalNoti.classList.remove("active");
-      });
-      // nhấn bên ngoài thì popup đóng
-      modalContainerNoti.addEventListener("click", function(event) {
-        event.stopPropagation();
-      });
+    modalNoti.addEventListener("click", () => {
+      modalNoti.classList.remove("active");
+    });
+    // nhấn bên ngoài thì popup đóng
+    modalContainerNoti.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
 
     // modalProduct change image product
     const imgs = item.querySelectorAll(".img-select a");
@@ -731,9 +729,8 @@ function addInteractPopUp() {
         ".img-showcase img:first-child"
       ).clientWidth;
 
-      item.querySelector(".img-showcase").style.transform = `translateX(${
-        -(imgId - 1) * displayWidth
-      }px)`;
+      item.querySelector(".img-showcase").style.transform = `translateX(${-(imgId - 1) * displayWidth
+        }px)`;
     }
 
     window.addEventListener("resize", slideImage);
@@ -764,28 +761,28 @@ function addInteractPopUp() {
     const prevBtn = item.querySelector('.prevBtn');
     const nextBtn = item.querySelector('.nextBtn');
     console.log(prevBtn);
-  
+
     prevBtn.addEventListener('click', () => changeImage(-1));
     nextBtn.addEventListener('click', () => changeImage(1));
-   
+
     function changeImage(direction) {
       imgId += direction;
-   
+
       // Kiểm tra nếu imgId vượt quá giới hạn trái/phải
       if (imgId < 1) {
         imgId = imgBtns.length;
       } else if (imgId > imgBtns.length) {
         imgId = 1;
       }
-  
+
       // Loại bỏ lớp 'active__selected' từ tất cả các hình ảnh
       imgBtns.forEach((item) => {
         item.classList.remove('active__selected');
       });
-  
+
       // Thêm lớp 'active__selected' cho hình ảnh hiện tại
       imgBtns[imgId - 1].classList.add('active__selected');
-  
+
       // Chuyển ảnh
       slideImage();
     }
@@ -805,8 +802,7 @@ category.forEach((item) => {
       body: JSON.stringify({
         category: selectedCategory,
       }),
-    })
-      .then((respone) => respone.json())
+    }).then((respone) => respone.json())
       .then((data) => {
         console.log("this is data :", data.result);
         $(".product__wrapper").empty();
