@@ -93,8 +93,8 @@ modalItems.forEach((item) => {
 
   window.addEventListener('resize', slideImage);
 
-  const prevBtn = item.querySelector('#prevBtn');
-  const nextBtn = item.querySelector('#nextBtn');
+  const prevBtn = item.querySelector('.prevBtn');
+  const nextBtn = item.querySelector('.nextBtn');
 
   prevBtn.addEventListener('click', () => changeImage(-1));
   nextBtn.addEventListener('click', () => changeImage(1));
