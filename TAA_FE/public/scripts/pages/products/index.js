@@ -51,43 +51,6 @@ for (let item of items) {
   item.addEventListener("click", showSubMenu);
 }
 
-// const productButtons = document.querySelectorAll(".product__button");
-
-// productButtons.forEach((button) => {
-//     button.addEventListener("click", effectButton);
-// });
-
-// function effectButton() {
-//     if (this.classList.contains("effect")) {
-//         this.classList.remove("effect");
-//         return;
-//     }
-//     const countEffects = document.querySelectorAll(".effect");
-//     countEffects.forEach((element) => {
-//         element.classList.remove("effect");
-//     });
-//     const productBtnSelect = document.querySelector(".product__button-select");
-//     if (productBtnSelect.classList.contains("select__btn")) {
-//         productBtnSelect.classList.remove("select__btn");
-//         productBtnSelect.classList.add("cancel__select");
-//     }
-//     if (productBtnSelect.classList.contains("select-clicked")) {
-//         productBtnSelect.classList.remove("select-clicked");
-//     }
-//     const caret = document.querySelector(".caret");
-//     if (caret.classList.contains("caret-rotate")) {
-//         caret.classList.remove("caret-rotate");
-//     }
-//     const menu = document.querySelector(".menu");
-//     if (menu.classList.contains("menu-open")) {
-//         menu.classList.remove("menu-open");
-//     }
-//     const selected = document.querySelector(".selected");
-//     if (selected.innerHTML != "Giá") selected.innerText = "Giá";
-//     this.classList.add("effect");
-// }
-
-// const dropdowns = document.querySelectorAll('.dropdown');
 const select = document.querySelector(".select");
 const caret = document.querySelector(".caret");
 const menu = document.querySelector(".menu");
@@ -101,47 +64,10 @@ select.addEventListener("click", () => {
   menu.classList.toggle("menu-open");
 });
 
-// options.forEach((option) => {
-//     option.addEventListener("click", () => {
-//         selected.innerText = option.innerText;
-//         caret.classList.remove("caret-rotate");
-//         select.classList.add("select__btn");
-//         select.classList.remove("select-clicked");
-
-//         if (select.classList.contains("cancel__select")) {
-//             select.classList.remove("cancel__select");
-//             select.classList.add("select__btn");
-//         }
-//         cancel.addEventListener("click", () => {
-//             select.classList.add("cancel__select");
-//             select.classList.remove("select__btn");
-//             selected.innerText = "Giá";
-//         });
-//         const countEffects = document.querySelectorAll(".effect");
-//         countEffects.forEach((element) => {
-//             element.classList.remove("effect");
-//         });
-//         menu.classList.remove("menu-open");
-//         options.forEach((option) => {
-//             option.classList.remove("select__active");
-//         });
-
-//         option.classList.add("select__active");
-//     });
-// });
-
-// item icon_heart product
-const iconHearts = document.querySelectorAll(".icon_heart");
-iconHearts.forEach((iconHeart) => {
-  iconHeart.addEventListener("click", () => {
-    if (iconHeart.classList.contains("icon--filled")) {
-      iconHeart.classList.remove("icon--filled");
-      iconHeart.innerText = "heart_plus";
-      return;
-    }
-    iconHeart.innerText = "favorite";
-    iconHeart.classList.add("icon--filled");
-  });
+cancel.addEventListener("click", () => {
+  select.classList.add("cancel__select");
+  select.classList.remove("select__btn");
+  selected.innerText = "Giá";
 });
 
 //AN làm
@@ -851,86 +777,86 @@ $(document).on("click", ".title_aside_item", function () {
 const discountSort = document.querySelector(".discount");
 let qExists = window.location.search.includes("search");
 discountSort.addEventListener("click", function () {
-    const hasEffectDiscount = discountSort.classList.contains("effect");
-    let href = "";
-    console.log(hasEffectDiscount);
-    if (!hasEffectDiscount) {
-        href = qExists
-            ? window.location.search.split("&")[0] + "&discount=true"
-            : "?discount=true";
-    } else {
-        href = qExists
-            ? window.location.search.split("&")[0]
-            : "?discount=true";
-    }
-    console.log(href);
-    // fetch("/products/search" + href)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         $(".product__wrapper").empty();
-    //         data.result.forEach((product) => {
-    //             createProduct(product);
-    //         });
-    //     })
-    //     .catch((error) => {
-    //         console.error("Đã xảy ra lỗi:", error);
-    //     });
-    window.location.href = "/products" + href;
+  const hasEffectDiscount = discountSort.classList.contains("effect");
+  let href = "";
+  console.log(hasEffectDiscount);
+  if (!hasEffectDiscount) {
+    href = qExists
+      ? window.location.search.split("&")[0] + "&discount=true"
+      : "?discount=true";
+  } else {
+    href = qExists
+      ? window.location.search.split("&")[0]
+      : "?discount=true";
+  }
+  console.log(href);
+  // fetch("/products/search" + href)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //         $(".product__wrapper").empty();
+  //         data.result.forEach((product) => {
+  //             createProduct(product);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //         console.error("Đã xảy ra lỗi:", error);
+  //     });
+  window.location.href = "/products" + href;
 });
 const bestsellerSort = document.querySelector(".best-seller");
 bestsellerSort.addEventListener("click", function () {
-    const hasEffectBestseller = bestsellerSort.classList.contains("effect");
-    let href = "";
-    console.log(hasEffectBestseller);
-    if (!hasEffectBestseller) {
-        href = qExists
-            ? window.location.search.split("&")[0] + "&bestseller=true"
-            : "?bestseller=true";
-    } else {
-        href = qExists
-            ? window.location.search.split("&")[0]
-            : "?bestseller=true";
-    }
-    // fetch("/products/search" + href)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         $(".product__wrapper").empty();
-    //         data.result.forEach((product) => {
-    //             createProduct(product);
-    //         });
-    //     })
-    //     .catch((error) => {
-    //         console.error("Đã xảy ra lỗi:", error);
-    //     });
-    window.location.href = "/products" + href;
+  const hasEffectBestseller = bestsellerSort.classList.contains("effect");
+  let href = "";
+  console.log(hasEffectBestseller);
+  if (!hasEffectBestseller) {
+    href = qExists
+      ? window.location.search.split("&")[0] + "&bestseller=true"
+      : "?bestseller=true";
+  } else {
+    href = qExists
+      ? window.location.search.split("&")[0]
+      : "?bestseller=true";
+  }
+  // fetch("/products/search" + href)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //         $(".product__wrapper").empty();
+  //         data.result.forEach((product) => {
+  //             createProduct(product);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //         console.error("Đã xảy ra lỗi:", error);
+  //     });
+  window.location.href = "/products" + href;
 });
 
 const costAZ = document.querySelector(".cost-az");
 const checkAZ = document.querySelector("selected");
 costAZ.addEventListener("click", function () {
-    const hasEffectCostAZ = selected.innerHTML == "Giá: Từ thấp đến cao";
-    let href = "";
-    console.log(hasEffectCostAZ);
-    if (!hasEffectCostAZ) {
-        href = qExists
-            ? window.location.search.split("&")[0] + "&costAZ=true"
-            : "?costAZ=true";
-    } else {
-        href = qExists ? window.location.search.split("&")[0] : "?costAZ=true";
-    }
-    console.log(href);
-    // fetch("/products/search" + href)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         $(".product__wrapper").empty();
-    //         data.result.forEach((product) => {
-    //             createProduct(product);
-    //         });
-    //     })
-    //     .catch((error) => {
-    //         console.error("Đã xảy ra lỗi:", error);
-    //     });
-    window.location.href = "/products" + href;
+  const hasEffectCostAZ = selected.innerHTML == "Giá: Từ thấp đến cao";
+  let href = "";
+  console.log(hasEffectCostAZ);
+  if (!hasEffectCostAZ) {
+    href = qExists
+      ? window.location.search.split("&")[0] + "&costAZ=true"
+      : "?costAZ=true";
+  } else {
+    href = qExists ? window.location.search.split("&")[0] : "?costAZ=true";
+  }
+  console.log(href);
+  // fetch("/products/search" + href)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //         $(".product__wrapper").empty();
+  //         data.result.forEach((product) => {
+  //             createProduct(product);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //         console.error("Đã xảy ra lỗi:", error);
+  //     });
+  window.location.href = "/products" + href;
 });
 const costZA = document.querySelector(".cost-za");
 const checkZA = document.querySelector("selected");
@@ -939,24 +865,24 @@ costZA.addEventListener("click", function () {
   let href = "";
   console.log(hasEffectCostZA);
 
-    if (!hasEffectCostZA) {
-        href = qExists
-            ? window.location.search.split("&")[0] + "&costZA=true"
-            : "?costZA=true";
-    } else {
-        href = qExists ? window.location.search.split("&")[0] : "?costZA=true";
-    }
-    console.log(href);
-    // fetch("/products/search" + href)
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //         $(".product__wrapper").empty();
-    //         data.result.forEach((product) => {
-    //             createProduct(product);
-    //         });
-    //     })
-    //     .catch((error) => {
-    //         console.error("Đã xảy ra lỗi:", error);
-    //     });
-    window.location.href = "/products" + href;
+  if (!hasEffectCostZA) {
+    href = qExists
+      ? window.location.search.split("&")[0] + "&costZA=true"
+      : "?costZA=true";
+  } else {
+    href = qExists ? window.location.search.split("&")[0] : "?costZA=true";
+  }
+  console.log(href);
+  // fetch("/products/search" + href)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //         $(".product__wrapper").empty();
+  //         data.result.forEach((product) => {
+  //             createProduct(product);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //         console.error("Đã xảy ra lỗi:", error);
+  //     });
+  window.location.href = "/products" + href;
 });

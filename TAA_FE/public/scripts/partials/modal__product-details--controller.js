@@ -1,4 +1,4 @@
-// const authCtl = require("../modules/auth--handler")
+// const authCtl = require("../modules/auth--handler");
 // import authCtl from '../modules/auth--handler.js';
 
 // modalProduct open
@@ -25,24 +25,24 @@ modalItems.forEach((item) => {
   // modalProduct.addEventListener("click", () => {
   //   modalProduct.classList.remove('active')
   // })
-  const modalContainerProduct = item.querySelector('.modal-container--product')
-  // nhấn bên ngoài thì popup đóng
-  modalContainerProduct.addEventListener("click", function (event) {
-    event.stopPropagation()
-  })
+  // const modalContainerProduct = item.querySelector('.modal-container--product')
+  // // nhấn bên ngoài thì popup đóng
+  // modalContainerProduct.addEventListener("click", function (event) {
+  //   event.stopPropagation()
+  // })
 
   // modalNoti open
-  const btnCloseNoti = item.querySelector('.modal-noti .button-close')
-  const modalNoti = item.querySelector('.modal-noti')
-  const modalContainerNoti = item.querySelector('.modal-container--noti')
-  const modalButtonCart = item.querySelector('.button__cart')
-  const modalButtonView = item.querySelector('.button__view')
+  // const btnCloseNoti = item.querySelector('.modal-noti .button-close')
+  // const modalNoti = item.querySelector('.modal-noti')
+  // const modalContainerNoti = item.querySelector('.modal-container--noti')
+  // const modalButtonCart = item.querySelector('.button__cart')
+  // const modalButtonView = item.querySelector('.button__view')
 
-  // chuyển trang chi tiết sản phẩm
-  modalButtonView.addEventListener("click", () => {
-    // window.location.href=""
-    // window.alert("hello")
-  })
+  // // chuyển trang chi tiết sản phẩm
+  // modalButtonView.addEventListener("click", () => {
+  //   // window.location.href=""
+  //   // window.alert("hello")
+  // })
 
   // // modalNoti open, modalProduct close
   // modalButtonCart.addEventListener("click", () => {
@@ -85,9 +85,8 @@ modalItems.forEach((item) => {
     });
   });
 
-  function slideImage() {
+  const slideImage = () =>{
     const displayWidth = item.querySelector('.img-showcase img:first-child').clientWidth;
-
     item.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
   }
 
@@ -143,11 +142,16 @@ modalItems.forEach((item) => {
   incrementBtn.addEventListener("click", () => stepper("increment"));
 })
 
-// const addCart = document.querySelectorAll('.button__cart')
-// addCart.forEach((item) => {
-//   item.addEventListener('click', () => {
-//     if (authCtl.checkAuthenticated()) {
-
-//     }
-//   })
-// })
+// item icon_heart product
+const iconHearts = document.querySelectorAll('.icon_heart')
+iconHearts.forEach(iconHeart => {
+  iconHeart.addEventListener("click", () => {
+    if (iconHeart.classList.contains("icon--filled")) {
+      iconHeart.classList.remove("icon--filled")
+      iconHeart.innerText = "heart_plus"
+    } else {
+      iconHeart.innerText = "favorite"
+      iconHeart.classList.add("icon--filled")
+    }
+  })
+})
