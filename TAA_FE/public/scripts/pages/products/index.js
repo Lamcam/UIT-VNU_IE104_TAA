@@ -88,7 +88,6 @@ function effectButton() {
 }
 
 // const dropdowns = document.querySelectorAll('.dropdown');
-
 const select = document.querySelector(".select");
 const caret = document.querySelector(".caret");
 const menu = document.querySelector(".menu");
@@ -147,7 +146,6 @@ iconHearts.forEach((iconHeart) => {
 
 //AN làm
 const category = document.querySelectorAll(".category");
-
 function createProduct(item) {
   let path = "/imgs/products/" + item.cate_name + "/";
   // Create the outer container div
@@ -275,7 +273,7 @@ function createProduct(item) {
 category.forEach((item) => {
   item.addEventListener("click", () => {
     const selectedCategory = item.dataset.category;
-    fetch("http://localhost:3000/products/category", {
+    fetch("/products/category", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -284,8 +282,7 @@ category.forEach((item) => {
       body: JSON.stringify({
         category: selectedCategory,
       }),
-    })
-      .then((respone) => respone.json())
+    }).then((respone) => respone.json())
       .then((data) => {
         console.log("this is data :", data.result);
         $(".product__wrapper").empty();

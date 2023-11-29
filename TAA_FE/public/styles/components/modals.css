@@ -19,12 +19,13 @@
   animation: modalFadeIn ease 0.5s;
 
   position: relative;
-  margin: 15rem auto 0 auto;
+  margin: 15rem auto;
   padding: 4rem 5rem;
   border: 1px solid #888;
   max-width: 60rem;
   width: 90%;
   min-height: 30rem;
+  height: auto;
 
   border-radius: 1rem;
 
