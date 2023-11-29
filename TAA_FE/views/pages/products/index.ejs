@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="/styles/pages/base.css">
   <link rel="stylesheet" href="/styles/pages/products/index.css">
   <title>TAA - Trang sản phẩm</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 </head>
 
 <body>
@@ -28,24 +30,43 @@
       <div class="container">
         <div class="product__filter visible">
           <p class="product__title label-large on-surface-text">Sắp xếp theo</p>
+          <% if(message.discount) { %>
+          <button class="product__button js-button btn--outlined discount effect">
+            <span class="material-symbols-outlined icon-check">
+              check
+            </span>
+            Giảm giá
+          </button>
+        <% } else { %>
           <button class="product__button js-button btn--outlined discount">
             <span class="material-symbols-outlined icon-check">
               check
             </span>
             Giảm giá
           </button>
-          <button class="product__button js-button btn--outlined best-seller">
+          <% } %>
+        <% if(message.bestseller) { %>
+          <button class="product__button js-button btn--outlined best-seller effect">
             <span class="material-symbols-outlined icon-check">
               check
             </span>
             Bán chạy nhất
           </button>
-          <div class="dropdown label-large">
-            <div class="select product__button-select">
+          <% } else { %>
+            <button class="product__button js-button btn--outlined best-seller">
               <span class="material-symbols-outlined icon-check">
                 check
               </span>
-              <span class="selected selected2">Giá</span>
+              Bán chạy nhất
+            </button>
+            <% } %>
+            <% if(message.costAZ) { %>
+          <div class="dropdown label-large">
+            <div class="select product__button-select select__btn">
+              <span class="material-symbols-outlined icon-check">
+                check
+              </span>
+              <span class="selected selected2">Giá: Từ thấp đến cao</span>
               <div class="caret"></div>
               <span class="material-symbols-outlined icon-cancel">
                 close
@@ -56,6 +77,42 @@
               <li class="cost-za">Giá: Từ cao đến thấp</li>
             </ul>
           </div>
+          <% } else if(message.costZA) { %>
+            <div class="dropdown label-large">
+              <div class="select product__button-select select__btn">
+                <span class="material-symbols-outlined icon-check">
+                  check
+                </span>
+                <span class="selected selected2">Giá: Từ cao đến thấp</span>
+                <div class="caret"></div>
+                <span class="material-symbols-outlined icon-cancel">
+                  close
+                </span>
+              </div>
+              <ul class="menu">
+                <li class="cost-az">Giá: Từ thấp đến cao</li>
+                <li class="cost-za select__active">Giá: Từ cao đến thấp</li>
+              </ul>
+            </div>
+            <% } else { %>
+              <div class="dropdown label-large">
+                <div class="select product__button-select">
+                  <span class="material-symbols-outlined icon-check">
+                    check
+                  </span>
+                  <span class="selected selected2">Giá</span>
+                  <div class="caret"></div>
+                  <span class="material-symbols-outlined icon-cancel">
+                    close
+                  </span>
+                </div>
+                <ul class="menu">
+                  <li class="select__active cost-az">Giá: Từ thấp đến cao</li>
+                  <li class="cost-za">Giá: Từ cao đến thấp</li>
+                </ul>
+              </div>
+              <% } %>
+
         </div>
       </div>
     </div>
@@ -64,7 +121,7 @@
       <div class="row mt-12">
         <aside class="aside col-12 col-lg-3">
           <ul class="aside__list body-large primary-text visible">
-            <li class="aside__item">
+            <li class="aside__item title_aside_item">
               <span class="aside__item__title">
                 <span class="material-symbols-outlined icon-menu">
                   menu
