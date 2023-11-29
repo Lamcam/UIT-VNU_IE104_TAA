@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="/styles/pages/base.css">
   <link rel="stylesheet" href="/styles/pages/products/index.css">
   <title>TAA - Trang sản phẩm</title>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 </head>
 
@@ -30,89 +29,44 @@
       <div class="container">
         <div class="product__filter visible">
           <p class="product__title label-large on-surface-text">Sắp xếp theo</p>
-          <% if(message.discount) { %>
-          <button class="product__button js-button btn--outlined discount effect">
-            <span class="material-symbols-outlined icon-check">
+          <button class="btn-icon-label product__button js-button btn--outlined discount <%= message.discount ? 'effect' : '' %>">
+            <span class="icon material-symbols-outlined icon-check">
               check
             </span>
-            Giảm giá
+            <span class="label">Giảm Giá</span>
           </button>
-        <% } else { %>
-          <button class="product__button js-button btn--outlined discount">
-            <span class="material-symbols-outlined icon-check">
-              check
-            </span>
-            Giảm giá
-          </button>
-          <% } %>
-        <% if(message.bestseller) { %>
-          <button class="product__button js-button btn--outlined best-seller effect">
+
+          <button class="product__button js-button btn--outlined best-seller <%= message.bestseller ? 'effect' : '' %>">
             <span class="material-symbols-outlined icon-check">
               check
             </span>
             Bán chạy nhất
           </button>
-          <% } else { %>
-            <button class="product__button js-button btn--outlined best-seller">
-              <span class="material-symbols-outlined icon-check">
-                check
-              </span>
-              Bán chạy nhất
-            </button>
-            <% } %>
-            <% if(message.costAZ) { %>
+
           <div class="dropdown label-large">
-            <div class="select product__button-select select__btn">
+            <div class="select product__button-select <%= (message.costAZ || message.costZA) ? 'select__btn' : '' %>">
               <span class="material-symbols-outlined icon-check">
                 check
               </span>
-              <span class="selected selected2">Giá: Từ thấp đến cao</span>
+              <span class="selected selected2">
+                <% if (message.costAZ) { %>
+                Giá: Từ thấp đến cao
+                <% } else if (message.costZA) { %>
+                Giá: Từ cao đến thấp
+                <% } else { %>
+                Giá
+                <% } %>
+              </span>
               <div class="caret"></div>
               <span class="material-symbols-outlined icon-cancel">
                 close
               </span>
             </div>
             <ul class="menu">
-              <li class="select__active cost-az">Giá: Từ thấp đến cao</li>
-              <li class="cost-za">Giá: Từ cao đến thấp</li>
+              <li class="<%= (message.costAZ) ? 'select__active' : '' %> cost-az">Giá: Từ thấp đến cao</li>
+              <li class="<%= (message.costZA) ? 'select__active' : '' %> cost-za">Giá: Từ cao đến thấp</li>
             </ul>
           </div>
-          <% } else if(message.costZA) { %>
-            <div class="dropdown label-large">
-              <div class="select product__button-select select__btn">
-                <span class="material-symbols-outlined icon-check">
-                  check
-                </span>
-                <span class="selected selected2">Giá: Từ cao đến thấp</span>
-                <div class="caret"></div>
-                <span class="material-symbols-outlined icon-cancel">
-                  close
-                </span>
-              </div>
-              <ul class="menu">
-                <li class="cost-az">Giá: Từ thấp đến cao</li>
-                <li class="cost-za select__active">Giá: Từ cao đến thấp</li>
-              </ul>
-            </div>
-            <% } else { %>
-              <div class="dropdown label-large">
-                <div class="select product__button-select">
-                  <span class="material-symbols-outlined icon-check">
-                    check
-                  </span>
-                  <span class="selected selected2">Giá</span>
-                  <div class="caret"></div>
-                  <span class="material-symbols-outlined icon-cancel">
-                    close
-                  </span>
-                </div>
-                <ul class="menu">
-                  <li class="select__active cost-az">Giá: Từ thấp đến cao</li>
-                  <li class="cost-za">Giá: Từ cao đến thấp</li>
-                </ul>
-              </div>
-              <% } %>
-
         </div>
       </div>
     </div>
@@ -200,7 +154,7 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
   <script src="/scripts/pages/products/index.js"></script>
-  <script src="/scripts/partials/modal__product-details--controller.js"></script>
+  <script src="/scripts/partials/product__item.js"></script>
 
 </body>
 
