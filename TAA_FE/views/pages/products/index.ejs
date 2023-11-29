@@ -60,7 +60,7 @@
       <div class="row mt-12">
         <aside class="aside col-12 col-lg-3">
           <ul class="aside__list body-large primary-text visible">
-            <li class="aside__item">
+            <li class="aside__item title_aside_item">
               <span class="aside__item__title">
                 <span class="material-symbols-outlined icon-menu">
                   menu
@@ -738,6 +738,9 @@ parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
         const imgs = item.querySelectorAll(".img-select a");
         const imgBtns = [...imgs];
         let imgId = 1;
+        imgBtns.forEach(e =>{
+          e.classList.remove("active__selected");
+        })
         imgBtns[0].classList.add("active__selected");
 
         imgBtns.forEach((imgItem) => {
@@ -840,6 +843,9 @@ parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
       $(".modal-product").removeClass("open");
 
     });
+    $(document).on('click','.title_aside_item',function(){
+      window.location.href = "http://localhost:3000/products";
+    })
   </script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
