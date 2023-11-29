@@ -64,11 +64,11 @@ select.addEventListener("click", () => {
   menu.classList.toggle("menu-open");
 });
 
-// cancel.addEventListener("click", () => {
-//   select.classList.add("cancel__select");
-//   select.classList.remove("select__btn");
-//   selected.innerText = "Giá";
-// });
+cancel.addEventListener("click", () => {
+  select.classList.add("cancel__select");
+  select.classList.remove("select__btn");
+  selected.innerText = "Giá";
+});
 
 //AN làm
 const category = document.querySelectorAll(".category");
@@ -77,7 +77,7 @@ const createProductItem = (data) => {
 
   let path = "/imgs/products/" + data.cate_name + "/";
   // Create the outer container div
-  console.log("this is path", path);
+  // console.log("this is path", path);
   let productItem = document.createElement("div");
   productItem.classList.add(
     "product__item",
@@ -303,7 +303,7 @@ const createProductItem = (data) => {
 
     const buttonCart = document.createElement("button");
     buttonCart.classList.add("btn-icon-label", "btn--filled", "button__cart");
-    buttonCart.onclick = 'cartCtl.addToCart()';
+    buttonCart.onclick = cartCtl.addToCart;
     buttonCart.innerHTML = `
       <span class="status-layer">
         <span class="icon icon--filled material-symbols-outlined">
@@ -442,14 +442,6 @@ const createProductItem = (data) => {
       img.alt = "Product img";
       imgShowcase.appendChild(img);
     }
-    // for (let i = 0; i < 4; ++i) {
-    //   appendImg({
-    //     parent: imgShowcase,
-    //     src: path + data.prod_img_urls[i],
-    //     alt: "Product img",
-    //     classList: []
-    //   })
-    // }
 
     imgDisplay.appendChild(imgShowcase);
     modalImg.appendChild(imgDisplay);
@@ -503,13 +495,6 @@ const createProductItem = (data) => {
       link.href = "#";
       link.setAttribute("data-id", i + 1);
 
-      // appendImg({
-      //   parent: link,
-      //   src: path + data.prod_img_urls[i],
-      //   alt: "Product img",
-      //   classList: []
-      // })
-
       const img = document.createElement("img");
       img.src = `${path}${data.prod_img_urls[i]}`;
       img.loading = 'lazy'
@@ -522,18 +507,6 @@ const createProductItem = (data) => {
 
     modalImg.appendChild(imgSelect);
 
-    // Append the modal__img element to the appropriate parent element
-
-    // const buttonClose = document.createElement("div");
-    // buttonClose.classList.add("button-close", "button-close1");
-
-    // // Create the span element
-    // const span = document.createElement("span");
-    // span.classList.add("material-symbols-outlined");
-    // span.textContent = "close";
-
-    // buttonClose.appendChild(span);
-
     const buttonClose = document.createElement("button");
     buttonClose.classList.add('btn-icon', 'modal__btn--close');
     buttonClose.setAttribute('onclick', 'modalCtl.closeModal()');
@@ -543,7 +516,6 @@ const createProductItem = (data) => {
       </span>
     `;
 
-
     // Append the button-close element to the appropriate parent element
     modalContainer.appendChild(modalImg);
     modalContainer.appendChild(divModalBody);
@@ -552,57 +524,8 @@ const createProductItem = (data) => {
     // productWrapper.appendChild(modalProduct);
     modalProduct.appendChild(modalContainer);
     productItem.appendChild(modalProduct);
-    console.log(modalContainer, modalProduct, productWrapper, productItem)
+    // console.log(modalContainer, modalProduct, productWrapper, productItem)
   }
-
-
-  // // notification
-
-  // // Create the main container div with class "modal-noti"
-  // const modalNotiDiv = document.createElement('div');
-  // modalNotiDiv.classList.add('modal-noti');
-
-  // // Create the container div with classes "modal-container--noti" and "on-primary-text"
-  // const modalContainerDiv = document.createElement('div');
-  // modalContainerDiv.classList.add('modal-container--noti', 'on-primary-text');
-
-  // // Create the div with class "noti__icon-check"
-  // const notiIconCheckDiv = document.createElement('div');
-  // notiIconCheckDiv.classList.add('noti__icon-check');
-
-  // // Create the span with classes "material-symbols-outlined" and "icon--filled"
-  // const iconSpan = document.createElement('span');
-  // iconSpan.classList.add('material-symbols-outlined', 'icon--filled');
-  // iconSpan.textContent = 'check_circle';
-
-  // // Append the icon span to the "noti__icon-check" div
-  // notiIconCheckDiv.appendChild(iconSpan);
-
-  // // Create the paragraph element with class "noti__text" and text content
-  // const textParagraph = document.createElement('p');
-  // textParagraph.classList.add('noti__text', 'headline-large');
-  // textParagraph.textContent = 'Thêm vào giỏ hàng thành công';
-
-  // // Create the div with class "noti__btn"
-  // const notiBtnDiv = document.createElement('div');
-  // notiBtnDiv.classList.add('noti__btn', 'button-close');
-
-  // // Create the span with class "material-symbols-outlined" and text content
-  // const closeSpan = document.createElement('span');
-  // closeSpan.classList.add('material-symbols-outlined');
-  // closeSpan.textContent = 'close';
-
-  // // Append the close span to the "noti__btn" div
-  // notiBtnDiv.appendChild(closeSpan);
-
-  // // Append the child elements to their respective parent elements
-  // modalContainerDiv.appendChild(notiIconCheckDiv);
-  // modalContainerDiv.appendChild(textParagraph);
-  // modalContainerDiv.appendChild(notiBtnDiv);
-  // modalNotiDiv.appendChild(modalContainerDiv);
-
-  // // Append the main container div to the document body
-  // productItem.appendChild(modalNotiDiv);
 }
 
 
@@ -620,7 +543,7 @@ category.forEach((item) => {
       }),
     }).then((respone) => respone.json())
       .then((data) => {
-        console.log("this is data :", data.result);
+        // console.log("this is data :", data.result);
         $(".product__wrapper").empty();
         data.result.forEach((item) => {
           createProductItem(item);
