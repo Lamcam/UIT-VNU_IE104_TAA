@@ -62,21 +62,6 @@ function stepper(btn) {
   console.log(id, min, max, step, value)
 }
 
-// item icon_heart product
-const iconHearts = document.querySelectorAll('.icon_heart')
-iconHearts.forEach(iconHeart => {
-  iconHeart.addEventListener("click", () => {
-    if (iconHeart.classList.contains("icon--filled")) {
-      iconHeart.classList.remove("icon--filled")
-      iconHeart.innerText = "heart_plus"
-      return;
-    }
-    iconHeart.innerText = "favorite"
-    iconHeart.classList.add("icon--filled")
-  })
-
-})
-
 // modalNoti open
 const btnCloseNoti = document.querySelector('.modal-noti .button-close')
 const modalNoti = document.querySelector('.modal-noti')
