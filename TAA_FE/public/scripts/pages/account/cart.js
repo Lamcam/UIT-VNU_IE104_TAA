@@ -11,7 +11,6 @@ document.addEventListener('change', (event) => {
   updateTotalPrice();
 
   updateBtnSubmit();
-
 })
 
 // Update statues of button submit

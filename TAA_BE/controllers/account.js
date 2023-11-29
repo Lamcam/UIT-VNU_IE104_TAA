@@ -118,14 +118,30 @@ account.cartAdd = (req, res) => {
   const { prodId } = req.body;
 
   models.account.addCart({ id, prodId }, (err, result) => {
-    if (err) throw err;
-
-    res.status(200).json({
-      statusCode: 200,
-      msg: 'Add success'
-    })
-  })
-}
+    if (err) {
+      if (err.code === 'ER_DUP_ENTRY') {
+        // Handle duplicate entry error
+        res.status(409).json({
+          statusCode: 409,
+          error: 'Conflict',
+          message: 'The product is already in the cart.'
+        });
+      } else {
+        // Handle other errors
+        res.status(500).json({
+          statusCode: 500,
+          error: 'Internal Server Error',
+          message: 'An error occurred while adding the product to the cart.'
+        });
+      }
+    } else {
+      res.status(200).json({
+        statusCode: 200,
+        msg: 'Add success'
+      });
+    }
+  });
+};
 
 account.cartDelete = (req, res) => {
   const { id } = req.cookies;

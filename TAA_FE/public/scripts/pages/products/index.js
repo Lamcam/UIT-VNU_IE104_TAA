@@ -40,18 +40,9 @@ function showSubMenu() {
     return;
   }
 
-  for (let item of items) item.classList.remove("active");
-
-  //   obj = this.querySelector('.js-sub-menu');
-  //   console.log(obj);
-  //   height = obj.style.maxHeight;
-  //   if (height == "200px")
-  //     obj.style.maxHeight = "0px";
-  //   else {
-  //     this.classList.add("active");
-  //     obj.style.maxHeight = "200px";
-  //   }
-  // }
+  for (let item of items) {
+    item.classList.remove("active");
+  }
 
   this.classList.add("active");
 }
@@ -83,11 +74,11 @@ function effectButton() {
   if (productBtnSelect.classList.contains("select-clicked")) {
     productBtnSelect.classList.remove("select-clicked");
   }
-  const caret = document.querySelector(".caret");
+  const caret = document.querySelector('.caret')
   if (caret.classList.contains("caret-rotate")) {
     caret.classList.remove("caret-rotate");
   }
-  const menu = document.querySelector(".menu");
+  const menu = document.querySelector('.menu')
   if (menu.classList.contains("menu-open")) {
     menu.classList.remove("menu-open");
   }
@@ -160,8 +151,9 @@ const category = document.querySelectorAll(".category");
 function createProduct(item) {
   let path = "/imgs/products/" + item.cate_name + "/";
   // Create the outer container div
+  console.log("this is path", path);
   let productItem = document.createElement("div");
-  productItem.classList.add("product__item", "col-4", "col-sm-6");
+  productItem.classList.add("product__item", "col-4");
 
   // Create the product image container div
   let productImage = document.createElement("div");
@@ -213,9 +205,8 @@ function createProduct(item) {
   // Create the current price element
   let currentPrice = document.createElement("p");
   currentPrice.classList.add("product__price__current");
-  currentPrice.textContent = `${
-    parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
-  }`;
+  currentPrice.textContent = `${parseInt(item.prod_cost) * (1 - parseFloat(item.prod_discount))
+    }`;
   productPrice.appendChild(currentPrice);
 
   // Create the discounted price element
@@ -249,7 +240,10 @@ function createProduct(item) {
 
   // Create the product button section div
   let productButtonSection = document.createElement("div");
-  productButtonSection.classList.add("product__button__section", "label-large");
+  productButtonSection.classList.add(
+    "product__button__section",
+    "label-large"
+  );
   productItem.appendChild(productButtonSection);
 
   // Create the quick view button
@@ -869,7 +863,9 @@ discountSort.addEventListener("click", function () {
       ? window.location.search.split("&")[0] + "&discount=true"
       : "?discount=true";
   } else {
-    href = qExists ? window.location.search.split("&")[0] : "?discount=true";
+    href = qExists
+      ? window.location.search.split("&")[0]
+      : "?discount=true";
   }
   console.log(href);
   fetch("/products/search" + href)
@@ -894,7 +890,9 @@ bestsellerSort.addEventListener("click", function () {
       ? window.location.search.split("&")[0] + "&bestseller=true"
       : "?bestseller=true";
   } else {
-    href = qExists ? window.location.search.split("&")[0] : "?bestseller=true";
+    href = qExists
+      ? window.location.search.split("&")[0]
+      : "?bestseller=true";
   }
   fetch("/products/search" + href)
     .then((response) => response.json())

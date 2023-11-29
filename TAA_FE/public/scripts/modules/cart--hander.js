@@ -10,10 +10,6 @@ const addToCart = () => {
       prodId: productID
     }
 
-    // console.log(data)
-
-    // console.log(modalCtl)
-
     modalCtl.closeModal()
     modalCtl.openModal('#modal--noti-add-cart-success')
 
@@ -27,9 +23,9 @@ const addToCart = () => {
       .then(data => {
         if (data.statusCode == 200) {
           modalCtl.closeModal()
-          modalCtl.openModal('#modal--noti-add-cart-success')
-          modalCtl.closeModalAfterTime(1000)
-        } else if (data.statusCode == 500) {
+          // modalCtl.openModal('#modal--noti-add-cart-success')
+          // modalCtl.closeModalAfterTime(1000)
+        } else if (data.statusCode == 409) {
           alert('Sản phẩm này đã tồn tại trong giỏ hàng của bạn')
         }
       })
