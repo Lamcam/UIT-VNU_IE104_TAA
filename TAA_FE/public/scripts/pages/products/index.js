@@ -103,30 +103,30 @@ select.addEventListener("click", () => {
 
 // options.forEach((option) => {
 //     option.addEventListener("click", () => {
-//         selected.innerText = option.innerText;
-//         caret.classList.remove("caret-rotate");
-//         select.classList.add("select__btn");
-//         select.classList.remove("select-clicked");
+        // selected.innerText = option.innerText;
+        // caret.classList.remove("caret-rotate");
+        // select.classList.add("select__btn");
+        // select.classList.remove("select-clicked");
 
-//         if (select.classList.contains("cancel__select")) {
-//             select.classList.remove("cancel__select");
-//             select.classList.add("select__btn");
-//         }
-//         cancel.addEventListener("click", () => {
-//             select.classList.add("cancel__select");
-//             select.classList.remove("select__btn");
-//             selected.innerText = "Giá";
-//         });
-//         const countEffects = document.querySelectorAll(".effect");
-//         countEffects.forEach((element) => {
-//             element.classList.remove("effect");
-//         });
-//         menu.classList.remove("menu-open");
-//         options.forEach((option) => {
-//             option.classList.remove("select__active");
-//         });
+        // if (select.classList.contains("cancel__select")) {
+        //     select.classList.remove("cancel__select");
+        //     select.classList.add("select__btn");
+        // }
+        cancel.addEventListener("click", () => {
+            select.classList.add("cancel__select");
+            select.classList.remove("select__btn");
+            selected.innerText = "Giá";
+        });
+        // const countEffects = document.querySelectorAll(".effect");
+        // countEffects.forEach((element) => {
+        //     element.classList.remove("effect");
+        // });
+        // menu.classList.remove("menu-open");
+        // options.forEach((option) => {
+        //     option.classList.remove("select__active");
+        // });
 
-//         option.classList.add("select__active");
+        // option.classList.add("select__active");
 //     });
 // });
 
