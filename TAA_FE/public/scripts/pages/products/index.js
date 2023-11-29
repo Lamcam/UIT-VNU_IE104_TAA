@@ -64,6 +64,12 @@ select.addEventListener("click", () => {
   menu.classList.toggle("menu-open");
 });
 
+cancel.addEventListener("click", () => {
+  select.classList.add("cancel__select");
+  select.classList.remove("select__btn");
+  selected.innerText = "Giá";
+});
+
 //AN làm
 const category = document.querySelectorAll(".category");
 function createProduct(item) {
