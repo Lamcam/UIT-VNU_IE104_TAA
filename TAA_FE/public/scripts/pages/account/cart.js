@@ -11,6 +11,8 @@ document.addEventListener('change', (event) => {
   updateTotalPrice();
 
   updateBtnSubmit();
+
+  updateTBodyContext();
 })
 
 // Update statues of button submit
@@ -113,7 +115,7 @@ const delCartItem = () => {
     .catch(err => console.error(err));
 
   $('.cart__item[data-prod-id="' + prodId + '"]').remove();
-  updateTBodyContext();
+  document.dispatchEvent(new Event('change'));
 }
 
 const updateTBodyContext = () => {
@@ -221,11 +223,3 @@ const cartSubmit = () => {
   cookieHder.createCookie('prodIds--order', prodIds.join(','), 1); // 1 day
   window.location.href = '/account/order';
 }
-
-
-// $(document).on('change', () => {
-//   console.log('document clicked')
-//   updatePriceItem();
-
-//   updateCheckbox();
-// })

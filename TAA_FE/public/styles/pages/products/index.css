@@ -240,7 +240,6 @@
 }
 
 .select.select__btn {
-  /* width: 16.1rem; */
   border: none;
   background-color: var(--md-sys-color-secondary-container);
   padding: .5rem 1.25rem .5rem 1.25rem;
@@ -275,5 +274,12 @@
 
   & .caret {
     display: block;
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .product__filter {
+    flex-direction: column;
+    align-items: start;
   }
 }

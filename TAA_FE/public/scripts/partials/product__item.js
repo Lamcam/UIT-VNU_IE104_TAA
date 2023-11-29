@@ -1,20 +1,39 @@
-// modalProduct open
-const btnViews = document.querySelectorAll('.product__button__view')
-const btnSells = document.querySelectorAll('.product__button__sell')
-// const modalProducts = document.querySelectorAll('.modal-product')
-const btnClosesProduct = document.querySelector('.modal-product .button-close')
-const modalItems = document.querySelectorAll('.product__item')
+const productItemInteract = () => {
+  const productItems = document.querySelectorAll('.product__item');
 
-modalItems.forEach((item) => {
-  // modalProduct tăng giảm số lượng sản phẩm
-  const btnView = item.querySelector('.product__button__view')
-  const modalProduct = item.querySelector('.modal-product')
-  btnView.addEventListener('click', () => {
-    modalProduct.classList.add('active')
+  productItems.forEach((item) => {
+    const iconHeart = item.querySelector('.icon_heart');
+    iconHeart.addEventListener('click', (event) => {
+      productItemHeartInteract(event);
+    })
+
+    const btnView = item.querySelector('.product__button__view');
+    const modalProduct = item.querySelector('.modal-product');
+
+    btnView.addEventListener('click', () => {
+      productItemModalOpen(modalProduct);
+    })
+
+    productItemModalSlideImage(modalProduct);
   })
+}
 
-  // modalProduct change image product
-  const imgs = item.querySelectorAll('.img-select a');
+const productItemHeartInteract = (event) => {
+  if (event?.target.classList.contains("icon--filled")) {
+    event.target.classList.remove("icon--filled")
+    event.target.innerText = "heart_plus"
+  } else {
+    event.target.innerText = "favorite"
+    event.target.classList.add("icon--filled")
+  }
+}
+
+const productItemModalOpen = (DOMModal) => {
+  DOMModal.classList.add('active');
+};
+
+const productItemModalSlideImage = (DOMModal) => {
+  const imgs = DOMModal.querySelectorAll('.img-select a');
   const imgBtns = [...imgs];
   let imgId = 1;
   imgBtns[0].classList.add('active__selected');
@@ -31,20 +50,20 @@ modalItems.forEach((item) => {
     });
   });
 
-  const slideImage = () =>{
-    const displayWidth = item.querySelector('.img-showcase img:first-child').clientWidth;
-    item.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+  const slideImage = () => {
+    const displayWidth = DOMModal.querySelector('.img-showcase img:first-child').clientWidth;
+    DOMModal.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
   }
 
   window.addEventListener('resize', slideImage);
 
-  const prevBtn = item.querySelector('.prevBtn');
-  const nextBtn = item.querySelector('.nextBtn');
+  const prevBtn = DOMModal.querySelector('.prevBtn');
+  const nextBtn = DOMModal.querySelector('.nextBtn');
 
   prevBtn.addEventListener('click', () => changeImage(-1));
   nextBtn.addEventListener('click', () => changeImage(1));
 
-  function changeImage(direction) {
+  const changeImage = (direction) => {
     imgId += direction;
 
     // Kiểm tra nếu imgId vượt quá giới hạn trái/phải
@@ -65,39 +84,7 @@ modalItems.forEach((item) => {
     // Chuyển ảnh
     slideImage();
   }
+}
 
-  const myInput = item.querySelector("#my-input");
-  const decrementBtn = item.querySelector("#decrement");
-  const incrementBtn = item.querySelector("#increment");
-
-  function stepper(action) {
-    let min = parseInt(myInput.getAttribute("min"));
-    let max = parseInt(myInput.getAttribute("max"));
-    let step = parseInt(myInput.getAttribute("step"));
-    let value = parseInt(myInput.value);
-
-    let calcStep = (action === "increment") ? (step * 1) : (step * -1);
-
-    let newValue = value + calcStep;
-    if (!isNaN(newValue) && newValue >= min && newValue <= max) {
-      myInput.value = newValue;
-    }
-    console.log(action, min, max, step, value);
-  }
-  decrementBtn.addEventListener("click", () => stepper("decrement"));
-  incrementBtn.addEventListener("click", () => stepper("increment"));
-})
-
-// item icon_heart product
-const iconHearts = document.querySelectorAll('.icon_heart')
-iconHearts.forEach(iconHeart => {
-  iconHeart.addEventListener("click", () => {
-    if (iconHeart.classList.contains("icon--filled")) {
-      iconHeart.classList.remove("icon--filled")
-      iconHeart.innerText = "heart_plus"
-    } else {
-      iconHeart.innerText = "favorite"
-      iconHeart.classList.add("icon--filled")
-    }
-  })
-})
+document.addEventListener('DOMContentLoaded', productItemInteract);
+document.addEventListener('ReloadProducts', productItemInteract);

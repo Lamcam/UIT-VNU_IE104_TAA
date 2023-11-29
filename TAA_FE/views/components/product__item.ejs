@@ -47,26 +47,13 @@
           </button>
         </div>
         <div class="img-select row col-12">
+          <% for (let i = 1; i <= 4; ++i) { %>
           <div class="img-item col-3">
-            <a href="#" data-id="1">
-              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="product image">
+            <a href="#" data-id="<%= i %>">
+              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[i - 1] %>" alt="Image of Product">
             </a>
           </div>
-          <div class="img-item col-3">
-            <a href="#" data-id="2">
-              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="product image">
-            </a>
-          </div>
-          <div class="img-item col-3">
-            <a href="#" data-id="3">
-              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[2] %>" alt="product image">
-            </a>
-          </div>
-          <div class="img-item col-3">
-            <a href="#" data-id="4">
-              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="product image">
-            </a>
-          </div>
+          <% } %>
         </div>
       </div>
       <div class="modal__body col-12 col-lg-6">
@@ -94,8 +81,8 @@
           <span class="number__buy title-medium"><%=data.prod_num_sold%> đã bán</span>
         </div>
         <div class="modal__price">
-          <p class="cost body-medium"><%- data.prod_cost %> đ</p>
-          <p class="cost__discount headline-small"><%- data.prod_cost * (1 - data.prod_discount) %> đ</p>
+          <p class="cost_value cost body-medium"><%- data.prod_cost %></p>
+          <p class="cost_value cost__discount headline-small"><%- data.prod_cost * (1 - data.prod_discount) %></p>
           <div class="percent__discount body-medium">Giảm <%- data.prod_discount * 100 %>%</div>
         </div>
         <div class="modal__size label-large">

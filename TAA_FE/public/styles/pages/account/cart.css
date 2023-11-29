@@ -36,15 +36,6 @@
   text-align: right;
 } */
 
-span[class*="cost_value"] {
-  text-align: right;
-
-  &::after {
-    content: "đ";
-    padding-left: 4px;
-  }
-}
-
 .item-quantity__wrapper {
   display: flex;
   flex-direction: row;
@@ -93,12 +84,5 @@ aside {
 }
 
 .row__flex {
-  display: flex;
-  align-items: center;
-
   padding: 1rem;
-
-  &.end {
-    justify-content: flex-end;
-  }
 }

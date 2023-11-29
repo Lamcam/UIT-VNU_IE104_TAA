@@ -404,6 +404,15 @@ label {
   }
 }
 
+[class*="cost_value"] {
+  text-align: right;
+
+  &::after {
+    content: "đ";
+    padding-left: 4px;
+  }
+}
+
 /* CSS cho pop-up modal */
 .form__row {
   display: flex;
