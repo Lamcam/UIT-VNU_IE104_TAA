@@ -84,3 +84,9 @@
   position: absolute;
   bottom: 4rem;
 }
+
+.row__flex {
+  & .label {
+    text-align: justify;
+  }
+}

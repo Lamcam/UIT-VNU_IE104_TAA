@@ -1,24 +1,24 @@
 USE DATABASE_IE104;
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_phone`, `user_email`, `user_pass`, `user_avatar_url`, `loca_default_id`) VALUES
-('user0000', 'Nguyễn Văn A', '0123456789', 'abc@gmail.com', 'Abcd@123', NULL, NULL),
-('user0001', 'Trần Thị B', '0987654321', 'def@gmail.com', 'Defg@456', 'user_avatar_1', NULL),
-('user0002', 'Lâm Thị Hồng C', '0123252729', 'ghi@gmail.com', 'Ghij@789', NULL, NULL),
-('user0003', 'Phạm Thị D', '0987654321', 'jkl@gmail.com', 'Jklm@012', 'user_avatar_3', NULL),
-('user0004', 'Hoàng Văn E', '0108456789', 'mno@gmail.com', 'Mnop@345', NULL, NULL);
+(1, 'Nguyễn Văn A', '0123456789', 'abc@gmail.com', 'Abcd@123', NULL, NULL),
+(2, 'Trần Thị B', '0987654321', 'def@gmail.com', 'Defg@456', 'user_avatar_1', NULL),
+(3, 'Lâm Thị Hồng C', '0123252729', 'ghi@gmail.com', 'Ghij@789', NULL, NULL),
+(4, 'Phạm Thị D', '0987654321', 'jkl@gmail.com', 'Jklm@012', 'user_avatar_3', NULL),
+(5, 'Hoàng Văn E', '0108456789', 'mno@gmail.com', 'Mnop@345', NULL, NULL);
 
 
 INSERT INTO `locations` (`loca_id`, `loca_pers_name`, `loca_pers_phone`, `loca_address`, `loca_detail`, `user_id`) VALUES
-('loca0000', 'Nguyễn Văn A', '0123456789', 'Nhơn Trạch_Đồng Nai', 'Đối diện quán lẩu ABC', 'user0000'),
-('loca0001', 'Trần Thị B', '0987654321', 'Bình Dương', 'Gần chợ ABC', 'user0001'),
-('loca0002', 'Lâm Thị Hồng C', '0123252729', 'Quận 1, TP. Hồ Chí Minh', 'Gần công viên XYZ', 'user0002'),
-('loca0003', 'Phạm Thị D', '0987654321', 'Đống Đa, Hà Nội', 'Gần trường DEF', 'user0003');
+(1, 'Nguyễn Văn A', '0123456789', 'Nhơn Trạch_Đồng Nai', 'Đối diện quán lẩu ABC', 1),
+(2, 'Trần Thị B', '0987654321', 'Bình Dương', 'Gần chợ ABC', 2),
+(3, 'Lâm Thị Hồng C', '0123252729', 'Quận 1, TP. Hồ Chí Minh', 'Gần công viên XYZ', 3),
+(4, 'Phạm Thị D', '0987654321', 'Đống Đa, Hà Nội', 'Gần trường DEF', 4);
 
 INSERT INTO `bankcards` (`bank_id`, `bank_name`, `bank_number`, `bank_pers_name`, `bank_pers_id`, `user_id`) VALUES
-('bank0000', 'ABC', '1234567890', 'Nguyễn Văn A', '9876543210', 'user0000'),
-('bank0001', 'SCB', '2345678901', 'Lê Thị Giàu Bùi', '8765432109', 'user0001'),
-('bank0002', 'BIDV', '3456789012', 'Trần Quốc Tuấn', '7654321098', 'user0002'),
-('bank0003', 'TPB', '4567890123', 'Phạm Nguyên Ngọc', '6543210987', 'user0003');
+(1, 'ABC', '1234567890', 'Nguyễn Văn A', '9876543210', 1),
+(2, 'SCB', '2345678901', 'Lê Thị Giàu Bùi', '8765432109', 2),
+(3, 'BIDV', '3456789012', 'Trần Quốc Tuấn', '7654321098', 3),
+(4, 'TPB', '4567890123', 'Phạm Nguyên Ngọc', '6543210987', 4);
 
 INSERT INTO `categorytypes` (`cate_type_id`, `cate_type_name`) VALUES
 ('caty0010', 'Trang_suc'),
@@ -91,32 +91,32 @@ INSERT INTO `products` (`prod_id`, `prod_name`, `prod_cost`, `prod_discount`, `p
 ('prod0034', 'Khẩu Trang Teelab', 200000.00, 0.25, '2023-11-10', 0, 50, 0, 5, '', 'cate0056');
 
 INSERT INTO `favorproducts` (`user_id`, `prod_id`) VALUES
-('user0000', 'prod0001'),
-('user0000', 'prod0002'),
-('user0000', 'prod0003'),
-('user0000', 'prod0004'),
-('user0001', 'prod0005'),
-('user0001', 'prod0006'),
-('user0001', 'prod0007'),
-('user0001', 'prod0008'),
-('user0002', 'prod0009'),
-('user0002', 'prod0010'),
-('user0002', 'prod0001'),
-('user0002', 'prod0002'),
-('user0003', 'prod0003'),
-('user0003', 'prod0004'),
-('user0003', 'prod0005'),
-('user0003', 'prod0006');
+(1, 'prod0001'),
+(1, 'prod0002'),
+(1, 'prod0003'),
+(1, 'prod0004'),
+(2, 'prod0005'),
+(2, 'prod0006'),
+(2, 'prod0007'),
+(2, 'prod0008'),
+(3, 'prod0009'),
+(3, 'prod0010'),
+(3, 'prod0001'),
+(3, 'prod0002'),
+(4, 'prod0003'),
+(4, 'prod0004'),
+(4, 'prod0005'),
+(4, 'prod0006');
 
 INSERT INTO `cart` (`user_id`, `prod_id`) VALUES
-('user0000', 'prod0001'),
-('user0000', 'prod0002'),
-('user0001', 'prod0005'),
-('user0001', 'prod0006'),
-('user0002', 'prod0009'),
-('user0002', 'prod0010'),
-('user0003', 'prod0003'),
-('user0003', 'prod0004');
+(1, 'prod0001'),
+(1, 'prod0002'),
+(2, 'prod0005'),
+(2, 'prod0006'),
+(3, 'prod0009'),
+(3, 'prod0010'),
+(4, 'prod0003'),
+(4, 'prod0004');
 
 
 INSERT INTO `payingmethod` (`pay_id`, `pay_name`) VALUES
@@ -124,20 +124,20 @@ INSERT INTO `payingmethod` (`pay_id`, `pay_name`) VALUES
 ('pay01', 'Ngân hàng');
 
 INSERT INTO `orders` (`order_id`, `order_datetime`, `user_id`, `pay_id`, `bank_id`, `trans_id`, `loca_id`, `order_status`, `order_is_paying`) VALUES
-('abcd1234', '2023-10-10', 'user0000', 'pay00', NULL, 'tran0000', 'loca0000', 0, 0),
-('abce1234', '2023-10-12', 'user0002', 'pay00', NULL, 'tran0001', 'loca0002', 0, 0),
-('annn1910', '2023-10-16', 'user0001', 'pay00', NULL, 'tran0001', 'loca0001', 0, 0),
-('asdf1111', '2023-10-25', 'user0000', 'pay01', 'bank0001', 'tran0001', 'loca0000', 0, 1),
-('camh1811', '2023-10-15', 'user0000', 'pay00', NULL, 'tran0000', 'loca0000', 1, 1),
-('daub2411', '2023-10-17', 'user0002', 'pay01', 'bank0003', 'tran0001', 'loca0002', 0, 1),
-('efgh5678', '2023-10-11', 'user0001', 'pay01', 'bank0001', 'tran0001', 'loca0001', 0, 1),
-('fghj2222', '2023-10-23', 'user0003', 'pay01', 'bank0000', 'tran0001', 'loca0003', 1, 1),
-('hieu2712', '2023-10-18', 'user0003', 'pay00', NULL, 'tran0000', 'loca0003', 0, 0),
-('ijkl2712', '2023-10-13', 'user0003', 'pay00', NULL, 'tran0001', 'loca0003', 0, 0),
-('mnop9876', '2023-10-20', 'user0000', 'pay00', NULL, 'tran0001', 'loca0000', 1, 1),
-('qrst1234', '2023-10-21', 'user0001', 'pay01', NULL, 'tran0001', 'loca0001', 0, 1),
-('stuv1234', '2023-10-22', 'user0002', 'pay00', NULL, 'tran0000', 'loca0002', 0, 0),
-('vbnm1122', '2023-10-26', 'user0001', 'pay00', NULL, 'tran0000', 'loca0001', 0, 0);
+(1, '2023-10-10', 1, 'pay00', NULL, 'tran0000', 1, 0, 0),
+(2, '2023-10-12', 3, 'pay00', NULL, 'tran0001', 3, 0, 0),
+(3, '2023-10-16', 2, 'pay00', NULL, 'tran0001', 2, 0, 0),
+(4, '2023-10-25', 1, 'pay01', 2, 'tran0001', 1, 0, 1),
+(5, '2023-10-15', 1, 'pay00', NULL, 'tran0000', 1, 1, 1),
+(6, '2023-10-17', 3, 'pay01', 4, 'tran0001', 3, 0, 1),
+(7, '2023-10-11', 2, 'pay01', 2, 'tran0001', 2, 0, 1),
+(8, '2023-10-23', 4, 'pay01', 1, 'tran0001', 4, 1, 1),
+(9, '2023-10-18', 4, 'pay00', NULL, 'tran0000', 4, 0, 0),
+(10, '2023-10-13', 4, 'pay00', NULL, 'tran0001', 4, 0, 0),
+(11, '2023-10-20', 1, 'pay00', NULL, 'tran0001', 1, 1, 1),
+(12, '2023-10-21', 2, 'pay01', NULL, 'tran0001', 2, 0, 1),
+(13, '2023-10-22', 3, 'pay00', NULL, 'tran0000', 3, 0, 0),
+(14, '2023-10-26', 2, 'pay00', NULL, 'tran0000', 2, 0, 0);
 
 INSERT INTO `productsimg` (`prod_id`, `prod_img_url`) VALUES
 ('prod0001', 'vong_co_1-1.jfif'),
@@ -346,47 +346,47 @@ INSERT INTO `productsimg` (`prod_id`, `prod_img_url`) VALUES
 ('prod0034', 'khau_trang_2-6.jfif');
 
 INSERT INTO `orderdetails` (`order_id`, `prod_id`, `price`, `quantity`) VALUES
-('abcd1234', 'prod0001', 25000.00, 1),
-('abcd1234', 'prod0002', 25000.00, 1),
-('abcd1234', 'prod0003', 25000.00, 1),
-('abcd1234', 'prod0004', 25000.00, 1),
-('abce1234', 'prod0009', 25000.00, 2),
-('abce1234', 'prod0010', 25000.00, 2),
-('annn1910', 'prod0005', 25000.00, 1),
-('annn1910', 'prod0006', 25000.00, 1),
-('annn1910', 'prod0007', 25000.00, 1),
-('annn1910', 'prod0008', 25000.00, 1),
-('asdf1111', 'prod0003', 25000.00, 2),
-('asdf1111', 'prod0004', 25000.00, 2),
-('camh1811', 'prod0001', 25000.00, 1),
-('camh1811', 'prod0002', 25000.00, 1),
-('camh1811', 'prod0003', 25000.00, 1),
-('camh1811', 'prod0004', 25000.00, 1),
-('daub2411', 'prod0009', 25000.00, 2),
-('daub2411', 'prod0010', 25000.00, 2),
-('efgh5678', 'prod0005', 25000.00, 1),
-('efgh5678', 'prod0006', 25000.00, 1),
-('efgh5678', 'prod0007', 25000.00, 1),
-('efgh5678', 'prod0008', 25000.00, 1),
-('fghj2222', 'prod0003', 25000.00, 2),
-('fghj2222', 'prod0004', 25000.00, 3),
-('hieu2712', 'prod0001', 25000.00, 1),
-('hieu2712', 'prod0002', 25000.00, 1),
-('hieu2712', 'prod0003', 25000.00, 1),
-('hieu2712', 'prod0004', 25000.00, 1),
-('ijkl2712', 'prod0009', 25000.00, 2),
-('ijkl2712', 'prod0010', 25000.00, 2),
-('mnop9876', 'prod0005', 25000.00, 1),
-('mnop9876', 'prod0006', 25000.00, 1),
-('mnop9876', 'prod0007', 25000.00, 1),
-('mnop9876', 'prod0008', 25000.00, 1),
-('qrst1234', 'prod0003', 25000.00, 2),
-('qrst1234', 'prod0004', 25000.00, 2),
-('stuv1234', 'prod0009', 25000.00, 2),
-('stuv1234', 'prod0010', 25000.00, 2),
-('vbnm1122', 'prod0005', 25000.00, 1),
-('vbnm1122', 'prod0006', 25000.00, 1),
-('vbnm1122', 'prod0007', 25000.00, 1),
-('vbnm1122', 'prod0008', 25000.00, 1),
-('vbnm1122', 'prod0009', 25000.00, 2),
-('vbnm1122', 'prod0010', 25000.00, 2);
+(1, 'prod0001', 25000.00, 1),
+(1, 'prod0002', 25000.00, 1),
+(1, 'prod0003', 25000.00, 1),
+(1, 'prod0004', 25000.00, 1),
+(2, 'prod0009', 25000.00, 2),
+(2, 'prod0010', 25000.00, 2),
+(3, 'prod0005', 25000.00, 1),
+(3, 'prod0006', 25000.00, 1),
+(3, 'prod0007', 25000.00, 1),
+(3, 'prod0008', 25000.00, 1),
+(4, 'prod0003', 25000.00, 2),
+(4, 'prod0004', 25000.00, 2),
+(5, 'prod0001', 25000.00, 1),
+(5, 'prod0002', 25000.00, 1),
+(5, 'prod0003', 25000.00, 1),
+(5, 'prod0004', 25000.00, 1),
+(6, 'prod0009', 25000.00, 2),
+(6, 'prod0010', 25000.00, 2),
+(7, 'prod0005', 25000.00, 1),
+(7, 'prod0006', 25000.00, 1),
+(7, 'prod0007', 25000.00, 1),
+(7, 'prod0008', 25000.00, 1),
+(8, 'prod0003', 25000.00, 2),
+(8, 'prod0004', 25000.00, 3),
+(9, 'prod0001', 25000.00, 1),
+(9, 'prod0002', 25000.00, 1),
+(9, 'prod0003', 25000.00, 1),
+(9, 'prod0004', 25000.00, 1),
+(10, 'prod0009', 25000.00, 2),
+(10, 'prod0010', 25000.00, 2),
+(11, 'prod0005', 25000.00, 1),
+(11, 'prod0006', 25000.00, 1),
+(11, 'prod0007', 25000.00, 1),
+(11, 'prod0008', 25000.00, 1),
+(12, 'prod0003', 25000.00, 2),
+(12, 'prod0004', 25000.00, 2),
+(13, 'prod0009', 25000.00, 2),
+(13, 'prod0010', 25000.00, 2),
+(14, 'prod0005', 25000.00, 1),
+(14, 'prod0006', 25000.00, 1),
+(14, 'prod0007', 25000.00, 1),
+(14, 'prod0008', 25000.00, 1),
+(14, 'prod0009', 25000.00, 2),
+(14, 'prod0010', 25000.00, 2);
