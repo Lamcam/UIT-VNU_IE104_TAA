@@ -20,12 +20,13 @@ function product() {}
  * @param {Object} res - The response object.
  */
 product.getAll = (req, res) => {
-    const searchValue = req.query.q;
-    models.product.getAllProduct({ searchValue }, (err, result) => {
+    const searchValue = req.query;
+    models.product.getAllProduct( searchValue , (err, result) => {
       if (err) throw err;
         if (result.length > 0) {
             res.status(200).render("pages/products/index", {
                 result: index.groupProducts(result),
+                message: searchValue
             });
         } else {
             res.status(200).json({
@@ -35,21 +36,21 @@ product.getAll = (req, res) => {
     });
 };
 
-product.getSort = (req, res) => {
-    models.product.getSortProduct(req.query, (err, result) => {
-        if (err) throw err;
-        if (result.length > 0) {
-            res.status(200).json({
-                message: "Success",
-                result: index.groupProducts(result),
-            });
-        } else {
-            res.status(200).json({
-                message: "Not Found",
-            });
-        }
-    });
-};
+// product.getSort = (req, res) => {
+//     models.product.getSortProduct(req.query, (err, result) => {
+//         if (err) throw err;
+//         if (result.length > 0) {
+//             res.status(200).json({
+//                 message: "Success",
+//                 result: index.groupProducts(result),
+//             });
+//         } else {
+//             res.status(200).json({
+//                 message: "Not Found",
+//             });
+//         }
+//     });
+// };
 
 product.getCate = (req, res) => {
     // const { category } = req.body.category;
