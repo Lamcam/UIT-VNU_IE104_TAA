@@ -132,6 +132,18 @@ optionsRank.forEach(option => {
   })
 })
 
+const iconHearts = document.querySelectorAll('.icon_heart')
+iconHearts.forEach(iconHeart => {
+  iconHeart.addEventListener("click", () => {
+    if (iconHeart.classList.contains("icon--filled")) {
+      iconHeart.classList.remove("icon--filled")
+      iconHeart.innerText = "heart_plus"
+      return;
+    }
+    iconHeart.innerText = "favorite"
+    iconHeart.classList.add("icon--filled")
+  })
+})
 const dropdownSort = document.querySelector('.rating__filter-sort .dropdown')
 const selectSort = dropdownSort.querySelector('.select');
 const caretSort = dropdownSort.querySelector('.caret');
