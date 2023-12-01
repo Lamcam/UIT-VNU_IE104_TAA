@@ -6,19 +6,15 @@ let instance = null;
 
 const db = mysql.createConnection({
   connectionLimit: 10,
-  // host: 'localhost',
-  // user: 'root',
-  // password: '',
-  // database: 'ie104'
   host: process.env.DATABASE_HOST,
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE
-})
+}) 
 
 db.connect((err) => {
   if (err)
-    console.log(err.message);
+    throw err;
   else
     console.log("Connected to DB!");
 })

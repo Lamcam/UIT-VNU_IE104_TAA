@@ -19,13 +19,23 @@
   animation: modalFadeIn ease 0.5s;
 
   position: relative;
-  margin: 15rem auto 0 auto;
+  margin: 15rem auto;
   padding: 4rem 5rem;
   border: 1px solid #888;
   max-width: 60rem;
   width: 90%;
+  min-height: 30rem;
+  height: auto;
 
   border-radius: 1rem;
+
+  &.center {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 .modal__title {
@@ -50,7 +60,6 @@
     text-decoration: none;
     cursor: pointer;
   }
-
 }
 
 .modal__btn--close {
@@ -66,5 +75,24 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+.modal--bottom {
+  /* display: flex;
+  width: calc(100% - 10rem);
+  position: absolute;
+  bottom: 4rem; */
+}
+
+.row__flex {
+  & .label {
+    text-align: justify;
+  }
+}
+
+.row__flex {
+  & .term-of-use {
+    display: inline-block;
   }
 }

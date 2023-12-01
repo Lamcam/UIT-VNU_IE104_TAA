@@ -21,8 +21,18 @@ index.groupProducts = (result) => {
     }
     return r;
   }, [])
-
   return groupResult;
 }
+
+index.filter = (result, cate) => {
+  if (!cate) return result;
+  const balo = result.filter(v => v.cate_name == cate);
+  // console.log("this is balo",balo);
+  // console.log("this is result",result);
+  return balo;
+}
+
+
+
 
 module.exports = index;

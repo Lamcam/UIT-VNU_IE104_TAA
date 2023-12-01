@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="IE104.O12_Group3">
+  <meta name="description" content="Trang web TAA là một nền tảng thương mại 
+    điện tử chuyên về bán đồ phụ kiện trang sức. Với sự tập trung vào việc cung
+    cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
+    điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
+  <link rel="stylesheet" href="/styles/pages/base.css">
+  <link rel="stylesheet" href="/styles/pages/account/order.css">
+  <title>TAA - Trang đặt hàng</title>
+</head>
+
+<body>
+  <div id="main" class="on-primary">
+    <%- include('../../partials/header', { activeIdx: 0 }) %>
+    <%- include('../../partials/breadcrumbs', { 
+      data: [
+        { label: 'Trang chủ', link: '/' },
+        { label: 'Trang cá nhân', link: '#' },
+        { label: 'Đặt hàng', link: '/account/order' }
+      ]
+    }) %>
+
+    <div class="container">
+      <div class="row mt-12">
+        <main class="col-12 col-lg-8">
+          <div class="row">
+            <section class="visible col-12">
+              <h2 class="headline-small">Thông tin nhận hàng</h2>
+              <div class="row mt-12 body-medium location-item">
+                <div class="col-6">
+                  <p class="location-item__pers-name">Người đẹp bị câm</p>
+                  <div class="mt-8">
+                    <span>SĐT: </span>
+                    <span class="location-item__phone">*******629</span><br>
+                  </div>
+                  <p class="location-item__address mt-8">Xã A, huyện B, tỉnh C
+                  </p>
+                </div>
+                <div class="col-6 location-item--right">
+                  <span>
+                    <%- include('../../components/button', {
+                      type: 'btn-icon-label',
+                      options: 'btn--filled',
+                      classList: '',
+                      iconData: 'edit',
+                      label: 'Thay đổi địa chỉ',
+                      onclick: 'modalCtl.openModal("#modal--change-address")',
+                    }) %>
+                  </span>
+                  <span class="headline-small primary-text">Mặc định</span>
+                </div>
+              </div>
+            </section>
+            <section class="visible col-12">
+              <h2 class="headline-small">Phương thức vận chuyển</h2>
+              <div class="section__options">
+                <%- include('../../components/radio', {
+                  id: 'transport-express',
+                  classList: 'primary-text',
+                  name: 'transport',
+                  value: 'express',
+                  checked: false,
+                }) %>
+                <label class="label-large" for="transport-express">Giao hàng nhanh trong 2 giờ
+                  (Trễ tặng 100k)</label>
+              </div>
+              <div class="section__options">
+                <%- include('../../components/radio', {
+                  id: 'transport-normal',
+                  classList: 'primary-text',
+                  name: 'transport',
+                  value: 'normal',
+                  checked: false,
+                }) %>
+                <label class="label-large" for="transport-normal">Giao hàng trong 48 giờ: Miễn
+                  phí.</label>
+              </div>
+            </section>
+            <section class="visible col-12">
+              <h2 class="headline-small">Phương thức thanh toán</h2>
+              <div class="section__options">
+                <%- include('../../components/radio', {
+                  id: 'payment-cash',
+                  classList: 'primary-text',
+                  name: 'payment',
+                  value: 'cash',
+                  checked: false,
+                }) %>
+                <label class="label-large" for="payment-cash">Thanh toán tiền khi nhận hàng
+                  (COD)</label>
+              </div>
+              <div class="section__options">
+                <%- include('../../components/radio', {
+                  id: 'payment-banking',
+                  classList: 'primary-text',
+                  name: 'payment',
+                  value: 'banking',
+                  checked: false,
+                }) %>
+                <label class="label-large" for="payment-banking">Thanh toán trực tuyến qua ngân
+                  hàng</label>
+              </div>
+            </section>
+          </div>
+        </main>
+        <aside class="col-12 col-lg-4">
+          <div class="visible body-large">
+            <div class="row__flex">
+              <h2 class="aside__title title-large">Đơn hàng</h2>
+              <a href="cart">Sửa</a>
+            </div>
+            <hr>
+            <div class="row row__flex">
+              <span class="detail__title">Tạm tính:</span>
+              <span class="detail__context cost_value__final--before">0</span>
+            </div>
+            <div class="row row__flex">
+              <span class="detail__title">Giảm giá:</span>
+              <span class="detail__context cost_value--discord">20000</span>
+            </div>
+            <hr>
+            <div class="row row__flex">
+              <span class="detail__title">Tổng cộng:</span>
+              <span class="detail__context cost_value--final--after error-text">0</span>
+            </div>
+            <div class="row__flex end">
+              <span class="detail__context">(Đã bao gồm phí VAT)</span>
+            </div>
+            <div class="row__flex end">
+              <%- include('../../components/button', {
+                type: '',
+                options: 'btn--filled',
+                classList: 'cart__btn--submit',
+                label: 'Tiến hành đặt hàng',
+                onclick: '',
+              }) %>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <%- include('../../partials/footer') %>
+    <%- include('./orderModals/modal--change-address') %>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
+  <script src="/scripts/pages/account/order.js"></script>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="author" content="IE104.O12_Group3" />
@@ -8,14 +9,16 @@
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg" />
   <link rel="stylesheet" href="/styles/pages/base.css" />
   <link rel="stylesheet" href="/styles/pages/account/index.css" />
   <title>TAA - Trang cá nhân</title>
 </head>
 
 <body>
+
   <div id="main" class="on-primary">
-    <%- include('../../partials/header', { activeIdx: 3 }) %>
+    <%- include('../../partials/header', { activeIdx: 0 }) %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
@@ -55,7 +58,7 @@
                 cho phép người dùng có thể thay đổi một thông tin cơ bản trong
                 mục đó.</p>
             </article>
-    
+
             <!-- Hồ sơ cá nhân -->
             <article id="profile" class="section__content visible mt-12">
               <h2 class="headline-medium">Hồ sơ cá nhân</h2>
@@ -69,15 +72,13 @@
                     </div>
                   </div>
                 </div>
-    
+
                 <div class="form__row mt-12">
                   <div class="row">
                     <label class="col-4 label-large" for="name">Tên người dùng:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="text" name="name"
-                        id="name" placeholder="Nguyễn Văn A" />
-                      <span
-                        class="icon icon--filled material-symbols-outlined editIcon">
+                      <input class="input__wrapper-child" type="text" name="name" id="name" placeholder="Nguyễn Văn A" oninput="enableSaveButton()" />
+                      <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
                   </div>
@@ -87,10 +88,8 @@
                     <label class="col-4 label-large" for="phone">Số điện
                       thoại:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="text" name="phone"
-                        id="phone" placeholder="*******629" />
-                      <span
-                        class="icon icon--filled material-symbols-outlined editIcon">
+                      <input class="input__wrapper-child" type="text" name="phone" id="phone" placeholder="*******629" oninput="enableSaveButton()" />
+                      <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
                   </div>
@@ -99,34 +98,29 @@
                   <div class="row">
                     <label class="col-4 label-large" for="email">Email:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="email" name="name"
-                        id="email" placeholder="2152****@gm.uit.edu.vn" />
-                      <span
-                        class="icon icon--filled material-symbols-outlined editIcon">
+                      <input class="input__wrapper-child" type="email" name="name" id="email" placeholder="2152****@gm.uit.edu.vn" oninput="enableSaveButton()" />
+                      <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
                   </div>
                 </div>
-                <button class="profile__btn btn--filled mt-12" type="submit"
-                  disabled>
+                <button class="profile__btn btn--filled mt-12" id="saveButton" type="submit" disabled>
                   <span class="status-layer label-large">Lưu thay đổi</span>
                 </button>
               </form>
             </article>
-    
+
             <!-- Đổi mật khẩu -->
             <article id="change-password" class="section__content visible mt-12">
               <h2 class="headline-medium">Đổi mật khẩu</h2>
-              <button class="btn--filled change-password-btn" type="submit"
-                onclick="modalCtl.openModal('#modal--change-password')">
+              <button class="btn--filled change-password-btn" type="submit" onclick="modalCtl.openModal('#modal--change-password')">
                 <span class="status-layer label-large">Đổi mật khẩu</span>
               </button>
             </article>
-    
+
             <!-- Tài khoản ngân hàng-->
             <article id="bank-account" class="section__content visible mt-12">
-              <button class="btn-icon section__btn add-bank-btn"
-                data-modal-target="#modal--add-bank">
+              <button class="btn-icon section__btn add-bank-btn" onclick="modalCtl.openModal('#modal--add-bank')">
                 <span class="status-layer icon material-symbols-outlined">add</span>
               </button>
               <h2 class="headline-medium">Tài khoản ngân hàng</h2>
@@ -140,9 +134,8 @@
                     <div class="row">
                       <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
                     </div>
-                    <button class="bank-item__btn--del btn-icon"
-                      data-modal-target="#modal--del-bank">
-                      <span class="status-layer icon material-symbols-outlined">
+                    <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
+                      <span class=" status-layer icon material-symbols-outlined">
                         delete</span>
                     </button>
                   </div>
@@ -156,8 +149,7 @@
                     <div class="row">
                       <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
                     </div>
-                    <button class="bank-item__btn--del btn-icon"
-                      data-modal-target="#modal--del-bank">
+                    <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
                       <span class="status-layer icon material-symbols-outlined">
                         delete</span>
                     </button>
@@ -165,15 +157,15 @@
                 </div>
               </div>
             </article>
-    
+
             <!-- Địa chỉ nhận hàng -->
             <article id="shipping-address" class="section__content visible mt-12">
-              <button class="btn-icon section__btn"
-                data-modal-target="#modal--add-location">
+              <button class="btn-icon section__btn" onclick="modalCtl.openModal('#modal--add-location')">
                 <span class="status-layer icon material-symbols-outlined">add</span>
               </button>
               <h2 class="headline-medium">Địa chỉ nhận hàng</h2>
               <div class="location-list">
+                <!-- Địa chỉ nhận hàng thứ nhất -->
                 <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
@@ -186,21 +178,45 @@
                       <span>Xã A, huyện B, tỉnh C</span>
                     </div>
                     <div class="location-btns__wrapper">
-                      <button class="location-item__btn--del btn-icon"
-                        data-modal-target="#modal--del-location">
+                      <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
                         <span class="status-layer icon material-symbols-outlined">
                           delete</span>
                       </button>
-                      <button class="location-item__btn--default btn--outlined"
-                        data-modal-target="#modal--set-default-location">
-                        <span
-                          class="status-layer unfilled-default location-btn">Thiết
+                      <button class="location-item__btn--default btn--outlined" onclick="modalCtl.openModal('#modal--set-default-location')">
+                        <span class="status-layer unfilled-default location-btn">Thiết
                           lập mặc định</span>
                       </button>
-                      <button data-modal-target="#modal--edit-location"
-                        class="location-item__btn--edit btn--filled btn-icon-label">
-                        <span
-                          class="status-layer full-edit icon material-symbols-outlined">
+                      <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+                        <span class="status-layer full-edit icon material-symbols-outlined">
+                          edit</span>
+                        <span class="status-layer full-edit label">Sửa</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!-- Địa chỉ nhận hàng thứ hai -->
+                <div class="location-item mt-12">
+                  <div class="location-item__wrapper body-medium">
+                    <div class="row">
+                      <span>Người đẹp bị câm</span>
+                    </div>
+                    <div class="row mt-16">
+                      <span>SDT: </span><span>*******629</span>
+                    </div>
+                    <div class="row mt-16">
+                      <span>Xã A, huyện B, tỉnh C</span>
+                    </div>
+                    <div class="location-btns__wrapper">
+                      <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
+                        <span class="status-layer icon material-symbols-outlined">
+                          delete</span>
+                      </button>
+                      <button class="location-item__btn--default btn--outlined" onclick="modalCtl.openModal('#modal--set-default-location')">
+                        <span class="status-layer unfilled-default location-btn">Thiết
+                          lập mặc định</span>
+                      </button>
+                      <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+                        <span class="status-layer full-edit icon material-symbols-outlined">
                           edit</span>
                         <span class="status-layer full-edit label">Sửa</span>
                       </button>
@@ -219,53 +235,16 @@
                       <span>Xã A, huyện B, tỉnh C</span>
                     </div>
                     <div class="location-btns__wrapper">
-                      <button class="location-item__btn--del btn-icon"
-                        data-modal-target="#modal--del-location">
+                      <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
                         <span class="status-layer icon material-symbols-outlined">
                           delete</span>
                       </button>
-                      <button class="location-item__btn--default btn--outlined"
-                        data-modal-target="#modal--set-default-location">
-                        <span
-                          class="status-layer unfilled-default location-btn">Thiết
-                          lập mặc định</span>
-                      </button>
-                      <button data-modal-target="#modal--edit-location"
-                        class="location-item__btn--edit btn--filled btn-icon-label">
-                        <span
-                          class="status-layer full-edit icon material-symbols-outlined">
-                          edit</span>
-                        <span class="status-layer full-edit label">Sửa</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="location-item mt-12">
-                  <div class="location-item__wrapper body-medium">
-                    <div class="row">
-                      <span>Người đẹp bị câm</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>SDT: </span><span>*******629</span>
-                    </div>
-                    <div class="row mt-16">
-                      <span>Xã A, huyện B, tỉnh C</span>
-                    </div>
-                    <div class="location-btns__wrapper">
-                      <button class="location-item__btn--del btn-icon"
-                        data-modal-target="#modal--del-location">
-                        <span class="status-layer icon material-symbols-outlined">
-                          delete</span>
-                      </button>
-                      <button class="location-item__btn--default btn--outlined"
-                        data-modal-target="#modal--set-default-location">
+                      <button class="location-item__btn--default btn--outlined" onclick="modalCtl.openModal('#modal--set-default-location')">
                         <span class="status-layer filled-default location-btn">Mặc
                           định</span>
                       </button>
-                      <button data-modal-target="#modal--edit-location"
-                        class="location-item__btn--edit btn--filled btn-icon-label">
-                        <span
-                          class="status-layer full-edit icon material-symbols-outlined">
+                      <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+                        <span class="status-layer full-edit icon material-symbols-outlined">
                           edit</span>
                         <span class="status-layer full-edit label">Sửa</span>
                       </button>
@@ -299,16 +278,15 @@
                       </p>
                     </div>
                   </div>
-    
+
                   <div class="att_totalRate">
                     <p>Thành tiền <span>100.000</span> đ</p>
                   </div>
-                  <button class="btn--outlined"
-                    data-modal-target="#modal--add-review">
+                  <button class="btn--outlined" onclick="modalCtl.openModal('#modal--add-review')">
                     Đánh giá
                   </button>
                 </div>
-    
+
                 <div class="item__status">
                   <p class="status headline-medium mt-48">Đã giao</p>
                   <button class="item_repurchase btn--filled">
@@ -332,16 +310,15 @@
                       </p>
                     </div>
                   </div>
-    
+
                   <div class="att_totalRate">
                     <p>Thành tiền <span>100.000</span> đ</p>
                   </div>
-                  <button class="btn--outlined"
-                    data-modal-target="#modal--add-review">
+                  <button class="btn--outlined" onclick="modalCtl.openModal('#modal--add-review')">
                     Đánh giá
                   </button>
                 </div>
-    
+
                 <div class="item__status">
                   <p class="status headline-medium mt-48">Đã giao</p>
                   <button class="item_repurchase btn--filled">
@@ -351,7 +328,7 @@
               </div>
             </div>
           </section>
-    
+
           <!-- Section Sản phẩm yêu thích  -->
           <section id="section3" class="section hidden">
             <!-- Sản phẩm yêu thích -->
@@ -364,14 +341,11 @@
             <div class="section__content row mt-12">
               <div class="product__item col-4">
                 <div class="product__image">
-                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc"
-                    class="img_back" />
-                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc"
-                    class="img_font" />
+                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc" class="img_back" />
+                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc" class="img_font" />
                 </div>
                 <div class="product__body">
-                  <span
-                    class="material-symbols-outlined icon_heart error-text icon--filled">
+                  <span class="material-symbols-outlined icon_heart error-text icon--filled">
                     favorite
                   </span>
                   <h3 class="product__name body-large">Kẹp tóc</h3>
@@ -397,18 +371,15 @@
                   </div>
                 </div>
               </div>
-    
+
               <!-- item outstock -->
               <div class="product__outstock col-4">
                 <div class="product__image">
-                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc"
-                    class="img_back" />
-                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc"
-                    class="img_font" />
+                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc" class="img_back" />
+                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc" class="img_font" />
                 </div>
                 <div class="product__body">
-                  <span
-                    class="material-symbols-outlined icon_heart error-text icon--filled">
+                  <span class="material-symbols-outlined icon_heart error-text icon--filled">
                     favorite
                   </span>
                   <h3 class="product__name body-large">Kẹp tóc</h3>
@@ -435,18 +406,45 @@
     <%- include('../../partials/footer') %>
 
     <!-- Modals -->
-    <div id="modal__addBank"></div>
-    <div id="modal__addLocation"></div>
-    <div id="modal__delBank"></div>
-    <div id="modal__delLocation"></div>
-    <div id="modal__editLocation"></div>
-    <div id="modal__review"></div>
-    <div id="modal__noti"></div>
-    <div id="modal__change-password"></div>
-    <div id="on-top-btn"></div>
+    <%- include('./add-bank') %>
+    <%- include('./add-location') %>
+    <%- include('./del-bank') %>
+    <%- include('./del-location') %>
+    <%- include('./edit-location') %>
+    <%- include('./success-popup') %>
+    <%- include('./review-popup') %>
+    <%- include('./modal--change-pass') %>
+    <%- include('../../partials/on-top-btn') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
   <script src="/scripts/pages/account/main.js"></script>
+  <script src="/scripts/pages/account/change-password.js"></script>
+  <script src="/scripts/pages/account/review-popup.js"></script>
+  <script>
+    let navItems = document.querySelectorAll(".nav-tab__item")
+
+    let flag = '<%= JSON.stringify(data) %>';
+    switch (flag) {
+      case '0':
+        showSection('section1');
+        addActiveClass(navItems[0], 'active')
+        break;
+      case '1':
+        showSection('section2');
+        addActiveClass(navItems[1], 'active')
+        break;
+      case '2':
+        showSection('section3');
+        addActiveClass(navItems[2], 'active')
+        break;
+
+      default:
+        break;
+    }
+  </script>
+
+
 </body>
+
 </html>

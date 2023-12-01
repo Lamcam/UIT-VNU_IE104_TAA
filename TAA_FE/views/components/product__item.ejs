@@ -1,10 +1,8 @@
 <% if (data.prod_num_avai > 0) { %>
-<div class="product__item col-12 col-md-6 col-lg-4">
+<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
-    <!-- <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
-    <img src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back"> -->
-    <img src="/imgs/products/product2.jpg %>" alt="Hình sau" class="img_back">
-    <img src="/imgs/products/product1.jpg %>" alt="Hình trước" class="img_font">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_front">
   </div>
   <div class="product__body">
     <span class="material-symbols-outlined icon_heart error-text">
@@ -12,8 +10,8 @@
     </span>
     <h3 class="product__name body-large"><%- data.prod_name %></h3>
     <div class="product__price label-large">
-      <p class="product__price__current"><%- data.prod_cost * (1 - data.prod_discount)%> đ</p>
-      <p class="product__price__discount outline-variant-text"><%- data.prod_cost %> đ</p>
+      <p class="cost_value product__price__current"><%- data.prod_cost * (1 - data.prod_discount) %></p>
+      <p class="cost_value product__price__discount outline-variant-text"><%- data.prod_cost %></p>
     </div>
     <p class="product__discount title-medium error-text">Giảm <%- data.prod_discount * 100 %>%</p>
     <p class="product__stock label-large primary-text">Còn hàng</p>
@@ -22,15 +20,135 @@
     <div class="product__button__view">Xem nhanh</div>
     <div class="vertical"></div>
     <div class="product__button__sell">
-      <a href="/account/cart">Mua ngay</a>
+      <a href="/account/order">Mua ngay</a>
+    </div>
+  </div>
+  <div class="modal-product modal">
+    <div class="modal-container--product modal__content row">
+      <div class="modal__img row col-12 col-lg-6">
+        <div class="img-display col-12">
+          <div class="img-showcase">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Product img">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Product img">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[2] %>" alt="Product img">
+            <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[3] %>" alt="Product img">
+          </div>
+        </div>
+        <div class="img-nav">
+          <button class="prevBtn">
+            <span class="material-symbols-outlined arrow-left primary-text">
+              arrow_back_ios
+            </span>
+          </button>
+          <button class="nextBtn">
+            <span class="material-symbols-outlined arrow-right primary-text">
+              arrow_forward_ios
+            </span>
+          </button>
+        </div>
+        <div class="img-select row col-12">
+          <% for (let i = 1; i <= 4; ++i) { %>
+          <div class="img-item col-3">
+            <a href="#" data-id="<%= i %>">
+              <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[i - 1] %>" alt="Image of Product">
+            </a>
+          </div>
+          <% } %>
+        </div>
+      </div>
+      <div class="modal__body col-12 col-lg-6">
+        <p class="modal__product__name headline-medium"><%- data.prod_name %></p>
+        <div class="modal__info__rate">
+          <div class="rate__star title-medium">
+            4.8
+            <span class="material-symbols-outlined icon--filled">
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star
+            </span>
+            <span class="material-symbols-outlined icon--filled">
+              star_rate_half
+            </span>
+          </div>
+          <span class="rate__number title-medium">5 đánh giá</span>
+          <span class="number__buy title-medium"><%=data.prod_num_sold%> đã bán</span>
+        </div>
+        <div class="modal__price">
+          <p class="cost_value cost body-medium"><%- data.prod_cost %></p>
+          <p class="cost_value cost__discount headline-small"><%- data.prod_cost * (1 - data.prod_discount) %></p>
+          <div class="percent__discount body-medium">Giảm <%- data.prod_discount * 100 %>%</div>
+        </div>
+        <div class="modal__size label-large">
+          <p class="size__title bold">Kích thước:</p>
+          <div class="size__value outline-text">Freestyle</div>
+        </div>
+        <div class="modal__quantity">
+          <div class="quantity__title label-large bold">Số lượng: </div>
+          <div class="quantity__product outline-text label-large">
+            <div id="decrement" class="quantity__product-decrement outline-text">-</div>
+            <input type="number" min="1" max="<%- data.prod_num_avai %>" step="1" value="1" id="my-input" disabled>
+            <div id="increment" class="quantity__product-increment outline-text">+</div>
+          </div>
+          <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
+        </div>
+        <div class="modal__button">
+          <%- include('./button', {
+            type: 'btn-icon-label',
+            options: 'btn--filled',
+            classList: 'button__cart',
+            iconData: 'add_shopping_cart',
+            label: 'Thêm vào giỏ hàng',
+            onclick: 'cartCtl.addToCart()',
+          }) %>
+          <button class="btn-filled button__view btn--filled" data-prod-id='<%= data.prod_id %>'>
+            <a class="status-layer" href="/products/detail?id=<%= data.prod_id %>">Xem chi tiết</a>
+          </button>
+        </div>
+        <div class="modal__context body-large">
+          <div class="context__info mt-12">
+            <div class="context__info__title">
+              THÔNG TIN SẢN PHẨM
+            </div>
+            <ul class="context__info__body">
+              <li>Đảm bảo hàng có chất lượng thương hiệu.</li>
+              <li>Hàng luôn có sẵn ở TAA.</li>
+              <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+            </ul>
+          </div>
+          <div class="context__detail mt-12">
+            <div class="context__detail__title">
+              THÔNG TIN THƯƠNG HIỆU:
+            </div>
+            <ul class="context__detail__body">
+              <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
+              <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm.</li>
+              <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <%- include('./button', {
+        type: 'btn-icon',
+        options: '',
+        classList: 'modal__btn--close',
+        onclick: 'modalCtl.closeModal()',
+        iconData: 'close',
+      }) %>
     </div>
   </div>
 </div>
 <% } else { %>
-<div class="product__outstock col-12 col-md-6 col-lg-4">
+<div class="product__outstock col-12 col-md-4 col-lg-4 col-sm-6">
   <div class="product__image">
-    <img src="/imgs/products/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
-    <img src="/imgs/products/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
+    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
   </div>
   <div class="product__body">
     <span class="material-symbols-outlined icon_heart error-text">

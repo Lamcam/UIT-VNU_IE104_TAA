@@ -16,7 +16,7 @@ const openModal = (sltById) => {
  */
 const closeModal = () => {
   const modals = document.querySelectorAll(".modal");
-  modals && modals.forEach(modal => modal.classList.remove("active"))
+  modals?.forEach(modal => modal.classList.remove("active"))
 }
 
 /**
@@ -30,7 +30,7 @@ const nextModal = (sltById) => {
 
 const closeModalByClickOutside = () => {
   const modals = document.querySelectorAll(".modal");
-  modals && modals.forEach(modal => {
+  modals?.forEach(modal => {
     // console.log('closeModalByClickOutside at: ', modal);
     modal.addEventListener('click', (e) => {
       if (e.target.classList.contains('modal')) {
@@ -40,6 +40,12 @@ const closeModalByClickOutside = () => {
   });
 }
 
+const closeModalAfterTime = (time) => {
+  setTimeout(() => {
+    closeModal();
+  }, time);
+}
+
 /**
  * Object containing methods for controlling modals.
  */
@@ -47,6 +53,7 @@ const modalCtl = {
   openModal,
   closeModal,
   nextModal,
+  closeModalAfterTime,
   init: () => {
     closeModalByClickOutside();
   },

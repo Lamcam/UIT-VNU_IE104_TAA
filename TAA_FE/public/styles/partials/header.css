@@ -1,6 +1,10 @@
 @import url(../components/search-bar.css);
 @import url(../components/main-nav.css);
 
+#searching-products {
+  align-items: center;
+}
+
 header {
   display: flex;
   gap: 2rem;
@@ -40,6 +44,10 @@ header {
       border-radius: 50%;
       border: 1px solid var(--md-sys-color-outline);
     }
+  }
+
+  & .header__name {
+    text-wrap: nowrap;
   }
 
   & .header__user--controller__label {

@@ -1,22 +1,15 @@
 -- Active: 1698914213463@@127.0.0.1@3306@database_ie104
 USE DATABASE_IE104;
 
-DROP TRIGGER IF EXISTS update_prod_num_sold;
+DROP TRIGGER IF EXISTS update_prod_num_sold_avai;
 
 DELIMITER //
-CREATE TRIGGER update_prod_num_sold AFTER INSERT ON orderdetails
+CREATE TRIGGER update_prod_num_sold_avai AFTER INSERT ON orderdetails
 FOR EACH ROW
 BEGIN
-    DECLARE total_quantity INT;
-
-    -- Calculate the total quantity of the product in the order
-    SELECT SUM(quantity) INTO total_quantity
-    FROM orderdetails
-    WHERE prod_id = NEW.prod_id;
-
-    -- Update the prod_num_sold for the product
     UPDATE products
-    SET prod_num_sold = prod_num_sold + total_quantity
+    SET prod_num_sold = prod_num_sold + NEW.quantity,
+        prod_num_avai = prod_num_avai - NEW.quantity
     WHERE prod_id = NEW.prod_id;
 END;
 

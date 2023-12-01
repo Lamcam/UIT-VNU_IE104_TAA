@@ -60,6 +60,29 @@ html {
   row-gap: 1rem;
 }
 
+.row__flex {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  &.flex--center {
+    justify-content: center;
+  }
+
+  &.flex--end {
+    justify-content: flex-end;
+  }
+
+  &.flex--start {
+    justify-content: flex-start;
+  }
+
+  &.flex--between {
+    justify-content: space-between;
+  }
+}
+
 .col-1 {
   grid-column: span 1;
 }
@@ -160,7 +183,7 @@ html {
 }
 
 /* Responsive layout for medium screens */
-@media (min-width: 48rem) and (max-width: 64rem) {
+@media (min-width: calc(48rem + 1px)) and (max-width: 64rem) {
   .col-md-1 {
     grid-column: span 1;
   }
@@ -211,7 +234,7 @@ html {
 }
 
 /* Responsive layout for large screens */
-@media (min-width: 64rem) {
+@media (min-width: calc(64rem + 1px)) {
   .col-lg-1 {
     grid-column: span 1;
   }
@@ -305,6 +328,7 @@ form {
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
+  align-items: center;
 }
 
 input {
@@ -320,6 +344,10 @@ input {
   }
 }
 
+label {
+  cursor: pointer;
+}
+
 /* general class */
 .container {
   max-width: 85rem;
@@ -333,13 +361,13 @@ input {
   }
 }
 
-@media screen and (min-width: 48rem) and (max-width: 64rem) {
+@media screen and (min-width: calc(48rem + 1px)) and (max-width: 64rem) {
   .container {
     padding-inline: 1.5rem;
   }
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: calc(64rem + 1px)) {
   .container {
     padding-inline: 2rem;
   }
@@ -355,13 +383,13 @@ input {
   }
 }
 
-@media screen and (min-width: 48rem) and (max-width: 64rem) {
+@media screen and (min-width: calc(48rem + 1px)) and (max-width: 64rem) {
   .hide-md {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: calc(64rem + 1px)) {
   .hide-lg {
     display: none !important;
   }
@@ -373,6 +401,15 @@ input {
 
   &.un-radius {
     border-radius: 0px;
+  }
+}
+
+[class*="cost_value"] {
+  text-align: right;
+
+  &::after {
+    content: "đ";
+    padding-left: 4px;
   }
 }
 

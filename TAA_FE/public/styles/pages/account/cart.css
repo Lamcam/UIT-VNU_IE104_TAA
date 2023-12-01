@@ -1,48 +1,76 @@
-table {
-  border-spacing: 0px;
-  border: 0px;
+.table {
+  height: auto;
+  overflow: hidden;
 
-  width: 100%;
-}
+  & .thead {
+    height: 4rem;
 
-thead {
-  & tr {
-    height: 60px;
+    & span {
+      line-height: 4rem;
+      text-align: center;
+    }
+  }
+
+  & .tbody {
+    & .tr {
+      /* height: 10rem; */
+      padding-block: .5rem;
+      align-items: center;
+
+      & .item__img {
+        width: 100%;
+      }
+    }
+
+    & .table__noti {
+      text-align: center;
+    }
   }
 }
 
-tbody {
-  & tr {
-    & img {
-      height: 96px;
-      aspect-ratio: 1/1;
-    }
-
-    & button {
-      margin: 0 auto;
-    }
-  }
-}
-
-td {
+.detail__context {
   text-align: right;
 }
 
-span[name^="cost_value"]::after {
-  content: "đ";
-  padding-left: 4px;
+/* td {
+  text-align: right;
+} */
+
+.item-quantity__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  & .value--ctl {
+    font-size: 1.25rem;
+    max-height: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  & input {
+    min-height: 3rem;
+    width: auto;
+  }
+}
+
+.item--prices {
+  text-align: right;
+}
+
+.item--price-before {
+  text-decoration: line-through;
 }
 
 
 aside {
   & .row {
     padding: 12px;
-    display: flex;
-    align-items: center;
-    min-height: 40px;
+    min-height: 4rem;
 
     &:first-child {
-      height: 60px;
+      height: 4rem;
     }
   }
 }
@@ -53,4 +81,8 @@ aside {
 
 .detail__context {
   text-align: right;
+}
+
+.row__flex {
+  padding: 1rem;
 }
