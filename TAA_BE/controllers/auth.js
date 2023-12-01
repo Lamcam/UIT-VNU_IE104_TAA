@@ -1,5 +1,6 @@
 const models = require('../models');
 const bcrypt = require("bcrypt");
+const cookieParser = require('cookie-parser');
 const sanitizeHtml = require("sanitize-html");
 
 const exceptTime = 1000 * 60 * 60 * 24 * 1; // A day
@@ -94,10 +95,10 @@ auth.loginPost = (req, res) => {
         return;
       }
 
-      res.cookie('authenticated', 'true', { maxAge: exceptTime, httpOnly: true });
-      res.cookie('id', result[0].user_id, { maxAge: exceptTime, httpOnly: true });
-      res.cookie('name', result[0].user_name, { maxAge: exceptTime, httpOnly: true });
-      res.cookie('avatar', result[0].user_avatar, { maxAge: exceptTime, httpOnly: true });
+      res.cookie('authenticated', 'true', { maxAge: exceptTime });
+      res.cookie('id', result[0].user_id, { maxAge: exceptTime });
+      res.cookie('name', result[0].user_name, { maxAge: exceptTime });
+      res.cookie('avatar', result[0].user_avatar, { maxAge: exceptTime });
       res.status(200).json({
         statusCode: 200,
         msg: 'Login success',

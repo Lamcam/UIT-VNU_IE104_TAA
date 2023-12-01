@@ -79,20 +79,20 @@ const register = () => {
     },
     body: JSON.stringify(data),
   }).then(res => res.json())
-  .then(res => {
+    .then(res => {
       if (res.statusCode == 500) {
         alert('Server error\nPlease try again later');
         return;
       }
-    
+
       if (res.statusCode == 409) {
         alert('Phone number or email already exists\nPlease change them and try again');
         return;
-      }  
+      }
 
       if (res.statusCode == 200) {
         alert('Register success. Please login');
-        modalCtl.openModal('#modal--login');
+        modalCtl.nextModal('#modal--login');
         return;
       }
 
