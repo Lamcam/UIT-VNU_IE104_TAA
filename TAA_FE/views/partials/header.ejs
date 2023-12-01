@@ -60,16 +60,18 @@
       </div>
     </div>
   </div>
-  <form action="/products" method="GET">
-    <div class="header__search search-bar hide-lg">
-      <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search" name="search">
-      <button type='submit' class="btn-icon btn--filled">
-        <span class="status-layer icon icon--filled material-symbols-outlined">
-          search
-        </span>
-      </button>
-    </div>
-  </form>
+  <div class="container hide-lg">
+    <form action="/products" method="GET">
+      <div class="header__search search-bar">
+        <input class="label-large" type="text" placeholder="Tìm kiếm" list="data--search" name="search">
+        <button type='submit' class="btn-icon btn--filled">
+          <span class="status-layer icon icon--filled material-symbols-outlined">
+            search
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
   <%- include('../components/main-nav', {
     activeIdx,
     data: [
