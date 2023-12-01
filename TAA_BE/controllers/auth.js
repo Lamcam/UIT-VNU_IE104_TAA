@@ -1,37 +1,88 @@
-// const express = require('express');
-const models = require('../models')
-// const db = require('../config/db');
-// const { error } = require('jquery');
-// const bodyParser = require("body-parser");
+const models = require('../models');
+const bcrypt = require("bcrypt");
+const sanitizeHtml = require("sanitize-html");
 
-// const app = express();
+const exceptTime = 1000 * 60 * 60 * 24 * 1; // A day
+const saltRounds = 10;
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
 function auth() { }
+
+auth.registerPost = (req, res) => {
+  const { name, phone, email, pass } = req.body;
+
+  const cleanName = sanitizeHtml(name);
+  const cleanPhone = sanitizeHtml(phone);
+  const cleanEmail = sanitizeHtml(email);
+
+  console.log("Cleaned name: ", cleanName);
+  console.log("Cleaned phone: ", cleanPhone);
+  console.log("Cleaned email: ", cleanEmail);
+
+  const encryptPass = bcrypt.hashSync(pass, saltRounds);
+
+  console.log("Encrypted pass: ", encryptPass);
+
+  models.auth.addUser({
+    name: cleanName,
+    phone: cleanPhone,
+    email: cleanEmail,
+    pass: encryptPass
+  }, (err, result) => {
+    if (err) {
+      if (err.code == "ER_DUP_ENTRY") {
+        res.status(409).json({
+          statusCode: 409,
+          msg: "Duplicate phone or email"
+        })
+        return;
+      }
+
+      res.status(500).json({
+        statusCode: 500,
+        msg: "Internal server error"
+      });
+      return;
+    }
+
+    res.status(200).json({
+      statusCode: 200,
+      msg: "Register success"
+    })
+  })
+}
 
 auth.loginPost = (req, res) => {
   const { phone, pass } = req.body;
 
-  models.auth.getUserByLogin({ phone, pass }, (err, result) => {
-    if (err) throw err;
+  const cleanPhone = sanitizeHtml(phone);
+  const encryptPass = md5(pass);
+
+  models.auth.getUserByLogin({ phone: cleanPhone, pass: encryptPass }, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        statusCode: 500,
+        msg: 'Internal server error'
+      })
+      return;
+    }
 
     if (result.length == 0) {
       res.status(404).json({
         statusCode: 404,
         msg: 'Not match any account'
       })
-    } else {
-      res.cookie('authenticated', 'true', { maxAge: 1000 * 60 * 60 * 24 * 30 });
-      res.cookie('id', result[0].user_id, { maxAge: 1000 * 60 * 60 * 24 * 30 });
-      res.cookie('name', result[0].user_name, { maxAge: 1000 * 60 * 60 * 24 * 30 });
-      res.cookie('avatar', result[0].user_avatar, { maxAge: 1000 * 60 * 60 * 24 * 30 });
-      res.status(200).json({
-        statusCode: 200,
-        msg: 'Found data account',
-      })
+      return;
     }
-  })
+
+    res.cookie('authenticated', 'true', { maxAge: exceptTime });
+    res.cookie('id', result[0].user_id, { maxAge: exceptTime });
+    res.cookie('name', result[0].user_name, { maxAge: exceptTime });
+    res.cookie('avatar', result[0].user_avatar, { maxAge: exceptTime });
+    res.status(200).json({
+      statusCode: 200,
+      msg: 'Found data account',
+    });
+  });
 }
 
 auth.logout = (req, res) => {

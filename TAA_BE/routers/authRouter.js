@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../controllers/auth.js');
-const unAuth = require('../controllers/unAuth.js');
 
+
+router.post('/registerPost', auth.registerPost)
 
 router.post('/loginPost', auth.loginPost)
-
-router.post('/register', unAuth.registerPost)
 
 router.get('/logout', auth.logout)
 
