@@ -174,7 +174,8 @@ const updateCheckbox = (target) => {
 
   if (target === allProdCheckbox) {
     updateOneToAll();
-  } else if (Array.from(prodCheckboxes).includes(target)) {
+  // } else if (Array.from(prodCheckboxes).includes(target)) {
+  } else {
     updateAllToOne();
   }
 }
