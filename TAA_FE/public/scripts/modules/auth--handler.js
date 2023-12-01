@@ -173,29 +173,41 @@ const checkAuthenticated = () => {
   }
 }
 
+const moveToCart = () => {
+  if (checkAuthenticated()) {
+    window.location.href = "/account/cart";
+  }
+}
+
 const logout = () => {
-  fetch('/auth/logout', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(res => res.json())
-    .then(res => {
-      if (res.statusCode == 200) {
-        // alert('Logout success');
-        window.location.reload();
-      } else {
-        // alert('Logout fail');
-      }
-    })
-    .catch(err => console.log(err));
+  // fetch('/auth/logout', {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // }).then(res => res.json())
+  //   .then(res => {
+  //     if (res.statusCode == 200) {
+  //       // alert('Logout success');
+  //       window.location.reload();
+  //     } else {
+  //       // alert('Logout fail');
+  //     }
+  //   })
+  //   .catch(err => console.log(err));
+  cookieHder.deleteCookie('authenticated');
+  cookieHder.deleteCookie('id');
+  cookieHder.deleteCookie('name');
+  cookieHder.deleteCookie('avatar');
+  window.location.reload();
 }
 
 const authCtl = {
   register,
   login,
-  logout,
   checkAuthenticated,
+  moveToCart,
+  logout,
 }
 
 export default authCtl;
