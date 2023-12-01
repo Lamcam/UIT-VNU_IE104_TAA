@@ -7,35 +7,30 @@
       onclick: 'modalCtl.closeModal()',
       iconData: 'close',
     }) %>
-    <!-- <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
-      <span class="status-layer icon material-symbols-outlined">close</span>
-    </button> -->
     <h1 class="modal__title headline-large">Đăng nhập</h1>
     <form>
       <div class="form__row mt-24">
         <div class="row">
           <label class="col-4 label-large" for="f_log_phone">
             Số điện thoại:</label>
-          <input class="col-8" type="text" name="phone" id="f_log_phone"
-            autocomplete='username' required>
+          <input class="col-8" type="text" name="phone" id="f_log_phone" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_log_pass">
             Mật khẩu:</label>
-          <input class="col-8" type="password" name="pass" id="f_log_pass"
-            autocomplete='current-password' required>
+          <input class="col-8" type="password" name="pass" id="f_log_pass" required>
         </div>
       </div>
+      <%- include('../components/button', {
+        type: '',
+        options: 'btn--filled full-width',
+        classList: 'modal__btn--submit mt-12',
+        label: 'Đăng nhập',
+        onclick: 'authCtl.login()',
+      }) %>
     </form>
-    <%- include('../components/button', {
-      type: '',
-      options: 'btn--filled full-width',
-      classList: 'modal__btn--submit mt-12',
-      label: 'Đăng nhập',
-      onclick: 'authCtl.login()',
-    }) %>
     <div class="row mt-36">
       <%- include('../components/button', {
         type: '',

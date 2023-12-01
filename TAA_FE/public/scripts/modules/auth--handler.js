@@ -51,9 +51,7 @@ const isPasswordValid = (password) => {
   return password.length >= 8 && re.test(password);
 };
 
-const register = (event) => {
-  event.preventDefault();
-
+const register = () => {
   const name = $('#modal--register [name="name"]').val().trim();
   const phone = $('#modal--register [name="phone"]').val().trim();
   const email = $('#modal--register [name="email"]').val().trim();
