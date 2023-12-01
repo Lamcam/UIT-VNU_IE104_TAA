@@ -5,7 +5,7 @@ INSERT INTO `users` (`user_id`, `user_name`, `user_phone`, `user_email`, `user_p
 (1, 'Nguyễn Văn A', '0123456789', 'abc@gmail.com', 'Abcd@123', NULL, NULL),
 (2, 'Trần Thị B', '0987654321', 'def@gmail.com', 'Defg@456', 'user_avatar_1', NULL),
 (3, 'Lâm Thị Hồng C', '0123252729', 'ghi@gmail.com', 'Ghij@789', NULL, NULL),
-(4, 'Phạm Thị D', '0987654321', 'jkl@gmail.com', 'Jklm@012', 'user_avatar_3', NULL),
+(4, 'Phạm Thị D', '0987465321', 'jkl@gmail.com', 'Jklm@012', 'user_avatar_3', NULL),
 (5, 'Hoàng Văn E', '0108456789', 'mno@gmail.com', 'Mnop@345', NULL, NULL);
 
 
@@ -13,7 +13,7 @@ INSERT INTO `locations` (`loca_id`, `loca_pers_name`, `loca_pers_phone`, `loca_a
 (1, 'Nguyễn Văn A', '0123456789', 'Nhơn Trạch_Đồng Nai', 'Đối diện quán lẩu ABC', 1),
 (2, 'Trần Thị B', '0987654321', 'Bình Dương', 'Gần chợ ABC', 2),
 (3, 'Lâm Thị Hồng C', '0123252729', 'Quận 1, TP. Hồ Chí Minh', 'Gần công viên XYZ', 3),
-(4, 'Phạm Thị D', '0987654321', 'Đống Đa, Hà Nội', 'Gần trường DEF', 4);
+(4, 'Phạm Thị D', '0987465321', 'Đống Đa, Hà Nội', 'Gần trường DEF', 4);
 
 INSERT INTO `bankcards` (`bank_id`, `bank_name`, `bank_number`, `bank_pers_name`, `bank_pers_id`, `user_id`) VALUES
 (1, 'ABC', '1234567890', 'Nguyễn Văn A', '9876543210', 1),

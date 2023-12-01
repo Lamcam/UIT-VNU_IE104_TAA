@@ -14,8 +14,8 @@ USE DATABASE_IE104;
 CREATE TABLE `users` (
   `user_id` int AUTO_INCREMENT  NOT NULL,
   `user_name` varchar(255) DEFAULT NULL,
-  `user_phone` varchar(20) DEFAULT NULL,
-  `user_email` varchar(255) DEFAULT NULL,
+  `user_phone` varchar(20) UNIQUE DEFAULT NULL,
+  `user_email` varchar(255) UNIQUE DEFAULT NULL,
   `user_pass` varchar(255) DEFAULT NULL,
   `user_avatar_url` varchar(255) DEFAULT NULL,
   `loca_default_id` char(8) DEFAULT NULL,
