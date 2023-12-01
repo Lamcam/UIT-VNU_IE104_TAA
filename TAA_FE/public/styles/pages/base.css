@@ -304,24 +304,19 @@ hr {
 
 body {
   /* min-width: 896px; */
+
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
-aside {
+/* aside {
   grid-template-areas: aside;
 }
 
 main {
   grid-template-areas: main;
-  /* min-height: 612px; */
-
-  /* &>section {
-    padding: 0 3rem;
-
-    &.full-width {
-      padding: 0;
-    }
-  } */
-}
+} */
 
 form {
   display: flex;
