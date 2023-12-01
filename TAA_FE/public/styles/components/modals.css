@@ -20,7 +20,7 @@
 
   position: relative;
   margin: 15rem auto;
-  padding: 4rem 5rem;
+  padding: 4rem 5rem 10rem 5rem;
   border: 1px solid #888;
   max-width: 60rem;
   width: 90%;
@@ -79,10 +79,15 @@
 }
 
 .modal--bottom {
-  /* display: flex;
-  width: calc(100% - 10rem);
   position: absolute;
-  bottom: 4rem; */
+  right: 5rem;
+  left: 5rem;
+  bottom: 4rem;
+  /* display: flex;
+  height: 100%;
+
+  flex-direction: column;
+  justify-content: flex-end; */
 }
 
 .row__flex {

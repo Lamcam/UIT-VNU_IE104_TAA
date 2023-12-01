@@ -4,12 +4,18 @@ const moveToProducts = (type) => {
     return;
   }
 
-  if (type !== "products" && type !== "services") {
+  if (type !== "discount" && type !== "freeship") {
     console.error('Type is not valid');
     return;
   }
 
-  if (type === "products") {
-    window.location.href = "/products/detail?id=1";
+  if (type === "discount") {
+    window.location.href = "/products/detail?id=prod0001";
+    return;
+  }
+
+  if (type === "freeship") {
+    window.location.href = "/services/detail?id=prod0002";
+    return;
   }
 }

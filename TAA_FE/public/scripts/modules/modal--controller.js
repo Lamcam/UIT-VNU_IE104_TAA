@@ -39,6 +39,11 @@ const closeModalByClickOutside = () => {
     modal.addEventListener('click', (e) => {
       closeModal();
     });
+
+    const modalContainer = modal.querySelector('.modal__content');
+    modalContainer?.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
   });
 }
 
