@@ -37,13 +37,6 @@ const isPhoneValid = (phone) => {
 };
 
 const register = () => {
-  const is_read = $('#f_reg_is_read').is(':checked');
-
-  if (!is_read) {
-    alert('Please read and agree to the terms and conditions');
-    return;
-  }
-
   const name = $('#modal--register [name="name"]').val().trim();
   const phone = $('#modal--register [name="phone"]').val().trim();
   const email = $('#modal--register [name="email"]').val().trim();
@@ -67,6 +60,13 @@ const register = () => {
 
   if (!isPasswordValid(pass)) {
     alert('Password must be at least 8 characters, including letters and numbers, without spaces and special characters');
+    return;
+  }
+
+  const is_read = $('#f_reg_is_read').is(':checked');
+
+  if (!is_read) {
+    alert('Please read and agree to the terms and conditions');
     return;
   }
 
