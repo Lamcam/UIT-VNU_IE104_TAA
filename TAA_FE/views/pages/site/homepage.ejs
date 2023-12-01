@@ -49,12 +49,11 @@
       <section id="endow" class="mt-64">
         <div class="container">
           <h1 class="section__title display-medium">Các ưu đãi khi mua trên
-            TAA
-          </h1>
+            TAA</h1>
           <div class="section__content row body-large mt-12">
             <div class="endow__item visible col-12 col-lg-6">
               <h2 class="endow__title headline-medium">Giảm cực sốc lên đến
-                50%</h2>
+                25%</h2>
               <p class="endow__context">Dành riêng cho gói hội viên của TAA
               </p>
               <div>
@@ -63,17 +62,13 @@
                   options: 'btn--filled',
                   classList: '',
                   label: 'Tìm hiểu ngay',
-                  onclick: '',
+                  onclick: 'moveToProducts(type="discount")',
                 }) %>
-                <!-- <button class="btn--filled">
-                  <span class="status-layer">Tìm hiểu ngay</span>
-                </button> -->
               </div>
             </div>
             <div class="endow__item visible col-12 col-lg-6">
               <h2 class="endow__title headline-medium">Freeship cho mọi đơn
-                hàng
-              </h2>
+                hàng</h2>
               <p class="endow__context">Mã giảm trao tay mua ngay kẻo hết</p>
               <div>
                 <%- include('../../components/button', {
@@ -81,11 +76,8 @@
                   options: 'btn--filled',
                   classList: '',
                   label: 'Tìm hiểu ngay',
-                  onclick: '',
+                  onclick: 'moveToProducts(type="freeship")',
                 }) %>
-                <!-- <button class="btn--filled">
-                  <span class="status-layer">Tìm hiểu ngay</span>
-                </button> -->
               </div>
             </div>
           </div>
