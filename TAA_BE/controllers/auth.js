@@ -55,9 +55,8 @@ auth.loginPost = (req, res) => {
   const { phone, pass } = req.body;
 
   const cleanPhone = sanitizeHtml(phone);
-  const encryptPass = md5(pass);
 
-  models.auth.getUserByLogin({ phone: cleanPhone, pass: encryptPass }, (err, result) => {
+  models.auth.getUserByLogin({ phone: cleanPhone }, (err, result) => {
     if (err) {
       res.status(500).json({
         statusCode: 500,
@@ -74,13 +73,35 @@ auth.loginPost = (req, res) => {
       return;
     }
 
-    res.cookie('authenticated', 'true', { maxAge: exceptTime });
-    res.cookie('id', result[0].user_id, { maxAge: exceptTime });
-    res.cookie('name', result[0].user_name, { maxAge: exceptTime });
-    res.cookie('avatar', result[0].user_avatar, { maxAge: exceptTime });
-    res.status(200).json({
-      statusCode: 200,
-      msg: 'Found data account',
+    bcrypt.compare(pass, result[0].user_pass, (err, isMatch) => {
+      if (err) {
+        res.status(500).json({
+          statusCode: 500,
+          msg: 'Internal server error'
+        })
+        return;
+      }
+
+      console.log("pass", pass);
+      console.log("user_pass", result[0].user_pass);
+      console.log("isMatch: ", isMatch);
+
+      if (!isMatch) {
+        res.status(401).json({
+          statusCode: 401,
+          msg: 'Wrong password'
+        })
+        return;
+      }
+
+      res.cookie('authenticated', 'true', { maxAge: exceptTime, httpOnly: true });
+      res.cookie('id', result[0].user_id, { maxAge: exceptTime, httpOnly: true });
+      res.cookie('name', result[0].user_name, { maxAge: exceptTime, httpOnly: true });
+      res.cookie('avatar', result[0].user_avatar, { maxAge: exceptTime, httpOnly: true });
+      res.status(200).json({
+        statusCode: 200,
+        msg: 'Login success',
+      });
     });
   });
 }

@@ -79,10 +79,10 @@
 }
 
 .modal--bottom {
-  display: flex;
+  /* display: flex;
   width: calc(100% - 10rem);
   position: absolute;
-  bottom: 4rem;
+  bottom: 4rem; */
 }
 
 .row__flex {

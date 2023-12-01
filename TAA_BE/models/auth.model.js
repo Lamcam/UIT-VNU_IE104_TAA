@@ -22,15 +22,14 @@ authModel.addUser = ({ name, phone, email, pass }, callback) => {
   })
 }
 
-authModel.getUserByLogin = ({ phone, pass }, callback) => {
+authModel.getUserByLogin = ({ phone }, callback) => {
   const sql = `
     SELECT *
     FROM USERS
-    WHERE user_phone = ?
-      AND user_pass = ?;
+    WHERE user_phone = ?;
   `;
 
-  const params = [phone, pass];
+  const params = [phone];
 
   db.query(sql, params, (err, result) => {
     callback(err, result)
