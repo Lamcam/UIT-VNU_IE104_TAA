@@ -13,6 +13,8 @@ header {
   gap: 2rem;
   flex-direction: column;
 
+  border-bottom: 1px solid var(--md-sys-color-outline);
+
   & .header__top {
     padding-top: 1.25rem;
 
