@@ -3,7 +3,7 @@
   overflow: hidden;
 
   & .thead {
-    height: 4rem;
+    /* height: 4rem; */
 
     & span {
       line-height: 4rem;
@@ -20,6 +20,12 @@
       & .item__img {
         width: 100%;
       }
+
+      & .center {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
     }
 
     & .table__noti {
@@ -31,10 +37,6 @@
 .detail__context {
   text-align: right;
 }
-
-/* td {
-  text-align: right;
-} */
 
 .item-quantity__wrapper {
   display: flex;
@@ -50,8 +52,8 @@
   }
 
   & input {
-    min-height: 3rem;
     width: auto;
+    padding: 0;
   }
 }
 

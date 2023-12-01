@@ -30,17 +30,19 @@
       <div class="row mt-12">
         <main class="table visible col-12 col-lg-8">
           <section class="thead row primary on-primary-text">
-            <%- include('../../components/checkbox', {
-              id: 'cart-item-all',
-              classList: 'col-1',
-              name: '',
-              value: '',
-            }) %>
-            <span class="col-4">Sản phẩm</span>
-            <span class="col-2">Đơn giá</span>
-            <span class="col-2">Số lượng</span>
-            <span class="col-2">Thành tiền</span>
-            <span class="col-1"></span>
+            <span class="col-1 col-sm-2">
+              <%- include('../../components/checkbox', {
+                id: 'cart-item-all',
+                classList: '',
+                name: '',
+                value: '',
+              }) %>
+            </span>
+            <span class="col-4 col-sm-8">Sản phẩm</span>
+            <span class="col-2 hide-sm col-sm-3">Đơn giá</span>
+            <span class="col-2 hide-sm">Số lượng</span>
+            <span class="col-2 hide-sm col-sm-3">Thành tiền</span>
+            <span class="col-1 hide-sm col-sm-2"></span>
           </section>
           <section class="tbody">
             <% if (data.length == 0) { %>
@@ -48,15 +50,19 @@
             <% } else { %>
             <% data.forEach((item, idx) => { %>
             <div class="tr row cart__item" data-prod-id='<%= item.prod_id %>'>
-              <%- include('../../components/checkbox', {
-                id: `${idx}`,
-                classList: 'col-1',
-                name: 'cart-item',
-                value: item.prod_id,
-              }) %>
-              <img class="item__img col-2" src="/imgs/products/<%= item.cate_name %>/<%= item.prod_img_urls[0] %>" alt="">
-              <span class="col-2"><%- item.prod_name %></span>
-              <span class="item--prices col-2">
+              <span class="col-1 col-sm-2 center">
+                <%- include('../../components/checkbox', {
+                  id: `${idx}`,
+                  classList: 'col-1',
+                  name: 'cart-item',
+                  value: item.prod_id,
+                }) %>
+              </span>
+              <img class="item__img col-2 col-sm-4" src="/imgs/products/<%= item.cate_name %>/<%= item.prod_img_urls[0] %>" alt="">
+              <span class="col-2 col-sm-4"><%- item.prod_name %></span>
+              <span class="hide-lg hide-md col-sm-2"></span>
+              <span class="hide-lg hide-md col-sm-2"></span>
+              <span class="item--prices col-2 col-sm-3">
                 <span class="cost_value item--price label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
                 <% if (item.prod_discount != 0) { %>
                 <span class="cost_value item--price-before error-text"><%- item.prod_cost %></span>
@@ -67,14 +73,16 @@
                 <input class="item--quantity" type="number" step=1 min=1 max=5 value=1>
                 <span class='value--ctl increase icon material-symbols-outlined'>add</span>
               </span>
-              <span class="cost_value item--total-price col-2 label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
-              <%- include('../../components/button', {
-                type: 'btn-icon',
-                options: '',
-                classList: 'btn--delete col-1',
-                iconData: 'delete',
-                onclick: 'modalCtl.openModal(\'#modal--del-cart\')',
-              }) %>
+              <span class="cost_value item--total-price col-2 col-sm-3 label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
+              <span class="col-1 col-sm-2 center">
+                <%- include('../../components/button', {
+                  type: 'btn-icon',
+                  options: '',
+                  classList: 'btn--delete col-1',
+                  iconData: 'delete',
+                  onclick: 'modalCtl.openModal(\'#modal--del-cart\')',
+                }) %>
+              </span>
             </div>
             <% }) %>
             <% } %>
@@ -115,7 +123,7 @@
         </aside>
       </div>
     </div>
-  
+
     <%- include('../../partials/footer') %>
     <%- include('./cartModals/modal--del-cart') %>
   </div>
