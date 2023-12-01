@@ -6,7 +6,7 @@
 const { json } = require("body-parser");
 const models = require("../models");
 const index = require("./index");
-const { search } = require("../routers/productsRouter");
+// const { search } = require("../routers/productsRouter");
 
 /**
  * Controller class for handling products.
