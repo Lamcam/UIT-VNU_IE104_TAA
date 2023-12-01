@@ -2,11 +2,11 @@
 USE DATABASE_IE104;
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_phone`, `user_email`, `user_pass`, `user_avatar_url`, `loca_default_id`) VALUES
-(1, 'Nguyễn Văn A', '0123456789', 'abc@gmail.com', 'Abcd@123', NULL, NULL),
-(2, 'Trần Thị B', '0987654321', 'def@gmail.com', 'Defg@456', 'user_avatar_1', NULL),
-(3, 'Lâm Thị Hồng C', '0123252729', 'ghi@gmail.com', 'Ghij@789', NULL, NULL),
-(4, 'Phạm Thị D', '0987465321', 'jkl@gmail.com', 'Jklm@012', 'user_avatar_3', NULL),
-(5, 'Hoàng Văn E', '0108456789', 'mno@gmail.com', 'Mnop@345', NULL, NULL);
+(1, 'Nguyễn Văn A', '0123456789', 'abc@gmail.com', '$2b$10$g6ZsLsSWqE8W0E.1YIdOiuud/.vF7hygz0a/i5l6j/pWKcBuDPE/G', NULL, NULL),  -- Abcd@123
+(2, 'Trần Thị B', '0987654321', 'def@gmail.com', '$2b$10$2.96sD2qFKHBZTccAWFtv.3ENJGohrWXcgUmkzgI2fS5fUct5aD1G', 'user_avatar_1', NULL), -- Defg@456
+(3, 'Lâm Thị Hồng C', '0123252729', 'ghi@gmail.com', '$2b$10$rAcQS5rb1uRClggK7jK.WOqtrqyJhOde7dqG3rGMmI3vydhmA1ue2', NULL, NULL), -- Ghij@789
+(4, 'Phạm Thị D', '0987465321', 'jkl@gmail.com', '$2b$10$PKjUHyEV4dlEWERROXi4TOmbnfHXf4xbaeCpTOgAXSC6SjDnlQLk6', 'user_avatar_3', NULL), -- Jklm@012
+(5, 'Hoàng Văn E', '0108456789', 'mno@gmail.com', '$2b$10$SB5Yi3.gKCxjVv8lkgK6UeRPzrqk28GshBxBqxEW0THgO8gZBHQni', NULL, NULL); -- Mnop@345
 
 
 INSERT INTO `locations` (`loca_id`, `loca_pers_name`, `loca_pers_phone`, `loca_address`, `loca_detail`, `user_id`) VALUES
