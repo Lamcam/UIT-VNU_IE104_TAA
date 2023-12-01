@@ -36,6 +36,11 @@ const productItemModalOpen = (DOMModal) => {
 
   document.querySelector('body').classList.add('modal-open');
   DOMModal.classList.add('active');
+
+  const modalContainer = DOMModal.querySelector('.modal-container--product');
+  modalContainer?.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
 };
 
 const productItemModalSlideImage = (DOMModal) => {
