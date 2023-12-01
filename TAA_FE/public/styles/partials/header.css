@@ -141,6 +141,7 @@ header {
 
     & .header__search {
       max-width: none;
+      min-width: none;
       width: 100%;
     }
   }
