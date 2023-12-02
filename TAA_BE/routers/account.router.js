@@ -16,6 +16,7 @@ router.post('/cart/add', account.cartAdd)
 router.post('/cart/delete', account.cartDelete)
 
 router.get('/order', account.order)
+router.post('/orderPost', account.orderPost)
 
 
 module.exports = router;

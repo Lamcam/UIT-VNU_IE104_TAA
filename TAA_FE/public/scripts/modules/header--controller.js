@@ -21,7 +21,7 @@ const updateHeaderName = () => {
     return;
   }
 
-  console.log(document.cookie);
+  // console.log(document.cookie);
 
   headerName.innerText = cookieHder.readCookie('name');
   // console.log(cookieHder);
