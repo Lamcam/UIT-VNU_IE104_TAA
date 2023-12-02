@@ -130,7 +130,7 @@
 
             <% for(let i=0 ; i<data.length; i++){ 
               totalCost+= data[i].prod_cost;
-              totalDiscount += data[i].prod_cost *(1- data[i].prod_discount);
+              totalDiscount += data[i].prod_cost * data[i].prod_discount;
             } %>
 
             <div class="row row__flex">
