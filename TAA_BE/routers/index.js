@@ -1,25 +1,25 @@
 // import middlewares
-const middlewares = require("../middlewares/index.js");
+const middlewares = require("../middlewares");
 
 // import router
-const siteRouter = require("./siteRouter")
-const productRouter = require("./productsRouter")
-const authRouter = require("./authRouter")
-const accountRouter = require("./accountRouter")
-const newsRouter = require("./newsRouter.js")
+const site = require("./site.router")
+const product = require("./products.router")
+const auth = require("./auth.router")
+const account = require("./account.router")
+const news = require("./news.router")
 
 const route = (app) => {
   app.use(middlewares.authenticate);
 
-  app.use("/", siteRouter)
+  app.use("/", site)
 
-  app.use("/auth", authRouter)
+  app.use("/auth", auth)
 
-  app.use("/products", productRouter)
+  app.use("/products", product)
 
-  app.use('/account', middlewares.authenticate, accountRouter)
+  app.use('/account', middlewares.authenticate, account)
 
-  app.use('/news', newsRouter)
+  app.use('/news', news)
 }
 
 // app.get("/products", controllers.product.queryProduct);

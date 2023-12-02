@@ -8,7 +8,7 @@
       iconData: 'close',
     }) %>
     <h1 class="modal__title headline-large">Đăng ký</h1>
-    <form action="/auth/register" method="POST">
+    <form>
       <div class="form__row mt-24">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_name">
@@ -20,28 +20,28 @@
         <div class="row">
           <label class="col-4 label-large" for="f_reg_phone">
             Số điện thoại:</label>
-          <input class="col-8" type="text" name="phone" id="f_reg_phone" autocomplete='phone' required>
+          <input class="col-8" type="text" name="phone" id="f_reg_phone" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_email">
             Email:</label>
-          <input class="col-8" type="email" name="email" id="f_reg_email" autocomplete='email' required>
+          <input class="col-8" type="email" name="email" id="f_reg_email" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_pass">
             Mật khẩu:</label>
-          <input class="col-8" type="password" name="pass" id="f_reg_pass" autocomplete='new-password' required>
+          <input class="col-8" type="password" name="pass" id="f_reg_pass" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_pass_confirm">
             Xác nhận mật khẩu:</label>
-          <input class="col-8" type="password" name="passConfirm" autocomplete='new-password' id="f_reg_pass_confirm" required>
+          <input class="col-8" type="password" name="passConfirm" id="f_reg_pass_confirm" required>
         </div>
       </div>
       <div class="form__row mt-12">
@@ -53,14 +53,16 @@
             classList: 'primary-text',
           }) %>
           </span>
-          <label for='f_reg_is_read' class="label body-medium">Tôi đã đọc và đồng ý với Điều kiện giao dịch
-            chung và Chính sách bảo mật thông tin của TAA</label>
+          <label for='f_reg_is_read' class="label term-of-use body-medium">Tôi
+            đã đọc và đồng ý với <a href="/manual/order"> Điều kiện giao dịch
+              chung</a> và <a href="/manual/policy">Chính sách bảo mật thông
+              tin</a> của TAA</label>
         </div>
       </div>
       <%- include('../components/button', {
         type: '',
-        options: 'btn--filled full-width mt-12',
-        classList: 'modal__btn--submit mt-12',
+        options: 'btn--filled',
+        classList: 'modal__btn--submit full-width mt-12',
         label: 'Đăng ký',
         onclick: 'authCtl.register()',
       }) %>

@@ -6,30 +6,42 @@
 }
 
 header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
   display: flex;
   gap: 2rem;
   flex-direction: column;
 
+  border-bottom: 1px solid var(--md-sys-color-outline);
+
   & .header__top {
     padding-top: 1.25rem;
 
-    &>* {
+    display: grid;
+
+    & .container {
       display: flex;
       position: relative;
 
       max-height: 4rem;
+      gap: 1rem;
       justify-content: space-between;
     }
   }
 
-  & .header__logo {
-    height: 100%;
-    aspect-ratio: 2/1;
+  & .header__link {
+    display: block;
+    min-width: 8rem;
+
+    & .header__logo {
+      height: 100%;
+      aspect-ratio: 2/1;
+    }
   }
 
   & .header__search {
-    max-width: 40rem;
-    width: 100%;
+    width: clamp(30rem, 100%, 40rem);
     margin: 0 1.25rem;
   }
 
@@ -53,7 +65,7 @@ header {
   & .header__user--controller__label {
     display: inline-flex;
     gap: 8px;
-  
+
     &>* {
       margin: auto;
     }
@@ -119,6 +131,8 @@ header {
 
 @media (max-width: 64rem) {
   header {
+    gap: 1rem;
+
     & .header__top {
       gap: 1rem;
     }
@@ -129,7 +143,8 @@ header {
 
     & .header__search {
       max-width: none;
-      width: auto;
+      min-width: none;
+      width: 100%;
     }
   }
 }

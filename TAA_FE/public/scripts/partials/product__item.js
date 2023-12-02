@@ -29,7 +29,18 @@ const productItemHeartInteract = (event) => {
 }
 
 const productItemModalOpen = (DOMModal) => {
+  if (!DOMModal) {
+    console.error('Don\'t have this modal');
+    return;
+  }
+
+  document.querySelector('body').classList.add('modal-open');
   DOMModal.classList.add('active');
+
+  const modalContainer = DOMModal.querySelector('.modal-container--product');
+  modalContainer?.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
 };
 
 const productItemModalSlideImage = (DOMModal) => {

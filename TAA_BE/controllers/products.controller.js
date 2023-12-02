@@ -6,7 +6,7 @@
 const { json } = require("body-parser");
 const models = require("../models");
 const index = require("./index");
-const { search } = require("../routers/productsRouter");
+// const { search } = require("../routers/productsRouter");
 
 /**
  * Controller class for handling products.
@@ -21,18 +21,12 @@ function product() {}
  */
 product.getAll = (req, res) => {
     const searchValue = req.query;
-    models.product.getAllProduct( searchValue , (err, result) => {
-      if (err) throw err;
-        if (result.length > 0) {
-            res.status(200).render("pages/products/index", {
-                result: index.groupProducts(result),
-                message: searchValue
-            });
-        } else {
-            res.status(200).json({
-                message: "Not Found",
-            });
-        }
+    models.product.getAllProduct(searchValue, (err, result) => {
+        if (err) throw err;
+        res.status(200).render("pages/products/index", {
+            result: index.groupProducts(result),
+            message: searchValue,
+        });
     });
 };
 

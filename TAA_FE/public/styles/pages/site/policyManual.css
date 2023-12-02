@@ -10,12 +10,14 @@
     text-align: center;
     margin-top: 12px;
     margin-bottom: 32px;
+    font-weight: bold;
 }
 
 .title2 {
     text-align: center;
     margin-top: 44px;
     margin-bottom: 32px;
+    font-weight: bold;
 }
 
 ul li {
@@ -30,7 +32,7 @@ ul li {
     text-align: justify;
 }
 
-p {
+.notice {
     color: #9C4048;
 }
 

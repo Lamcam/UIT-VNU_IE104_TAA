@@ -2,7 +2,8 @@
   & .container>* {
     display: flex;
     align-items: center;
-    height: 4rem;
+    flex-wrap: wrap;
+    /* height: 4rem; */
     padding: 0 1rem;
     gap: .75rem;
   }
@@ -13,7 +14,8 @@
   align-items: center;
   height: 100%;
   list-style: none;
-  gap: 8px;
+  gap: .75rem;
+  min-height: 4rem;
 
   &::after {
     content: '>';

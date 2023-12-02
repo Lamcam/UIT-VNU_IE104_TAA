@@ -8,25 +8,10 @@ import headerCtl from './header--controller.js';
 import cartCtl from './cart--hander.js';
 import cookieHder from './cookie--handler.js';
 
-// import { notFoundSearch } from './header--controller.js';
-// handleLoginSubmit();
-// handleLogout();
-
-modalCtl.init();
-headerCtl.init();
-
 window.cartCtl = cartCtl;
 window.modalCtl = modalCtl;
 window.authCtl = authCtl;
 window.cookieHder = cookieHder;
 
-// fetch('/products')
-//   .then(response => response.json())
-//   .then(data => {
-//     if (data.message == 'Not Found')
-//       console.log(data.message)
-//     notFoundSearch()
-//   })
-//   .catch(error => {
-//     console.log('Lỗi:', error);
-//   });
+modalCtl.init();
+headerCtl.init();

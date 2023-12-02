@@ -6,15 +6,19 @@ const openModal = (sltById) => {
   const modalSelector = document.querySelector(sltById);
   if (!modalSelector) {
     console.error('Don\'t have this modal', sltById);
-  } else {
-    modalSelector.classList.add("active");
+    return;
   }
+
+  document.querySelector('body').classList.add('modal-open');
+  modalSelector.classList.add("active");
 }
 
 /**
  * Closes all open modals.
  */
 const closeModal = () => {
+  document.querySelector('body').classList.remove('modal-open');
+
   const modals = document.querySelectorAll(".modal");
   modals?.forEach(modal => modal.classList.remove("active"))
 }
@@ -33,9 +37,12 @@ const closeModalByClickOutside = () => {
   modals?.forEach(modal => {
     // console.log('closeModalByClickOutside at: ', modal);
     modal.addEventListener('click', (e) => {
-      if (e.target.classList.contains('modal')) {
-        modal.classList.remove('active');
-      }
+      closeModal();
+    });
+
+    const modalContainer = modal.querySelector('.modal__content');
+    modalContainer?.addEventListener('click', (e) => {
+      e.stopPropagation();
     });
   });
 }

@@ -277,6 +277,12 @@
   }
 }
 
+.not-found-search h3{
+  display: inline-block;
+  white-space: nowrap;
+  padding: 1rem;
+  font-weight: normal;
+}
 @media screen and (max-width: 48rem) {
   .product__filter {
     flex-direction: column;

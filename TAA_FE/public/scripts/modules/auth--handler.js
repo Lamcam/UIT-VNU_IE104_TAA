@@ -1,19 +1,18 @@
-const isPasswordValid = (password) => {
+const isEmailValid = (email) => {
   // Regular expression breakdown:
-  // ^(?!\s)             : Asserts that the password does not start with a whitespace
-  // (?=.*[a-zA-Z])      : Asserts that there is at least one alphabetical character
-  // (?=.*\d)            : Asserts that there is at least one digit
-  // (?=.*[!@#$%^&*()_+]) : Asserts that there is at least one special character
-  // [a-zA-Z\d!@#$%^&*()_+]+ : Matches any combination of alphabetical characters, digits, and special characters
-  // (?<!\s)$            : Asserts that the password does not end with a whitespace
-  const re = /^(?!\s)(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]+(?<!\s)$/;
+  // ^(?!\s)             : Asserts that the email does not start with a whitespace
+  // [a-zA-Z\d!#$%&'*+-/=?^_`{|}~]+ : Matches any combination of alphabetical characters, digits, and special characters
+  // @                   : Matches the @ character
+  // [a-zA-Z\d-]+        : Matches any combination of alphabetical characters, digits, and hyphens
+  // (\.[a-zA-Z\d-]+)*   : Matches any combination of alphabetical characters, digits, and hyphens, preceded by a dot, zero or more times
+  // \.                  : Matches the dot character
+  // [a-zA-Z\d-]{2,}     : Matches any combination of alphabetical characters, digits, and hyphens, at least 2 times
+  // (?<!\s)$            : Asserts that the email does not end with a whitespace
+  const re = /^(?!\s)[a-zA-Z\d.+]+@[a-zA-Z\d-]+(\.[a-zA-Z\d-]+)*\.[a-zA-Z\d-]{2,}(?<!\s)$/;
 
-  // Conditions:
-  // password.length >= 8 : Checks that the password is at least 8 characters long
-  // re.test(password)    : Checks that the password matches the regular expression
-  return password.length >= 8 && re.test(password);
-};
-
+  // Test if the provided email matches the regular expression:
+  return re.test(email);
+}
 
 const isPhoneValid = (phone) => {
   /*
@@ -36,14 +35,23 @@ const isPhoneValid = (phone) => {
   return phone.length > 8 && re.test(phone);
 };
 
+const isPasswordValid = (password) => {
+  // Regular expression breakdown:
+  // ^(?!\s)             : Asserts that the password does not start with a whitespace
+  // (?=.*[a-zA-Z])      : Asserts that there is at least one alphabetical character
+  // (?=.*\d)            : Asserts that there is at least one digit
+  // (?=.*[!@#$%^&*()_+]) : Asserts that there is at least one special character
+  // [a-zA-Z\d!@#$%^&*()_+]+ : Matches any combination of alphabetical characters, digits, and special characters
+  // (?<!\s)$            : Asserts that the password does not end with a whitespace
+  const re = /^(?!\s)(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*()_+])[a-zA-Z\d!@#$%^&*()_+]+(?<!\s)$/;
+
+  // Conditions:
+  // password.length >= 8 : Checks that the password is at least 8 characters long
+  // re.test(password)    : Checks that the password matches the regular expression
+  return password.length >= 8 && re.test(password);
+};
+
 const register = () => {
-  const is_read = $('#f_reg_is_read').is(':checked');
-
-  if (!is_read) {
-    alert('Please read and agree to the terms and conditions');
-    return;
-  }
-
   const name = $('#modal--register [name="name"]').val().trim();
   const phone = $('#modal--register [name="phone"]').val().trim();
   const email = $('#modal--register [name="email"]').val().trim();
@@ -52,6 +60,11 @@ const register = () => {
 
   if (!name || !phone || !email || !pass || !passConfirm) {
     alert('Please enter all fields');
+    return;
+  }
+
+  if (!isEmailValid(email)) {
+    alert('Email is invalid\nPlease enter a valid email');
     return;
   }
 
@@ -70,6 +83,13 @@ const register = () => {
     return;
   }
 
+  const is_read = $('#f_reg_is_read').is(':checked');
+
+  if (!is_read) {
+    alert('Please read and agree to the terms and conditions');
+    return;
+  }
+
   const data = { name, phone, email, pass }
 
   fetch('/auth/registerPost', {
@@ -79,20 +99,20 @@ const register = () => {
     },
     body: JSON.stringify(data),
   }).then(res => res.json())
-  .then(res => {
+    .then(res => {
       if (res.statusCode == 500) {
         alert('Server error\nPlease try again later');
         return;
       }
-    
+
       if (res.statusCode == 409) {
         alert('Phone number or email already exists\nPlease change them and try again');
         return;
-      }  
+      }
 
       if (res.statusCode == 200) {
         alert('Register success. Please login');
-        modalCtl.openModal('#modal--login');
+        modalCtl.nextModal('#modal--login');
         return;
       }
 
@@ -153,29 +173,41 @@ const checkAuthenticated = () => {
   }
 }
 
+const moveToCart = () => {
+  if (checkAuthenticated()) {
+    window.location.href = "/account/cart";
+  }
+}
+
 const logout = () => {
-  fetch('/auth/logout', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  }).then(res => res.json())
-    .then(res => {
-      if (res.statusCode == 200) {
-        // alert('Logout success');
-        window.location.reload();
-      } else {
-        // alert('Logout fail');
-      }
-    })
-    .catch(err => console.log(err));
+  // fetch('/auth/logout', {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json'
+  //   }
+  // }).then(res => res.json())
+  //   .then(res => {
+  //     if (res.statusCode == 200) {
+  //       // alert('Logout success');
+  //       window.location.reload();
+  //     } else {
+  //       // alert('Logout fail');
+  //     }
+  //   })
+  //   .catch(err => console.log(err));
+  cookieHder.deleteCookie('authenticated');
+  cookieHder.deleteCookie('id');
+  cookieHder.deleteCookie('name');
+  cookieHder.deleteCookie('avatar');
+  window.location.reload();
 }
 
 const authCtl = {
   register,
   login,
-  logout,
   checkAuthenticated,
+  moveToCart,
+  logout,
 }
 
 export default authCtl;

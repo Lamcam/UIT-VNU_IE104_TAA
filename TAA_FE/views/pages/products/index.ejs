@@ -136,9 +136,11 @@
               })%>
             <% } %>
           </div>
+          <% if(result.length == 0) { %>
           <div class="not-found-search">
-
+            <h3 class="headline-small">Không tìm thấy sản phẩm!</h3>
           </div>
+          <% } %>
           <div class="row col-12">
             <%- include('../../partials/pagination', {
               classList: 'col-12'

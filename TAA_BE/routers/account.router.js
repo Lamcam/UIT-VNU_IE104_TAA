@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const account = require('../controllers/account')
-const middlewares = require("../middlewares/index.js")
+const account = require('../controllers/account.controller')
+const middlewares = require("../middlewares")
 
 router.use('/', middlewares.authorize)
 
