@@ -219,8 +219,8 @@ ALTER TABLE `transportmethods`
 -- Constraints for table `user`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`loca_default_id`) REFERENCES `bankcards` (`bank_id`),
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`bank_default_id`) REFERENCES `locations` (`loca_id`);
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`loca_default_id`) REFERENCES `locations` (`loca_id`),
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`bank_default_id`) REFERENCES `bankcards` (`bank_id`);
 
 --
 -- Constraints for table `cart`

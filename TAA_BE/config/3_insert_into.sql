@@ -1,12 +1,12 @@
 -- Active: 1698914213463@@127.0.0.1@3306@database_ie104
 USE DATABASE_IE104;
 
-INSERT INTO `users` (`user_id`, `user_name`, `user_phone`, `user_email`, `user_pass`, `user_avatar_url`, `loca_default_id`) VALUES
-(1, 'Nguyễn Văn A', '0123456789', 'abc@gmail.com', '$2b$10$g6ZsLsSWqE8W0E.1YIdOiuud/.vF7hygz0a/i5l6j/pWKcBuDPE/G', NULL, NULL),  -- Abcd@123
-(2, 'Trần Thị B', '0987654321', 'def@gmail.com', '$2b$10$2.96sD2qFKHBZTccAWFtv.3ENJGohrWXcgUmkzgI2fS5fUct5aD1G', 'user_avatar_1', NULL), -- Defg@456
-(3, 'Lâm Thị Hồng C', '0123252729', 'ghi@gmail.com', '$2b$10$rAcQS5rb1uRClggK7jK.WOqtrqyJhOde7dqG3rGMmI3vydhmA1ue2', NULL, NULL), -- Ghij@789
-(4, 'Phạm Thị D', '0987465321', 'jkl@gmail.com', '$2b$10$PKjUHyEV4dlEWERROXi4TOmbnfHXf4xbaeCpTOgAXSC6SjDnlQLk6', 'user_avatar_3', NULL), -- Jklm@012
-(5, 'Hoàng Văn E', '0108456789', 'mno@gmail.com', '$2b$10$SB5Yi3.gKCxjVv8lkgK6UeRPzrqk28GshBxBqxEW0THgO8gZBHQni', NULL, NULL); -- Mnop@345
+INSERT INTO `users` (`user_id`, `user_name`, `user_phone`, `user_email`, `user_pass`, `user_avatar_url`) VALUES
+(1, 'Nguyễn Văn A', '0123456789', 'abc@gmail.com', '$2b$10$g6ZsLsSWqE8W0E.1YIdOiuud/.vF7hygz0a/i5l6j/pWKcBuDPE/G', NULL),  -- Abcd@123
+(2, 'Trần Thị B', '0987654321', 'def@gmail.com', '$2b$10$2.96sD2qFKHBZTccAWFtv.3ENJGohrWXcgUmkzgI2fS5fUct5aD1G', 'user_avatar_1'), -- Defg@456
+(3, 'Lâm Thị Hồng C', '0123252729', 'ghi@gmail.com', '$2b$10$rAcQS5rb1uRClggK7jK.WOqtrqyJhOde7dqG3rGMmI3vydhmA1ue2', NULL), -- Ghij@789
+(4, 'Phạm Thị D', '0987465321', 'jkl@gmail.com', '$2b$10$PKjUHyEV4dlEWERROXi4TOmbnfHXf4xbaeCpTOgAXSC6SjDnlQLk6', 'user_avatar_3'), -- Jklm@012
+(5, 'Hoàng Văn E', '0108456789', 'mno@gmail.com', '$2b$10$SB5Yi3.gKCxjVv8lkgK6UeRPzrqk28GshBxBqxEW0THgO8gZBHQni', NULL); -- Mnop@345
 
 
 INSERT INTO `locations` (`loca_id`, `loca_pers_name`, `loca_pers_phone`, `loca_address`, `loca_detail`, `user_id`) VALUES
@@ -20,6 +20,11 @@ INSERT INTO `bankcards` (`bank_id`, `bank_name`, `bank_number`, `bank_pers_name`
 (2, 'SCB', '2345678901', 'Lê Thị Giàu Bùi', '8765432109', 2),
 (3, 'BIDV', '3456789012', 'Trần Quốc Tuấn', '7654321098', 3),
 (4, 'TPB', '4567890123', 'Phạm Nguyên Ngọc', '6543210987', 4);
+
+UPDATE `users` SET `loca_default_id` = 1, `bank_default_id` = 1 WHERE `users`.`user_id` = 1;  
+UPDATE `users` SET `loca_default_id` = 2, `bank_default_id` = 2 WHERE `users`.`user_id` = 2;  
+UPDATE `users` SET `loca_default_id` = 3, `bank_default_id` = 3 WHERE `users`.`user_id` = 3;  
+UPDATE `users` SET `loca_default_id` = 4, `bank_default_id` = 4 WHERE `users`.`user_id` = 4;  
 
 INSERT INTO `categorytypes` (`cate_type_id`, `cate_type_name`) VALUES
 ('caty0010', 'Trang_suc'),
