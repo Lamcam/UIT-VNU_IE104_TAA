@@ -155,7 +155,7 @@ account.cartDelete = (req, res) => {
   const { id } = req.cookies;
   const { prodId } = req.body;
 
-  models.account.deleteCart({ id, prodId }, (err, result) => {
+  models.account.delCart({ id, prodId }, (err, result) => {
     if (err) throw err;
 
     res.status(200).json({
@@ -192,7 +192,7 @@ account.orderPost = (req, res) => {
     order_datetime, id,
     pay_id, bank_id,
     trans_id, loca_id,
-  }, (err, result) => {
+  }, async (err, result) => {
     if (err) {
       res.status(500).json({
         statusCode: 500,
@@ -203,21 +203,41 @@ account.orderPost = (req, res) => {
 
     order_id = result.insertId;
 
-    // console.log(prodIds);
-    // prodIds = prodIds.split(',');
-    // prodQuantities = prodQuantities.split(',');
+    for (let i = 0; i < prodIds.length; i++) {
+      await new Promise((resolve, reject) => {
+        models.account.addOrderDetail({
+          order_id, prod_id: prodIds[i],
+          prod_quantity: prodQuantities[i],
+          price: prices[i]
+        }, (err, result) => {
+          if (err) {
+            res.status(500).json({
+              statusCode: 500,
+              msg: 'Internal Server Error',
+            });
+            throw err;
+          }
 
-    prodIds.forEach((prod_id, index) => {
-      models.account.addOrderDetail({
-        order_id, prod_id,
-        prod_quantity: prodQuantities[index],
-        price: prices[index]
-      }, (err, result) => {
-        if (err) {
-          throw err;
-        }
+          resolve();
+        })
       })
-    })
+
+      await new Promise((resolve, reject) => {
+        models.account.delCart({
+          id, prod_id: prodIds[i]
+        }, (err, result) => {
+          if (err) {
+            res.status(500).json({
+              statusCode: 500,
+              msg: 'Internal Server Error',
+            });
+            throw err;
+          }
+
+          resolve();
+        })
+      })
+    }
 
     res.status(200).json({
       statusCode: 200,

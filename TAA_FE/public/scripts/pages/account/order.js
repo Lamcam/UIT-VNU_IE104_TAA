@@ -22,8 +22,8 @@ const orderSubmit = () => {
 
   // const prodIds = cookieHder.readCookie('prodIds--order').split(',');
   // const prodQuantities = cookieHder.readCookie('prodQuanitys--order').split(',');
-  const prodIds = ["prod0001", "prod0002", "prod0003"].join(',');
-  const prodQuantities = [1, 2, 3].join(',');
+  const prodIds = ["prod0001", "prod0002", "prod0003"];
+  const prodQuantities = [1, 2, 3];
   const prices = [10000, 20000, 30000];
 
   console.log(prodIds);
