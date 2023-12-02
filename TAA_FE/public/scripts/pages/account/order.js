@@ -1,19 +1,68 @@
+let pay, bank, trans, local, express;
 
-$('.hidden_item').css('display', 'none');
-$(document).on('click', '.viewMore', () => {
-  let text = $('.viewMore').html()
-  if (text == 'Xem thêm') {
-    console.log('right');
-    $('.hidden_item').css('display', 'flex');
-    $('.viewMore').text('Thu gọn')
-  }
-  else if (text == 'Thu gọn') {
-    $('.hidden_item').css('display', 'none');
-    $('.viewMore').text('Xem thêm')
-  }
+fetch('http://localhost:3000/account/orderGetIdLocal',{
 
-  console.log($('.viewMore').html())
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    
+}).then(respone => respone.json())
+    .then (data=> {
+        console.log(data.result);
+        local = data.result;
+
+    })
+
+
+
+$('.hidden_item').css('display','none');
+$(document).on('click','.viewMore',() => {
+    let text = $('.viewMore').html()
+    if( text == 'Xem thêm'){
+        console.log('right');
+        $('.hidden_item').css('display','flex');
+        $('.viewMore').text('Thu gọn')
+    }
+    else if (text == 'Thu gọn'){
+        $('.hidden_item').css('display','none');
+        $('.viewMore').text('Xem thêm')
+    }
+   
+    console.log($('.viewMore').html())
+    
+     
 })
+
+$(document).on('click','.section__options',function() {
+    
+    if ($("#payment-banking").is(":checked")) {
+        
+        bank = 1;
+        pay = 0;
+
+    }   
+    else if ($("#payment-cash").is(":checked")){
+        
+        pay = 1;
+        bank = 0
+
+    }
+
+    if ($("#transport-express").is(":checked")) {
+        trans = 1;
+        express = 0
+
+    }   
+    else if ($("#transport-normal").is(":checked")){
+        express = 1;
+        trans = 0;
+
+    }
+});
+
+
+
 
 
 const orderSubmit = () => {
@@ -26,15 +75,16 @@ const orderSubmit = () => {
   const prodQuantities = [1, 2, 3];
   const prices = [10000, 20000, 30000];
 
-  console.log(prodIds);
-  console.log(prodQuantities);
+    console.log(prodIds);
+    console.log(prodQuanities);
+   
+    
+    const pay_id = pay;
+    const bank_id = bank;
 
-  const pay_id = 1;
-  const bank_id = 1;
+    const trans_id = trans;
 
-  const trans_id = 0;
-
-  const loca_id = 1;
+    const loca_id = local;
 
   const data = {
     order_datetime, id, prodIds,

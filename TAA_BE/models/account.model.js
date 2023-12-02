@@ -30,6 +30,7 @@ accountModel.getBanks = ({ id }, callback) => {
 }
 
 accountModel.getLocas = ({ id }, callback) => {
+
   const sql = `
     SELECT *
     FROM LOCATIONS

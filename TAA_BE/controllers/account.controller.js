@@ -175,8 +175,9 @@ account.order = (req, res) => {
     if (err) throw err;
 
     const data = index.groupProducts(result);
+
     res.status(200).render('pages/account/order', {
-      data: data, data1: arr
+      data: data, data1: arr,  
     });
   })
 }
@@ -244,6 +245,25 @@ account.orderPost = (req, res) => {
       msg: 'Order success'
     })
   })
+}
+
+account.localGet = (req,res)=> { 
+  const { id } = req.cookies;
+  console.log("this is id",id);
+  models.account.getLocas( { id }, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        statusCode: 500,
+        msg: 'Internal Server Error',
+      }); throw err;
+    }
+
+    // console.log(result[0].loca_id);
+    res.status(200).json({
+      result: result[0].loca_id,
+    });
+    
+})
 }
 
 module.exports = account
