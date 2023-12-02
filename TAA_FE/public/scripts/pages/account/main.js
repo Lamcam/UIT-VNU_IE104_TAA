@@ -1,16 +1,29 @@
-$(function () {
-  $("#modal__addLocation").load("./add-location.html");
-  $("#modal__addBank").load("./add-bank.html");
-  $("#modal__delBank").load("./del-bank.html");
-  $("#modal__delLocation").load("./del-location.html");
-  $("#modal__editLocation").load("./edit-location.html");
-  $("#modal__review").load("./review-popup.html");
-  $("#header").load("/TAA_FE/src/partials/header--auth.html");
-  $("#breadcrumbs").load("/TAA_FE/src/partials/breadcrumbs.html");
-  $("#footer").load("/TAA_FE/src/partials/footer.html");
-  $("#modal__noti").load("./success-popup.html");
-  $("#modal__change-password").load("./change-password.html");
-});
+// $(function () {
+//   $("#modal__addLocation").load("./add-location.html");
+//   $("#modal__addBank").load("./add-bank.html");
+//   $("#modal__delBank").load("./del-bank.html");
+//   $("#modal__delLocation").load("./del-location.html");
+//   $("#modal__editLocation").load("./edit-location.html");
+//   $("#modal__review").load("./review-popup.html");
+//   $("#header").load("/TAA_FE/src/partials/header--auth.html");
+//   $("#breadcrumbs").load("/TAA_FE/src/partials/breadcrumbs.html");
+//   $("#footer").load("/TAA_FE/src/partials/footer.html");
+//   $("#modal__noti").load("./success-popup.html");
+//   $("#modal__change-password").load("./change-password.html");
+// });
+
+// Change the URL without reloading the page
+const changeURLWithoutReload = (newURL) => {
+  window.history.pushState({}, '', newURL);
+}
+
+// // Example of usage
+// changeURLWithoutReload('/new-page');
+
+// // Event listener to handle browser back/forward buttons
+// window.onpopstate = function(event) {
+//   console.log('Popstate event:', event);
+// };
 
 // Hàm để thêm class "active"
 function addActiveClass(element, activeClassName) {
@@ -23,8 +36,16 @@ function addActiveClass(element, activeClassName) {
 
 // Lắng nghe sự kiện click cho mỗi phần tử có class "nav-tab__item"
 var navTabItems = document.querySelectorAll(".nav-tab__item");
-navTabItems.forEach(function (item) {
-  item.addEventListener("click", function () {
+navTabItems.forEach((item, index) => {
+  item.addEventListener("click", () => {
+    if (index === 0) {
+      changeURLWithoutReload('/account/information');
+    } else if (index === 1) {
+      changeURLWithoutReload('/account/orders');
+    } else if (index === 2) {
+      changeURLWithoutReload('/account/favor-products');
+    }
+    
     addActiveClass(item, "active");
   });
 });
@@ -72,19 +93,19 @@ document
 const addBank = () => {
   let bankItem = `
     <div class="bank-item mt-12">
-									<div class="bank-item__wrapper body-medium">
-										<div class="row">
-											<span>STK: </span><span>*********1230</span>
-										</div>
-										<div class="row">
-											<span class="mt-12 row__name-bank">Ngân hàng ACB</span>
-										</div>
-										<button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
-											<span class=" status-layer icon material-symbols-outlined">
-												delete</span>
-										</button>
-									</div>
-			</div>`;
+      <div class="bank-item__wrapper body-medium">
+        <div class="row">
+          <span>STK: </span><span>*********1230</span>
+        </div>
+        <div class="row">
+          <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
+        </div>
+        <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
+          <span class=" status-layer icon material-symbols-outlined">
+            delete</span>
+        </button>
+      </div>
+    </div>`;
   $(".bank-list").prepend(bankItem);
 };
 
@@ -96,32 +117,32 @@ const delBank = () => {
 const addLocation = () => {
   let locationItem = `
   <div class="location-item mt-12">
-									<div class="location-item__wrapper body-medium">
-										<div class="row">
-											<span>Người đẹp bị câm</span>
-										</div>
-										<div class="row mt-16">
-											<span>SDT: </span><span>*******629</span>
-										</div>
-										<div class="row mt-16">
-											<span>Xã A, huyện B, tỉnh C</span>
-										</div>
-										<div class="location-btns__wrapper">
-											<button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
-												<span class="status-layer icon material-symbols-outlined">
-													delete</span>
-											</button>
-											<button class="location-item__btn--default btn--outlined" onclick="modalCtl.openModal('#modal--set-default-location')">
-												<span class="status-layer unfilled-default location-btn">Thiết
-													lập mặc định</span>
-											</button>
-											<button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
-												<span class="status-layer full-edit icon material-symbols-outlined">
-													edit</span>
-												<span class="status-layer full-edit label">Sửa</span>
-											</button>
-										</div>
-									</div>
+    <div class="location-item__wrapper body-medium">
+      <div class="row">
+        <span>Người đẹp bị câm</span>
+      </div>
+      <div class="row mt-16">
+        <span>SDT: </span><span>*******629</span>
+      </div>
+      <div class="row mt-16">
+        <span>Xã A, huyện B, tỉnh C</span>
+      </div>
+      <div class="location-btns__wrapper">
+        <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
+          <span class="status-layer icon material-symbols-outlined">
+            delete</span>
+        </button>
+        <button class="location-item__btn--default btn--outlined" onclick="modalCtl.openModal('#modal--set-default-location')">
+          <span class="status-layer unfilled-default location-btn">Thiết
+            lập mặc định</span>
+        </button>
+        <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+          <span class="status-layer full-edit icon material-symbols-outlined">
+            edit</span>
+          <span class="status-layer full-edit label">Sửa</span>
+        </button>
+      </div>
+    </div>
 	</div>`;
   $(".location-list").prepend(locationItem);
 };
