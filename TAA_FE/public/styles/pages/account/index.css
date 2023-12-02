@@ -24,9 +24,11 @@
     }
   }
 }
+
 .hidden {
   display: none;
 }
+
 .section__info {
   padding: 24px;
 }
@@ -34,6 +36,7 @@
 article.section__content {
   padding: 24px;
 }
+
 .section__content {
   position: relative;
 }
@@ -43,6 +46,7 @@ article.section__content {
   top: 24px;
   right: 24px;
 }
+
 .input__wrapper {
   position: relative;
   display: inline-block;
@@ -82,6 +86,7 @@ article.section__content {
   position: relative;
   height: 80px;
 }
+
 .row__name-bank {
   white-space: nowrap;
 }
@@ -483,9 +488,8 @@ span {
     display: none;
   }
 
-  box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.3),
-    0px 4px 8px 3px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3),
+  0px 4px 8px 3px rgba(0, 0, 0, 0.15);
   /* max-height: fit-content; */
 }
 
@@ -962,11 +966,13 @@ input::-webkit-inner-spin-button {
   text-align: center;
   cursor: pointer;
 }
+
 /* Order */
 .order-content-list {
   display: flex;
   padding: 1rem;
 }
+
 .order__item {
   width: 100%;
   display: flex;
@@ -978,6 +984,7 @@ input::-webkit-inner-spin-button {
   width: 157px;
   height: 157px;
 }
+
 .order__item-content {
   display: flex;
   flex-direction: column;
@@ -989,6 +996,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: space-between;
 }
+
 .item_att_price_content,
 .att_totalRate {
   text-align: end;
@@ -1072,8 +1080,8 @@ input::-webkit-inner-spin-button {
   justify-content: center;
 }
 
-.modal__quality > span,
-.modal__service > span {
+.modal__quality>span,
+.modal__service>span {
   width: 160px;
 }
 
@@ -1082,10 +1090,12 @@ input::-webkit-inner-spin-button {
   flex-direction: column;
   justify-content: space-evenly;
 }
+
 .modal__product img {
   width: 74px;
   height: 74px;
 }
+
 .modal__form-review {
   background-color: white;
   padding: 12px;
@@ -1098,6 +1108,7 @@ input::-webkit-inner-spin-button {
   align-items: center;
   justify-content: space-between;
 }
+
 .modal__form-review-textarea {
   resize: none;
   width: 590px;
@@ -1113,6 +1124,7 @@ input::-webkit-inner-spin-button {
   border: none;
   background-color: transparent;
 }
+
 .star-icon {
   color: gray;
   cursor: pointer;
@@ -1136,6 +1148,7 @@ input::-webkit-inner-spin-button {
   color: #ffdd55;
   font-variation-settings: "FILL" 1;
 }
+
 .energy-review {
   width: 100%;
   text-align: end;
@@ -1155,11 +1168,13 @@ input#checkbox1 {
   align-items: center;
   gap: 12px;
 }
+
 .modal__checkbox-form div {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
+
 .modal__view-name-account {
   font-size: 16px;
   font-weight: 500;
@@ -1185,17 +1200,21 @@ input#checkbox1 {
 #modal--change-password .modal__title {
   text-align: center;
 }
+
 .re-type-password {
   white-space: nowrap;
 }
+
 .change-password-accept {
   display: flex;
   justify-content: flex-end;
 }
+
 span.status-layer {
   align-items: center;
   white-space: nowrap;
 }
+
 .form-wrapper__change-password {
   padding: 24px 24px 24px 52px;
 }
@@ -1203,9 +1222,11 @@ span.status-layer {
 #shipping-address .row {
   white-space: nowrap;
 }
+
 .btn--outlined .filled-default {
   border: none;
 }
+
 .filled-default {
   display: flex;
   /* margin: 0 auto; */
@@ -1232,14 +1253,15 @@ span.status-layer {
 
 @media only screen and (min-width: 430px) and (max-width: 744px) {
   main {
-    & > section {
+    /* & > section {
       padding: 0 1rem;
-    }
+    } */
   }
-  .container {
+
+  /* .container {
     display: flex;
     flex-direction: column;
-  }
+  } */
   .nav-tab {
     width: 100%;
   }
@@ -1249,29 +1271,36 @@ span.status-layer {
     font-weight: 400;
     white-space: nowrap;
   }
+
   .headline-large,
   .headline-medium {
     font-size: 24px;
     font-weight: 400;
     white-space: nowrap;
   }
+
   .body-medium {
     font-size: 14px;
   }
+
   .status-layer {
     height: 3rem;
     padding: 0 1rem;
     align-items: center;
   }
+
   button.location-item__btn--default {
     font-size: 14px;
   }
+
   .change-password-btn {
     width: 50%;
   }
+
   .section__info {
     padding: 12px;
   }
+
   article.section__content {
     padding: 12px;
   }
@@ -1287,11 +1316,13 @@ span.status-layer {
   .section__content#change-password {
     display: flex;
   }
+
   .section__btn {
     position: absolute;
     top: 5px;
     right: 0px;
   }
+
   /* .status-layer .full-edit {
     opacity: 0;
   } */
@@ -1299,6 +1330,7 @@ span.status-layer {
   .location-item__btn--default {
     width: 130px;
   }
+
   .location-item__btn--edit {
     width: 70px;
   }
@@ -1306,20 +1338,24 @@ span.status-layer {
   button.btn-icon {
     width: 40px;
   }
+
   span.status-layer.full-edit.label {
     display: none;
   }
 }
+
 @media only screen and (max-width: 430px) {
   main {
-    & > section {
+    &>section {
       padding: 0 1rem;
     }
   }
+
   .container {
     display: flex;
     flex-direction: column;
   }
+
   .nav-tab {
     width: 100%;
   }
@@ -1329,29 +1365,36 @@ span.status-layer {
     font-weight: 400;
     white-space: nowrap;
   }
+
   .headline-large,
   .headline-medium {
     font-size: 24px;
     font-weight: 400;
     white-space: nowrap;
   }
+
   .body-medium {
     font-size: 14px;
   }
+
   .status-layer {
     height: 3rem;
     padding: 0 1rem;
     align-items: center;
   }
+
   button.location-item__btn--default {
     font-size: 14px;
   }
+
   .change-password-btn {
     width: 50%;
   }
+
   .section__info {
     padding: 12px;
   }
+
   article.section__content {
     padding: 12px;
   }
@@ -1367,11 +1410,13 @@ span.status-layer {
   .section__content#change-password {
     display: flex;
   }
+
   .section__btn {
     position: absolute;
     top: 5px;
     right: 0px;
   }
+
   /* .status-layer .full-edit {
     opacity: 0;
   } */
@@ -1379,6 +1424,7 @@ span.status-layer {
   .location-item__btn--default {
     width: 130px;
   }
+
   .location-item__btn--edit {
     width: 70px;
   }
@@ -1386,6 +1432,7 @@ span.status-layer {
   button.btn-icon {
     width: 40px;
   }
+
   span.status-layer.full-edit.label {
     display: none;
   }
@@ -1397,6 +1444,7 @@ span.status-layer {
   .form-wrapper__change-password {
     padding: 24px 18px 24px 70px;
   }
+
   .order-content-list {
     display: flex;
     padding: 1rem;
@@ -1407,15 +1455,18 @@ span.status-layer {
     width: 157px;
     height: 157px;
   }
+
   .order__item {
     display: flex;
     flex-direction: row;
     width: 100%;
   }
+
   .order__item-content {
     width: 100%;
     white-space: nowrap;
   }
+
   .item__status {
     display: flex;
     flex-direction: row;
@@ -1423,11 +1474,13 @@ span.status-layer {
     width: 100%;
     gap: 5rem;
   }
+
   .item__status p {
     padding: 0;
     margin: 0;
     font-size: 24px;
   }
+
   .order__item-att {
     display: flex;
     justify-content: space-between;
