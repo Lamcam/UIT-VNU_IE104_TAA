@@ -1,9 +1,23 @@
-const { param } = require("jquery");
 const db = require("../config/db");
 
-function producthModel() {}
+function productModel() { }
 
-producthModel.getAllProduct = (searchValue, callback) => {
+productModel.getProduct = prod_id => {
+  const sql = `
+    SELECT prod_id, prod_cost, prod_discount
+    FROM products
+    WHERE prod_id = ?;
+  `;
+
+  const params = [prod_id];
+
+  db.query(sql, params, (err, result) => {
+    if (err) reject(err);
+    else resolve(result);
+  })
+}
+
+productModel.getAllProduct = (searchValue, callback) => {
   const params = [];
   let sql = `
     SELECT *, prod_cost - prod_cost * IFNULL(prod_discount, 0) as prod_cost_after
@@ -36,7 +50,7 @@ producthModel.getAllProduct = (searchValue, callback) => {
   });
 };
 
-// producthModel.getSortProduct = (searchValue, callback) => {
+// productModel.getSortProduct = (searchValue, callback) => {
 //     const params = [];
 //     let sql = `
 //     SELECT *
@@ -69,7 +83,7 @@ producthModel.getAllProduct = (searchValue, callback) => {
 //     });
 // };
 
-producthModel.getCategory = ({ category }, callback) => {
+productModel.getCategory = ({ category }, callback) => {
   const params = [category];
   console.log("param: ", params);
 
@@ -87,23 +101,23 @@ producthModel.getCategory = ({ category }, callback) => {
   });
 };
 
-producthModel.getHotProduct = (callback) => {
+productModel.getHotProduct = (callback) => {
   const sql = `
-        SELECT *
-        FROM products
-        INNER JOIN productsimg
-            ON products.prod_id = productsimg.prod_id
-        INNER JOIN categories
-            on products.cate_id = categories.cate_id
-        WHERE prod_num_sold > 5;
-    `;
+    SELECT *
+    FROM products
+    INNER JOIN productsimg
+      ON products.prod_id = productsimg.prod_id
+    INNER JOIN categories
+      ON products.cate_id = categories.cate_id
+    WHERE prod_num_sold > 5;
+  `;
 
   db.query(sql, (err, result) => {
     callback(err, result);
   });
 };
 
-producthModel.getByIds = ({ ids }, callback) => {
+productModel.getByIds = ({ ids }, callback) => {
   const sql = `
     SELECT *
     FROM products
@@ -118,38 +132,37 @@ producthModel.getByIds = ({ ids }, callback) => {
     callback(err, result);
   });
 };
-producthModel.getByArrId = (idArr, prodQuan, callback) => {
-  
-    const sql = `
-        SELECT *
-        FROM products
-        INNER JOIN productsimg
-            ON products.prod_id = productsimg.prod_id
-        INNER JOIN categories
-            on products.cate_id = categories.cate_id
-        WHERE products.prod_id IN ('${idArr.join("','")}') ;
-      `;
 
-    db.query(sql, (err, result) => { 
-        callback(err, prodQuan, result);
-    });
- 
+productModel.getByArrId = (idArr, prodQuan, callback) => {
+  const sql = `
+    SELECT *
+    FROM products
+    INNER JOIN productsimg
+      ON products.prod_id = productsimg.prod_id
+    INNER JOIN categories
+      ON products.cate_id = categories.cate_id
+    WHERE products.prod_id IN ('${idArr.join("','")}') ;
+  `;
+
+  db.query(sql, (err, result) => {
+    callback(err, prodQuan, result);
+  });
 };
 
-producthModel.getDetailProduct = ({ id }, callback) => {
+productModel.getDetailProduct = ({ id }, callback) => {
   const sql = `
-        SELECT *
-        FROM products
-        INNER JOIN productsimg
-            ON products.prod_id = productsimg.prod_id
-        INNER JOIN categories
-            on products.cate_id = categories.cate_id
-        WHERE products.prod_id='${id}'
-    `;
+    SELECT *
+    FROM products
+    INNER JOIN productsimg
+      ON products.prod_id = productsimg.prod_id
+    INNER JOIN categories
+      ON products.cate_id = categories.cate_id
+    WHERE products.prod_id='${id}'
+  `;
 
   db.query(sql, (err, result) => {
     callback(err, result);
   });
 };
 
-module.exports = producthModel;
+module.exports = productModel;

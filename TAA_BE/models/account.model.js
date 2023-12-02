@@ -115,4 +115,8 @@ accountModel.deleteCart = ({ id, prodId }, callback) => {
   })
 }
 
+accountModel.addOrder = ({}, callback) => {
+  const sql = 1
+}
+
 module.exports = accountModel
