@@ -63,42 +63,42 @@
             <article id="profile" class="section__content visible mt-12">
               <h2 class="headline-medium">Hồ sơ cá nhân</h2>
               <form action="/" method="POST">
+                <!-- <div class="form__row mt-12">
+                  <div class="row">
+                    <label class="col-4 label-large" for="user_name">Tên người dùng:</label>
+                    <div class="col-8 input__wrapper">
+                      <input type="text" id="user_name" name="name" value='<%= data?.info?.user_name %>' readonly />
+                    </div>
+                  </div>
+                </div> -->
+
                 <div class="form__row mt-12">
                   <div class="row">
-                    <label class="col-4 label-large" for="username">Tên đăng
-                      nhập:</label>
+                    <label class="col-4 label-large" for="user_phone">Tên người dùng:</label>
                     <div class="col-8 input__wrapper">
-                      <input type="text" id="username" placeholder="abc" readonly />
+                      <input class="input__wrapper-child" type="text" id="user_phone" name="phone" value='<%= data?.info?.user_name %>' oninput="enableSaveButton()" />
+                      <span class="icon icon--filled material-symbols-outlined editIcon">
+                        edit</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="form__row mt-12">
                   <div class="row">
-                    <label class="col-4 label-large" for="name">Tên người dùng:</label>
+                    <label class="col-4 label-large" for="user_phone">Số điện thoại:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="text" name="name" id="name" placeholder="Nguyễn Văn A" oninput="enableSaveButton()" />
+                      <input class="input__wrapper-child" type="text" id="user_phone" name="phone" value='<%= data?.info?.user_phone %>' oninput="enableSaveButton()" />
                       <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
                   </div>
                 </div>
-                <div class="form__row mt-12">
-                  <div class="row">
-                    <label class="col-4 label-large" for="phone">Số điện
-                      thoại:</label>
-                    <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="text" name="phone" id="phone" placeholder="*******629" oninput="enableSaveButton()" />
-                      <span class="icon icon--filled material-symbols-outlined editIcon">
-                        edit</span>
-                    </div>
-                  </div>
-                </div>
+
                 <div class="form__row mt-12">
                   <div class="row">
                     <label class="col-4 label-large" for="email">Email:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="email" name="name" id="email" placeholder="2152****@gm.uit.edu.vn" oninput="enableSaveButton()" />
+                      <input class="input__wrapper-child" type="email" name="email" id="email" value='<%= data?.info?.user_email %>' oninput="enableSaveButton()" />
                       <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
