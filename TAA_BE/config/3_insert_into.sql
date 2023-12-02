@@ -55,7 +55,7 @@ INSERT INTO `categories` (`cate_id`, `cate_name`, `cate_type_id`) VALUES
 ('cate0055', 'Mu_non', 'caty0050'),
 ('cate0056', 'Khau_trang', 'caty0050');
 
-INSERT INTO transportmethods (trans_id, trans_name, trans_cost)
+INSERT INTO transportmethods (tran_id, tran_name, tran_cost)
 VALUES
   ('tran0000', 'Van_chuyen_thuong', 0),
   ('tran0001', 'Van_chuyen_nhanh', 0);
@@ -129,7 +129,7 @@ INSERT INTO `payingmethod` (`pay_id`, `pay_name`) VALUES
 ('pay00', 'Tiền mặt'),
 ('pay01', 'Ngân hàng');
 
-INSERT INTO `orders` (`order_id`, `order_datetime`, `user_id`, `pay_id`, `bank_id`, `trans_id`, `loca_id`, `order_status`, `order_is_paying`) VALUES
+INSERT INTO `orders` (`order_id`, `order_datetime`, `user_id`, `pay_id`, `bank_id`, `tran_id`, `loca_id`, `order_status`, `order_is_paying`) VALUES
 (1, '2023-10-10', 1, 'pay00', NULL, 'tran0000', 1, 0, 0),
 (2, '2023-10-12', 3, 'pay00', NULL, 'tran0001', 3, 0, 0),
 (3, '2023-10-16', 2, 'pay00', NULL, 'tran0001', 2, 0, 0),

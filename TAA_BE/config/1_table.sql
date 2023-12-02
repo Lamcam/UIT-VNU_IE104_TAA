@@ -57,13 +57,11 @@ CREATE TABLE `categories` (
   `cate_type_id` char(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-
 CREATE TABLE `transportmethods` (
-  `trans_id` char(8) NOT NULL,
-  `trans_name` varchar(255) DEFAULT NULL,
-  `trans_cost` decimal(10,2) DEFAULT NULL
+  `tran_id` char(8) NOT NULL,
+  `tran_name` varchar(255) DEFAULT NULL,
+  `tran_cost` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 
 CREATE TABLE `products` (
   `prod_id` char(8) NOT NULL,
@@ -104,7 +102,7 @@ CREATE TABLE `orders` (
   `user_id` int DEFAULT NULL,
   `pay_id` char(8) DEFAULT NULL,
   `bank_id` int DEFAULT NULL,
-  `trans_id` char(8) DEFAULT NULL,
+  `tran_id` char(8) DEFAULT NULL,
   `loca_id` int DEFAULT NULL,
   `order_status` int(11) DEFAULT NULL,
   `order_is_paying` int(11) DEFAULT NULL,
@@ -171,7 +169,7 @@ ALTER TABLE `orders`
   ADD KEY `user_id` (`user_id`),
   ADD KEY `pay_id` (`pay_id`),
   ADD KEY `bank_id` (`bank_id`),
-  ADD KEY `trans_id` (`trans_id`),
+  ADD KEY `tran_id` (`tran_id`),
   ADD KEY `loca_id` (`loca_id`);
 
 --
@@ -205,7 +203,7 @@ ALTER TABLE `productsimg`
 -- Indexes for table `transportmethods`
 --
 ALTER TABLE `transportmethods`
-  ADD PRIMARY KEY (`trans_id`);
+  ADD PRIMARY KEY (`tran_id`);
 
 --
 -- Indexes for table `users`
@@ -255,7 +253,7 @@ ALTER TABLE `orders`
   ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`pay_id`) REFERENCES `payingmethod` (`pay_id`),
   ADD CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`bank_id`) REFERENCES `bankcards` (`bank_id`),
-  ADD CONSTRAINT `orders_ibfk_4` FOREIGN KEY (`trans_id`) REFERENCES `transportmethods` (`trans_id`),
+  ADD CONSTRAINT `orders_ibfk_4` FOREIGN KEY (`tran_id`) REFERENCES `transportmethods` (`tran_id`),
   ADD CONSTRAINT `orders_ibfk_5` FOREIGN KEY (`loca_id`) REFERENCES `locations` (`loca_id`);
 
 --
