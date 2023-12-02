@@ -20,7 +20,7 @@
 
   position: relative;
   margin: 15rem auto;
-  padding: 4rem 5rem 10rem 5rem;
+  padding: 4rem 5rem 4rem 5rem;
   border: 1px solid #888;
   max-width: 60rem;
   width: 90%;
@@ -28,6 +28,10 @@
   height: auto;
 
   border-radius: 1rem;
+
+  &.have-bottom {
+    padding-bottom: 10rem;
+  }
 
   &.center {
     display: flex;
