@@ -118,7 +118,7 @@
             <hr>
 
             <div class="row row_flex pro">
-              <%-include('../../components/product__order', {data}) %>
+              <%-include('../../components/product__order', {data,data1}) %>
               <% let viewMoreClass="";%>
               <% if (data.length <= 2 ) { viewMoreClass= 'hidden_item' } %>
               <p class="<%=viewMoreClass%> viewMore">Xem thêm</p>

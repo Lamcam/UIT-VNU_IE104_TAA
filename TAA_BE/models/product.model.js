@@ -118,11 +118,8 @@ producthModel.getByIds = ({ ids }, callback) => {
     callback(err, result);
   });
 };
-producthModel.getByArrId = (idArr, callback) => {
-    console.log("idArr",idArr);
-    console.log(typeof(idArr));
-    console.log(idArr.join(','));
-
+producthModel.getByArrId = (idArr, prodQuan, callback) => {
+  
     const sql = `
         SELECT *
         FROM products
@@ -134,7 +131,7 @@ producthModel.getByArrId = (idArr, callback) => {
       `;
 
     db.query(sql, (err, result) => { 
-        callback(err, result);
+        callback(err, prodQuan, result);
     });
  
 };

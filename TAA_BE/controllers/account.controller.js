@@ -89,15 +89,16 @@ account.cartDelete = (req, res) => {
 }
 
 account.order = (req, res) => {
-  const { user } = req.cookies;
+  const { id } = req.cookies;
   const prodIdsOrder = req.cookies['prodIds--order'];
-  let proIDs;
-  proIDs = prodIdsOrder.split(",")
-  models.product.getByArrId(proIDs,(err,result)=>{
+  const prodQuanitys = req.cookies['prodQuanitys--order'];
+  let proIDs = prodIdsOrder.split(",");
+  let prodQuan = prodQuanitys.split(',');
+  models.product.getByArrId(proIDs,prodQuan,(err,arr,result)=>{
 
     if(err) throw err;
     const data =  index.groupProducts(result);
-    res.status(200).render('pages/account/order', {data: data});
+    res.status(200).render('pages/account/order', {data: data, data1:arr});
   
   })
   
