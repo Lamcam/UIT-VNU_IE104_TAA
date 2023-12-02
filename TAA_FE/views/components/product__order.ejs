@@ -7,7 +7,7 @@
     <p><%=data[i].prod_name%></p>
     <div class="quanity_price">
       <p>SL: <%=data1[i]%> cái</p>
-      <p><%=data[i].prod_cost * data1[i]%> đ</p>
+      <p id="product_cost"><%=data[i].prod_cost * data1[i] * ( 1 - data[i].prod_discount ) %> đ</p>
     </div>
   </div>
 </div>
