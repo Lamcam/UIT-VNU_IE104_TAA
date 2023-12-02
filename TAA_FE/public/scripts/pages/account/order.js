@@ -1,96 +1,82 @@
-let pay, bank, trans, local, express;
+const getLocaId = () => {
+  locaId = document.querySelector('.location-item.active');
+  loca_id = locaId?.dataset.locaId;
 
-fetch('http://localhost:3000/account/orderGetIdLocal',{
+  return loca_id;
+}
 
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    
-}).then(respone => respone.json())
-    .then (data=> {
-        console.log(data.result);
-        local = data.result;
+const getTransId = () => {
+  tranId = document.querySelector('input[name="tran_id"]:checked');
+  tran_id = tranId?.value;
 
-    })
+  return tran_id;
+}
 
+const getBankId = () => {
+  bankId = document.querySelector('input[name="bank_id"]:checked');
+  bank_id = bankId?.value;
 
+  return bank_id;
+}
 
-$('.hidden_item').css('display','none');
-$(document).on('click','.viewMore',() => {
+const getPayId = () => {
+  payId = document.querySelector('input[name="pay_id"]:checked');
+  pay_id = payId?.value;
+
+  return (pay_id == 'pay00') ? pay_id : ((getBankId()) ? pay_id : null);
+}
+
+const viewMoreFeature = () => {
+  $('.hidden_item').css('display', 'none');
+  $(document).on('click', '.viewMore', () => {
     let text = $('.viewMore').html()
-    if( text == 'Xem thêm'){
-        console.log('right');
-        $('.hidden_item').css('display','flex');
-        $('.viewMore').text('Thu gọn')
+
+    if (text == 'Xem thêm') {
+      $('.hidden_item').css('display', 'flex');
+      $('.viewMore').text('Thu gọn')
+    } else if (text == 'Thu gọn') {
+      $('.hidden_item').css('display', 'none');
+      $('.viewMore').text('Xem thêm')
     }
-    else if (text == 'Thu gọn'){
-        $('.hidden_item').css('display','none');
-        $('.viewMore').text('Xem thêm')
-    }
-   
-    console.log($('.viewMore').html())
-    
-     
-})
+  })
+}
 
-$(document).on('click','.section__options',function() {
-    
-    if ($("#payment-banking").is(":checked")) {
-        
-        bank = 1;
-        pay = 0;
+const updateBtnSubmit = () => {
+  // document.querySelector('.cart__btn--submit').disabled = true;
 
-    }   
-    else if ($("#payment-cash").is(":checked")){
-        
-        pay = 1;
-        bank = 0
+  // if (getTransId() && getPayId()) {
+  //   document.querySelector('.cart__btn--submit').disabled = false;
+  // }
 
-    }
-
-    if ($("#transport-express").is(":checked")) {
-        trans = 1;
-        express = 0
-
-    }   
-    else if ($("#transport-normal").is(":checked")){
-        express = 1;
-        trans = 0;
-
-    }
-});
-
-
-
-
+  document.querySelector('.cart__btn--submit').disabled = !(getTransId() && getPayId());
+}
 
 const orderSubmit = () => {
   const order_datetime = new Date();
   const id = cookieHder.readCookie('id');
 
-  // const prodIds = cookieHder.readCookie('prodIds--order').split(',');
-  // const prodQuantities = cookieHder.readCookie('prodQuanitys--order').split(',');
-  const prodIds = ["prod0001", "prod0002", "prod0003"];
-  const prodQuantities = [1, 2, 3];
-  const prices = [10000, 20000, 30000];
+  const prod_ids = cookieHder.readCookie('prod_ids--order').split(',');
+  const prod_quantities = cookieHder.readCookie('prod_quantities--order').split(',');
 
-    console.log(prodIds);
-    console.log(prodQuanities);
-   
-    
-    const pay_id = pay;
-    const bank_id = bank;
+  const prices = cookieHder.readCookie('prices--order').split(',');
 
-    const trans_id = trans;
+  // console.log(prod_ids, prod_quantities, prices);
 
-    const loca_id = local;
+  const loca_id = getLocaId();
+  const tran_id = getTransId();
+  const pay_id = getPayId();
+  const bank_id = getBankId();
+
+  // const trans_id = trans;
+
 
   const data = {
-    order_datetime, id, prodIds,
-    prodQuantities, prices, pay_id,
-    bank_id, trans_id, loca_id,
+    order_datetime, id, prod_ids,
+    prod_quantities, prices, pay_id,
+    bank_id, tran_id, loca_id,
   }
+
+  console.log(data);
 
   fetch('/account/orderPost', {
     method: 'POST',
@@ -113,3 +99,12 @@ const orderSubmit = () => {
       alert("Unexcept Error");
     })
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  viewMoreFeature();
+  updateBtnSubmit();
+})
+
+document.addEventListener('change', () => {
+  updateBtnSubmit();
+})

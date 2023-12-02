@@ -1,17 +1,17 @@
-<% let excess_class=''; %>
-<% for(let i = 0 ; i < data.length; i++) { %>
-    <% if(i > 1) { excess_class="hidden_item"; }%>
-<div class="product_order <%=excess_class%>">
-  <img class="product__img" src="/imgs/products/<%=data[i].cate_name%>/<%=data[i].prod_img_urls[0]%>" alt="Hình ảnh sản phẩm">
-  <div class="product__info">
-    <p><%=data[i].prod_name%></p>
-    <div class="quanity_price">
-      <p>SL: <%=data1[i]%> cái</p>
-      <p id="product_cost"><%=data[i].prod_cost * data1[i] * ( 1 - data[i].prod_discount ) %> đ</p>
+<% let excess_class = ''; 
+for (let i = 0; i < data.length; i++) { 
+  if (i > 1) { excess_class = "hidden_item"; } %>
+  <div class="product_order <%=excess_class%>">
+    <img class="product__img" src="/imgs/products/<%= data[i].cate_name %>/<%= data[i].prod_img_urls[0] %>" alt="Hình ảnh sản phẩm">
+    <div class="product__info">
+      <p><%= data[i].prod_name %></p>
+      <div class="quanity_price">
+        <p>SL: <%= data[i].quantity %> cái</p>
+        <span class="price__wrapper">
+          <p class="cost_value--after"><%= data[i].prod_cost * data[i].quantity * (1 - data[i].prod_discount) %></p>
+          <p class="cost_value--before label-small error-text"><%= data[i].prod_cost * data[i].quantity %></p>
+        </span>
+      </div>
     </div>
   </div>
-</div>
-
 <% } %>
-
-

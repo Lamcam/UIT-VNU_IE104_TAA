@@ -32,54 +32,46 @@
           <div class="row">
             <section class="visible col-12">
               <h2 class="headline-small">Thông tin nhận hàng</h2>
-              <div class="row mt-12 body-medium location-item">
-                <div class="col-6">
-                  <p class="location-item__pers-name">Người đẹp bị câm</p>
-                  <div class="mt-8">
-                    <span>SĐT: </span>
-                    <span class="location-item__phone">*******629</span><br>
-                  </div>
-                  <p class="location-item__address mt-8">Xã A, huyện B, tỉnh C
-                  </p>
-                </div>
-                <div class="col-6 location-item--right">
-                  <span>
-                    <%- include('../../components/button', {
-                      type: 'btn-icon-label',
-                      options: 'btn--filled',
-                      classList: '',
-                      iconData: 'edit',
-                      label: 'Thay đổi địa chỉ',
-                      onclick: 'modalCtl.openModal("#modal--change-address")',
-                    }) %>
-                  </span>
-                  <span class="headline-small primary-text">Mặc định</span>
-                </div>
-              </div>
+              <% if (data.locas.length > 0) { %>
+              <% for (let i = 0; i < data.locas.length; i++) { %>
+              <%- include('../../components/location__item', { data: {
+                loca_default_id: data.loca_default_id,
+                ...data.locas[i]}}) %>
+              <% }
+              } else { %>
+              <% include('../../components/button', {
+                type: 'btn-icon-label',
+                options: 'btn--filled',
+                classList: '',
+                iconData: 'add',
+                label: 'Thêm địa chỉ mới',
+                onclick: 'modalCtl.openModal("#modal--change-address")',
+              }) %>
+              <% } %>
             </section>
             <section class="visible col-12">
               <h2 class="headline-small">Phương thức vận chuyển</h2>
               <div class="section__options">
                 <%- include('../../components/radio', {
-                  id: 'transport-express',
-                  classList: 'primary-text',
-                  name: 'transport',
-                  value: 'express',
-                  checked: false,
-                }) %>
-                <label class="label-large" for="transport-express">Giao hàng nhanh trong 2 giờ
-                  (Trễ tặng 100k)</label>
-              </div>
-              <div class="section__options">
-                <%- include('../../components/radio', {
                   id: 'transport-normal',
                   classList: 'primary-text',
-                  name: 'transport',
-                  value: 'normal',
+                  name: 'tran_id',
+                  value: 'tran0000',
                   checked: false,
                 }) %>
                 <label class="label-large" for="transport-normal">Giao hàng trong 48 giờ: Miễn
                   phí.</label>
+              </div>
+              <div class="section__options">
+                <%- include('../../components/radio', {
+                  id: 'transport-express',
+                  classList: 'primary-text',
+                  name: 'tran_id',
+                  value: 'tran0001',
+                  checked: false,
+                }) %>
+                <label class="label-large" for="transport-express">Giao hàng nhanh trong 2 giờ
+                  (Trễ tặng 100k)</label>
               </div>
             </section>
             <section class="visible col-12">
@@ -88,11 +80,10 @@
                 <%- include('../../components/radio', {
                   id: 'payment-cash',
                   classList: 'primary-text',
-                  name: 'payment',
-                  value: 'cash',
+                  name: 'pay_id',
+                  value: 'pay00',
                   checked: false,
                 }) %>
-
                 <label class="label-large" for="payment-cash">Thanh toán tiền khi nhận hàng
                   (COD)</label>
               </div>
@@ -100,8 +91,8 @@
                 <%- include('../../components/radio', {
                   id: 'payment-banking',
                   classList: 'primary-text',
-                  name: 'payment',
-                  value: 'banking',
+                  name: 'pay_id',
+                  value: 'pay01',
                   checked: false,
                 }) %>
                 <label class="label-large" for="payment-banking">Thanh toán trực tuyến qua ngân
@@ -119,18 +110,18 @@
             <hr>
 
             <div class="row row_flex pro">
-              <%-include('../../components/product__order', {data,data1}) %>
-              <% let viewMoreClass="";%>
-              <% if (data.length <= 2 ) { viewMoreClass= 'hidden_item' } %>
-              <p class="<%=viewMoreClass%> viewMore">Xem thêm</p>
+              <%- include('../../components/product__order', { data: data.products }) %>
+              <%# let viewMoreClass = "";
+              if (data.products?.length <= 2) { viewMoreClass = 'hidden_item'; } %>
+              <!-- <p class="<%# viewMoreClass %> viewMore">Xem thêm</p> -->
+              <p class="<%= (data.products?.length <= 2) ? 'hidden_item' : '' %> viewMore">Xem thêm</p>
             </div>
-
 
             <% let totalCost = 0; %>
             <% let totalDiscount = 0; %>
 
-            <% for(let i=0 ; i<data.length; i++){ 
-              totalCost+= data[i].prod_cost * (1- data[i].prod_discount);
+            <% for (let i = 0 ; i < data.products?.length; i++ ) { 
+              totalCost += data.products[i].prod_cost * (1 - data.products[i].prod_discount);
             } %>
 
             <div class="row row__flex">
@@ -144,7 +135,7 @@
             <hr>
             <div class="row row__flex">
               <span class="detail__title">Tổng cộng:</span>
-              <span class="detail__context cost_value--final--after error-text"><%=totalCost - totalDiscount %>đ</span>
+              <span class="detail__context cost_value--final--after error-text"><%= totalCost - totalDiscount %></span>
             </div>
             <div class="row__flex end">
               <span class="detail__context">(Đã bao gồm phí VAT)</span>
@@ -169,16 +160,6 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/account/order.js" defer></script>
-  <script> 
-    let totalPrice = '<%=totalCost - totalDiscount %>'
-    const prodPrices = document.querySelectorAll("#product_cost");
-    console.log(prodPrices[1].textContent);
-    
-
-
-    
-
-  </script>
 </body>
 
 </html>

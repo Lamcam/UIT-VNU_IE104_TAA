@@ -2,18 +2,15 @@ const db = require("../config/db");
 
 function productModel() { }
 
-productModel.getProduct = prod_id => {
+productModel.getProducts = (prod_ids, callback) => {
   const sql = `
     SELECT prod_id, prod_cost, prod_discount
     FROM products
-    WHERE prod_id = ?;
+    WHERE prod_id in ('${prod_ids.join("','")}');
   `;
 
-  const params = [prod_id];
-
-  db.query(sql, params, (err, result) => {
-    if (err) reject(err);
-    else resolve(result);
+  db.query(sql, (err, result) => {
+    callback(err, result);
   })
 }
 
@@ -117,7 +114,7 @@ productModel.getHotProduct = (callback) => {
   });
 };
 
-productModel.getByIds = ({ ids }, callback) => {
+productModel.getProductsWithImg = ({ prod_ids }, callback) => {
   const sql = `
     SELECT *
     FROM products
@@ -125,7 +122,7 @@ productModel.getByIds = ({ ids }, callback) => {
         ON products.prod_id = productsimg.prod_id
     INNER JOIN categories
         on products.cate_id = categories.cate_id
-    WHERE products.prod_id IN ('${ids.join("','")}');
+    WHERE products.prod_id IN ('${prod_ids.join("','")}');
   `;
 
   db.query(sql, (err, result) => {
@@ -133,21 +130,21 @@ productModel.getByIds = ({ ids }, callback) => {
   });
 };
 
-productModel.getByArrId = (idArr, prodQuan, callback) => {
-  const sql = `
-    SELECT *
-    FROM products
-    INNER JOIN productsimg
-      ON products.prod_id = productsimg.prod_id
-    INNER JOIN categories
-      ON products.cate_id = categories.cate_id
-    WHERE products.prod_id IN ('${idArr.join("','")}') ;
-  `;
+// productModel.getByArrId = (idArr, prodQuan, callback) => {
+//   const sql = `
+//     SELECT *
+//     FROM products
+//     INNER JOIN productsimg
+//       ON products.prod_id = productsimg.prod_id
+//     INNER JOIN categories
+//       ON products.cate_id = categories.cate_id
+//     WHERE products.prod_id IN ('${idArr.join("','")}') ;
+//   `;
 
-  db.query(sql, (err, result) => {
-    callback(err, prodQuan, result);
-  });
-};
+//   db.query(sql, (err, result) => {
+//     callback(err, prodQuan, result);
+//   });
+// };
 
 productModel.getDetailProduct = ({ id }, callback) => {
   const sql = `
