@@ -214,13 +214,20 @@ const cartSubmit = () => {
   const prodIds = cartItemsChecked.map((item) => {
     return item.getAttribute('data-prod-id');
   })
+  
+  const prodQuanitys =cartItemsChecked.map(item=>{
+    return item.querySelector('.item--quantity').value;
+
+  })
+  // console.log("this is",prodQuanitys);
 
   if (prodIds.length === 0) {
     alert('Bạn chưa chọn sản phẩm nào');
     return;
   }
-
+ 
   // console.log(prodIds);
   cookieHder.createCookie('prodIds--order', prodIds.join(','), 1); // 1 day
+  cookieHder.createCookie('prodQuanitys--order', prodQuanitys.join(','), 1);
   window.location.href = '/account/order';
 }

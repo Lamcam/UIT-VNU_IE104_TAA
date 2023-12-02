@@ -1,6 +1,6 @@
 // const express = require('express');
 const models = require('../models')
-
+const cookieParser = require('cookie-parser');
 const index = require('./index')
 
 function account() { }
@@ -166,10 +166,19 @@ account.cartDelete = (req, res) => {
 }
 
 account.order = (req, res) => {
-  const { user } = req.cookies;
+  const { id } = req.cookies;
+  const prodIdsOrder = req.cookies['prodIds--order'];
+  const prodQuanitys = req.cookies['prodQuanitys--order'];
+  let proIDs = prodIdsOrder.split(",");
+  let prodQuan = prodQuanitys.split(',');
+  models.product.getByArrId(proIDs,prodQuan,(err,arr,result)=>{
 
-
-  res.status(200).render('pages/account/order')
+    if(err) throw err;
+    const data =  index.groupProducts(result);
+    res.status(200).render('pages/account/order', {data: data, data1:arr});
+  
+  })
+  
 }
 
 module.exports = account
