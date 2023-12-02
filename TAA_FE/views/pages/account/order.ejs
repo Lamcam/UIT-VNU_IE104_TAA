@@ -116,9 +116,23 @@
               <a href="cart">Sửa</a>
             </div>
             <hr>
+
+            <div class="row row_flex pro">
+              <%-include('../../components/product__order', {data,data1}) %>
+              <% let viewMoreClass="";%>
+              <% if (data.length <= 2 ) { viewMoreClass= 'hidden_item' } %>
+              <p class="<%=viewMoreClass%> viewMore">Xem thêm</p>
+            </div>
+
+
+            <% let totalCost = 0; %>
+            <% for(let i=0 ; i<data.length; i++){ 
+              totalCost+= data[i].prod_cost;
+            } %>
+
             <div class="row row__flex">
               <span class="detail__title">Tạm tính:</span>
-              <span class="detail__context cost_value__final--before">0</span>
+              <span class="detail__context cost_value__final--before"><%=totalCost%></span>
             </div>
             <div class="row row__flex">
               <span class="detail__title">Giảm giá:</span>
