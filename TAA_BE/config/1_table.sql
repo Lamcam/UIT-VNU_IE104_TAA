@@ -41,7 +41,7 @@ CREATE TABLE `bankcards` (
   `bank_number` varchar(20) DEFAULT NULL,
   `bank_pers_name` varchar(255) DEFAULT NULL,
   `bank_pers_id` varchar(12) DEFAULT NULL,
-  `user_id` char(8) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
   PRIMARY KEY (`bank_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 

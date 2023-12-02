@@ -406,14 +406,14 @@
     <%- include('../../partials/footer') %>
 
     <!-- Modals -->
-    <%- include('./add-bank') %>
-    <%- include('./add-location') %>
-    <%- include('./del-bank') %>
-    <%- include('./del-location') %>
-    <%- include('./edit-location') %>
-    <%- include('./success-popup') %>
-    <%- include('./review-popup') %>
-    <%- include('./modal--change-pass') %>
+    <%- include('./infoModals/modal--add-bank') %>
+    <%- include('./infoModals/modal--add-location') %>
+    <%- include('./infoModals/modal--del-bank') %>
+    <%- include('./infoModals/modal--del-location') %>
+    <%- include('./infoModals/modal--edit-location') %>
+    <%- include('./infoModals/modal--change-pass') %>
+    <%- include('./ordersModals/modal--success-popup') %>
+    <%- include('./ordersModals/modal--review-popup') %>
     <%- include('../../partials/on-top-btn') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -424,7 +424,7 @@
   <script>
     let navItems = document.querySelectorAll(".nav-tab__item")
 
-    let flag = '<%= JSON.stringify(data) %>';
+    const flag = '<%= flags %>';
     switch (flag) {
       case '0':
         showSection('section1');
@@ -443,8 +443,6 @@
         break;
     }
   </script>
-
-
 </body>
 
 </html>
