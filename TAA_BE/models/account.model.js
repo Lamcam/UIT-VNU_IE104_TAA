@@ -4,10 +4,38 @@ function accountModel() { }
 
 accountModel.getInfo = ({ id }, callback) => {
   const sql = `
-    SELECT *
+    SELECT user_name, user_phone, user_email, user_avatar_url, loca_default_id, bank_default_id
     FROM USERS
     WHERE user_id = ?;
   `;
+  const params = [id];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+}
+
+accountModel.getBanks = ({ id }, callback) => {
+  const sql = `
+    SELECT *
+    FROM BANKCARDS
+    WHERE user_id = ?;
+  `
+
+  const params = [id];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+}
+
+accountModel.getLocas = ({ id }, callback) => {
+  const sql = `
+    SELECT *
+    FROM LOCATIONS
+    WHERE user_id = ?;
+  `
+
   const params = [id];
 
   db.query(sql, params, (err, result) => {
@@ -19,6 +47,24 @@ accountModel.getOrders = ({ id }, callback) => {
   const sql = `
     SELECT *
     FROM ORDERS
+    WHERE user_id = ?;
+  `;
+
+  const params = [id];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+}
+
+accountModel.getFavorProducts = ({ id }, callback) => {
+  const sql = `
+    SELECT products.*, productsimg.prod_img_url
+    FROM favorproducts
+    INNER JOIN products
+      on favorproducts.prod_id = products.prod_id
+    INNER JOIN productsimg
+      on products.prod_id = productsimg.prod_id
     WHERE user_id = ?;
   `;
 

@@ -5,22 +5,99 @@ const index = require('./index')
 
 function account() { }
 
-account.information = (req, res) => {
+const getInformation = (flags, req, res) => {
   const { id } = req.cookies;
 
-  res.status(200).render('pages/account/index', { data: 0 })
+  models.account.getInfo({ id }, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        statusCode: 500,
+        msg: 'Internal Server Error',
+      });
+      return;
+    };
+
+    if (result.length == 0) {
+      res.status(404).json({
+        statusCode: 404,
+        msg: 'Not Found',
+      });
+      return;
+    }
+
+    const data = {
+      info: result[0],
+    }
+
+    models.account.getBanks({ id }, (err, result) => {
+      if (err) {
+        res.status(500).json({
+          statusCode: 500,
+          msg: 'Internal Server Error',
+        });
+
+        throw err;
+      }
+
+      data.banks = result;
+
+      models.account.getLocas({ id }, (err, result) => {
+        if (err) {
+          res.status(500).json({
+            statusCode: 500,
+            msg: 'Internal Server Error',
+          });
+
+          throw err;
+        }
+
+        data.locas = result;
+
+        models.account.getOrders({ id }, (err, result) => {
+          if (err) {
+            res.status(500).json({
+              statusCode: 500,
+              msg: 'Internal Server Error',
+            });
+
+            throw err;
+          }
+
+          data.orders = result;
+
+          models.account.getFavorProducts({ id }, (err, result) => {
+            if (err) {
+              res.status(500).json({
+                statusCode: 500,
+                msg: 'Internal Server Error',
+              });
+
+              throw err;
+            }
+
+            data.favorProducts = index.groupProducts(result);
+
+            res.status(200).render('pages/account/index', {
+              // res.status(200).json({
+              flags, data
+            })
+          })
+        })
+      })
+    })
+  })
+}
+
+account.information = (req, res) => {
+  getInformation(0, req, res);
 }
 
 account.orders = (req, res) => {
-  const { id } = req.cookies;
-
-  res.status(200).render('pages/account/index', { data: 1 })
+  getInformation(1, req, res);
 }
 
 account.favorProducts = (req, res) => {
-  const { id } = req.cookies;
-
-  res.status(200).render('pages/account/index', { data: 2 })
+  getInformation(2, req, res);
 }
 
 account.cart = (req, res) => {
