@@ -129,17 +129,16 @@
             <% let totalDiscount = 0; %>
 
             <% for(let i=0 ; i<data.length; i++){ 
-              totalCost+= data[i].prod_cost;
-              totalDiscount += data[i].prod_cost * data[i].prod_discount;
+              totalCost+= data[i].prod_cost * (1- data[i].prod_discount);
             } %>
 
             <div class="row row__flex">
               <span class="detail__title">Tạm tính:</span>
-              <span class="detail__context cost_value__final--before"><%=totalCost%>đ</span>
+              <span class="detail__context cost_value__final--before"><%=totalCost%></span>
             </div>
             <div class="row row__flex">
               <span class="detail__title">Giảm giá:</span>
-              <span class="detail__context cost_value--discord"><%=totalDiscount%>đ</span>
+              <span class="detail__context cost_value--discord">0</span>
             </div>
             <hr>
             <div class="row row__flex">
