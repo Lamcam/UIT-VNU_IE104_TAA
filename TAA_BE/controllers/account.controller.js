@@ -108,7 +108,7 @@ account.cart = (req, res) => {
 
     result = result.map(item => item.prod_id);
 
-    models.product.getByIds({ ids: result }, (err, result) => {
+    models.product.getProductsWithImg({ prod_ids: result }, (err, result) => {
       if (err) throw err;
 
       res.status(200).render('pages/account/cart', {
@@ -121,7 +121,7 @@ account.cart = (req, res) => {
   })
 }
 
-account.cartAdd = (req, res) => {
+account.addCart = (req, res) => {
   const { id } = req.cookies;
   const { prodId } = req.body;
 
@@ -151,11 +151,11 @@ account.cartAdd = (req, res) => {
   });
 };
 
-account.cartDelete = (req, res) => {
+account.delCart = (req, res) => {
   const { id } = req.cookies;
-  const { prodId } = req.body;
+  const { prod_id } = req.body;
 
-  models.account.delCart({ id, prodId }, (err, result) => {
+  models.account.delCart({ id, prod_id }, (err, result) => {
     if (err) throw err;
 
     res.status(200).json({
@@ -167,32 +167,82 @@ account.cartDelete = (req, res) => {
 
 account.order = (req, res) => {
   const { id } = req.cookies;
-  const prodIdsOrder = req.cookies['prodIds--order'];
-  const prodQuanitys = req.cookies['prodQuanitys--order'];
-  let proIDs = prodIdsOrder.split(",");
-  let prodQuan = prodQuanitys.split(',');
-  models.product.getByArrId(proIDs, prodQuan, (err, arr, result) => {
-    if (err) throw err;
+  const prod_ids = req.cookies['prod_ids--order']?.split(",");
+  const quantities = req.cookies['prod_quantities--order']?.split(',');
 
-    const data = index.groupProducts(result);
+  const data = {}
 
-    res.status(200).render('pages/account/order', {
-      data: data, data1: arr,  
-    });
+  models.account.getInfo({ id }, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        statusCode: 500,
+        msg: 'Internal Server Error',
+      });
+      throw err;
+    }
+
+    data.user = result[0];
+
+    models.product.getProductsWithImg({ prod_ids }, (err, result) => {
+      if (err) {
+        res.status(500).json({
+          statusCode: 500,
+          msg: 'Internal Server Error',
+        });
+        throw err;
+      }
+
+      const products = index.groupProducts(result).map(
+        (item, index) => {
+          return { ...item, quantity: quantities[index], }
+        }
+      );
+
+      data.products = products;
+
+      models.account.getBanks({ id }, (err, result) => {
+        if (err) {
+          res.status(500).json({
+            statusCode: 500,
+            msg: 'Internal Server Error',
+          });
+          throw err;
+        }
+
+        data.banks = result;
+
+        models.account.getLocas({ id }, (err, result) => {
+          if (err) {
+            res.status(500).json({
+              statusCode: 500,
+              msg: 'Internal Server Error',
+            });
+            throw err;
+          }
+
+          data.locas = result;
+
+          res.status(200).render('pages/account/order', {
+            // res.status(200).json({
+            data
+          });
+        })
+      })
+    })
   })
 }
 
 account.orderPost = (req, res) => {
   const {
-    order_datetime, id, prodIds,
-    prodQuantities, prices, pay_id,
-    bank_id, trans_id, loca_id
+    order_datetime, id, prod_ids,
+    prod_quantities, prices, pay_id,
+    bank_id, tran_id, loca_id
   } = req.body;
 
   models.account.addOrder({
     order_datetime, id,
     pay_id, bank_id,
-    trans_id, loca_id,
+    tran_id, loca_id,
   }, async (err, result) => {
     if (err) {
       res.status(500).json({
@@ -204,11 +254,11 @@ account.orderPost = (req, res) => {
 
     order_id = result.insertId;
 
-    for (let i = 0; i < prodIds.length; i++) {
+    for (let i = 0; i < prod_ids.length; i++) {
       await new Promise((resolve, reject) => {
         models.account.addOrderDetail({
-          order_id, prod_id: prodIds[i],
-          prod_quantity: prodQuantities[i],
+          order_id, prod_id: prod_ids[i],
+          prod_quantity: prod_quantities[i],
           price: prices[i]
         }, (err, result) => {
           if (err) {
@@ -225,7 +275,7 @@ account.orderPost = (req, res) => {
 
       await new Promise((resolve, reject) => {
         models.account.delCart({
-          id, prod_id: prodIds[i]
+          id, prod_id: prod_ids[i]
         }, (err, result) => {
           if (err) {
             res.status(500).json({
@@ -247,23 +297,23 @@ account.orderPost = (req, res) => {
   })
 }
 
-account.localGet = (req,res)=> { 
-  const { id } = req.cookies;
-  console.log("this is id",id);
-  models.account.getLocas( { id }, (err, result) => {
-    if (err) {
-      res.status(500).json({
-        statusCode: 500,
-        msg: 'Internal Server Error',
-      }); throw err;
-    }
+// account.localGet = (req,res)=> { 
+//   const { id } = req.cookies;
+//   console.log("this is id",id);
+//   models.account.getLocas( { id }, (err, result) => {
+//     if (err) {
+//       res.status(500).json({
+//         statusCode: 500,
+//         msg: 'Internal Server Error',
+//       }); throw err;
+//     }
 
-    // console.log(result[0].loca_id);
-    res.status(200).json({
-      result: result[0].loca_id,
-    });
-    
-})
-}
+//     // console.log(result[0].loca_id);
+//     res.status(200).json({
+//       result: result[0].loca_id,
+//     });
+
+// })
+// }
 
 module.exports = account

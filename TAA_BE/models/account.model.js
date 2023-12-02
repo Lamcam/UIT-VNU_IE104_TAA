@@ -119,19 +119,18 @@ accountModel.delCart = ({ id, prod_id }, callback) => {
 accountModel.addOrder = ({
   order_datetime, id,
   pay_id, bank_id,
-  trans_id, loca_id
+  tran_id, loca_id
 }, callback) => {
   const sql = `
     INSERT INTO orders
-      (order_datetime, user_id, pay_id, bank_id, trans_id, loca_id, order_status, order_is_paying)
+      (order_datetime, user_id, pay_id, bank_id, tran_id, loca_id, order_status, order_is_paying)
     VALUES
-      (?, ${id}, 'pay0${pay_id}', ?, 'tran000${trans_id}', ?, ?, ?);
+      (?, ${id}, '${pay_id}', ?, '${tran_id}', ?, ?, ?);
   `;
 
   const params = [
-    order_datetime, pay_id,
-    bank_id, trans_id,
-    loca_id, 0, pay_id,
+    order_datetime, bank_id, 
+    loca_id, 0, pay_id[0],
   ];
 
   db.query(sql, params, (err, result) => {
