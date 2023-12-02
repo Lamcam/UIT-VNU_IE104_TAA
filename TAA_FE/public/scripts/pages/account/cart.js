@@ -190,18 +190,24 @@ const updateTotalPrice = () => {
 
   // console.log(cartItemsChecked);
 
-  let totalPrice = cartItemsChecked.reduce((sum, item) => {
-    let totalPrice = parseInt(item.querySelector('.item--total-price').innerHTML);
-    return sum + totalPrice;
+  let totalPriceBefore = cartItemsChecked.reduce((sum, item) => {
+    let priceBefore = parseInt(item.querySelector('.item--price-before').innerHTML);
+    return sum + priceBefore;
+  }, 0);
+
+  let totalDiscount = cartItemsChecked.reduce((sum, item) => {
+    let priceBefore = parseInt(item.querySelector('.item--price-before').innerHTML);
+    let price = parseInt(item.querySelector('.item--price').innerHTML);
+    return sum + priceBefore - price;
   }, 0);
 
   // console.log(totalPrice)
 
-  document.querySelector('.cost_value__final--before').innerHTML = totalPrice;
+  document.querySelector('.cost_value__final--before').innerHTML = totalPriceBefore;
 
-  const discount = parseInt(document.querySelector('.cost_value--discount').innerHTML);
+  document.querySelector('.cost_value--discount').innerHTML = totalDiscount;
 
-  document.querySelector('.cost_value__final--after').innerHTML = totalPrice - discount > 0 ? totalPrice - discount : 0;
+  document.querySelector('.cost_value__final--after').innerHTML = totalPriceBefore - totalDiscount;
 }
 
 

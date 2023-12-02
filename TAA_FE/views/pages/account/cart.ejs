@@ -73,7 +73,7 @@
                 <input class="item--quantity" type="number" step=1 min=1 max=5 value=1>
                 <span class='value--ctl increase icon material-symbols-outlined'>add</span>
               </span>
-              <span class="cost_value item--total-price col-2 col-sm-3 label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
+              <span class="cost_value item--total-price col-2 col-sm-3 body-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
               <span class="col-1 col-sm-2 center">
                 <%- include('../../components/button', {
                   type: 'btn-icon',
@@ -100,7 +100,7 @@
             </div>
             <div class="row">
               <span class="col-6 detail__title">Giảm giá:</span>
-              <span class="col-6 detail__context cost_value--discount">20000</span>
+              <span class="col-6 detail__context cost_value--discount">0</span>
             </div>
             <hr>
             <div class="row">
