@@ -78,6 +78,8 @@
 }
 
 .img-item img {
+  width: 100%;
+  aspect-ratio: 1/1;
   border-radius: 4px;
 }
 
@@ -154,6 +156,7 @@
 }
 
 .info__product__icon .show-text {
+  display: none;
   position: absolute;
   top: 0;
   left: 100%;

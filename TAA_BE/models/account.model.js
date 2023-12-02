@@ -130,7 +130,7 @@ accountModel.addOrder = ({
 
   const params = [
     order_datetime, bank_id, 
-    loca_id, 0, pay_id[0],
+    loca_id, 0, pay_id[pay_id.length - 1],
   ];
 
   db.query(sql, params, (err, result) => {
