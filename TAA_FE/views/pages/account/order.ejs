@@ -92,6 +92,7 @@
                   value: 'cash',
                   checked: false,
                 }) %>
+
                 <label class="label-large" for="payment-cash">Thanh toán tiền khi nhận hàng
                   (COD)</label>
               </div>
@@ -142,7 +143,7 @@
             </div>
             <hr>
             <div class="row row__flex">
-              <span class="detail__title">Tổng cộng: <%= %></span>
+              <span class="detail__title">Tổng cộng:</span>
               <span class="detail__context cost_value--final--after error-text"><%=totalCost - totalDiscount %>đ</span>
             </div>
             <div class="row__flex end">
@@ -167,7 +168,17 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
-  <script src="/scripts/pages/account/order.js"></script>
+  <script src="/scripts/pages/account/order.js" defer></script>
+  <script> 
+    let totalPrice = '<%=totalCost - totalDiscount %>'
+    const prodPrices = document.querySelectorAll("#product_cost");
+    console.log(prodPrices[1].textContent);
+    
+
+
+    
+
+  </script>
 </body>
 
 </html>

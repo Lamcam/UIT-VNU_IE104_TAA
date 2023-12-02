@@ -1,3 +1,20 @@
+let pay, bank, trans, local, express;
+
+fetch('http://localhost:3000/account/orderGetIdLocal',{
+
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    
+}).then(respone => respone.json())
+    .then (data=> {
+        console.log(data.result);
+        local = data.result;
+
+    })
+
+
 
 $('.hidden_item').css('display','none');
 $(document).on('click','.viewMore',() => {
@@ -17,6 +34,36 @@ $(document).on('click','.viewMore',() => {
      
 })
 
+$(document).on('click','.section__options',function() {
+    
+    if ($("#payment-banking").is(":checked")) {
+        
+        bank = 1;
+        pay = 0;
+
+    }   
+    else if ($("#payment-cash").is(":checked")){
+        
+        pay = 1;
+        bank = 0
+
+    }
+
+    if ($("#transport-express").is(":checked")) {
+        trans = 1;
+        express = 0
+
+    }   
+    else if ($("#transport-normal").is(":checked")){
+        express = 1;
+        trans = 0;
+
+    }
+});
+
+
+
+
 
 const orderSubmit = () => {
     const order_datetime = new Date();
@@ -27,13 +74,14 @@ const orderSubmit = () => {
 
     console.log(prodIds);
     console.log(prodQuanities);
+   
     
-    const pay_id = 1;
-    const bank_id = 1;
+    const pay_id = pay;
+    const bank_id = bank;
 
-    const trans_id = 0;
+    const trans_id = trans;
 
-    const loca_id = 1;
+    const loca_id = local;
 
     const data = {
         order_datetime,

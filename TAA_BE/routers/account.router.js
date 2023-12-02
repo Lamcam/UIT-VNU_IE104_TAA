@@ -18,5 +18,5 @@ router.post('/cart/delete', account.cartDelete)
 router.get('/order', account.order)
 router.post('/orderPost', account.orderPost)
 
-
+router.post('/orderGetIdLocal',account.localGet)
 module.exports = router;
