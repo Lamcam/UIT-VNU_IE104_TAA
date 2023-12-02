@@ -89,7 +89,7 @@ accountModel.getCart = ({ id }, callback) => {
   })
 }
 
-accountModel.addCart = ({id, prodId}, callback) => {
+accountModel.addCart = ({ id, prodId }, callback) => {
   const sql = `
     INSERT INTO CART (user_id, prod_id)
     VALUES (?, ?);
@@ -115,8 +115,46 @@ accountModel.deleteCart = ({ id, prodId }, callback) => {
   })
 }
 
-accountModel.addOrder = ({}, callback) => {
-  const sql = 1
+accountModel.addOrder = ({
+  order_datetime, id,
+  pay_id, bank_id,
+  trans_id, loca_id
+}, callback) => {
+  const sql = `
+    INSERT INTO orders
+      (order_datetime, user_id, pay_id, bank_id, trans_id, loca_id, order_status, order_is_paying)
+    VALUES
+      (?, ${id}, 'pay0${pay_id}', ?, 'tran000${trans_id}', ?, ?, ?);
+  `;
+
+  const params = [
+    order_datetime, pay_id,
+    bank_id, trans_id,
+    loca_id, 0, pay_id,
+  ];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+}
+
+accountModel.addOrderDetail = ({ order_id, prod_id, prod_quantity, price }, callback) => {
+  const sql = `
+    INSERT INTO orderdetails
+      (order_id, prod_id, quantity, price)
+    VALUES
+      (?, ?, ?, ?);
+  `;
+
+  const params = [
+    order_id, prod_id, prod_quantity, price
+  ];
+
+  // console.log(params);
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result);
+  })
 }
 
 module.exports = accountModel

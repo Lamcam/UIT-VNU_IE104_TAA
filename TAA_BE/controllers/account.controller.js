@@ -182,18 +182,46 @@ account.order = (req, res) => {
 }
 
 account.orderPost = (req, res) => {
-  const a = {
+  const {
     order_datetime, id, prodIds,
-    prodQuantities, pay_id,
+    prodQuantities, prices, pay_id,
     bank_id, trans_id, loca_id
   } = req.body;
 
-  models.account.addOrder(a, (err, result) => {
-    if (err) throw err;
+  models.account.addOrder({
+    order_datetime, id,
+    pay_id, bank_id,
+    trans_id, loca_id,
+  }, (err, result) => {
+    if (err) {
+      res.status(500).json({
+        statusCode: 500,
+        msg: 'Internal Server Error',
+      });
+      throw err;
+    }
+
+    order_id = result.insertId;
+
+    // console.log(prodIds);
+    // prodIds = prodIds.split(',');
+    // prodQuantities = prodQuantities.split(',');
+
+    prodIds.forEach((prod_id, index) => {
+      models.account.addOrderDetail({
+        order_id, prod_id,
+        prod_quantity: prodQuantities[index],
+        price: prices[index]
+      }, (err, result) => {
+        if (err) {
+          throw err;
+        }
+      })
+    })
 
     res.status(200).json({
       statusCode: 200,
-      msg: 'Add success'
+      msg: 'Order success'
     })
   })
 }
