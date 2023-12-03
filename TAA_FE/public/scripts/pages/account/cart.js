@@ -116,7 +116,10 @@ const delCartItem = () => {
     .catch(err => console.error(err));
 
   $('.cart__item[data-prod-id="' + prod_id + '"]').remove();
+  const length = cookieHder.readCookie('cart_length') - 1;
+  cookieHder.createCookie('cart_length', length, 15);
   document.dispatchEvent(new Event('change'));
+  document.dispatchEvent(new Event('UpdateCart'));
 }
 
 const updateTBodyContext = () => {

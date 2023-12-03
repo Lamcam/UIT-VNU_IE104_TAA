@@ -370,14 +370,16 @@
                 Trang cung cấp thông tin về sản phẩm yêu thích
               </p>
             </article>
-            
+
             <div class="favor-product__wrapper row visible mt-12">
               <% if (data.favorProducts?.length > 0) { %>
               <% data.favorProducts?.forEach(product => { %>
-                <%- include('../../components/product__item', {
+              <%- include('../../components/product__item', {
                   data: {...product, is_favor: true}
                 }) %>
               <% }) %>
+              <% } else {%>
+              <div class="headline-small col-12" style="text-align: center; padding: 2rem;">Bạn chưa có sản phẩm yêu thích</div>
               <% } %>
             </div>
           </section>
@@ -405,6 +407,7 @@
   <script src="/scripts/partials/product__item.js"></script>
   <script src="/scripts/pages/account/change-password.js"></script>
   <script src="/scripts/pages/account/review-popup.js"></script>
+  <script src="/scripts/pages/account/favor-products.js"></script>
 </body>
 
 </html>

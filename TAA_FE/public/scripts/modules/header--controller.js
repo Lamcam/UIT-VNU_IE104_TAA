@@ -7,7 +7,7 @@ const updateCartStatus = () => {
   if (parseInt(context) > 9) {
     context = '9+';
   }
-  console.log(context);
+  // console.log(context);
   cartStatus?.setAttribute('data-after', context);
 
   if (context == '0') {

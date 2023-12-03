@@ -122,6 +122,7 @@ account.addFavorProducts = (req, res) => {
           error: 'Internal Server Error',
           msg: 'An error occurred while adding the product to the favorites.'
         });
+        throw err;
       }
     } else {
       res.json({
@@ -169,9 +170,9 @@ account.cart = (req, res) => {
 
 account.addCart = (req, res) => {
   const { id } = req.cookies;
-  const { prodId } = req.body;
+  const { prod_id } = req.body;
 
-  models.account.addCart({ id, prodId }, (err, result) => {
+  models.account.addCart({ id, prod_id }, (err, result) => {
     if (err) {
       if (err.code === 'ER_DUP_ENTRY') {
         // Handle duplicate entry error
@@ -187,6 +188,7 @@ account.addCart = (req, res) => {
           error: 'Internal Server Error',
           message: 'An error occurred while adding the product to the cart.'
         });
+        throw err;
       }
     } else {
       res.json({

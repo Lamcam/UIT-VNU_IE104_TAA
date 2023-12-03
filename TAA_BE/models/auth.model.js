@@ -24,7 +24,7 @@ authModel.addUser = ({ name, phone, email, pass }, callback) => {
 
 authModel.getUserByLogin = ({ phone }, callback) => {
   const sql = `
-    SELECT *, COUNT(prod_id) AS count_cart
+    SELECT users.*, COUNT(prod_id) AS count_cart
     FROM users
     LEFT JOIN cart
       ON cart.user_id = users.user_id
