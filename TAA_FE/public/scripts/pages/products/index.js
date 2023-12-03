@@ -570,7 +570,8 @@ category.forEach((item) => {
         });
         document.dispatchEvent(new Event("ReloadProducts"));
       })
-
+    const hidePagination = document.querySelector(".pagination");
+    hidePagination.style.display = "none";
   });
 });
 
