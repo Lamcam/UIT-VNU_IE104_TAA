@@ -73,7 +73,7 @@
   text-decoration: none !important;
 }
 
-@media only screen and (max-width: 64rem) {
+@media only screen and (max-width: 768px) {
   .main-nav__dropdown {
     width: 100%;
 
@@ -85,7 +85,7 @@
   }
 }
 
-@media only screen and (max-width: 64rem) {
+@media only screen and (max-width: 768px) {
   #main-nav__ctl {
     &:checked~ul {
       background-color: white;

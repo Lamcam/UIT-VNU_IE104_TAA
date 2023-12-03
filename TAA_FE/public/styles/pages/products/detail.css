@@ -828,7 +828,7 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@media (min-width: 49rem) and (max-width: 64rem) {
+@media (min-width: calc(576px +1px)) and (max-width: 768px) {
   .section__info__product {
     flex-direction: column;
     height: 100%;
@@ -864,7 +864,7 @@ input::-webkit-inner-spin-button {
   }
 }
 
-@media (max-width: 48rem) {
+@media (max-width: 576px) {
   .context__detail .context__detail__title,
   .rating__product__title {
     font-size: 24px;
