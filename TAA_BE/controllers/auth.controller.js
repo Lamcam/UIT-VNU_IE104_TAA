@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const cookieParser = require('cookie-parser');
 const sanitizeHtml = require("sanitize-html");
 
-const exceptTime = 15 * 60 * 1000; // 15 minutes
+const exceptTime = 120 * 60 * 1000; // 120 minutes
 const saltRounds = 10;
 
 function auth() { }

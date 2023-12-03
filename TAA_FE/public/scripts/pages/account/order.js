@@ -48,12 +48,12 @@ const updateBtnSubmit = () => {
   //   document.querySelector('.cart__btn--submit').disabled = false;
   // }
 
-  document.querySelector('.cart__btn--submit').disabled = !(getTransId() && getPayId());
+  document.querySelector('.cart__btn--submit').disabled = !(getLocaId() && getTransId() && getPayId());
 }
 
 const orderSubmit = () => {
-    const order_datetime = new Date();
-    const id = cookieHder.readCookie('id');
+  const order_datetime = new Date();
+  const id = cookieHder.readCookie('id');
 
   const prod_ids = cookieHder.readCookie('prod_ids--order').split(',');
   const prod_quantities = cookieHder.readCookie('prod_quantities--order').split(',');
@@ -78,22 +78,23 @@ const orderSubmit = () => {
 
   console.log(data);
 
-    fetch('/account/orderPost', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => {console.log(res); return res.json()})
-      .then(data => {
-        if (data.statusCode == 500) {
-            alert('Lỗi Server');
-            return;
-        }
+  fetch('/account/orderPost', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(res => { console.log(res); return res.json() })
+    .then(data => {
+      if (data.statusCode == 500) {
+        alert('Lỗi Server');
+        return;
+      }
 
       if (data.statusCode == 200) {
         alert("Đặt hàng thành công");
         window.location.href = '/';
+        cookieHder.updateCookie('cart_length', 0);
         return;
       }
 

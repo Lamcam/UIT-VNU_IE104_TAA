@@ -242,8 +242,8 @@ const cartSubmit = () => {
   }
 
 
-  cookieHder.createCookie('prod_ids--order', prod_ids.join(','), 1); // 1 day
-  cookieHder.createCookie('prod_quantities--order', prod_quanities.join(','), 1);
-  cookieHder.createCookie('prices--order', prices.join(','), 1);
+  cookieHder.createCookie('prod_ids--order', prod_ids.join(','), 120); // 120 minutes
+  cookieHder.createCookie('prod_quantities--order', prod_quanities.join(','), 120);
+  cookieHder.createCookie('prices--order', prices.join(','), 120);
   window.location.href = '/account/order';
 }

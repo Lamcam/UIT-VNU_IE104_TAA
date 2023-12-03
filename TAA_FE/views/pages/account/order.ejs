@@ -42,15 +42,15 @@
               <div class="local_info">
                 <p class="body-large">Bạn chưa có địa chỉ nào</p>
                 <%- include('../../components/button', {
-                type: 'btn-icon-label',
-                options: 'btn--filled',
-                classList: '',
-                iconData: 'add',
-                label: 'Thêm địa chỉ mới',
-                onclick: 'modalCtl.openModal("#modal--add-location")',
-              }) %>
-                <% } %>
+                  type: 'btn-icon-label',
+                  options: 'btn--filled',
+                  classList: '',
+                  iconData: 'add',
+                  label: 'Thêm địa chỉ mới',
+                  onclick: 'modalCtl.openModal("#modal--add-location")',
+                }) %>
               </div>
+              <% } %>
             </section>
             <section class="visible col-12">
               <h2 class="headline-small">Phương thức vận chuyển</h2>
@@ -163,13 +163,14 @@
     <%- include('../../partials/modal--noti-add-location',{
       id: 1
     })%>
-    
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script type='module'src='/scripts/modules/main.js'></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/account/order.js"></script>
-  <script src="/scripts/modules/account--handler.js" > </script>
- 
+  <script src="/scripts/modules/account--handler.js"> </script>
+
 </body>
+
 </html>

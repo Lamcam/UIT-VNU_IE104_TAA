@@ -1,5 +1,4 @@
 const addLocation = () => {
-
   const name = document.getElementById("f_add_location_per_name").value.trim();
   const phone = document.getElementById("f_add_location_phone").value.trim();
   const address = document.getElementById("f_add_location_address").value.trim();
@@ -12,77 +11,53 @@ const addLocation = () => {
     detail,
     id,
   }
-  fetch('/account/information/addLocal',{
+  fetch('/account/information/addLocal', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data),
-  }).then( res => res.json())
-    .then((data)=>{
-      console.log("this is",data);
-      changeConten(data);
+  }).then(res => res.json())
+    .then((data) => {
+      console.log("this is", data);
+      changeContent(data);
 
-    }).then().catch(error =>{
+    }).then().catch(error => {
       console.log(error);
     })
-
-
-
-
-  // $.ajax({
-  //   url: "/account/information/addLocal",
-  //   type: "POST",
-  //   data: {
-  //     name,
-  //     phone,
-  //     address,
-  //     detail,
-  //     id,
-  //   },
-  //   success: function (response) {
-      
-  //     modalCtl.openModal('#modal--noti-1');
-
-  //   },
-  //   error: function (error) {
-  //     console.error("Error:", error);
-  //     // Handle the error
-  //   },
-  // });
 };
 
-const changeConten = (data) => {
-
+const changeContent = (data) => {
   let a = `
-  <div class="col-6">
-    <p class="location-item__pers-name">${data.name}</p>
-    <div class="mt-8">
-      <span>SĐT: </span>
-      <span class="location-item__phone">${data.phone}</span><br>
+    <div class="col-6">
+      <p class="location-item__pers-name">${data.name}</p>
+      <div class="mt-8">
+        <span>SĐT: </span>
+        <span class="location-item__phone">${data.phone}</span><br>
+      </div>
+      <p class="location-item__address mt-8"> ${data.detail}, ${data.address} 
+      </p>
     </div>
-    <p class="location-item__address mt-8"> ${data.detail}, ${data.address} 
-    </p>
-  </div>
-  <div class="col-6 location-item--right default-and-btn">
-  <span>
-  <button type='button' class="btn-icon-label btn--filled" onclick="modalCtl.openModal("#modal--change-address")">
-    <span class="status-layer">
-        <span class="icon icon--filled material-symbols-outlined">
-              edit</span>
-        <span class="label">Thay đổi địa chỉ</span>
-    </span>
-  </button>
-  </span>
-    <span class="headline-small primary-text">Mặc định</span>
-  </div>
-</div>`
-      $('.local_info').empty()
-      console.log(typeof(a));
-      a= a.split('`');
-      a= a.join('');
-      $('#modal--add-location').removeClass('active');
-      $('.local_info').append(a);
+    <div class="col-6 location-item--right default-and-btn">
+      <span>
+      <button type='button' class="btn-icon-label btn--filled" onclick="modalCtl.openModal("#modal--change-address")">
+        <span class="status-layer">
+            <span class="icon icon--filled material-symbols-outlined">
+                  edit</span>
+            <span class="label">Thay đổi địa chỉ</span>
+        </span>
+      </button>
+      </span>
+        <span class="headline-small primary-text">Mặc định</span>
+      </div>
+    </div>`
+  $('.local_info').empty()
+  console.log(typeof (a));
+  a = a.split('`');
+  a = a.join('');
+  modalCtl.closeModal();
+  // $('#modal--add-location').removeClass('active');
+  $('.local_info').append(a);
 }
 
 const isPhoneValid = (phone) => {
