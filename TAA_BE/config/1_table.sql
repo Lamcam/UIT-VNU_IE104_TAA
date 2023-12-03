@@ -153,6 +153,7 @@ ALTER TABLE `categorytypes`
 -- Indexes for table `favorproducts`
 --
 ALTER TABLE `favorproducts`
+  ADD PRIMARY KEY (`user_id`,`prod_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `prod_id` (`prod_id`);
 
