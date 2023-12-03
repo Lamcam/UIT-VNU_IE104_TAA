@@ -45,12 +45,40 @@ navTabItems.forEach((item, index) => {
     } else if (index === 2) {
       changeURLWithoutReload('/account/favor-products');
     }
-    
+
     addActiveClass(item, "active");
   });
 });
 
+const breadcrumbs__data = [
+  {
+    label: 'Thông tin tài khoản',
+    link: '/account/information'
+  },
+  {
+    label: 'Đơn hàng',
+    link: '/account/orders'
+  },
+  {
+    label: 'Sản phẩm yêu thích',
+    link: '/account/favorites'
+  }
+]
+
+const reRenderBreadcrumbs = (breadcrumbs__data) => {
+  const breadcrumbs = document.querySelectorAll('.breadcrumbs__link')
+  const lastBreadcrumb = breadcrumbs[breadcrumbs.length - 1];
+  // console.log(lastBreadcrumb);
+
+  lastBreadcrumb.textContent = breadcrumbs__data.label;
+  lastBreadcrumb.href = breadcrumbs__data.link;
+}
+
 function showSection(sectionId) {
+  const id = sectionId[sectionId.length - 1] - 1;
+
+  reRenderBreadcrumbs(breadcrumbs__data[id]);
+
   const sections = document.querySelectorAll(".section");
   sections.forEach((section) => {
     section.classList.add("hidden");
@@ -258,3 +286,29 @@ function enableSaveButton() {
     saveButton.setAttribute("disabled", "disabled");
   }
 }
+
+// const addChangeTab = () => {
+//   let navItems = document.querySelectorAll(".nav-tab__item")
+
+//   switch (<%= flags %>) {
+//     case '0':
+//       showSection('section1');
+//       addActiveClass(navItems[0], 'active')
+//       break;
+//     case '1':
+//       showSection('section2');
+//       addActiveClass(navItems[1], 'active')
+//       break;
+//     case '2':
+//       showSection('section3');
+//       addActiveClass(navItems[2], 'active')
+//       break;
+
+//     default:
+//       break;
+//   }
+// }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // addChangeTab();
+})

@@ -19,28 +19,44 @@
 
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 0 }) %>
+    <% if (flags == 0) {
+      breadcrumbs_data = {
+        label: 'Thông tin tài khoản',
+        link: '/account/information'
+      }
+    } else if (flags == 1) {
+      breadcrumbs_data = {
+        label: 'Đơn hàng',
+        link: '/account/orders'
+      }
+    } else if (flags == 2) {
+      breadcrumbs_data = {
+        label: 'Sản phẩm yêu thích',
+        link: '/account/favorites'
+      }
+    } %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
         { label: 'Trang cá nhân', link: '#' },
-        { label: 'Thông tin tài khoản', link: '/account/information' }
+        breadcrumbs_data,
       ]
      }) %>
     <div class="mt-12">
       <div class="container row">
         <aside class="col-12 col-lg-3 body-large primary-text">
           <ul class="nav-tab visible">
-            <li class="nav-tab__item active" onclick="showSection('section1')">
+            <li class="nav-tab__item <%= (flags == 0) ? 'active' : '' %>" onclick="showSection('section1')">
               <span class="icon icon--filled material-symbols-outlined">
                 person</span>
               Thông tin tài khoản
             </li>
-            <li class="nav-tab__item" onclick="showSection('section2')">
+            <li class="nav-tab__item <%= (flags == 1) ? 'active' : '' %>" onclick="showSection('section2')">
               <span class="icon icon--filled material-symbols-outlined">
                 box</span>
               Đơn hàng
             </li>
-            <li class="nav-tab__item" onclick="showSection('section3')">
+            <li class="nav-tab__item <%= (flags == 2) ? 'active' : '' %>" onclick="showSection('section3')">
               <span class="icon icon--filled material-symbols-outlined">
                 hr_resting</span>
               Sản phẩm yêu thích
@@ -49,7 +65,7 @@
         </aside>
         <main class="col-12 col-lg-9">
           <!-- Section Thông tin tài khoản -->
-          <section id="section1" class="section">
+          <section id="section1" class="section <%= (flags == 0) ? '' : 'hidden' %>">
             <!-- Thông tin tài khoản-->
             <article class="section__info visible">
               <h1 class="headline-large">Thông tin tài khoản</h1>
@@ -147,7 +163,7 @@
               <h2 class="headline-medium">Địa chỉ nhận hàng</h2>
               <div class="location-list">
                 <% if (data.banks.length > 0) { %>
-                  <% data.locas?.forEach(loca => { %>
+                <% data.locas?.forEach(loca => { %>
                 <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
@@ -269,8 +285,9 @@
               </div>
             </article>
           </section>
+
           <!-- Section Đơn hàng  -->
-          <section id="section2" class="section hidden">
+          <section id="section2" class="section <%= (flags == 1) ? '' : 'hidden' %>">
             <!-- Đơn hàng-->
             <article class="section__info visible">
               <h1 class="headline-large">Đơn hàng</h1>
@@ -345,7 +362,7 @@
           </section>
 
           <!-- Section Sản phẩm yêu thích  -->
-          <section id="section3" class="section hidden">
+          <section id="section3" class="section <%= (flags == 2) ? '' : 'hidden' %>">
             <!-- Sản phẩm yêu thích -->
             <article class="section__info visible">
               <h1 class="headline-large">Sản phẩm yêu thích</h1>
@@ -433,31 +450,9 @@
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
-  <script src="/scripts/pages/account/main.js"></script>
+  <script src="/scripts/pages/account/index.js"></script>
   <script src="/scripts/pages/account/change-password.js"></script>
   <script src="/scripts/pages/account/review-popup.js"></script>
-  <script>
-    let navItems = document.querySelectorAll(".nav-tab__item")
-
-    const flag = '<%= flags %>';
-    switch (flag) {
-      case '0':
-        showSection('section1');
-        addActiveClass(navItems[0], 'active')
-        break;
-      case '1':
-        showSection('section2');
-        addActiveClass(navItems[1], 'active')
-        break;
-      case '2':
-        showSection('section3');
-        addActiveClass(navItems[2], 'active')
-        break;
-
-      default:
-        break;
-    }
-  </script>
 </body>
 
 </html>
