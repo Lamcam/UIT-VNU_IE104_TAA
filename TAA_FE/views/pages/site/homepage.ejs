@@ -37,8 +37,8 @@
           <div class="section__content mt-12">
             <div class="fade fade--left"></div>
             <div class="product__wrapper --scroll-x">
-              <% hotProducts.forEach(data => { %>
-              <%- include('../../components/product__item', { data }) %>
+              <% data.hotProducts.forEach(product => { %>
+              <%- include('../../components/product__item', { data: {...product, is_favor: data.favorProducts.includes(product.prod_id)}}) %>
               <% }) %>
             </div>
             <div class="fade fade--right"></div>
@@ -93,14 +93,15 @@
               <h2 class="article__title display-medium">Hỏi xoáy đáp xoay</h2>
               <h3 class="article__subtitle headline-small mt-8">Nơi trả lời
                 những câu hỏi của bạn</h3>
-              <hr class="mt-12">
-              <p class="mt-12">Chính sách bảo hành của TAA như thế nào?</p>
-              <hr class="mt-12">
-              <p class="mt-12">Làm sao để đổi hàng trên TAA?</p>
-              <hr class="mt-12">
-              <p class="mt-12">Thông tin về TAA ở đâu?</p>
-              <hr class="mt-12">
-              <p class="mt-12">Chính sách bảo hành của TAA như thế nào?</p>
+              <div class="article__context">
+                <a href="/manual/policy">Chính sách bảo hành của TAA như thế nào?</a>
+                <hr>
+                <a href="/manual/policy">Làm sao để đổi hàng trên TAA?</a>
+                <hr>
+                <a href="/manual/policy">Thông tin về TAA ở đâu?</a>
+                <hr>
+                <a href="/manual/policy">Chính sách bảo hành của TAA như thế nào?</a>
+              </div>
             </article>
           </div>
         </div>

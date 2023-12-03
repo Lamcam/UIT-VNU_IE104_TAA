@@ -62,33 +62,33 @@ function stepper(btn) {
   console.log(id, min, max, step, value)
 }
 
-// modalNoti open
-const btnCloseNoti = document.querySelector('.modal-noti .button-close')
-const modalNoti = document.querySelector('.modal-noti')
-const modalContainerNoti = document.querySelector('.modal-container--noti')
-const modalButtonCart = document.querySelector('.button__cart')
+// // modalNoti open
+// const btnCloseNoti = document.querySelector('.modal-noti .button-close')
+// const modalNoti = document.querySelector('.modal-noti')
+// const modalContainerNoti = document.querySelector('.modal-container--noti')
+// const modalButtonCart = document.querySelector('.button__cart')
 
-// modalNoti open, modalProduct close
-modalButtonCart.addEventListener("click", () => {
-  modalNoti.classList.add('open')
-  setTimeout(() => {
-    modalNoti.classList.remove('open')
-  }, 500000)
+// // modalNoti open, modalProduct close
+// modalButtonCart.addEventListener("click", () => {
+//   modalNoti.classList.add('open')
+//   setTimeout(() => {
+//     modalNoti.classList.remove('open')
+//   }, 500000)
 
-})
-// modalNoti btn--close
+// })
+// // modalNoti btn--close
 
-btnCloseNoti.addEventListener("click", () => {
-  modalNoti.classList.remove('open')
-})
+// btnCloseNoti.addEventListener("click", () => {
+//   modalNoti.classList.remove('open')
+// })
 
-modalNoti.addEventListener("click", () => {
-  modalNoti.classList.remove('open')
-})
-// nhấn bên ngoài thì popup đóng
-modalContainerNoti.addEventListener("click", function (event) {
-  event.stopPropagation()
-})
+// modalNoti.addEventListener("click", () => {
+//   modalNoti.classList.remove('open')
+// })
+// // nhấn bên ngoài thì popup đóng
+// modalContainerNoti.addEventListener("click", function (event) {
+//   event.stopPropagation()
+// })
 
 // rating
 // rating__filter-rank

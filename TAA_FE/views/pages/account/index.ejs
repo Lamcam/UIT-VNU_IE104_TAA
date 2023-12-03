@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8" />
@@ -19,28 +19,44 @@
 
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 0 }) %>
+    <% if (flags == 0) {
+      breadcrumbs_data = {
+        label: 'Thông tin tài khoản',
+        link: '/account/information'
+      }
+    } else if (flags == 1) {
+      breadcrumbs_data = {
+        label: 'Đơn hàng',
+        link: '/account/orders'
+      }
+    } else if (flags == 2) {
+      breadcrumbs_data = {
+        label: 'Sản phẩm yêu thích',
+        link: '/account/favorites'
+      }
+    } %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
         { label: 'Trang cá nhân', link: '#' },
-        { label: 'Thông tin tài khoản', link: '/account/information' }
+        breadcrumbs_data,
       ]
      }) %>
     <div class="mt-12">
       <div class="container row">
         <aside class="col-12 col-lg-3 body-large primary-text">
           <ul class="nav-tab visible">
-            <li class="nav-tab__item active" onclick="showSection('section1')">
+            <li class="nav-tab__item <%= (flags == 0) ? 'active' : '' %>" onclick="showSection('section1')">
               <span class="icon icon--filled material-symbols-outlined">
                 person</span>
               Thông tin tài khoản
             </li>
-            <li class="nav-tab__item" onclick="showSection('section2')">
+            <li class="nav-tab__item <%= (flags == 1) ? 'active' : '' %>" onclick="showSection('section2')">
               <span class="icon icon--filled material-symbols-outlined">
                 box</span>
               Đơn hàng
             </li>
-            <li class="nav-tab__item" onclick="showSection('section3')">
+            <li class="nav-tab__item <%= (flags == 2) ? 'active' : '' %>" onclick="showSection('section3')">
               <span class="icon icon--filled material-symbols-outlined">
                 hr_resting</span>
               Sản phẩm yêu thích
@@ -49,7 +65,7 @@
         </aside>
         <main class="col-12 col-lg-9">
           <!-- Section Thông tin tài khoản -->
-          <section id="section1" class="section">
+          <section id="section1" class="section <%= (flags == 0) ? '' : 'hidden' %>">
             <!-- Thông tin tài khoản-->
             <article class="section__info visible">
               <h1 class="headline-large">Thông tin tài khoản</h1>
@@ -65,9 +81,9 @@
               <form action="/" method="POST">
                 <div class="form__row mt-12">
                   <div class="row">
-                    <label class="col-4 label-large" for="user_phone">Tên người dùng:</label>
+                    <label class="col-4 label-large" for="user_name">Tên người dùng:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="text" id="user_phone" name="phone" value='<%= data?.info?.user_name %>' oninput="enableSaveButton()" />
+                      <input class="input__wrapper-child" type="text" id="user_name" name="name" value='<%= data?.info?.user_name %>' oninput="enableSaveButton()" />
                       <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
@@ -87,9 +103,9 @@
 
                 <div class="form__row mt-12">
                   <div class="row">
-                    <label class="col-4 label-large" for="email">Email:</label>
+                    <label class="col-4 label-large" for="user_email">Email:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="email" name="email" id="email" value='<%= data?.info?.user_email %>' oninput="enableSaveButton()" />
+                      <input class="input__wrapper-child" type="email" name="email" id="user_email" value='<%= data?.info?.user_email %>' oninput="enableSaveButton()" />
                       <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
@@ -116,29 +132,15 @@
               </button>
               <h2 class="headline-medium">Tài khoản ngân hàng</h2>
               <div class="bank-list">
-                <!-- Tài khoản ngân hàng thứ nhất -->
+                <% if (data.banks.length > 0) { %>
+                <% data.banks?.forEach(bank => { %>
                 <div class="bank-item mt-12">
-                  <div class="bank-item__wrapper body-medium">
+                  <div class="bank-item__wrapper body-medium" data-bank-id=<%= bank.bank_id %>>
                     <div class="row">
-                      <span>STK: </span><span>*********1230</span>
+                      <span>STK: </span><span>******<%- bank.bank_number.slice(bank.bank_number.length - 4, bank.bank_number.length) %></span>
                     </div>
                     <div class="row">
-                      <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
-                    </div>
-                    <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
-                      <span class=" status-layer icon material-symbols-outlined">
-                        delete</span>
-                    </button>
-                  </div>
-                </div>
-                <!-- Tài khoản ngân hàng thứ hai -->
-                <div class="bank-item mt-12">
-                  <div class="bank-item__wrapper body-medium">
-                    <div class="row">
-                      <span>STK: </span><span>*********1230</span>
-                    </div>
-                    <div class="row">
-                      <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
+                      <span class="mt-12 row__name-bank">Ngân hàng <%- bank.bank_name %></span>
                     </div>
                     <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
                       <span class="status-layer icon material-symbols-outlined">
@@ -146,6 +148,10 @@
                     </button>
                   </div>
                 </div>
+                <% }) %>
+                <% } else { %>
+                <p class="body-medium mt-12">Bạn chưa có tài khoản ngân hàng nào.</p>
+                <% } %>
               </div>
             </article>
 
@@ -156,8 +162,42 @@
               </button>
               <h2 class="headline-medium">Địa chỉ nhận hàng</h2>
               <div class="location-list">
+                <% if (data.banks.length > 0) { %>
+                <% data.locas?.forEach(loca => { %>
+                <div class="location-item mt-12">
+                  <div class="location-item__wrapper body-medium">
+                    <div class="row">
+                      <span><%- loca.loca_pers_name %></span>
+                    </div>
+                    <div class="row mt-16">
+                      <span>SDT: </span><span>*******<%- loca.loca_pers_phone.slice(loca.loca_pers_phone.length - 3, loca.loca_pers_phone.length) %></span>
+                    </div>
+                    <div class="row mt-16">
+                      <span><%- loca.loca_detail + "," + loca.loca_address %></span>
+                    </div>
+                    <div class="location-btns__wrapper">
+                      <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
+                        <span class="status-layer icon material-symbols-outlined">
+                          delete</span>
+                      </button>
+                      <button class="location-item__btn--default btn--outlined" onclick="">
+                        <span class="status-layer <%= (data.info.loca_default_id != loca.loca_id) ? 'un' : '' %>filled-default location-btn">
+                          <%- (data.info.loca_default_id != loca.loca_id) ? "Thiết lập mặc định" : "Mặc định" %></span>
+                      </button>
+                      <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+                        <span class="status-layer full-edit icon material-symbols-outlined">
+                          edit</span>
+                        <span class="status-layer full-edit label">Sửa</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+                <% } else { %>
+                <p class="body-medium mt-12">Bạn chưa nhập địa chỉ nhận hàng nào.</p>
+                <% } %>
                 <!-- Địa chỉ nhận hàng thứ nhất -->
-                <div class="location-item mt-12">
+                <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
                       <span>Người đẹp bị câm</span>
@@ -184,9 +224,9 @@
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- Địa chỉ nhận hàng thứ hai -->
-                <div class="location-item mt-12">
+                <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
                       <span>Người đẹp bị câm</span>
@@ -213,8 +253,8 @@
                       </button>
                     </div>
                   </div>
-                </div>
-                <div class="location-item mt-12">
+                </div> -->
+                <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
                       <span>Người đẹp bị câm</span>
@@ -241,12 +281,13 @@
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </article>
           </section>
+
           <!-- Section Đơn hàng  -->
-          <section id="section2" class="section hidden">
+          <section id="section2" class="section <%= (flags == 1) ? '' : 'hidden' %>">
             <!-- Đơn hàng-->
             <article class="section__info visible">
               <h1 class="headline-large">Đơn hàng</h1>
@@ -321,7 +362,7 @@
           </section>
 
           <!-- Section Sản phẩm yêu thích  -->
-          <section id="section3" class="section hidden">
+          <section id="section3" class="section <%= (flags == 2) ? '' : 'hidden' %>">
             <!-- Sản phẩm yêu thích -->
             <article class="section__info visible">
               <h1 class="headline-large">Sản phẩm yêu thích</h1>
@@ -329,65 +370,15 @@
                 Trang cung cấp thông tin về sản phẩm yêu thích
               </p>
             </article>
-            <div class="section__content row mt-12">
-              <div class="product__item col-4">
-                <div class="product__image">
-                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc" class="img_back" />
-                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc" class="img_font" />
-                </div>
-                <div class="product__body">
-                  <span class="material-symbols-outlined icon_heart error-text icon--filled">
-                    favorite
-                  </span>
-                  <h3 class="product__name body-large">Kẹp tóc</h3>
-                  <div class="product__price label-large">
-                    <p class="product__price__current">35,000 đ</p>
-                    <p class="product__price__discount outline-variant-text">
-                      70,000 đ
-                    </p>
-                  </div>
-                  <p class="product__discount title-medium error-text">
-                    Giảm 50%
-                  </p>
-                  <p class="product__stock label-large primary-text">
-                    Còn hàng
-                  </p>
-                </div>
-                <div class="product__button__section label-large">
-                  <div class="product__button__view">Xem nhanh</div>
-                  <div class="vertical"></div>
-                  <div class="product__button__sell">
-                    <a href="/TAA_FE/src/homepage/cartPage/index.html">Mua
-                      ngay</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- item outstock -->
-              <div class="product__outstock col-4">
-                <div class="product__image">
-                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc" class="img_back" />
-                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc" class="img_font" />
-                </div>
-                <div class="product__body">
-                  <span class="material-symbols-outlined icon_heart error-text icon--filled">
-                    favorite
-                  </span>
-                  <h3 class="product__name body-large">Kẹp tóc</h3>
-                  <div class="product__price label-large">
-                    <p class="product__price__current">35,000 đ</p>
-                    <p class="product__price__discount outline-variant-text">
-                      70,000 đ
-                    </p>
-                  </div>
-                  <p class="product__discount title-medium error-text">
-                    Giảm 50%
-                  </p>
-                  <p class="product__stock headline-small error-text">
-                    Hết hàng
-                  </p>
-                </div>
-              </div>
+            
+            <div class="favor-product__wrapper row visible mt-12">
+              <% if (data.favorProducts?.length > 0) { %>
+              <% data.favorProducts?.forEach(product => { %>
+                <%- include('../../components/product__item', {
+                  data: {...product, is_favor: true}
+                }) %>
+              <% }) %>
+              <% } %>
             </div>
           </section>
         </main>
@@ -405,35 +396,15 @@
     <%- include('./infoModals/modal--change-pass') %>
     <%- include('./ordersModals/modal--success-popup') %>
     <%- include('./ordersModals/modal--review-popup') %>
+    <%- include('../../partials/modal--noti-add-cart-success')%>
     <%- include('../../partials/on-top-btn') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
-  <script src="/scripts/pages/account/main.js"></script>
+  <script src="/scripts/pages/account/index.js"></script>
+  <script src="/scripts/partials/product__item.js"></script>
   <script src="/scripts/pages/account/change-password.js"></script>
   <script src="/scripts/pages/account/review-popup.js"></script>
-  <script>
-    let navItems = document.querySelectorAll(".nav-tab__item")
-
-    const flag = '<%= flags %>';
-    switch (flag) {
-      case '0':
-        showSection('section1');
-        addActiveClass(navItems[0], 'active')
-        break;
-      case '1':
-        showSection('section2');
-        addActiveClass(navItems[1], 'active')
-        break;
-      case '2':
-        showSection('section3');
-        addActiveClass(navItems[2], 'active')
-        break;
-
-      default:
-        break;
-    }
-  </script>
 </body>
 
 </html>

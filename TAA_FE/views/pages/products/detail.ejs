@@ -174,7 +174,7 @@
                   classList: 'button__cart',
                   iconData: 'add_shopping_cart',
                   label: 'Thêm vào giỏ hàng',
-                  onclick: '',
+                  onclick: 'cartCtl.addToCart()',
                 }) %>
                 <!-- <button class="button__cart">
                   <span class="material-symbols-outlined">
@@ -403,25 +403,16 @@
                       <span class="post__rating-count body-medium">0</span>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-
       </section>
-
     </main>
-
-    <!-- <footer></footer> -->
-    <div id="footer"></div>
-
     <!-- Modal -->
 
-    <div class="modal-noti">
+    <!-- <div class="modal-noti">
       <div class="modal-container--noti on-primary-text">
         <div class="noti__icon-check">
           <span class="material-symbols-outlined icon--filled">
@@ -436,8 +427,9 @@
         </div>
       </div>
 
-    </div>
+    </div> -->
     <%- include('../../partials/footer') %>
+    <%- include('../../partials/modal--noti-add-cart-success') %>
   </div>
 
 

@@ -435,7 +435,8 @@ label {
       grid-column: span 12;
     }
 
-    & input {
+    & input,
+    & .input__wrapper {
       grid-column: span 12;
     }
   }

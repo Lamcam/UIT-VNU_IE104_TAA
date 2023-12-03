@@ -93,6 +93,7 @@ const orderSubmit = () => {
 
       if (data.statusCode == 200) {
         alert("Đặt hàng thành công");
+        window.location.href = '/';
         return;
       }
 

@@ -107,7 +107,7 @@ const createProductItem = (data) => {
 
   frontImage.loading = "lazy";
   frontImage.alt = "Image of Products";
-  frontImage.classList.add("img_font");
+  frontImage.classList.add("img_front");
   productImage.appendChild(frontImage);
 
   // Create the product body div

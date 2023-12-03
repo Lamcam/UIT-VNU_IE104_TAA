@@ -5,8 +5,8 @@
     <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_front">
   </div>
   <div class="product__body">
-    <span class="material-symbols-outlined icon_heart error-text">
-      heart_plus
+    <span class="material-symbols-outlined <%= data.is_favor ? 'icon--filled' : '' %> icon_heart error-text">
+      <%- data.is_favor ? "favorite" : "heart_plus" %>
     </span>
     <h3 class="product__name body-large"><%- data.prod_name %></h3>
     <div class="product__price label-large">

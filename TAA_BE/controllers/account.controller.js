@@ -77,6 +77,8 @@ const getInformation = (flags, req, res) => {
 
             data.favorProducts = index.groupProducts(result);
 
+            // console.log(data.favorProducts)
+
             res.status(200).render('pages/account/index', {
               // res.status(200).json({
               flags, data
@@ -98,6 +100,50 @@ account.orders = (req, res) => {
 
 account.favorProducts = (req, res) => {
   getInformation(2, req, res);
+}
+
+account.addFavorProducts = (req, res) => {
+  const { id } = req.cookies;
+  const { prod_id } = req.body;
+
+  models.account.addFavorProducts({ id, prod_id }, (err, result) => {
+    if (err) {
+      if (err.code === 'ER_DUP_ENTRY') {
+        // Handle duplicate entry error
+        res.json({
+          statusCode: 409,
+          error: 'Conflict',
+          msg: 'The product is already in the favorites.'
+        });
+      } else {
+        // Handle other errors
+        res.json({
+          statusCode: 500,
+          error: 'Internal Server Error',
+          msg: 'An error occurred while adding the product to the favorites.'
+        });
+      }
+    } else {
+      res.json({
+        statusCode: 200,
+        msg: 'Add success'
+      });
+    }
+  })
+}
+
+account.delFavorProducts = (req, res) => {
+  const { id } = req.cookies;
+  const { prod_id } = req.body;
+
+  models.account.delFavorProducts({ id, prod_id }, (err, result) => {
+    if (err) throw err;
+
+    res.status(200).json({
+      statusCode: 200,
+      msg: 'Delete success'
+    })
+  })
 }
 
 account.cart = (req, res) => {

@@ -62,7 +62,7 @@ VALUES
 
 INSERT INTO `products` (`prod_id`, `prod_name`, `prod_cost`, `prod_discount`, `prod_end_date_discount`, `prod_num_sold`, `prod_num_avai`, `prod_num_rating`, `prod_star_rating`, `prod_description`, `cate_id`) VALUES
 ('prod0001', 'Vòng cổ choker đính ngọc trai sành điệu', 100000.00, 0.25, '2023-11-01', 6, 10, 2, 0, '', 'cate0011'),
-('prod0002', 'Vòng cổ mặt cười nhiều màu dễ thương', 200000.00, 0.20, '2023-11-01', 6, 20, 2, 5, '', 'cate0011'),
+('prod0002', 'Vòng cổ mặt cười nhiều màu dễ thương nhiều màu dễ thương', 200000.00, 0.20, '2023-11-01', 6, 20, 2, 5, '', 'cate0011'),
 ('prod0003', 'Vòng tay thời tiết - mây và cầu vồng', 200000.00, 0.25, '2023-11-10', 30, 30, 0, 5, '', 'cate0012'),
 ('prod0004', 'Vòng tay ngôi sao may mắn', 200000.00, 0.25, '2023-11-10', 33, 20, 0, 5, '', 'cate0012'),
 ('prod0005', 'Bông tai mèo và cá đáng yêu', 200000.00, 0.25, '2023-11-10', 10, 40, 0, 5, '', 'cate0013'),
