@@ -150,7 +150,8 @@
                 </div>
                 <% }) %>
                 <% } else { %>
-                <p class="body-medium mt-12">Bạn chưa có tài khoản ngân hàng nào.</p>
+                <p class="body-medium mt-12 noti-bank">Bạn chưa có tài khoản ngân hàng nào.</p>
+                
                 <% } %>
               </div>
             </article>
@@ -162,7 +163,7 @@
               </button>
               <h2 class="headline-medium">Địa chỉ nhận hàng</h2>
               <div class="location-list">
-                <% if (data.banks.length > 0) { %>
+                <% if (data.locas.length > 0) { %>
                 <% data.locas?.forEach(loca => { %>
                 <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
@@ -181,8 +182,8 @@
                           delete</span>
                       </button>
                       <button class="location-item__btn--default btn--outlined" onclick="">
-                        <span class="status-layer <%= (data.info.loca_default_id != loca.loca_id) ? 'un' : '' %>filled-default location-btn">
-                          <%- (data.info.loca_default_id != loca.loca_id) ? "Thiết lập mặc định" : "Mặc định" %></span>
+                        <span class="status-layer <%= (data.info.loca_default_id != loca.loca_id) ? '' : 'un' %>filled-default location-btn">
+                          <%- (data.info.loca_default_id != loca.loca_id) ? "Mặc định" : "Thiết lập mặc định" %></span>
                       </button>
                       <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
                         <span class="status-layer full-edit icon material-symbols-outlined">
@@ -194,19 +195,19 @@
                 </div>
                 <% }) %>
                 <% } else { %>
-                <p class="body-medium mt-12">Bạn chưa nhập địa chỉ nhận hàng nào.</p>
+                <p class="body-medium mt-12 info-loca">Bạn chưa nhập địa chỉ nhận hàng nào.</p>
                 <% } %>
                 <!-- Địa chỉ nhận hàng thứ nhất -->
                 <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
-                      <span>Người đẹp bị câm</span>
+                      <span>Le Trung Hieu</span>
                     </div>
                     <div class="row mt-16">
                       <span>SDT: </span><span>*******629</span>
                     </div>
                     <div class="row mt-16">
-                      <span>Xã A, huyện B, tỉnh C</span>
+                      <span>Đối diện quán lẩu thái, Nhơn Trạch Đồng Nai</span>
                     </div>
                     <div class="location-btns__wrapper">
                       <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
@@ -224,7 +225,7 @@
                       </button>
                     </div>
                   </div>
-                </div> -->
+                </div>  -->
                 <!-- Địa chỉ nhận hàng thứ hai -->
                 <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
@@ -257,13 +258,13 @@
                 <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
-                      <span>Người đẹp bị câm</span>
+                      <span>Le Trung Hieu</span>
                     </div>
                     <div class="row mt-16">
                       <span>SDT: </span><span>*******629</span>
                     </div>
                     <div class="row mt-16">
-                      <span>Xã A, huyện B, tỉnh C</span>
+                      <span>Đối diện quán lẩu thái, Nhơn Trạch Đồng Nai</span>
                     </div>
                     <div class="location-btns__wrapper">
                       <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
