@@ -14,22 +14,6 @@
 
 #main-nav__ctl {
   display: none;
-
-  &:checked~ul {
-    background-color: white;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    display: flex !important;
-    flex-direction: column;
-
-    & .main-nav__item {
-      background-color: white;
-      min-height: 100%;
-    }
-  }
 }
 
 .main-nav {
@@ -87,4 +71,36 @@
   color: inherit !important;
 
   text-decoration: none !important;
+}
+
+@media only screen and (max-width: 64rem) {
+  .main-nav__dropdown {
+    width: 100%;
+
+    & .main-nav__item {
+      width: 100%;
+      display: flex;
+      min-height: 4rem !important;
+    }
+  }
+}
+
+@media only screen and (max-width: 64rem) {
+  #main-nav__ctl {
+    &:checked~ul {
+      background-color: white;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex !important;
+      flex-direction: column;
+
+      & .main-nav__item {
+        background-color: white;
+        min-height: 100%;
+      }
+    }
+  }
 }

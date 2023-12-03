@@ -7,89 +7,74 @@
       onclick: 'modalCtl.closeModal()',
       iconData: 'close',
     }) %>
-    <!-- <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
-      <span class="status-layer icon material-symbols-outlined">close</span>
-    </button> -->
     <h1 class="modal__title headline-large">Đăng ký</h1>
-    <form action="/register" method="POST">
+    <form>
       <div class="form__row mt-24">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_name">
             Họ và tên:</label>
-          <input class="col-8" type="text" name="f_reg_name" id="f_reg_name" required>
+          <input class="col-8" type="text" name="name" id="f_reg_name" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_phone">
             Số điện thoại:</label>
-          <input class="col-8" type="text" name="f_reg_phone" id="f_reg_phone" autocomplete='username' required>
+          <input class="col-8" type="text" name="phone" id="f_reg_phone" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_email">
             Email:</label>
-          <input class="col-8" type="email" name="f_reg_email" id="f_reg_email" autocomplete='email' required>
+          <input class="col-8" type="email" name="email" id="f_reg_email" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_pass">
             Mật khẩu:</label>
-          <input class="col-8" type="password" name="f_reg_pass" id="f_reg_pass" autocomplete='new-password' required>
+          <input class="col-8" type="password" name="pass" id="f_reg_pass" required>
         </div>
       </div>
       <div class="form__row mt-12">
         <div class="row">
           <label class="col-4 label-large" for="f_reg_pass_confirm">
             Xác nhận mật khẩu:</label>
-          <input class="col-8" type="password" name="f_reg_pass_confirm" autocomplete='new-password' id="f_reg_pass_confirm" required>
+          <input class="col-8" type="password" name="passConfirm" id="f_reg_pass_confirm" required>
         </div>
       </div>
       <div class="form__row mt-12">
-        <div class="row">
-          <span class="btn-icon btn-checkbox primary-text col-1">
-            <input type="checkbox" id="f_reg_is_read" name="f_reg_is_read" required>
-            <label for="f_reg_is_read">
-              <span class="icon material-symbols-outlined">
-                check_box_outline_blank</span>
-              <span class="icon icon--filled material-symbols-outlined --checked">
-                check_box</span>
-            </label>
+        <div class="row__flex">
+          <%- include('../components/checkbox', {
+            id: 'f_reg_is_read',
+            name: 'is_read',
+            value: 'true',
+            classList: 'primary-text',
+          }) %>
           </span>
-          <span class="col-11 body-medium" style="text-align: left;">Tôi đã đọc
-            và đồng ý với Điều kiện giao dịch chung và Chính sách
-            bảo mật thông
-            tin của TAA</span>
+          <label for='f_reg_is_read' class="label term-of-use body-medium">Tôi
+            đã đọc và đồng ý với <a href="/manual/order"> Điều kiện giao dịch
+              chung</a> và <a href="/manual/policy">Chính sách bảo mật thông
+              tin</a> của TAA</label>
         </div>
       </div>
       <%- include('../components/button', {
         type: '',
-        options: 'btn--filled full-width mt-12',
-        classList: 'modal__btn--submit mt-12',
+        options: 'btn--filled',
+        classList: 'modal__btn--submit full-width mt-12',
         label: 'Đăng ký',
-        onclick: '',
+        onclick: 'authCtl.register()',
       }) %>
-      <!-- <button class="btn--filled label-large full-width mt-12" type="submit">
-        <div class="status-layer">
-          <span>Đăng ký</span>
-        </div>
-      </button> -->
     </form>
     <div class="form__row mt-12">
-      <%- include('../components/button', {
+      <%- include('../components/button', { 
         type: '',
         options: 'full-width',
         classList: 'mt-12',
         label: `Bạn có tài khoản rồi? <span class='highlight'>Đăng nhập ngay</span>`,
         onclick: 'modalCtl.nextModal(\'#modal--login\')',
       }) %>
-      <!-- <button class='btn- full-width label-large'
-        onclick='modalCtl.nextModal("#modal--login")'>
-        <span class="status-layer">Bạn có tài khoản rồi? <span
-            class='highlight'>Đăng nhập ngay</span></span>
-      </button> -->
     </div>
   </div>
 </div>

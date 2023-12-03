@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="IE104.O12_Group3">
@@ -8,10 +9,12 @@
     cấp những sản phẩm chất lượng cao và thiết kế độc đáo, TAA đã trở thành
     điểm đến lý tưởng cho những người đam mê phụ kiện và trang sức.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg">
   <link rel="stylesheet" href="/styles/pages/base.css">
   <link rel="stylesheet" href="/styles/pages/account/cart.css">
   <title>TAA - Giỏ hàng</title>
 </head>
+
 <body>
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 0 }) %>
@@ -21,70 +24,112 @@
         { label: 'Trang cá nhân', link: '#' },
         { label: 'Giỏ hàng', link: '/account/cart' }
       ]
-     }) %>
+    }) %>
 
-    <main>
-      <section class="mt-12">
-        <div class="container row">
-          <section class="col-8">
-            <table class="visible cart-list" style="overflow: hidden">
-              <thead class="primary on-primary-text"></thead>
-              <tbody>
-                <tr>
-                  <td colspan='7' class="title-large"
-                    style="padding: 24px 12px; text-align: center;">
-                    Bạn hiện tại không có sản phẩm nào trong giỏ hàng
-                  </td>
-                </tr>
-              </tbody>
-              <tfoot></tfoot>
-            </table>
+    <div class="container">
+      <div class="row mt-12">
+        <main class="table visible col-12 col-lg-8">
+          <section class="thead row primary on-primary-text">
+            <span class="col-1 col-sm-2">
+              <%- include('../../components/checkbox', {
+                id: 'cart-item-all',
+                classList: '',
+                name: '',
+                value: '',
+              }) %>
+            </span>
+            <span class="col-4 col-sm-8">Sản phẩm</span>
+            <span class="col-2 hide-sm col-sm-3">Đơn giá</span>
+            <span class="col-2 hide-sm">Số lượng</span>
+            <span class="col-2 hide-sm col-sm-3">Thành tiền</span>
+            <span class="col-1 hide-sm col-sm-2"></span>
           </section>
-          <aside class="col-4">
-            <div class="container visible body-large">
-              <div class="row">
-                <h2 class="col-12 aside__title title-large">Hóa đơn của bạn</h2>
-              </div>
-              <hr>
-              <div class="row">
-                <span class="col-6 detail__title">Tạm tính:</span>
-                <span class="col-6 detail__context"
-                  name='cost_value--final--before-discount'
-                  value='0'></span>
-              </div>
-              <div class="row">
-                <span class="col-6 detail__title">Giảm giá:</span>
-                <span class="col-6 detail__context" name='cost_value--discord'
-                  value='20000'>20000</span>
-              </div>
-              <hr>
-              <div class="row">
-                <span class="col-6 detail__title">Tổng cộng:</span>
-                <span class="col-6 detail__context"
-                  style="color: var(--md-sys-color-error); font-weight: bold;"
-                  name='cost_value--final--after-discount'></span>
-              </div>
-              <div class="row">
-                <span class="col-12 detail__context">(Đã bao gồm phí VAT)</span>
-              </div>
-              <div class="row" style="justify-content: end;">
-                <a class="btn--filled" href="/TAA_FE/src/homepage/orderPage/"
-                  style="color: var(--md-sys-color-on-primary); text-decoration: none;">
-                  <div class="status-layer">
-                    <span class="label-large">Tiến hành đặt hàng</span>
-                  </div>
-                </a>
-              </div>
+          <section class="tbody">
+            <% if (data.length == 0) { %>
+            <p class='tr table__noti headline-small'>Bạn không có bất kỳ sản phẩm nào trong giỏ hàng</p>
+            <% } else { %>
+            <% data.forEach((item, idx) => { %>
+            <div class="tr row cart__item" data-prod-id='<%= item.prod_id %>'>
+              <span class="col-1 col-sm-2 center">
+                <%- include('../../components/checkbox', {
+                  id: `${idx}`,
+                  classList: 'col-1',
+                  name: 'cart-item',
+                  value: item.prod_id,
+                }) %>
+              </span>
+              <img class="item__img col-2 col-sm-4" src="/imgs/products/<%= item.cate_name %>/<%= item.prod_img_urls[0] %>" alt="">
+              <span class="col-2 col-sm-4"><%- item.prod_name %></span>
+              <span class="hide-lg hide-md col-sm-2"></span>
+              <span class="hide-lg hide-md col-sm-2"></span>
+              <span class="item--prices col-2 col-sm-3">
+                <span class="cost_value item--price label-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
+                <% if (item.prod_discount != 0) { %>
+                <span class="cost_value item--price-before error-text"><%- item.prod_cost %></span>
+                <% } %>
+              </span>
+              <span class='col-2 item-quantity__wrapper'>
+                <span class='value--ctl decrease icon material-symbols-outlined'>remove</span>
+                <input class="item--quantity" type="number" step=1 min=1 max=5 value=1>
+                <span class='value--ctl increase icon material-symbols-outlined'>add</span>
+              </span>
+              <span class="cost_value item--total-price col-2 col-sm-3 body-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
+              <span class="col-1 col-sm-2 center">
+                <%- include('../../components/button', {
+                  type: 'btn-icon',
+                  options: '',
+                  classList: 'btn--delete col-1',
+                  iconData: 'delete',
+                  onclick: 'modalCtl.openModal(\'#modal--del-cart\')',
+                }) %>
+              </span>
             </div>
-          </aside>
-        </div>
-      </section>
-    </main>
+            <% }) %>
+            <% } %>
+          </section>
+        </main>
+        <aside class="col-12 col-lg-4">
+          <div class="visible body-large">
+            <div class="row">
+              <h2 class="col-12 aside__title title-large">Hóa đơn của bạn</h2>
+            </div>
+            <hr>
+            <div class="row">
+              <span class="col-6 detail__title">Tạm tính:</span>
+              <span class="col-6 detail__context cost_value__final--before">0</span>
+            </div>
+            <div class="row">
+              <span class="col-6 detail__title">Giảm giá:</span>
+              <span class="col-6 detail__context cost_value--discount">0</span>
+            </div>
+            <hr>
+            <div class="row">
+              <span class="col-6 detail__title">Tổng cộng:</span>
+              <span class="col-6 detail__context cost_value__final--after error-text">0</span>
+            </div>
+            <div class="row">
+              <span class="col-12 detail__context">(Đã bao gồm phí VAT)</span>
+            </div>
+            <div class="row__flex flex--end">
+              <%- include('../../components/button', {
+                type: '',
+                options: 'btn--filled',
+                classList: 'cart__btn--submit',
+                label: 'Tiến hành đặt hàng',
+                onclick: 'cartSubmit()',
+              }) %>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
 
     <%- include('../../partials/footer') %>
+    <%- include('./cartModals/modal--del-cart') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/account/cart.js"></script>
 </body>
+
 </html>

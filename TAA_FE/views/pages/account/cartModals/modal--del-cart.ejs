@@ -1,0 +1,22 @@
+<div id="modal--del-cart" class="modal">
+  <div class="modal__content have-bottom on-primary">
+    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+      <span class="status-layer icon material-symbols-outlined">close</span>
+    </button>
+    <h1 class="modal__title headline-large">Xóa sản phẩm ra khỏi giỏ</h1>
+    <h2 class="modal__subtitle title-medium mt-12">Bạn có chắc chắn sẽ xóa sản
+      phảm này ra khỏi giỏ hàng của mình không?</h2>
+    <p class="modal__context body-small mt-12">Thao tác này không thể hoàn lại
+    </p>
+    <div class="modal--bottom">
+      <div class="btn__wrapper row mt-12">
+        <button class="btn--outlined label-large col-6" type="button" onclick="modalCtl.closeModal()">
+          <span class="status-layer">Hủy bỏ</span>
+        </button>
+        <button class="btn--filled label-large col-6 bank-list__btn--del" type="button" onclick="modalCtl.closeModal(), delCartItem()">
+          <span class="status-layer">Đồng ý</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

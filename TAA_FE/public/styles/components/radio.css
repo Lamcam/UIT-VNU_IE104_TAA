@@ -1,0 +1,28 @@
+span.btn-radio {
+  display: inline-flex;
+
+  & input {
+    display: none;
+
+    &+label {
+      display: inline-flex;
+
+      & {
+        display: flex;
+      }
+
+      & .--checked {
+        display: none;
+      }
+    }
+
+    &:checked+label {
+      & span {
+        display: none;
+      }
+      & span.--checked {
+        display: flex;
+      }
+    }
+  }
+}

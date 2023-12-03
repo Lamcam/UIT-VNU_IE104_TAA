@@ -18,15 +18,16 @@ Các thành viên trong nhóm bao gồm:
 | 6   | Huỳnh An Nghiệp        | 21522377         | Thành Viên     |
 | 7   | Bùi Xuân Nhi           | 21522422         | Thành Viên     |
 
+## Công nghệ sử dụng
 
+Nhóm sử dụng NodeJS, ExpressJS, Xampp, jQuery, EJS, ...
 
 ## Cài Đặt
 
 ### Yêu Cầu Hệ Thống
 
 - Cài đặt [NodeJS](https://nodejs.org/) phiên bản 14.17.0 trở lên.
-<!-- - Sử dụng [Visual Studio Code](https://code.visualstudio.com/). -->
-<!-- - Sử dụng Extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) để chạy ứng dụng. -->
+- Cài đặt [Xampp](https://www.apachefriends.org/download.html) phiên bản 8.0.8 trở lên.
 
 ### Hướng Dẫn Cài Đặt
 
@@ -48,26 +49,42 @@ Các thành viên trong nhóm bao gồm:
     npm install
     ```
 
-4. **Bước 4:** Khởi chạy ứng dụng.
+4. **Bước 4:** Mở XAMPP và khởi chạy Apache và MySQL.
 
+5. **Bước 4.1:** (Nếu lần đầu chạy) Import file `1_table.sql+2_trigger.sql+3_insert_into.sql` trong thư mục `TAA_BE/config` vào MySQL với tên database mặc định là `database_ie104`.
+6. **Bước 4.2:** (Nếu lần đầu chạy) Sửa file `.env` tại thư mục gốc với các thông số như:
+
+    ```bash
+    DATABASE_HOST=localhost
+    DATABASE_USER=root
+    DATABASE_PASSWORD=
+    DATABASE_NAME=database_ie104
+    ```
+
+7. **Bước 5:** Khởi chạy server.
+    
     ```bash
     npm start
     ```
-
-Lưu ý: Bạn có thể thay đổi các bước cài đặt tùy thuộc vào môi trường và ngôn ngữ lập trình của dự án.
 
 ## Cấu Trúc Thư Mục
 
 ```bash
 ├───TAA_BE                             # Thư mục chứa source code backend
+│   ├───config                           # Thư mục chứa các file cấu hình (dữ liệu mẫu, cấu hình database, ...)
+│   ├───controllers                      # Thư mục chứa các file controller
+│   ├───middlewares                      # Thư mục chứa các file middleware
+│   ├───models                           # Thư mục chứa các file model
+│   ├───routers                          # Thư mục chứa các file router
+│   └───app.js                           # File chạy ứng dụng
 └───TAA_FE                             # Thư mục chứa source code frontend
-    ├───docs                           # Thư mục chứa tài liệu
-    ├───public                         # Thư mục chứa các file tĩnh
-    │   ├───imgs
-    │   ├───scripts
-    │   ├───fonts
-    │   └───styles
-    └───views                         # Thư mục chứa các file html
+    ├───public                           # Thư mục chứa các file tĩnh
+    │   ├───fonts                        # Thư mục chứa các font
+    │   ├───imgs                         # Thư mục chứa các hình ảnh
+    │   ├───logos                        # Thư mục chứa các logo
+    │   ├───scripts                      # Thư mục chứa các file js
+    │   └───styles                       # Thư mục chứa các file css
+    └───views                            # Thư mục chứa các file html/ejs
         ├───components
         ├───homepage
         └───partials

@@ -18,9 +18,23 @@ const authorize = (req, res, next) => {
     next();
   } else {
     res.redirect('/');
-    alert('You are not authorized to view this page');
+    // res.status(401).json({
+    //   statusCode: 401,
+    //   msg: 'You are not authorized to view this page',
+    // });
   }
 };
+
+// const checkOrder = (req, res, next) => {
+//   // const prod_id__orders = req.cookies;
+
+//   if (cart_length == 0) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   next();
+// };
 
 module.exports = {
   authenticate,

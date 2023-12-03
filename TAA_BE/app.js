@@ -5,7 +5,6 @@ const { json } = require("express");
 const { dirname } = require("path");
 const { fileURLToPath } = require("url");
 const bodyParser = require("body-parser");
-const DbService = require("./config/db.js"); // connect DB
 const { data } = require("jquery");
 const cors = require('cors')
 const route = require("./routers/index.js"); // import router
@@ -33,7 +32,6 @@ app.set('view engine', 'ejs');
 
 // Set up your routes
 route(app);
-
 app.listen(config.PORT, () => {
   console.log(`Listening on port ${URL_PATH}`);
 });

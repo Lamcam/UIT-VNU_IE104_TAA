@@ -1,0 +1,138 @@
+<div class="modal-product">
+  <div class="modal-container--product">
+    <div class="modal__img">
+      <div class="img-display">
+        <div class="img-showcase">
+          <img src="/imgs/products/" alt="Product img">
+          <img src="/imgs/products/" alt="Product img">
+          <img src="/imgs/products/" alt="Product img">
+          <img src="/imgs/products/" alt="Product img">
+        </div>
+      </div>
+      <div class="img-nav">
+        <button id="prevBtn">
+          <span class="material-symbols-outlined arrow-left primary-text">
+            arrow_back_ios
+          </span>
+        </button>
+        <button id="nextBtn">
+          <span class="material-symbols-outlined arrow-right primary-text">
+            arrow_forward_ios
+          </span>
+        </button>
+      </div>        
+      <div class="img-select">
+        <div class="img-item">
+          <a href="#" data-id="1">
+            <img src="/imgs/products/" alt="product image">
+          </a>
+        </div>
+        <div class="img-item">
+          <a href="#" data-id="2">
+            <img src="/imgs/products/" alt="product image">
+          </a>
+        </div>
+        <div class="img-item">
+          <a href="#" data-id="3">
+            <img src="/imgs/products/" alt="product image">
+          </a>
+        </div>
+        <div class="img-item">
+          <a href="#" data-id="4">
+            <img src="/imgs/products/" alt="product image">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="modal__body">
+      <p class="modal__product__name headline-medium"><%- data.prod_name %></p>
+      <div class="modal__info__rate">
+        <div class="rate__star title-medium">
+          4.8
+          <span class="material-symbols-outlined icon--filled">
+            star
+          </span>
+          <span class="material-symbols-outlined icon--filled">
+            star
+          </span>
+          <span class="material-symbols-outlined icon--filled">
+            star
+          </span>
+          <span class="material-symbols-outlined icon--filled">
+            star
+          </span>
+          <span class="material-symbols-outlined icon--filled">
+            star_rate_half
+          </span>
+        </div>
+        <span class="rate__number title-medium">5 đánh giá</span>
+        <span class="number__buy title-medium"><%=data.prod_num_sold%> đã bán</span>
+      </div>
+      <div class="modal__price">
+        <p class="cost body-medium"><%- data.prod_cost %> đ</p>
+        <p class="cost__discount headline-small"><%- data.prod_cost * (1 - data.prod_discount) %> đ</p>
+        <div class="percent__discount body-medium">Giảm <%- data.prod_discount * 100 %></div>
+      </div>
+      <!-- <div class="modal__color label-large">
+        <p class="color__title bold">Màu sắc:</p>
+        <div class="color__value outline-text">Xanh lá cây</div>
+      </div> -->
+      <div class="modal__size label-large">
+        <p class="size__title bold">Kích thước:</p>
+        <div class="size__value outline-text">Freestyle</div>
+      </div>
+      <div class="modal__quantity">
+        <div class="quantity__title label-large bold">Số lượng: </div>
+        <div class="quantity__product outline-text label-large">
+          <div id="decrement" class="quantity__product-decrement outline-text">-</div>
+          <input type="number" min="1" max="100" step="1" value="1" id="my-input" disabled>
+          <div id="increment" class="quantity__product-increment outline-text">+</div>
+        </div>
+        <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
+      </div>
+      <div class="modal__button">
+        <button class="button__cart">
+          <span class="material-symbols-outlined">
+            add_shopping_cart
+          </span>
+          Thêm vào giỏ hàng
+        </button>
+        <button class="button__view btn--filled">
+          <a href="/products/detail?id=<%= data.prod_id %>">Xem chi tiết</a>
+        </button>
+      </div>
+      <div class="modal__context body-large">
+        <div class="context__info mt-12">
+          <div class="context__info__title">
+            THÔNG TIN SẢN PHẨM
+          </div>
+          <ul class="context__info__body">
+            <li>Chất liệu vải: Kaki cao cấp.</li>
+            <li>Khóa chỉnh size: Được làm bằng inox.</li>
+            <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+          </ul>
+        </div>
+        <div class="context__detail mt-24">
+          <div class="context__detail__title">
+            MÔ TẢ SẢN PHẨM
+          </div>
+          <ul class="context__detail__body">
+            <li>- Form dáng chuẩn, chắc chắn, form mềm giúp định hình được khuôn mặt.</li>
+            <li>- Nón được thiết kế để bảo vệ cho vùng mắt, vùng da mặt, da đầu và tóc tránh các tia cực tím độc hại
+              từ ánh nắng mặt trời.</li>
+            <li>- Giặt bằng nước lạnh không dùng bột giặt trong lần giặt đầu tiên.</li>
+            <!-- <li>- Thiết kế may tinh tế, sắc sảo và thời trang, theo phong cách Ulzzang Hàn Quốc cá tính.</li>
+                <li>- Hạn chế gây ra mồ hôi ở đầu, không gây kích ứng da đầu.</li>
+                <li>- Phần đai nón có đệm bông tạo cảm giác thoải mái khi đội nón và không để lại vết hằn lên trán.</li>
+                <li>- Khóa chỉnh size phía sau nón được làm bằng inox không gỉ rất dễ dàng sử dụng điều chỉnh nón.</li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="button-close">
+      <span class="material-symbols-outlined">
+        close
+      </span>
+    </div>
+  </div>
+</div> 

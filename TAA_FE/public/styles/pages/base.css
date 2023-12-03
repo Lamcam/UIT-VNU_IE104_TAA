@@ -60,6 +60,29 @@ html {
   row-gap: 1rem;
 }
 
+.row__flex {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  &.flex--center {
+    justify-content: center;
+  }
+
+  &.flex--end {
+    justify-content: flex-end;
+  }
+
+  &.flex--start {
+    justify-content: flex-start;
+  }
+
+  &.flex--between {
+    justify-content: space-between;
+  }
+}
+
 .col-1 {
   grid-column: span 1;
 }
@@ -160,7 +183,7 @@ html {
 }
 
 /* Responsive layout for medium screens */
-@media (min-width: 48rem) and (max-width: 64rem) {
+@media (min-width: calc(48rem + 1px)) and (max-width: 64rem) {
   .col-md-1 {
     grid-column: span 1;
   }
@@ -211,7 +234,7 @@ html {
 }
 
 /* Responsive layout for large screens */
-@media (min-width: 64rem) {
+@media (min-width: calc(64rem + 1px)) {
   .col-lg-1 {
     grid-column: span 1;
   }
@@ -262,7 +285,7 @@ html {
 }
 
 /* general name tag */
-a:is(:link, :hover, :visited, :active) {
+a:is(:link, :visited, :active) {
   text-decoration: underline;
   color: var(--md-sys-color-primary);
 }
@@ -281,30 +304,26 @@ hr {
 
 body {
   /* min-width: 896px; */
+
+  &.modal-open {
+    overflow: hidden;
+  }
 }
 
-aside {
+/* aside {
   grid-template-areas: aside;
 }
 
 main {
   grid-template-areas: main;
-  /* min-height: 612px; */
-
-  /* &>section {
-    padding: 0 3rem;
-
-    &.full-width {
-      padding: 0;
-    }
-  } */
-}
+} */
 
 form {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin: 0 auto;
+  align-items: center;
 }
 
 input {
@@ -320,6 +339,10 @@ input {
   }
 }
 
+label {
+  cursor: pointer;
+}
+
 /* general class */
 .container {
   max-width: 85rem;
@@ -333,13 +356,13 @@ input {
   }
 }
 
-@media screen and (min-width: 48rem) and (max-width: 64rem) {
+@media screen and (min-width: calc(48rem + 1px)) and (max-width: 64rem) {
   .container {
     padding-inline: 1.5rem;
   }
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: calc(64rem + 1px)) {
   .container {
     padding-inline: 2rem;
   }
@@ -355,13 +378,13 @@ input {
   }
 }
 
-@media screen and (min-width: 48rem) and (max-width: 64rem) {
+@media screen and (min-width: calc(48rem + 1px)) and (max-width: 64rem) {
   .hide-md {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 64rem) {
+@media screen and (min-width: calc(64rem + 1px)) {
   .hide-lg {
     display: none !important;
   }
@@ -373,6 +396,15 @@ input {
 
   &.un-radius {
     border-radius: 0px;
+  }
+}
+
+[class*="cost_value"] {
+  text-align: right;
+
+  &::after {
+    content: "đ";
+    padding-left: 4px;
   }
 }
 
@@ -403,7 +435,8 @@ input {
       grid-column: span 12;
     }
 
-    & input {
+    & input,
+    & .input__wrapper {
       grid-column: span 12;
     }
   }

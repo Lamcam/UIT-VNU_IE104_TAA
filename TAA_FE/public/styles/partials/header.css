@@ -1,31 +1,47 @@
 @import url(../components/search-bar.css);
 @import url(../components/main-nav.css);
 
+#searching-products {
+  align-items: center;
+}
+
 header {
+  position: sticky;
+  top: 0;
+  z-index: 3;
   display: flex;
   gap: 2rem;
   flex-direction: column;
 
+  border-bottom: 1px solid var(--md-sys-color-outline);
+
   & .header__top {
     padding-top: 1.25rem;
 
-    &>* {
+    display: grid;
+
+    & .container {
       display: flex;
       position: relative;
 
       max-height: 4rem;
+      gap: 1rem;
       justify-content: space-between;
     }
   }
 
-  & .header__logo {
-    height: 100%;
-    aspect-ratio: 2/1;
+  & .header__link {
+    display: block;
+    min-width: 8rem;
+
+    & .header__logo {
+      height: 100%;
+      aspect-ratio: 2/1;
+    }
   }
 
   & .header__search {
-    max-width: 40rem;
-    width: 100%;
+    width: clamp(30rem, 100%, 40rem);
     margin: 0 1.25rem;
   }
 
@@ -33,6 +49,28 @@ header {
     display: flex;
     justify-content: end;
     gap: .75rem;
+
+    & .header__cart {
+      position: relative;
+
+      &.header__cart--empty::after {
+        display: none;
+      }
+
+      &::after {
+        content: attr(data-after);
+        border-radius: .5rem;
+        position: absolute;
+        color: white;
+        font-weight: bold;
+        font-size: .75rem;
+        background-color: var(--md-sys-color-error);
+        top: 0;
+        right: -.5rem;
+        transform: translateY(-10%);
+        padding: 2px 6px;
+      }
+    }
 
     & .header__avatar {
       width: 4rem;
@@ -42,10 +80,14 @@ header {
     }
   }
 
+  & .header__name {
+    text-wrap: nowrap;
+  }
+
   & .header__user--controller__label {
     display: inline-flex;
     gap: 8px;
-  
+
     &>* {
       margin: auto;
     }
@@ -111,6 +153,8 @@ header {
 
 @media (max-width: 64rem) {
   header {
+    gap: 1rem;
+
     & .header__top {
       gap: 1rem;
     }
@@ -121,7 +165,8 @@ header {
 
     & .header__search {
       max-width: none;
-      width: auto;
+      min-width: none;
+      width: 100%;
     }
   }
 }
