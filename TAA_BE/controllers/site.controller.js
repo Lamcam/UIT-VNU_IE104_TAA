@@ -4,13 +4,33 @@ const index = require('./index')
 function site() { }
 
 site.index = (req, res) => {
+  const data = {}
+
   model.product.getHotProduct((err, result) => {
     if (err) throw err;
 
-    res.render('pages/site/homepage', {
-    // res.status(200).json({
-      hotProducts: index.groupProducts(result)
-    })
+    const { id } = res.cookie;
+
+    // console.log(id);
+
+    data.hotProducts = index.groupProducts(result);
+
+    if (!id) {
+      data.favorProducts = [];
+      res.render('pages/site/homepage', {
+        data,
+      })
+    } else {
+      model.account.getIdFavorProducts({ id }, (err, favorProducts) => {
+        if (err) throw err;
+
+        data.favorProducts = favorProducts.map((item) => { item.prod_id });
+        // res.render('pages/site/homepage', {
+        res.status(200).json({
+          data
+        })
+      })
+    }
   })
 }
 

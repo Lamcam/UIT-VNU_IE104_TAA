@@ -10,6 +10,8 @@ router.get('/information', account.information)
 router.get('/orders', account.orders)
 
 router.get('/favor-products', account.favorProducts)
+router.post('/favor-products/add', account.addFavorProducts)
+router.post('/favor-products/del', account.delFavorProducts)
 
 router.get('/cart', account.cart)
 router.post('/cart/add', account.addCart)

@@ -370,65 +370,15 @@
                 Trang cung cấp thông tin về sản phẩm yêu thích
               </p>
             </article>
-            <div class="section__content row mt-12">
-              <div class="product__item col-4">
-                <div class="product__image">
-                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc" class="img_back" />
-                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc" class="img_font" />
-                </div>
-                <div class="product__body">
-                  <span class="material-symbols-outlined icon_heart error-text icon--filled">
-                    favorite
-                  </span>
-                  <h3 class="product__name body-large">Kẹp tóc</h3>
-                  <div class="product__price label-large">
-                    <p class="product__price__current">35,000 đ</p>
-                    <p class="product__price__discount outline-variant-text">
-                      70,000 đ
-                    </p>
-                  </div>
-                  <p class="product__discount title-medium error-text">
-                    Giảm 50%
-                  </p>
-                  <p class="product__stock label-large primary-text">
-                    Còn hàng
-                  </p>
-                </div>
-                <div class="product__button__section label-large">
-                  <div class="product__button__view">Xem nhanh</div>
-                  <div class="vertical"></div>
-                  <div class="product__button__sell">
-                    <a href="/TAA_FE/src/homepage/cartPage/index.html">Mua
-                      ngay</a>
-                  </div>
-                </div>
-              </div>
-
-              <!-- item outstock -->
-              <div class="product__outstock col-4">
-                <div class="product__image">
-                  <img src="/TAA_FE/public/product1.jpg" alt="Kẹp tóc" class="img_back" />
-                  <img src="/TAA_FE/public/product2.jpg" alt="Kẹp tóc" class="img_font" />
-                </div>
-                <div class="product__body">
-                  <span class="material-symbols-outlined icon_heart error-text icon--filled">
-                    favorite
-                  </span>
-                  <h3 class="product__name body-large">Kẹp tóc</h3>
-                  <div class="product__price label-large">
-                    <p class="product__price__current">35,000 đ</p>
-                    <p class="product__price__discount outline-variant-text">
-                      70,000 đ
-                    </p>
-                  </div>
-                  <p class="product__discount title-medium error-text">
-                    Giảm 50%
-                  </p>
-                  <p class="product__stock headline-small error-text">
-                    Hết hàng
-                  </p>
-                </div>
-              </div>
+            
+            <div class="favor-product__wrapper row visible mt-12">
+              <% if (data.favorProducts?.length > 0) { %>
+              <% data.favorProducts?.forEach(product => { %>
+                <%- include('../../components/product__item', {
+                  data: {...product, is_favor: true}
+                }) %>
+              <% }) %>
+              <% } %>
             </div>
           </section>
         </main>
@@ -446,11 +396,13 @@
     <%- include('./infoModals/modal--change-pass') %>
     <%- include('./ordersModals/modal--success-popup') %>
     <%- include('./ordersModals/modal--review-popup') %>
+    <%- include('../../partials/modal--noti-add-cart-success')%>
     <%- include('../../partials/on-top-btn') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
   <script src="/scripts/pages/account/index.js"></script>
+  <script src="/scripts/partials/product__item.js"></script>
   <script src="/scripts/pages/account/change-password.js"></script>
   <script src="/scripts/pages/account/review-popup.js"></script>
 </body>

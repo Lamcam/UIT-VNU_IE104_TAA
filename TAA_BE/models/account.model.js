@@ -58,14 +58,10 @@ accountModel.getOrders = ({ id }, callback) => {
   })
 }
 
-accountModel.getFavorProducts = ({ id }, callback) => {
+accountModel.getIdFavorProducts = ({ id }, callback) => {
   const sql = `
-    SELECT products.*, productsimg.prod_img_url
+    SELECT prod_id
     FROM favorproducts
-    INNER JOIN products
-      on favorproducts.prod_id = products.prod_id
-    INNER JOIN productsimg
-      on products.prod_id = productsimg.prod_id
     WHERE user_id = ?;
   `;
 
@@ -74,6 +70,53 @@ accountModel.getFavorProducts = ({ id }, callback) => {
   db.query(sql, params, (err, result) => {
     callback(err, result)
   })
+}
+
+accountModel.getFavorProducts = ({ id }, callback) => {
+  const sql = `
+    SELECT products.*, categories.cate_name, productsimg.prod_img_url
+    FROM favorproducts
+    INNER JOIN products
+      ON favorproducts.prod_id = products.prod_id
+    INNER JOIN productsimg
+      ON products.prod_id = productsimg.prod_id
+    INNER JOIN categories
+      ON products.cate_id = categories.cate_id
+    WHERE user_id = ?;
+  `;
+
+  const params = [id];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+}
+
+accountModel.addFavorProducts = ({ id, prod_id }, callback) => {
+  const sql = `
+    INSERT INTO favorproducts (user_id, prod_id)
+    VALUES (?, ?);
+  `;
+
+  const params = [id, prod_id];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+}
+
+accountModel.delFavorProducts = ({ id, prod_id }, callback) => {
+  const sql = `
+    DELETE FROM favorproducts
+    WHERE user_id = ? AND prod_id = ?;
+  `;
+
+  const params = [id, prod_id];
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result)
+  })
+
 }
 
 accountModel.getCart = ({ id }, callback) => {

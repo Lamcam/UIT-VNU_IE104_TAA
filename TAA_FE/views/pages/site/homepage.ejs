@@ -37,8 +37,8 @@
           <div class="section__content mt-12">
             <div class="fade fade--left"></div>
             <div class="product__wrapper --scroll-x">
-              <% hotProducts.forEach(data => { %>
-              <%- include('../../components/product__item', { data }) %>
+              <% data.hotProducts.forEach(product => { %>
+              <%- include('../../components/product__item', { data: {...product, is_favor: data.favorProducts.includes(product.prod_id)}}) %>
               <% }) %>
             </div>
             <div class="fade fade--right"></div>
