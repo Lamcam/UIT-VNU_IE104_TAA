@@ -3,6 +3,10 @@
 @import url(/styles/partials/index.css);
 
 /* general css */
+:root {
+  font-size: 12px;
+}
+
 html {
   font-size: 12px;
   font-family: 'Roboto', sans-serif;
