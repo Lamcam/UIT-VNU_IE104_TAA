@@ -19,12 +19,54 @@ const productItemInteract = () => {
 }
 
 const productItemHeartInteract = (event) => {
-  if (event?.target.classList.contains("icon--filled")) {
-    event.target.classList.remove("icon--filled")
-    event.target.innerText = "heart_plus"
-  } else {
-    event.target.innerText = "favorite"
-    event.target.classList.add("icon--filled")
+  const checkAuthenticated = authCtl.checkAuthenticated();
+  // console.log(checkAuthenticated)
+  if (checkAuthenticated) {
+    const id = cookieHder.readCookie('id');
+    const target = event.target.closest('.product__item');
+    const prod_id = target.querySelector('[data-prod-id]').dataset.prodId;
+
+    const data = { id, prod_id }
+
+    if (event?.target.classList.contains("icon--filled")) {
+      fetch('/account/favor-products/del', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      }).then(response => response.json())
+        .then(data => {
+          if (data.statusCode == 200) {
+            event.target.innerText = "heart_plus"
+            event.target.classList.remove("icon--filled")
+          }
+        })
+        .catch(error => {
+          console.log('Lỗi:', error);
+        });
+      // event.target.classList.remove("icon--filled")
+      // event.target.innerText = "heart_plus"
+    } else {
+      fetch('/account/favor-products/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+      }).then(response => response.json())
+        .then(data => {
+          if (data.statusCode == 200) {
+            event.target.innerText = "favorite"
+            event.target.classList.add("icon--filled")
+          }
+        })
+        .catch(error => {
+          console.error('Lỗi:', error);
+        });
+      // event.target.innerText = "favorite"
+      // event.target.classList.add("icon--filled")
+    }
   }
 }
 

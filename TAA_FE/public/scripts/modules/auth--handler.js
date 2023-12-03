@@ -166,7 +166,7 @@ const login = () => {
 const checkAuthenticated = () => {
   if (cookieHder.readCookie('authenticated') !== 'true') {
     alert('Vui lòng đăng nhập để thực hiện chức năng này');
-    modalCtl.openModal('#modal--login');
+    modalCtl.nextModal('#modal--login');
     return false;
   } else {
     return true;

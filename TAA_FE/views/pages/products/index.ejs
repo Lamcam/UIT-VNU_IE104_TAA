@@ -126,17 +126,14 @@
 
         <main class="visible row col-12 col-lg-9">
           <div class="row col-12 product__wrapper">
-            <%  const length = (result.length > 9) ? 9 : result.length;
+            <%  const length = (data.products.length > 9) ? 9 : data.products.length;
             for (let idx = 0; idx < length; ++idx) { %>
             <%- include('../../components/product__item', {
-                data: result[idx],
-              }) %>
-            <%# include('../../components/popup__product', {
-                data: result[idx],
-              })%>
+              data: { ...data.products[idx], is_favor: data.favorProducts.includes(data.products[idx].prod_id)}
+            }) %>
             <% } %>
           </div>
-          <% if(result.length == 0) { %>
+          <% if (data.products.length == 0) { %>
           <div class="not-found-search">
             <h3 class="headline-small">Không tìm thấy sản phẩm!</h3>
           </div>
