@@ -18,6 +18,7 @@
 <body>
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 3 }) %>
+    <%- include('../../partials/on-top-btn') %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
@@ -98,7 +99,6 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/products/index.js"></script>
-  <script src="/scripts/partials/modal__product-details--controller.js"></script>
 </body>
 
 </html>

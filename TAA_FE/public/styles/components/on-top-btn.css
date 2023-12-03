@@ -1,26 +1,10 @@
 #on-top-btn {
   position: fixed;
-  right: 10vw;
+  right: clamp(2rem, 2vw, 3rem);
   bottom: 10vh;
-  z-index: 999;
-  border-radius: 4px;
-  height: 40px;
-  aspect-ratio: 1/1;
-  background-color: var(--md-sys-color-primary);
-  color: white;
+  z-index: 3;
+  opacity: 0;
+  border-radius: .75rem;
+  height: 4rem;
   cursor: pointer;
-  outline: none;
-  border: none;
-
-  & .status-layer {
-    margin: 0px;
-    padding: 0px;
-  }
-
-  &:hover {
-    box-shadow:
-      0px 1px 2px 0px rgba(0, 0, 0, 0.2),
-      0px 1px 3px 1px rgba(0, 0, 0, 0.2);
-    color: black;
-  }
 }
