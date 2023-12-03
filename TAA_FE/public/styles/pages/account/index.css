@@ -1431,9 +1431,9 @@ span.status-layer {
     width: 70px;
   }
 
-  button.btn-icon {
+  /* button.btn-icon {
     width: 40px;
-  }
+  } */
 
   span.status-layer.full-edit.label {
     display: none;
