@@ -67,7 +67,9 @@ const inputArr = ["name", "phone", "email"];
 
 function setInputReadOnly() {
   inputArr.forEach((item) => {
-    document.getElementById(item).readOnly = true;
+    target = document.querySelector(`#user_${item}`)
+    console.log(target);
+    target.readOnly = true;
   });
 }
 
@@ -77,7 +79,8 @@ function activeInput() {
   const targetIndex = Array.from(
     document.querySelectorAll(".input__wrapper .icon")
   ).indexOf(this);
-  document.getElementById(inputArr[targetIndex]).readOnly = false;
+  target = document.querySelectorAll('input[id^="user_"]')[targetIndex]
+  target.readOnly = false;
 }
 
 document.querySelectorAll(".input__wrapper .icon").forEach((icon) => {

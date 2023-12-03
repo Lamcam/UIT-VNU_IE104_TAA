@@ -110,17 +110,24 @@
     max-height: 35rem;
     object-fit: cover;
   }
+
+  & .article__context {
+    display: flex;
+    padding: 1rem 0;
+    flex-direction: column;
+    gap: .5rem;
+  }
 }
 
 #reason {
   & article {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: .75rem;
 
     justify-content: center;
 
-    min-height: 96px;
+    min-height: 8rem;
 
     &>* {
       text-align: center;

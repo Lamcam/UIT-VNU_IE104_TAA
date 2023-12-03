@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 
 <head>
   <meta charset="UTF-8" />
@@ -65,9 +65,9 @@
               <form action="/" method="POST">
                 <div class="form__row mt-12">
                   <div class="row">
-                    <label class="col-4 label-large" for="user_phone">Tên người dùng:</label>
+                    <label class="col-4 label-large" for="user_name">Tên người dùng:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="text" id="user_phone" name="phone" value='<%= data?.info?.user_name %>' oninput="enableSaveButton()" />
+                      <input class="input__wrapper-child" type="text" id="user_name" name="name" value='<%= data?.info?.user_name %>' oninput="enableSaveButton()" />
                       <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
@@ -87,9 +87,9 @@
 
                 <div class="form__row mt-12">
                   <div class="row">
-                    <label class="col-4 label-large" for="email">Email:</label>
+                    <label class="col-4 label-large" for="user_email">Email:</label>
                     <div class="col-8 input__wrapper">
-                      <input class="input__wrapper-child" type="email" name="email" id="email" value='<%= data?.info?.user_email %>' oninput="enableSaveButton()" />
+                      <input class="input__wrapper-child" type="email" name="email" id="user_email" value='<%= data?.info?.user_email %>' oninput="enableSaveButton()" />
                       <span class="icon icon--filled material-symbols-outlined editIcon">
                         edit</span>
                     </div>
@@ -116,29 +116,15 @@
               </button>
               <h2 class="headline-medium">Tài khoản ngân hàng</h2>
               <div class="bank-list">
-                <!-- Tài khoản ngân hàng thứ nhất -->
+                <% if (data.banks.length > 0) { %>
+                <% data.banks?.forEach(bank => { %>
                 <div class="bank-item mt-12">
-                  <div class="bank-item__wrapper body-medium">
+                  <div class="bank-item__wrapper body-medium" data-bank-id=<%= bank.bank_id %>>
                     <div class="row">
-                      <span>STK: </span><span>*********1230</span>
+                      <span>STK: </span><span>******<%- bank.bank_number.slice(bank.bank_number.length - 4, bank.bank_number.length) %></span>
                     </div>
                     <div class="row">
-                      <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
-                    </div>
-                    <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
-                      <span class=" status-layer icon material-symbols-outlined">
-                        delete</span>
-                    </button>
-                  </div>
-                </div>
-                <!-- Tài khoản ngân hàng thứ hai -->
-                <div class="bank-item mt-12">
-                  <div class="bank-item__wrapper body-medium">
-                    <div class="row">
-                      <span>STK: </span><span>*********1230</span>
-                    </div>
-                    <div class="row">
-                      <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
+                      <span class="mt-12 row__name-bank">Ngân hàng <%- bank.bank_name %></span>
                     </div>
                     <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
                       <span class="status-layer icon material-symbols-outlined">
@@ -146,6 +132,10 @@
                     </button>
                   </div>
                 </div>
+                <% }) %>
+                <% } else { %>
+                <p class="body-medium mt-12">Bạn chưa có tài khoản ngân hàng nào.</p>
+                <% } %>
               </div>
             </article>
 
@@ -156,8 +146,42 @@
               </button>
               <h2 class="headline-medium">Địa chỉ nhận hàng</h2>
               <div class="location-list">
+                <% if (data.banks.length > 0) { %>
+                  <% data.locas?.forEach(loca => { %>
+                <div class="location-item mt-12">
+                  <div class="location-item__wrapper body-medium">
+                    <div class="row">
+                      <span><%- loca.loca_pers_name %></span>
+                    </div>
+                    <div class="row mt-16">
+                      <span>SDT: </span><span>*******<%- loca.loca_pers_phone.slice(loca.loca_pers_phone.length - 3, loca.loca_pers_phone.length) %></span>
+                    </div>
+                    <div class="row mt-16">
+                      <span><%- loca.loca_detail + "," + loca.loca_address %></span>
+                    </div>
+                    <div class="location-btns__wrapper">
+                      <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
+                        <span class="status-layer icon material-symbols-outlined">
+                          delete</span>
+                      </button>
+                      <button class="location-item__btn--default btn--outlined" onclick="">
+                        <span class="status-layer <%= (data.info.loca_default_id != loca.loca_id) ? 'un' : '' %>filled-default location-btn">
+                          <%- (data.info.loca_default_id != loca.loca_id) ? "Thiết lập mặc định" : "Mặc định" %></span>
+                      </button>
+                      <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+                        <span class="status-layer full-edit icon material-symbols-outlined">
+                          edit</span>
+                        <span class="status-layer full-edit label">Sửa</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+                <% } else { %>
+                <p class="body-medium mt-12">Bạn chưa nhập địa chỉ nhận hàng nào.</p>
+                <% } %>
                 <!-- Địa chỉ nhận hàng thứ nhất -->
-                <div class="location-item mt-12">
+                <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
                       <span>Người đẹp bị câm</span>
@@ -184,9 +208,9 @@
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!-- Địa chỉ nhận hàng thứ hai -->
-                <div class="location-item mt-12">
+                <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
                       <span>Người đẹp bị câm</span>
@@ -213,8 +237,8 @@
                       </button>
                     </div>
                   </div>
-                </div>
-                <div class="location-item mt-12">
+                </div> -->
+                <!-- <div class="location-item mt-12">
                   <div class="location-item__wrapper body-medium">
                     <div class="row">
                       <span>Người đẹp bị câm</span>
@@ -241,7 +265,7 @@
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </article>
           </section>
