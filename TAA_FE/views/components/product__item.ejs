@@ -92,9 +92,9 @@
         <div class="modal__quantity">
           <div class="quantity__title label-large bold">Số lượng: </div>
           <div class="quantity__product outline-text label-large">
-            <div id="decrement" class="quantity__product-decrement outline-text">-</div>
-            <input type="number" min="1" max="<%- data.prod_num_avai %>" step="1" value="1" id="my-input" disabled>
-            <div id="increment" class="quantity__product-increment outline-text">+</div>
+            <div class="quantity__product-decrement outline-text">-</div>
+            <input type="number" min="1" max="<%- data.prod_num_avai %>" step="1" value="1" class="my-input" disabled>
+            <div class="quantity__product-increment outline-text">+</div>
           </div>
           <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
         </div>

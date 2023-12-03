@@ -227,9 +227,25 @@ const createProductItem = (data) => {
     divRateStar.classList.add("rate__star", "title-medium");
     divRateStar.textContent = "4.8";
 
-    const spanStarFilled = document.createElement("span");
-    spanStarFilled.classList.add("material-symbols-outlined", "icon--filled");
-    spanStarFilled.textContent = "star";
+    const spanStarFilled1 = document.createElement("span");
+    spanStarFilled1.classList.add("material-symbols-outlined", "icon--filled");
+    spanStarFilled1.textContent = "star";
+
+    const spanStarFilled2 = document.createElement("span");
+    spanStarFilled2.classList.add("material-symbols-outlined", "icon--filled");
+    spanStarFilled2.textContent = "star";
+
+    const spanStarFilled3 = document.createElement("span");
+    spanStarFilled3.classList.add("material-symbols-outlined", "icon--filled");
+    spanStarFilled3.textContent = "star";
+
+    const spanStarFilled4 = document.createElement("span");
+    spanStarFilled4.classList.add("material-symbols-outlined", "icon--filled");
+    spanStarFilled4.textContent = "star";
+
+    const spanStarFilled5 = document.createElement("span");
+    spanStarFilled5.classList.add("material-symbols-outlined", "icon--filled");
+    spanStarFilled5.textContent = "star_rate_half";
 
     const spanRateNumber = document.createElement("span");
     spanRateNumber.classList.add("rate__number", "title-medium");
@@ -276,7 +292,7 @@ const createProductItem = (data) => {
     divQuantityProduct.classList.add("quantity__product", "outline-text", "label-large");
 
     const divDecrement = document.createElement("div");
-    divDecrement.id = "decrement";
+    // divDecrement.id = "decrement";
     divDecrement.classList.add("quantity__product-decrement", "outline-text");
     divDecrement.textContent = "-";
 
@@ -286,11 +302,12 @@ const createProductItem = (data) => {
     inputQuantity.max = data.prod_num_avai;
     inputQuantity.step = "1";
     inputQuantity.value = "1";
-    inputQuantity.id = "my-input";
+    // inputQuantity.id = "my-input";
+    inputQuantity.classList.add("my-input");
     inputQuantity.disabled = true;
 
     const divIncrement = document.createElement("div");
-    divIncrement.id = "increment";
+    // divIncrement.id = "increment";
     divIncrement.classList.add("quantity__product-increment", "outline-text");
     divIncrement.textContent = "+";
 
@@ -372,7 +389,11 @@ const createProductItem = (data) => {
     ulContextDetailBody.appendChild(liDetail3);
 
     // Append the elements to the appropriate parents
-    divRateStar.appendChild(spanStarFilled);
+    divRateStar.appendChild(spanStarFilled1);
+    divRateStar.appendChild(spanStarFilled2);
+    divRateStar.appendChild(spanStarFilled3);
+    divRateStar.appendChild(spanStarFilled4);
+    divRateStar.appendChild(spanStarFilled5);
     divModalInfoRate.appendChild(divRateStar);
     divModalInfoRate.appendChild(spanRateNumber);
     divModalInfoRate.appendChild(spanNumberBuy);
@@ -532,7 +553,6 @@ const createProductItem = (data) => {
 category.forEach((item) => {
   item.addEventListener("click", () => {
     const selectedCategory = item.dataset.category;
-
     fetch("/products/category", {
       method: "POST",
       headers: {
@@ -550,6 +570,7 @@ category.forEach((item) => {
         });
         document.dispatchEvent(new Event("ReloadProducts"));
       })
+
   });
 });
 
