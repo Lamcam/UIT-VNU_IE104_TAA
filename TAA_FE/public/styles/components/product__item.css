@@ -260,7 +260,7 @@
   background-color: var(--md-sys-color-surface);
 
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
 }
 

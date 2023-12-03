@@ -27,6 +27,7 @@ Nhóm sử dụng NodeJS, ExpressJS, Xampp, jQuery, EJS, ...
 ### Yêu Cầu Hệ Thống
 
 - Cài đặt [NodeJS](https://nodejs.org/) phiên bản 14.17.0 trở lên.
+- Cài đặt [Xampp](https://www.apachefriends.org/download.html) phiên bản 8.0.8 trở lên.
 
 ### Hướng Dẫn Cài Đặt
 
@@ -48,13 +49,23 @@ Nhóm sử dụng NodeJS, ExpressJS, Xampp, jQuery, EJS, ...
     npm install
     ```
 
-4. **Bước 4:** Khởi chạy ứng dụng.
+4. **Bước 4:** Mở XAMPP và khởi chạy Apache và MySQL.
 
+5. **Bước 4.1:** (Nếu lần đầu chạy) Import file `1_table.sql+2_trigger.sql+3_insert_into.sql` trong thư mục `TAA_BE/config` vào MySQL với tên database mặc định là `database_ie104`.
+6. **Bước 4.2:** (Nếu lần đầu chạy) Sửa file `.env` tại thư mục gốc với các thông số như:
+
+    ```bash
+    DATABASE_HOST=localhost
+    DATABASE_USER=root
+    DATABASE_PASSWORD=
+    DATABASE_NAME=database_ie104
+    ```
+
+7. **Bước 5:** Khởi chạy server.
+    
     ```bash
     npm start
     ```
-
-Lưu ý: Bạn có thể thay đổi các bước cài đặt tùy thuộc vào môi trường và ngôn ngữ lập trình của dự án.
 
 ## Cấu Trúc Thư Mục
 

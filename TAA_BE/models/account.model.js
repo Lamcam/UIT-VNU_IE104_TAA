@@ -103,13 +103,13 @@ accountModel.addCart = ({ id, prodId }, callback) => {
   })
 }
 
-accountModel.deleteCart = ({ id, prodId }, callback) => {
+accountModel.delCart = ({ id, prod_id }, callback) => {
   const sql = `
     DELETE FROM CART
     WHERE user_id = ? AND prod_id = ?;
   `;
 
-  const params = [id, prodId];
+  const params = [id, prod_id];
 
   db.query(sql, params, (err, result) => {
     callback(err, result)
@@ -119,19 +119,18 @@ accountModel.deleteCart = ({ id, prodId }, callback) => {
 accountModel.addOrder = ({
   order_datetime, id,
   pay_id, bank_id,
-  trans_id, loca_id
+  tran_id, loca_id
 }, callback) => {
   const sql = `
     INSERT INTO orders
-      (order_datetime, user_id, pay_id, bank_id, trans_id, loca_id, order_status, order_is_paying)
+      (order_datetime, user_id, pay_id, bank_id, tran_id, loca_id, order_status, order_is_paying)
     VALUES
-      (?, ${id}, 'pay0${pay_id}', ?, 'tran000${trans_id}', ?, ?, ?);
+      (?, ${id}, '${pay_id}', ?, '${tran_id}', ?, ?, ?);
   `;
 
   const params = [
-    order_datetime, pay_id,
-    bank_id, trans_id,
-    loca_id, 0, pay_id,
+    order_datetime, bank_id, 
+    loca_id, 0, pay_id[pay_id.length - 1],
   ];
 
   db.query(sql, params, (err, result) => {
@@ -148,7 +147,7 @@ accountModel.addOrderDetail = ({ order_id, prod_id, prod_quantity, price }, call
   `;
 
   const params = [
-    order_id, prod_id, prod_quantity, price
+    order_id, prod_id, prod_quantity, price, prod_id,
   ];
 
   // console.log(params);

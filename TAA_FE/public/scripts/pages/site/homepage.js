@@ -15,7 +15,7 @@ const moveToProducts = (type) => {
   }
 
   if (type === "freeship") {
-    window.location.href = "/services/detail?id=prod0002";
+    window.location.href = "/products/detail?id=prod0002";
     return;
   }
 }

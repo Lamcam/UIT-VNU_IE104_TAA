@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Update event document when changed
 document.addEventListener('change', (event) => {
+  // console.log('change event called by target: ', event.target);
+
   updateCheckbox(event.target);
   updatePriceItem();
 
@@ -75,25 +77,25 @@ cartItems.each((index, item) => {
   const delBtn = $(item).find('.btn--delete');
 
   delBtn.on('click', () => {
-    const prodId = $(item).attr('data-prod-id');
+    const prod_id = $(item).attr('data-prod-id');
 
-    cookieHder.createCookie('prodId--delete', prodId, 1);  // a day
+    cookieHder.createCookie('prod_id--delete', prod_id, 1);  // a day
   });
 })
 
 // Delete cart item
 const delCartItem = () => {
-  prodId = cookieHder.readCookie('prodId--delete');
+  prod_id = cookieHder.readCookie('prod_id--delete');
 
-  if (!prodId) {
+  if (!prod_id) {
     console.log('prodId not found in cookie');
     return;
   }
 
-  cookieHder.deleteCookie('prodId--delete');
+  cookieHder.deleteCookie('prod_id--delete');
 
   const data = {
-    prodId
+    prod_id
   };
 
   fetch('/account/cart/delete', {
@@ -107,7 +109,6 @@ const delCartItem = () => {
     .then(res => {
       if (res.statusCode == 200) {
         alert('Delete success');
-        // window.location.reload();
       } else {
         alert('Delete fail');
       }
@@ -174,7 +175,7 @@ const updateCheckbox = (target) => {
 
   if (target === allProdCheckbox) {
     updateOneToAll();
-  // } else if (Array.from(prodCheckboxes).includes(target)) {
+    // } else if (Array.from(prodCheckboxes).includes(target)) {
   } else {
     updateAllToOne();
   }
@@ -187,18 +188,19 @@ const updateTotalPrice = () => {
   cartItemsChecked = Array.from(cartItems).filter((item) => {
     return item.querySelector('input[name^="cart-item"]').checked;
   });
-
   // console.log(cartItemsChecked);
 
   let totalPriceBefore = cartItemsChecked.reduce((sum, item) => {
-    let priceBefore = parseInt(item.querySelector('.item--price-before').innerHTML);
-    return sum + priceBefore;
+    const priceBefore = parseInt(item.querySelector('.item--price-before').innerHTML);
+    const quantity = parseInt(item.querySelector('.item--quantity').value);
+    return sum + priceBefore * quantity;
   }, 0);
 
   let totalDiscount = cartItemsChecked.reduce((sum, item) => {
-    let priceBefore = parseInt(item.querySelector('.item--price-before').innerHTML);
-    let price = parseInt(item.querySelector('.item--price').innerHTML);
-    return sum + priceBefore - price;
+    const priceBefore = parseInt(item.querySelector('.item--price-before').innerHTML);
+    const price = parseInt(item.querySelector('.item--price').innerHTML);
+    const quantity = parseInt(item.querySelector('.item--quantity').value);
+    return sum + (priceBefore - price) * quantity;
   }, 0);
 
   // console.log(totalPrice)
@@ -213,27 +215,32 @@ const updateTotalPrice = () => {
 
 const cartSubmit = () => {
   const cartItems = document.querySelectorAll('.cart__item');
-  const cartItemsChecked = Array.from(cartItems).filter((item) => {
+  const cartItems__checked = Array.from(cartItems).filter((item) => {
     return item.querySelector('input[name^="cart-item"]').checked;
   });
 
-  const prodIds = cartItemsChecked.map((item) => {
+  const prod_ids = cartItems__checked.map((item) => {
     return item.getAttribute('data-prod-id');
   })
-  
-  const prodQuanitys =cartItemsChecked.map(item=>{
+
+  const prod_quanities = cartItems__checked.map(item => {
     return item.querySelector('.item--quantity').value;
-
   })
-  // console.log("this is",prodQuanitys);
 
-  if (prodIds.length === 0) {
+  const prices = cartItems__checked.map(item => {
+    return item.querySelector('.item--price').innerHTML;
+  })
+
+  // console.log(prices)
+
+  if (prod_ids.length === 0) {
     alert('Bạn chưa chọn sản phẩm nào');
     return;
   }
- 
-  // console.log(prodIds);
-  cookieHder.createCookie('prodIds--order', prodIds.join(','), 1); // 1 day
-  cookieHder.createCookie('prodQuanitys--order', prodQuanitys.join(','), 1);
+
+
+  cookieHder.createCookie('prod_ids--order', prod_ids.join(','), 1); // 1 day
+  cookieHder.createCookie('prod_quantities--order', prod_quanities.join(','), 1);
+  cookieHder.createCookie('prices--order', prices.join(','), 1);
   window.location.href = '/account/order';
 }
