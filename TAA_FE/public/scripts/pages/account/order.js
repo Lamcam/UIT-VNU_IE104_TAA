@@ -16,6 +16,7 @@ fetch('http://localhost:3000/account/orderGetIdLocal',{
 
 
 
+
 $('.hidden_item').css('display','none');
 $(document).on('click','.viewMore',() => {
     let text = $('.viewMore').html()
@@ -43,7 +44,6 @@ $(document).on('click','.section__options',function() {
 
     }   
     else if ($("#payment-cash").is(":checked")){
-        
         pay = 1;
         bank = 0
 
@@ -52,7 +52,6 @@ $(document).on('click','.section__options',function() {
     if ($("#transport-express").is(":checked")) {
         trans = 1;
         express = 0
-
     }   
     else if ($("#transport-normal").is(":checked")){
         express = 1;
@@ -66,14 +65,11 @@ $(document).on('click','.section__options',function() {
 
 
 const orderSubmit = () => {
-  const order_datetime = new Date();
-  const id = cookieHder.readCookie('id');
+    const order_datetime = new Date();
+    const id = cookieHder.readCookie('id');
 
-  // const prodIds = cookieHder.readCookie('prodIds--order').split(',');
-  // const prodQuantities = cookieHder.readCookie('prodQuanitys--order').split(',');
-  const prodIds = ["prod0001", "prod0002", "prod0003"].join(',');
-  const prodQuantities = [1, 2, 3].join(',');
-  const prices = [10000, 20000, 30000];
+    const prodIds = cookieHder.readCookie('prodIds--order').split(',');
+    const prodQuanities = cookieHder.readCookie('prodQuanitys--order').split(',');
 
     console.log(prodIds);
     console.log(prodQuanities);
@@ -86,30 +82,35 @@ const orderSubmit = () => {
 
     const loca_id = local;
 
-  const data = {
-    order_datetime, id, prodIds,
-    prodQuantities, prices, pay_id,
-    bank_id, trans_id, loca_id,
-  }
-
-  fetch('/account/orderPost', {
-    method: 'POST',
-    body: JSON.stringify(data),
-    headers: {
-      'Content-Type': 'application/json'
+    const data = {
+        order_datetime,
+        id,
+        prodIds,
+        prodQuanities,
+        pay_id,
+        bank_id,
+        trans_id,
+        loca_id
     }
-  }).then(res => res.json())
-    .then(data => {
-      if (data.statusCode == 500) {
-        alert('Lỗi Server');
-        return;
-      }
 
-      if (data.statusCode == 200) {
-        alert("Đặt hàng thành công");
-        return;
-      }
+    fetch('/account/orderPost', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => {console.log(res); return res.json()})
+      .then(data => {
+        if (data.statusCode == 500) {
+            alert('Lỗi Server');
+            return;
+        }
 
-      alert("Unexcept Error");
-    })
+        if (data.statusCode == 200) {
+            alert("Đặt hàng thành công");
+            return;
+        }
+
+        alert("unexcept Error");
+      })
 }
