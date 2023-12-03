@@ -26,11 +26,18 @@
 					<input class="col-8" type="text" name="f_add_location_address" id="f_add_location_address" required />
 				</div>
 			</div>
+			<div class="form__row mt-12">
+				<div class="row">
+					<label class="col-4 label-large" for="f_add_location_detail">
+						Địa chỉ chi tiết:</label>
+					<input class="col-8" type="text" name="f_add_location_detail" id="f_add_location_detail" required />
+				</div>
+			</div>
 			<div class="btn__wrapper row mt-12">
 				<button class="btn--outlined label-large col-6" type="button" onclick="closeModal()">
 					<span class="status-layer">Hủy bỏ</span>
 				</button>
-				<button class="btn--filled label-large col-6 location-list__btn--add" type="button" onclick="modalCtl.nextModal('#modal--noti'),addLocation()">
+				<button class="btn--filled label-large col-6 location-list__btn--add" type="button" onclick="addLocation()">
 					<span class="status-layer">Đồng ý</span>
 				</button>
 			</div>

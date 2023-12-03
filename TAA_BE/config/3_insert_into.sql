@@ -1,4 +1,4 @@
--- Active: 1698914213463@@127.0.0.1@3306@database_ie104
+-- Active: 1700882674724@@127.0.0.1@3306@database_ie104
 USE DATABASE_IE104;
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_phone`, `user_email`, `user_pass`, `user_avatar_url`) VALUES

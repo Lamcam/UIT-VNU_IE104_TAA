@@ -1,6 +1,6 @@
-const db = require('../config/db')
+const db = require("../config/db");
 
-function accountModel() { }
+function accountModel() {}
 
 accountModel.getInfo = ({ id }, callback) => {
   const sql = `
@@ -11,38 +11,37 @@ accountModel.getInfo = ({ id }, callback) => {
   const params = [id];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
 accountModel.getBanks = ({ id }, callback) => {
   const sql = `
     SELECT *
     FROM BANKCARDS
     WHERE user_id = ?;
-  `
+  `;
 
   const params = [id];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
 accountModel.getLocas = ({ id }, callback) => {
-
   const sql = `
     SELECT *
     FROM LOCATIONS
     WHERE user_id = ?;
-  `
+  `;
 
   const params = [id];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
 accountModel.getOrders = ({ id }, callback) => {
   const sql = `
@@ -54,9 +53,9 @@ accountModel.getOrders = ({ id }, callback) => {
   const params = [id];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
 accountModel.getFavorProducts = ({ id }, callback) => {
   const sql = `
@@ -72,9 +71,9 @@ accountModel.getFavorProducts = ({ id }, callback) => {
   const params = [id];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
 accountModel.getCart = ({ id }, callback) => {
   const sql = `
@@ -86,9 +85,9 @@ accountModel.getCart = ({ id }, callback) => {
   const params = [id];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
 accountModel.addCart = ({ id, prodId }, callback) => {
   const sql = `
@@ -99,9 +98,9 @@ accountModel.addCart = ({ id, prodId }, callback) => {
   const params = [id, prodId];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
 accountModel.delCart = ({ id, prod_id }, callback) => {
   const sql = `
@@ -112,15 +111,14 @@ accountModel.delCart = ({ id, prod_id }, callback) => {
   const params = [id, prod_id];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
-accountModel.addOrder = ({
-  order_datetime, id,
-  pay_id, bank_id,
-  tran_id, loca_id
-}, callback) => {
+accountModel.addOrder = (
+  { order_datetime, id, pay_id, bank_id, tran_id, loca_id },
+  callback
+) => {
   const sql = `
     INSERT INTO orders
       (order_datetime, user_id, pay_id, bank_id, tran_id, loca_id, order_status, order_is_paying)
@@ -129,16 +127,22 @@ accountModel.addOrder = ({
   `;
 
   const params = [
-    order_datetime, bank_id, 
-    loca_id, 0, pay_id[pay_id.length - 1],
+    order_datetime,
+    bank_id,
+    loca_id,
+    0,
+    pay_id[pay_id.length - 1],
   ];
 
   db.query(sql, params, (err, result) => {
-    callback(err, result)
-  })
-}
+    callback(err, result);
+  });
+};
 
-accountModel.addOrderDetail = ({ order_id, prod_id, prod_quantity, price }, callback) => {
+accountModel.addOrderDetail = (
+  { order_id, prod_id, prod_quantity, price },
+  callback
+) => {
   const sql = `
     INSERT INTO orderdetails
       (order_id, prod_id, quantity, price)
@@ -146,15 +150,29 @@ accountModel.addOrderDetail = ({ order_id, prod_id, prod_quantity, price }, call
       (?, ?, ?, ?);
   `;
 
-  const params = [
-    order_id, prod_id, prod_quantity, price, prod_id,
-  ];
+  const params = [order_id, prod_id, prod_quantity, price, prod_id];
 
   // console.log(params);
 
   db.query(sql, params, (err, result) => {
     callback(err, result);
-  })
-}
+  });
+};
 
-module.exports = accountModel
+accountModel.addLocal = ({ name, phone, address, detail, id }, callback) => {
+  const sql = `
+    INSERT INTO locations
+      (loca_pers_name, loca_pers_phone, loca_address, loca_detail, user_id )
+    VALUES
+      (?, ?, ?, ?, ?);
+  `;
+  const params = [name, phone, address, detail, id];
+
+  console.log(params);
+
+  db.query(sql, params, (err, result) => {
+    callback(err, result);
+  });
+};
+
+module.exports = accountModel;

@@ -113,10 +113,30 @@ aside {
   margin-left: 12px;
 }
 
+.local_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+.local_info p {
+  display: flex;
+  align-items: center;
+  
+}
+
+
 .product__img {
   height: 80px;
   width: 80px;
   min-width: 80px;
+}
+
+.default-and-btn{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .quanity_price {
