@@ -1,4 +1,4 @@
--- Active: 1698914213463@@127.0.0.1@3306@database_ie104
+-- Active: 1700979201863@@127.0.0.1@3306@database_ie104
 USE DATABASE_IE104;
 
 DROP TRIGGER IF EXISTS update_prod_num_sold_avai;
