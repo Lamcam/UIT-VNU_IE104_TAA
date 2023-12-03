@@ -63,7 +63,7 @@ auth.loginPost = (req, res) => {
         statusCode: 500,
         msg: 'Internal server error'
       })
-      return;
+      throw err;
     }
 
     if (result.length == 0) {
@@ -80,12 +80,12 @@ auth.loginPost = (req, res) => {
           statusCode: 500,
           msg: 'Internal server error'
         })
-        return;
+        throw err;
       }
 
-      console.log("pass", pass);
-      console.log("user_pass", result[0].user_pass);
-      console.log("isMatch: ", isMatch);
+      // console.log("pass", pass);
+      // console.log("user_pass", result[0].user_pass);
+      // console.log("isMatch: ", isMatch);
 
       if (!isMatch) {
         res.status(401).json({
@@ -99,6 +99,7 @@ auth.loginPost = (req, res) => {
       res.cookie('id', result[0].user_id, { maxAge: exceptTime });
       res.cookie('name', result[0].user_name, { maxAge: exceptTime });
       res.cookie('avatar', result[0].user_avatar, { maxAge: exceptTime });
+      res.cookie('cart_length', result[0].count_cart, { maxAge: exceptTime })
       res.status(200).json({
         statusCode: 200,
         msg: 'Login success',

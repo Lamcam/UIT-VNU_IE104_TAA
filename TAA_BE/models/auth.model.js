@@ -24,9 +24,12 @@ authModel.addUser = ({ name, phone, email, pass }, callback) => {
 
 authModel.getUserByLogin = ({ phone }, callback) => {
   const sql = `
-    SELECT *
-    FROM USERS
-    WHERE user_phone = ?;
+    SELECT *, COUNT(prod_id) AS count_cart
+    FROM users
+    LEFT JOIN cart
+      ON cart.user_id = users.user_id
+    WHERE user_phone = ?
+    GROUP BY users.user_id, users.user_name, users.user_phone, users.user_email, users.user_pass, users.user_avatar_url;
   `;
 
   const params = [phone];

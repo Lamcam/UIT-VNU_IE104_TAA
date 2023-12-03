@@ -62,7 +62,7 @@ const productItemHeartInteract = (event) => {
           }
         })
         .catch(error => {
-          console.log('Lỗi:', error);
+          console.error('Lỗi:', error);
         });
       // event.target.innerText = "favorite"
       // event.target.classList.add("icon--filled")
