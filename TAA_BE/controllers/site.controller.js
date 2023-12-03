@@ -9,7 +9,7 @@ site.index = (req, res) => {
   model.product.getHotProduct((err, result) => {
     if (err) throw err;
 
-    const { id } = res.cookie;
+    const { id } = req.cookies;
 
     // console.log(id);
 
@@ -24,9 +24,9 @@ site.index = (req, res) => {
       model.account.getIdFavorProducts({ id }, (err, favorProducts) => {
         if (err) throw err;
 
-        data.favorProducts = favorProducts.map((item) => { item.prod_id });
-        // res.render('pages/site/homepage', {
-        res.status(200).json({
+        data.favorProducts = favorProducts.map(item => item.prod_id);
+        res.render('pages/site/homepage', {
+        // res.status(200).json({
           data
         })
       })
