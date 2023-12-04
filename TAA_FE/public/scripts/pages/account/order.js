@@ -48,7 +48,7 @@ const updateBtnSubmit = () => {
   //   document.querySelector('.cart__btn--submit').disabled = false;
   // }
 
-  document.querySelector('.cart__btn--submit').disabled = !(getLocaId() && getTransId() && getPayId());
+  document.querySelector('.order__btn--submit').disabled = !(getLocaId() && getTransId() && getPayId());
 }
 
 const orderSubmit = () => {
@@ -76,7 +76,7 @@ const orderSubmit = () => {
     bank_id, tran_id, loca_id,
   }
 
-  console.log(data);
+  // console.log(data);
 
   fetch('/account/orderPost', {
     method: 'POST',
