@@ -55,10 +55,8 @@ const orderSubmit = () => {
   const order_datetime = new Date();
   const id = cookieHder.readCookie('id');
 
-  const prod_ids = cookieHder.readCookie('prod_ids--order').split(',');
+  const prod_ids = cookieHder.readCookie('prod_ids--order').split(',') ?? 'prod0001';
   const prod_quantities = cookieHder.readCookie('prod_quantities--order').split(',');
-
-  const prices = cookieHder.readCookie('prices--order').split(',');
 
   // console.log(prod_ids, prod_quantities, prices);
 
