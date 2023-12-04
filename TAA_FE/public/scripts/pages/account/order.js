@@ -48,7 +48,7 @@ const updateBtnSubmit = () => {
   //   document.querySelector('.cart__btn--submit').disabled = false;
   // }
 
-  document.querySelector('.cart__btn--submit').disabled = !(getLocaId() && getTransId() && getPayId());
+  document.querySelector('.order__btn--submit').disabled = !(getLocaId() && getTransId() && getPayId());
 }
 
 const orderSubmit = () => {
