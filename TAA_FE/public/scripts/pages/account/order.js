@@ -76,7 +76,7 @@ const orderSubmit = () => {
     bank_id, tran_id, loca_id,
   }
 
-  console.log(data);
+  // console.log(data);
 
   fetch('/account/orderPost', {
     method: 'POST',
