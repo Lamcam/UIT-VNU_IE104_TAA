@@ -426,7 +426,22 @@ label {
     justify-content: end;
     align-items: center;
   }
+
+  & .status-password {
+    position: relative;
+
+    & span {
+      position: absolute;
+      top: 0;
+
+
+    }
+
+  }
+
+
 }
+
 
 @media screen and (max-width: 576px) {
   .form__row {
