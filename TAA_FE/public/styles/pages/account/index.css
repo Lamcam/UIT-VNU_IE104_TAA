@@ -524,6 +524,10 @@ span {
   color: black;
 }
 
+.item__status .status-green {
+  color: green;
+}
+
 #section2 hr {
   width: 97%;
   margin: 0 auto;

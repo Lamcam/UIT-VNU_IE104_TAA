@@ -53,10 +53,15 @@
   text-align: right;
 }
 
+.contact__list li{
+  font-weight: bold;
+}
+
 .contact__list a {
   text-decoration: none;
   color: black;
   font-size: 16px;
+  font-weight: normal;
 }
 
 .contact__list a:hover {

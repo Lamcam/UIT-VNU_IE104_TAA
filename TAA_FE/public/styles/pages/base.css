@@ -290,7 +290,7 @@ html {
 
 /* general name tag */
 a:is(:link, :visited, :active) {
-  text-decoration: underline;
+  text-decoration: none;
   color: var(--md-sys-color-primary);
 }
 
