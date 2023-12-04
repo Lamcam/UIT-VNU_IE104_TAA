@@ -40,7 +40,7 @@ hr {
 }
 
 .modal-container--noti {
-  display: inline-flex;
+  display: flex;
   padding: 5rem;
   flex-direction: column;
   justify-content: center;

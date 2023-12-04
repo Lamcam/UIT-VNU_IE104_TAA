@@ -139,11 +139,13 @@
             <h3 class="headline-small">Không tìm thấy sản phẩm!</h3>
           </div>
           <% } %>
+          <% if (data.products.length > 9) {%>
           <div class="row col-12">
             <%- include('../../partials/pagination', {
               classList: 'col-12'
             }) %>
           </div>
+          <%}%>
         </main>
       </div>
     </div>
