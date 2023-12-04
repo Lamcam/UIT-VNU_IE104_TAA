@@ -775,18 +775,6 @@ input::-webkit-inner-spin-button {
   color: var(--md-sys-color-surface-variant-light);
 }
 
-@keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-140px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .button-close {
   position: absolute;
   top: 24px;
@@ -798,6 +786,10 @@ input::-webkit-inner-spin-button {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
+}
+
+.suggest-product__title {
+  padding: 1rem;
 }
 
 @media only screen and (min-width: 745px) and (max-width: 1023px) {
