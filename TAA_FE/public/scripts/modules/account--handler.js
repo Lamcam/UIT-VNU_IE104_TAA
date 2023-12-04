@@ -75,13 +75,13 @@ const changeContent = (data) => {
 //     <span class="headline-small primary-text">Mặc định</span>
 //   </div>
 // </div>
-  $('.local_info').empty()
+  $('.location__wrapper').empty()
   console.log(typeof (a));
   a = a.split('`');
   a = a.join('');
   modalCtl.closeModal();
   // $('#modal--add-location').removeClass('active');
-  $('.local_info').append(a);
+  $('.location__wrapper').append(a);
 }
 
 const isPhoneValid = (phone) => {

@@ -33,25 +33,27 @@
           <div class="row">
             <section class="visible col-12">
               <h2 class="headline-small">Thông tin nhận hàng</h2>
-              <% if (data.locas.length > 0) { %>
-              <% for (let i = 0; i < data.locas.length; i++) { %>
-              <%- include('../../components/location__item', { data: {
-                loca_default_id: data.loca_default_id,
-                ...data.locas[i]}}) %>
-              <% }
-              } else { %>
-              <div class="local_info">
-                <p class="body-large">Bạn chưa có địa chỉ nào</p>
-                <%- include('../../components/button', {
-                  type: 'btn-icon-label',
-                  options: 'btn--filled',
-                  classList: '',
-                  iconData: 'add',
-                  label: 'Thêm địa chỉ mới',
-                  onclick: 'modalCtl.openModal("#modal--add-location")',
-                }) %>
+              <div class="location__wrapper">
+                <% if (data.locas.length > 0) { %>
+                <% for (let i = 0; i < data.locas.length; i++) { %>
+                <%- include('../../components/location__item', { data: {
+                  loca_default_id: data.loca_default_id,
+                  ...data.locas[i]}}) %>
+                <% }
+                } else { %>
+                <div class="local_info">
+                  <p class="body-large">Bạn chưa có địa chỉ nào</p>
+                  <%- include('../../components/button', {
+                    type: 'btn-icon-label',
+                    options: 'btn--filled',
+                    classList: '',
+                    iconData: 'add',
+                    label: 'Thêm địa chỉ mới',
+                    onclick: 'modalCtl.openModal("#modal--add-location")',
+                  }) %>
+                </div>
+                <% } %>
               </div>
-              <% } %>
             </section>
             <section class="visible col-12">
               <h2 class="headline-small">Phương thức vận chuyển</h2>
