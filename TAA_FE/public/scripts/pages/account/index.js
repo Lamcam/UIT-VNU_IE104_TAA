@@ -138,6 +138,8 @@ const addBank = () => {
       </div>
     </div>`;
   $(".bank-list").prepend(bankItem);
+  const hideInfoBank = document.querySelector('.noti-bank');
+  hideInfoBank.style.display = "none";
 };
 
 const delBank = () => {
@@ -150,13 +152,13 @@ const addLocation = () => {
   <div class="location-item mt-12">
     <div class="location-item__wrapper body-medium">
       <div class="row">
-        <span>Người đẹp bị câm</span>
+        <span>Le Trung Hieu</span>
       </div>
       <div class="row mt-16">
         <span>SDT: </span><span>*******629</span>
       </div>
       <div class="row mt-16">
-        <span>Xã A, huyện B, tỉnh C</span>
+        <span>Đối diện quán lẩu thái, Nhơn Trạch, Đồng Nai</span>
       </div>
       <div class="location-btns__wrapper">
         <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
@@ -176,6 +178,8 @@ const addLocation = () => {
     </div>
 	</div>`;
   $(".location-list").prepend(locationItem);
+  const hideInfo = document.querySelector('.info-loca');
+  hideInfo.style.display = "none";
 };
 
 const delLocation = () => {

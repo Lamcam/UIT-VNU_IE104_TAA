@@ -22,7 +22,7 @@ const addToCart = () => {
       .then(data => {
         if (data.statusCode == 200) {
           modalCtl.nextModal('#modal--noti-add-cart-success')
-          modalCtl.closeModalAfterTime(1000);
+          modalCtl.closeModalAfterTime(2000);
           const length = parseInt(cookieHder.readCookie('cart_length')) + 1;
           cookieHder.updateCookie('cart_length', length);
           document.dispatchEvent(new Event('UpdateCart'));

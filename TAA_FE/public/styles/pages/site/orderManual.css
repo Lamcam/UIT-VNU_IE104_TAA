@@ -47,7 +47,7 @@ h3.section__title {
   background: var(--m-3-ref-primary-primary-95, #FFEDEC);
 }
 
-@media only screen and (min-width: 431px) and (max-width: 744px){
+@media only screen and (min-width: calc(576px+1px)) and (max-width: 768px){
 .container h1 {
   font-size: 28px;
   line-height: 50px;
@@ -57,7 +57,7 @@ h3.section__title {
   line-height: 30px;
 }
   }
-  @media only screen and (max-width: 430px) {
+  @media only screen and (max-width: 576px) {
     .container h1 {
       font-size: 28px;
       line-height: 40px;

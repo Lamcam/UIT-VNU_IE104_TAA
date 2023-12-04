@@ -18,6 +18,7 @@
 <body>
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 0 }) %>
+    <%- include('../../partials/on-top-btn') %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
@@ -144,13 +145,9 @@
               <span class="detail__context">(Đã bao gồm phí VAT)</span>
             </div>
             <div class="row__flex end">
-              <%- include('../../components/button', {
-                type: '',
-                options: 'btn--filled',
-                classList: 'cart__btn--submit',
-                label: 'Tiến hành đặt hàng',
-                onclick: 'orderSubmit()',
-              }) %>
+              <button class="btn--filled order__btn--submit" onclick="orderSubmit()" disabled>
+                <span class="status-layer">Tiến hành đặt hàng</span>
+              </button>
             </div>
           </div>
         </aside>

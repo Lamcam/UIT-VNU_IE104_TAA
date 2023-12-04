@@ -53,10 +53,15 @@
   text-align: right;
 }
 
+.contact__list li{
+  font-weight: bold;
+}
+
 .contact__list a {
   text-decoration: none;
   color: black;
   font-size: 16px;
+  font-weight: normal;
 }
 
 .contact__list a:hover {
@@ -84,7 +89,7 @@
   text-align: justify;
 }
 
-@media only screen and (min-width: 48rem) and (max-width: 64rem){
+@media only screen and (min-width: calc(576px +1px)) and (max-width: 768px) {
   .about__content {
     padding: 0 24px;
   }
@@ -113,7 +118,8 @@
     font-size: 16px;
   }
 }
-@media only screen and (max-width: 48rem) {
+
+@media only screen and (max-width: 576px) {
   .about__content {
     padding: 0 12px;
   }

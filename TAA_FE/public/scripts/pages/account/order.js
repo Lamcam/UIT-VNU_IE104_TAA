@@ -48,17 +48,15 @@ const updateBtnSubmit = () => {
   //   document.querySelector('.cart__btn--submit').disabled = false;
   // }
 
-  document.querySelector('.cart__btn--submit').disabled = !(getLocaId() && getTransId() && getPayId());
+  document.querySelector('.order__btn--submit').disabled = !(getLocaId() && getTransId() && getPayId());
 }
 
 const orderSubmit = () => {
   const order_datetime = new Date();
   const id = cookieHder.readCookie('id');
 
-  const prod_ids = cookieHder.readCookie('prod_ids--order').split(',');
+  const prod_ids = cookieHder.readCookie('prod_ids--order').split(',') ?? 'prod0001';
   const prod_quantities = cookieHder.readCookie('prod_quantities--order').split(',');
-
-  const prices = cookieHder.readCookie('prices--order').split(',');
 
   // console.log(prod_ids, prod_quantities, prices);
 
@@ -76,7 +74,7 @@ const orderSubmit = () => {
     bank_id, tran_id, loca_id,
   }
 
-  console.log(data);
+  // console.log(data);
 
   fetch('/account/orderPost', {
     method: 'POST',

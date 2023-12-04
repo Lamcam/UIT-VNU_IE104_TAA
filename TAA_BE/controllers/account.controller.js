@@ -3,7 +3,7 @@ const models = require("../models");
 const cookieParser = require("cookie-parser");
 const index = require("./index");
 
-function account() {}
+function account() { }
 
 const getInformation = (flags, req, res) => {
   const { id } = req.cookies;
@@ -214,8 +214,8 @@ account.delCart = (req, res) => {
 
 account.order = (req, res) => {
   const { id } = req.cookies;
-  const prod_ids = req.cookies["prod_ids--order"]?.split(",");
-  const quantities = req.cookies["prod_quantities--order"]?.split(",");
+  const prod_ids = req.cookies["prod_ids--order"]?.split(",") ?? ['prod0001'];
+  const quantities = req.cookies["prod_quantities--order"]?.split(",") ?? [1];
 
   const data = {};
 
@@ -294,7 +294,7 @@ account.addLocal = (req, res) => {
         // statusCode: 200,
         // msg: 'success',
         name, phone, address, detail
-        
+
       });
     }
   );

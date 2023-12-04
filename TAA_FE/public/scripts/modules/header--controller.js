@@ -4,6 +4,10 @@
 const updateCartStatus = () => {
   const cartStatus = document.querySelector('.header__cart');
   let context = cookieHder.readCookie('cart_length');
+  if (!context) {
+    context = '0';
+  }
+  
   if (parseInt(context) > 9) {
     context = '9+';
   }

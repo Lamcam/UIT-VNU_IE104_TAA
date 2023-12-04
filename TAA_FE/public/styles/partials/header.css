@@ -126,19 +126,19 @@ header {
       filter: none;
     } */
 
-    &:hover {
+    &:not(.logoutBtn):hover {
       background-color: var(--md-sys-color-primary-container);
       color: var(--md-sys-color-on-primary-container);
     }
 
     &:last-child {
-      background-color: var(--md-sys-color-primary);
       color: var(--md-sys-color-on-primary);
     }
   }
 
   & .logoutBtn {
     cursor: pointer;
+    background-color: var(--md-sys-color-error);
   }
 }
 
@@ -151,7 +151,7 @@ header {
   z-index: 100;
 }
 
-@media (max-width: 64rem) {
+@media (max-width: 768px) {
   header {
     gap: 1rem;
 
