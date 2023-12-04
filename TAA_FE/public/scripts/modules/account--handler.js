@@ -21,7 +21,6 @@ const addLocation = () => {
     .then((data) => {
       console.log("this is", data);
       changeContent(data);
-
     }).then().catch(error => {
       console.log(error);
     })
@@ -29,35 +28,60 @@ const addLocation = () => {
 
 const changeContent = (data) => {
   let a = `
-    <div class="col-6">
-      <p class="location-item__pers-name">${data.name}</p>
-      <div class="mt-8">
-        <span>SĐT: </span>
-        <span class="location-item__phone">${data.phone}</span><br>
+    <div class="row mt-12 body-medium location-item active" data-loca-id='${data.id}'>
+      <div class="col-7">
+        <p class="location-item__pers-name">${data.name}</p>
+        <div class="mt-8">
+          <span>SĐT: </span>
+          <span class="location-item__phone">${data.phone}</span><br>
+        </div>
+        <p class="location-item__address mt-8">${data.detail}, ${data.address}
+        </p>
       </div>
-      <p class="location-item__address mt-8"> ${data.detail}, ${data.address} 
-      </p>
-    </div>
-    <div class="col-6 location-item--right default-and-btn">
-      <span>
-      <button type='button' class="btn-icon-label btn--filled" onclick="modalCtl.openModal("#modal--change-address")">
-        <span class="status-layer">
-            <span class="icon icon--filled material-symbols-outlined">
-                  edit</span>
-            <span class="label">Thay đổi địa chỉ</span>
+      <div class="col-5 location-item--right">
+        <span>
+          <button class="btn-icon-label btn--filled" onclick="modalCtl.openModal('#modal--change-address')">
+            <span class="status-layer">
+              <span class="icon icon--filled material-symbols-outlined">
+                edit</span>
+              <span class="label">Thay đổi địa chỉ</span>
+            </span>
+          </button>
         </span>
-      </button>
-      </span>
         <span class="headline-small primary-text">Mặc định</span>
       </div>
-    </div>`
-  $('.local_info').empty()
+    </div>
+  `;
+
+//   <div class="col-7">
+//   <p class="location-item__pers-name">${data.name}</p>
+//   <div class="mt-8">
+//     <span>SĐT: </span>
+//     <span class="location-item__phone">${data.phone}</span><br>
+//   </div>
+//   <p class="location-item__address mt-8"> ${data.detail}, ${data.address} 
+//   </p>
+// </div>
+// <div class="col-5 location-item--right default-and-btn">
+//   <span>
+//   <button type='button' class="btn-icon-label btn--filled" onclick="modalCtl.openModal("#modal--change-address")">
+//     <span class="status-layer">
+//         <span class="icon icon--filled material-symbols-outlined">
+//               edit</span>
+//         <span class="label">Thay đổi địa chỉ</span>
+//     </span>
+//   </button>
+//   </span>
+//     <span class="headline-small primary-text">Mặc định</span>
+//   </div>
+// </div>
+  $('.location__wrapper').empty()
   console.log(typeof (a));
   a = a.split('`');
   a = a.join('');
   modalCtl.closeModal();
   // $('#modal--add-location').removeClass('active');
-  $('.local_info').append(a);
+  $('.location__wrapper').append(a);
 }
 
 const isPhoneValid = (phone) => {
@@ -79,13 +103,6 @@ const isPhoneValid = (phone) => {
 
   // Test if the provided phone number matches the regular expression:
   return phone.length > 8 && re.test(phone);
-};
-
-const closeModal = () => {
-  document.querySelector("body").classList.remove("modal-open");
-
-  const modals = document.querySelectorAll(".modal");
-  modals?.forEach((modal) => modal.classList.remove("active"));
 };
 
 // const accountHder = {

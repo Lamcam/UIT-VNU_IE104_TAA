@@ -6,9 +6,9 @@
     <input type="checkbox" id="main-nav__ctl">
     <ul class="visible label-large header hide-sm hide-md">
       <% for (let idx = 0; idx < data.length; ++idx) { %>
+      <% if (idx == data.length - 1) { %>
       <li class="main-nav__item <%= (idx == activeIdx) ? 'active' : '' %>">
-        <a class="main-nav__link" href="<%= data[idx].link %>"><%= data[idx].text %></a>
-        <% if (idx == data.length - 1) { %>
+        <span class="main-nav__link"><%= data[idx].text %></span>
         <ul class="main-nav__dropdown">
           <li class="main-nav__item">
             <a class="main-nav__link" href="/manual/order">Hướng dẫn mua hàng</a>
@@ -17,8 +17,12 @@
             <a class="main-nav__link" href="/manual/policy">Chính sách</a>
           </li>
         </ul>
-        <% } %>
+        <% } else {%>
+      <li class="main-nav__item <%= (idx == activeIdx) ? 'active' : '' %>">
+        <a class="main-nav__link" href="<%= data[idx].link %>"><%= data[idx].text %></a>
       </li>
+      <% } %>
+
       <% } %>
     </ul>
   </div>

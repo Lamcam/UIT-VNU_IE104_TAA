@@ -126,10 +126,19 @@ const createProductItem = (data) => {
   productBody.appendChild(heartIcon);
 
   // Create the product name heading
+  let productNameLink = document.createElement("a");
+  productNameLink.classList.add("status-layer");
+  productNameLink.href = `/products/detail?id=${data.prod_id}`;
+  productNameLink.textContent = `${data.prod_name}`;
+
+  // Create the product name heading
   let productName = document.createElement("h3");
   productName.classList.add("product__name", "body-large");
-  productName.textContent = `${data.prod_name}`;
+
+  // Append the anchor to the heading
+  productName.appendChild(productNameLink);
   productBody.appendChild(productName);
+
 
   // Create the product price container div
   let productPrice = document.createElement("div");
