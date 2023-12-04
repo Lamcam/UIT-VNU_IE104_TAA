@@ -119,7 +119,7 @@
                   </span>
                 </div>
                 <span class="rate__number title-medium">5 đánh giá</span>
-                <span class="number__buy title-medium"><%=data.prod_num_sold%> đã bán</span>
+                <span class="number__buy title-medium"><%=data[0].prod_num_sold%> đã bán</span>
               </div>
 
               <div class="info__product__price">
@@ -162,11 +162,11 @@
               <div class="info__product__quantity">
                 <div class="quantity__title bold label-large">Số lượng: </div>
                 <div class="quantity__product outline-text label-large">
-                  <div id="decrement" class="quantity__product-decrement outline-text" onclick="stepper(this)">-</div>
-                  <input type="number" min="1" max="100" step="1" value="1" id="my-input" disabled>
-                  <div id="increment" class="quantity__product-increment outline-text" onclick="stepper(this)">+</div>
+                  <div class="quantity__product-decrement outline-text">-</div>
+                  <input type="number" min="1" max="100" step="1" value="1" class="my-input" disabled>
+                  <div class="quantity__product-increment outline-text">+</div>
                 </div>
-                <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
+                <p class="quantity__stock body-small"><%=data[0].prod_num_avai%> sản phẩm sẵn có</p>
               </div>
               <div class="info__product__button">
                 <%- include('../../components/button', {

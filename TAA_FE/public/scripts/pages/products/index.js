@@ -225,7 +225,7 @@ const createProductItem = (data) => {
 
     const divRateStar = document.createElement("div");
     divRateStar.classList.add("rate__star", "title-medium");
-    divRateStar.textContent = "4.8";
+    divRateStar.textContent = "4.5";
 
     const spanStarFilled1 = document.createElement("span");
     spanStarFilled1.classList.add("material-symbols-outlined", "icon--filled");
