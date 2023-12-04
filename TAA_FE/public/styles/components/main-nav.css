@@ -42,6 +42,7 @@
 
     & .main-nav__dropdown {
       display: flex;
+      align-items: flex-start;
       flex-direction: column;
       background: white !important;
       height: auto;
@@ -55,6 +56,14 @@
     top: 100%;
     left: 0;
     z-index: 50;
+
+    & .main-nav__item{
+      width:100%;
+    }
+
+    & .main-nav__item a{
+      width:100%;
+    }
   }
 
   &.active {

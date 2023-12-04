@@ -110,6 +110,10 @@
   height: 4.75rem;
 }
 
+.product__body .product__name a{
+  color: black;
+}
+
 .product__price {
   display: flex;
   justify-content: center;
