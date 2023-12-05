@@ -426,6 +426,25 @@ label {
     justify-content: end;
     align-items: center;
   }
+
+  & .password__wrapper {
+    position: relative;
+
+    & .password__input {
+      width: 100%;
+    }
+
+    & .password__btn {
+      position: absolute;
+      top: 50%;
+      right: .5rem;
+      transform: translateY(-50%);
+      color: var(--md-sys-color-primary);
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      cursor: pointer;
+    }
+  }
 }
 
 @media screen and (max-width: 576px) {

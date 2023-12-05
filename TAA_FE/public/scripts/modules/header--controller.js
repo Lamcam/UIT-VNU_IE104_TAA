@@ -1,6 +1,3 @@
-// import modalCtl from './modal--controller.js';
-// import cookieHder from './cookie--handler.js';
-
 const updateCartStatus = () => {
   const cartStatus = document.querySelector('.header__cart');
   let context = cookieHder.readCookie('cart_length');
@@ -22,13 +19,12 @@ const updateCartStatus = () => {
 }
 
 const handleLogout = () => {
-  const logoutBtn = $('.header__user--options.logoutBtn');
-  if (logoutBtn.length == 0) {
-    console.error('Don\'t have this element', '.header__user--options.logoutBtn');
+  const logoutBtn = document.querySelector('.header__user--options.logoutBtn');
+  if (!logoutBtn) {
     return;
   }
 
-  logoutBtn.on('click', (e) => {
+  logoutBtn.addEventListener('lick', (e) => {
     e.preventDefault();
     modalCtl.openModal('#modal--logout');
   });
@@ -37,16 +33,10 @@ const handleLogout = () => {
 const updateHeaderName = () => {
   const headerName = document.querySelector('.header__name');
   if (!headerName) {
-    console.error('Don\'t have this element', '.header__name');
     return;
   }
 
-  // console.log(document.cookie);
-
   headerName.innerText = cookieHder.readCookie('name');
-  // console.log(cookieHder);
-  // console.log(cookieHder.readCookie('name'));
-  // $('.header__name').text(cookieHder.readCookie('name'));
 }
 
 const init = () => {

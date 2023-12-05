@@ -1,44 +1,54 @@
-<div id="modal--change-password" class="modal" onsubmit="return validateForm()">
-	<div class="modal__content on-primary">
-		<button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
-			<span class="status-layer icon material-symbols-outlined">close</span>
-		</button>
-		<h1 class="modal__title headline-large">Đổi mật khẩu</h1>
-		<form action="" method="">
-			<div class="form-wrapper__change-password visible mt-12">
-				<div class="form__row mt-12">
-					<div class="row">
-						<label class="col-4 label-large" for="oldPassword">Mật khẩu cũ:</label>
-						<div class="col-8 input__wrapper">
-							<input type="password" placeholder="********" id="oldPassword" required />
-						</div>
-					</div>
-				</div>
+<div id="modal--change-password" class="modal">
+  <div class="modal__content on-primary">
+    <button class="modal__btn--close btn-icon" onclick="modalCtl.closeModal()">
+      <span class="status-layer icon material-symbols-outlined">close</span>
+    </button>
+    <h1 class="modal__title headline-large">Đổi mật khẩu</h1>
+    <form action="" method="">
+      <div class="form-wrapper__change-password visible mt-12">
+        <div class="form__row mt-12">
+          <div class="row">
+            <label class="col-4 label-large" for="f_chang_old_pass">Mật khẩu cũ:</label>
+            <span class="col-8 password__wrapper">
+              <input class="password__input" type="password" name="pass" id="f_chang_old_pass" placeholder="Vui lòng nhập mật khẩu cũ ở đây" required>
+              <button type='button' class='password__btn btn-icon' onclick="formCtl.visibilityPass(event)">
+                <span class='status-layer icon material-symbols-outlined'>visibility_off</span>
+              </button>
+            </span>
+          </div>
+        </div>
 
-				<div class="form__row mt-12">
-					<div class="row">
-						<label class="col-4 label-large re-type-password" for="newPassword">Mật
-							khẩu mới:</label>
-						<div class="col-8 input__wrapper">
-							<input type="password" placeholder="********" id="newPassword" required />
-						</div>
-					</div>
-				</div>
+        <div class="form__row mt-12">
+          <div class="row">
+            <label class="col-4 label-large re-type-password" for="f_change_new_pass">Mật
+              khẩu mới:</label>
+            <span class="col-8 password__wrapper">
+              <input class="password__input" type="password" name="pass" id="f_change_new_pass" placeholder="Vui lòng nhập mật khẩu mới ở đây" required>
+              <button type='button' class='password__btn btn-icon' onclick="formCtl.visibilityPass(event)">
+                <span class='status-layer icon material-symbols-outlined'>visibility_off</span>
+              </button>
+            </span>
+          </div>
+        </div>
 
-				<div class="form__row mt-12">
-					<div class="row">
-						<label class="col-4 label-large re-type-password" for="confirmPassword">Nhập lại mật khẩu mới:</label>
-						<div class="col-8 input__wrapper">
-							<input type="password" placeholder="********" id="confirmPassword" required />
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="btn__wrapper row mt-12 change-password-accept">
-				<button class="btn--filled label-large col-6 changepass-list__btn--add" type="submit">
-					<span class="status-layer">Xác nhận</span>
-				</button>
-			</div>
-		</form>
-	</div>
+        <div class="form__row mt-12">
+          <div class="row">
+            <label class="col-4 label-large re-type-password" for="f_change_new_pass_confirm">Nhập lại mật khẩu mới:</label>
+            <span class="col-8 password__wrapper">
+              <input class="password__input" type="password" name="pass" id="f_change_new_pass_confirm" placeholder="Vui lòng nhập lại mật khẩu mới ở đây" required>
+              <button type='button' class='password__btn btn-icon' onclick="formCtl.visibilityPass(event)">
+                <span class='status-layer icon material-symbols-outlined'>visibility_off</span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="btn__wrapper row mt-12 change-password-accept">
+        <button class="btn--filled label-large col-6 changepass-list__btn--add" type="submit">
+          <span class="status-layer">Xác nhận</span>
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

@@ -113,12 +113,12 @@
 }
 
 .btn--outlined {
-  color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-primary) !important;
   border: 1px solid var(--md-sys-color-primary);
 }
 
 .btn--filled {
-  color: #fff;
+  color: white !important;
   background-color: var(--md-sys-color-primary);
 
   &:disabled {
@@ -128,6 +128,6 @@
 }
 
 .btn--filled-con {
-  color: var(--md-sys-color-on-primary-container);
+  color: var(--md-sys-color-on-primary-container) !important;
   background-color: var(--md-sys-color-primary-container);
 }

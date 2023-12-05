@@ -17,7 +17,7 @@ h2.section__title {
   counter-increment: h2-counter;
 
   &::before {
-    content: "Bước " counter(h2-counter) ": ";
+    content: "Bước "counter(h2-counter) ": ";
   }
 }
 
@@ -47,23 +47,34 @@ h3.section__title {
   background: var(--m-3-ref-primary-primary-95, #FFEDEC);
 }
 
-@media only screen and (min-width: calc(576px+1px)) and (max-width: 768px){
-.container h1 {
-  font-size: 28px;
-  line-height: 50px;
+.picture3 {
+  /* width: 100%;
+  height: 180px; */
+  max-width: 100%;
+  margin-top: 20px;
+  object-fit: cover;
 }
-.section__content h2 {
-  font-size: 18px;
-  line-height: 30px;
+
+@media only screen and (min-width: calc(576px+1px)) and (max-width: 768px) {
+  .container h1 {
+    font-size: 28px;
+    line-height: 50px;
+  }
+
+  .section__content h2 {
+    font-size: 18px;
+    line-height: 30px;
+  }
 }
+
+@media only screen and (max-width: 576px) {
+  .container h1 {
+    font-size: 28px;
+    line-height: 40px;
   }
-  @media only screen and (max-width: 576px) {
-    .container h1 {
-      font-size: 28px;
-      line-height: 40px;
-    }
-    .section__content h2 {
-      font-size: 18px;
-      line-height: 30px;
-    }
+
+  .section__content h2 {
+    font-size: 18px;
+    line-height: 30px;
   }
+}
