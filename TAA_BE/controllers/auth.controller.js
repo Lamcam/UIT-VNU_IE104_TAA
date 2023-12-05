@@ -15,13 +15,13 @@ auth.registerPost = (req, res) => {
   const cleanPhone = sanitizeHtml(phone);
   const cleanEmail = sanitizeHtml(email);
 
-  console.log("Cleaned name: ", cleanName);
-  console.log("Cleaned phone: ", cleanPhone);
-  console.log("Cleaned email: ", cleanEmail);
+  // console.log("Cleaned name: ", cleanName);
+  // console.log("Cleaned phone: ", cleanPhone);
+  // console.log("Cleaned email: ", cleanEmail);
 
   const encryptPass = bcrypt.hashSync(pass, saltRounds);
 
-  console.log("Encrypted pass: ", encryptPass);
+  // console.log("Encrypted pass: ", encryptPass);
 
   models.auth.addUser({
     name: cleanName,
@@ -35,14 +35,14 @@ auth.registerPost = (req, res) => {
           statusCode: 409,
           msg: "Duplicate phone or email"
         })
-        return;
+        throw err;
       }
 
       res.status(500).json({
         statusCode: 500,
         msg: "Internal server error"
       });
-      return;
+      throw err;
     }
 
     res.status(200).json({
@@ -84,10 +84,6 @@ auth.loginPost = (req, res) => {
         })
         throw err;
       }
-
-      // console.log("pass", pass);
-      // console.log("user_pass", result[0].user_pass);
-      // console.log("isMatch: ", isMatch);
 
       if (!isMatch) {
         res.status(401).json({
