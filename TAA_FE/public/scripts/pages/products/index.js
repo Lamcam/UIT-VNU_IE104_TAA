@@ -574,6 +574,7 @@ category.forEach((item) => {
       .then((data) => {
         // console.log("this is data :", data.result);
         $(".product__wrapper").empty();
+        $('.not-found-search').empty();
         data.result.forEach((item) => {
           createProductItem(item);
         });
