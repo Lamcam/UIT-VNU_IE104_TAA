@@ -73,13 +73,26 @@
 }
 
 .main-nav__link {
-  padding: 0px 2rem;
+  display: flex;
+  height: 100%;
+  width: 100%; 
+  align-items: center;
+  justify-content: center;
   margin: auto;
   text-decoration: none;
   text-wrap: nowrap;
   color: inherit !important;
-
+ 
   text-decoration: none !important;
+}
+
+.main-nav__link.li-link {
+  padding: 0em 2rem;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 @media only screen and (max-width: 768px) {

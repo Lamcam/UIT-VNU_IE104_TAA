@@ -147,40 +147,40 @@ const delBank = () => {
 };
 
 // location
-const addLocation = () => {
-  let locationItem = `
-  <div class="location-item mt-12">
-    <div class="location-item__wrapper body-medium">
-      <div class="row">
-        <span>Le Trung Hieu</span>
-      </div>
-      <div class="row mt-16">
-        <span>SDT: </span><span>*******629</span>
-      </div>
-      <div class="row mt-16">
-        <span>Đối diện quán lẩu thái, Nhơn Trạch, Đồng Nai</span>
-      </div>
-      <div class="location-btns__wrapper">
-        <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
-          <span class="status-layer icon material-symbols-outlined">
-            delete</span>
-        </button>
-        <button class="location-item__btn--default btn--outlined" onclick="modalCtl.openModal('#modal--set-default-location')">
-          <span class="status-layer unfilled-default location-btn">Thiết
-            lập mặc định</span>
-        </button>
-        <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
-          <span class="status-layer full-edit icon material-symbols-outlined">
-            edit</span>
-          <span class="status-layer full-edit label">Sửa</span>
-        </button>
-      </div>
-    </div>
-	</div>`;
-  $(".location-list").prepend(locationItem);
-  const hideInfo = document.querySelector('.info-loca');
-  hideInfo.style.display = "none";
-};
+// const addLocation = () => {
+//   let locationItem = `
+//   <div class="location-item mt-12">
+//     <div class="location-item__wrapper body-medium">
+//       <div class="row">
+//         <span>Le Trung Hieu</span>
+//       </div>
+//       <div class="row mt-16">
+//         <span>SDT: </span><span>*******629</span>
+//       </div>
+//       <div class="row mt-16">
+//         <span>Đối diện quán lẩu thái, Nhơn Trạch, Đồng Nai</span>
+//       </div>
+//       <div class="location-btns__wrapper">
+//         <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
+//           <span class="status-layer icon material-symbols-outlined">
+//             delete</span>
+//         </button>
+//         <button class="location-item__btn--default btn--outlined" onclick="modalCtl.openModal('#modal--set-default-location')">
+//           <span class="status-layer unfilled-default location-btn">Thiết
+//             lập mặc định</span>
+//         </button>
+//         <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+//           <span class="status-layer full-edit icon material-symbols-outlined">
+//             edit</span>
+//           <span class="status-layer full-edit label">Sửa</span>
+//         </button>
+//       </div>
+//     </div>
+// 	</div>`;
+//   $(".location-list").prepend(locationItem);
+//   const hideInfo = document.querySelector('.info-loca');
+//   hideInfo.style.display = "none";
+// }; Tạm commend lại nha (HAN) gặp lỗi null khi query selector
 
 const delLocation = () => {
   $(".location-list")[0].children[0].remove();
