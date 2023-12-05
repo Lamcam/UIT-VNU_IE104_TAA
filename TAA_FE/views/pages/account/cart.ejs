@@ -138,7 +138,9 @@
     if (value < minValue) {
         value = minValue;
     }
-
+    if (isNaN(value)) {
+      value = minValue;
+    }
     // Check if the value is greater than the maximum
     if (value > maxValue) {
         value = maxValue;

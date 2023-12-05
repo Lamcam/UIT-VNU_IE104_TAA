@@ -328,13 +328,13 @@ const createProductItem = (data) => {
     divModalButton.classList.add("modal__button");
 
     const buttonCart = document.createElement("button");
-    buttonCart.classList.add("btn-icon-label", "btn--filled", "button__cart");
+    buttonCart.classList.add("btn-icon-label", "btn--filled-con", "button__cart");
     buttonCart.onclick = cartCtl.addToCart;
     buttonCart.innerHTML = `
       <span class="status-layer">
         <span class="icon icon--filled material-symbols-outlined">
             add_shopping_cart</span>
-        <span class="label">Thêm vào giỏ hàng</span>
+        <span class="label" >Thêm vào giỏ hàng</span>
       </span>
     `;
 
