@@ -116,6 +116,7 @@ header {
     justify-content: right;
     padding: 2rem;
     width: 100%;
+    z-index: 101;
     background-color: white;
     color: black;
     /* font-weight: bold; */
@@ -139,6 +140,19 @@ header {
   & .logoutBtn {
     cursor: pointer;
     background-color: var(--md-sys-color-error);
+  }
+}
+
+.header__account__wrapper {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  align-items: center;
+
+  gap: .75rem;
+
+  &:hover .header__user {
+    display: flex;
   }
 }
 
