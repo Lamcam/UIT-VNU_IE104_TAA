@@ -20,7 +20,12 @@
         <div class="row">
           <label class="col-4 label-large" for="f_log_pass">
             Mật khẩu:</label>
-          <input class="col-8" type="password" name="pass" id="f_log_pass" required>
+          <span class="col-8 password__wrapper">
+            <input class="password__input" type="password" name="pass" id="f_log_pass" required>
+            <button type='button' class='password__btn btn-icon' onclick="formCtl.visibilityPass(event)">
+              <span class='status-layer icon material-symbols-outlined'>visibility_off</span>
+            </button>
+          </span>
         </div>
       </div>
       <%- include('../components/button', {

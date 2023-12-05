@@ -427,21 +427,25 @@ label {
     align-items: center;
   }
 
-  & .status-password {
+  & .password__wrapper {
     position: relative;
 
-    & span {
-      position: absolute;
-      top: 0;
-
-
+    & .password__input {
+      width: 100%;
     }
 
+    & .password__btn {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      color: var(--md-sys-color-primary);
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+      cursor: pointer;
+    }
   }
-
-
 }
-
 
 @media screen and (max-width: 576px) {
   .form__row {
