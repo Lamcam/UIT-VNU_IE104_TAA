@@ -98,9 +98,7 @@
   & .label {
     text-align: justify;
   }
-}
 
-.row__flex {
   & .term-of-use {
     display: inline-block;
   }
