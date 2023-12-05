@@ -96,7 +96,7 @@ article.section__content {
   top: 50%;
   transform: translateY(-50%);
   right: 1rem;
-  border-radius: .75rem !important;
+  border-radius: 0.75rem !important;
   background: var(--md-ref-palette-primary95);
 }
 
@@ -576,8 +576,8 @@ span {
   justify-content: center;
 }
 
-.modal__quality>span,
-.modal__service>span {
+.modal__quality > span,
+.modal__service > span {
   width: 160px;
 }
 
@@ -597,7 +597,7 @@ span {
   padding: 12px;
   border-radius: 8px;
   border: none;
-  width: 650px;
+  width: 100%;
   height: 362px;
   display: flex;
   flex-direction: column;
@@ -607,18 +607,19 @@ span {
 
 .modal__form-review-textarea {
   resize: none;
-  width: 590px;
+  width: 100%;
   height: 273px;
   padding: 10px 16px;
   border-radius: 8px;
-  margin-left: 13px;
-  margin-top: 12px;
-  margin-bottom: 12px;
 }
 
 .modal__form-review-border input {
   border: none;
   background-color: transparent;
+}
+
+.modal__form-review-border {
+  width: 100%;
 }
 
 .star-icon {
@@ -630,7 +631,7 @@ span {
 .star-icon:hover,
 .star-icon.active {
   color: #ffdd55;
-  font-variation-settings: "FILL"1;
+  font-variation-settings: "FILL" 1;
 }
 
 .star-icon-service {
@@ -642,7 +643,7 @@ span {
 .star-icon-service:hover,
 .star-icon-service.active {
   color: #ffdd55;
-  font-variation-settings: "FILL"1;
+  font-variation-settings: "FILL" 1;
 }
 
 .energy-review {
@@ -969,22 +970,28 @@ span.status-layer {
   }
 
   .order__item-content {
-    width: 100%;
+    width: 60%;
     white-space: nowrap;
+  }
+
+  .order__item-content-name {
+    white-space: wrap;
   }
 
   .item__status {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding-top: 1rem;
-    width: 100%;
+    width: 18%;
     gap: 5rem;
   }
 
   .item__status p {
+    width: 100%;
     padding: 0;
     margin: 0;
-    font-size: 24px;
+    font-size: 16px;
+    text-align: center;
   }
 
   .order__item-att {

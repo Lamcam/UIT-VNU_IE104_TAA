@@ -24,7 +24,7 @@ const handleLogout = () => {
     return;
   }
 
-  logoutBtn.addEventListener('lick', (e) => {
+  logoutBtn.addEventListener('click', (e) => {
     e.preventDefault();
     modalCtl.openModal('#modal--logout');
   });
