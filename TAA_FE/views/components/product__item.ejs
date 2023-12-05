@@ -1,5 +1,5 @@
 <% if (data.prod_num_avai > 0) { %>
-<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6">
+<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6" onclick="moveDetailProduct('<%= data.prod_id %>')">
   <div class="product__image">
     <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
     <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_front">

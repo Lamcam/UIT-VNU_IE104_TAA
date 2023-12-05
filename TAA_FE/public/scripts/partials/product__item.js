@@ -5,13 +5,15 @@ const productItemInteract = () => {
     const iconHeart = item.querySelector('.icon_heart');
     iconHeart.addEventListener('click', (event) => {
       productItemHeartInteract(event);
+      event.stopPropagation();
     })
 
     const btnView = item.querySelector('.product__button__view');
     const modalProduct = item.querySelector('.modal-product');
 
-    btnView.addEventListener('click', () => {
+    btnView.addEventListener('click', (event) => {
       productItemModalOpen(modalProduct);
+      event.stopPropagation();
     })
 
     productItemModalSlideImage(modalProduct);
@@ -183,3 +185,8 @@ const productItemModalInputNumber = (DOMModal) => {
 
 document.addEventListener('DOMContentLoaded', productItemInteract);
 document.addEventListener('ReloadProducts', productItemInteract);
+
+function moveDetailProduct(dataId){
+  console.log(dataId)
+  window.location.href = `/products/detail?id=${dataId}`;
+}

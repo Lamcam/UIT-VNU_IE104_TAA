@@ -87,6 +87,10 @@ const createProductItem = (data) => {
     "col-lg-4",
   );
 
+  productItem.addEventListener("click",()=>{
+    window.location.href="/products/detail?id="+data.prod_id;
+  })
+
   // Create the product image container div
   let productImage = document.createElement("div");
   productImage.classList.add("product__image");
