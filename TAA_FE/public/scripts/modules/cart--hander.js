@@ -2,7 +2,8 @@ const addToCart = () => {
   const checkAuthenticated = authCtl.checkAuthenticated();
   // console.log(checkAuthenticated)
   if (checkAuthenticated) {
-    const modalActived = document.querySelector('.modal-product.active')
+    // const modalActived = document.querySelector('.modal-product.active')
+    const modalActived = document.querySelector('.modal-product.active');
     const productID = modalActived.querySelector('[data-prod-id]').dataset.prodId;
 
     // console.log(productID);
