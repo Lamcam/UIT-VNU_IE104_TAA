@@ -182,6 +182,72 @@ checkEmpty = (obj)=>{
 }
 
 
+const addBank = () => {
+  const name = document.getElementById("f_add_bank_per_name").value.trim();
+  const phone = document.getElementById("f_add_bank_cmnd").value.trim();
+  const address = document
+    .getElementById("f_add_bank_name")
+    .value.trim();
+  const detail = document.getElementById("f_add_bank_num").value.trim();
+  const id = cookieHder.readCookie("id");
+
+  const data = {
+    name,
+    phone,
+    address,
+    detail,
+    id,
+  };
+
+  if(!checkEmpty(data)) return ;
+  modalCtl.nextModal('#modal--noti');
+
+
+
+  let bankItem = `
+    <div class="bank-item mt-12">
+      <div class="bank-item__wrapper body-medium">
+        <div class="row">
+          <span>STK: </span><span>*********1230</span>
+        </div>
+        <div class="row">
+          <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
+        </div>
+        <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
+          <span class=" status-layer icon material-symbols-outlined">
+            delete</span>
+        </button>
+      </div>
+    </div>`;
+  $(".bank-list").prepend(bankItem);
+  const hideInfoBank = document.querySelector('.noti-bank');
+  hideInfoBank.style.display = "none";
+}
+
+
+
+// const addBank = () => {
+//   let bankItem = `
+//     <div class="bank-item mt-12">
+//       <div class="bank-item__wrapper body-medium">
+//         <div class="row">
+//           <span>STK: </span><span>*********1230</span>
+//         </div>
+//         <div class="row">
+//           <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
+//         </div>
+//         <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
+//           <span class=" status-layer icon material-symbols-outlined">
+//             delete</span>
+//         </button>
+//       </div>
+//     </div>`;
+//   $(".bank-list").prepend(bankItem);
+//   const hideInfoBank = document.querySelector('.noti-bank');
+//   hideInfoBank.style.display = "none";
+// };
+
+
 
 // const accountHder = {
 //   addLocation

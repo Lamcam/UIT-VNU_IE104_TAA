@@ -2,6 +2,8 @@ var items = document.querySelectorAll(".js-item");
 var sub_menu = document.querySelectorAll(".js-sub-menu");
 var buttons = document.querySelectorAll(".js-button");
 
+
+
 sub_menu.forEach((item) => {
   item.addEventListener("click", (e) => {
     e.stopPropagation();
@@ -699,3 +701,12 @@ costZA.addEventListener("click", function () {
   //     });
   window.location.href = "/products" + href;
 });
+
+
+const reloadProducts = () => {
+  $(document).on('click','.aside__item.title_aside_item',function(){
+    window.location.href='http://localhost:3000/products';
+  })
+}
+
+reloadProducts();

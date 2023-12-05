@@ -121,26 +121,26 @@ document
 
 // Bank
 
-const addBank = () => {
-  let bankItem = `
-    <div class="bank-item mt-12">
-      <div class="bank-item__wrapper body-medium">
-        <div class="row">
-          <span>STK: </span><span>*********1230</span>
-        </div>
-        <div class="row">
-          <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
-        </div>
-        <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
-          <span class=" status-layer icon material-symbols-outlined">
-            delete</span>
-        </button>
-      </div>
-    </div>`;
-  $(".bank-list").prepend(bankItem);
-  const hideInfoBank = document.querySelector('.noti-bank');
-  hideInfoBank.style.display = "none";
-};
+// const addBank = () => {
+//   let bankItem = `
+//     <div class="bank-item mt-12">
+//       <div class="bank-item__wrapper body-medium">
+//         <div class="row">
+//           <span>STK: </span><span>*********1230</span>
+//         </div>
+//         <div class="row">
+//           <span class="mt-12 row__name-bank">Ngân hàng ACB</span>
+//         </div>
+//         <button class="bank-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-bank')">
+//           <span class=" status-layer icon material-symbols-outlined">
+//             delete</span>
+//         </button>
+//       </div>
+//     </div>`;
+//   $(".bank-list").prepend(bankItem);
+//   const hideInfoBank = document.querySelector('.noti-bank');
+//   hideInfoBank.style.display = "none";
+// };
 
 const delBank = () => {
   $(".bank-list")[0].children[0].remove();
