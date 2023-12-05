@@ -1,0 +1,22 @@
+<div class="row__flex mt-12 body-medium visible location-order" data-loca-id='<%= data.loca_id %>'>
+  <div>
+    <p class="location-order__pers-name"><%- data.loca_pers_name %></p>
+    <div class="mt-8">
+      <span>SĐT: </span>
+      <span class="location-order__phone"><%- data.loca_pers_phone %></span><br>
+    </div>
+    <p class="location-order__address mt-8"><%- `${data.loca_detail}, ${data.loca_address}` %>
+    </p>
+  </div>
+  <div>
+    <span>
+      <%- include('./radio', {
+        id: `location-${data.loca_id}`,
+        classList: '',
+        name: 'location__order',
+        value: data.loca_id,
+        checked: data.loca_default_id == data.loca_id,
+      }) %>
+    </span>
+  </div>
+</div>

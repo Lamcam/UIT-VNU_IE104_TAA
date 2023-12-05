@@ -7,12 +7,31 @@
       iconData: 'close',
       onclick: 'modalCtl.closeModal()',
     }) %>
-    <h1 class="modal__title headline-large">Xóa sản phẩm ra khỏi giỏ</h1>
-    <h2 class="modal__subtitle title-medium mt-12">Bạn có chắc chắn sẽ xóa sản
-      phảm này ra khỏi giỏ hàng của mình không?</h2>
-    <p class="modal__context body-small mt-12">Thao tác này không thể hoàn lại
-    </p>
-    <div class="btn__wrapper row mt-12">
+    <h1 class="modal__title headline-large">Thay đổi địa chỉ nhận hàng</h1>
+    <h2 class="modal__subtitle title-medium mt-12">Bạn có thể thay đổi địa chỉ
+      nhận hàng tại đây
+    </h2>
+    <div class="location__wrapper">
+      <% data.locas.forEach(loca => { %>
+        <%- include('../../../components/location__order', {
+          data: {
+            loca_default_id: data.loca_default_id,
+            ...loca
+          }
+        }) %>
+      <% }) %>
+    </div>
+    <div class="row mt-12">
+      <%- include('../../../components/button', {
+        type: 'btn-icon-label',
+        options: 'btn--filled-con',
+        classList: 'location-list__btn--add col-12',
+        iconData: 'add',
+        label: 'Thêm địa chỉ mới',
+        onclick: 'modalCtl.nextModal("#modal--add-location")',
+      }) %>
+    </div>
+    <div class="btn__wrapper row mt-36">
       <%- include('../../../components/button', {
         type: '',
         options: 'btn--outlined',
@@ -27,7 +46,6 @@
         label: 'Đồng ý',
         onclick: 'order',
       }) %>
-      </form>
     </div>
   </div>
 </div>
