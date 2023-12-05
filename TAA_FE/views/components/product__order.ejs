@@ -7,10 +7,10 @@ for (let i = 0; i < data.length; i++) {
       <p><%= data[i].prod_name %></p>
       <div class="quanity_price">
         <p>SL: <%= data[i].quantity %> cái</p>
-        <span class="price__wrapper">
+        <div class="price__wrapper">
           <p class="cost_value--after"><%= data[i].prod_cost * data[i].quantity * (1 - data[i].prod_discount) %></p>
           <p class="cost_value--before label-small error-text"><%= data[i].prod_cost * data[i].quantity %></p>
-        </span>
+        </div>
       </div>
     </div>
   </div>
