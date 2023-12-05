@@ -128,21 +128,12 @@
   <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/account/cart.js"></script>
   <script>
-    // const input = document.querySelectorAll('.item--quantity')
-    // input.forEach(element => {
-    //   element.addEventListener("change",(e)=>{
-    //     if (element.value > element.max ){
-    //       element.value = element.max;
-    //     }
-    //   })
-    // })
     function validateInput(input) {
     const minValue = parseFloat(input.min);
     const maxValue = parseFloat(input.max);
     const stepValue = parseFloat(input.step);
 
     let value = parseFloat(input.value);
-
     // Check if the value is less than the minimum
     if (value < minValue) {
         value = minValue;
@@ -152,10 +143,8 @@
     if (value > maxValue) {
         value = maxValue;
     }
-
     // Round the value to the nearest step
     value = Math.round((value - minValue) / stepValue) * stepValue + minValue;
-
     // Set the validated value back to the input
     input.value = value;
 }

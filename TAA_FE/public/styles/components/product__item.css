@@ -390,7 +390,9 @@ input::-webkit-inner-spin-button {
 .modal__context {
   display: flex;
   flex-direction: column;
-  text-align: justify;
+  /* text-align: justify; old */ 
+  /* text-align: center; */
+  /* new */
 }
 
 .modal__context .context__info__body {
