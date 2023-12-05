@@ -13,6 +13,10 @@ const addLocation = () => {
     detail,
     id,
   };
+
+  if(!checkEmpty(data)) return ;
+  modalCtl.nextModal('#modal--noti') // continue
+
   fetch("/account/information/addLocal", {
     method: "POST",
     headers: {
@@ -164,6 +168,20 @@ const isPhoneValid = (phone) => {
   // Test if the provided phone number matches the regular expression:
   return phone.length > 8 && re.test(phone);
 };
+
+checkEmpty = (obj)=>{
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key) && obj[key] === null || obj[key] === '' ) {
+        alert('Hãy điền hết tất cả các trường');
+        return false;
+      }
+    }
+    
+
+    return true;
+}
+
+
 
 // const accountHder = {
 //   addLocation
