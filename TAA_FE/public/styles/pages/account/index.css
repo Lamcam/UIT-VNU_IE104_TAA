@@ -532,6 +532,9 @@ span {
   width: 97%;
   margin: 0 auto;
 }
+.modal__context {
+  text-align: center;
+}
 
 .modal-review {
   margin: 50px auto;
