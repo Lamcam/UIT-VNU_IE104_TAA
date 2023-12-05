@@ -117,6 +117,12 @@ product.getDetail = (req, res) => {
   const id = req.query.id;
   models.product.getDetailProduct({ id }, (err, result) => {
     if (err) throw err;
+
+    if (result.length == 0) {
+      res.status(404).render("pages/site/404");
+      return;
+    }
+
     res.status(200).render("pages/products/detail", {
       data: index.groupProducts(result),
     });

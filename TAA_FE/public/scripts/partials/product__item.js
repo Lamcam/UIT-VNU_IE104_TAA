@@ -8,14 +8,19 @@ const productItemInteract = () => {
     })
 
     const btnView = item.querySelector('.product__button__view');
+    const btnOrder = item.querySelector('.product__button__sell');
     const modalProduct = item.querySelector('.modal-product');
 
     btnView.addEventListener('click', () => {
       productItemModalOpen(modalProduct);
     })
 
+    btnOrder.addEventListener('click', (event) => {
+      cartCtl.orderNow(event);
+    })
+
     productItemModalSlideImage(modalProduct);
-    productItemModalInputNumber(modalProduct)
+    productItemModalInputNumber(modalProduct);
   })
 }
 
