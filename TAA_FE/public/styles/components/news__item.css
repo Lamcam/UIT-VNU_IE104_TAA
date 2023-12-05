@@ -20,6 +20,10 @@
   }
 }
 
+.news__item:hover {
+  cursor: pointer;
+}
+
 .article__title {
   font-weight: bold;
   letter-spacing: 0.15px;
@@ -28,7 +32,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-a.article__title{
+a.article__title {
   text-decoration: none;
 }
 
