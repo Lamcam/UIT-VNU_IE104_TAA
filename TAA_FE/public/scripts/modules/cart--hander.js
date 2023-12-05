@@ -4,7 +4,7 @@ const addToCart = () => {
   if (checkAuthenticated) {
     // const modalActived = document.querySelector('.modal-product.active')
     const modalActived = document.querySelector('.modal-product.active');
-    const productID = modalActived.querySelector('[data-prod-id]').dataset.prodId;
+    const productID = modalActived?.querySelector('[data-prod-id]').dataset.prodId ?? document.querySelector('input[type="hidden"][name="prod-id"]').value;
 
     // console.log(productID);
 

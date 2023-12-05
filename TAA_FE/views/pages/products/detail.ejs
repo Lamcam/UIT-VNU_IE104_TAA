@@ -165,6 +165,7 @@
                 <p class="quantity__stock body-small"><%=data[0].prod_num_avai%> sản phẩm sẵn có</p>
               </div>
               <div class="info__product__button">
+                <input type="hidden" name='prod-id' value='<%= data[0].prod_id %>'>
                 <%- include('../../components/button', {
                   type: 'btn-icon-label',
                   options: '',

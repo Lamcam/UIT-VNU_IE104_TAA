@@ -123,8 +123,10 @@ product.getDetail = (req, res) => {
       return;
     }
 
+    const data = index.groupProducts(result);
+
     res.status(200).render("pages/products/detail", {
-      data: index.groupProducts(result),
+      data,
     });
   });
 };
