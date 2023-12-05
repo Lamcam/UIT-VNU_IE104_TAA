@@ -1,4 +1,4 @@
-<div id="modal--forgot-by-phone" class="modal">
+<div id="modal--forgot-by-email" class="modal">
   <div class="modal__content on-primary not-min-height">
     <%- include('../components/button', {
       type: 'btn-icon',
@@ -15,12 +15,12 @@
       iconData: 'close',
     }) %>
     <h1 class="modal__title headline-large">Quên mật khẩu</h1>
-    <form action="/forgotPhone" method="POST">
+    <form action="/forgotEmail" method="POST">
       <div class="form__row mt-24">
         <div class="row">
-          <label class="col-4 label-large" for="f_forgot_phone">
-            Số điện thoại:</label>
-          <input class="col-8" type="text" name="phone" id="f_forgot_phone" required>
+          <label class="col-4 label-large" for="f_forgot_email">
+            Email:</label>
+          <input class="col-8" type="text" name="phone" id="f_forgot_email" required>
         </div>
       </div>
       <%- include('../components/button', {

@@ -29,6 +29,10 @@
 
   border-radius: 1rem;
 
+  &.not-min-height {
+    min-height: auto;
+  }
+
   &.have-bottom {
     padding-bottom: 10rem;
   }

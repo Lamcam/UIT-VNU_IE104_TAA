@@ -1,5 +1,5 @@
 <div id="modal--forgot-method" class="modal">
-  <div class="modal__content on-primary">
+  <div class="modal__content on-primary not-min-height">
     <%- include('../components/button', {
       type: 'btn-icon',
       options: '',
@@ -20,7 +20,7 @@
         type: 'btn-icon-label',
         options: 'btn--outlined',
         classList: 'col-6 col-sm-12',
-        onclick: '',
+        onclick: 'modalCtl.nextModal("#modal--forgot-by-email")',
         iconData: 'account_circle',
         label: 'Email',
       }) %>
