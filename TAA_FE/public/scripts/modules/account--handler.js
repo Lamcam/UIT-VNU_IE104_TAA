@@ -1,7 +1,9 @@
 const addLocation = () => {
   const name = document.getElementById("f_add_location_per_name").value.trim();
   const phone = document.getElementById("f_add_location_phone").value.trim();
-  const address = document.getElementById("f_add_location_address").value.trim();
+  const address = document
+    .getElementById("f_add_location_address")
+    .value.trim();
   const detail = document.getElementById("f_add_location_detail").value.trim();
   const id = cookieHder.readCookie("id");
   const data = {
@@ -10,24 +12,31 @@ const addLocation = () => {
     address,
     detail,
     id,
-  }
-  fetch('/account/information/addLocal', {
-    method: 'POST',
+  };
+
+  if(!checkEmpty(data)) return ;
+  modalCtl.nextModal('#modal--noti') // continue
+
+  fetch("/account/information/addLocal", {
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(data),
-  }).then(res => res.json())
+  })
+    .then((res) => res.json())
     .then((data) => {
       console.log("this is", data);
       changeContent(data);
-    }).then().catch(error => {
-      console.log(error);
     })
+    .then()
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 const changeContent = (data) => {
-  let a = `
+  let order_loca = `
     <div class="row mt-12 body-medium location-item active" data-loca-id='${data.id}'>
       <div class="col-7">
         <p class="location-item__pers-name">${data.name}</p>
@@ -53,36 +62,91 @@ const changeContent = (data) => {
     </div>
   `;
 
-//   <div class="col-7">
-//   <p class="location-item__pers-name">${data.name}</p>
-//   <div class="mt-8">
-//     <span>SĐT: </span>
-//     <span class="location-item__phone">${data.phone}</span><br>
-//   </div>
-//   <p class="location-item__address mt-8"> ${data.detail}, ${data.address} 
-//   </p>
-// </div>
-// <div class="col-5 location-item--right default-and-btn">
-//   <span>
-//   <button type='button' class="btn-icon-label btn--filled" onclick="modalCtl.openModal("#modal--change-address")">
-//     <span class="status-layer">
-//         <span class="icon icon--filled material-symbols-outlined">
-//               edit</span>
-//         <span class="label">Thay đổi địa chỉ</span>
-//     </span>
-//   </button>
-//   </span>
-//     <span class="headline-small primary-text">Mặc định</span>
-//   </div>
-// </div>
-  $('.location__wrapper').empty()
-  console.log(typeof (a));
-  a = a.split('`');
-  a = a.join('');
-  modalCtl.closeModal();
-  // $('#modal--add-location').removeClass('active');
-  $('.location__wrapper').append(a);
-}
+  let info_loca = `<div class="location-item mt-12">
+  <div class="location-item__wrapper body-medium">
+    <div class="row">
+      <span>${data.name}</span>
+    </div>
+    <div class="row mt-16">
+      <span>SDT: </span><span>*******${data.phone.slice(-3)}</span>
+    </div>
+    <div class="row mt-16">
+      <span>${data.address + ', ' +data.detail}</span>
+    </div>
+    <div class="location-btns__wrapper">
+      <button class="location-item__btn--del btn-icon" onclick="modalCtl.openModal('#modal--del-location')">
+        <span class="status-layer icon material-symbols-outlined">
+          delete</span>
+      </button>
+      <button class="location-item__btn--default btn--outlined" onclick="">
+        <span class="status-layer unfilled-default location-btn">Thiết lập mặc định</span>
+      </button>
+      <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
+        <span class="status-layer full-edit icon material-symbols-outlined">
+          edit</span>
+        <span class="status-layer full-edit label">Sửa</span>
+      </button>
+    </div>
+  </div>
+</div>`
+
+  //   <div class="col-7">
+  //   <p class="location-item__pers-name">${data.name}</p>
+  //   <div class="mt-8">
+  //     <span>SĐT: </span>
+  //     <span class="location-item__phone">${data.phone}</span><br>
+  //   </div>
+  //   <p class="location-item__address mt-8"> ${data.detail}, ${data.address}
+  //   </p>
+  // </div>
+  // <div class="col-5 location-item--right default-and-btn">
+  //   <span>
+  //   <button type='button' class="btn-icon-label btn--filled" onclick="modalCtl.openModal("#modal--change-address")">
+  //     <span class="status-layer">
+  //         <span class="icon icon--filled material-symbols-outlined">
+  //               edit</span>
+  //         <span class="label">Thay đổi địa chỉ</span>
+  //     </span>
+  //   </button>
+  //   </span>
+  //     <span class="headline-small primary-text">Mặc định</span>
+  //   </div>
+  // </div>
+  console.log("preset at ", window.location.href);
+  const currentLocal = window.location.href;
+  const spanContentDefault = '<span class="status-layer unfilled-default location-btn">Mặc định</span>'
+  const spanContent = '<span class="status-layer filled-default location-btn">Thiết lập mặc định</span>'
+  if (currentLocal == "http://127.0.0.1:3000/account/order" || currentLocal == 'http://localhost:3000/account/order' ) {
+    console.log("this is orderPage");
+    $(".location__wrapper").empty();
+    order_loca = order_loca.split("`");
+    order_loca = order_loca.join("");
+    modalCtl.closeModal();
+    // $('#modal--add-location').removeClass('active');
+    $(".location__wrapper").append(order_loca);
+  }
+  else if (currentLocal == 'http://127.0.0.1:3000/account/information' || currentLocal == 'http://localhost:3000/account/information' ) {
+    console.log('This is account PAge');
+    info_loca = info_loca.split("`");
+    info_loca = info_loca.join("");
+    $('.location-list').append(info_loca);
+
+    $(document).on('click','.location-item__btn--default',function(){
+      let status = $(this).text().trim();
+      console.log("this is status",status);
+      if (status == 'Thiết lập mặc định') {
+        $('.location-item__btn--default').html(spanContent);
+        $(this).html(spanContentDefault);
+      }
+      else{
+        console.log("else");
+      }
+    })
+   
+
+
+  }
+};
 
 const isPhoneValid = (phone) => {
   /*
@@ -104,6 +168,20 @@ const isPhoneValid = (phone) => {
   // Test if the provided phone number matches the regular expression:
   return phone.length > 8 && re.test(phone);
 };
+
+checkEmpty = (obj)=>{
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key) && obj[key] === null || obj[key] === '' ) {
+        alert('Hãy điền hết tất cả các trường');
+        return false;
+      }
+    }
+    
+
+    return true;
+}
+
+
 
 // const accountHder = {
 //   addLocation

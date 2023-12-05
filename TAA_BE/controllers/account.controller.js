@@ -99,7 +99,7 @@ account.orders = (req, res) => {
 
 account.favorProducts = (req, res) => {
   getInformation(2, req, res);
-};
+}
 
 account.addFavorProducts = (req, res) => {
   const { id } = req.cookies;
