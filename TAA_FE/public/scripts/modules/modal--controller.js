@@ -12,13 +12,12 @@ const openModal = (sltById) => {
   document.querySelector('body').classList.add('modal-open');
   modalSelector.classList.add("active");
 }
-
 /**
  * Closes all open modals.
  */
 const closeModal = () => {
   document.querySelector('body').classList.remove('modal-open');
-
+  
   const modals = document.querySelectorAll(".modal");
   modals?.forEach(modal => modal.classList.remove("active"))
 }
