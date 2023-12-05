@@ -437,7 +437,7 @@ label {
     & .password__btn {
       position: absolute;
       top: 50%;
-      right: 1rem;
+      right: .5rem;
       transform: translateY(-50%);
       color: var(--md-sys-color-primary);
       font-size: 1.5rem;
