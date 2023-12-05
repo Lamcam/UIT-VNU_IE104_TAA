@@ -88,7 +88,7 @@ const delCartItem = () => {
   prod_id = cookieHder.readCookie('prod_id--delete');
 
   if (!prod_id) {
-    console.log('prodId not found in cookie');
+    console.log('prod_id not found in cookie');
     return;
   }
 
@@ -98,7 +98,7 @@ const delCartItem = () => {
     prod_id
   };
 
-  fetch('/account/cart/delete', {
+  fetch('/account/cart/del', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ const delCartItem = () => {
     })
     .catch(err => console.error(err));
 
-  $('.cart__item[data-prod-id="' + prodId + '"]').remove();
+  $('.cart__item[data-prod-id="' + prod_id + '"]').remove();
   document.dispatchEvent(new Event('change'));
 }
 

@@ -1,4 +1,4 @@
--- Active: 1700882674724@@127.0.0.1@3306@database_ie104
+-- Active: 1700979201863@@127.0.0.1@3306@database_ie104
 DROP DATABASE IF EXISTS `database_ie104`;
 
 CREATE DATABASE IF NOT EXISTS `database_ie104` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
@@ -153,6 +153,7 @@ ALTER TABLE `categorytypes`
 -- Indexes for table `favorproducts`
 --
 ALTER TABLE `favorproducts`
+  ADD PRIMARY KEY (`user_id`,`prod_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `prod_id` (`prod_id`);
 
