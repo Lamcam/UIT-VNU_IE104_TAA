@@ -5,17 +5,25 @@ const productItemInteract = () => {
     const iconHeart = item.querySelector('.icon_heart');
     iconHeart.addEventListener('click', (event) => {
       productItemHeartInteract(event);
+      event.stopPropagation();
     })
 
     const btnView = item.querySelector('.product__button__view');
+    const btnOrder = item.querySelector('.product__button__sell');
     const modalProduct = item.querySelector('.modal-product');
 
-    btnView.addEventListener('click', () => {
+    btnView.addEventListener('click', (event) => {
       productItemModalOpen(modalProduct);
+      event.stopPropagation();
+    })
+
+    btnOrder.addEventListener('click', (event) => {
+      cartCtl.orderNow(event);
+      event.stopPropagation();
     })
 
     productItemModalSlideImage(modalProduct);
-    productItemModalInputNumber(modalProduct)
+    productItemModalInputNumber(modalProduct);
   })
 }
 
@@ -183,3 +191,8 @@ const productItemModalInputNumber = (DOMModal) => {
 
 document.addEventListener('DOMContentLoaded', productItemInteract);
 document.addEventListener('ReloadProducts', productItemInteract);
+
+function moveDetailProduct(dataId) {
+  console.log(dataId)
+  window.location.href = `/products/detail?id=${dataId}`;
+}
