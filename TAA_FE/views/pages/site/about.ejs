@@ -18,6 +18,7 @@
 <body>
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 3 }) %>
+    <%- include('../../partials/on-top-btn') %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
@@ -42,7 +43,7 @@
         </section>
       </div>
 
-      <div class="mt-12">
+      <div class="mt-48">
         <img class="picture1" src="/imgs/banners/about__large.png" alt="Về chúng tôi">
       </div>
 
@@ -78,7 +79,7 @@
               <p class="section__title display-large">LIÊN HỆ</p>
             </div>
             <div class="contact col-6 col-sm-12">
-              <ul class="contact__list ">
+              <ul class="contact__list">
                 <li class="body-large">Instagram: <a href="https://daa.uit.edu.vn/"> TAA_Shop</a></li>
                 <li class="body-large">Shopee: <a href="https://daa.uit.edu.vn/"> TAA_Shop - Three Accessories Appreciate</a></li>
                 <li class="body-large">Facebook: <a href="https://daa.uit.edu.vn/"> TAA</a></li>
@@ -98,7 +99,6 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/products/index.js"></script>
-  <script src="/scripts/partials/modal__product-details--controller.js"></script>
 </body>
 
 </html>

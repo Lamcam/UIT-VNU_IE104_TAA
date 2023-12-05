@@ -115,7 +115,6 @@ accountModel.delFavorProducts = ({ id, prod_id }, callback) => {
   db.query(sql, params, (err, result) => {
     callback(err, result)
   })
-
 }
 
 accountModel.getCart = ({ id }, callback) => {
@@ -132,13 +131,13 @@ accountModel.getCart = ({ id }, callback) => {
   });
 };
 
-accountModel.addCart = ({ id, prodId }, callback) => {
+accountModel.addCart = ({ id, prod_id }, callback) => {
   const sql = `
     INSERT INTO CART (user_id, prod_id)
     VALUES (?, ?);
   `;
 
-  const params = [id, prodId];
+  const params = [id, prod_id];
 
   db.query(sql, params, (err, result) => {
     callback(err, result);

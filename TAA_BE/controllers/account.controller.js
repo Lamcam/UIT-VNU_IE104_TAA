@@ -3,7 +3,7 @@ const models = require("../models");
 const cookieParser = require("cookie-parser");
 const index = require("./index");
 
-function account() {}
+function account() { }
 
 const getInformation = (flags, req, res) => {
   const { id } = req.cookies;
@@ -77,9 +77,7 @@ const getInformation = (flags, req, res) => {
 
             data.favorProducts = index.groupProducts(result);
 
-            // console.log(data.favorProducts)
-
-            res.status(200).render('pages/account/index', {
+            res.status(200).render("pages/account/index", {
               // res.status(200).json({
               flags,
               data,
@@ -123,6 +121,7 @@ account.addFavorProducts = (req, res) => {
           error: 'Internal Server Error',
           msg: 'An error occurred while adding the product to the favorites.'
         });
+        throw err;
       }
     } else {
       res.json({
@@ -170,9 +169,9 @@ account.cart = (req, res) => {
 
 account.addCart = (req, res) => {
   const { id } = req.cookies;
-  const { prodId } = req.body;
+  const { prod_id } = req.body;
 
-  models.account.addCart({ id, prodId }, (err, result) => {
+  models.account.addCart({ id, prod_id }, (err, result) => {
     if (err) {
       if (err.code === "ER_DUP_ENTRY") {
         // Handle duplicate entry error
@@ -188,6 +187,7 @@ account.addCart = (req, res) => {
           error: "Internal Server Error",
           message: "An error occurred while adding the product to the cart.",
         });
+        throw err;
       }
     } else {
       res.json({
@@ -214,8 +214,8 @@ account.delCart = (req, res) => {
 
 account.order = (req, res) => {
   const { id } = req.cookies;
-  const prod_ids = req.cookies["prod_ids--order"]?.split(",");
-  const quantities = req.cookies["prod_quantities--order"]?.split(",");
+  const prod_ids = req.cookies["prod_ids--order"]?.split(",") ?? ['prod0001'];
+  const quantities = req.cookies["prod_quantities--order"]?.split(",") ?? [1];
 
   const data = {};
 
@@ -294,7 +294,7 @@ account.addLocal = (req, res) => {
         // statusCode: 200,
         // msg: 'success',
         name, phone, address, detail
-        
+
       });
     }
   );

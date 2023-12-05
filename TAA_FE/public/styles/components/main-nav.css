@@ -42,6 +42,7 @@
 
     & .main-nav__dropdown {
       display: flex;
+      align-items: flex-start;
       flex-direction: column;
       background: white !important;
       height: auto;
@@ -55,6 +56,14 @@
     top: 100%;
     left: 0;
     z-index: 50;
+
+    & .main-nav__item{
+      width:100%;
+    }
+
+    & .main-nav__item a{
+      width:100%;
+    }
   }
 
   &.active {
@@ -73,7 +82,7 @@
   text-decoration: none !important;
 }
 
-@media only screen and (max-width: 64rem) {
+@media only screen and (max-width: 768px) {
   .main-nav__dropdown {
     width: 100%;
 
@@ -85,7 +94,7 @@
   }
 }
 
-@media only screen and (max-width: 64rem) {
+@media only screen and (max-width: 768px) {
   #main-nav__ctl {
     &:checked~ul {
       background-color: white;

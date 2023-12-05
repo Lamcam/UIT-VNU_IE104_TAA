@@ -1,5 +1,5 @@
-<div class="row mt-12 body-medium location-item <%= data.loca_default_id == data.loca_id ? '' : 'active' %>" data-loco-id='<%= data.loca_id %>'>
-  <div class="col-6">
+<div class="row mt-12 body-medium location-item <%= data.loca_default_id == data.loca_id ? '' : 'active' %>" data-loca-id='<%= data.loca_id %>'>
+  <div class="col-7">
     <p class="location-item__pers-name"><%- data.loca_pers_name %></p>
     <div class="mt-8">
       <span>SĐT: </span>
@@ -8,7 +8,7 @@
     <p class="location-item__address mt-8"><%- `${data.loca_detail}, ${data.loca_address}` %>
     </p>
   </div>
-  <div class="col-6 location-item--right">
+  <div class="col-5 location-item--right">
     <span>
       <%- include('./button', {
         type: 'btn-icon-label',

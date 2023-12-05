@@ -3,7 +3,7 @@ const bcrypt = require("bcrypt");
 const cookieParser = require('cookie-parser');
 const sanitizeHtml = require("sanitize-html");
 
-const exceptTime = 1000 * 60 * 60 * 24 * 1; // A day
+const exceptTime = 120 * 60 * 1000; // 120 minutes
 const saltRounds = 10;
 
 function auth() { }
@@ -63,7 +63,7 @@ auth.loginPost = (req, res) => {
         statusCode: 500,
         msg: 'Internal server error'
       })
-      return;
+      throw err;
     }
 
     if (result.length == 0) {
@@ -74,18 +74,20 @@ auth.loginPost = (req, res) => {
       return;
     }
 
+    // console.log("result: ", result);
+
     bcrypt.compare(pass, result[0].user_pass, (err, isMatch) => {
       if (err) {
         res.status(500).json({
           statusCode: 500,
           msg: 'Internal server error'
         })
-        return;
+        throw err;
       }
 
-      console.log("pass", pass);
-      console.log("user_pass", result[0].user_pass);
-      console.log("isMatch: ", isMatch);
+      // console.log("pass", pass);
+      // console.log("user_pass", result[0].user_pass);
+      // console.log("isMatch: ", isMatch);
 
       if (!isMatch) {
         res.status(401).json({
@@ -97,8 +99,10 @@ auth.loginPost = (req, res) => {
 
       res.cookie('authenticated', 'true', { maxAge: exceptTime });
       res.cookie('id', result[0].user_id, { maxAge: exceptTime });
+      // console.log(result[0].user_id);
       res.cookie('name', result[0].user_name, { maxAge: exceptTime });
       res.cookie('avatar', result[0].user_avatar, { maxAge: exceptTime });
+      res.cookie('cart_length', result[0].count_cart, { maxAge: exceptTime })
       res.status(200).json({
         statusCode: 200,
         msg: 'Login success',
@@ -110,6 +114,7 @@ auth.loginPost = (req, res) => {
 auth.logout = (req, res) => {
   res.clearCookie('authenticated');
   res.clearCookie('id');
+  res.clearCookie('cart_length');
   res.clearCookie('name');
   res.clearCookie('avatar');
   res.status(200).json({

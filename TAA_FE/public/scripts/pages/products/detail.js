@@ -45,21 +45,42 @@ function changeImage(direction) {
   slideImage();
 }
 
-const myInput = document.getElementById("my-input");
-function stepper(btn) {
-  let id = btn.getAttribute("id")
-  let min = myInput.getAttribute("min")
-  let max = myInput.getAttribute("max")
-  let step = myInput.getAttribute("step")
-  let value = myInput.getAttribute("value")
+const inputElements = document.querySelectorAll('.my-input');
+const decrementButtons = document.querySelectorAll('.quantity__product-decrement');
+const incrementButtons = document.querySelectorAll('.quantity__product-increment');
 
-  let calcStep = (id == "increment") ? (step * 1) : (step * -1);
+// Thêm sự kiện khi nút tăng được nhấn cho mỗi button
+incrementButtons.forEach((button, index) => {
+  button.addEventListener('click', function () {
+    incrementValue(index);
+  });
+});
 
-  let newValue = parseInt(value) + calcStep;
-  if (newValue >= min && newValue <= max) {
-    myInput.setAttribute("value", newValue)
+// Thêm sự kiện khi nút giảm được nhấn cho mỗi button
+decrementButtons.forEach((button, index) => {
+  button.addEventListener('click', function () {
+    decrementValue(index);
+  });
+});
+
+// Hàm tăng giá trị
+function incrementValue(index) {
+  let currentValue = parseInt(inputElements[index].value);
+  let maxValue = parseInt(inputElements[index].max);
+
+  if (currentValue < maxValue) {
+    inputElements[index].value = currentValue + 1;
   }
-  console.log(id, min, max, step, value)
+}
+
+// Hàm giảm giá trị
+function decrementValue(index) {
+  let currentValue = parseInt(inputElements[index].value);
+  let minValue = parseInt(inputElements[index].min);
+
+  if (currentValue > minValue) {
+    inputElements[index].value = currentValue - 1;
+  }
 }
 
 // // modalNoti open

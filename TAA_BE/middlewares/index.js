@@ -25,6 +25,17 @@ const authorize = (req, res, next) => {
   }
 };
 
+// const checkOrder = (req, res, next) => {
+//   // const prod_id__orders = req.cookies;
+
+//   if (cart_length == 0) {
+//     res.redirect('/');
+//     return;
+//   }
+
+//   next();
+// };
+
 module.exports = {
   authenticate,
   authorize,

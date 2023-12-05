@@ -18,6 +18,7 @@
 <body>
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 0 }) %>
+    <%- include('../../partials/on-top-btn') %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
@@ -32,23 +33,25 @@
           <div class="row">
             <section class="visible col-12">
               <h2 class="headline-small">Thông tin nhận hàng</h2>
-              <% if (data.locas.length > 0) { %>
-              <% for (let i = 0; i < data.locas.length; i++) { %>
-              <%- include('../../components/location__item', { data: {
-                loca_default_id: data.loca_default_id,
-                ...data.locas[i]}}) %>
-              <% }
-              } else { %>
-              <div class="local_info">
-                <p class="body-large">Bạn chưa có địa chỉ nào</p>
-                <%- include('../../components/button', {
-                type: 'btn-icon-label',
-                options: 'btn--filled',
-                classList: '',
-                iconData: 'add',
-                label: 'Thêm địa chỉ mới',
-                onclick: 'modalCtl.openModal("#modal--add-location")',
-              }) %>
+              <div class="location__wrapper">
+                <% if (data.locas.length > 0) { %>
+                <% for (let i = 0; i < data.locas.length; i++) { %>
+                <%- include('../../components/location__item', { data: {
+                  loca_default_id: data.loca_default_id,
+                  ...data.locas[i]}}) %>
+                <% }
+                } else { %>
+                <div class="local_info">
+                  <p class="body-large">Bạn chưa có địa chỉ nào</p>
+                  <%- include('../../components/button', {
+                    type: 'btn-icon-label',
+                    options: 'btn--filled',
+                    classList: '',
+                    iconData: 'add',
+                    label: 'Thêm địa chỉ mới',
+                    onclick: 'modalCtl.openModal("#modal--add-location")',
+                  }) %>
+                </div>
                 <% } %>
               </div>
             </section>
@@ -144,13 +147,9 @@
               <span class="detail__context">(Đã bao gồm phí VAT)</span>
             </div>
             <div class="row__flex end">
-              <%- include('../../components/button', {
-                type: '',
-                options: 'btn--filled',
-                classList: 'cart__btn--submit',
-                label: 'Tiến hành đặt hàng',
-                onclick: 'orderSubmit()',
-              }) %>
+              <button class="btn--filled order__btn--submit" onclick="orderSubmit()" disabled>
+                <span class="status-layer">Tiến hành đặt hàng</span>
+              </button>
             </div>
           </div>
         </aside>
@@ -163,13 +162,14 @@
     <%- include('../../partials/modal--noti-add-location',{
       id: 1
     })%>
-    
+
   </div>
 
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script type='module'src='/scripts/modules/main.js'></script>
+  <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/account/order.js"></script>
-  <script src="/scripts/modules/account--handler.js" > </script>
- 
+  <script src="/scripts/modules/account--handler.js"> </script>
+
 </body>
+
 </html>

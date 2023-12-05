@@ -8,7 +8,7 @@
     <span class="material-symbols-outlined <%= data.is_favor ? 'icon--filled' : '' %> icon_heart error-text">
       <%- data.is_favor ? "favorite" : "heart_plus" %>
     </span>
-    <h3 class="product__name body-large"><%- data.prod_name %></h3>
+    <h3 class="product__name body-large"><a class="status-layer" href="/products/detail?id=<%=data.prod_id %>"><%- data.prod_name %></a></h3>
     <div class="product__price label-large">
       <p class="cost_value product__price__current"><%- data.prod_cost * (1 - data.prod_discount) %></p>
       <p class="cost_value product__price__discount outline-variant-text"><%- data.prod_cost %></p>
@@ -92,9 +92,9 @@
         <div class="modal__quantity">
           <div class="quantity__title label-large bold">Số lượng: </div>
           <div class="quantity__product outline-text label-large">
-            <div id="decrement" class="quantity__product-decrement outline-text">-</div>
-            <input type="number" min="1" max="<%- data.prod_num_avai %>" step="1" value="1" id="my-input" disabled>
-            <div id="increment" class="quantity__product-increment outline-text">+</div>
+            <div class="quantity__product-decrement outline-text">-</div>
+            <input type="number" min="1" max="<%- data.prod_num_avai %>" step="1" value="1" class="my-input" disabled>
+            <div class="quantity__product-increment outline-text">+</div>
           </div>
           <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
         </div>

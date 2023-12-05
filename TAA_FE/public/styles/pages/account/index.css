@@ -521,7 +521,11 @@ span {
 }
 
 .item__status p {
-  color: rgb(17, 177, 17);
+  color: black;
+}
+
+.item__status .status-green {
+  color: green;
 }
 
 #section2 hr {
@@ -626,7 +630,7 @@ span {
 .star-icon:hover,
 .star-icon.active {
   color: #ffdd55;
-  font-variation-settings: "FILL" 1;
+  font-variation-settings: "FILL"1;
 }
 
 .star-icon-service {
@@ -638,7 +642,7 @@ span {
 .star-icon-service:hover,
 .star-icon-service.active {
   color: #ffdd55;
-  font-variation-settings: "FILL" 1;
+  font-variation-settings: "FILL"1;
 }
 
 .energy-review {
@@ -743,7 +747,15 @@ span.status-layer {
   min-height: unset;
 }
 
-@media only screen and (min-width: calc(48rem + 1px)) and (max-width: 64rem) {
+.picture3 {
+  /* width: 100%;
+  height: 180px; */
+  max-width: 100%;
+  margin-top: 20px;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: calc(576px + 1px)) and (max-width: 768px) {
   main {
     /* & > section {
       padding: 0 1rem;
@@ -836,7 +848,7 @@ span.status-layer {
   }
 }
 
-@media only screen and (max-width: 48rem) {
+@media only screen and (max-width: 576px) {
   /* main {
     &>section {
       padding: 0 1rem;

@@ -19,6 +19,7 @@
 
   <div id="main" class="on-primary">
     <%- include('../../partials/header', { activeIdx: 1 }) %>
+    <%- include('../../partials/on-top-btn') %>
     <%- include('../../partials/breadcrumbs', { 
       data: [
         { label: 'Trang chủ', link: '/' },
@@ -118,7 +119,7 @@
                   </span>
                 </div>
                 <span class="rate__number title-medium">5 đánh giá</span>
-                <span class="number__buy title-medium"><%=data.prod_num_sold%> đã bán</span>
+                <span class="number__buy title-medium"><%=data[0].prod_num_sold%> đã bán</span>
               </div>
 
               <div class="info__product__price">
@@ -161,11 +162,11 @@
               <div class="info__product__quantity">
                 <div class="quantity__title bold label-large">Số lượng: </div>
                 <div class="quantity__product outline-text label-large">
-                  <div id="decrement" class="quantity__product-decrement outline-text" onclick="stepper(this)">-</div>
-                  <input type="number" min="1" max="100" step="1" value="1" id="my-input" disabled>
-                  <div id="increment" class="quantity__product-increment outline-text" onclick="stepper(this)">+</div>
+                  <div class="quantity__product-decrement outline-text">-</div>
+                  <input type="number" min="1" max="100" step="1" value="1" class="my-input" disabled>
+                  <div class="quantity__product-increment outline-text">+</div>
                 </div>
-                <p class="quantity__stock body-small"><%=data.prod_num_avai%> sản phẩm sẵn có</p>
+                <p class="quantity__stock body-small"><%=data[0].prod_num_avai%> sản phẩm sẵn có</p>
               </div>
               <div class="info__product__button">
                 <%- include('../../components/button', {
@@ -350,7 +351,7 @@
                 </div>
                 <div class="rating__item-body">
                   <div class="rate__info">
-                    <div class="rate__name title-large">lamcam2003</div>
+                    <div class="rate__name title-large">thuyduy2003</div>
                     <div class="rate__star title-medium error-text">
                       <span class="material-symbols-outlined icon--filled">
                         star
@@ -408,6 +409,689 @@
             </div>
           </div>
         </div>
+
+        <!-- Sản phẩm được đề xuất -->
+        <div class="container">
+          <section class="suggest-product visible">
+            <h1 class="suggest-product__title headline-large">Các sản phẩm đề xuất</h1>
+            <div class="suggest-products__wrapper row">
+              <div class="product__item col-12 col-md-3 col-lg-3 col-sm-6">
+                <div class="product__image">
+                  <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-2.jfif" alt="Hình sau" class="img_back">
+                  <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-1.jfif" alt="Hình trước" class="img_front">
+                </div>
+                <div class="product__body">
+                  <span class="material-symbols-outlined  icon_heart error-text">
+                    heart_plus
+                  </span>
+                  <h3 class="product__name body-large">Vòng cổ choker đính ngọc trai sành điệu</h3>
+                  <div class="product__price label-large">
+                    <p class="cost_value product__price__current">75000</p>
+                    <p class="cost_value product__price__discount outline-variant-text">100000</p>
+                  </div>
+                  <p class="product__discount title-medium error-text">Giảm 25%</p>
+                  <p class="product__stock label-large primary-text">Còn hàng</p>
+                </div>
+                <div class="product__button__section label-large">
+                  <div class="product__button__view">Xem nhanh</div>
+                  <div class="vertical"></div>
+                  <div class="product__button__sell">
+                    <a href="/account/order">Mua ngay</a>
+                  </div>
+                </div>
+                <div class="modal-product modal">
+                  <div class="modal-container--product modal__content row">
+                    <div class="modal__img row col-12 col-lg-6">
+                      <div class="img-display col-12">
+                        <div class="img-showcase" style="transform: translateX(0px);">
+                          <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-1.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-2.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-3.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-4.jfif" alt="Product img">
+                        </div>
+                      </div>
+                      <div class="img-nav">
+                        <button class="prevBtn">
+                          <span class="material-symbols-outlined arrow-left primary-text">
+                            arrow_back_ios
+                          </span>
+                        </button>
+                        <button class="nextBtn">
+                          <span class="material-symbols-outlined arrow-right primary-text">
+                            arrow_forward_ios
+                          </span>
+                        </button>
+                      </div>
+                      <div class="img-select row col-12">
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="1" class="active__selected">
+                            <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-1.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="2">
+                            <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-2.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="3">
+                            <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-3.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="4">
+                            <img loading="lazy" src="/imgs/products/Vong_co/vong_co_1-4.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                      </div>
+                    </div>
+                    <div class="modal__body col-12 col-lg-6">
+                      <p class="modal__product__name headline-medium">Vòng cổ choker đính ngọc trai sành điệu</p>
+                      <div class="modal__info__rate">
+                        <div class="rate__star title-medium">
+                          4.8
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star_rate_half
+                          </span>
+                        </div>
+                        <span class="rate__number title-medium">5 đánh giá</span>
+                        <span class="number__buy title-medium">5 đã bán</span>
+                      </div>
+                      <div class="modal__price">
+                        <p class="cost_value cost body-medium">100000</p>
+                        <p class="cost_value cost__discount headline-small">75000</p>
+                        <div class="percent__discount body-medium">Giảm 25%</div>
+                      </div>
+                      <div class="modal__size label-large">
+                        <p class="size__title bold">Kích thước:</p>
+                        <div class="size__value outline-text">Freestyle</div>
+                      </div>
+                      <div class="modal__quantity">
+                        <div class="quantity__title label-large bold">Số lượng: </div>
+                        <div class="quantity__product outline-text label-large">
+                          <div class="quantity__product-decrement outline-text">-</div>
+                          <input type="number" min="1" max="5" step="1" value="1" id="my-input" disabled="">
+                          <div class="quantity__product-increment outline-text">+</div>
+                        </div>
+                        <p class="quantity__stock body-small">5 sản phẩm sẵn có</p>
+                      </div>
+                      <div class="modal__button">
+                        <!-- There are not any issue that -->
+  
+                        <button type="button" class="btn-icon-label btn--filled button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart</span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+  
+  
+                        <button class="btn-filled button__view btn--filled" data-prod-id="prod0001">
+                          <a class="status-layer" href="/products/detail?id=prod0001">Xem chi tiết</a>
+                        </button>
+                      </div>
+                      <div class="modal__context body-large">
+                        <div class="context__info mt-12">
+                          <div class="context__info__title">
+                            THÔNG TIN SẢN PHẨM
+                          </div>
+                          <ul class="context__info__body">
+                            <li>Đảm bảo hàng có chất lượng thương hiệu.</li>
+                            <li>Hàng luôn có sẵn ở TAA.</li>
+                            <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+                          </ul>
+                        </div>
+                        <div class="context__detail mt-12">
+                          <div class="context__detail__title">
+                            THÔNG TIN THƯƠNG HIỆU:
+                          </div>
+                          <ul class="context__detail__body">
+                            <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
+                            <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm.</li>
+                            <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- There are not any issue that -->
+  
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+  
+  
+  
+                  </div>
+                </div>
+              </div>
+              <div class="product__item col-12 col-md-3 col-lg-3 col-sm-6">
+                <div class="product__image">
+                  <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-2.jfif" alt="Hình sau" class="img_back">
+                  <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-1.jfif" alt="Hình trước" class="img_front">
+                </div>
+                <div class="product__body">
+                  <span class="material-symbols-outlined  icon_heart error-text">
+                    heart_plus
+                  </span>
+                  <h3 class="product__name body-large">Vòng tay thời tiết - mây và cầu vồng</h3>
+                  <div class="product__price label-large">
+                    <p class="cost_value product__price__current">150000</p>
+                    <p class="cost_value product__price__discount outline-variant-text">200000</p>
+                  </div>
+                  <p class="product__discount title-medium error-text">Giảm 25%</p>
+                  <p class="product__stock label-large primary-text">Còn hàng</p>
+                </div>
+                <div class="product__button__section label-large">
+                  <div class="product__button__view">Xem nhanh</div>
+                  <div class="vertical"></div>
+                  <div class="product__button__sell">
+                    <a href="/account/order">Mua ngay</a>
+                  </div>
+                </div>
+                <div class="modal-product modal">
+                  <div class="modal-container--product modal__content row">
+                    <div class="modal__img row col-12 col-lg-6">
+                      <div class="img-display col-12">
+                        <div class="img-showcase" style="transform: translateX(0px);">
+                          <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-1.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-2.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-3.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-4.jfif" alt="Product img">
+                        </div>
+                      </div>
+                      <div class="img-nav">
+                        <button class="prevBtn">
+                          <span class="material-symbols-outlined arrow-left primary-text">
+                            arrow_back_ios
+                          </span>
+                        </button>
+                        <button class="nextBtn">
+                          <span class="material-symbols-outlined arrow-right primary-text">
+                            arrow_forward_ios
+                          </span>
+                        </button>
+                      </div>
+                      <div class="img-select row col-12">
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="1" class="active__selected">
+                            <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-1.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="2">
+                            <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-2.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="3">
+                            <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-3.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="4">
+                            <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-4.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                      </div>
+                    </div>
+                    <div class="modal__body col-12 col-lg-6">
+                      <p class="modal__product__name headline-medium">Vòng tay thời tiết - mây và cầu vồng</p>
+                      <div class="modal__info__rate">
+                        <div class="rate__star title-medium">
+                          4.8
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star_rate_half
+                          </span>
+                        </div>
+                        <span class="rate__number title-medium">5 đánh giá</span>
+                        <span class="number__buy title-medium">13 đã bán</span>
+                      </div>
+                      <div class="modal__price">
+                        <p class="cost_value cost body-medium">200000</p>
+                        <p class="cost_value cost__discount headline-small">150000</p>
+                        <div class="percent__discount body-medium">Giảm 25%</div>
+                      </div>
+                      <div class="modal__size label-large">
+                        <p class="size__title bold">Kích thước:</p>
+                        <div class="size__value outline-text">Freestyle</div>
+                      </div>
+                      <div class="modal__quantity">
+                        <div class="quantity__title label-large bold">Số lượng: </div>
+                        <div class="quantity__product outline-text label-large">
+                          <div class="quantity__product-decrement outline-text">-</div>
+                          <input type="number" min="1" max="17" step="1" value="1" id="my-input" disabled="">
+                          <div class="quantity__product-increment outline-text">+</div>
+                        </div>
+                        <p class="quantity__stock body-small">17 sản phẩm sẵn có</p>
+                      </div>
+                      <div class="modal__button">
+                        <!-- There are not any issue that -->
+  
+                        <button type="button" class="btn-icon-label btn--filled button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart</span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+  
+  
+                        <button class="btn-filled button__view btn--filled" data-prod-id="prod0003">
+                          <a class="status-layer" href="/products/detail?id=prod0003">Xem chi tiết</a>
+                        </button>
+                      </div>
+                      <div class="modal__context body-large">
+                        <div class="context__info mt-12">
+                          <div class="context__info__title">
+                            THÔNG TIN SẢN PHẨM
+                          </div>
+                          <ul class="context__info__body">
+                            <li>Đảm bảo hàng có chất lượng thương hiệu.</li>
+                            <li>Hàng luôn có sẵn ở TAA.</li>
+                            <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+                          </ul>
+                        </div>
+                        <div class="context__detail mt-12">
+                          <div class="context__detail__title">
+                            THÔNG TIN THƯƠNG HIỆU:
+                          </div>
+                          <ul class="context__detail__body">
+                            <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
+                            <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm.</li>
+                            <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- There are not any issue that -->
+  
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+  
+  
+  
+                  </div>
+                </div>
+              </div>
+              <div class="product__item col-12 col-md-3 col-lg-3 col-sm-6">
+                <div class="product__image">
+                  <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-2.jfif" alt="Hình sau" class="img_back">
+                  <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-1.jfif" alt="Hình trước" class="img_front">
+                </div>
+                <div class="product__body">
+                  <span class="material-symbols-outlined  icon_heart error-text">
+                    heart_plus
+                  </span>
+                  <h3 class="product__name body-large">Bông tai mèo và cá đáng yêu</h3>
+                  <div class="product__price label-large">
+                    <p class="cost_value product__price__current">150000</p>
+                    <p class="cost_value product__price__discount outline-variant-text">200000</p>
+                  </div>
+                  <p class="product__discount title-medium error-text">Giảm 25%</p>
+                  <p class="product__stock label-large primary-text">Còn hàng</p>
+                </div>
+                <div class="product__button__section label-large">
+                  <div class="product__button__view">Xem nhanh</div>
+                  <div class="vertical"></div>
+                  <div class="product__button__sell">
+                    <a href="/account/order">Mua ngay</a>
+                  </div>
+                </div>
+                <div class="modal-product modal">
+                  <div class="modal-container--product modal__content row">
+                    <div class="modal__img row col-12 col-lg-6">
+                      <div class="img-display col-12">
+                        <div class="img-showcase" style="transform: translateX(0px);">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-1.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-2.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-3.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-4.jfif" alt="Product img">
+                        </div>
+                      </div>
+                      <div class="img-nav">
+                        <button class="prevBtn">
+                          <span class="material-symbols-outlined arrow-left primary-text">
+                            arrow_back_ios
+                          </span>
+                        </button>
+                        <button class="nextBtn">
+                          <span class="material-symbols-outlined arrow-right primary-text">
+                            arrow_forward_ios
+                          </span>
+                        </button>
+                      </div>
+                      <div class="img-select row col-12">
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="1" class="active__selected">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-1.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="2">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-2.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="3">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-3.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="4">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-4.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                      </div>
+                    </div>
+                    <div class="modal__body col-12 col-lg-6">
+                      <p class="modal__product__name headline-medium">Bông tai mèo và cá đáng yêu</p>
+                      <div class="modal__info__rate">
+                        <div class="rate__star title-medium">
+                          4.8
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star_rate_half
+                          </span>
+                        </div>
+                        <span class="rate__number title-medium">5 đánh giá</span>
+                        <span class="number__buy title-medium">4 đã bán</span>
+                      </div>
+                      <div class="modal__price">
+                        <p class="cost_value cost body-medium">200000</p>
+                        <p class="cost_value cost__discount headline-small">150000</p>
+                        <div class="percent__discount body-medium">Giảm 25%</div>
+                      </div>
+                      <div class="modal__size label-large">
+                        <p class="size__title bold">Kích thước:</p>
+                        <div class="size__value outline-text">Freestyle</div>
+                      </div>
+                      <div class="modal__quantity">
+                        <div class="quantity__title label-large bold">Số lượng: </div>
+                        <div class="quantity__product outline-text label-large">
+                          <div class="quantity__product-decrement outline-text">-</div>
+                          <input type="number" min="1" max="36" step="1" value="1" id="my-input" disabled="">
+                          <div class="quantity__product-increment outline-text">+</div>
+                        </div>
+                        <p class="quantity__stock body-small">36 sản phẩm sẵn có</p>
+                      </div>
+                      <div class="modal__button">
+                        <!-- There are not any issue that -->
+  
+                        <button type="button" class="btn-icon-label btn--filled button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart</span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+  
+  
+                        <button class="btn-filled button__view btn--filled" data-prod-id="prod0005">
+                          <a class="status-layer" href="/products/detail?id=prod0005">Xem chi tiết</a>
+                        </button>
+                      </div>
+                      <div class="modal__context body-large">
+                        <div class="context__info mt-12">
+                          <div class="context__info__title">
+                            THÔNG TIN SẢN PHẨM
+                          </div>
+                          <ul class="context__info__body">
+                            <li>Đảm bảo hàng có chất lượng thương hiệu.</li>
+                            <li>Hàng luôn có sẵn ở TAA.</li>
+                            <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+                          </ul>
+                        </div>
+                        <div class="context__detail mt-12">
+                          <div class="context__detail__title">
+                            THÔNG TIN THƯƠNG HIỆU:
+                          </div>
+                          <ul class="context__detail__body">
+                            <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
+                            <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm.</li>
+                            <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- There are not any issue that -->
+  
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+  
+  
+  
+                  </div>
+                </div>
+              </div>
+              <div class="product__item col-12 col-md-3 col-lg-3 col-sm-6">
+                <div class="product__image">
+                  <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-2.jfif" alt="Hình sau" class="img_back">
+                  <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-1.jfif" alt="Hình trước" class="img_front">
+                </div>
+                <div class="product__body">
+                  <span class="material-symbols-outlined  icon_heart error-text">
+                    heart_plus
+                  </span>
+                  <h3 class="product__name body-large">Bông tai mèo đen tinh nghịch</h3>
+                  <div class="product__price label-large">
+                    <p class="cost_value product__price__current">150000</p>
+                    <p class="cost_value product__price__discount outline-variant-text">200000</p>
+                  </div>
+                  <p class="product__discount title-medium error-text">Giảm 25%</p>
+                  <p class="product__stock label-large primary-text">Còn hàng</p>
+                </div>
+                <div class="product__button__section label-large">
+                  <div class="product__button__view">Xem nhanh</div>
+                  <div class="vertical"></div>
+                  <div class="product__button__sell">
+                    <a href="/account/order">Mua ngay</a>
+                  </div>
+                </div>
+                <div class="modal-product modal">
+                  <div class="modal-container--product modal__content row">
+                    <div class="modal__img row col-12 col-lg-6">
+                      <div class="img-display col-12">
+                        <div class="img-showcase" style="transform: translateX(0px);">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-1.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-2.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-3.jfif" alt="Product img">
+                          <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-4.jfif" alt="Product img">
+                        </div>
+                      </div>
+                      <div class="img-nav">
+                        <button class="prevBtn">
+                          <span class="material-symbols-outlined arrow-left primary-text">
+                            arrow_back_ios
+                          </span>
+                        </button>
+                        <button class="nextBtn">
+                          <span class="material-symbols-outlined arrow-right primary-text">
+                            arrow_forward_ios
+                          </span>
+                        </button>
+                      </div>
+                      <div class="img-select row col-12">
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="1" class="active__selected">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-1.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="2">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-2.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="3">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-3.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                        <div class="img-item col-3">
+                          <a href="#" data-id="4">
+                            <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_2-4.jfif" alt="Image of Product">
+                          </a>
+                        </div>
+  
+                      </div>
+                    </div>
+                    <div class="modal__body col-12 col-lg-6">
+                      <p class="modal__product__name headline-medium">Bông tai mèo đen tinh nghịch</p>
+                      <div class="modal__info__rate">
+                        <div class="rate__star title-medium">
+                          4.8
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star
+                          </span>
+                          <span class="material-symbols-outlined icon--filled">
+                            star_rate_half
+                          </span>
+                        </div>
+                        <span class="rate__number title-medium">5 đánh giá</span>
+                        <span class="number__buy title-medium">6 đã bán</span>
+                      </div>
+                      <div class="modal__price">
+                        <p class="cost_value cost body-medium">200000</p>
+                        <p class="cost_value cost__discount headline-small">150000</p>
+                        <div class="percent__discount body-medium">Giảm 25%</div>
+                      </div>
+                      <div class="modal__size label-large">
+                        <p class="size__title bold">Kích thước:</p>
+                        <div class="size__value outline-text">Freestyle</div>
+                      </div>
+                      <div class="modal__quantity">
+                        <div class="quantity__title label-large bold">Số lượng: </div>
+                        <div class="quantity__product outline-text label-large">
+                          <div class="quantity__product-decrement outline-text">-</div>
+                          <input type="number" min="1" max="24" step="1" value="1" id="my-input" disabled="">
+                          <div class="quantity__product-increment outline-text">+</div>
+                        </div>
+                        <p class="quantity__stock body-small">24 sản phẩm sẵn có</p>
+                      </div>
+                      <div class="modal__button">
+                        <!-- There are not any issue that -->
+  
+                        <button type="button" class="btn-icon-label btn--filled button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart</span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+  
+  
+                        <button class="btn-filled button__view btn--filled" data-prod-id="prod0006">
+                          <a class="status-layer" href="/products/detail?id=prod0006">Xem chi tiết</a>
+                        </button>
+                      </div>
+                      <div class="modal__context body-large">
+                        <div class="context__info mt-12">
+                          <div class="context__info__title">
+                            THÔNG TIN SẢN PHẨM
+                          </div>
+                          <ul class="context__info__body">
+                            <li>Đảm bảo hàng có chất lượng thương hiệu.</li>
+                            <li>Hàng luôn có sẵn ở TAA.</li>
+                            <li>Phong cách Unisex, phù hợp Nam/Nữ.</li>
+                          </ul>
+                        </div>
+                        <div class="context__detail mt-12">
+                          <div class="context__detail__title">
+                            THÔNG TIN THƯƠNG HIỆU:
+                          </div>
+                          <ul class="context__detail__body">
+                            <li>- Thương hiệu TAA - Three Accessories Appreciate đã được đăng kí bảo hộ năm 2023.</li>
+                            <li>- TAA đã có cửa hàng tại HCM và 100.000 KH mua sắm mỗi năm.</li>
+                            <li>- Phương châm của TAA là luôn khách hàng lên hàng đầu, chứng tôi sẽ cố gắng thực hiện hóa mọi nhu cầu của bạn.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- There are not any issue that -->
+  
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </section>
+        </div>
       </section>
     </main>
     <!-- Modal -->
@@ -426,8 +1110,8 @@
           </span>
         </div>
       </div>
-
     </div> -->
+
     <%- include('../../partials/footer') %>
     <%- include('../../partials/modal--noti-add-cart-success') %>
   </div>
