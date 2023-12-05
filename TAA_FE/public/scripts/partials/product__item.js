@@ -19,6 +19,7 @@ const productItemInteract = () => {
 
     btnOrder.addEventListener('click', (event) => {
       cartCtl.orderNow(event);
+      event.stopPropagation();
     })
 
     productItemModalSlideImage(modalProduct);
@@ -191,7 +192,7 @@ const productItemModalInputNumber = (DOMModal) => {
 document.addEventListener('DOMContentLoaded', productItemInteract);
 document.addEventListener('ReloadProducts', productItemInteract);
 
-function moveDetailProduct(dataId){
+function moveDetailProduct(dataId) {
   console.log(dataId)
   window.location.href = `/products/detail?id=${dataId}`;
 }
