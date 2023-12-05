@@ -101,15 +101,15 @@
         <div class="modal__button">
           <%- include('./button', {
             type: 'btn-icon-label',
-            options: 'btn--filled',
+            options: 'btn--filled-con',
             classList: 'button__cart',
             iconData: 'add_shopping_cart',
             label: 'Thêm vào giỏ hàng',
             onclick: 'cartCtl.addToCart()',
           }) %>
-          <button class="btn-filled button__view btn--filled" data-prod-id='<%= data.prod_id %>'>
-            <a class="status-layer" href="/products/detail?id=<%=data.prod_id %>">Xem chi tiết</a>
-          </button>
+          <a class="button__view btn--filled" data-prod-id='<%= data.prod_id %>' href="/products/detail?id=<%=data.prod_id %>">
+            <span class="status-layer">Xem chi tiết</span>
+          </a>
         </div>
         <div class="modal__context body-large">
           <div class="context__info mt-12">
