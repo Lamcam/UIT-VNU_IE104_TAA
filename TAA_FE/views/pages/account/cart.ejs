@@ -71,7 +71,7 @@
               </span>
               <span class='col-2 item-quantity__wrapper'>
                 <span class='value--ctl decrease icon material-symbols-outlined'>remove</span>
-                <input class="item--quantity" type="number" step=1 min=1 max=5 value=1>
+                <input class="item--quantity" type="number" step=1 min=1 max=<%- item.prod_num_avai%> value=1 oninput="validateInput(this)" >
                 <span class='value--ctl increase icon material-symbols-outlined'>add</span>
               </span>
               <span class="cost_value item--total-price col-2 col-sm-3 body-large"><%- item.prod_cost * (1 - item.prod_discount) %></span>
@@ -127,6 +127,41 @@
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type='module' src='/scripts/modules/main.js'></script>
   <script src="/scripts/pages/account/cart.js"></script>
+  <script>
+    // const input = document.querySelectorAll('.item--quantity')
+    // input.forEach(element => {
+    //   element.addEventListener("change",(e)=>{
+    //     if (element.value > element.max ){
+    //       element.value = element.max;
+    //     }
+    //   })
+    // })
+    function validateInput(input) {
+    const minValue = parseFloat(input.min);
+    const maxValue = parseFloat(input.max);
+    const stepValue = parseFloat(input.step);
+
+    let value = parseFloat(input.value);
+
+    // Check if the value is less than the minimum
+    if (value < minValue) {
+        value = minValue;
+    }
+
+    // Check if the value is greater than the maximum
+    if (value > maxValue) {
+        value = maxValue;
+    }
+
+    // Round the value to the nearest step
+    value = Math.round((value - minValue) / stepValue) * stepValue + minValue;
+
+    // Set the validated value back to the input
+    input.value = value;
+}
+
+
+  </script>
 </body>
 
 </html>
