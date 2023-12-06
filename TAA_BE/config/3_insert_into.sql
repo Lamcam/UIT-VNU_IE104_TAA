@@ -21,10 +21,10 @@ INSERT INTO `bankcards` (`bank_id`, `bank_name`, `bank_number`, `bank_pers_name`
 (3, 'BIDV', '3456789012', 'Trần Quốc Tuấn', '7654321098', 3),
 (4, 'TPB', '4567890123', 'Phạm Nguyên Ngọc', '6543210987', 4);
 
-UPDATE `users` SET `loca_default_id` = 1, `bank_default_id` = 1 WHERE `users`.`user_id` = 1;  
-UPDATE `users` SET `loca_default_id` = 2, `bank_default_id` = 2 WHERE `users`.`user_id` = 2;  
-UPDATE `users` SET `loca_default_id` = 3, `bank_default_id` = 3 WHERE `users`.`user_id` = 3;  
-UPDATE `users` SET `loca_default_id` = 4, `bank_default_id` = 4 WHERE `users`.`user_id` = 4;  
+UPDATE `users` SET `loca_default_id` = 1 WHERE `users`.`user_id` = 1;  
+UPDATE `users` SET `loca_default_id` = 2 WHERE `users`.`user_id` = 2;  
+UPDATE `users` SET `loca_default_id` = 3 WHERE `users`.`user_id` = 3;  
+UPDATE `users` SET `loca_default_id` = 4 WHERE `users`.`user_id` = 4;  
 
 INSERT INTO `categorytypes` (`cate_type_id`, `cate_type_name`) VALUES
 ('caty0010', 'Trang_suc'),

@@ -19,7 +19,6 @@ CREATE TABLE `users` (
   `user_pass` varchar(255) DEFAULT NULL,
   `user_avatar_url` varchar(255) DEFAULT NULL,
   `loca_default_id` int DEFAULT NULL,
-  `bank_default_id` int DEFAULT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -218,8 +217,7 @@ ALTER TABLE `transportmethods`
 -- Constraints for table `user`
 --
 ALTER TABLE `users`
-  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`loca_default_id`) REFERENCES `locations` (`loca_id`),
-  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`bank_default_id`) REFERENCES `bankcards` (`bank_id`);
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`loca_default_id`) REFERENCES `locations` (`loca_id`);
 
 --
 -- Constraints for table `cart`
