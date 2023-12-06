@@ -1,5 +1,5 @@
 <span class="btn-icon btn-radio <%= classList %>">
-  <input type="radio" id="<%= id %>" <%= (name != '') ? `name=${name}` : '' %> <%= (value != '') ? `value=${value}` : '' %> <%= (checked) ? 'checked' : '' %>>
+  <input type="radio" id="<%= id %>" name="<%= name %>" value="<%= value %>" <%= (checked) ? 'checked' : '' %>>
   <label for="<%= id %>">
     <span class="icon material-symbols-outlined --unchecked">
       radio_button_unchecked</span>

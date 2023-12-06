@@ -4,7 +4,7 @@ function accountModel() {}
 
 accountModel.getInfo = ({ id }, callback) => {
   const sql = `
-    SELECT user_name, user_phone, user_email, user_avatar_url, loca_default_id, bank_default_id
+    SELECT user_name, user_phone, user_email, user_avatar_url, loca_default_id
     FROM USERS
     WHERE user_id = ?;
   `;

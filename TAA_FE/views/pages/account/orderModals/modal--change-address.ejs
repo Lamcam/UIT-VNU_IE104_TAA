@@ -11,13 +11,12 @@
     <h2 class="modal__subtitle title-medium mt-12">Bạn có thể thay đổi địa chỉ
       nhận hàng tại đây
     </h2>
-    <div class="location__wrapper">
+    <div class="location__wrapper mt-12">
       <% data.locas.forEach(loca => { %>
-        <%- include('../../../components/location__order', {
-          data: {
-            loca_default_id: data.loca_default_id,
-            ...loca
-          }
+        <%- include('../../../components/location__order', { data: {
+          loca_default_id: data.user.loca_default_id,
+          ...loca
+        }
         }) %>
       <% }) %>
     </div>
@@ -44,7 +43,7 @@
         options: 'btn--filled',
         classList: 'col-6',
         label: 'Đồng ý',
-        onclick: 'order',
+        onclick: 'changeLoca(), modalCtl.closeModal()',
       }) %>
     </div>
   </div>

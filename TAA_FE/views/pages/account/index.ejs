@@ -183,8 +183,8 @@
                           delete</span>
                       </button>
                       <button class="location-item__btn--default btn--outlined" onclick="">
-                        <span class="status-layer <%= (data.info.loca_default_id != loca.loca_id) ? '' : 'un' %>filled-default location-btn">
-                          <%- (data.info.loca_default_id != loca.loca_id) ? "Mặc định" : "Thiết lập mặc định" %></span>
+                        <span class="status-layer <%= (data.user.loca_default_id == loca.loca_id) ? '' : 'un' %>filled-default location-btn">
+                          <%- (data.user.loca_default_id == loca.loca_id) ? "Mặc định" : "Thiết lập mặc định" %></span>
                       </button>
                       <button onclick="modalCtl.openModal('#modal--edit-location')" class="location-item__btn--edit btn--filled btn-icon-label">
                         <span class="status-layer full-edit icon material-symbols-outlined">

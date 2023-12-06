@@ -14,7 +14,8 @@ const getInformation = (flags, req, res) => {
         statusCode: 500,
         msg: "Internal Server Error",
       });
-      return;
+
+      throw err;
     }
 
     if (result.length == 0) {
@@ -22,11 +23,12 @@ const getInformation = (flags, req, res) => {
         statusCode: 404,
         msg: "Not Found",
       });
-      return;
+
+      throw err;
     }
 
     const data = {
-      info: result[0],
+      user: result[0],
     };
 
     models.account.getBanks({ id }, (err, result) => {
@@ -78,7 +80,7 @@ const getInformation = (flags, req, res) => {
             data.favorProducts = index.groupProducts(result);
 
             res.status(200).render("pages/account/index", {
-              // res.status(200).json({
+            // res.status(200).json({
               flags,
               data,
             });

@@ -33,11 +33,12 @@
           <div class="row">
             <section class="visible col-12">
               <h2 class="headline-small">Thông tin nhận hàng</h2>
-              <div class="location__wrapper">
+              <div class="location__wrapper mt-12">
                 <% if (data.locas.length > 0) { %>
                 <% for (let i = 0; i < data.locas.length; i++) { %>
                 <%- include('../../components/location__item', { data: {
-                  loca_default_id: data.loca_default_id,
+                  loca_default_id: data.user.loca_default_id,
+                  classList: 'in-order',
                   ...data.locas[i]}}) %>
                 <% }
                 } else { %>

@@ -1,3 +1,21 @@
+const changeLoca = () => {
+  const activeLoca = document.querySelector('.location-order [name="location__order"]:checked');
+  if (!activeLoca)
+    console.error('activeLoca is null');
+
+  const loca_id = activeLoca.value;
+  console.log(loca_id);
+
+  const locationItems = document.querySelectorAll(`.location-item`);
+  locationItems.forEach(item => {
+    item.classList.remove('active');
+  })
+
+  const activeItem = document.querySelector(`.location-item[data-loca-id="${loca_id}"]`);
+  console.log(activeItem);
+  activeItem.classList.add('active');
+}
+
 const getLocaId = () => {
   locaId = document.querySelector('.location-item.active');
   loca_id = locaId?.dataset.locaId;
