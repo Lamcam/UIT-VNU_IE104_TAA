@@ -474,8 +474,7 @@
     <%- include('./infoModals/modal--change-pass') %>
     <%- include('./ordersModals/modal--success-popup') %>
     <%- include('./ordersModals/modal--review-popup') %>
-    <%- include('../../partials/modal--noti-add-cart-success')%>
-    <%# include('../../partials/on-top-btn') %>
+    <%- include('../../partials/modal--noti-add-cart-success') %>
   </div>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script type="module" src="/scripts/modules/main.js"></script>
@@ -485,15 +484,6 @@
   <script src="/scripts/pages/account/review-popup.js"></script>
   <script src="/scripts/pages/account/favor-products.js"></script>
   <script src="/scripts/modules/account--handler.js"> </script>
-  // <script src="/scripts/modules/modal--controller.js"></script>
-  <script>
-    const closeModal = () => {
-      document.querySelector('body').classList.remove('modal-open');
-
-      const modals = document.querySelectorAll(".modal");
-      modals?.forEach(modal => modal.classList.remove("active"))
-    }
-  </script>
 </body>
 
 </html>
