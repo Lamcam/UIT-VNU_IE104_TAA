@@ -51,8 +51,23 @@ Nhóm sử dụng NodeJS, ExpressJS, Xampp, jQuery, EJS, ...
 
 4. **Bước 4:** Mở XAMPP và khởi chạy Apache và MySQL.
 
-5. **Bước 4.1:** (Nếu lần đầu chạy) Import file `1_table.sql+2_trigger.sql+3_insert_into.sql` trong thư mục `TAA_BE/config` vào MySQL với tên database mặc định là `database_ie104`.
-6. **Bước 4.2:** (Nếu lần đầu chạy) Sửa file `.env` tại thư mục gốc với các thông số như:
+    Nếu lần đầu tiên chạy thì cần phải tạo database và import dữ liệu mẫu vào MySQL, thông qua các bước sau:
+    * Bật Apache và MySQL
+    * Sau khi MySQL chạy, hãy nhấn chọn Admin của MySQL ![image](https://github.com/Lamcam/UIT-VNU_IE104_TAA/docs/XAMPP.png)
+    * Tạo database mới có tên là
+    ```
+    database_ie104
+    ```
+    hoặc
+    
+    * Bạn có thể tạo database theo cách trong hình hoặc mở tab SQL tại thanh điều hướng và sử dụng lệnh :
+    ```
+    CREATE DATABASE database_se104;
+    ```
+ 
+    * Import file `database_ie104.sql` trong thư mục `TAA_BE/config` vào MySQL với tên database mặc định là `database_ie104`.
+    
+    * Nếu bạn có thay đổi tên database thành khác, thì phải sửa file `.env` tại thư mục gốc với các thông số như:
 
     ```bash
     DATABASE_HOST=localhost
@@ -61,7 +76,7 @@ Nhóm sử dụng NodeJS, ExpressJS, Xampp, jQuery, EJS, ...
     DATABASE_NAME=database_ie104
     ```
 
-7. **Bước 5:** Khởi chạy server.
+5. **Bước 5:** Khởi chạy server.
     
     ```bash
     npm start
