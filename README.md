@@ -53,7 +53,7 @@ Nhóm sử dụng NodeJS, ExpressJS, Xampp, jQuery, EJS, ...
 
     Nếu lần đầu tiên chạy thì cần phải tạo database và import dữ liệu mẫu vào MySQL, thông qua các bước sau:
     * Bật Apache và MySQL
-    * Sau khi MySQL chạy, hãy nhấn chọn Admin của MySQL ![image](https://github.com/Lamcam/UIT-VNU_IE104_TAA/docs/XAMPP.png)
+    * Sau khi MySQL chạy, hãy nhấn chọn Admin của MySQL ![image](docs/XAMPP.png)
     * Tạo database mới có tên là
     ```
     database_ie104
