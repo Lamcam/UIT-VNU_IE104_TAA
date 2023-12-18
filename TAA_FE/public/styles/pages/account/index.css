@@ -1002,4 +1002,11 @@ span.status-layer {
     justify-content: space-between;
     flex-direction: column;
   }
+
+  .truncate {
+    width: 60%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
