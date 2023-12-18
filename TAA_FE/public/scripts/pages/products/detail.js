@@ -1,3 +1,13 @@
+const orderNow = (prod_id) => {
+  const prod_quatity = document.querySelector('.my-input').value;
+  // console.log(prod_quatity);
+
+  cookieHder.createCookie('prod_ids--order', prod_id, 1);
+  cookieHder.createCookie('prod_quantities--order', prod_quatity, 1);
+
+  window.location.href = '/account/order';
+}
+
 const imgs = document.querySelectorAll('.img-select a');
 const imgBtns = [...imgs];
 let imgId = 1;

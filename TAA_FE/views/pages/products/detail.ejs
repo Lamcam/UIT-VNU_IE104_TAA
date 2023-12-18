@@ -174,9 +174,9 @@
                   label: 'Thêm vào giỏ hàng',
                   onclick: 'cartCtl.addToCart()',
                 }) %>
-                <a class="button__sell btn--filled" href="/account/order">
+                <button class="button__sell btn--filled" onclick="orderNow('<%= data[0].prod_id %>')" <%= (data[0].prod_num_avai == 0) ? 'disabled' : '' %>>
                   <span class="status-layer">Mua ngay</a>
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -367,8 +367,6 @@
                     Sản phẩm xinh cực, cảm ơn shop ạ!!
                   </div>
                   <div class="rate__imgs">
-                    <!-- <img class="img1" src="/TAA_FE/public/product2.jpg" alt="product img"> -->
-                    <!-- <img class="img2" src="/TAA_FE/public/product2.jpg" alt="product img"> -->
                     <img class="img3" loading="lazy" alt="Image of product" src="/imgs/products/<%= data[0].cate_name %>/<%= data[0].prod_img_urls[1] %>" alt="product img">
                     <img class="img4" loading="lazy" alt="Image of product" src="/imgs/products/<%= data[0].cate_name %>/<%= data[0].prod_img_urls[2] %>" alt="product img">
                     <div class="img--more">
@@ -451,31 +449,31 @@
                         </button>
                       </div>
                       <div class="img-select row col-12">
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="1" class="active__selected">
                             <img loading="lazy" src="/imgs/products/Vong_co/vong_co_2-1.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="2">
                             <img loading="lazy" src="/imgs/products/Vong_co/vong_co_2-2.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="3">
                             <img loading="lazy" src="/imgs/products/Vong_co/vong_co_2-3.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="4">
                             <img loading="lazy" src="/imgs/products/Vong_co/vong_co_2-4.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                       </div>
                     </div>
                     <div class="modal__body col-12 col-lg-6">
@@ -521,16 +519,16 @@
                         <p class="quantity__stock body-small">17 sản phẩm sẵn có</p>
                       </div>
                       <div class="modal__button">
-                        
-              <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
-                <span class="status-layer">
-                  <span class="icon icon--filled material-symbols-outlined">
-                    add_shopping_cart
-                  </span>
-                  <span class="label">Thêm vào giỏ hàng</span>
-                </span>
-              </button>
-              
+
+                        <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart
+                            </span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+
                         <a class="button__view btn--filled" data-prod-id="prod0002" href="/products/detail?id=prod0002">
                           <span class="status-layer">Xem chi tiết</span>
                         </a>
@@ -558,13 +556,13 @@
                         </div>
                       </div>
                     </div>
-                    
-              <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
-                <span class="status-layer icon icon--filled material-symbols-outlined">
-                  close
-                </span>
-              </button>
-              
+
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+
                   </div>
                 </div>
               </div>
@@ -616,31 +614,31 @@
                         </button>
                       </div>
                       <div class="img-select row col-12">
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="1" class="active__selected">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-1.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="2">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-2.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="3">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-3.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="4">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_1-4.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                       </div>
                     </div>
                     <div class="modal__body col-12 col-lg-6">
@@ -686,16 +684,16 @@
                         <p class="quantity__stock body-small">21 sản phẩm sẵn có</p>
                       </div>
                       <div class="modal__button">
-                        
-              <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
-                <span class="status-layer">
-                  <span class="icon icon--filled material-symbols-outlined">
-                    add_shopping_cart
-                  </span>
-                  <span class="label">Thêm vào giỏ hàng</span>
-                </span>
-              </button>
-              
+
+                        <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart
+                            </span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+
                         <a class="button__view btn--filled" data-prod-id="prod0003" href="/products/detail?id=prod0003">
                           <span class="status-layer">Xem chi tiết</span>
                         </a>
@@ -723,13 +721,13 @@
                         </div>
                       </div>
                     </div>
-                    
-              <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
-                <span class="status-layer icon icon--filled material-symbols-outlined">
-                  close
-                </span>
-              </button>
-              
+
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+
                   </div>
                 </div>
               </div>
@@ -781,31 +779,31 @@
                         </button>
                       </div>
                       <div class="img-select row col-12">
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="1" class="active__selected">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_2-1.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="2">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_2-2.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="3">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_2-3.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="4">
                             <img loading="lazy" src="/imgs/products/Vong_tay/vong_tay_2-4.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                       </div>
                     </div>
                     <div class="modal__body col-12 col-lg-6">
@@ -851,16 +849,16 @@
                         <p class="quantity__stock body-small">10 sản phẩm sẵn có</p>
                       </div>
                       <div class="modal__button">
-                        
-              <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
-                <span class="status-layer">
-                  <span class="icon icon--filled material-symbols-outlined">
-                    add_shopping_cart
-                  </span>
-                  <span class="label">Thêm vào giỏ hàng</span>
-                </span>
-              </button>
-              
+
+                        <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart
+                            </span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+
                         <a class="button__view btn--filled" data-prod-id="prod0004" href="/products/detail?id=prod0004">
                           <span class="status-layer">Xem chi tiết</span>
                         </a>
@@ -888,13 +886,13 @@
                         </div>
                       </div>
                     </div>
-                    
-              <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
-                <span class="status-layer icon icon--filled material-symbols-outlined">
-                  close
-                </span>
-              </button>
-              
+
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+
                   </div>
                 </div>
               </div>
@@ -946,31 +944,31 @@
                         </button>
                       </div>
                       <div class="img-select row col-12">
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="1" class="active__selected">
                             <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-1.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="2">
                             <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-2.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="3">
                             <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-3.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                         <div class="img-item col-3">
                           <a href="#" data-id="4">
                             <img loading="lazy" src="/imgs/products/Hoa_tai/hoa_tai_1-4.jfif" alt="Image of Product">
                           </a>
                         </div>
-                        
+
                       </div>
                     </div>
                     <div class="modal__body col-12 col-lg-6">
@@ -1016,16 +1014,16 @@
                         <p class="quantity__stock body-small">36 sản phẩm sẵn có</p>
                       </div>
                       <div class="modal__button">
-                        
-              <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
-                <span class="status-layer">
-                  <span class="icon icon--filled material-symbols-outlined">
-                    add_shopping_cart
-                  </span>
-                  <span class="label">Thêm vào giỏ hàng</span>
-                </span>
-              </button>
-              
+
+                        <button type="button" class="btn-icon-label btn--filled-con button__cart" onclick="cartCtl.addToCart()">
+                          <span class="status-layer">
+                            <span class="icon icon--filled material-symbols-outlined">
+                              add_shopping_cart
+                            </span>
+                            <span class="label">Thêm vào giỏ hàng</span>
+                          </span>
+                        </button>
+
                         <a class="button__view btn--filled" data-prod-id="prod0005" href="/products/detail?id=prod0005">
                           <span class="status-layer">Xem chi tiết</span>
                         </a>
@@ -1053,13 +1051,13 @@
                         </div>
                       </div>
                     </div>
-                    
-              <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
-                <span class="status-layer icon icon--filled material-symbols-outlined">
-                  close
-                </span>
-              </button>
-              
+
+                    <button type="button" class="btn-icon  modal__btn--close" onclick="modalCtl.closeModal()">
+                      <span class="status-layer icon icon--filled material-symbols-outlined">
+                        close
+                      </span>
+                    </button>
+
                   </div>
                 </div>
               </div>
@@ -1068,24 +1066,6 @@
         </div>
       </section>
     </main>
-    <!-- Modal -->
-
-    <!-- <div class="modal-noti">
-      <div class="modal-container--noti on-primary-text">
-        <div class="noti__icon-check">
-          <span class="material-symbols-outlined icon--filled">
-            check_circle
-          </span>
-        </div>
-        <p class="noti__text headline-large">Thêm vào giỏ hàng thành công</p>
-        <div class="noti__btn button-close">
-          <span class="material-symbols-outlined">
-            close
-          </span>
-        </div>
-      </div>
-    </div> -->
-
     <%- include('../../partials/footer') %>
     <%- include('../../partials/modal--noti-add-cart-success') %>
   </div>
