@@ -12,6 +12,9 @@ const productItemInteract = () => {
     const btnOrder = item.querySelector('.product__button__sell');
     const modalProduct = item.querySelector('.modal-product');
 
+    if (!modalProduct)
+      return;
+
     btnView.addEventListener('click', (event) => {
       productItemModalOpen(modalProduct);
       event.stopPropagation();

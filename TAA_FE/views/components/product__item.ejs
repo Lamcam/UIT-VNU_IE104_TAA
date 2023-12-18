@@ -1,10 +1,9 @@
-<% if (data.prod_num_avai > 0) { %>
-<div class="product__item col-12 col-md-4 col-lg-4 col-sm-6" onclick="moveDetailProduct('<%= data.prod_id %>')">
+<div class="product__item <%= data.prod_num_avai == 0 ? 'product__outstock' : '' %> col-12 col-md-4 col-lg-4 col-sm-6" onclick="moveDetailProduct('<%= data.prod_id %>')">
   <div class="product__image">
     <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
     <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_front">
   </div>
-  <div class="product__body">
+  <div class="product__body" data-prod-id='<%= data.prod_id %>'>
     <span class="material-symbols-outlined <%= data.is_favor ? 'icon--filled' : '' %> icon_heart error-text">
       <%- data.is_favor ? "favorite" : "heart_plus" %>
     </span>
@@ -14,14 +13,16 @@
       <p class="cost_value product__price__discount outline-variant-text"><%- data.prod_cost %></p>
     </div>
     <p class="product__discount title-medium error-text">Giảm <%- data.prod_discount * 100 %>%</p>
-    <p class="product__stock label-large primary-text">Còn hàng</p>
+    <p class="product__stock label-large primary-text">
+      <%- data.prod_num_avai > 0 ? 'Còn hàng' : 'Hết hàng' %>
+    </p>
   </div>
+  <% if (data.prod_num_avai > 0) { %>
   <div class="product__button__section label-large">
     <div class="product__button__view">Xem nhanh</div>
     <div class="vertical"></div>
     <div class="product__button__sell">
       Mua ngay
-      <!-- <a href="/account/order"></a> -->
     </div>
   </div>
   <div class="modal-product modal">
@@ -108,7 +109,7 @@
             label: 'Thêm vào giỏ hàng',
             onclick: 'cartCtl.addToCart()',
           }) %>
-          <a class="button__view btn--filled" data-prod-id='<%= data.prod_id %>' href="/products/detail?id=<%=data.prod_id %>">
+          <a class="button__view btn--filled" href="/products/detail?id=<%=data.prod_id %>">
             <span class="status-layer">Xem chi tiết</span>
           </a>
         </div>
@@ -144,24 +145,5 @@
       }) %>
     </div>
   </div>
+  <% } %>
 </div>
-<% } else { %>
-<div class="product__outstock col-12 col-md-4 col-lg-4 col-sm-6">
-  <div class="product__image">
-    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[0] %>" alt="Hình trước" class="img_font">
-    <img loading="lazy" src="/imgs/products/<%= data.cate_name %>/<%= data.prod_img_urls[1] %>" alt="Hình sau" class="img_back">
-  </div>
-  <div class="product__body">
-    <span class="material-symbols-outlined icon_heart error-text">
-      heart_plus
-    </span>
-    <h3 class="product__name body-large"><%- data.prod_name %></h3>
-    <div class="product__price label-large">
-      <p class="product__price__current"><%- data.prod_cost * (1 - data.prod_discount)%> đ</p>
-      <p class="product__price__discount outline-variant-text"><%- data.prod_cost %> đ</p>
-    </div>
-    <p class="product__discount title-medium error-text">Giảm <%- data.prod_discount %>%</p>
-    <p class="product__stock label-large primary-text">Hết hàng</p>
-  </div>
-</div>
-<% } %>
