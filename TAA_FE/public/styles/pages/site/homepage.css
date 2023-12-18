@@ -150,6 +150,6 @@
   overflow: hidden;
 }
 
-.product__item {
+.product__item, .product__outstock {
   min-width: 234px;
 }
